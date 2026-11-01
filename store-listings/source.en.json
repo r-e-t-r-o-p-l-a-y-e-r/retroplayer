@@ -1,0 +1,7 @@
+{
+  "title": "Retro Player",
+  "short_description": "Local music and audiobooks. No ads, no telemetry, no network.",
+  "full_description": "Retro Player plays audio from folders you choose on your phone or computer. It suits music collections and audiobooks: gapless albums, saved playback position, variable speed, and background playback with lock-screen controls.\n\nWhat you can do\n• Add library folders with the system picker — your files stay where they are\n• Browse folders on disk (breadcrumbs and favorites); open grouped albums for track lists; build and play playlists\n• Resume where you stopped; multi-disc albums in one folder play in disc order\n• Control playback from notifications and Bluetooth / car media buttons\n• Change theme, language, and equalizer presets\n\nSupported formats\nMP3, FLAC, WAV, and unencrypted AAC (.m4a / .m4b) — plus OGG on Android and Linux.\n\nPrivacy by design\nRelease builds do not request Internet access: no streaming, ads, analytics, crash trackers, or in-app purchases. The app only reads folders you explicitly grant.\n\nStep-by-step help with screenshots is in the project user guide (doc/USAGE.md on the public source repository).",
+  "whats_new": "First public release: local library, gapless playback, audiobook speed and resume, equalizer, and 40+ interface languages.",
+  "privacy_policy_url": "https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer/blob/main/README.md#privacy"
+}

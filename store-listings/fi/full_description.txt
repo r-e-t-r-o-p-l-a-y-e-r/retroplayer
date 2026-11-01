@@ -1,0 +1,16 @@
+Retro Player toistaa ääntä puhelimessa tai tietokoneella valitsemistasi kansioista. Se sopii sekä musiikkikokoelmiin että äänikirjoihin: albumit toistuvat saumattomasti, toistokohta tallentuu, nopeutta voi säätää ja toistoa voi jatkaa taustalla lukitusnäytön ohjauspainikkeilla.
+
+Mitä voit tehdä
+• Lisää kirjastokansioita järjestelmän valitsimen avulla – tiedostosi pysyvät entisillä paikoillaan
+• Selaa levyn kansioita (navigointipolku ja suosikit); avaa ryhmiteltyjä albumeita kappaleluetteloiden katselemiseksi; luo ja toista soittolistoja
+• Jatka kuuntelua siitä, mihin jäit; yhden kansion sisältämät monilevyiset albumit toistetaan levyjen järjestyksessä
+• Ohjaa toistoa ilmoituksista sekä Bluetooth- ja auton mediapainikkeista
+• Muuta teemaa, kieltä ja taajuuskorjaimen esiasetuksia
+
+Tuetut tiedostomuodot
+MP3, FLAC, WAV ja salaamaton AAC (.m4a / .m4b) – sekä OGG Androidissa ja Linuxissa.
+
+Sisäänrakennettu tietosuoja
+Julkaistut versiot eivät vaadi Internet-yhteyttä: ei suoratoistoa, mainoksia, analytiikkaa, kaatumistietojen seurantaa tai sovelluksen sisäisiä ostoksia. Sovellus lukee vain kansioita, joihin olet nimenomaisesti myöntänyt luvan.
+
+Vaiheittainen ohje kuvakaappauksineen löytyy projektin käyttöoppaasta (tiedosto doc/USAGE.md julkisessa lähdekoodivarastossa).

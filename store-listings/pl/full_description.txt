@@ -1,0 +1,16 @@
+Aplikacja Retro Player odtwarza pliki audio z wybranych przez Ciebie folderów na telefonie lub komputerze. Doskonale nadaje się do kolekcji muzycznych i audiobooków: albumy bez przerw między utworami, zapis pozycji odtwarzania, regulowana prędkość odtwarzania oraz odtwarzanie w tle z obsługą na ekranie blokady.
+
+Możliwości aplikacji
+• Dodawaj foldery biblioteki za pomocą systemowego selektora — pliki pozostają w dotychczasowych lokalizacjach
+• Przeglądaj foldery na dysku (ścieżka nawigacyjna i ulubione); otwieraj zgrupowane albumy, aby wyświetlić listy utworów; twórz i odtwarzaj listy odtwarzania
+• Wznów odtwarzanie od miejsca, w którym zostało przerwane; albumy wielopłytowe w jednym folderze są odtwarzane w kolejności płyt
+• Steruj odtwarzaniem za pomocą powiadomień oraz przycisków Bluetooth / multimediów w samochodzie
+• Zmieniaj motyw, język i ustawienia korektora
+
+Obsługiwane formaty
+MP3, FLAC, WAV oraz niezaszyfrowane pliki AAC (.m4a / .m4b) — a także OGG na systemach Android i Linux.
+
+Prywatność od samego początku
+Wersje stabilne nie wymagają dostępu do Internetu: brak streamingu, reklam, analityki, narzędzi do śledzenia awarii ani zakupów w aplikacji. Aplikacja odczytuje wyłącznie te foldery, na które wyraźnie zezwolisz.
+
+Pomoc krok po kroku wraz ze zrzutami ekranu znajduje się w instrukcji obsługi projektu (plik doc/USAGE.md w publicznym repozytorium kodu źródłowego).

@@ -1,0 +1,262 @@
+{
+  "@@locale": "ro",
+  "appTitle": "Retro Player",
+  "settings": "Setări",
+  "about": "Despre",
+  "aboutSubtitle": "Doar audio local. Fără reclame, fără telemetrie, fără acces la rețea.\nFormate acceptate: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Versiune",
+  "aboutBuildDate": "Timpul de compilare",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Ramură",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Compilare",
+  "equalizer": "Egalizator",
+  "equalizerUnavailable": "Equalizer nu este disponibil pe această platformă.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Trupe",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Resetare",
+  "library": "Bibliotecă",
+  "album": "Album",
+  "playlist": "Listă de redare",
+  "nowPlaying": "Se difuzează acum",
+  "addFolder": "Adaugă folder",
+  "audioPermissionRequired": "Pe Android este necesară acordarea permisiunii pentru acces la sunet",
+  "expandPlayer": "Extinde fereastra playerului",
+  "showLibrary": "Afișează biblioteca",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Eroare: {message}",
+  "noFoldersAdded": "Nu s-au adăugat dosare. Atingeți „Adăugați un dosar” pentru a începe.",
+  "folderEmpty": "Acest dosar este gol.",
+  "librarySources": "Surse bibliografice",
+  "favorites": "Preferințe",
+  "favorite": "Preferat",
+  "removeFavorite": "Elimină din favorite",
+  "folders": "Dosare",
+  "audio": "Audio",
+  "playFolder": "Deschide dosarul",
+  "playAlbum": "Redă albumul",
+  "removeLibraryFolderTitle": "Să șterg folderul „library”?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Doriți să eliminați „{name}” din biblioteca dvs.?\n\nFișierele audio de pe disc nu vor fi șterse.",
+  "cancel": "Anulează",
+  "remove": "Eliminare",
+  "albumNotFound": "Albumul nu a fost găsit",
+  "playlistNotFound": "Lista de redare nu a fost găsită",
+  "selectToPlay": "Alege ceva din biblioteca ta pentru a-l reda.",
+  "speed": "Viteză",
+  "previous": "Anterior",
+  "pause": "Pauză",
+  "play": "Joacă",
+  "next": "Următorul",
+  "jumpBack": "Înapoi cu 15 secunde",
+  "jumpForward": "Avansează cu 15 secunde",
+  "trackFallback": "Pistă",
+  "unknownArtist": "Necunoscut",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} piese · {artist}",
+  "resetDatabase": "Resetare bază de date",
+  "resetDatabaseTitle": "Să resetezi baza de date?",
+  "resetDatabaseBody": "Această acțiune șterge pozițiile de redare, favoritele, folderul deschis, tema, limba și setările egalizatorului. Opțiunea „Șterge tot” elimină, de asemenea, folderele adăugate în bibliotecă. Fișierele muzicale și listele de redare de pe disc nu sunt șterse.",
+  "resetDatabaseKeepFolders": "Păstrați folderele bibliotecii",
+  "resetDatabaseClearEverything": "Șterge totul",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Manual",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Bas",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Înalt",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Voce",
+  "appearance": "Aspect",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Lumină",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Întuneric",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Sistem",
+  "language": "Limba",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Sistem",
+  "openSourceLicenses": "Licențe open source",
+  "openSourceLegalese": "© 2026 Colaboratorii Retro Player",
+  "dataStorage": "Stocarea datelor",
+  "dataStorageIntro": "Retro Player stochează setările aplicației într-o mică bază de date locală. Melodiile și listele de redare rămân ca fișiere obișnuite în folderele pe care le alegi.",
+  "dataStorageAppDataTitle": "Baza de date a aplicațiilor",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Fișier: {dbFileName}\nCale: {dbPath}\n\nStochează preferințele privind rădăcinile bibliotecilor, starea de navigare, reluarea redării, egalizatorul, tema și limba.",
+  "dataStorageLibraryTitle": "Fișiere muzicale",
+  "dataStorageLibraryBody": "Fișierele audio nu sunt niciodată copiate în baza de date a aplicației. Adăugați folderele din bibliotecă, iar Retro Player va citi fișierele direct de pe disc.",
+  "dataStoragePlaylistsTitle": "Fișiere cu liste de redare",
+  "dataStoragePlaylistsBody": "Listele de redare sunt fișiere simple de tip .m3u stocate în folderele bibliotecii tale. Le poți edita în aplicație sau cu orice editor de text.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Platformă: {platform}",
+  "dataStoragePlatformBodyLinux": "Datele aplicației sunt stocate în directorul „app-support” (de obicei ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Date despre aplicațiile Linux",
+  "dataStorageLinuxDataBody": "Datele aplicației sunt stocate în ~/.local/share/app.retroplayer/. Acest dosar este destinat exclusiv bazei de date și setărilor.",
+  "dataStorageLinuxTaskbarTitle": "Integrarea barei de activități în Linux",
+  "dataStorageLinuxTaskbarBody": "Pentru pictograma din bara de activități și din grila de aplicații, mediile desktop Linux necesită fișiere Freedesktop separate. Retro Player le instalează din pachetul aplicației la pornire:\n\n• ~/.local/share/applications/app.retroplayer.desktop — intrare în lansator care leagă fereastra activă de această aplicație\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — pictograme tematice copiate din pachet\n\nNu scrie niciodată un fișier hicolor/index.theme al utilizatorului (ceea ce ar suprascrie tema sistemului și ar ascunde alte pictograme). Pictogramele sunt, de asemenea, încorporate în fișierul binar al aplicației. Copiile de mai sus ajută GNOME/KDE să afișeze pictograma corectă a lansatorului în locul unui simbol generic.",
+  "dataStorageAndroidPermissionsTitle": "Permisiunile și spațiul de stocare pe Android",
+  "dataStorageAndroidPermissionsBody": "Retro Player își stochează baza de date în zona de suport privată a aplicației, pe spațiul de stocare intern. Fișierele tale muzicale rămân în folderele pe care le alegi cu ajutorul selectorului de foldere al sistemului.\n\nPe Android, aplicația poate solicita acces la fișiere audio pentru a citi piesele, precum și acces la fotografii/imagini, astfel încât să poată fi afișate imaginile de copertă ale folderelor (de exemplu, cover.jpg). Fișierele audio nu sunt niciodată copiate în baza de date a aplicației.",
+  "dataStorageAndroidPlaybackTitle": "Redare în fundal pe Android",
+  "dataStorageAndroidPlaybackBody": "Când se redă un fișier audio, Retro Player rulează un serviciu media în prim-plan, astfel încât redarea să continue chiar dacă blochezi telefonul sau comuți între aplicații, comenzile de redare fiind afișate în bara de notificări a sistemului. Dacă glisezi aplicația în afara listei „Recente”, redarea se oprește și notificarea dispare.",
+  "dataStorageIOSAccessTitle": "Accesul la folderele iOS",
+  "dataStorageIOSAccessBody": "Retro Player își stochează baza de date în zona de suport privată a aplicației, din memoria dispozitivului. Fișierele tale muzicale rămân în folderele pe care le alegi cu ajutorul selectorului de foldere al sistemului.\n\niOS acordă acces prin URL-uri cu nivel de securitate definit pentru folderele pe care le selectezi. Retro Player citește fișierele direct din acele locații; nu copiază biblioteca ta în memoria aplicației.",
+  "dataStorageIOSPlaybackTitle": "Sunet de fundal pe iOS",
+  "dataStorageIOSPlaybackBody": "Redarea poate continua chiar și atunci când aplicația rulează în fundal sau ecranul este blocat. Pozițiile de reluare și starea listei de redare sunt stocate în baza de date locală a aplicației.",
+  "dataStoragePlatformBodyAndroid": "Datele aplicației sunt stocate în zona de suport privată a aplicației, pe spațiul de stocare intern.",
+  "dataStoragePlatformBodyIOS": "Datele aplicației sunt stocate în zona de suport privată a aplicației, în spațiul de stocare al dispozitivului.",
+  "dataStoragePlatformBodyMacOS": "Datele aplicației sunt stocate în directorul ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Datele aplicației sunt stocate în directorul de suport al aplicației.",
+  "dataStoragePlatformBodyWeb": "Datele aplicației sunt stocate în memoria locală a browserului pentru această origine.",
+  "dataStoragePlatformBodyUnknown": "Datele aplicației sunt stocate în zona de suport a aplicației platformei.",
+  "loading": "Se încarcă…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Indexul bibliotecii",
+  "playlists": "Liste de redare",
+  "playPlaylist": "Redă lista de redare",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 piesă} other{{count} piese}}",
+  "createPlaylist": "Creează o listă de redare",
+  "queue": "Coadă",
+  "saveAsPlaylist": "Salvează ca listă de redare",
+  "queueEmpty": "Lista de redare este goală. Adaugă melodii din biblioteca ta.",
+  "choosePlaylistFolder": "Alegeți un dosar din bibliotecă. Rădăcina bibliotecii nu este un dosar.",
+  "clearQueue": "Șterge coada",
+  "clearQueueTitle": "Se șterge coada?",
+  "clearQueueBody": "Această acțiune elimină toate melodiile din coada de redare. Fișierele audio și listele de redare salvate rămân.",
+  "newPlaylistName": "Numele listei de redare",
+  "addTracks": "Adaugă piese",
+  "save": "Salvare",
+  "addTracksFromLibrary": "Adaugă din bibliotecă",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Adăugare ({count})",
+  "addTracksNothingSelected": "Selectează una sau mai multe piese din biblioteca ta.",
+  "libraryEmptyNoRoots": "Mai întâi adaugă un folder de bibliotecă, apoi selectează melodiile din acesta.",
+  "playlistEmpty": "Această listă de redare nu conține încă nicio melodie.",
+  "missingTrack": "Fișier lipsă",
+  "playlistReadOnly": "Numai pentru citire",
+  "playlistSelect": "Selectează",
+  "playlistSelectAll": "Selectează tot",
+  "playlistDeselectAll": "Deselectează tot",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Selectează piesele} =1{1 selectat} other{{count} selectat}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Să ștergi melodia din lista de redare?} other{Să ștergi piesele {count} din lista de redare?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Această acțiune elimină intrarea din fișierul listei de redare atunci când salvați.} other{Această acțiune elimină intrările din fișierul listei de redare atunci când salvați.}}",
+  "addTracksNothingAdded": "Nu s-au adăugat melodii noi. Este posibil ca acestea să se afle deja în lista de redare.",
+  "playlistNothingToPlay": "Această listă de redare nu conține piese care pot fi redate.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Să ștergi lista de redare?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Ștergeți „{name}”? Această acțiune elimină fișierul listei de redare de pe disc."
+}

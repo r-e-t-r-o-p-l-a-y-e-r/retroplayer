@@ -1,0 +1,16 @@
+Retro Player jilgħab l-awdjo minn folders li tagħżel fuq it-telefon jew il-kompjuter tiegħek. Huwa adattat għal kollezzjonijiet ta' mużika u kotba awdjo: albums mingħajr waqfien, pożizzjoni tal-plejbek salvata, veloċità varjabbli, u plejbek fil-isfond b'kontrolli fuq l-iskrin imblukkat.
+
+X'tista' tagħmel
+• Żid folders tal-librerija bil-għażla tas-sistema — il-fajls tiegħek jibqgħu fejn huma
+• Iċċekkja l-folders fuq id-diska (breadcrumbs u favoriti); iftaħ albums gruppjati għal listi ta' kanzunetti; oħloq u lagħab playlists
+• Erġa' ibda minn fejn waqaf; albums b'aktar diski f'folder wieħed jilagħbu fl-ordni tad-diski
+• Ikkontrolla l-plejbek minn notifiki u buttuni tal-midja Bluetooth / tal-karozza
+• Ibdel it-tema, il-lingwa, u l-presets tal-eqalizzatur
+
+Formati appoġġjati
+MP3, FLAC, WAV, u AAC mhux enkriptjat (.m4a / .m4b) — u OGG fuq Android u Linux.
+
+Privatezza minn disinn
+Il-verżjonijiet rilaxxati ma jitolbux aċċess għall-Internet: ebda streaming, reklami, analiżi, traċċaturi ta' krasks, jew xiri ġewwa l-app. L-app taqra biss il-folderi li tagħtiha aċċess b'mod esplicitu.
+
+Għajnuna pass pass b'ritratti tal-iskrin tinsab fil-gwida tal-utent tal-proġett (doc/USAGE.md fir-repożitorju tas-sors pubbliku).

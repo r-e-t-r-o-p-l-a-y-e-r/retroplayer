@@ -1,0 +1,1 @@
+První veřejná verze: místní knihovna, přehrávání bez mezer, nastavení rychlosti a obnovení přehrávání audioknih, ekvalizér a více než 40 jazyků uživatelského rozhraní.

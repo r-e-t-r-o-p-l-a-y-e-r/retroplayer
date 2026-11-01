@@ -1,0 +1,1 @@
+Første offentlige udgivelse: lokalt bibliotek, afspilning uden pauser, hastighedsjustering og genoptagelse af lydbøger, equalizer samt over 40 sprog til brugergrænsefladen.

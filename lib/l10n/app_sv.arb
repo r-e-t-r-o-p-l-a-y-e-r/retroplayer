@@ -1,0 +1,262 @@
+{
+  "@@locale": "sv",
+  "appTitle": "Retro Player",
+  "settings": "Inställningar",
+  "about": "Om",
+  "aboutSubtitle": "Endast lokalt ljud. Inga annonser, ingen telemetri, ingen nätverksåtkomst.\nFormat som stöds: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Version",
+  "aboutBuildDate": "Byggtid",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Git-gren",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Bygg",
+  "equalizer": "Equalizer",
+  "equalizerUnavailable": "Equalizer finns inte tillgängligt på den här plattformen.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Band",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Återställ",
+  "library": "Bibliotek",
+  "album": "Album",
+  "playlist": "Spellista",
+  "nowPlaying": "Spelas just nu",
+  "addFolder": "Lägg till mapp",
+  "audioPermissionRequired": "Ljudbehörighet krävs på Android",
+  "expandPlayer": "Visa spelaren i full storlek",
+  "showLibrary": "Visa biblioteket",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Fel: {message}",
+  "noFoldersAdded": "Inga mappar har lagts till. Tryck på ”Lägg till mapp” för att komma igång.",
+  "folderEmpty": "Den här mappen är tom.",
+  "librarySources": "Bibliotekskällor",
+  "favorites": "Favoriter",
+  "favorite": "Favorit",
+  "removeFavorite": "Ta bort från favoriter",
+  "folders": "Mappar",
+  "audio": "Ljud",
+  "playFolder": "Spelmapp",
+  "playAlbum": "Spela upp albumet",
+  "removeLibraryFolderTitle": "Ska biblioteksmappen tas bort?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Vill du ta bort ”{name}” från ditt bibliotek?\n\nDina ljudfiler på hårddisken raderas inte.",
+  "cancel": "Avbryt",
+  "remove": "Ta bort",
+  "albumNotFound": "Albumet hittades inte",
+  "playlistNotFound": "Spellistan hittades inte",
+  "selectToPlay": "Välj något från ditt bibliotek som du vill spela upp.",
+  "speed": "Hastighet",
+  "previous": "Föregående",
+  "pause": "Paus",
+  "play": "Spela",
+  "next": "Nästa",
+  "jumpBack": "15 sekunder tillbaka",
+  "jumpForward": "Spola fram 15 sekunder",
+  "trackFallback": "Spår",
+  "unknownArtist": "Okänt",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} låtar · {artist}",
+  "resetDatabase": "Återställ databasen",
+  "resetDatabaseTitle": "Återställa databasen?",
+  "resetDatabaseBody": "Detta raderar uppspelningspositioner, favoriter, den öppna mappen, tema, språk och equalizerinställningar. Om du väljer ”Rensa allt” raderas även de tillagda biblioteksmapparna. Musikfiler och spellistor på hårddisken raderas inte.",
+  "resetDatabaseKeepFolders": "Behåll biblioteksmapparna",
+  "resetDatabaseClearEverything": "Rensa allt",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Manuellt",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Bas",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Diskant",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Röst",
+  "appearance": "Utseende",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Ljus",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Mörkt",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "System",
+  "language": "Språk",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "System",
+  "openSourceLicenses": "Öppen källkodslicenser",
+  "openSourceLegalese": "© 2026 Retro Player-bidragare",
+  "dataStorage": "Datalagring",
+  "dataStorageIntro": "Retro Player sparar appinställningarna i en liten lokal databas. Din musik och dina spellistor förblir vanliga filer i de mappar du väljer.",
+  "dataStorageAppDataTitle": "Appdatabas",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Fil: {dbFileName}\nSökväg: {dbPath}\n\nHär sparas inställningar för bibliotekets rotkataloger, bläddringsläge, återuppspelning, equalizer, tema och språk.",
+  "dataStorageLibraryTitle": "Musikfiler",
+  "dataStorageLibraryBody": "Ljudfiler kopieras aldrig till appens databas. Lägg till biblioteksmappar så läser Retro Player filerna direkt från hårddisken.",
+  "dataStoragePlaylistsTitle": "Spellistfiler",
+  "dataStoragePlaylistsBody": "Spellistor är vanliga .m3u-filer som lagras i dina biblioteksmappar. Du kan redigera dem i appen eller med valfri textredigerare.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Plattform: {platform}",
+  "dataStoragePlatformBodyLinux": "Appdata lagras i katalogen app-support (vanligtvis ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Data för Linux-appar",
+  "dataStorageLinuxDataBody": "Appdata sparas i ~/.local/share/app.retroplayer/. Den mappen är endast avsedd för databasen och inställningarna.",
+  "dataStorageLinuxTaskbarTitle": "Integrering med Linux-aktivitetsfältet",
+  "dataStorageLinuxTaskbarBody": "För ikonen i aktivitetsfältet och i apprutnätet kräver Linux-skrivbordsmiljöer separata Freedesktop-filer. Retro Player installerar dessa från app-paketet vid uppstart:\n\n• ~/.local/share/applications/app.retroplayer.desktop — startikon som kopplar det aktiva fönstret till denna app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — temabaserade ikoner som kopierats från paketet\n\nProgrammet skriver aldrig en användarfil i hicolor/index.theme (vilket skulle överskugga systemtemat och dölja andra ikoner). Ikoner är också inbäddade i appens binärfil. Kopiorna ovan hjälper GNOME/KDE att visa rätt startikon istället för en generisk platshållare.",
+  "dataStorageAndroidPermissionsTitle": "Android-behörigheter och lagringsutrymme",
+  "dataStorageAndroidPermissionsBody": "Retro Player lagrar sin databas i appens privata supportområde på det interna lagringsutrymmet. Dina musikfiler förblir i de mappar du väljer med systemets mappväljare.\n\nPå Android kan appen begära åtkomst till ljudfiler för att läsa spår, samt åtkomst till foton/bilder så att omslagsbilder (till exempel cover.jpg) kan visas. Ljudfiler kopieras aldrig till appens databas.",
+  "dataStorageAndroidPlaybackTitle": "Uppspelning i bakgrunden på Android",
+  "dataStorageAndroidPlaybackBody": "När ljud spelas upp kör Retro Player en medietjänst i förgrunden, så att uppspelningen fortsätter även om du låser telefonen eller byter app. Kontrollerna för uppspelningen visas i systemmeddelandet. Om du sveper bort appen från listan över senaste appar avbryts uppspelningen och meddelandet försvinner.",
+  "dataStorageIOSAccessTitle": "Åtkomst till mappar i iOS",
+  "dataStorageIOSAccessBody": "Retro Player lagrar sin databas i appens privata lagringsutrymme på enhetens lagringsutrymme. Dina musikfiler sparas i de mappar du väljer med hjälp av systemets mappväljare.\n\niOS beviljar åtkomst via säkerhetsbegränsade URL:er för de mappar du väljer. Retro Player läser filerna direkt från dessa platser; appen kopierar inte ditt bibliotek till appens lagringsutrymme.",
+  "dataStorageIOSPlaybackTitle": "Ljud i bakgrunden på iOS",
+  "dataStorageIOSPlaybackBody": "Uppspelningen kan fortsätta även när appen körs i bakgrunden eller när skärmen är låst. Återupptagningspositioner och köstatus sparas i appens lokala databas.",
+  "dataStoragePlatformBodyAndroid": "Appdata lagras i det appspecifika stödområdet på det interna lagringsutrymmet.",
+  "dataStoragePlatformBodyIOS": "Appdata lagras i det appspecifika stödområdet på enhetens lagringsutrymme.",
+  "dataStoragePlatformBodyMacOS": "Appdata lagras i mappen ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Appdata lagras i katalogen för applikationsstöd.",
+  "dataStoragePlatformBodyWeb": "Appdata lagras i webbläsarens lokala lagringsutrymme för denna källa.",
+  "dataStoragePlatformBodyUnknown": "Appdata lagras i plattformens applikationsstöd.",
+  "loading": "Laddar…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Biblioteksindex",
+  "playlists": "Spellistor",
+  "playPlaylist": "Spela upp spellistan",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 spår} other{{count} spår}}",
+  "createPlaylist": "Skapa en spellista",
+  "queue": "Kö",
+  "saveAsPlaylist": "Spara som spellista",
+  "queueEmpty": "Kön är tom. Lägg till låtar från ditt bibliotek.",
+  "choosePlaylistFolder": "Välj en mapp i biblioteket. Bibliotekets rotmapp är inte en mapp.",
+  "clearQueue": "Rensa kö",
+  "clearQueueTitle": "Rensa kö?",
+  "clearQueueBody": "Detta tar bort alla låtar från kön. Ljudfiler och sparade spellistor finns kvar.",
+  "newPlaylistName": "Namn på spellista",
+  "addTracks": "Lägg till spår",
+  "save": "Spara",
+  "addTracksFromLibrary": "Lägg till från biblioteket",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Lägg till ({count})",
+  "addTracksNothingSelected": "Välj ett eller flera spår i ditt bibliotek.",
+  "libraryEmptyNoRoots": "Lägg först till en biblioteksmapp och välj sedan låtar från den.",
+  "playlistEmpty": "Den här spellistan innehåller inga låtar ännu.",
+  "missingTrack": "Saknad fil",
+  "playlistReadOnly": "Skrivskyddad",
+  "playlistSelect": "Välj",
+  "playlistSelectAll": "Markera allt",
+  "playlistDeselectAll": "Avmarkera alla",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Välj låtar} =1{1 valt} other{{count} valt}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Ta bort låten från spellistan?} other{Ska spåren {count} tas bort från spellistan?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Detta tar bort posten från spellistfilen när du sparar.} other{Detta tar bort posterna från spellistfilen när du sparar.}}",
+  "addTracksNothingAdded": "Inga nya låtar har lagts till. De kanske redan finns i spellistan.",
+  "playlistNothingToPlay": "Den här spellistan innehåller inga spår som går att spela upp.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Ta bort spellistan?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Ta bort ”{name}”? Detta tar bort spellistfilen från hårddisken."
+}

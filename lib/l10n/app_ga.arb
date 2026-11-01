@@ -1,0 +1,262 @@
+{
+  "@@locale": "ga",
+  "appTitle": "Retro Player",
+  "settings": "Socruithe",
+  "about": "Maidir le",
+  "aboutSubtitle": "Fuaim áitiúil amháin. Gan fógraí, gan teileiméadracht, gan rochtain líonra.\nFormáidí tacaíochta: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Leagan",
+  "aboutBuildDate": "Am tógála",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Brainse",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Tógáil",
+  "equalizer": "Comhionannán",
+  "equalizerUnavailable": "Níl an t-ionannaitheoir ar fáil ar an ardán seo.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Bannaí",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Athshocraigh",
+  "library": "Leabharlann",
+  "album": "Albam",
+  "playlist": "Liosta Seinnte",
+  "nowPlaying": "Ag seinm anois",
+  "addFolder": "Cuir fillteán leis",
+  "audioPermissionRequired": "Tá cead fuaime ag teastáil ar Android.",
+  "expandPlayer": "Leathnaigh an seinnteoir",
+  "showLibrary": "Taispeáin an leabharlann",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Earráid: {message}",
+  "noFoldersAdded": "Níl aon fhillteán curtha leis. Tapáil \"Cuir fillteán leis\" chun tosú.",
+  "folderEmpty": "Tá an fillteán seo folamh.",
+  "librarySources": "Foinsí leabharlainne",
+  "favorites": "Rudaí is fearr",
+  "favorite": "An ceann is fearr",
+  "removeFavorite": "Bain an ceann is fearr leat",
+  "folders": "Fhillteáin",
+  "audio": "Fuaim",
+  "playFolder": "Seinn fillteán",
+  "playAlbum": "Seinn an t-albam",
+  "removeLibraryFolderTitle": "An bhainfear an t-eolaire leabharlainne?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "\"{name}\" a bhaint as do leabharlann?\n\nNí scriostar do chomhaid fuaime ar an diosca.",
+  "cancel": "Cealaigh",
+  "remove": "Bain",
+  "albumNotFound": "Níor aimsíodh an t-albam",
+  "playlistNotFound": "Níor aimsíodh an liosta seinnte",
+  "selectToPlay": "Roghnaigh rud éigin ó do leabharlann le seinm.",
+  "speed": "Tapaíocht",
+  "previous": "Roimhe seo",
+  "pause": "Fionraí",
+  "play": "Seinn",
+  "next": "An chéad cheann eile",
+  "jumpBack": "Ar ais 15 soicind",
+  "jumpForward": "Ar aghaidh 15 soicind",
+  "trackFallback": "Rian",
+  "unknownArtist": "Neamh-aithnid",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} rian · {artist}",
+  "resetDatabase": "Athshocraigh an bunachar sonraí",
+  "resetDatabaseTitle": "Athshocraigh an bunachar sonraí?",
+  "resetDatabaseBody": "Glanaíonn sé seo suíomhanna athsheinm, na ceanáin, an fillteán oscailte, an téama, an teanga, agus socruithe an chothromaigh. Le 'Glan Gach Rud', déantar dearmad freisin ar na fillteáin leabharlainne a cuireadh leis. Ní scriostar comhaid cheoil ná liostaí seinnte ar an diosca.",
+  "resetDatabaseKeepFolders": "Coinnigh fillteáin leabharlainne",
+  "resetDatabaseClearEverything": "Glan gach rud",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "De láimh",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Dord",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Guth ard",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Guth",
+  "appearance": "Cuma",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Solás",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Dorch",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Córas",
+  "language": "Teanga",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Córas",
+  "openSourceLicenses": "Ceadúnais foinse oscailte",
+  "openSourceLegalese": "© 2026 rannpháirtithe Retro Player",
+  "dataStorage": "Stóráil sonraí",
+  "dataStorageIntro": "Coinníonn Retro Player socruithe na haipe i mbunachar sonraí beag áitiúil. Fánann do chuid ceoil agus do liostaí seinnte mar ghnáthchomhaid i bhfillteáin a roghnaíonn tú.",
+  "dataStorageAppDataTitle": "Bunachar sonraí na haipe",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Comhad: {dbFileName}\nConair: {dbPath}\n\nStórálann sé fréamhacha na leabharlainne, an staid brabhsála, athsheinm a athshlánú, an comhionannán, an téama, agus roghanna teanga.",
+  "dataStorageLibraryTitle": "Comhaid ceoil",
+  "dataStorageLibraryBody": "Ní dhéantar comhaid fuaime a chóipeáil isteach i mbunachar sonraí an aip riamh. Cuir fillteáin leabharlainne leis agus léann Retro Player comhaid go díreach ón diosca.",
+  "dataStoragePlaylistsTitle": "Comhaid liosta seinnte",
+  "dataStoragePlaylistsBody": "Is comhaid .m3u gnáth iad na liostaí seinnte a stóráiltear i bhfillteáin do leabharlainne. Is féidir leat iad a chur in eagar san aip nó le haon eagarthóir téacs.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Ardán: {platform}",
+  "dataStoragePlatformBodyLinux": "Stóráiltear sonraí na haipe faoi d'eolaire tacaíochta na haipe (de ghnáth ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Sonraí aipe Linux",
+  "dataStorageLinuxDataBody": "Fanann sonraí na haipe in ~/.local/share/app.retroplayer/. Níl sa fillteán sin ach don bhunachar sonraí agus do na socruithe.",
+  "dataStorageLinuxTaskbarTitle": "Comhtháthú barra tascanna Linux",
+  "dataStorageLinuxTaskbarBody": "I gcás deilbhín an bharra tasc agus an eangaí feidhmchlár, bíonn comhaid Freedesktop ar leith ag teastáil i dtimpeallachtaí deisce Linux. Suiteálann Retro Player iad seo ón mbeartán feidhmchlár ar thosú:\n\n• ~/.local/share/applications/app.retroplayer.desktop — iontráil seoltóra a nascann an fhuinneog atá ag rith leis an aip seo\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — deilbhíní téamacha atá cóipeáilte ón mbeartán\n\nNí scríobhann sé riamh úsáideoir hicolor/index.theme (a chuirfeadh an téama córais i bhfolach agus a cheilfeadh deilbhíní eile). Tá deilbhíní leabaithe freisin i mbinaire an aip. Cuidíonn na cóipeanna thuas le GNOME/KDE an deilbhín seoltóra ceart a thaispeáint in ionad áit-shealadach ginearálta.",
+  "dataStorageAndroidPermissionsTitle": "Ceadanna agus stóráil Android",
+  "dataStorageAndroidPermissionsBody": "Stórálann Retro Player a bhunachar sonraí sa limistéar tacaíochta príobháideach aipe ar an stóráil inmheánach. Fanann do chuid comhad ceoil sna fillteáin a roghnaíonn tú le roghnóir fillteán an chórais.\n\nAr Android, d'fhéadfadh an aip rochtain fuaime a iarraidh chun rianta a léamh, agus rochtain ar ghrianghraif/íomhánna ionas gur féidir ealaín fillteáin (mar shampla cover.jpg) a thaispeáint. Ní chóipeáiltear comhaid fuaime isteach i mbunachar sonraí na haipe riamh.",
+  "dataStorageAndroidPlaybackTitle": "Seinm cúlra Android",
+  "dataStorageAndroidPlaybackBody": "Nuair a bhíonn fuaim á sheinm, ritheann Retro Player seirbhís meán tosaigh ionas go leanann an t-aisamhrán ar aghaidh má ghlasálann tú an fón nó má aistríonn tú idir aipeanna, le rialtáin iompair san fhógra córais. Má shleamhnaíonn tú an aip amach as 'Le déanaí', stopann an t-aisamhrán agus baintear an fógra.",
+  "dataStorageIOSAccessTitle": "Rochtain ar fhillteáin iOS",
+  "dataStorageIOSAccessBody": "Stórálann Retro Player a bhunachar sonraí sa limistéar tacaíochta príobháideach feidhmchláir ar stóráil an fheiste. Fanann do chuid comhad ceoil i bhfillteáin a roghnaíonn tú leis an roghnóir fillteán córais.\n\nTugann iOS rochtain trí URLanna atá faoi theorainn slándála do na fillteáin a roghnaíonn tú. Léann Retro Player comhaid go díreach ó na suíomhanna sin; ní dhéanann sé cóip de do leabharlann isteach i stóráil an aip.",
+  "dataStorageIOSPlaybackTitle": "Fuaim chúlra iOS",
+  "dataStorageIOSPlaybackBody": "Is féidir leis an athsheinm leanúint ar aghaidh agus an aip sa chúlra nó an scáileán faoi ghlas. Stóráiltear suíomhanna athsheinm agus stádas an scuaine i mbunachar sonraí áitiúil na haipe.",
+  "dataStoragePlatformBodyAndroid": "Stóráiltear sonraí na haipe sa limistéar tacaíochta príobháideach don aip ar an stóráil inmheánach.",
+  "dataStoragePlatformBodyIOS": "Stóráiltear sonraí na haipe sa limistéar tacaíochta príobháideach don aip ar stóráil an fheiste.",
+  "dataStoragePlatformBodyMacOS": "Stóráiltear sonraí na haipe faoi ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Stóráiltear sonraí na haipe faoi d'eolaire tacaíochta feidhmchláir.",
+  "dataStoragePlatformBodyWeb": "Stóráiltear sonraí na haipe i stóráil áitiúil an bhrabhsálaí don tionscnamh seo.",
+  "dataStoragePlatformBodyUnknown": "Stóráiltear sonraí na haipe i limistéar tacaíochta feidhmchláir an ardáin.",
+  "loading": "Á lódáil…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Innéacs na leabharlainne",
+  "playlists": "Seinnliostaí",
+  "playPlaylist": "Seinn an liosta seinnte",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 rian} other{Riananna {count}}}",
+  "createPlaylist": "Cruthaigh seinnliosta",
+  "queue": "Sraith",
+  "saveAsPlaylist": "Sábháil mar sheinnliosta",
+  "queueEmpty": "Tá an scuaine folamh. Cuir rianta le do leabharlann.",
+  "choosePlaylistFolder": "Roghnaigh fillteán sa leabharlann. Ní fillteán é fréamh na leabharlainne.",
+  "clearQueue": "Glan an scuaine",
+  "clearQueueTitle": "An bhfuil an scuaine glan?",
+  "clearQueueBody": "Baineann sé seo gach rian as an scuaine. Fánann comhaid fuaime agus liostaí seinnte sábháilte.",
+  "newPlaylistName": "Ainm an liosta seinnte",
+  "addTracks": "Cuir ri rianacha",
+  "save": "Sábháil",
+  "addTracksFromLibrary": "Cuir leis an leabharlann",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Cuir ({count})",
+  "addTracksNothingSelected": "Roghnaigh traca amháin nó níos mó i do leabharlann.",
+  "libraryEmptyNoRoots": "Cuir fillteán leabharlainne isteach ar dtús, ansin roghnaigh rianta as.",
+  "playlistEmpty": "Níl aon rian ar an seinnliosta seo go fóill.",
+  "missingTrack": "Comhad ar iarraidh",
+  "playlistReadOnly": "Léamh amháin",
+  "playlistSelect": "Roghnaigh",
+  "playlistSelectAll": "Roghnaigh gach rud",
+  "playlistDeselectAll": "Dí-roghnaigh iad go léir",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Roinnt rian} =1{1 roghnaithe} other{{count} roghnaithe}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Bain an rian den liosta seinnte?} other{Bain tracaí {count} den liosta seinnte?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Baineann sé seo an iontráil as comhad an liosta seinnte nuair a shábhálann tú.} other{Baineann sé seo na hiontrálacha as comhad an liosta seinnte nuair a shábhálann tú.}}",
+  "addTracksNothingAdded": "Níor cuireadh aon rian nua leis. Seans go bhfuil siad sa liosta seinnte cheana féin.",
+  "playlistNothingToPlay": "Níl aon rian in-seinnte ar an seinnliosta seo.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Scrios an liosta seinnte?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Scrios \"{name}\"? Bainfear an comhad liosta seinnte ón diosca."
+}

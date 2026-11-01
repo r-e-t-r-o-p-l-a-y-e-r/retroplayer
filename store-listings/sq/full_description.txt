@@ -1,0 +1,16 @@
+Retro Player luan audio nga dosjet që zgjidhni në telefonin ose kompjuterin tuaj. Ai i përshtatet koleksioneve të muzikës dhe librave audio: albume pa ndërprerje, pozicion i ruajtur i riprodhimit, shpejtësi e ndryshueshme, dhe riprodhim në sfond me kontrolle në ekranin e bllokuar.
+
+Çfarë mund të bëni
+• Shtoni dosje biblioteke me zgjedhësin e sistemit — skedarët tuaj mbeten aty ku janë
+• Shfletoni dosjet në disk (udhëzues dhe të preferuarat); hapni albume të grupuara për lista këngësh; krijoni dhe luani lista për dëgjim
+• Riktheni aty ku ndaluat; albumet me shumë disqe në një dosje luajnë në rendin e disqeve
+• Kontrolloni riprodhimin nga njoftimet dhe butonat e medias Bluetooth / të makinës
+• Ndryshoni temën, gjuhën dhe paracaktimet e ekualizatorit
+
+Formate të mbështetura
+MP3, FLAC, WAV dhe AAC i papërcaktuar (.m4a / .m4b) — plus OGG në Android dhe Linux.
+
+Privatësi e projektuar
+Versioni i publikuar nuk kërkon akses në Internet: pa transmetim, reklama, analitikë, gjurmues të rrëzimeve, ose blerje brenda aplikacionit. Aplikacioni lexon vetëm dosjet që ju i autorizoni shprehimisht.
+
+Ndihma hap pas hapi me pamje ekrani gjendet në udhëzuesin e përdoruesit të projektit (doc/USAGE.md në depon publike të burimit).

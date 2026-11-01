@@ -1,0 +1,16 @@
+Retro Player reproducira audio iz mapa koje odaberete na vašem telefonu ili računalu. Pogodan je za glazbene zbirke i audioknjige: albume bez pauza, spremljenu poziciju reprodukcije, promjenjivu brzinu i pozadinsku reprodukciju s upravljanjem s zaključanog zaslona.
+
+Što možete učiniti
+• Dodajte mape iz biblioteke pomoću sustavnog odabira — vaše datoteke ostaju tamo gdje jesu
+• Pregledavajte mape na disku (povijest i omiljene); otvarajte grupirane albume za popise pjesama; izrađujte i reproducirajte popise za reprodukciju
+• Nastavite tamo gdje ste stali; višediski albumi u jednoj mapi reproduciraju se redoslijedom diskova
+• Kontrolirajte reprodukciju s obavijesti i Bluetooth / medijskih tipki u automobilu
+• Promijenite temu, jezik i postavke ekvalizera
+
+Podržani formati
+MP3, FLAC, WAV i nešifrirani AAC (.m4a / .m4b) – plus OGG na Androidu i Linuxu.
+
+Privatnost u središtu dizajna
+Release buildovi ne traže pristup internetu: nema streaminga, oglasa, analitike, praćenja rušenja aplikacije niti kupnji unutar aplikacije. Aplikacija čita samo mape za koje joj izričito date dopuštenje.
+
+Korak-po-korak pomoć sa snimkama zaslona nalazi se u korisničkom priručniku projekta (doc/USAGE.md na javnom repozitoriju izvornog koda).

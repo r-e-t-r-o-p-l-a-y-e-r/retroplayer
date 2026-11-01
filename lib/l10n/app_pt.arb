@@ -1,0 +1,262 @@
+{
+  "@@locale": "pt",
+  "appTitle": "Retro Player",
+  "settings": "Definições",
+  "about": "Sobre",
+  "aboutSubtitle": "Apenas áudio local. Sem anúncios, sem telemetria, sem acesso à rede.\nFormatos suportados: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Versão",
+  "aboutBuildDate": "Tempo de construção",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Ramo",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Compilação",
+  "equalizer": "Equalizador",
+  "equalizerUnavailable": "O equalizador não está disponível nesta plataforma.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Bandas",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Redefinir",
+  "library": "Biblioteca",
+  "album": "Álbum",
+  "playlist": "Lista de reprodução",
+  "nowPlaying": "A jogar agora",
+  "addFolder": "Adicionar pasta",
+  "audioPermissionRequired": "É necessária permissão de áudio no Android",
+  "expandPlayer": "Expandir jogador",
+  "showLibrary": "Mostrar biblioteca",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Erro: {message}",
+  "noFoldersAdded": "Nenhuma pasta adicionada. Toque em \"Adicionar pasta\" para começar.",
+  "folderEmpty": "Esta pasta está vazia.",
+  "librarySources": "Fontes da biblioteca",
+  "favorites": "Favoritos",
+  "favorite": "Favorito",
+  "removeFavorite": "Remover favorito",
+  "folders": "Pastas",
+  "audio": "Áudio",
+  "playFolder": "Pasta de reprodução",
+  "playAlbum": "Reproduzir álbum",
+  "removeLibraryFolderTitle": "Remover pasta da biblioteca?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Remover \"{name}\" da sua biblioteca?\n\nOs seus ficheiros de áudio no disco não são eliminados.",
+  "cancel": "Cancelar",
+  "remove": "Remover",
+  "albumNotFound": "Álbum não encontrado",
+  "playlistNotFound": "Lista de reprodução não encontrada",
+  "selectToPlay": "Selecione algo da sua biblioteca para reproduzir.",
+  "speed": "Velocidade",
+  "previous": "Anterior",
+  "pause": "Pausa",
+  "play": "Reproduzir",
+  "next": "Próximo",
+  "jumpBack": "Voltar 15 segundos",
+  "jumpForward": "Avançar 15 segundos",
+  "trackFallback": "Faixa",
+  "unknownArtist": "Desconhecido",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} faixas · {artist}",
+  "resetDatabase": "Redefinir base de dados",
+  "resetDatabaseTitle": "Redefinir base de dados?",
+  "resetDatabaseBody": "Isso limpa as posições de reprodução, os favoritos, a pasta aberta, o tema, o idioma e as configurações do equalizador. Limpar tudo também esquece as pastas da biblioteca adicionadas. Os arquivos de música e as listas de reprodução no disco não são excluídos.",
+  "resetDatabaseKeepFolders": "Manter pastas da biblioteca",
+  "resetDatabaseClearEverything": "Limpar tudo",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Manualmente",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Baixo",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Agudos",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Voz",
+  "appearance": "Aparência",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Luz",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Escuro",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Sistema",
+  "language": "Idioma",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Sistema",
+  "openSourceLicenses": "Licenças de código aberto",
+  "openSourceLegalese": "© 2026 Colaboradores do Retro Player",
+  "dataStorage": "Armazenamento DE dados",
+  "dataStorageIntro": "O Retro Player mantém as definições da aplicação numa pequena base de dados local. As suas músicas e listas de reprodução permanecem como ficheiros normais nas pastas que escolher.",
+  "dataStorageAppDataTitle": "Base de dados da aplicação",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Ficha: {dbFileName}\nCaminho: {dbPath}\n\nArmazena raízes da biblioteca, estado de navegação, currículo de reprodução, equalizador, tema e preferências de idioma.",
+  "dataStorageLibraryTitle": "Ficheiros de música",
+  "dataStorageLibraryBody": "Os ficheiros de áudio nunca são copiados para a base de dados da aplicação. Adicione pastas de biblioteca e o Retro Player lê arquivos diretamente do disco.",
+  "dataStoragePlaylistsTitle": "Ficheiros da lista de reprodução",
+  "dataStoragePlaylistsBody": "As listas de reprodução são arquivos .m3u simples armazenados dentro das pastas da biblioteca. Pode editá-los na aplicação ou com qualquer editor de texto.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Plataforma: {platform}",
+  "dataStoragePlatformBodyLinux": "Os dados da aplicação são armazenados no diretório de suporte da aplicação (normalmente ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Dados da aplicação Linux",
+  "dataStorageLinuxDataBody": "Os dados da aplicação permanecem em ~/.local/share/app.retroplayer/. Essa pasta é apenas para a base de dados e definições.",
+  "dataStorageLinuxTaskbarTitle": "Integração da barra de tarefas do Linux",
+  "dataStorageLinuxTaskbarBody": "Para a barra de tarefas e o ícone de grade do aplicativo, os ambientes de desktop Linux esperam arquivos Freedesktop separados. O Retro Player os instala a partir do pacote de aplicativos na inicialização:\n\n• ~/.local/share/applications/app.retroplayer.desktop - entrada do inicializador que vincula a janela em execução a este aplicativo\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ícones temáticos copiados do pacote\n\nEle nunca escreve um usuário hicolor/index.theme (que sombrearia o tema do sistema e ocultaria outros ícones). Os ícones também são incorporados no binário do aplicativo. As cópias acima ajudam o GNOME/KDE a mostrar o ícone correto do inicializador em vez de um espaço reservado genérico.",
+  "dataStorageAndroidPermissionsTitle": "Permissões e armazenamento para Android",
+  "dataStorageAndroidPermissionsBody": "O Retro Player armazena seu banco de dados na área de suporte privado do aplicativo no armazenamento interno. Os seus ficheiros de música permanecem nas pastas que escolher com o seletor de pastas do sistema.\n\nNo Android, o aplicativo pode solicitar acesso de áudio para ler faixas e acesso a fotos/imagens para que a arte da pasta (por exemplo, cover.jpg) possa ser mostrada. Os ficheiros de áudio nunca são copiados para a base de dados da aplicação.",
+  "dataStorageAndroidPlaybackTitle": "Reprodução de plano de fundo do Android",
+  "dataStorageAndroidPlaybackBody": "Quando o áudio está sendo reproduzido, o Retro Player executa um serviço de mídia em primeiro plano para que a reprodução continue se você bloquear o telefone ou trocar de aplicativo, com controles de transporte na notificação do sistema. Deslizar o aplicativo para longe de Recentes interrompe a reprodução e remove a notificação.",
+  "dataStorageIOSAccessTitle": "acesso à pasta iOS",
+  "dataStorageIOSAccessBody": "O Retro Player armazena seu banco de dados na área de suporte privada do aplicativo no armazenamento do dispositivo. Os seus ficheiros de música permanecem nas pastas que escolher com o seletor de pastas do sistema.\n\no iOS concede acesso por meio de URLs com escopo de segurança para as pastas selecionadas. O Retro Player lê arquivos diretamente desses locais; ele não copia sua biblioteca para o armazenamento do aplicativo.",
+  "dataStorageIOSPlaybackTitle": "áudio de fundo para iOS",
+  "dataStorageIOSPlaybackBody": "A reprodução pode continuar enquanto a aplicação estiver em segundo plano ou o ecrã estiver bloqueado. As posições dos currículos e o estado da fila são armazenados no banco de dados local do aplicativo.",
+  "dataStoragePlatformBodyAndroid": "Os dados da aplicação são armazenados na área de suporte privada da aplicação no armazenamento interno.",
+  "dataStoragePlatformBodyIOS": "Os dados da aplicação são armazenados na área de suporte privada da aplicação no armazenamento do dispositivo.",
+  "dataStoragePlatformBodyMacOS": "Os dados da aplicação são armazenados em ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Os dados da aplicação são armazenados no diretório de suporte da aplicação.",
+  "dataStoragePlatformBodyWeb": "Os dados da aplicação são armazenados no armazenamento local do navegador para esta origem.",
+  "dataStoragePlatformBodyUnknown": "Os dados da aplicação são armazenados na área de suporte da aplicação da plataforma.",
+  "loading": "A carregar…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Índice DA biblioteca",
+  "playlists": "Listas de reprodução",
+  "playPlaylist": "Playlist",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 faixa} other{Faixas {count}}}",
+  "createPlaylist": "Criar lista de reprodução",
+  "queue": "Fila",
+  "saveAsPlaylist": "Guardar como lista de reprodução",
+  "queueEmpty": "A fila está vazia. Adicione faixas da sua biblioteca.",
+  "choosePlaylistFolder": "Escolha uma pasta na biblioteca. A raiz da biblioteca não é uma pasta.",
+  "clearQueue": "Limpar fila",
+  "clearQueueTitle": "Limpar fila?",
+  "clearQueueBody": "Isso remove todas as faixas da fila. Os arquivos de áudio e as listas de reprodução salvas permanecem.",
+  "newPlaylistName": "Nome da lista de reprodução",
+  "addTracks": "Adicionar faixas",
+  "save": "Guardar",
+  "addTracksFromLibrary": "Adicionar da biblioteca",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Adicionar ({count})",
+  "addTracksNothingSelected": "Selecione uma ou mais faixas na sua biblioteca.",
+  "libraryEmptyNoRoots": "Adicione uma pasta da biblioteca primeiro e, em seguida, escolha faixas dela.",
+  "playlistEmpty": "Esta lista de reprodução ainda não tem faixas.",
+  "missingTrack": "Ficheiro em falta",
+  "playlistReadOnly": "Somente leitura",
+  "playlistSelect": "Selecionar",
+  "playlistSelectAll": "Selecionar tudo",
+  "playlistDeselectAll": "Desmarcar tudo",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Selecionar faixas} =1{1 selecionado} other{{count} selecionado}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Remover a faixa da lista de reprodução?} other{Deseja remover as faixas {count} da lista de reprodução?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Isto remove a entrada do ficheiro da lista de reprodução quando guardares.} other{Isto remove as entradas do ficheiro da lista de reprodução quando guardares.}}",
+  "addTracksNothingAdded": "Não foram adicionadas novas faixas. Eles podem já estar na lista de reprodução.",
+  "playlistNothingToPlay": "Esta lista de reprodução não tem faixas reproduzíveis.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Eliminar lista de reprodução?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Eliminar \"{name}\"? Isto remove o ficheiro da lista de reprodução do disco."
+}

@@ -1,0 +1,70 @@
+name: retroplayer
+description: Local audio player for music and audiobooks. No ads, no telemetry.
+publish_to: 'none'
+version: 1.0.0+1
+repository: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer
+issue_tracker: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer/issues
+license: GPL-3.0-or-later
+
+environment:
+  sdk: ^3.13.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  just_audio: ^0.10.6
+  just_audio_media_kit: ^2.0.0
+  audio_service: ^0.18.19
+  audio_session: ^0.2.4
+  audio_service_mpris: ^0.2.0
+  audio_metadata_reader: ^1.6.0
+  file_picker: ^13.0.0
+  path_provider: ^2.1.0
+  permission_handler: ^13.0.0
+  drift: ^2.35.0
+  sqlite3_flutter_libs: ^0.5.0
+  provider: ^6.0.0
+  go_router: ^18.0.0
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+  path: ^1.9.0
+  ffi: ^2.1.0
+  uuid: ^4.0.0
+  collection: ^1.19.0
+  media_kit_libs_audio: ^1.0.7
+  file_selector: ^1.1.0
+  charset: ^2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.14.3
+  mockito: ^5.5.1
+  build_runner: ^2.5.0
+  freezed: ^4.0.0
+  json_serializable: ^6.9.0
+  drift_dev: ^2.35.0
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+dependency_overrides:
+  just_audio_media_kit:
+    path: packages/just_audio_media_kit
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - LICENSE
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/icon/app_icon.png
+  adaptive_icon_background: "#EBE4D9"
+  adaptive_icon_foreground: assets/icon/app_icon.png
+  remove_alpha_ios: true

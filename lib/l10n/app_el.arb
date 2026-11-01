@@ -1,0 +1,262 @@
+{
+  "@@locale": "el",
+  "appTitle": "Retro Player",
+  "settings": "Ρυθμίσεις",
+  "about": "Σχετικά με",
+  "aboutSubtitle": "Μόνο τοπικά αρχεία ήχου. Χωρίς διαφημίσεις, χωρίς τηλεμετρία, χωρίς πρόσβαση στο δίκτυο.\nΥποστηριζόμενες μορφές: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Έκδοση",
+  "aboutBuildDate": "Χρόνος κατασκευής",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Κλάδος",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Σύνθεση",
+  "equalizer": "Εξισωτής",
+  "equalizerUnavailable": "Το Equalizer δεν είναι διαθέσιμο σε αυτήν την πλατφόρμα.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Μουσικά συγκροτήματα",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Επαναφορά",
+  "library": "Βιβλιοθήκη",
+  "album": "Άλμπουμ",
+  "playlist": "Λίστα αναπαραγωγής",
+  "nowPlaying": "Τώρα παίζει",
+  "addFolder": "Προσθήκη φακέλου",
+  "audioPermissionRequired": "Στο Android απαιτείται άδεια για την αναπαραγωγή ήχου",
+  "expandPlayer": "Επέκταση προγράμματος αναπαραγωγής",
+  "showLibrary": "Εμφάνιση βιβλιοθήκης",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Σφάλμα: {message}",
+  "noFoldersAdded": "Δεν έχουν προστεθεί φάκελοι. Πατήστε «Προσθήκη φακέλου» για να ξεκινήσετε.",
+  "folderEmpty": "Αυτός ο φάκελος είναι άδειος.",
+  "librarySources": "Πηγές της βιβλιοθήκης",
+  "favorites": "Αγαπημένα",
+  "favorite": "Αγαπημένα",
+  "removeFavorite": "Κατάργηση από τα αγαπημένα",
+  "folders": "Φάκελοι",
+  "audio": "Ήχος",
+  "playFolder": "Φάκελος αναπαραγωγής",
+  "playAlbum": "Αναπαραγωγή άλμπουμ",
+  "removeLibraryFolderTitle": "Να διαγραφεί ο φάκελος «library»;",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Θέλετε να διαγράψετε το «{name}» από τη βιβλιοθήκη σας;\n\nΤα αρχεία ήχου που βρίσκονται στον δίσκο δεν θα διαγραφούν.",
+  "cancel": "Ακύρωση",
+  "remove": "Κατάργηση",
+  "albumNotFound": "Δεν βρέθηκε το άλμπουμ",
+  "playlistNotFound": "Δεν βρέθηκε η λίστα αναπαραγωγής",
+  "selectToPlay": "Επιλέξτε κάτι από τη βιβλιοθήκη σας για αναπαραγωγή.",
+  "speed": "Ταχύτητα",
+  "previous": "Προηγούμενο",
+  "pause": "Παύση",
+  "play": "Παίξε",
+  "next": "Επόμενο",
+  "jumpBack": "Πίσω 15 δευτερόλεπτα",
+  "jumpForward": "Προώθηση κατά 15 δευτερόλεπτα",
+  "trackFallback": "Πίστα",
+  "unknownArtist": "Άγνωστο",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} κομμάτια · {artist}",
+  "resetDatabase": "Επαναφορά βάσης δεδομένων",
+  "resetDatabaseTitle": "Επαναφορά της βάσης δεδομένων;",
+  "resetDatabaseBody": "Με αυτόν τον τρόπο διαγράφονται οι θέσεις αναπαραγωγής, τα αγαπημένα, ο ανοιχτός φάκελος, το θέμα, η γλώσσα και οι ρυθμίσεις του ισοσταθμιστή. Η επιλογή «Διαγραφή όλων» διαγράφει επίσης τους φακέλους που έχουν προστεθεί στη βιβλιοθήκη. Τα αρχεία μουσικής και οι λίστες αναπαραγωγής που βρίσκονται στον δίσκο δεν διαγράφονται.",
+  "resetDatabaseKeepFolders": "Διατήρηση των φακέλων της βιβλιοθήκης",
+  "resetDatabaseClearEverything": "Εκκαθάριση όλων των στοιχείων",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Με το χέρι",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Μπάσο",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Υψηλές συχνότητες",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Φωνή",
+  "appearance": "Εμφάνιση",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Φως",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Σκοτεινό",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Σύστημα",
+  "language": "Γλώσσα",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Σύστημα",
+  "openSourceLicenses": "Άδειες ανοιχτού κώδικα",
+  "openSourceLegalese": "© 2026 Συνεισφέροντες του Retro Player",
+  "dataStorage": "Αποθήκευση δεδομένων",
+  "dataStorageIntro": "Το Retro Player αποθηκεύει τις ρυθμίσεις της εφαρμογής σε μια μικρή τοπική βάση δεδομένων. Η μουσική και οι λίστες αναπαραγωγής σας παραμένουν ως κανονικά αρχεία στους φακέλους που επιλέγετε.",
+  "dataStorageAppDataTitle": "Βάση δεδομένων εφαρμογών",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Αρχείο: {dbFileName}\nΔιαδρομή: {dbPath}\n\nΑποθηκεύει τις ρίζες της βιβλιοθήκης, την κατάσταση περιήγησης, τη συνέχιση αναπαραγωγής, τον ισοσταθμιστή, το θέμα και τις προτιμήσεις γλώσσας.",
+  "dataStorageLibraryTitle": "Αρχεία μουσικής",
+  "dataStorageLibraryBody": "Τα αρχεία ήχου δεν αντιγράφονται ποτέ στη βάση δεδομένων της εφαρμογής. Προσθέστε φακέλους της βιβλιοθήκης σας και το Retro Player θα διαβάζει τα αρχεία απευθείας από το δίσκο.",
+  "dataStoragePlaylistsTitle": "Αρχεία λιστών αναπαραγωγής",
+  "dataStoragePlaylistsBody": "Οι λίστες αναπαραγωγής είναι απλά αρχεία .m3u που αποθηκεύονται στους φακέλους της βιβλιοθήκης σας. Μπορείτε να τις επεξεργαστείτε μέσα από την εφαρμογή ή με οποιοδήποτε πρόγραμμα επεξεργασίας κειμένου.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Πλατφόρμα: {platform}",
+  "dataStoragePlatformBodyLinux": "Τα δεδομένα της εφαρμογής αποθηκεύονται στον κατάλογο app-support (συνήθως ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Δεδομένα εφαρμογών Linux",
+  "dataStorageLinuxDataBody": "Τα δεδομένα της εφαρμογής αποθηκεύονται στο ~/.local/share/app.retroplayer/. Ο φάκελος αυτός προορίζεται αποκλειστικά για τη βάση δεδομένων και τις ρυθμίσεις.",
+  "dataStorageLinuxTaskbarTitle": "Ενσωμάτωση στη γραμμή εργασιών του Linux",
+  "dataStorageLinuxTaskbarBody": "Για το εικονίδιο της γραμμής εργασιών και του πλέγματος εφαρμογών, τα περιβάλλοντα επιφάνειας εργασίας Linux απαιτούν ξεχωριστά αρχεία Freedesktop. Το Retro Player τα εγκαθιστά από το πακέτο της εφαρμογής κατά την εκκίνηση:\n\n• ~/.local/share/applications/app.retroplayer.desktop — καταχώριση εκκίνησης που συνδέει το ενεργό παράθυρο με αυτήν την εφαρμογή\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — εικονίδια με θέμα που έχουν αντιγραφεί από το πακέτο\n\nΔεν δημιουργεί ποτέ αρχείο hicolor/index.theme για τον χρήστη (κάτι που θα επισκίαζε το θέμα του συστήματος και θα έκρυβε άλλα εικονίδια). Τα εικονίδια είναι επίσης ενσωματωμένα στο εκτελέσιμο αρχείο της εφαρμογής. Τα παραπάνω αντίγραφα βοηθούν το GNOME/KDE να εμφανίζει το σωστό εικονίδιο εκκίνησης αντί για ένα γενικό εικονίδιο-υποκατάστατο.",
+  "dataStorageAndroidPermissionsTitle": "Δικαιώματα και χώρος αποθήκευσης στο Android",
+  "dataStorageAndroidPermissionsBody": "Το Retro Player αποθηκεύει τη βάση δεδομένων του στον ιδιωτικό χώρο υποστήριξης της εφαρμογής, στον εσωτερικό χώρο αποθήκευσης. Τα αρχεία μουσικής σας παραμένουν σε φακέλους που επιλέγετε μέσω του εργαλείου επιλογής φακέλων του συστήματος.\n\nΣτο Android, η εφαρμογή ενδέχεται να ζητήσει πρόσβαση στον ήχο για να διαβάσει τα κομμάτια, καθώς και πρόσβαση σε φωτογραφίες/εικόνες, ώστε να μπορούν να εμφανίζονται τα εξώφυλλα των φακέλων (για παράδειγμα, το αρχείο cover.jpg). Τα αρχεία ήχου δεν αντιγράφονται ποτέ στη βάση δεδομένων της εφαρμογής.",
+  "dataStorageAndroidPlaybackTitle": "Αναπαραγωγή στο παρασκήνιο στο Android",
+  "dataStorageAndroidPlaybackBody": "Όταν αναπαράγεται ήχος, το Retro Player εκτελεί μια υπηρεσία πολυμέσων στο προσκήνιο, ώστε η αναπαραγωγή να συνεχίζεται ακόμα και αν κλειδώσετε το τηλέφωνο ή αλλάξετε εφαρμογή, ενώ τα στοιχεία ελέγχου αναπαραγωγής εμφανίζονται στην ειδοποίηση του συστήματος. Αν σύρετε την εφαρμογή έξω από τη λίστα «Πρόσφατα», η αναπαραγωγή διακόπτεται και η ειδοποίηση εξαφανίζεται.",
+  "dataStorageIOSAccessTitle": "Πρόσβαση σε φακέλους στο iOS",
+  "dataStorageIOSAccessBody": "Το Retro Player αποθηκεύει τη βάση δεδομένων του στον ιδιωτικό χώρο υποστήριξης της εφαρμογής, στον αποθηκευτικό χώρο της συσκευής. Τα αρχεία μουσικής σας παραμένουν σε φακέλους που επιλέγετε μέσω του εργαλείου επιλογής φακέλων του συστήματος.\n\nΤο iOS παρέχει πρόσβαση μέσω URL με περιορισμούς ασφαλείας για τους φακέλους που επιλέγετε. Το Retro Player διαβάζει τα αρχεία απευθείας από αυτές τις τοποθεσίες· δεν αντιγράφει τη βιβλιοθήκη σας στον αποθηκευτικό χώρο της εφαρμογής.",
+  "dataStorageIOSPlaybackTitle": "Ήχος στο παρασκήνιο στο iOS",
+  "dataStorageIOSPlaybackBody": "Η αναπαραγωγή μπορεί να συνεχιστεί ενώ η εφαρμογή βρίσκεται στο παρασκήνιο ή η οθόνη είναι κλειδωμένη. Οι θέσεις συνέχισης και η κατάσταση της ουράς αναπαραγωγής αποθηκεύονται στην τοπική βάση δεδομένων της εφαρμογής.",
+  "dataStoragePlatformBodyAndroid": "Τα δεδομένα της εφαρμογής αποθηκεύονται στον ιδιωτικό χώρο υποστήριξης της εφαρμογής, στον εσωτερικό χώρο αποθήκευσης.",
+  "dataStoragePlatformBodyIOS": "Τα δεδομένα της εφαρμογής αποθηκεύονται στον ιδιωτικό χώρο υποστήριξης της εφαρμογής, στον αποθηκευτικό χώρο της συσκευής.",
+  "dataStoragePlatformBodyMacOS": "Τα δεδομένα της εφαρμογής αποθηκεύονται στον φάκελο ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Τα δεδομένα της εφαρμογής αποθηκεύονται στον κατάλογο «application support».",
+  "dataStoragePlatformBodyWeb": "Τα δεδομένα της εφαρμογής αποθηκεύονται στον τοπικό χώρο αποθήκευσης του προγράμματος περιήγησης για αυτή την πηγή.",
+  "dataStoragePlatformBodyUnknown": "Τα δεδομένα της εφαρμογής αποθηκεύονται στον χώρο υποστήριξης εφαρμογών της πλατφόρμας.",
+  "loading": "Φόρτωση…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Ευρετήριο βιβλιοθήκης",
+  "playlists": "Λίστες αναπαραγωγής",
+  "playPlaylist": "Αναπαραγωγή λίστας αναπαραγωγής",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 κομμάτι} other{{count} κομμάτια}}",
+  "createPlaylist": "Δημιουργία λίστας αναπαραγωγής",
+  "queue": "Ουρά",
+  "saveAsPlaylist": "Αποθήκευση ως λίστα αναπαραγωγής",
+  "queueEmpty": "Η λίστα αναμονής είναι κενή. Προσθέστε κομμάτια από τη βιβλιοθήκη σας.",
+  "choosePlaylistFolder": "Επιλέξτε έναν φάκελο από τη βιβλιοθήκη. Η ρίζα της βιβλιοθήκης δεν είναι φάκελος.",
+  "clearQueue": "Εκκαθάριση ουράς",
+  "clearQueueTitle": "Εκκαθάριση ουράς;",
+  "clearQueueBody": "Με αυτόν τον τρόπο αφαιρούνται όλα τα κομμάτια από την ουρά αναπαραγωγής. Τα αρχεία ήχου και οι αποθηκευμένες λίστες αναπαραγωγής παραμένουν.",
+  "newPlaylistName": "Όνομα λίστας αναπαραγωγής",
+  "addTracks": "Προσθήκη κομματιών",
+  "save": "Αποθήκευση",
+  "addTracksFromLibrary": "Προσθήκη από τη βιβλιοθήκη",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Προσθήκη ({count})",
+  "addTracksNothingSelected": "Επιλέξτε ένα ή περισσότερα κομμάτια από τη βιβλιοθήκη σας.",
+  "libraryEmptyNoRoots": "Προσθέστε πρώτα έναν φάκελο βιβλιοθήκης και, στη συνέχεια, επιλέξτε κομμάτια από αυτόν.",
+  "playlistEmpty": "Αυτή η λίστα αναπαραγωγής δεν περιέχει ακόμα κομμάτια.",
+  "missingTrack": "Λείπει αρχείο",
+  "playlistReadOnly": "Μόνο για ανάγνωση",
+  "playlistSelect": "Επιλογή",
+  "playlistSelectAll": "Επιλογή όλων",
+  "playlistDeselectAll": "Αποεπιλογή όλων",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Επιλογή κομματιών} =1{1 επιλεγμένο} other{{count} επιλεγμένο}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Να αφαιρεθεί το κομμάτι από τη λίστα αναπαραγωγής;} other{Να αφαιρεθούν τα κομμάτια {count} από τη λίστα αναπαραγωγής;}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Αυτό διαγράφει την καταχώριση από το αρχείο της λίστας αναπαραγωγής κατά την αποθήκευση.} other{Αυτό διαγράφει τις καταχωρήσεις από το αρχείο της λίστας αναπαραγωγής κατά την αποθήκευση.}}",
+  "addTracksNothingAdded": "Δεν προστέθηκαν νέα κομμάτια. Ίσως να περιλαμβάνονται ήδη στη λίστα αναπαραγωγής.",
+  "playlistNothingToPlay": "Αυτή η λίστα αναπαραγωγής δεν περιέχει κομμάτια που μπορούν να αναπαραχθούν.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Να διαγραφεί η λίστα αναπαραγωγής;",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Να διαγραφεί το «{name}»; Αυτό θα διαγράψει το αρχείο της λίστας αναπαραγωγής από το δίσκο."
+}

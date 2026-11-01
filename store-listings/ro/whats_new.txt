@@ -1,0 +1,1 @@
+Prima versiune publică: bibliotecă locală, redare fără pauze, reglarea vitezei și reluarea cărților audio, egalizator și peste 40 de limbi pentru interfață.
