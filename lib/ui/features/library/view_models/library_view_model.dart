@@ -19,10 +19,9 @@ import 'package:retroplayer/ui/features/library/library_list_scroller.dart';
 
 class LibraryViewModel extends ChangeNotifier {
   LibraryViewModel({
-    required LibraryRepository libraryRepository,
+    required this._libraryRepository,
     BrowseLibrary? browseLibrary,
-  }) : _libraryRepository = libraryRepository,
-       _browseLibrary = browseLibrary ?? BrowseLibrary();
+  }) : _browseLibrary = browseLibrary ?? BrowseLibrary();
 
   final LibraryRepository _libraryRepository;
   final BrowseLibrary _browseLibrary;

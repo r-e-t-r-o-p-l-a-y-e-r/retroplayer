@@ -9,9 +9,8 @@ class EqualizerService {
   EqualizerService(
     this._storageService, {
     EqualizerBackend? backend,
-    AudioPlaybackService? playbackService,
-  })  : _backend = backend ?? createEqualizerBackend(),
-        _playbackService = playbackService;
+    this._playbackService,
+  })  : _backend = backend ?? createEqualizerBackend();
 
   final LibraryStorageService _storageService;
   final EqualizerBackend _backend;

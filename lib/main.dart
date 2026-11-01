@@ -39,8 +39,6 @@ import 'package:retroplayer/ui/core/playback_lifecycle.dart';
 import 'package:retroplayer/ui/core/system_back_ownership.dart';
 import 'package:retroplayer/ui/core/theme.dart';
 import 'package:retroplayer/ui/features/library/view_models/library_view_model.dart';
-import 'package:retroplayer/ui/features/player/view_models/player_panel_view_model.dart';
-import 'package:retroplayer/ui/features/player/view_models/player_view_model.dart';
 import 'package:retroplayer/ui/features/settings/view_models/equalizer_view_model.dart';
 import 'package:retroplayer/ui/features/settings/view_models/locale_view_model.dart';
 import 'package:retroplayer/ui/features/settings/view_models/theme_view_model.dart';

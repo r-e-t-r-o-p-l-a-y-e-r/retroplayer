@@ -11,8 +11,8 @@ class RetroAudioHandler extends BaseAudioHandler
     with SeekHandler, QueueHandler {
   RetroAudioHandler(
     this._playbackService, {
-    Future<void> Function()? onRecentsDismiss,
-  }) : _onRecentsDismiss = onRecentsDismiss {
+    this._onRecentsDismiss,
+  }) {
     _playbackService.playerStateStream.listen((state) {
       _lastEngineState = state;
       _publishPlaybackState(state);

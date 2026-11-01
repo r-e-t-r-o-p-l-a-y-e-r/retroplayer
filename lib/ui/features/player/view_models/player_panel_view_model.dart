@@ -7,14 +7,11 @@ import 'package:retroplayer/ui/features/player/widgets/player_sheet_metrics.dart
 /// Controls whether the bottom player is collapsed (mini bar) or expanded.
 class PlayerPanelViewModel extends ChangeNotifier {
   PlayerPanelViewModel({
-    SheetAnimator animator = const AnimatedSheetAnimator(),
-    Future<void> Function(bool expanded)? onPersistExpanded,
-    bool Function()? canPersistExpanded,
+    this._animator = const AnimatedSheetAnimator(),
+    this._onPersistExpanded,
+    this._canPersistExpanded,
     bool coldStartExpanded = false,
-  })  : _animator = animator,
-        _onPersistExpanded = onPersistExpanded,
-        _canPersistExpanded = canPersistExpanded,
-        _isExpanded = coldStartExpanded,
+  })  : _isExpanded = coldStartExpanded,
         _sheetExtent = coldStartExpanded ? 1.0 : 0.2;
 
   final SheetAnimator _animator;

@@ -11,12 +11,10 @@ import 'package:retroplayer/domain/use_cases/group_tracks_into_albums.dart';
 /// Scans library directories and produces grouped library items.
 class ScanLibrary implements LibraryScanner {
   ScanLibrary({
-    required LibraryFileSystem fileScanService,
-    required TrackMetadataReader metadataService,
-    required GroupTracksIntoAlbums groupTracksIntoAlbums,
-  }) : _fileScanService = fileScanService,
-       _metadataService = metadataService,
-       _groupTracksIntoAlbums = groupTracksIntoAlbums;
+    required this._fileScanService,
+    required this._metadataService,
+    required this._groupTracksIntoAlbums,
+  });
 
   final LibraryFileSystem _fileScanService;
   final TrackMetadataReader _metadataService;

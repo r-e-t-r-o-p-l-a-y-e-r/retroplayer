@@ -8,11 +8,14 @@
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
 analyzer:
+  errors:
+    experimental_member_use: ignore
   exclude:
     - build/**
     - android/**
     - ios/**
     - linux/**
+    - packages/just_audio_media_kit/**
 include: package:flutter_lints/flutter.yaml
 
 linter:
