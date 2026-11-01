@@ -30,6 +30,12 @@ abstract class AudioPlaybackService implements PlaybackEngine {
   Future<void> skipToNext();
   Future<void> skipToPrevious();
   Future<void> dispose();
+
+  /// Starts playback without car/BT route-settling delays.
+  ///
+  /// Lockscreen and notification transport must not block on
+  /// [ExternalPlaybackRouteGate.runPlay].
+  Future<void> playForMediaTransport() => play();
 }
 
 class JustAudioPlaybackService implements AudioPlaybackService {
@@ -199,6 +205,9 @@ class JustAudioPlaybackService implements AudioPlaybackService {
     }
     await gate.runPlay(() => _player.play());
   }
+
+  @override
+  Future<void> playForMediaTransport() => _player.play();
 
   @override
   Future<void> pause() => _player.pause();

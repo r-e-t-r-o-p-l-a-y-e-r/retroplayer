@@ -170,5 +170,5 @@ pick_adb_device() {
 # Android plugin registrant for release so a debug/test registrant cannot
 # reference packages missing from the release classpath (Flutter #169336).
 refresh_android_release_plugins() {
-  flutter build apk --config-only
+  flutter build apk --config-only --release
 }
