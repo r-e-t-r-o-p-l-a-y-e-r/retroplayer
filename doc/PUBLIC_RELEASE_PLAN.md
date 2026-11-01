@@ -264,12 +264,12 @@ Checklist after Phase 1 (or in parallel for documentation only):
 | `dist-flathub` | Flatpak manifest, Flathub PR, mpv runtime | pending |
 | `store-listings-en` | Canonical English in `store-listings/en/` + `source.en.json` | in progress |
 | `store-listings-l10n` | Translated listings (DeepL via `scripts/mt_store_listings.py`); English fallback — [`STORE_LOCALES.md`](STORE_LOCALES.md) | in progress |
-| `usage-tutorial` | [`USAGE.md`](USAGE.md), `doc/images/tutorial/`, [`capture-tutorial-screenshots.sh`](../scripts/capture-tutorial-screenshots.sh) | in progress |
+| `usage-tutorial` | [`USAGE.md`](USAGE.md), `doc/images/tutorial/`, [`capture-tutorial-screenshots.sh`](../scripts/capture-tutorial-screenshots.sh) | in progress (manual drafted; refresh screenshots / Play link) |
 | `release-ci-android` | [`.github/workflows/release.yml`](../.github/workflows/release.yml), Gradle release keystore, secrets doc | pending |
 | `release-ci-linux` | Linux job in `release.yml` → tarball artifact | pending |
 | `github-sponsors` | GitHub Sponsors + `.github/FUNDING.yml` + README support section (no in-app link) | pending |
 
-**Detail:** CI/CD — [`RELEASE_CI.md`](RELEASE_CI.md). Store copy — [`store-listings/README.md`](../store-listings/README.md). End-user walkthrough — [`USAGE.md`](USAGE.md).
+**Detail:** CI/CD — [`RELEASE_CI.md`](RELEASE_CI.md). Store copy — [`store-listings/README.md`](../store-listings/README.md). End-user manual — [`USAGE.md`](USAGE.md) (not [`REQUIREMENTS.md`](REQUIREMENTS.md) / dev docs).
 
 ### Optional support — GitHub Sponsors (no in-app payments)
 
@@ -303,6 +303,6 @@ Voluntary donations **only on GitHub** (and later F-Droid metadata). The app sta
 **Phase 2 (when distributing):**
 
 - `store-listings/en/` complete; optional locales per [`STORE_LOCALES.md`](STORE_LOCALES.md)
-- [`USAGE.md`](USAGE.md) published; tutorial screenshots under `doc/images/tutorial/` (regenerate via script)
+- [`USAGE.md`](USAGE.md) published for store links; tutorial screenshots under `doc/images/tutorial/` (regenerate via script)
 - Tag `v*` produces signed AAB/APK + Linux tarball per [`RELEASE_CI.md`](RELEASE_CI.md)
 - Optional: GitHub Sponsors live + `FUNDING.yml` on public repo (`github-sponsors`)

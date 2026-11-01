@@ -13,7 +13,7 @@
 | [RELEASE_CI.md](RELEASE_CI.md) | Maintainers | Verify vs release CI (Android AAB/APK, Linux tarball) |
 | [STORE_LOCALES.md](STORE_LOCALES.md) | Maintainers | Store listing locales and English fallback |
 | [FLUTTER_VERSION.md](FLUTTER_VERSION.md) | Developers | Pinned Flutter/Dart version, FVM setup, bump procedure |
-| [USAGE.md](USAGE.md) | End users | Task-oriented user manual (tutorial screenshots in `images/tutorial/`) |
+| [USAGE.md](USAGE.md) | **End users** | User guide (library, player, settings, shortcuts, privacy); screenshot notes at end |
 | [MANUAL_TESTING.md](MANUAL_TESTING.md) | QA / developers | *Planned* — manual regression matrix (supplements automated tests) |
 
 Start with [ARCHITECTURE.md](ARCHITECTURE.md) for system design. The root [README.md](../README.md) covers build commands and a feature summary.

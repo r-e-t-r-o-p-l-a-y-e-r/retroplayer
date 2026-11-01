@@ -11,12 +11,22 @@ import 'package:intl/intl.dart';
 import 'package:retroplayer/build_info.dart';
 import 'package:provider/provider.dart';
 import 'package:retroplayer/data/db/app_database.dart';
+import 'package:retroplayer/application/scan_library.dart';
+import 'package:retroplayer/data/repositories/library_repository.dart';
 import 'package:retroplayer/data/repositories/playback_repository.dart';
 import 'package:retroplayer/data/services/equalizer_service.dart';
+import 'package:retroplayer/data/services/file_scan_service.dart';
 import 'package:retroplayer/data/services/library_storage_service.dart';
+import 'package:retroplayer/data/services/metadata_service.dart';
+import 'package:retroplayer/domain/library_paths.dart';
 import 'package:retroplayer/domain/models/audio_album.dart';
+import 'package:retroplayer/domain/models/audio_track.dart';
+import 'package:retroplayer/domain/models/directory_listing_update.dart';
 import 'package:retroplayer/domain/models/library_item.dart';
+import 'package:retroplayer/domain/models/playlist_file.dart';
 import 'package:retroplayer/domain/models/track_metadata.dart';
+import 'package:retroplayer/domain/use_cases/group_tracks_into_albums.dart';
+import 'package:retroplayer/domain/use_cases/sort_library.dart';
 import 'package:retroplayer/l10n/app_locale_catalog.dart';
 import 'package:retroplayer/ui/core/app_router.dart';
 import 'package:retroplayer/ui/core/keyboard/keyboard_registry.dart';
@@ -31,31 +41,50 @@ import 'package:retroplayer/ui/features/settings/view_models/theme_view_model.da
 
 import '../../helpers/pump_app.dart';
 import '../../helpers/recording_playback.dart';
-import '../../helpers/test_library_repository.dart';
 import '../../helpers/test_panel.dart';
 import '../../helpers/track_factory.dart';
 import 'tutorial_screenshot_capture.dart';
 
 final _captureKey = GlobalKey();
 
-AudioAlbum _demoAlbum() {
+class _TutorialScanLibrary extends ScanLibrary {
+  _TutorialScanLibrary({
+    required this.tracksByPath,
+    required this.itemsByDirectory,
+  }) : super(
+         fileScanService: FileScanService(),
+         metadataService: MetadataService(),
+         groupTracksIntoAlbums: GroupTracksIntoAlbums(),
+       );
+
+  final Map<String, AudioTrack> tracksByPath;
+  final Map<String, List<LibraryItem>> itemsByDirectory;
+
+  @override
+  Stream<DirectoryListingUpdate> watchDirectoryShallow(
+    String directoryPath,
+  ) async* {
+    yield DirectoryListingUpdate.complete(
+      itemsByDirectory[normalizeLibraryPath(directoryPath)] ?? const [],
+    );
+  }
+
+  @override
+  Future<List<LibraryItem>> scanDirectoryShallow(String directoryPath) async {
+    return itemsByDirectory[normalizeLibraryPath(directoryPath)] ?? const [];
+  }
+
+  @override
+  Future<AudioTrack> trackFromPath(String filePath) async {
+    return tracksByPath[filePath]!;
+  }
+}
+
+AudioAlbum _demoAlbum(List<AudioTrack> tracks) {
   return AudioAlbum(
     id: 'dir:/music/DemoAlbum',
     title: 'Demo Album',
-    tracks: [
-      testTrack(
-        id: 't1',
-        filePath: '/music/DemoAlbum/01-opening.mp3',
-        directoryPath: '/music/DemoAlbum',
-        durationMs: 3 * 60 * 1000 + 5 * 1000,
-        metadata: const TrackMetadata(
-          trackNumber: 1,
-          title: 'Opening',
-          artist: 'Demo Artist',
-          album: 'Demo Album',
-        ),
-      ),
-    ],
+    tracks: tracks,
     source: AlbumSource.directory,
     groupingKey: 'dir:/music/DemoAlbum',
   );
@@ -65,11 +94,56 @@ Future<_Harness> _boot(WidgetTester tester) async {
   final db = AppDatabase.inMemory();
   addTearDown(db.close);
   final storage = LibraryStorageService(db);
-  final album = _demoAlbum();
-  final libraryRepository = testLibraryRepository(storage);
+  final track1 = testTrack(
+    id: 't1',
+    filePath: '/music/DemoAlbum/01-opening.mp3',
+    directoryPath: '/music/DemoAlbum',
+    durationMs: 3 * 60 * 1000 + 5 * 1000,
+    metadata: const TrackMetadata(
+      trackNumber: 1,
+      title: 'Opening',
+      artist: 'Demo Artist',
+      album: 'Demo Album',
+    ),
+  );
+  final track2 = testTrack(
+    id: 't2',
+    filePath: '/music/DemoAlbum/02-middle.mp3',
+    directoryPath: '/music/DemoAlbum',
+    durationMs: 4 * 60 * 1000,
+    metadata: const TrackMetadata(
+      trackNumber: 2,
+      title: 'Middle',
+      artist: 'Demo Artist',
+      album: 'Demo Album',
+    ),
+  );
+  final album = _demoAlbum([track1, track2]);
+  final playlist = PlaylistFile(
+    filePath: '/music/Demo Mix.m3u',
+    entryPaths: [track1.filePath, track2.filePath],
+  );
+  final tracksByPath = {track1.filePath: track1, track2.filePath: track2};
+  final libraryRepository = LibraryRepository(
+    storageService: storage,
+    scanLibrary: _TutorialScanLibrary(
+      tracksByPath: tracksByPath,
+      itemsByDirectory: {
+        '/music': [
+          LibraryItem.album(album: album),
+          LibraryItem.playlist(playlist: playlist),
+        ],
+      },
+    ),
+    sortLibrary: SortLibrary(),
+    fileScanService: FileScanService(),
+  );
   await storage.addLibraryRoot('/music');
   libraryRepository.seedChildFolders('/music', const []);
-  libraryRepository.seedDirectory('/music', [LibraryItem.album(album: album)]);
+  libraryRepository.seedDirectory('/music', [
+    LibraryItem.album(album: album),
+    LibraryItem.playlist(playlist: playlist),
+  ]);
 
   final panelVm = testPanelVm();
   final playerVm = PlayerViewModel(
@@ -180,6 +254,15 @@ void main() {
     await captureTutorialFrame(
       h.tester,
       '04-album-detail',
+      finder: find.byKey(_captureKey),
+    );
+    await h.tester.tap(find.byIcon(Icons.arrow_back));
+    await pumpFrames(h.tester, count: 20);
+    await h.tester.tap(find.text('Demo Mix'));
+    await pumpFrames(h.tester, count: 30);
+    await captureTutorialFrame(
+      h.tester,
+      '05-playlist',
       finder: find.byKey(_captureKey),
     );
     await h.tester.tap(find.byIcon(Icons.arrow_back));
