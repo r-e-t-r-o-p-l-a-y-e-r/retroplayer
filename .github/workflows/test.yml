@@ -43,6 +43,10 @@ jobs:
           else
             sudo apt-get install -y libmpv1 libmpv-dev
           fi
+          sudo apt-get install -y pulseaudio pulseaudio-utils alsa-utils libasound2-plugins
+
+      - name: Start virtual audio for headless MPV tests
+        run: ./scripts/ci-start-virtual-audio.sh
 
       - name: Run tests
         run: flutter test --coverage
