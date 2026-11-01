@@ -164,6 +164,9 @@ class _RecordingPlayback implements AudioPlaybackService {
   Future<void> play() async {}
 
   @override
+  Future<void> playForMediaTransport() => play();
+
+  @override
   Future<void> seek(Duration position) async {}
 
 

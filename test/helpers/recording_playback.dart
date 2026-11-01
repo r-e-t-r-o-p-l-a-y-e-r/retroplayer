@@ -20,6 +20,7 @@ class RecordingPlayback implements AudioPlaybackService {
 
   double speedOverride = 1.0;
   bool playCalled = false;
+  bool playForMediaTransportCalled = false;
   bool pauseCalled = false;
   bool stopCalled = false;
   bool disposeCalled = false;
@@ -121,6 +122,12 @@ class RecordingPlayback implements AudioPlaybackService {
   @override
   Future<void> play() async {
     playCalled = true;
+  }
+
+  @override
+  Future<void> playForMediaTransport() async {
+    playForMediaTransportCalled = true;
+    await play();
   }
 
   @override

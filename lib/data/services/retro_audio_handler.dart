@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audio_service/audio_service.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:retroplayer/data/services/audio_playback_service.dart';
@@ -12,6 +14,7 @@ class RetroAudioHandler extends BaseAudioHandler
   RetroAudioHandler(
     this._playbackService, {
     this._onRecentsDismiss,
+    this._activateAudioSession,
   }) {
     _playbackService.playerStateStream.listen((state) {
       _lastEngineState = state;
@@ -34,11 +37,35 @@ class RetroAudioHandler extends BaseAudioHandler
       if (!playbackState.hasValue) return;
       playbackState.add(playbackState.value.copyWith(updatePosition: position));
     });
+    _bootstrapSessionFromEngine();
+  }
+
+  /// Re-reads engine track/state into the platform session (app resume).
+  void refreshSessionState() {
+    _publishMediaItem(_playbackService.currentTrack);
+    final engine = _lastEngineState;
+    if (engine != null) {
+      _publishPlaybackState(engine);
+    }
+  }
+
+  void _bootstrapSessionFromEngine() {
+    final track = _playbackService.currentTrack;
+    if (track == null) return;
+    _publishMediaItem(track);
+    _publishPlaybackState(
+      _lastEngineState ?? PlayerState(false, ProcessingState.ready),
+    );
   }
 
   final AudioPlaybackService _playbackService;
   final Future<void> Function()? _onRecentsDismiss;
+  final Future<bool> Function()? _activateAudioSession;
   PlayerState? _lastEngineState;
+
+  Future<void> _primeAudioSession() async {
+    await _activateAudioSession?.call();
+  }
 
   void _publishPlaybackState(PlayerState state) {
     final controls = <MediaControl>[
@@ -47,14 +74,25 @@ class RetroAudioHandler extends BaseAudioHandler
       if (_playbackService.hasNext) MediaControl.skipToNext,
     ];
     final compactCount = controls.length.clamp(0, 3);
+    unawaited(_primeAudioSession());
     playbackState.add(
       PlaybackState(
         controls: controls,
-        systemActions: const {MediaAction.seek},
+        systemActions: const {
+          MediaAction.play,
+          MediaAction.pause,
+          MediaAction.playPause,
+          MediaAction.skipToNext,
+          MediaAction.skipToPrevious,
+          MediaAction.seek,
+        },
         androidCompactActionIndices: [
           for (var i = 0; i < compactCount; i++) i,
         ],
-        processingState: _mapProcessingState(state.processingState),
+        processingState: _mapProcessingState(
+          state.processingState,
+          hasLoadedTrack: _playbackService.currentTrack != null,
+        ),
         playing: state.playing,
         updatePosition: _playbackService.position,
       ),
@@ -80,7 +118,15 @@ class RetroAudioHandler extends BaseAudioHandler
     ]);
   }
 
-  AudioProcessingState _mapProcessingState(ProcessingState state) {
+  AudioProcessingState _mapProcessingState(
+    ProcessingState state, {
+    required bool hasLoadedTrack,
+  }) {
+    if (state == ProcessingState.idle && hasLoadedTrack) {
+      // just_audio may briefly emit idle while a queue is loaded; publishing
+      // idle tears down the native AudioService and kills transport callbacks.
+      return AudioProcessingState.ready;
+    }
     return switch (state) {
       ProcessingState.idle => AudioProcessingState.idle,
       ProcessingState.loading => AudioProcessingState.loading,
@@ -91,10 +137,33 @@ class RetroAudioHandler extends BaseAudioHandler
   }
 
   @override
-  Future<void> play() => _playbackService.play();
+  Future<void> play() async {
+    await _primeAudioSession();
+    await _playbackService.playForMediaTransport();
+  }
 
   @override
-  Future<void> pause() => _playbackService.pause();
+  Future<void> click([MediaButton button = MediaButton.media]) async {
+    await _primeAudioSession();
+    switch (button) {
+      case MediaButton.media:
+        if (playbackState.valueOrNull?.playing ?? false) {
+          await pause();
+        } else {
+          await play();
+        }
+      case MediaButton.next:
+        await skipToNext();
+      case MediaButton.previous:
+        await skipToPrevious();
+    }
+  }
+
+  @override
+  Future<void> pause() async {
+    await _primeAudioSession();
+    await _playbackService.pause();
+  }
 
   @override
   Future<void> stop() async {
@@ -106,10 +175,16 @@ class RetroAudioHandler extends BaseAudioHandler
   Future<void> seek(Duration position) => _playbackService.seek(position);
 
   @override
-  Future<void> skipToNext() => _playbackService.skipToNext();
+  Future<void> skipToNext() async {
+    await _primeAudioSession();
+    await _playbackService.skipToNext();
+  }
 
   @override
-  Future<void> skipToPrevious() => _playbackService.skipToPrevious();
+  Future<void> skipToPrevious() async {
+    await _primeAudioSession();
+    await _playbackService.skipToPrevious();
+  }
 
   /// Android Recents swipe / task removed — stop audio and tear down session.
   ///

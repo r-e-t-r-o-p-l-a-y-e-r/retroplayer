@@ -109,6 +109,9 @@ class _StreamPlayback implements AudioPlaybackService {
   Future<void> play() async => playingController.add(true);
 
   @override
+  Future<void> playForMediaTransport() => play();
+
+  @override
   Future<void> pause() async => playingController.add(false);
 
   @override
