@@ -12,7 +12,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:just_audio_media_kit/just_audio_media_kit.dart';
 import 'package:provider/provider.dart';
-import 'package:retroplayer/app_branding.dart';
 import 'package:retroplayer/data/db/app_database_flutter.dart';
 import 'package:retroplayer/data/repositories/library_repository.dart';
 import 'package:retroplayer/data/repositories/playback_repository.dart';

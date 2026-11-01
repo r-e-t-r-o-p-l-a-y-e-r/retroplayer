@@ -12,7 +12,6 @@ import 'package:retroplayer/domain/models/playlist_file.dart';
 import 'package:retroplayer/ui/core/keyboard/library_row_focus_registry.dart';
 import 'package:retroplayer/ui/core/keyboard/selectable_library_row.dart';
 import 'package:retroplayer/ui/core/keyboard/selectable_list_controller.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:retroplayer/ui/features/library/library_index_labels.dart';
 import 'package:retroplayer/ui/features/library/view_models/library_effects.dart';
