@@ -10,8 +10,8 @@ import 'track_factory.dart';
 /// [LibraryScanner] that counts shallow scans and tag reads for restore tests.
 class CountingLibraryScanner implements LibraryScanner {
   CountingLibraryScanner({
-    required Map<String, List<String>> audioFilesByDirectory,
-  }) : _audioFilesByDirectory = audioFilesByDirectory;
+    required this._audioFilesByDirectory,
+  });
 
   final Map<String, List<String>> _audioFilesByDirectory;
   final _group = const GroupTracksIntoAlbums();

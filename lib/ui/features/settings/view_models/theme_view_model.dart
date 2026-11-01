@@ -4,8 +4,7 @@ import 'package:retroplayer/domain/models/theme_preference.dart';
 import 'package:retroplayer/ui/core/preference_mapping.dart';
 
 class ThemeViewModel extends ChangeNotifier {
-  ThemeViewModel({required LibraryStorageService storageService})
-      : _storageService = storageService;
+  ThemeViewModel({required this._storageService});
 
   final LibraryStorageService _storageService;
 

@@ -21,7 +21,7 @@ dart run build_runner build --delete-conflicting-outputs
 dart run scripts/stamp_build_info.dart
 ```
 
-Linux tests need `libmpv1` / `libmpv-dev` (and GTK toolchain per `flutter doctor`).
+Linux tests need **libmpv** runtime + dev headers (`libmpv2` or `libmpv1` plus `libmpv-dev`, depending on Ubuntu version) and the GTK toolchain per `flutter doctor`.
 
 ## Planned release pipeline
 
@@ -75,7 +75,7 @@ F-Droid rebuilds from your **git tag**; CI proves the tag compiles and supplies 
 | Item | Detail |
 |------|--------|
 | Runner | `ubuntu-latest` |
-| Deps | Same as CI tests: `libmpv1`, `libmpv-dev`, `libgtk-3-dev`, `cmake`, `ninja-build`, `pkg-config`, `clang` |
+| Deps | Same as CI tests: `libmpv2` or `libmpv1`, `libmpv-dev`, `libgtk-3-dev`, `cmake`, `ninja-build`, `pkg-config`, `clang` |
 | Build | `flutter build linux --release` |
 | Package | [`scripts/package-linux-release.sh`](../scripts/package-linux-release.sh) → `retroplayer-<version>-linux-x64.tar.gz` + optional `.sha256` |
 

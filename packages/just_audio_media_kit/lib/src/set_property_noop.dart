@@ -1,4 +1,4 @@
-library just_audio_media_kit;
+library;
 
 import 'package:media_kit/media_kit.dart';
 

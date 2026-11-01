@@ -6,16 +6,12 @@ import 'package:retroplayer/data/services/external_playback_route_policy.dart';
 /// Optional delay before [play] when car/BT output is connecting or settling.
 class ExternalPlaybackRouteGate {
   ExternalPlaybackRouteGate({
-    required Future<Set<AudioDevice>> Function() getOutputDevices,
-    required Stream<AudioDevicesChangedEvent> devicesChanged,
-    Future<bool> Function()? activateAudioSession,
-    Duration waitTimeout = const Duration(milliseconds: 1200),
-    Duration pollInterval = const Duration(milliseconds: 50),
-  })  : _getOutputDevices = getOutputDevices,
-        _devicesChanged = devicesChanged,
-        _activateAudioSession = activateAudioSession,
-        _waitTimeout = waitTimeout,
-        _pollInterval = pollInterval {
+    required this._getOutputDevices,
+    required this._devicesChanged,
+    this._activateAudioSession,
+    this._waitTimeout = const Duration(milliseconds: 1200),
+    this._pollInterval = const Duration(milliseconds: 50),
+  }) {
     _devicesSub = _devicesChanged.listen(_onDevicesChanged);
   }
 

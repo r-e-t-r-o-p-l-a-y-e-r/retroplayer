@@ -151,10 +151,11 @@ class LibraryNavigator {
           _context,
           displayName: playlist.displayName,
         );
-        if (!confirmed) return;
+        if (!confirmed || !_context.mounted) return;
         await _context
             .read<PlayerViewModel>()
             .stopAndClearIfPlayingPlaylist(playlist.filePath);
+        if (!_context.mounted) return;
         await _library.deletePlaylist(playlist.filePath);
         _library.clearKeyboardSelection();
     }

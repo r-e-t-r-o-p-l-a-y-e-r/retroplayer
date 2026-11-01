@@ -8,10 +8,9 @@ import 'package:retroplayer/domain/use_cases/playback_resume.dart';
 /// Starts any [PlaybackItem] with resume support and saves its progress.
 class PlayQueue {
   PlayQueue({
-    required PlaybackEngine engine,
-    required PlaybackStateStore store,
-  })  : _engine = engine,
-        _store = store;
+    required this._engine,
+    required this._store,
+  });
 
   final PlaybackEngine _engine;
   final PlaybackStateStore _store;

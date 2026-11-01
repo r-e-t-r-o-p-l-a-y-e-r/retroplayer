@@ -35,6 +35,7 @@ class _GesturePlayback implements AudioPlaybackService {
   });
 
   final AudioTrack track;
+  @override
   final Duration duration;
   Duration lastSeek = Duration.zero;
 
