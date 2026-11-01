@@ -3,6 +3,7 @@
 /// Evidence:
 /// - `browse up restores parent scroll offset and selects opened folder`
 /// - `settings overlay restores browse scroll offset when closed`
+/// - `breadcrumb tap to parent restores saved scroll offset`
 library;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -242,5 +243,87 @@ void main() {
         .position
         .pixels;
     expect(offsetAfterSettings, closeTo(offsetBeforeSettings, 1.0));
+  });
+
+  testWidgets('breadcrumb tap to parent restores saved scroll offset',
+      (tester) async {
+    final db = AppDatabase.inMemory();
+    addTearDown(db.close);
+    final storage = LibraryStorageService(db);
+    final repo = testLibraryRepository(storage);
+    await storage.addLibraryRoot('/music');
+
+    final folders = <FolderEntry>[
+      for (var i = 0; i < 30; i++)
+        FolderEntry(
+          path: '/music/Folder${i.toString().padLeft(2, '0')}',
+          name: 'Folder${i.toString().padLeft(2, '0')}',
+        ),
+    ];
+    repo.seedChildFolders('/music', folders);
+    repo.seedDirectory('/music', const []);
+    for (final folder in folders) {
+      repo.seedChildFolders(folder.path, const []);
+      repo.seedDirectory(folder.path, const []);
+    }
+
+    final libraryVm = LibraryViewModel(libraryRepository: repo);
+    addTearDown(libraryVm.dispose);
+    await libraryVm.load();
+    await libraryVm.navigateToBrowsePath('/music');
+
+    tester.view.physicalSize = const Size(400, 700);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(
+      MultiProvider(
+        providers: [
+          Provider.value(value: repo),
+          ChangeNotifierProvider.value(value: libraryVm),
+          ChangeNotifierProvider(create: (_) => testPanelVm()),
+          ChangeNotifierProvider(
+            create: (_) => PlayerViewModel(
+              playbackRepository: PlaybackRepository(
+                playbackService: RecordingPlayback(),
+                storageService: storage,
+              ),
+            ),
+          ),
+          ChangeNotifierProvider(create: (_) => KeyboardRegistry()),
+        ],
+        child: wrapRouterWithL10n(router: _router()),
+      ),
+    );
+    await pumpFrames(tester, count: 12);
+
+    final listFinder = find.byType(Scrollable).first;
+    await tester.drag(listFinder, const Offset(0, -900));
+    await pumpFrames(tester, count: 8);
+
+    await tester.scrollUntilVisible(
+      find.text('Folder15'),
+      80,
+      scrollable: listFinder,
+    );
+    await pumpFrames(tester, count: 4);
+    final offsetAtEnter =
+        tester.state<ScrollableState>(listFinder).position.pixels;
+
+    await tester.tap(find.text('Folder15'));
+    await pumpFrames(tester, count: 12);
+    expect(libraryVm.browsePath, normalizeLibraryPath('/music/Folder15'));
+
+    await tester.tap(find.text('music'));
+    await pumpFrames(tester, count: 20);
+
+    expect(libraryVm.browsePath, normalizeLibraryPath('/music'));
+    expect(libraryVm.keyboardSelectedIndex, isNotNull);
+    final row = libraryVm.selectableRows[libraryVm.keyboardSelectedIndex!];
+    expect(row.folderPath, normalizeLibraryPath('/music/Folder15'));
+
+    final offsetAfterReturn =
+        tester.state<ScrollableState>(find.byType(Scrollable).first).position.pixels;
+    expect(offsetAfterReturn, closeTo(offsetAtEnter, 1.0));
   });
 }

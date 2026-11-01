@@ -8,6 +8,8 @@
 /// - `rememberBrowseScrollOffset restores after simulated settings cover`
 /// - `navigateToParentFolder restores saved scroll offset not row snap`
 /// - `navigateToParentFolder re-applies offset after deferred parent scan`
+/// - `navigateToBrowsePathWithRestore to parent restores saved scroll offset`
+/// - `deferred directory update does not reset offset while folder selection restore pending`
 library;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:retroplayer/data/db/app_database.dart';
@@ -205,6 +207,67 @@ void main() {
     expect(scroller.offsets.last, 280);
     expect(scroller.jumps, isEmpty);
     expect(nestedVm.keyboardSelectedIndex, authorIndex);
+  });
+
+  test('navigateToBrowsePathWithRestore to parent restores saved scroll offset',
+      () async {
+    final db = AppDatabase.inMemory();
+    addTearDown(db.close);
+    final storage = LibraryStorageService(db);
+    final repo = testLibraryRepository(storage);
+    await storage.addLibraryRoot('/music');
+    seedAuthorBook1Hierarchy(repo);
+
+    final vm = LibraryViewModel(libraryRepository: repo);
+    addTearDown(vm.dispose);
+    final scroller = _RecordingScroller()..fakeOffset = 420;
+    vm.attachListScroller(scroller);
+
+    await vm.load();
+    await vm.navigateToBrowsePath('/music');
+    await vm.browseInto('/music/Author');
+
+    scroller.jumps.clear();
+    scroller.offsets.clear();
+
+    await vm.navigateToBrowsePathWithRestore('/music');
+
+    expect(vm.browsePath, '/music');
+    expect(scroller.offsets, contains(420));
+    expect(scroller.jumps, isEmpty);
+  });
+
+  test(
+      'deferred directory update does not reset offset while folder selection restore pending',
+      () async {
+    final db = AppDatabase.inMemory();
+    addTearDown(db.close);
+    final storage = LibraryStorageService(db);
+    final repo = testLibraryRepository(storage);
+    await storage.addLibraryRoot('/music');
+    seedAuthorBook1Hierarchy(repo);
+
+    final vm = LibraryViewModel(libraryRepository: repo);
+    addTearDown(vm.dispose);
+    final scroller = _RecordingScroller()..fakeOffset = 280;
+    vm.attachListScroller(scroller);
+
+    await vm.load();
+    await vm.navigateToBrowsePath('/music');
+    await vm.browseInto('/music/Author');
+
+    repo.invalidateDirectory('/music');
+    scroller.jumps.clear();
+    scroller.offsets.clear();
+
+    await vm.navigateToBrowsePathWithRestore('/music');
+
+    expect(scroller.offsets, isNotEmpty);
+    expect(scroller.offsets.first, 280);
+    expect(scroller.jumps, isEmpty);
+    await Future<void>.delayed(Duration.zero);
+    await Future<void>.delayed(Duration.zero);
+    expect(scroller.offsets.last, 280);
   });
 
   test('jumpToLibraryIndexChar selects first matching row', () async {

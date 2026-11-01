@@ -163,7 +163,7 @@ class _MainShellViewState extends State<MainShellView> {
                 )
               : LibraryPathSummary(
                   breadcrumbs: libraryVm.browseBreadcrumbs,
-                  onNavigate: libraryVm.navigateToBrowsePath,
+                  onNavigate: libraryVm.navigateToBrowsePathWithRestore,
                 ),
         ),
         actions: [

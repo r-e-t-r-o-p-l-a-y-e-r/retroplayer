@@ -288,6 +288,9 @@ class _NoOpPlayback implements AudioPlaybackService {
   Future<void> play() async {}
 
   @override
+  Future<void> playForMediaTransport() => play();
+
+  @override
   Future<void> seek(Duration position) async {}
 
   @override
