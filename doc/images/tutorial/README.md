@@ -7,8 +7,8 @@ PNG files referenced from [`doc/USAGE.md`](../../USAGE.md):
 | `01-library.png` | Library with at least one folder/album |
 | `02-mini-player.png` | Collapsed mini player while playing |
 | `03-expanded-player.png` | Expanded player sheet |
-| `04-album-detail.png` | Album track list (optional; not generated yet) |
-| `05-playlist.png` | Playlist view |
+| `04-album-detail.png` | Album track list |
+| `05-playlist.png` | Playlist track list |
 | `06-settings.png` | Settings overview |
 
 **Recommended (real device / emulator, store-ready):**
