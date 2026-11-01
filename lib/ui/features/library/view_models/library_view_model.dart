@@ -12,6 +12,7 @@ import 'package:retroplayer/domain/models/playlist_file.dart';
 import 'package:retroplayer/ui/core/keyboard/library_row_focus_registry.dart';
 import 'package:retroplayer/ui/core/keyboard/selectable_library_row.dart';
 import 'package:retroplayer/ui/core/keyboard/selectable_list_controller.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:retroplayer/ui/features/library/library_index_labels.dart';
 import 'package:retroplayer/ui/features/library/view_models/library_effects.dart';
@@ -57,6 +58,12 @@ class LibraryViewModel extends ChangeNotifier {
   /// Scroll offsets per browse path (`''` = library roots) for parent restore.
   final Map<String, double> _scrollOffsetByBrowseKey = {};
 
+  /// Reads the live list offset from [LibraryView] when the scroller is stale.
+  double? Function()? activeScrollOffsetReader;
+
+  /// Applies scroll restore on the correct per-path controller in [LibraryView].
+  void Function(String scrollKey, double offset)? scrollRestoreHandler;
+
   List<String> get libraryRoots => List.unmodifiable(_libraryRoots);
 
   int? get keyboardSelectedIndex => _selection.selectedIndex;
@@ -82,6 +89,10 @@ class LibraryViewModel extends ChangeNotifier {
   void attachListScroller(LibraryListScroller? scroller) {
     listScroller = scroller;
   }
+
+  @visibleForTesting
+  double? scrollOffsetForBrowseKey(String scrollKey) =>
+      _scrollOffsetByBrowseKey[scrollKey];
 
   void _syncKeyboardFocus() {
     final index = _selection.selectedIndex;
@@ -229,6 +240,41 @@ class LibraryViewModel extends ChangeNotifier {
     if (_highlightedTrackId == null) return;
     _highlightedTrackId = null;
     notifyListeners();
+  }
+
+  int _highlightScrollNonce = 0;
+
+  /// Bumped on each [scrollHighlightedTrackIntoView] so views re-run ensureVisible
+  /// even when the highlighted track id is unchanged.
+  int get highlightScrollNonce => _highlightScrollNonce;
+
+  /// Scrolls the folder list so the highlighted track row is on screen.
+  void scrollHighlightedTrackIntoView() {
+    final highlightId = _highlightedTrackId;
+    if (highlightId == null) return;
+    _highlightScrollNonce++;
+    notifyListeners();
+    final index = _selectableRows.indexWhere((row) {
+      final item = row.item;
+      return switch (item) {
+        LibraryTrackItem(:final track) => track.id == highlightId,
+        LibraryAlbumItem(:final album) =>
+          album.tracks.any((track) => track.id == highlightId),
+        _ => false,
+      };
+    });
+    if (index < 0) return;
+    void scroll() => listScroller?.jumpToRow(index);
+    scroll();
+    try {
+      final binding = WidgetsBinding.instance;
+      binding.addPostFrameCallback((_) {
+        scroll();
+        binding.addPostFrameCallback((_) => scroll());
+      });
+    } on Object {
+      // Tests without a binding still get the synchronous scroll above.
+    }
   }
 
   List<BrowseBreadcrumb> get browseBreadcrumbs => libraryBrowseBreadcrumbs(
@@ -509,10 +555,11 @@ class LibraryViewModel extends ChangeNotifier {
     DirectoryListingUpdate update,
   ) {
     final offset = listScroller?.currentOffset;
+    final restoringFolderSelection = _folderSelectionToRestore != null;
     _items = update.items;
     _isLoadingDirectoryItems = !update.isComplete && _items.isEmpty;
     _rebuildSelectableRows();
-    if (_folderSelectionToRestore != null) {
+    if (restoringFolderSelection) {
       _restoreFolderSelection();
       if (_keyboardSelectedRow?.folderPath == _folderSelectionToRestore) {
         _folderSelectionToRestore = null;
@@ -520,8 +567,17 @@ class LibraryViewModel extends ChangeNotifier {
     } else {
       notifyListeners();
     }
-    if (offset != null) {
-      listScroller?.jumpToOffset(offset);
+    // Do not re-apply [offset] after browse-up restore — the captured pixels
+    // are often 0 on a freshly attached list and would jump to the top.
+    if (offset != null &&
+        !restoringFolderSelection &&
+        _folderSelectionToRestore == null) {
+      final key = _browseScrollKey(path);
+      final saved = _scrollOffsetByBrowseKey[key];
+      // Rebuilds during scan/rescan often capture 0 before layout; prefer the
+      // last scroll offset the user (or browse-up restore) established.
+      final target = saved != null && offset < saved - 8 ? saved : offset;
+      _applyScrollRestore(key, target);
     }
     if (update.isComplete) {
       unawaited(_enrichAlbumCoversForBrowsePath(path));
@@ -551,6 +607,9 @@ class LibraryViewModel extends ChangeNotifier {
     _libraryRepository.replaceDirectoryItems(path, enriched);
     _rebuildSelectableRows();
     notifyListeners();
+    if (path == _browsePath) {
+      restoreBrowseScrollOffsetAfterLayout();
+    }
   }
 
   void _rebuildSelectableRows() {
@@ -741,21 +800,74 @@ class LibraryViewModel extends ChangeNotifier {
 
   Future<void> navigateToParentFolder() async {
     if (!_canGoUp) return;
-    final returningFromPath = _browsePath;
-    final parentOffset =
-        _scrollOffsetByBrowseKey[_browseScrollKey(_browseParentPath)];
-    if (parentOffset != null) {
-      // Apply before the parent list attaches so the first paint is already
-      // at this offset (no visible scrub from the top).
-      listScroller?.prepareRestore(parentOffset);
+    await navigateToBrowsePathWithRestore(_browseParentPath);
+  }
+
+  /// Browses to [targetPath] and restores scroll offset + folder row selection
+  /// when navigating up (breadcrumb or back).
+  Future<void> navigateToBrowsePathWithRestore(
+    String? targetPath, {
+    bool clearHighlight = true,
+  }) async {
+    final normalizedTarget =
+        targetPath == null ? null : normalizeLibraryPath(targetPath);
+    if (normalizedTarget == _browsePath) return;
+
+    final fromPath = _browsePath;
+
+    final targetScrollKey = _browseScrollKey(normalizedTarget);
+    final savedOffset = _scrollOffsetByBrowseKey[targetScrollKey];
+    if (savedOffset != null) {
+      _applyScrollRestore(targetScrollKey, savedOffset);
     }
-    await browseUp();
-    if (returningFromPath != null) {
-      // Keep until the deferred parent scan finishes — a late items rebuild
-      // otherwise leaves the list scrolled at the top.
-      _folderSelectionToRestore = returningFromPath;
+
+    if (clearHighlight) clearHighlightedTrack();
+    clearKeyboardSelection();
+
+    String? folderToRestore;
+    if (fromPath != null) {
+      folderToRestore = normalizedTarget == null
+          ? normalizeLibraryPath(fromPath)
+          : _folderRowWhenNavigatingTo(fromPath, normalizedTarget);
+    }
+    _folderSelectionToRestore = folderToRestore;
+
+    _browsePath = normalizedTarget;
+    await _persistBrowsePath();
+    await refreshDisplay();
+
+    if (_folderSelectionToRestore != null) {
       _restoreFolderSelection();
     }
+    _scheduleBrowseScrollRestore();
+  }
+
+  void _scheduleBrowseScrollRestore() {
+    restoreBrowseScrollOffsetAfterLayout();
+    try {
+      final binding = WidgetsBinding.instance;
+      binding.addPostFrameCallback((_) {
+        restoreBrowseScrollOffsetAfterLayout();
+        binding.addPostFrameCallback((_) {
+          restoreBrowseScrollOffsetAfterLayout();
+        });
+      });
+    } on Object {
+      // Tests without a binding still get the synchronous restore above.
+    }
+  }
+
+  String? _folderRowWhenNavigatingTo(
+    String fromBrowsePath,
+    String targetBrowsePath,
+  ) {
+    final from = normalizeLibraryPath(fromBrowsePath);
+    final target = normalizeLibraryPath(targetBrowsePath);
+    if (from == target) return null;
+    if (!p.isWithin(target, from)) return from;
+    final relative = p.relative(from, from: target);
+    final firstSegment = p.split(relative).first;
+    return normalizeLibraryPath(p.join(target, firstSegment));
   }
 
   String _browseScrollKey([String? path]) {
@@ -764,15 +876,26 @@ class LibraryViewModel extends ChangeNotifier {
   }
 
   void _captureBrowseScrollOffset() {
-    final offset = listScroller?.currentOffset;
+    final offset =
+        activeScrollOffsetReader?.call() ?? listScroller?.currentOffset;
     if (offset == null) return;
     _scrollOffsetByBrowseKey[_browseScrollKey()] = offset;
   }
 
+  void _applyScrollRestore(String scrollKey, double offset) {
+    final handler = scrollRestoreHandler;
+    if (handler != null) {
+      handler.call(scrollKey, offset);
+    } else {
+      listScroller?.jumpToOffset(offset);
+    }
+  }
+
   void _restoreBrowseScrollOffset() {
-    final offset = _scrollOffsetByBrowseKey[_browseScrollKey()];
+    final key = _browseScrollKey();
+    final offset = _scrollOffsetByBrowseKey[key];
     if (offset == null) return;
-    listScroller?.jumpToOffset(offset);
+    _applyScrollRestore(key, offset);
   }
 
   /// Remember the current list offset for this browse path (scroll / Settings).
