@@ -35,7 +35,14 @@ jobs:
         run: ./scripts/check-no-legacy-names.sh
 
       - name: Install Linux playback dependencies
-        run: sudo apt-get update && sudo apt-get install -y libmpv1 libmpv-dev
+        run: |
+          sudo apt-get update
+          # Ubuntu 24.04+ ships libmpv2; 22.04 used libmpv1.
+          if apt-cache show libmpv2 >/dev/null 2>&1; then
+            sudo apt-get install -y libmpv2 libmpv-dev
+          else
+            sudo apt-get install -y libmpv1 libmpv-dev
+          fi
 
       - name: Run tests
         run: flutter test --coverage
