@@ -1,0 +1,1 @@
+Prima versione pubblica: libreria locale, riproduzione senza pause, regolazione della velocità e ripresa della riproduzione degli audiolibri, equalizzatore e oltre 40 lingue per l'interfaccia.

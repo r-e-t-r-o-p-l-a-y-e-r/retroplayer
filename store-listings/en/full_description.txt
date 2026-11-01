@@ -1,0 +1,16 @@
+Retro Player plays audio from folders you choose on your phone or computer. It suits music collections and audiobooks: gapless albums, saved playback position, variable speed, and background playback with lock-screen controls.
+
+What you can do
+• Add library folders with the system picker — your files stay where they are
+• Browse folders on disk (breadcrumbs and favorites); open grouped albums for track lists; build and play playlists
+• Resume where you stopped; multi-disc albums in one folder play in disc order
+• Control playback from notifications and Bluetooth / car media buttons
+• Change theme, language, and equalizer presets
+
+Supported formats
+MP3, FLAC, WAV, and unencrypted AAC (.m4a / .m4b) — plus OGG on Android and Linux.
+
+Privacy by design
+Release builds do not request Internet access: no streaming, ads, analytics, crash trackers, or in-app purchases. The app only reads folders you explicitly grant.
+
+Step-by-step help with screenshots is in the project user guide (doc/USAGE.md on the public source repository).

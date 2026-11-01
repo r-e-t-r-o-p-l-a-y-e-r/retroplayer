@@ -1,0 +1,16 @@
+Retro Player reproduce audio desde las carpetas que elijas en tu móvil o ordenador. Es ideal para colecciones de música y audiolibros: álbumes sin pausas, posición de reproducción guardada, velocidad variable y reproducción en segundo plano con controles en la pantalla de bloqueo.
+
+Qué puedes hacer
+• Añadir carpetas a la biblioteca con el selector del sistema: tus archivos permanecen donde están
+• Navegar por las carpetas del disco (ruta de navegación y favoritos); abrir álbumes agrupados para ver las listas de canciones; crear y reproducir listas de reproducción
+• Reanudar la reproducción donde la dejaste; los álbumes de varios discos en una misma carpeta se reproducen en el orden de los discos
+• Controla la reproducción desde las notificaciones y los botones multimedia de Bluetooth o del coche
+• Cambia el tema, el idioma y los preajustes del ecualizador
+
+Formatos compatibles
+MP3, FLAC, WAV y AAC sin cifrar (.m4a / .m4b), además de OGG en Android y Linux.
+
+Privacidad desde el diseño
+Las versiones de lanzamiento no solicitan acceso a Internet: sin streaming, anuncios, análisis, rastreadores de fallos ni compras dentro de la aplicación. La aplicación solo lee las carpetas para las que concedas permiso explícitamente.
+
+En la guía de usuario del proyecto (archivo doc/USAGE.md en el repositorio público del código fuente) encontrarás ayuda paso a paso con capturas de pantalla.

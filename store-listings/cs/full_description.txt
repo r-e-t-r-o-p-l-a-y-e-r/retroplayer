@@ -1,0 +1,16 @@
+Aplikace Retro Player přehrává zvuk ze složek, které si vyberete v telefonu nebo na počítači. Je vhodná pro hudební sbírky i audioknihy: alba bez mezer mezi skladbami, ukládání pozice přehrávání, variabilní rychlost přehrávání a přehrávání na pozadí s ovládáním na uzamčené obrazovce.
+
+Co můžete dělat
+• Přidávejte složky do knihovny pomocí systémového výběru – vaše soubory zůstanou tam, kde jsou
+• Procházejte složky na disku (navigační lišta a oblíbené); otevírejte seskupená alba pro zobrazení seznamů skladeb; vytvářejte a přehrávejte seznamy skladeb
+• Pokračujte tam, kde jste přestali; alba s více disky v jedné složce se přehrávají v pořadí disků
+• Ovládejte přehrávání z oznamovací lišty a pomocí tlačítek Bluetooth / multimediálních tlačítek v autě
+• Změňte vzhled, jazyk a předvolby ekvalizéru
+
+Podporované formáty
+MP3, FLAC, WAV a nešifrovaný AAC (.m4a / .m4b) — plus OGG na Androidu a Linuxu.
+
+Ochrana soukromí již od návrhu
+Finální verze nevyžadují přístup k internetu: žádné streamování, reklamy, analytika, sledování chyb ani nákupy v aplikaci. Aplikace čte pouze složky, ke kterým jí výslovně udělíte oprávnění.
+
+Podrobný návod s obrázky najdete v uživatelské příručce projektu (soubor doc/USAGE.md ve veřejném repozitáři zdrojového kódu).

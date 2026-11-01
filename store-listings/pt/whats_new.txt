@@ -1,0 +1,1 @@
+Primeiro lançamento público: biblioteca local, reprodução contínua, ajuste da velocidade e retomada de audiolivros, equalizador e mais de 40 idiomas de interface.

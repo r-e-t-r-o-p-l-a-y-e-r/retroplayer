@@ -1,0 +1,262 @@
+{
+  "@@locale": "mk",
+  "appTitle": "Retro Player",
+  "settings": "Поставки",
+  "about": "За",
+  "aboutSubtitle": "Само локален аудио. Без реклами, без телеметрија, без мрежен пристап.\nПоддржани формати: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Верзија",
+  "aboutBuildDate": "Време на градење",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Огранок",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Изградба",
+  "equalizer": "Еквилајзер",
+  "equalizerUnavailable": "Еквилајзерот не е достапен на оваа платформа.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Бендови",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Ресетирај",
+  "library": "Библиотека",
+  "album": "Албум",
+  "playlist": "Плејлиста",
+  "nowPlaying": "Сега се пушта",
+  "addFolder": "Додај папка",
+  "audioPermissionRequired": "Потребно е аудио одобрение на Android",
+  "expandPlayer": "Прошири плеерот",
+  "showLibrary": "Прикажи библиотека",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Грешка: {message}",
+  "noFoldersAdded": "Не се додадени папки. Допрете \"Додај папка\" за да започнете.",
+  "folderEmpty": "Овој фолдер е празен.",
+  "librarySources": "Библиотечни извори",
+  "favorites": "Омилени",
+  "favorite": "Омилено",
+  "removeFavorite": "Отстрани омилено",
+  "folders": "Папки",
+  "audio": "Аудио",
+  "playFolder": "Свири папка",
+  "playAlbum": "Пушти албум",
+  "removeLibraryFolderTitle": "Да се отстрани папката на библиотеката?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Да се отстрани \"{name}\" од вашата библиотека?\n\nВашите аудио датотеки на дискот нема да бидат избришани.",
+  "cancel": "Откажи",
+  "remove": "Отстрани",
+  "albumNotFound": "Албум не е пронајден",
+  "playlistNotFound": "Плејлиста не е пронајдена",
+  "selectToPlay": "Изберете нешто од вашата библиотека за да пуштите.",
+  "speed": "Брзина",
+  "previous": "Претходно",
+  "pause": "Пауза",
+  "play": "Пушти",
+  "next": "Следно",
+  "jumpBack": "Назад 15 секунди",
+  "jumpForward": "Префрли напред 15 секунди",
+  "trackFallback": "Патека",
+  "unknownArtist": "Непознато",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} песни · {artist}",
+  "resetDatabase": "Ресетирај ја базата на податоци",
+  "resetDatabaseTitle": "Ресетирај ја базата на податоци?",
+  "resetDatabaseBody": "Ова ги брише позициите на репродукција, омилените, отворената папка, темата, јазикот и поставките на еквалајзерот. Бришењето на сè исто така ги заборава додадените папки на библиотеката. Музичките датотеки и плејлистите на дискот не се бришат.",
+  "resetDatabaseKeepFolders": "Чувајте ги папките на библиотеката",
+  "resetDatabaseClearEverything": "Избриши сè",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Рачно",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Бас",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Високо",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Глас",
+  "appearance": "Изглед",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Светлина",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Темно",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Систем",
+  "language": "Јазик",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Систем",
+  "openSourceLicenses": "Отворени лиценци",
+  "openSourceLegalese": "© 2026 придонесувачи на Retro Player",
+  "dataStorage": "Складирање на податоци",
+  "dataStorageIntro": "Retro Player ги чува поставките на апликацијата во мала локална база на податоци. Вашата музика и плејлисти остануваат како обични датотеки во папки по ваш избор.",
+  "dataStorageAppDataTitle": "База на податоци на апликации",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Датотека: {dbFileName}\nПатека: {dbPath}\n\nЧува корени на библиотеката, состојба на прелистување, продолжување на репродукцијата, еквилајзер, тема и јазични преференции.",
+  "dataStorageLibraryTitle": "Музички датотеки",
+  "dataStorageLibraryBody": "Аудио-датотеките никогаш не се копираат во базата на податоци на апликацијата. Додајте папки од библиотеката и Retro Player ги чита датотеките директно од диск.",
+  "dataStoragePlaylistsTitle": "Датотеки со плејлиста",
+  "dataStoragePlaylistsBody": "Плејлистите се обични .m3u-фајлови зачувани во папките на вашата библиотека. Можете да ги уредувате во апликацијата или со кој било уредувач на текст.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Платформа: {platform}",
+  "dataStoragePlatformBodyLinux": "Податоците на апликацијата се зачувани во директориумот за поддршка на апликации (обично ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Податоци од апликации за Linux",
+  "dataStorageLinuxDataBody": "Податоците на апликацијата се чуваат во ~/.local/share/app.retroplayer/. Таа папка е само за базата на податоци и поставките.",
+  "dataStorageLinuxTaskbarTitle": "Интеграција на лентата со задачи во Linux",
+  "dataStorageLinuxTaskbarBody": "За иконата на лентата со задачи и мрежата на апликации, десктоп-околувањата на Linux очекуваат одделни Freedesktop-датотеки. Retro Player ги инсталира овие од пакетот со апликацијата при стартување:\n\n• ~/.local/share/applications/app.retroplayer.desktop — запис за почетник што го поврзува тековниот прозорец со оваа апликација\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — икони со тема копирани од пакетот\n\nТоа никогаш не создава кориснички hicolor/index.theme (што би ја засенчило системската тема и би ги сокрило другите икони). Иконите се вградени и во бинарната датотека на апликацијата. Горенаведените копии им помагаат на GNOME/KDE да ја прикажат точната икона на ланчерот наместо генерички заменник.",
+  "dataStorageAndroidPermissionsTitle": "Android дозволи и складирање",
+  "dataStorageAndroidPermissionsBody": "Retro Player ја чува својата база на податоци во приватната поддршка на апликацијата на внатрешното складиште. Вашите музички датотеки остануваат во папките што ги избирате со системскиот избирач на папки.\n\nНа Android, апликацијата може да побара пристап до аудио за читање на песни и пристап до фотографии/слики за да може да се прикаже уметничката обвивка на папката (на пример cover.jpg). Аудио датотеките никогаш не се копираат во базата на податоци на апликацијата.",
+  "dataStorageAndroidPlaybackTitle": "Позадинско репродуцирање на Android",
+  "dataStorageAndroidPlaybackBody": "Кога се репродуцира аудио, Retro Player ја активира медиумската услуга во преден план, така што репродукцијата продолжува и ако го заклучите телефонот или префрлите апликации, со контроли за репродукција во системското известување. Лизгањето на апликацијата надвор од скокачкиот преглед ги прекинува репродукцијата и го отстранува известувањето.",
+  "dataStorageIOSAccessTitle": "Пристап до папки на iOS",
+  "dataStorageIOSAccessBody": "Retro Player ја складира својата база на податоци во приватната поддршка на апликацијата на складиштето на уредот. Вашите музички датотеки остануваат во папките што ќе ги изберете со избирачот на системски папки.\n\niOS овозможува пристап преку URL-адреси со ограничен безбедносен опсег за папките што ќе ги изберете. Retro Player ги чита датотеките директно од тие локации; тој не ја копира вашата библиотека во складиштето на апликацијата.",
+  "dataStorageIOSPlaybackTitle": "iOS позадинска аудио",
+  "dataStorageIOSPlaybackBody": "Репродукцијата може да продолжи додека апликацијата е во позадина или екранот е заклучен. Позициите за продолжување и состојбата на редот се зачувуваат во локалната база на податоци на апликацијата.",
+  "dataStoragePlatformBodyAndroid": "Податоците на апликацијата се зачувани во приватната поддршка на апликацијата на внатрешното складиште.",
+  "dataStoragePlatformBodyIOS": "Податоците на апликацијата се зачувани во приватната поддршка на апликацијата на складиштето на уредот.",
+  "dataStoragePlatformBodyMacOS": "Податоците на апликацијата се зачувани во ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Податоците на апликацијата се зачувани во директориумот за поддршка на вашата апликација.",
+  "dataStoragePlatformBodyWeb": "Податоците на апликацијата се зачувани во локалното складиште на прелистувачот за овој извор.",
+  "dataStoragePlatformBodyUnknown": "Податоците на апликацијата се зачувани во областа за поддршка на апликации на платформата.",
+  "loading": "Се вчитува…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Индекс на библиотека",
+  "playlists": "Плејлисти",
+  "playPlaylist": "Пушти плејлиста",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 песна} other{{count} траки}}",
+  "createPlaylist": "Креирај плејлиста",
+  "queue": "Ред",
+  "saveAsPlaylist": "Зачувај како плејлиста",
+  "queueEmpty": "Редот е празен. Додајте песни од вашата библиотека.",
+  "choosePlaylistFolder": "Изберете папка во библиотеката. Коренот на библиотеката не е папка.",
+  "clearQueue": "Исчисти редица",
+  "clearQueueTitle": "Да ја исчистиме редицата?",
+  "clearQueueBody": "Ова ги отстранува сите песни од редот за репродукција. Аудио-датотеките и зачуваните плейлисти остануваат.",
+  "newPlaylistName": "Име на плејлистата",
+  "addTracks": "Додај траки",
+  "save": "Зачувај",
+  "addTracksFromLibrary": "Додај од библиотека",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Додај ({count})",
+  "addTracksNothingSelected": "Изберете една или повеќе песни во вашата библиотека.",
+  "libraryEmptyNoRoots": "Прво додајте папка со библиотека, а потоа изберете траки од неа.",
+  "playlistEmpty": "Оваа плејлиста сè уште нема песни.",
+  "missingTrack": "Недостасува фајл",
+  "playlistReadOnly": "Само за читање",
+  "playlistSelect": "Изберете",
+  "playlistSelectAll": "Избери сè",
+  "playlistDeselectAll": "Одземи го изборот на сите",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Изберете патеки} =1{1 избрано} other{{count} избрано}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Да се отстрани песната од плејлистата?} other{Да се отстранат {count} траките од плејлистата?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Ова го отстранува записот од датотеката со плејлиста кога ќе зачувате.} other{Ова ги отстранува записите од датотеката со плејлиста кога ќе зачувате.}}",
+  "addTracksNothingAdded": "Не се додадени нови песни. Тие можеби веќе се во плејлистата.",
+  "playlistNothingToPlay": "Оваа плејлиста нема песни за репродукција.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Избриши плејлиста?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Избриши \"{name}\"? Ова ја брише датотеката со плејлиста од дискот."
+}

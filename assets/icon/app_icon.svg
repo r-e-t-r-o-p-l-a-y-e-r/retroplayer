@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <!-- Retro Player icon: play + pause on transparent background -->
+  <!-- Studio Warm accent (lighter amber) -->
+  <g fill="#EDA066">
+    <!-- Rounded play triangle -->
+    <path
+      d="M 292 268
+         L 292 756
+         L 548 512
+         Z"
+      stroke="#EDA066"
+      stroke-width="56"
+      stroke-linejoin="round"
+      stroke-linecap="round"
+    />
+    <!-- Pause bars -->
+    <rect x="612" y="268" width="96" height="488" rx="36" />
+    <rect x="756" y="268" width="96" height="488" rx="36" />
+  </g>
+</svg>

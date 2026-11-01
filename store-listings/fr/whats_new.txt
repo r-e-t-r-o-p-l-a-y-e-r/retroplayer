@@ -1,0 +1,1 @@
+Première version publique : bibliothèque locale, lecture en continu, réglage de la vitesse et reprise de la lecture des livres audio, égaliseur et plus de 40 langues d'interface.

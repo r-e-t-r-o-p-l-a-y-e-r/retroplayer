@@ -1,0 +1,262 @@
+{
+  "@@locale": "nl",
+  "appTitle": "Retro Player",
+  "settings": "Instellingen",
+  "about": "Over",
+  "aboutSubtitle": "Alleen lokale audio. Geen advertenties, geen telemetrie, geen netwerktoegang.\nOndersteunde bestandsformaten: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Versie",
+  "aboutBuildDate": "Bouwtijd",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Branch",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Build",
+  "equalizer": "Equalizer",
+  "equalizerUnavailable": "De equalizer is op dit platform niet beschikbaar.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Bands",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Opnieuw instellen",
+  "library": "Bibliotheek",
+  "album": "Album",
+  "playlist": "Afspeellijst",
+  "nowPlaying": "Nu te zien",
+  "addFolder": "Map toevoegen",
+  "audioPermissionRequired": "Op Android is toestemming voor audio vereist",
+  "expandPlayer": "Speler uitvouwen",
+  "showLibrary": "Bibliotheek weergeven",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Fout: {message}",
+  "noFoldersAdded": "Er zijn geen mappen toegevoegd. Tik op ‘Map toevoegen’ om te beginnen.",
+  "folderEmpty": "Deze map is leeg.",
+  "librarySources": "Bibliotheekbronnen",
+  "favorites": "Favorieten",
+  "favorite": "Favoriet",
+  "removeFavorite": "Favoriet verwijderen",
+  "folders": "Mappen",
+  "audio": "Audio",
+  "playFolder": "Afspeelmap",
+  "playAlbum": "Album afspelen",
+  "removeLibraryFolderTitle": "De map ‘library’ verwijderen?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Wil je \"{name}\" uit je bibliotheek verwijderen?\n\nJe audiobestanden op de schijf worden niet verwijderd.",
+  "cancel": "Annuleren",
+  "remove": "Verwijderen",
+  "albumNotFound": "Album niet gevonden",
+  "playlistNotFound": "Afspeellijst niet gevonden",
+  "selectToPlay": "Kies iets uit je bibliotheek om af te spelen.",
+  "speed": "Snelheid",
+  "previous": "Vorige",
+  "pause": "Pauze",
+  "play": "Afspelen",
+  "next": "Volgende",
+  "jumpBack": "15 seconden terug",
+  "jumpForward": "15 seconden vooruitspoelen",
+  "trackFallback": "Track",
+  "unknownArtist": "Onbekend",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} nummers · {artist}",
+  "resetDatabase": "Database resetten",
+  "resetDatabaseTitle": "Database resetten?",
+  "resetDatabaseBody": "Hiermee worden de afspeelposities, favorieten, de geopende map, het thema, de taal en de equalizer-instellingen gewist. Als je alles wist, worden ook de toegevoegde bibliotheekmappen verwijderd. Muziekbestanden en afspeellijsten op de schijf worden niet verwijderd.",
+  "resetDatabaseKeepFolders": "Bibliotheekmappen behouden",
+  "resetDatabaseClearEverything": "Alles wissen",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Handmatig",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Bas",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Hoge tonen",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Stem",
+  "appearance": "Uiterlijk",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Licht",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Donker",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Systeem",
+  "language": "Taal",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Systeem",
+  "openSourceLicenses": "Open-source-licenties",
+  "openSourceLegalese": "© 2026 Medewerkers van Retro Player",
+  "dataStorage": "Gegevensopslag",
+  "dataStorageIntro": "Retro Player slaat de app-instellingen op in een kleine lokale database. Je muziek en afspeellijsten blijven gewoon als gewone bestanden staan in de mappen die je zelf kiest.",
+  "dataStorageAppDataTitle": "App-database",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Bestand: {dbFileName}\nPad: {dbPath}\n\nHierin worden de bibliotheekmappen, de bladerstatus, de voortgang van het afspelen, de equalizer, het thema en de taalvoorkeuren opgeslagen.",
+  "dataStorageLibraryTitle": "Muziekbestanden",
+  "dataStorageLibraryBody": "Audiobestanden worden nooit naar de database van de app gekopieerd. Voeg bibliotheekmappen toe en Retro Player leest de bestanden rechtstreeks vanaf de schijf.",
+  "dataStoragePlaylistsTitle": "Afspeellijstbestanden",
+  "dataStoragePlaylistsBody": "Afspeellijsten zijn gewone .m3u-bestanden die in de mappen van je bibliotheek zijn opgeslagen. Je kunt ze in de app of met een willekeurige teksteditor bewerken.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Platform: {platform}",
+  "dataStoragePlatformBodyLinux": "App-gegevens worden opgeslagen in je app-support-map (meestal ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Gegevens van Linux-apps",
+  "dataStorageLinuxDataBody": "App-gegevens worden opgeslagen in ~/.local/share/app.retroplayer/. Die map is uitsluitend bedoeld voor de database en instellingen.",
+  "dataStorageLinuxTaskbarTitle": "Integratie van de Linux-taakbalk",
+  "dataStorageLinuxTaskbarBody": "Voor het pictogram in de taakbalk en het app-raster verwachten Linux-desktopomgevingen afzonderlijke Freedesktop-bestanden. Retro Player installeert deze bij het opstarten vanuit het app-pakket:\n\n• ~/.local/share/applications/app.retroplayer.desktop — startitem dat het actieve venster aan deze app koppelt\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — themapictogrammen die uit de bundel zijn gekopieerd\n\nEr wordt nooit een gebruikersbestand hicolor/index.theme aangemaakt (dat zou het systeemthema overschrijven en andere pictogrammen verbergen). Pictogrammen zijn ook ingebed in het binaire bestand van de app. De bovenstaande kopieën helpen GNOME/KDE om het juiste startpictogram weer te geven in plaats van een generieke plaatshouder.",
+  "dataStorageAndroidPermissionsTitle": "Android-machtigingen en opslagruimte",
+  "dataStorageAndroidPermissionsBody": "Retro Player slaat zijn database op in het app-specifieke ondersteuningsgebied op het interne geheugen. Je muziekbestanden blijven staan in mappen die je zelf kiest met de mapkiezer van het systeem.\n\nOp Android kan de app toestemming vragen voor toegang tot audio om nummers te lezen, en voor toegang tot foto's/afbeeldingen zodat albumillustraties (bijvoorbeeld cover.jpg) kunnen worden weergegeven. Audiobestanden worden nooit naar de database van de app gekopieerd.",
+  "dataStorageAndroidPlaybackTitle": "Afspeelfunctie op de achtergrond op Android",
+  "dataStorageAndroidPlaybackBody": "Wanneer er audio wordt afgespeeld, draait Retro Player een mediaservice op de voorgrond, zodat het afspelen doorgaat als je de telefoon vergrendelt of van app wisselt. De afspeelknoppen worden dan weergegeven in de systeemmelding. Als je de app uit het venster ‘Recente apps’ wegveegt, wordt het afspelen gestopt en verdwijnt de melding.",
+  "dataStorageIOSAccessTitle": "Toegang tot mappen in iOS",
+  "dataStorageIOSAccessBody": "Retro Player slaat zijn database op in het app-specifieke ondersteuningsgebied op de opslag van het apparaat. Je muziekbestanden blijven staan in de mappen die je selecteert met de standaardmapkiezer.\n\niOS verleent toegang via URL’s met beveiligingsbereik voor de mappen die je selecteert. Retro Player leest bestanden rechtstreeks vanaf die locaties; de app kopieert je bibliotheek niet naar de app-opslag.",
+  "dataStorageIOSPlaybackTitle": "Achtergrondgeluid op iOS",
+  "dataStorageIOSPlaybackBody": "Het afspelen kan doorgaan terwijl de app op de achtergrond draait of het scherm is vergrendeld. De hervatposities en de status van de wachtrij worden opgeslagen in de lokale app-database.",
+  "dataStoragePlatformBodyAndroid": "App-gegevens worden opgeslagen in het app-specifieke ondersteuningsgedeelte op het interne geheugen.",
+  "dataStoragePlatformBodyIOS": "App-gegevens worden opgeslagen in het app-specifieke ondersteuningsgebied op de opslag van het apparaat.",
+  "dataStoragePlatformBodyMacOS": "De app-gegevens worden opgeslagen in ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "App-gegevens worden opgeslagen in de map „application support“.",
+  "dataStoragePlatformBodyWeb": "App-gegevens worden voor deze oorsprong opgeslagen in de lokale opslag van de browser.",
+  "dataStoragePlatformBodyUnknown": "App-gegevens worden opgeslagen in het ondersteuningsgedeelte voor platformtoepassingen.",
+  "loading": "Bezig met laden…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Bibliotheekindex",
+  "playlists": "Afspeellijsten",
+  "playPlaylist": "Afspeellijst afspelen",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 nummer} other{{count} nummers}}",
+  "createPlaylist": "Afspeellijst aanmaken",
+  "queue": "Wachtrij",
+  "saveAsPlaylist": "Opslaan als afspeellijst",
+  "queueEmpty": "De wachtrij is leeg. Voeg nummers uit je bibliotheek toe.",
+  "choosePlaylistFolder": "Kies een map in de bibliotheek. De hoofdmap van de bibliotheek is geen map.",
+  "clearQueue": "Wachtrij leegmaken",
+  "clearQueueTitle": "Wachtrij leegmaken?",
+  "clearQueueBody": "Hiermee worden alle nummers uit de wachtrij verwijderd. Audiobestanden en opgeslagen afspeellijsten blijven behouden.",
+  "newPlaylistName": "Naam van de afspeellijst",
+  "addTracks": "Nummers toevoegen",
+  "save": "Opslaan",
+  "addTracksFromLibrary": "Toevoegen vanuit bibliotheek",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Toevoegen ({count})",
+  "addTracksNothingSelected": "Selecteer één of meer nummers in je bibliotheek.",
+  "libraryEmptyNoRoots": "Voeg eerst een bibliotheekmap toe en selecteer vervolgens nummers daaruit.",
+  "playlistEmpty": "Deze afspeellijst bevat nog geen nummers.",
+  "missingTrack": "Ontbrekend bestand",
+  "playlistReadOnly": "Alleen-lezen",
+  "playlistSelect": "Selecteer",
+  "playlistSelectAll": "Alles selecteren",
+  "playlistDeselectAll": "Alles deselecteren",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Nummers selecteren} =1{1 geselecteerd} other{{count} geselecteerd}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Het nummer uit de afspeellijst verwijderen?} other{De nummers met {count} uit de afspeellijst verwijderen?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Hierdoor wordt het item uit het afspeellijstbestand verwijderd wanneer je het opslaat.} other{Hierdoor worden de vermeldingen uit het afspeellijstbestand verwijderd wanneer je het opslaat.}}",
+  "addTracksNothingAdded": "Er zijn geen nieuwe nummers toegevoegd. Misschien staan ze al in de afspeellijst.",
+  "playlistNothingToPlay": "Deze afspeellijst bevat geen nummers die kunnen worden afgespeeld.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Afspeellijst verwijderen?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "\"{name}\" verwijderen? Hiermee wordt het afspeellijstbestand van de schijf verwijderd."
+}

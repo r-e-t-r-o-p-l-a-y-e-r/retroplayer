@@ -1,0 +1,262 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Retro Player",
+  "settings": "Настройки",
+  "about": "О нас",
+  "aboutSubtitle": "Только локальное аудио. Без рекламы, без телеметрии, без доступа к сети.\nПоддерживаемые форматы: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Версия",
+  "aboutBuildDate": "Время сборки",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Ветка",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Сборка",
+  "equalizer": "Эквалайзер",
+  "equalizerUnavailable": "Эквалайзер недоступен на этой платформе.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Диапазоны",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Сбросить",
+  "library": "Библиотека",
+  "album": "Альбом",
+  "playlist": "Плейлист",
+  "nowPlaying": "Сейчас воспроизводится",
+  "addFolder": "Добавить папку",
+  "audioPermissionRequired": "Требуется разрешение на воспроизведение аудио на Android",
+  "expandPlayer": "Развернуть плеер",
+  "showLibrary": "Показать библиотеку",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Ошибка: {message}",
+  "noFoldersAdded": "Папки не добавлены. Нажмите «Добавить папку», чтобы начать.",
+  "folderEmpty": "Эта папка пуста.",
+  "librarySources": "Библиотечные источники",
+  "favorites": "Избранное",
+  "favorite": "Избранное",
+  "removeFavorite": "Удалить избранное",
+  "folders": "Папки",
+  "audio": "Аудио",
+  "playFolder": "Папка воспроизведения",
+  "playAlbum": "Воспроизвести альбом",
+  "removeLibraryFolderTitle": "Удалить папку библиотеки?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Удалить \"{name}\" из вашей библиотеки?\n\nВаши аудиофайлы на диске не удаляются.",
+  "cancel": "Отмена",
+  "remove": "Удалить",
+  "albumNotFound": "Альбом не найден",
+  "playlistNotFound": "Плейлист не найден",
+  "selectToPlay": "Выберите что-то из своей библиотеки для воспроизведения.",
+  "speed": "Скорость",
+  "previous": "Предыдущий",
+  "pause": "Пауза",
+  "play": "Играть",
+  "next": "Далее",
+  "jumpBack": "Назад на 15 секунд",
+  "jumpForward": "Вперед на 15 секунд",
+  "trackFallback": "Трек",
+  "unknownArtist": "Неизвестно",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} треков · {artist}",
+  "resetDatabase": "Сбросить базу данных",
+  "resetDatabaseTitle": "Сбросить базу данных?",
+  "resetDatabaseBody": "Это очищает позиции воспроизведения, избранное, открытую папку, тему, язык и настройки эквалайзера. Очистка всего также удаляет добавленные папки библиотеки. Музыкальные файлы и плейлисты на диске не удаляются.",
+  "resetDatabaseKeepFolders": "Сохраняйте папки библиотеки.",
+  "resetDatabaseClearEverything": "Полная очистка",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Вручную",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Низкие частоты",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Высокие частоты",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Голос",
+  "appearance": "Внешний вид",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Свет",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Темный",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "классификации",
+  "language": "Язык",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "классификации",
+  "openSourceLicenses": "Лицензии открытого ПО",
+  "openSourceLegalese": "© 2026 Участники проекта Retro Player",
+  "dataStorage": "Хранение данных",
+  "dataStorageIntro": "Retro Player хранит настройки приложения в небольшой локальной базе данных. Ваша музыка и плейлисты остаются в виде обычных файлов в выбранных вами папках.",
+  "dataStorageAppDataTitle": "база данных приложений",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Файл: {dbFileName}&#10; Путь: {dbPath}&#10;&#10; Сохраняет корневые каталоги библиотеки, состояние просмотра, возобновление воспроизведения, эквалайзер, тему оформления и языковые настройки.",
+  "dataStorageLibraryTitle": "Музыкальные файлы:",
+  "dataStorageLibraryBody": "Аудиофайлы никогда не копируются в базу данных приложения. Добавьте папки библиотеки, и Retro Player будет считывать файлы непосредственно с диска.",
+  "dataStoragePlaylistsTitle": "Playlist files:",
+  "dataStoragePlaylistsBody": "Плейлисты — это обычные файлы .m3u, хранящиеся в папках вашей библиотеки. Вы можете редактировать их в приложении или с помощью любого текстового редактора.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Платформа {platform}",
+  "dataStoragePlatformBodyLinux": "Данные приложения хранятся в каталоге поддержки приложения (обычно ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "данные приложения Linux",
+  "dataStorageLinuxDataBody": "Данные приложения хранятся в папке ~/.local/share/app.retroplayer/. Эта папка предназначена только для базы данных и настроек.",
+  "dataStorageLinuxTaskbarTitle": "Интеграция панели задач Linux",
+  "dataStorageLinuxTaskbarBody": "Для значков на панели задач и в сетке приложений среды рабочего стола Linux ожидаются отдельные файлы Freedesktop. Retro Player устанавливает их из пакета приложения при запуске:\n\n• ~/.local/share/applications/app.retroplayer.desktop — запись запуска, которая связывает окно запуска с этим приложением\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — тематические иконки, скопированные из пакета\n\nПриложение никогда не создает пользовательский файл hicolor/index.theme (это бы заслонило системную тему и скрыло другие значки). Значки также встраиваются в исполняемый файл приложения. Приведенные выше копии помогают GNOME/KDE отображать правильный значок запуска вместо стандартного заполнителя.",
+  "dataStorageAndroidPermissionsTitle": "Разрешения и хранилище Android",
+  "dataStorageAndroidPermissionsBody": "Retro Player хранит свою базу данных в закрытой области приложения на внутренней памяти. Ваши музыкальные файлы остаются в папках, которые вы выбираете с помощью системного средства выбора папок.&#10;&#10; На Android приложение может запрашивать доступ к аудиофайлам для чтения треков, а также доступ к фотографиям/изображениям для отображения обложек папок (например, cover.jpg). Аудиофайлы никогда не копируются в базу данных приложения.",
+  "dataStorageAndroidPlaybackTitle": "Воспроизведение фона Android",
+  "dataStorageAndroidPlaybackBody": "Во время воспроизведения аудио Retro Player запускает фоновую медиаслужбу, поэтому воспроизведение продолжается, даже если вы заблокируете телефон или переключитесь на другое приложение, при этом элементы управления воспроизведением отображаются в системном уведомлении. Если вы проведете пальцем по приложению, чтобы удалить его из списка последних приложений, воспроизведение остановится, а уведомление исчезнет.",
+  "dataStorageIOSAccessTitle": "Доступ к папке",
+  "dataStorageIOSAccessBody": "Retro Player хранит свою базу данных в закрытой области поддержки приложения во внутренней памяти устройства. Ваши музыкальные файлы остаются в папках, которые вы выбираете с помощью системного средства выбора папок.&#10;&#10; iOS предоставляет доступ к выбранным вами папкам через URL-адреса с ограниченным доступом. Retro Player считывает файлы непосредственно из этих мест; он не копирует вашу библиотеку в хранилище приложений.",
+  "dataStorageIOSPlaybackTitle": "фоновое аудио iOS",
+  "dataStorageIOSPlaybackBody": "Воспроизведение может продолжаться, пока приложение находится в фоновом режиме или экран заблокирован. Позиции резюме и состояние очереди хранятся в локальной базе данных приложения.",
+  "dataStoragePlatformBodyAndroid": "Данные приложения хранятся в области приватной поддержки приложения на внутреннем хранилище.",
+  "dataStoragePlatformBodyIOS": "Данные приложения хранятся в области приватной поддержки приложения на устройстве хранения.",
+  "dataStoragePlatformBodyMacOS": "Данные приложения хранятся в каталоге ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Данные приложения хранятся в каталоге поддержки вашего приложения.",
+  "dataStoragePlatformBodyWeb": "Данные приложения хранятся в локальном хранилище браузера для данного источника.",
+  "dataStoragePlatformBodyUnknown": "Данные приложения хранятся в области поддержки приложений платформы.",
+  "loading": "Загрузка…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Указатель библиотеки",
+  "playlists": "Плейлисты",
+  "playPlaylist": "Воспроизвести плейлист",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 трек} other{{count} треков}}",
+  "createPlaylist": "Создать плейлист",
+  "queue": "Очередь",
+  "saveAsPlaylist": "Сохранить как плейлист",
+  "queueEmpty": "Очередь пуста. Добавьте треки из своей библиотеки.",
+  "choosePlaylistFolder": "Выберите папку в библиотеке. Корневая папка библиотеки не является папкой.",
+  "clearQueue": "Очистить очередь",
+  "clearQueueTitle": "Очистить очередь",
+  "clearQueueBody": "Это удалит все треки из очереди воспроизведения. Аудиофайлы и сохраненные плейлисты останутся.",
+  "newPlaylistName": "Имя Плейлиста",
+  "addTracks": "Добавить треки",
+  "save": "Сохранить",
+  "addTracksFromLibrary": "Загрузить из библиотеки",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Добавить {count}",
+  "addTracksNothingSelected": "Выберите один или несколько треков из вашей библиотеки.",
+  "libraryEmptyNoRoots": "Сначала создайте папку библиотеки, а затем выбирайте треки из неё.",
+  "playlistEmpty": "В этом плейлисте пока нет треков.",
+  "missingTrack": "Отсутствующий файл",
+  "playlistReadOnly": "Только чтение",
+  "playlistSelect": "Выбрать",
+  "playlistSelectAll": "Выбрать все",
+  "playlistDeselectAll": "Отмените выбор всех",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Выбрать треки} =1{1 выбран} other{{count} выбрано}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Удалить трек из плейлиста?} other{Удалить треки {count} из плейлиста?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{При этом при сохранении запись удаляется из файла плейлиста.} other{При этом при сохранении записи удаляются из файла плейлиста.}}",
+  "addTracksNothingAdded": "Новые треки не добавлены. Возможно, они уже есть в плейлисте.",
+  "playlistNothingToPlay": "В этом плейлисте нет воспроизводимых треков.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Удалить плейлист?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Удалить \"{name}\"? Файл списка воспроизведения будет удален с диска."
+}

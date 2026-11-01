@@ -1,0 +1,262 @@
+{
+  "@@locale": "is",
+  "appTitle": "Retro Player",
+  "settings": "Stillingar",
+  "about": "Um",
+  "aboutSubtitle": "Aðeins staðbundinn hljómur. Engin auglýsingar, engin fjarkönnun, enginn netaðgangur.\nStuðaðar sniður: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Útgáfa",
+  "aboutBuildDate": "Uppbyggingartími",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Deild",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Uppbygging",
+  "equalizer": "Jafngildari",
+  "equalizerUnavailable": "Jafnari er ekki í boði á þessum vettvangi.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Hljómsveitir",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Endurstilla",
+  "library": "Bókasafn",
+  "album": "Plata",
+  "playlist": "Spilunarlisti",
+  "nowPlaying": "Spilar núna",
+  "addFolder": "Bæta við möppu",
+  "audioPermissionRequired": "Hljóðleyfi er krafist á Android.",
+  "expandPlayer": "Stækka spilara",
+  "showLibrary": "Sýna bókasafn",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Villa: {message}",
+  "noFoldersAdded": "Engar möppur hafa verið bætt við. Pikkaðu á \"Bæta möppu\" til að byrja.",
+  "folderEmpty": "Þessi möppu er tóm.",
+  "librarySources": "Heimildir bókasafnsins",
+  "favorites": "Uppáhald",
+  "favorite": "Uppáhald",
+  "removeFavorite": "Fjarlægja uppáhald",
+  "folders": "Mappur",
+  "audio": "Hljóð",
+  "playFolder": "Spila möppu",
+  "playAlbum": "Spilaðu plötuna",
+  "removeLibraryFolderTitle": "Eyða bókasafnsmöppunni?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Eyða \"{name}\" úr bókasafninu þínu?\n\nHljóðskrárnar þínar á disknum verða ekki eytt.",
+  "cancel": "Hætta",
+  "remove": "Fjarlægja",
+  "albumNotFound": "Albúm ekki fundið",
+  "playlistNotFound": "Spilunarlisti fundinn ekki",
+  "selectToPlay": "Veldu eitthvað úr bókasafninu þínu til að spila.",
+  "speed": "Hraði",
+  "previous": "Fyrri",
+  "pause": "Pása",
+  "play": "Spila",
+  "next": "Næst",
+  "jumpBack": "Aftur 15 sekúndur",
+  "jumpForward": "Framlenging um 15 sekúndur",
+  "trackFallback": "Lag",
+  "unknownArtist": "Óþekkt",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} lög · {artist}",
+  "resetDatabase": "Endurstilla gagnagrunn",
+  "resetDatabaseTitle": "Endurstilla gagnagrunninn?",
+  "resetDatabaseBody": "Þetta hreinsar spilunarstöður, uppáhalds, opna möppu, þema, tungumál og stillingar jöfnunartækis. Að hreinsa allt gleymir einnig viðbættum bókasafnsmöppum. Tónlistarskrár og spilunarlistar á diski eru ekki eytt.",
+  "resetDatabaseKeepFolders": "Geymdu möppur bókasafnsins",
+  "resetDatabaseClearEverything": "Hreinsa allt",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Handvirkt",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Bassi",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Hástemm",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Rödd",
+  "appearance": "Útlit",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Léttur",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Dökkur",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Kerfi",
+  "language": "Mál",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Kerfi",
+  "openSourceLicenses": "Opinn hugbúnaðarleyfi",
+  "openSourceLegalese": "© 2026 Retro Player-framlagshafar",
+  "dataStorage": "Gagnageymsla",
+  "dataStorageIntro": "Retro Player geymir stillingar forritsins í litlum staðbundnum gagnagrunni. Tónlistin þín og spilunarlistarnir þínir eru venjulegar skrár í möppum sem þú velur.",
+  "dataStorageAppDataTitle": "Gagnagrunnur forritsins",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Skrá: {dbFileName}\nSlóður: {dbPath}\n\nGeymir bókasafnsrætur, vafraástand, endurspilunarendurupptöku, tónjafnara, þema og tungumálastillingar.",
+  "dataStorageLibraryTitle": "Tónlistarskrár",
+  "dataStorageLibraryBody": "Hljóðskrár eru aldrei afritaðar í gagnagrunn forritsins. Bættu við möppum bókasafnsins og Retro Player les skrár beint af diski.",
+  "dataStoragePlaylistsTitle": "Spilunarlista skrár",
+  "dataStoragePlaylistsBody": "Spilunarlistar eru einfaldar .m3u-skrár sem geymdar eru í bókasafnsmöppum þínum. Þú getur breytt þeim í forritinu eða með hvaða textaritli sem er.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Vettvangur: {platform}",
+  "dataStoragePlatformBodyLinux": "Gögn forritsins eru geymd í möppunni app-support (venjulega ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Gögn Linux-forrits",
+  "dataStorageLinuxDataBody": "Gögn forritsins eru geymd í ~/.local/share/app.retroplayer/. Þessi mappa er eingöngu fyrir gagnagrunninn og stillingarnar.",
+  "dataStorageLinuxTaskbarTitle": "Samþætting Linux-verkstiku",
+  "dataStorageLinuxTaskbarBody": "Fyrir verkstikuna og táknið í forritagagnrýni krefjast Linux-skrifborðsumhverfi aðskildra Freedesktop-skráa. Retro Player setur þessar skrár upp úr forritabundlinu við ræsingu:\n\n• ~/.local/share/applications/app.retroplayer.desktop — upphafsskrá sem tengir virka gluggann við þessa forrit\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — þemaskreytta táknin afrituð úr forritabundlinu\n\nÞað skrifar aldrei notendahicolor/index.theme (sem myndi skyggja á kerfisþemað og fela önnur tákn). Táknin eru einnig innbyggð í forritabínið. Ofangreindar afritanir hjálpa GNOME/KDE að sýna rétt upphafstákn í stað almenns staðfyllitákns.",
+  "dataStorageAndroidPermissionsTitle": "Android heimildir og geymsla",
+  "dataStorageAndroidPermissionsBody": "Retro Player geymir gagnagrunn sinn á einkasvæði forritsstuðnings á innri geymslu. Tónlistarskrár þínar verða áfram í möppum sem þú velur með kerfisvalsara möppna.\n\nÁ Android getur forritið óskað eftir aðgangi að hljóði til að lesa lög og aðgangi að myndum/myndum svo möppuhönnun (til dæmis cover.jpg) geti verið sýnd. Hljóðskrár eru aldrei afritaðar í gagnagrunn forritsins.",
+  "dataStorageAndroidPlaybackTitle": "Android bakgrunnsspilun",
+  "dataStorageAndroidPlaybackBody": "Þegar hljóð er í spilun keyrir Retro Player forgrunnsmiðlunarþjónustu svo spilun haldi áfram þótt þú læsir símanum eða skiptir um forrit, með spilunarstýringum í kerfistilkynningunni. Með því að fletta forritinu út úr nýjustu forritunum stöðvarðu spilun og fjarlægir tilkynninguna.",
+  "dataStorageIOSAccessTitle": "Aðgangur að möppum í iOS",
+  "dataStorageIOSAccessBody": "Retro Player geymir gagnagrunninn sinn á einkasvæði stuðningsforrita í geymslu tækisins. Tónlistarskrárnar þínar verða á möppum sem þú velur með möppuvali kerfisins.\n\niOS veitir aðgang með öryggissvæðum vefslóðum fyrir möppur sem þú velur. Retro Player les skrár beint af þessum stöðum; það afritar ekki bókasafnið þitt í geymslu forritsins.",
+  "dataStorageIOSPlaybackTitle": "Bakgrunns hljóð í iOS",
+  "dataStorageIOSPlaybackBody": "Endurspilun getur haldið áfram á meðan forritið er í bakgrunni eða skjánum er læst. Staðsetningar við endurupptöku og ástand biðröðunnar eru vistuð í staðbundinni gagnagrunni forritsins.",
+  "dataStoragePlatformBodyAndroid": "Gögn forritsins eru geymd á einkasvæði forritsstuðnings á innri geymslu.",
+  "dataStoragePlatformBodyIOS": "Gögn forritsins eru geymd á einkarekstrarsvæði forritsins í geymslu tækisins.",
+  "dataStoragePlatformBodyMacOS": "Gögn forritsins eru geymd undir ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Gögn forritsins eru geymd í stuðningsmöppu forritsins þíns.",
+  "dataStoragePlatformBodyWeb": "Gögn forritsins eru vistuð í vafrageymslu fyrir þennan uppruna.",
+  "dataStoragePlatformBodyUnknown": "Gögn forritsins eru geymd í stuðningssvæði vettvangforritsins.",
+  "loading": "Að hlaða…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Bókasafnskrá",
+  "playlists": "Spilunarlistar",
+  "playPlaylist": "Spila spilunarlista",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 braut} other{{count} brautir}}",
+  "createPlaylist": "Búa til spilunarlista",
+  "queue": "Röð",
+  "saveAsPlaylist": "Vista sem spilunarlista",
+  "queueEmpty": "Röðin er tóm. Bættu lögum úr bókasafninu þínu.",
+  "choosePlaylistFolder": "Veldu möppu í bókasafninu. Rót bókasafnsins er ekki mappa.",
+  "clearQueue": "Hreinsa biðröð",
+  "clearQueueTitle": "Tóm biðröð?",
+  "clearQueueBody": "Þetta fjarlægir alla laga úr biðröðinni. Hljóðskrár og vistaðar spilunarlistar verða áfram.",
+  "newPlaylistName": "Heiti spilunarlistans",
+  "addTracks": "Bæta við lögum",
+  "save": "Vista",
+  "addTracksFromLibrary": "Bæta úr bókasafni",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Bæta við ({count})",
+  "addTracksNothingSelected": "Veldu einn eða fleiri brautir í bókasafninu þínu.",
+  "libraryEmptyNoRoots": "Bættu fyrst við bókasafnsklippu, síðan veldu lög úr henni.",
+  "playlistEmpty": "Þessi spilunarlisti hefur enn engin lög.",
+  "missingTrack": "Skrá vantar",
+  "playlistReadOnly": "Bara til lestrar",
+  "playlistSelect": "Velja",
+  "playlistSelectAll": "Velja allt",
+  "playlistDeselectAll": "Afvelja allt",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Velja lög} =1{1 valinn} other{{count} valið}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Fjarlægja lagi af spilunarlistanum?} other{Fjarlægja {count} brautir af spilunarlistanum?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Þetta fjarlægir færsluna úr spilunarlistanskránni þegar þú vistað.} other{Þetta fjarlægir færslurnar úr spilunarlistanskránni þegar þú vista.}}",
+  "addTracksNothingAdded": "Engar nýjar lögbætur voru bættar við. Þær kunna þegar að vera á spilunarlistanum.",
+  "playlistNothingToPlay": "Þessi spilunarlisti inniheldur engin lög sem hægt er að spila.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "Nulstafir (einn stafur)",
+  "deletePlaylistTitle": "Eyða spilunarlista?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Eyða \"{name}\"? Þetta fjarlægir spilunarlistiskrána af disknum."
+}

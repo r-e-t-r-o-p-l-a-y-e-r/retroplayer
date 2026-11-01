@@ -1,0 +1,16 @@
+Retro Player spiller av lyd fra mapper du velger på telefonen eller datamaskinen din. Den egner seg både for musikksamlinger og lydbøker: album uten pauser, lagret avspillingsposisjon, variabel hastighet og avspilling i bakgrunnen med kontroller på låseskjermen.
+
+Hva du kan gjøre
+• Legg til biblioteksmapper med systemvelgeren – filene dine forblir der de er
+• Bla gjennom mapper på disken (navigasjonsspor og favoritter); åpne grupperte album for sporlister; lag og spill av spillelister
+• Fortsett der du sluttet; album med flere plater i én mappe spilles av i plateorden
+• Styr avspillingen fra varsler og Bluetooth-/bilmedieknapper
+• Endre tema, språk og forhåndsinnstillinger for equalizer
+
+Støttede formater
+MP3, FLAC, WAV og ukryptert AAC (.m4a / .m4b) – pluss OGG på Android og Linux.
+
+Innebygd personvern
+Utgivelsesversjonene ber ikke om internettilgang: ingen strømming, annonser, analyseverktøy, feilrapportering eller kjøp i appen. Appen leser kun mapper du eksplisitt gir tilgang til.
+
+Trinnvis veiledning med skjermbilder finnes i prosjektets brukerhåndbok (doc/USAGE.md i det offentlige kildekoderepositoriet).

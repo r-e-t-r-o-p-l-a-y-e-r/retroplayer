@@ -1,0 +1,262 @@
+{
+  "@@locale": "sl",
+  "appTitle": "Retro Player",
+  "settings": "Nastavitve",
+  "about": "O nas",
+  "aboutSubtitle": "Samo lokalni zvok. Brez oglasov, brez telemetrije, brez dostopa do omrežja.\nPodprti formati: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Različica",
+  "aboutBuildDate": "Čas izdelave",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Veja",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Zgradba",
+  "equalizer": "Equalizer",
+  "equalizerUnavailable": "Na tej platformi izenačevalnik ni na voljo.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Glasbene skupine",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Ponastavi",
+  "library": "Knjižnica",
+  "album": "Album",
+  "playlist": "Seznam predvajanja",
+  "nowPlaying": "Trenutno predvaja",
+  "addFolder": "Dodaj mapo",
+  "audioPermissionRequired": "Na sistemu Android je potrebno dovoljenje za predvajanje zvoka",
+  "expandPlayer": "Razširi predvajalnik",
+  "showLibrary": "Prikaži knjižnico",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Napaka: {message}",
+  "noFoldersAdded": "Ni dodanih map. Za začetek tapnite »Dodaj mapo«.",
+  "folderEmpty": "Ta mapa je prazna.",
+  "librarySources": "Knjižnični viri",
+  "favorites": "Priljubljene",
+  "favorite": "Priljubljeno",
+  "removeFavorite": "Odstrani iz priljubljenih",
+  "folders": "Mape",
+  "audio": "Zvok",
+  "playFolder": "Mapa »Play«",
+  "playAlbum": "Predvajaj album",
+  "removeLibraryFolderTitle": "Naj odstranim mapo z knjižnico?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Želite iz knjižnice odstraniti »{name}«?\n\nVaše zvočne datoteke na disku se ne bodo izbrisale.",
+  "cancel": "Prekliči",
+  "remove": "Odstrani",
+  "albumNotFound": "Album ni bil najden",
+  "playlistNotFound": "Seznam predvajanja ni bil najden",
+  "selectToPlay": "Izberite nekaj iz svoje knjižnice, da si to predvajate.",
+  "speed": "Hitrost",
+  "previous": "Prejšnja",
+  "pause": "Premor",
+  "play": "Igraj",
+  "next": "Naprej",
+  "jumpBack": "Nazaj za 15 sekund",
+  "jumpForward": "Preskoči 15 sekund naprej",
+  "trackFallback": "Proga",
+  "unknownArtist": "Neznano",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} skladb · {artist}",
+  "resetDatabase": "Ponastavi bazo podatkov",
+  "resetDatabaseTitle": "Ponastaviti bazo podatkov?",
+  "resetDatabaseBody": "S tem se izbrišejo nastavitve predvajanja, priljubljene vsebine, odprta mapa, tema, jezik in izenačevalnik. Z izbrišanjem vsega se izbrišejo tudi dodane mape v knjižnici. Glasbene datoteke in seznami predvajanja na disku se ne izbrišejo.",
+  "resetDatabaseKeepFolders": "Ohranite mape knjižnice",
+  "resetDatabaseClearEverything": "Izbriši vse",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Ročno",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Bas",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Visoki toni",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Glas",
+  "appearance": "Videz",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Svetloba",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Temno",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Sistem",
+  "language": "Jezik",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Sistem",
+  "openSourceLicenses": "Licence odprte kode",
+  "openSourceLegalese": "© 2026 Avtorji prispevkov za Retro Player",
+  "dataStorage": "Shranjevanje podatkov",
+  "dataStorageIntro": "Retro Player shranjuje nastavitve aplikacije v majhni lokalni bazi podatkov. Vaša glasba in seznami predvajanja ostanejo kot običajne datoteke v mapah, ki jih izberete.",
+  "dataStorageAppDataTitle": "Baza podatkov aplikacij",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Datoteka: {dbFileName}\nPot: {dbPath}\n\nShranjuje nastavitve za korenske mape knjižnic, stanje brskanja, nadaljevanje predvajanja, ekvalizer, temo in jezik.",
+  "dataStorageLibraryTitle": "Glasbene datoteke",
+  "dataStorageLibraryBody": "Zvočne datoteke se nikoli ne kopirajo v bazo podatkov aplikacije. Dodajte mape s knjižnico in Retro Player bo datoteke bral neposredno z diska.",
+  "dataStoragePlaylistsTitle": "Datoteke s seznami predvajanja",
+  "dataStoragePlaylistsBody": "Seznami predvajanja so navadne datoteke .m3u, shranjene v mapah vaše knjižnice. Urejate jih lahko v aplikaciji ali s katerim koli urejevalnikom besedil.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Platforma: {platform}",
+  "dataStoragePlatformBodyLinux": "Podatki aplikacije so shranjeni v mapi app-support (običajno ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Podatki o aplikacijah za Linux",
+  "dataStorageLinuxDataBody": "Podatki aplikacije se shranijo v mapi ~/.local/share/app.retroplayer/. Ta mapa je namenjena izključno bazi podatkov in nastavitvam.",
+  "dataStorageLinuxTaskbarTitle": "Integracija z opravilno vrstico v sistemu Linux",
+  "dataStorageLinuxTaskbarBody": "Za ikono na opravilni vrstici in v mreži aplikacij namizna okolja Linuxa zahtevajo ločene datoteke Freedesktop. Retro Player jih ob zagonu namesti iz paketa aplikacije:\n\n• ~/.local/share/applications/app.retroplayer.desktop — vnos v zaganjalniku, ki povezuje odprto okno s to aplikacijo\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikone v skladu s temo, kopirane iz paketa\n\nNikoli ne ustvari uporabniške datoteke hicolor/index.theme (kar bi prekrilo sistemsko temo in skrilo druge ikone). Ikone so vgrajene tudi v izvedljivo datoteko aplikacije. Zgoraj navedene kopije pomagajo okoljem GNOME/KDE prikazati pravo ikono v zaganjalniku namesto splošnega nadomestnega simbola.",
+  "dataStorageAndroidPermissionsTitle": "Dovoljenja in shranjevanje v sistemu Android",
+  "dataStorageAndroidPermissionsBody": "Aplikacija Retro Player svojo bazo podatkov shranjuje v zasebnem podpornem območju aplikacije na notranjem pomnilniku. Vaše glasbene datoteke ostanejo v mapah, ki jih izberete s sistemskim izbirnikom map.\n\nV sistemu Android lahko aplikacija zahteva dostop do avdio datotek za branje skladb ter dostop do fotografij/slik, da se lahko prikažejo naslovnice map (na primer cover.jpg). Avdio datoteke se nikoli ne kopirajo v bazo podatkov aplikacije.",
+  "dataStorageAndroidPlaybackTitle": "Predvajanje v ozadju v sistemu Android",
+  "dataStorageAndroidPlaybackBody": "Med predvajanjem zvoka Retro Player izvaja medijsko storitev v ospredju, tako da se predvajanje nadaljuje, tudi če zaklenete telefon ali preklopite med aplikacijami, pri čemer so gumbi za upravljanje predvajanja na voljo v sistemskem obvestilu. Če aplikacijo s potegom prsta odstranite iz seznama nedavno uporabljenih aplikacij, se predvajanje ustavi in obvestilo izgine.",
+  "dataStorageIOSAccessTitle": "Dostop do map v sistemu iOS",
+  "dataStorageIOSAccessBody": "Aplikacija Retro Player shranjuje svojo bazo podatkov v zasebnem podpornem območju aplikacije v pomnilniku naprave. Vaše glasbene datoteke ostanejo v mapah, ki jih izberete s sistemskim izbirnikom map.\n\niOS omogoča dostop do izbranih map prek varnostno omejenih URL-jev. Retro Player bere datoteke neposredno s teh lokacij; vaše knjižnice ne kopira v pomnilnik aplikacije.",
+  "dataStorageIOSPlaybackTitle": "Zvočni posnetek v ozadju v sistemu iOS",
+  "dataStorageIOSPlaybackBody": "Predvajanje se lahko nadaljuje, tudi če je aplikacija v ozadju ali je zaslon zaklenjen. Mesta nadaljevanja in stanje čakalne vrste se shranijo v lokalni bazi podatkov aplikacije.",
+  "dataStoragePlatformBodyAndroid": "Podatki aplikacije so shranjeni v zasebnem podpornem območju aplikacije na notranjem pomnilniku.",
+  "dataStoragePlatformBodyIOS": "Podatki aplikacije so shranjeni v zasebnem podpornem območju aplikacije v pomnilniku naprave.",
+  "dataStoragePlatformBodyMacOS": "Podatki aplikacije so shranjeni v mapi ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Podatki o aplikaciji so shranjeni v vašem imeniku za podporo aplikacij.",
+  "dataStoragePlatformBodyWeb": "Podatki aplikacije so shranjeni v lokalnem pomnilniku brskalnika za to domeno.",
+  "dataStoragePlatformBodyUnknown": "Podatki o aplikaciji so shranjeni v območju za podporo aplikacij platforme.",
+  "loading": "Nalaganje…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Kazalo knjižnice",
+  "playlists": "Seznami predvajanja",
+  "playPlaylist": "Predvajaj seznam predvajanja",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 skladba} other{{count} skladbe}}",
+  "createPlaylist": "Ustvari seznam predvajanja",
+  "queue": "Čakalna vrsta",
+  "saveAsPlaylist": "Shrani kot seznam predvajanja",
+  "queueEmpty": "Čakalna vrsta je prazna. Dodajte skladbe iz svoje knjižnice.",
+  "choosePlaylistFolder": "Izberite mapo v knjižnici. Koren knjižnice ni mapa.",
+  "clearQueue": "Izbriši čakalno vrsto",
+  "clearQueueTitle": "Izbrisati čakalno vrsto?",
+  "clearQueueBody": "S tem se iz čakalne vrste odstranijo vse skladbe. Avdio datoteke in shranjeni seznami predvajanja ostanejo.",
+  "newPlaylistName": "Ime seznama predvajanja",
+  "addTracks": "Dodaj skladbe",
+  "save": "Shrani",
+  "addTracksFromLibrary": "Dodaj iz knjižnice",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Dodaj ({count})",
+  "addTracksNothingSelected": "Izberite eno ali več skladb v svoji knjižnici.",
+  "libraryEmptyNoRoots": "Najprej dodajte mapo s knjižnico, nato pa iz nje izberite skladbe.",
+  "playlistEmpty": "Ta seznam predvajanja še nima nobenih skladb.",
+  "missingTrack": "Manjkajoča datoteka",
+  "playlistReadOnly": "Samo za branje",
+  "playlistSelect": "Izberi",
+  "playlistSelectAll": "Izberi vse",
+  "playlistDeselectAll": "Odkleni vse",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Izberi skladbe} =1{1 izbran} other{{count} izbrano}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Naj se skladba odstrani iz seznama predvajanja?} other{Ali želite odstraniti skladbe {count} iz seznama predvajanja?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{S tem se ob shranjevanju vnos odstrani iz datoteke s seznamom predvajanja.} other{S tem se ob shranjevanju izbrišejo vnosi iz datoteke s seznamom predvajanja.}}",
+  "addTracksNothingAdded": "Nove skladbe niso bile dodane. Morda so že v seznamu predvajanja.",
+  "playlistNothingToPlay": "Ta seznam predvajanja ne vsebuje skladb, ki bi jih bilo mogoče predvajati.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Izbrisati seznam predvajanja?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Izbrisati »{name}«? S tem se datoteka seznama predvajanja odstrani z diska."
+}

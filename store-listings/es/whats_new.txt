@@ -1,0 +1,1 @@
+Primera versión pública: biblioteca local, reproducción sin pausas, ajuste de velocidad y reanudación de audiolibros, ecualizador y más de 40 idiomas en la interfaz.

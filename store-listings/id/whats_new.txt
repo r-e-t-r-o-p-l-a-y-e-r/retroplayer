@@ -1,0 +1,1 @@
+Rilis publik pertama: perpustakaan lokal, pemutaran tanpa jeda, pengaturan kecepatan dan fitur lanjutkan pemutaran buku audio, equalizer, serta lebih dari 40 bahasa antarmuka.

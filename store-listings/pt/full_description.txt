@@ -1,0 +1,16 @@
+O Retro Player reproduz áudio a partir das pastas que escolher no seu telemóvel ou computador. É ideal para coleções de música e audiolivros: álbuns sem pausas, posição de reprodução guardada, velocidade variável e reprodução em segundo plano com controlos no ecrã de bloqueio.
+
+O que pode fazer
+• Adicione pastas à biblioteca com o seletor do sistema — os seus ficheiros permanecem onde estão
+• Navegue pelas pastas no disco (trajetória de navegação e favoritos); abra álbuns agrupados para ver as listas de faixas; crie e reproduza listas de reprodução
+• Retome a reprodução onde parou; os álbuns com vários discos numa única pasta são reproduzidos pela ordem dos discos
+• Controlar a reprodução a partir de notificações e botões Bluetooth / multimédia do automóvel
+• Alterar o tema, o idioma e as predefinições do equalizador
+
+Formatos suportados
+MP3, FLAC, WAV e AAC não encriptado (.m4a / .m4b) — além de OGG no Android e no Linux.
+
+Privacidade desde a conceção
+As versões de lançamento não solicitam acesso à Internet: sem streaming, anúncios, análises, rastreadores de falhas ou compras na aplicação. A aplicação apenas acede às pastas para as quais conceda explicitamente permissão.
+
+A ajuda passo a passo com capturas de ecrã encontra-se no guia do utilizador do projeto (doc/USAGE.md no repositório de código-fonte público).

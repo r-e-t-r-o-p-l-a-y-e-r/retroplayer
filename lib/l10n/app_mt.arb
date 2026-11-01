@@ -1,0 +1,262 @@
+{
+  "@@locale": "mt",
+  "appTitle": "Retro Player",
+  "settings": "Is-settings",
+  "about": "Dwar",
+  "aboutSubtitle": "Awdjo lokali biss. L-ebda reklami, l-ebda telemetrija, l-ebda aċċess tan-netwerk.\nFormati appoġġjati: MP3, M4A, M4B, FLAC, WAV",
+  "aboutVersion": "Verżjoni",
+  "aboutBuildDate": "Ħin tal-bini",
+  "@aboutGitBranch": {
+    "description": "Git branch name in About (version control), not a branch office."
+  },
+  "aboutGitBranch": "Fergħa",
+  "@aboutGitCommit": {
+    "description": "Label for the Git commit hash in About (specific build revision), not a verb or legal commitment."
+  },
+  "aboutGitCommit": "Bini",
+  "equalizer": "Ekwalizzatur",
+  "equalizerUnavailable": "L-Equalizer mhuwiex disponibbli fuq din il-pjattaforma.",
+  "@bands": {
+    "description": "Equalizer frequency sliders (not a music band)."
+  },
+  "bands": "Bands",
+  "@reset": {
+    "description": "Reset equalizer sliders to flat/zero (not reset database)."
+  },
+  "reset": "Irrisettja",
+  "library": "Librerija",
+  "album": "Album",
+  "playlist": "Lista tal-kanzunetti",
+  "nowPlaying": "Issa qed tilgħab",
+  "addFolder": "Żid folder",
+  "audioPermissionRequired": "Permess tal-awdjo huwa meħtieġ fuq Android.",
+  "expandPlayer": "Espandi l-plejer",
+  "showLibrary": "Uri l-librerija",
+  "@errorMessage": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "errorMessage": "Żball: {message}",
+  "noFoldersAdded": "Ma żdiedu l-ebda folders. Agħfas \"Żid folder\" biex tibda.",
+  "folderEmpty": "Din il-folder hija vojta.",
+  "librarySources": "Sorsi tal-librerija",
+  "favorites": "Favoriti",
+  "favorite": "Favorit",
+  "removeFavorite": "Neħħi l-favorit",
+  "folders": "Folders",
+  "audio": "Awdjo",
+  "playFolder": "Aqra l-folder",
+  "playAlbum": "Aqra l-album",
+  "removeLibraryFolderTitle": "Neħħi l-folder tal-librerija?",
+  "@removeLibraryFolderBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeLibraryFolderBody": "Neħħi \"{name}\" mill-librerija tiegħek?\n\nIl-fajls awdjo tiegħek fuq id-diska ma jitħassrux.",
+  "cancel": "Ħassar",
+  "remove": "Neħħi",
+  "albumNotFound": "Album mhux instab",
+  "playlistNotFound": "Il-playlist ma nstabx",
+  "selectToPlay": "Agħżel xi ħaġa mill-librerija tiegħek biex tilgħab.",
+  "speed": "Velocità",
+  "previous": "Preċedenti",
+  "pause": "Waqqaf",
+  "play": "Lgħab",
+  "next": "Li jmiss",
+  "jumpBack": "Lura 15-il sekonda",
+  "jumpForward": "Avvanza 15-il sekonda",
+  "trackFallback": "Traċċa",
+  "unknownArtist": "Mhux magħruf",
+  "@tracksCountArtist": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "artist": {
+        "type": "String"
+      }
+    }
+  },
+  "tracksCountArtist": "{count} trakkijiet · {artist}",
+  "resetDatabase": "Irrisettja d-database",
+  "resetDatabaseTitle": "Irrisettja l-bażi tad-dejta?",
+  "resetDatabaseBody": "Dan jnaddaf il-pożizzjonijiet tal-plejbek, il-favoriti, il-folder miftuħ, it-tema, il-lingwa u l-issettjar tal-eqwalizzatur. Meta tnaddaf kollox, jinsa wkoll il-folderi tal-librerija miżjuda. Il-fajls mużikali u l-playlists fuq id-diska ma jitħassrux.",
+  "resetDatabaseKeepFolders": "Żomm il-folderi tal-librerija",
+  "resetDatabaseClearEverything": "Neħħi kollox",
+  "@eqManually": {
+    "description": "Equalizer preset: user-adjusted bands (adverb, not a user guide)."
+  },
+  "eqManually": "Bil-idejn",
+  "@eqBass": {
+    "description": "Short equalizer preset label: emphasize bass frequencies (not the fish)."
+  },
+  "eqBass": "Baxx",
+  "@eqTreble": {
+    "description": "Short equalizer preset label: emphasize treble/high frequencies."
+  },
+  "eqTreble": "Vuci għolja",
+  "@eqVoice": {
+    "description": "Short equalizer preset label: vocal/spoken-word curve (equalizer context)."
+  },
+  "eqVoice": "Leħen",
+  "appearance": "Dehra",
+  "@themeLight": {
+    "description": "Light color theme (not brightness or weight)."
+  },
+  "themeLight": "Ħafif",
+  "@themeDark": {
+    "description": "Dark color theme."
+  },
+  "themeDark": "Skura",
+  "@themeSystem": {
+    "description": "Follow the operating system light/dark setting."
+  },
+  "themeSystem": "Sistema",
+  "language": "Lingwa",
+  "@languageSystem": {
+    "description": "Follow the device UI language."
+  },
+  "languageSystem": "Sistema",
+  "openSourceLicenses": "Liċenzji b'sors miftuħ",
+  "openSourceLegalese": "© 2026 Kontribwenti ta' Retro Player",
+  "dataStorage": "Ħażna tad-dejta",
+  "dataStorageIntro": "Retro Player iżomm l-issettjar tal-app f'bażi żgħira ta' dejta lokali. Il-mużika tiegħek u l-playlists tiegħek jibqgħu bħala fajls normali f'folderi li tagħżel.",
+  "dataStorageAppDataTitle": "Database tal-app",
+  "@dataStorageAppDataBody": {
+    "placeholders": {
+      "dbFileName": {
+        "type": "String"
+      },
+      "dbPath": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStorageAppDataBody": "Fajl: {dbFileName}\nTriq: {dbPath}\n\nJaħżen il-preferenzi tal-librerija, tal-istat tal-browsing, tar-riżum tal-plejbek, tal-eqwalizzatur, tat-tema, u tal-lingwa.",
+  "dataStorageLibraryTitle": "Fajls tal-mużika",
+  "dataStorageLibraryBody": "Il-fajls tal-awdjo qatt ma jiġu kkopjati fid-database tal-app. Żid folders tal-librerija u Retro Player jaqra l-fajls direttament mid-diska.",
+  "dataStoragePlaylistsTitle": "Fajls tal-playlist",
+  "dataStoragePlaylistsBody": "Il-playlists huma fajls .m3u sempliċi maħżuna ġewwa l-folderi tal-librerija tiegħek. Tista' teditjahom fl-app jew b'kull editur tat-test.",
+  "@dataStoragePlatformTitle": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStoragePlatformTitle": "Pjattaforma: {platform}",
+  "dataStoragePlatformBodyLinux": "Id-dejta tal-app tiġi maħżuna taħt id-direttorju ta' appoġġ tal-app tiegħek (tipikament ~/.local/share/app.retroplayer/).",
+  "dataStorageLinuxDataTitle": "Data tal-app ta' Linux",
+  "dataStorageLinuxDataBody": "Id-dejta tal-app tibqa' f'~/.local/share/app.retroplayer/. Dik il-folder hija biss għad-database u l-issettjar.",
+  "dataStorageLinuxTaskbarTitle": "Integrazzjoni tal-bar tal-kompiti ta' Linux",
+  "dataStorageLinuxTaskbarBody": "Għal-ikona tal-bar tal-kompiti u tal-grilja tal-apps, l-ambjenti tad-desktop Linux jistennew fajls Freedesktop separati. Retro Player jinstallahom mill-pakkett tal-app meta tibda:\n\n• ~/.local/share/applications/app.retroplayer.desktop — daħla tal-launcher li tgħaqqad it-tieqa li qed taħdem ma' din l-app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikoni b'tema kopjati mill-bundle\n\nMa jikteb qatt fajl tal-utent hicolor/index.theme (li kien jaħbi t-tema tas-sistema u jaħbi ikoni oħra). L-ikoni huma wkoll inkorporati fil-binarju tal-app. Il-kopji hawn fuq jgħinu lil GNOME/KDE juru l-ikona korretta tal-launcher minflok post-holder ġeneriku.",
+  "dataStorageAndroidPermissionsTitle": "Permessi u ħażna ta' Android",
+  "dataStorageAndroidPermissionsBody": "Retro Player jaħżen il-bażi tad-dejta tiegħu fl-ispazju ta' appoġġ privat tal-app fuq l-ħażna interna. Il-fajls tal-mużika tiegħek jibqgħu f'folderi li tagħżel bl-għażla tal-folder tas-sistema.\n\nFuq Android, l-app tista' titlob aċċess għall-awdjo biex taqra t-trakkijiet, u aċċess għall-fotos/immaġini sabiex l-artwork tal-folder (per eżempju cover.jpg) jista' jintwera. Il-fajls awdjo qatt ma jiġu kkopjati fid-database tal-app.",
+  "dataStorageAndroidPlaybackTitle": "Riproduzzjoni fil-isfond ta' Android",
+  "dataStorageAndroidPlaybackBody": "Meta l-awdjo jkun qed jitħaddem, Retro Player jmexxi servizz medjatiku fil-quddiem sabiex il-plejbek ikompli jekk issakkar it-telefon jew tibdel l-apps, b'kontrolli tat-trasport fin-notifika tas-sistema. Meta tneħħi l-app mill-aħħar użati, il-plejbek jieqaf u n-notifika titneħħa.",
+  "dataStorageIOSAccessTitle": "Aċċess għall-folder tal-iOS",
+  "dataStorageIOSAccessBody": "Retro Player jaħżen il-bażi tad-dejta tiegħu fl-ispazju privat tal-app fuq l-ħażna tal-apparat. Il-fajls tal-mużika tiegħek jibqgħu f'folderi li tagħżel bl-għodda tal-għażla tal-folder tas-sistema.\n\niOS jagħti aċċess permezz ta' URLs fi ħdan qasam tas-sigurtà għall-folderi li tagħżel. Retro Player jaqra l-fajls direttament minn dawk il-postijiet; ma jikkopjax il-librerija tiegħek fl-ħażna tal-app.",
+  "dataStorageIOSPlaybackTitle": "Awdjo fil-isfond tal-iOS",
+  "dataStorageIOSPlaybackBody": "Il-plejbek jista' jkompli waqt li l-app tkun fl-isfond jew l-iskrin ikun imblukkat. Il-pożizzjonijiet tal-plejbek u l-istat tal-kju huma maħżuna fid-database lokali tal-app.",
+  "dataStoragePlatformBodyAndroid": "Id-dejta tal-app hija maħżuna fl-ispazju ta' appoġġ privat tal-app fuq il-ħażna interna.",
+  "dataStoragePlatformBodyIOS": "Id-dejta tal-app hija maħżuna fl-ispazju ta' appoġġ privat tal-app fuq l-ħażna tal-apparat.",
+  "dataStoragePlatformBodyMacOS": "Id-dejta tal-app hija maħżuna taħt ~/Library/Application Support/app.retroplayer/.",
+  "dataStoragePlatformBodyWindows": "Id-dejta tal-app tiġi maħżuna fid-direttorju ta' appoġġ tal-applikazzjoni tiegħek.",
+  "dataStoragePlatformBodyWeb": "Id-dejta tal-app hija maħżuna fil-ħażna lokali tal-browser għal din l-oriġini.",
+  "dataStoragePlatformBodyUnknown": "Id-dejta tal-applikazzjoni hija maħżuna fl-ispazju ta' appoġġ tal-applikazzjoni tal-pjattaforma.",
+  "loading": "Qed jitgħabba…",
+  "@libraryIndex": {
+    "description": "Accessibility label for the A–Z jump bar in the library list."
+  },
+  "libraryIndex": "Indiċi tal-librerija",
+  "playlists": "Playlists",
+  "playPlaylist": "Aqra l-playlist",
+  "@playlistTrackCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistTrackCount": "{count,plural, =1{1 kanzunetta} other{{count} traċċi}}",
+  "createPlaylist": "Oħloq lista tal-plejbak",
+  "queue": "Kju",
+  "saveAsPlaylist": "Salva bħala playlist",
+  "queueEmpty": "Il-kju huwa vojt. Żid kanzunetti mill-librerija tiegħek.",
+  "choosePlaylistFolder": "Agħżel folder fil-librerija. Il-għerq tal-librerija mhux folder.",
+  "clearQueue": "Ħassar il-kju",
+  "clearQueueTitle": "Tneħħi l-kju?",
+  "clearQueueBody": "Dan ineħħi kull traċċa mill-kju. Il-fajls tal-awdjo u l-playlists salvati jibqgħu.",
+  "newPlaylistName": "Isem il-playlist",
+  "addTracks": "Żid traċċi",
+  "save": "Salva",
+  "addTracksFromLibrary": "Żid mill-librerija",
+  "@addTracksConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addTracksConfirm": "Żid ({count})",
+  "addTracksNothingSelected": "Agħżel waħda jew aktar traċċi fil-librerija tiegħek.",
+  "libraryEmptyNoRoots": "Żid l-ewwel folder tal-librerija, imbagħad agħżel il-kanzunetti minnha.",
+  "playlistEmpty": "Din il-playlist għadha m'għandhiex kanzunetti.",
+  "missingTrack": "Fajl nieqes",
+  "playlistReadOnly": "Aqra biss",
+  "playlistSelect": "Agħżel",
+  "playlistSelectAll": "Agħżel kollox",
+  "playlistDeselectAll": "Neħħi l-għażla kollha",
+  "@playlistSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSelectedCount": "{count,plural, =0{Agħżel il-korsijiet} =1{1 magħżul} other{{count} magħżul}}",
+  "@removePlaylistTrackTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackTitle": "{count,plural, =1{Neħħi l-kanzunetta mill-playlist?} other{Neħħi t-trakkijiet {count} mill-playlist?}}",
+  "@removePlaylistTrackBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removePlaylistTrackBody": "{count,plural, =1{Dan ineħħi l-entrata mill-fajl tal-playlist meta tissejvja.} other{Dan ineħħi l-entrati mill-fajl tal-playlist meta tissejvja.}}",
+  "addTracksNothingAdded": "Ma ġew miżjuda trakkijiet ġodda. Jistgħu jkunu diġà fil-playlist.",
+  "playlistNothingToPlay": "Din il-playlist m'għandhiex kanzunetti li jistgħu jitilgħu.",
+  "@shortcutTooltip": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "shortcut": {
+        "type": "String"
+      }
+    }
+  },
+  "shortcutTooltip": "{action} ({shortcut})",
+  "deletePlaylistTitle": "Tħassar il-playlist?",
+  "@deletePlaylistBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePlaylistBody": "Tħassar \"{name}\"? Dan ineħħi l-fajl tal-playlist mid-diska."
+}
