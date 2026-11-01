@@ -21,7 +21,7 @@ dart run build_runner build --delete-conflicting-outputs
 dart run scripts/stamp_build_info.dart
 ```
 
-Linux tests need **libmpv** runtime + dev headers (`libmpv2` or `libmpv1` plus `libmpv-dev`, depending on Ubuntu version) and the GTK toolchain per `flutter doctor`.
+Linux tests need **libmpv** runtime + dev headers (`libmpv2` or `libmpv1` plus `libmpv-dev`, depending on Ubuntu version), **PulseAudio null sink** on headless CI ([`scripts/ci-start-virtual-audio.sh`](../scripts/ci-start-virtual-audio.sh)), and the GTK toolchain per `flutter doctor`.
 
 ## Planned release pipeline
 
