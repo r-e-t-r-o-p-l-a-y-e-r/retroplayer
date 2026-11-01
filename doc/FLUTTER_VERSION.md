@@ -44,6 +44,6 @@ Without FVM, install Flutter **3.47.8** stable manually and ensure `flutter --ve
 
 - **Built-in Kotlin:** `:app` uses AGP embedded Kotlin (`kotlin { compilerOptions }` only). `skipDependencyChecks=true` works around Flutter’s standalone KGP floor (2.2.20) vs AGP 9.1’s embedded 2.2.10 until the Flutter Gradle plugin treats built-in Kotlin separately.
 - **Pub majors:** file_picker 13, permission_handler 13, go_router 18; drift 2.35.x; freezed 4.0.3.
-- **Deferred:** `sqlite3_flutter_libs` 0.6.0+eol — stay on 0.5.42 until Drift/public-release schema work validates 0.6.
+- **SQLite:** direct `sqlite3` ^3.x (native libs via package hooks); `sqlite3_flutter_libs` removed — 0.6.x is a no-op stub and no longer bundles SQLite.
 - **Vendored:** `just_audio_media_kit` path override unchanged.
 - **Security:** re-check transitives (`archive`, `http`, `sqlite3`, `ffi`) via Dependabot/OSV after lockfile changes.
