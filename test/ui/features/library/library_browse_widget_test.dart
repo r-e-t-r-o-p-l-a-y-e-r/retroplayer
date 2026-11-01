@@ -253,6 +253,9 @@ class _RecordingPlayback implements AudioPlaybackService {
   }
 
   @override
+  Future<void> playForMediaTransport() => play();
+
+  @override
   Future<void> seek(Duration position) async {}
 
   @override
@@ -337,6 +340,9 @@ class _NoOpPlayback implements AudioPlaybackService {
 
   @override
   Future<void> play() async {}
+
+  @override
+  Future<void> playForMediaTransport() => play();
 
   @override
   Future<void> seek(Duration position) async {}

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer' as developer;
 import 'dart:io';
 
 import 'package:audio_service/audio_service.dart' as audsvc;
@@ -11,7 +12,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:just_audio_media_kit/just_audio_media_kit.dart';
 import 'package:provider/provider.dart';
-import 'package:retroplayer/app_branding.dart';
 import 'package:retroplayer/data/db/app_database_flutter.dart';
 import 'package:retroplayer/data/repositories/library_repository.dart';
 import 'package:retroplayer/data/repositories/playback_repository.dart';
@@ -24,6 +24,7 @@ import 'package:retroplayer/data/services/library_storage_service.dart';
 import 'package:retroplayer/data/services/linux_playback_startup.dart';
 import 'package:retroplayer/data/services/local_only_media_kit.dart';
 import 'package:retroplayer/data/services/metadata_service.dart';
+import 'package:retroplayer/data/services/android_audio_service_config.dart';
 import 'package:retroplayer/data/services/android_recents_playback_bridge.dart';
 import 'package:retroplayer/data/services/retro_audio_handler.dart';
 import 'package:retroplayer/domain/models/equalizer_settings.dart';
@@ -106,7 +107,11 @@ Future<void> main() async {
     playbackRepository: playbackRepository,
   );
 
-  await _initAudioService(playbackService, playbackRepository);
+  await _initAudioService(
+    playbackService,
+    playbackRepository,
+    activateAudioSession: () => session.setActive(true),
+  );
 
   final audioSessionSubscription = playbackService.androidAudioSessionIdStream
       .listen((sessionId) {
@@ -132,11 +137,16 @@ Future<void> main() async {
 
 Future<void> _initAudioService(
   AudioPlaybackService playbackService,
-  PlaybackRepository playbackRepository,
-) async {
+  PlaybackRepository playbackRepository, {
+  required Future<bool> Function() activateAudioSession,
+}) async {
   if (playbackService is! JustAudioPlaybackService) return;
   if (!kIsWeb && Platform.isLinux) {
     AudioServiceMpris.registerWith();
+    return;
+  }
+  if (!Platform.isAndroid && !Platform.isIOS) {
+    return;
   }
   RetroAudioHandler? retroHandler;
   try {
@@ -147,24 +157,27 @@ Future<void> _initAudioService(
           playbackService,
           onRecentsDismiss:
               playbackRepository.stopPlaybackForRecentsDismiss,
+          activateAudioSession: activateAudioSession,
         );
         return retroHandler!;
       },
-      config: audsvc.AudioServiceConfig(
-        androidNotificationChannelId: AppBranding.notificationChannelId,
-        androidNotificationChannelName: AppBranding.displayName,
-        androidNotificationOngoing: true,
-      ),
+      config: retroPlayerAndroidAudioServiceConfig(),
     );
     final handler = retroHandler;
     if (handler != null) {
+      playbackRepository.mediaSessionHandler = handler;
+      playbackRepository.activateAudioSession = activateAudioSession;
       AndroidRecentsPlaybackBridge.install(
         playbackRepository: playbackRepository,
         idleMediaSession: handler.idleMediaSession,
       );
     }
   } catch (e, st) {
-    debugPrint('AudioService.init failed: $e\n$st');
+    developer.log(
+      'AudioService.init failed: $e\n$st',
+      name: 'retroplayer.audio',
+      level: 1000,
+    );
   }
 }
 

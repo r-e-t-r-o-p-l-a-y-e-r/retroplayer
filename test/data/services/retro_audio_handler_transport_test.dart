@@ -10,6 +10,9 @@
 /// - `session queue carries artist and album for every track`
 /// - `position ticks update the session position`
 /// - `engine duration fills media item when tags lack length`
+/// - `handler publishes initial playback state when engine already has queue`
+/// - `refreshSessionState republishes controls after resume hook`
+/// - `idle engine state with loaded track keeps session ready`
 library;
 
 import 'package:audio_service/audio_service.dart';
@@ -32,6 +35,7 @@ void main() {
 
   test('notification transport drives the player', () async {
     await handler.play();
+    expect(playback.playForMediaTransportCalled, isTrue);
     expect(playback.playCalled, isTrue);
     await handler.pause();
     expect(playback.pauseCalled, isTrue);
@@ -217,6 +221,54 @@ void main() {
     await Future<void>.delayed(Duration.zero);
 
     expect(handler.mediaItem.value!.duration, engineDuration);
+  });
+
+  test('handler publishes initial playback state when engine already has queue',
+      () async {
+    final tracks = [
+      testTrack(filePath: '/m/01.mp3', directoryPath: '/m'),
+      testTrack(filePath: '/m/02.mp3', directoryPath: '/m'),
+    ];
+    await playback.setQueue(tracks, startIndex: 0);
+    handler = RetroAudioHandler(playback);
+
+    expect(handler.mediaItem.value, isNotNull);
+    expect(handler.queue.value, hasLength(2));
+
+    playback.emitPlayerState(PlayerState(true, ProcessingState.ready));
+    await Future<void>.delayed(Duration.zero);
+    expect(handler.playbackState.value.playing, isTrue);
+    expect(handler.playbackState.value.controls, contains(MediaControl.pause));
+  });
+
+  test('refreshSessionState republishes controls after resume hook', () async {
+    final tracks = [
+      testTrack(filePath: '/m/01.mp3', directoryPath: '/m'),
+    ];
+    await playback.setQueue(tracks);
+    playback.emitPlayerState(PlayerState(false, ProcessingState.ready));
+    handler = RetroAudioHandler(playback);
+    await Future<void>.delayed(Duration.zero);
+    expect(handler.playbackState.value.controls, contains(MediaControl.play));
+
+    playback.emitPlayerState(PlayerState(true, ProcessingState.ready));
+    await Future<void>.delayed(Duration.zero);
+    handler.refreshSessionState();
+
+    expect(handler.playbackState.value.playing, isTrue);
+    expect(handler.playbackState.value.controls, contains(MediaControl.pause));
+  });
+
+  test('idle engine state with loaded track keeps session ready', () async {
+    final track = testTrack(filePath: '/m/01.mp3', directoryPath: '/m');
+    await playback.setQueue([track]);
+    playback.emitPlayerState(PlayerState(false, ProcessingState.idle));
+    await Future<void>.delayed(Duration.zero);
+
+    expect(
+      handler.playbackState.value.processingState,
+      AudioProcessingState.ready,
+    );
   });
 
   test('position ticks update the session position', () async {

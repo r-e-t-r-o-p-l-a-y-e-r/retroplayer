@@ -2,6 +2,7 @@
 ///
 /// Evidence:
 /// - `jumpToNowPlaying from folder play opens album detail for first track`
+/// - `jumpToNowPlaying scrolls folder audio row into view when highlight is off-screen`
 library;
 
 import 'package:flutter/material.dart';

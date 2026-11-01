@@ -83,6 +83,7 @@ class LibraryNavigator {
     if (!alreadyOnTarget) {
       _openDetail(target);
     }
+    _library.scrollHighlightedTrackIntoView();
   }
 
   /// Collapses the player and browses to a playback breadcrumb segment.

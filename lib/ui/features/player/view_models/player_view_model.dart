@@ -476,10 +476,10 @@ class PlayerViewModel extends ChangeNotifier with WidgetsBindingObserver {
         state == AppLifecycleState.hidden) {
       unawaited(_saveProgress());
     }
-    // Recents swipe often delivers [detached] before the process is killed;
-    // stop locally when the handler callback does not finish in time.
-    if (!kIsWeb && Platform.isAndroid && state == AppLifecycleState.detached) {
-      unawaited(_playbackRepository.service.stop());
+    if (state == AppLifecycleState.resumed &&
+        !kIsWeb &&
+        (Platform.isAndroid || Platform.isIOS)) {
+      unawaited(_playbackRepository.resyncMediaSessionOnResume());
     }
   }
 

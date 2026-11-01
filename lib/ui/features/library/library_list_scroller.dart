@@ -7,7 +7,7 @@ import 'package:retroplayer/ui/features/library/library_index_labels.dart';
 /// first paint of the parent folder is already at the saved offset instead of
 /// scrolling there from the top.
 class RestoringScrollController extends ScrollController {
-  RestoringScrollController() : super(keepScrollOffset: false);
+  RestoringScrollController() : super(keepScrollOffset: true);
 
   double? pendingInitialOffset;
 
@@ -15,18 +15,16 @@ class RestoringScrollController extends ScrollController {
   ScrollPosition createScrollPosition(
     ScrollPhysics physics,
     ScrollContext context,
-    ScrollPosition? _,
+    ScrollPosition? oldPosition,
   ) {
     final pending = pendingInitialOffset;
     pendingInitialOffset = null;
     return ScrollPositionWithSingleContext(
       physics: physics,
       context: context,
-      // Drop the previous path's pixels so browse-up does not inherit 0
-      // from the child list and then jump.
       oldPosition: null,
-      initialPixels: pending ?? 0.0,
-      keepScrollOffset: false,
+      initialPixels: pending ?? oldPosition?.pixels ?? 0.0,
+      keepScrollOffset: keepScrollOffset,
     );
   }
 }

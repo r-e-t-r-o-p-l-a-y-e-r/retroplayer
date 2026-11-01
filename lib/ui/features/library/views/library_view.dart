@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:retroplayer/ui/features/library/add_library_folder.dart';
 import 'package:retroplayer/ui/features/library/library_navigator.dart';
+import 'package:retroplayer/domain/library_paths.dart';
+import 'package:retroplayer/domain/models/library_item.dart';
 import 'package:retroplayer/domain/use_cases/browse_library.dart';
 import 'package:retroplayer/l10n/app_localizations.dart';
 import 'package:retroplayer/ui/core/keyboard/library_row_focus.dart';
@@ -47,17 +49,76 @@ class LibraryView extends StatefulWidget {
 }
 
 class _LibraryViewState extends State<LibraryView> {
-  final _scrollController = RestoringScrollController();
+  final _scrollControllers = <String, RestoringScrollController>{};
   final _listScroller = LibraryListScroller();
+  RestoringScrollController? _boundScrollController;
+  final _highlightRowKeys = <String, GlobalKey>{};
   bool _listOverflows = false;
   GoRouter? _router;
   bool _settingsCovering = false;
+  String? _lastScrolledHighlight;
+  int? _lastHighlightScrollNonce;
+  String? _highlightScrollScheduledFor;
+  int _highlightScrollScheduledNonce = -1;
+
+  String _browseScrollStorageKey(String? path) =>
+      path == null ? '' : normalizeLibraryPath(path);
+
+  RestoringScrollController _scrollControllerForBrowseKey(String scrollKey) {
+    return _scrollControllers.putIfAbsent(
+      scrollKey,
+      RestoringScrollController.new,
+    );
+  }
+
+  RestoringScrollController _scrollControllerForBrowsePath(String? path) {
+    return _scrollControllerForBrowseKey(_browseScrollStorageKey(path));
+  }
+
+  void _applyScrollOffsetToController(
+    RestoringScrollController controller,
+    double offset,
+  ) {
+    controller.pendingInitialOffset = offset;
+    void jump() {
+      if (!controller.hasClients) return;
+      final max = controller.position.maxScrollExtent;
+      controller.jumpTo(offset.clamp(0.0, max));
+    }
+
+    jump();
+    try {
+      final binding = WidgetsBinding.instance;
+      binding.addPostFrameCallback((_) {
+        if (!mounted) return;
+        jump();
+        binding.addPostFrameCallback((_) {
+          if (mounted) jump();
+        });
+      });
+    } on Object {
+      // Tests without a binding still get the synchronous jump above.
+    }
+  }
+
+  void _handleScrollRestoreRequest(String scrollKey, double offset) {
+    _applyScrollOffsetToController(
+      _scrollControllerForBrowseKey(scrollKey),
+      offset,
+    );
+  }
+
+  void _bindActiveScrollController(RestoringScrollController controller) {
+    if (identical(_boundScrollController, controller)) return;
+    _boundScrollController?.removeListener(_onScroll);
+    _boundScrollController = controller;
+    _listScroller.controller = controller;
+    controller.addListener(_onScroll);
+  }
 
   @override
   void initState() {
     super.initState();
-    _listScroller.controller = _scrollController;
-    _scrollController.addListener(_onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final vm = context.read<LibraryViewModel>();
       if (widget.autoLoad) {
@@ -76,7 +137,14 @@ class _LibraryViewState extends State<LibraryView> {
     super.didChangeDependencies();
     // Attach every time dependencies resolve so A–Z jumps always have a live
     // scroller (post-frame-only attach was easy to miss after shell rebuilds).
-    context.read<LibraryViewModel>().attachListScroller(_listScroller);
+    final libraryVm = context.read<LibraryViewModel>();
+    libraryVm.attachListScroller(_listScroller);
+    libraryVm.activeScrollOffsetReader = () {
+      final controller = _boundScrollController;
+      if (controller == null || !controller.hasClients) return null;
+      return controller.offset;
+    };
+    libraryVm.scrollRestoreHandler = _handleScrollRestoreRequest;
 
     GoRouter? router;
     try {
@@ -96,19 +164,26 @@ class _LibraryViewState extends State<LibraryView> {
   @override
   void dispose() {
     _router?.routerDelegate.removeListener(_onRouterChange);
-    _scrollController.removeListener(_onScroll);
+    _boundScrollController?.removeListener(_onScroll);
+    for (final controller in _scrollControllers.values) {
+      controller.dispose();
+    }
+    _scrollControllers.clear();
     try {
-      context.read<LibraryViewModel>().attachListScroller(null);
+      final libraryVm = context.read<LibraryViewModel>();
+      libraryVm.attachListScroller(null);
+      libraryVm.activeScrollOffsetReader = null;
+      libraryVm.scrollRestoreHandler = null;
     } on Object {
       // Provider may be gone during teardown.
     }
-    _scrollController.dispose();
     super.dispose();
   }
 
   void _onScroll() {
     _updateOverflowFlag();
-    if (!_scrollController.hasClients) return;
+    final controller = _boundScrollController;
+    if (controller == null || !controller.hasClients) return;
     // Keep the current path's offset fresh so Settings / rebuilds can restore.
     context.read<LibraryViewModel>().rememberBrowseScrollOffset();
   }
@@ -140,10 +215,66 @@ class _LibraryViewState extends State<LibraryView> {
   }
 
   void _updateOverflowFlag() {
-    if (!_scrollController.hasClients) return;
-    final overflows = _scrollController.position.maxScrollExtent > 0;
+    final controller = _boundScrollController;
+    if (controller == null || !controller.hasClients) return;
+    final overflows = controller.position.maxScrollExtent > 0;
     if (overflows == _listOverflows) return;
     setState(() => _listOverflows = overflows);
+  }
+
+  GlobalKey _highlightKeyFor(String id) =>
+      _highlightRowKeys.putIfAbsent(id, GlobalKey.new);
+
+  String _highlightRowKeyId(LibraryItem item, String? highlightedTrackId) {
+    return switch (item) {
+      LibraryTrackItem(:final track) => track.id,
+      LibraryAlbumItem(:final album) =>
+        highlightedTrackId != null &&
+                album.tracks.any((track) => track.id == highlightedTrackId)
+            ? highlightedTrackId
+            : item.id,
+      _ => item.id,
+    };
+  }
+
+  void _scrollHighlightedRowIntoView(
+    String? highlightId,
+    int scrollNonce, {
+    int attempt = 0,
+  }) {
+    if (highlightId == null) {
+      _lastScrolledHighlight = null;
+      _lastHighlightScrollNonce = null;
+      return;
+    }
+    if (highlightId == _lastScrolledHighlight &&
+        scrollNonce == _lastHighlightScrollNonce) {
+      return;
+    }
+    final key = _highlightRowKeys[highlightId];
+    final targetContext = key?.currentContext;
+    if (targetContext == null) {
+      if (attempt < 8) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            _scrollHighlightedRowIntoView(
+              highlightId,
+              scrollNonce,
+              attempt: attempt + 1,
+            );
+          }
+        });
+      }
+      return;
+    }
+    _lastScrolledHighlight = highlightId;
+    _lastHighlightScrollNonce = scrollNonce;
+    Scrollable.ensureVisible(
+      targetContext,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+      alignment: 0.3,
+    );
   }
 
   Widget _folderRow(
@@ -183,7 +314,10 @@ class _LibraryViewState extends State<LibraryView> {
           overflow: TextOverflow.ellipsis,
           style: RetroTypography.timeLabel(context, compact: true),
         ),
-        onTap: () => vm.browseInto(folder.path),
+        onTap: () {
+          vm.rememberBrowseScrollOffset();
+          vm.browseInto(folder.path);
+        },
       ),
     );
   }
@@ -222,7 +356,7 @@ class _LibraryViewState extends State<LibraryView> {
           preferredSize: const Size.fromHeight(40),
           child: LibraryPathSummary(
             breadcrumbs: vm.browseBreadcrumbs,
-            onNavigate: vm.navigateToBrowsePath,
+            onNavigate: vm.navigateToBrowsePathWithRestore,
           ),
         ),
       ),
@@ -245,6 +379,22 @@ class _LibraryViewState extends State<LibraryView> {
   }
 
   Widget _buildBody(LibraryViewModel vm, AppLocalizations l10n) {
+    final playingTrackId = context.select<PlayerViewModel, String?>(
+      (player) => player.currentTrack?.id,
+    );
+    final highlightId = vm.effectiveHighlightedTrackId(playingTrackId);
+    final scrollNonce = vm.highlightScrollNonce;
+    if (highlightId != _highlightScrollScheduledFor ||
+        scrollNonce != _highlightScrollScheduledNonce) {
+      _highlightScrollScheduledFor = highlightId;
+      _highlightScrollScheduledNonce = scrollNonce;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          _scrollHighlightedRowIntoView(highlightId, scrollNonce);
+        }
+      });
+    }
+
     Widget body;
     if (vm.isLoading) {
       body = const Center(child: CircularProgressIndicator());
@@ -274,6 +424,8 @@ class _LibraryViewState extends State<LibraryView> {
 
       final indexLabels = vm.libraryIndexLabels;
       final showIndexBar = _listOverflows && indexLabels.length > 1;
+      final scrollController = _scrollControllerForBrowsePath(vm.browsePath);
+      _bindActiveScrollController(scrollController);
 
       body = NotificationListener<ScrollMetricsNotification>(
         onNotification: (notification) {
@@ -290,8 +442,10 @@ class _LibraryViewState extends State<LibraryView> {
                   ? const EdgeInsets.only(right: libraryAlphabetIndexBarWidth)
                   : EdgeInsets.zero,
               child: CustomScrollView(
-                key: ValueKey('library-browse:${vm.browsePath ?? ''}'),
-                controller: _scrollController,
+                key: PageStorageKey<String>(
+                  _browseScrollStorageKey(vm.browsePath),
+                ),
+                controller: scrollController,
                 slivers: [
                   if (vm.folders.isNotEmpty)
                     SliverToBoxAdapter(
@@ -425,15 +579,22 @@ class _LibraryViewState extends State<LibraryView> {
                   SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {
                       final item = vm.audioItems[index];
-                      return LibraryItemTile(
-                        key: ValueKey(item.id),
-                        item: item,
-                        rowIndex:
-                            vm.folders.length +
-                            favorites.length +
-                            vm.playlistItems.length +
-                            index,
-                        keyboardSelected: vm.isKeyboardSelectedItem(item),
+                      final rowKeyId = _highlightRowKeyId(
+                        item,
+                        vm.highlightedTrackId,
+                      );
+                      return KeyedSubtree(
+                        key: _highlightKeyFor(rowKeyId),
+                        child: LibraryItemTile(
+                          key: ValueKey(item.id),
+                          item: item,
+                          rowIndex:
+                              vm.folders.length +
+                              favorites.length +
+                              vm.playlistItems.length +
+                              index,
+                          keyboardSelected: vm.isKeyboardSelectedItem(item),
+                        ),
                       );
                     }, childCount: vm.audioItems.length),
                   ),

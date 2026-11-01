@@ -40,6 +40,7 @@ shot "01-library.png" "Library with Demo Album visible (Add folder → Music →
 shot "02-mini-player.png" "Start playback; collapsed mini player at bottom."
 shot "03-expanded-player.png" "Swipe or tap handle to expand Now Playing."
 shot "04-album-detail.png" "Open Demo Album track list."
+shot "05-playlist.png" "Open a playlist (.m3u) track list from the library folder."
 shot "06-settings.png" "Open Settings from the app bar."
 
 echo "Done. Review PNGs in ${OUT}"

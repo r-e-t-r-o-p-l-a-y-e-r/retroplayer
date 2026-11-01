@@ -91,6 +91,9 @@ class _GesturePlayback implements AudioPlaybackService {
   Future<void> play() async {}
 
   @override
+  Future<void> playForMediaTransport() => play();
+
+  @override
   Future<void> seek(Duration position) async {
     lastSeek = position;
   }

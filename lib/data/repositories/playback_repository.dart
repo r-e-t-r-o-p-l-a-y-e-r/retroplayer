@@ -8,6 +8,7 @@ import 'package:retroplayer/application/play_queue.dart';
 import 'package:retroplayer/data/repositories/library_repository.dart';
 import 'package:retroplayer/data/services/audio_playback_service.dart';
 import 'package:retroplayer/data/services/library_storage_service.dart';
+import 'package:retroplayer/data/services/retro_audio_handler.dart';
 import 'package:retroplayer/domain/models/audio_album.dart';
 import 'package:retroplayer/domain/models/audio_track.dart';
 import 'package:retroplayer/domain/models/library_item.dart';
@@ -34,7 +35,18 @@ class PlaybackRepository {
   String? _activeItemId;
   bool _isShutdown = false;
 
+  /// Set from [main] after [AudioService.init] for resume resync.
+  RetroAudioHandler? mediaSessionHandler;
+
+  /// Reactivates the OS audio session on app resume (Android lockscreen transport).
+  Future<bool> Function()? activateAudioSession;
+
   AudioPlaybackService get service => _playbackService;
+
+  Future<void> resyncMediaSessionOnResume() async {
+    await activateAudioSession?.call();
+    mediaSessionHandler?.refreshSessionState();
+  }
 
   String? get activeItemId => _activeItemId;
 

@@ -14,6 +14,7 @@ import 'package:retroplayer/ui/core/keyboard/shortcut_labels.dart';
 import 'package:retroplayer/ui/core/navigation/app_bar_back_leading.dart';
 import 'package:retroplayer/ui/core/navigation/open_settings_overlay.dart';
 import 'package:retroplayer/ui/features/player/widgets/player_sheet_host.dart';
+import 'package:retroplayer/ui/features/player/widgets/player_sheet_metrics.dart';
 
 class AlbumDetailView extends StatelessWidget {
   const AlbumDetailView({super.key, required this.album});
@@ -35,25 +36,68 @@ class _AlbumDetailBody extends StatefulWidget {
 }
 
 class _AlbumDetailBodyState extends State<_AlbumDetailBody> {
+  final _scrollController = ScrollController();
   final _trackKeys = <String, GlobalKey>{};
   String? _lastScrolledHighlight;
+  int? _lastHighlightScrollNonce;
+  String? _highlightScrollScheduledFor;
+  int _highlightScrollScheduledNonce = -1;
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   GlobalKey _keyFor(String trackId) =>
       _trackKeys.putIfAbsent(trackId, GlobalKey.new);
 
-  void _scrollToHighlight(String? highlightId, {int attempt = 0}) {
-    if (highlightId == null || highlightId == _lastScrolledHighlight) return;
+  void _jumpToHighlightIndex(String highlightId) {
+    if (!_scrollController.hasClients) return;
+    final tracks = widget.album.tracks;
+    final index = tracks.indexWhere((track) => track.id == highlightId);
+    if (index < 0) return;
+    final position = _scrollController.position;
+    final max = position.maxScrollExtent;
+    if (max <= 0) return;
+    final rows = tracks.length;
+    final fraction = (index / rows).clamp(0.0, 1.0);
+    final estimated = fraction * max;
+    final viewport = position.viewportDimension;
+    final target = (estimated - viewport * 0.3).clamp(0.0, max);
+    _scrollController.jumpTo(target);
+  }
+
+  void _scrollToHighlight(
+    String? highlightId,
+    int scrollNonce, {
+    int attempt = 0,
+  }) {
+    if (highlightId == null) {
+      _lastScrolledHighlight = null;
+      _lastHighlightScrollNonce = null;
+      return;
+    }
+    if (highlightId == _lastScrolledHighlight &&
+        scrollNonce == _lastHighlightScrollNonce) {
+      return;
+    }
+    _jumpToHighlightIndex(highlightId);
     final key = _trackKeys[highlightId];
     final targetContext = key?.currentContext;
     if (targetContext == null) {
+      _jumpToHighlightIndex(highlightId);
       if (attempt < 8) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (mounted) _scrollToHighlight(highlightId, attempt: attempt + 1);
+          if (mounted) {
+            _scrollToHighlight(highlightId, scrollNonce, attempt: attempt + 1);
+          }
         });
       }
       return;
     }
     _lastScrolledHighlight = highlightId;
+    _lastHighlightScrollNonce = scrollNonce;
     Scrollable.ensureVisible(
       targetContext,
       duration: const Duration(milliseconds: 300),
@@ -74,10 +118,18 @@ class _AlbumDetailBodyState extends State<_AlbumDetailBody> {
     final highlightId = context.select<LibraryViewModel, String?>(
       (vm) => vm.effectiveHighlightedTrackId(playingTrackId),
     );
+    final scrollNonce = context.select<LibraryViewModel, int>(
+      (vm) => vm.highlightScrollNonce,
+    );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollToHighlight(highlightId);
-    });
+    if (highlightId != _highlightScrollScheduledFor ||
+        scrollNonce != _highlightScrollScheduledNonce) {
+      _highlightScrollScheduledFor = highlightId;
+      _highlightScrollScheduledNonce = scrollNonce;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _scrollToHighlight(highlightId, scrollNonce);
+      });
+    }
 
     return Scaffold(
       backgroundColor: RetroPalette.of(context).screen,
@@ -135,6 +187,10 @@ class _AlbumDetailBodyState extends State<_AlbumDetailBody> {
             const Divider(height: 1),
             Expanded(
               child: ListView.builder(
+                controller: _scrollController,
+                padding: EdgeInsets.only(
+                  bottom: playerCollapsedExtent(context),
+                ),
                 itemCount: album.tracks.length,
                 itemBuilder: (context, index) {
                   final track = album.tracks[index];
