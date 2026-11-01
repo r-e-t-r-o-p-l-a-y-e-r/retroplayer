@@ -8,9 +8,9 @@ import 'package:retroplayer/domain/models/equalizer_settings.dart';
 
 class EqualizerViewModel extends ChangeNotifier {
   EqualizerViewModel({
-    required EqualizerService equalizerService,
+    required this._equalizerService,
     EqualizerSettings? initialSettings,
-  }) : _equalizerService = equalizerService {
+  }) {
     if (initialSettings != null) {
       _applyLoadedSettings(initialSettings);
       _loaded = true;

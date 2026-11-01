@@ -16,7 +16,6 @@ import 'package:retroplayer/domain/models/audio_album.dart';
 import 'package:retroplayer/domain/models/track_metadata.dart';
 import 'package:retroplayer/ui/core/app_router.dart';
 import 'package:retroplayer/ui/core/keyboard/keyboard_registry.dart';
-import 'package:retroplayer/ui/core/main_shell_view.dart';
 import 'package:retroplayer/ui/features/library/view_models/library_view_model.dart';
 import 'package:retroplayer/ui/features/player/view_models/player_panel_view_model.dart';
 import 'package:retroplayer/ui/features/player/view_models/player_view_model.dart';

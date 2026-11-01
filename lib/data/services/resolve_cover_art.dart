@@ -9,12 +9,10 @@ import 'package:retroplayer/data/services/find_album_art.dart';
 /// Resolves cover art: folder sidecar first, then embedded art from a track.
 class ResolveCoverArt implements CoverArtSource {
   ResolveCoverArt({
-    FindAlbumArt findAlbumArt = const FindAlbumArt(),
-    required Uint8List? Function(String trackFilePath) readEmbeddedArtwork,
+    this._findAlbumArt = const FindAlbumArt(),
+    required this._readEmbeddedArtwork,
     AlbumArtCache? cache,
-  })  : _findAlbumArt = findAlbumArt,
-        _readEmbeddedArtwork = readEmbeddedArtwork,
-        _cache = cache ??
+  })  : _cache = cache ??
             AlbumArtCache(
               Directory('${Directory.systemTemp.path}/retroplayer_album_art'),
             );

@@ -4,8 +4,7 @@ import 'package:retroplayer/domain/models/locale_preference.dart';
 import 'package:retroplayer/ui/core/preference_mapping.dart';
 
 class LocaleViewModel extends ChangeNotifier {
-  LocaleViewModel({required LibraryStorageService storageService})
-      : _storageService = storageService;
+  LocaleViewModel({required this._storageService});
 
   final LibraryStorageService _storageService;
 
