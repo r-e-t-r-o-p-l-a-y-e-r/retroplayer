@@ -15,14 +15,11 @@ import 'package:retroplayer/domain/models/supported_formats.dart';
 /// Create, edit and delete playlists the app owns. Disk playlists are read-only.
 class PlaylistRepository {
   PlaylistRepository({
-    required LibraryStorageService storageService,
-    required LibraryScanner scanLibrary,
-    required DirectoryListingRepository listings,
-    WritePlaylistFile writePlaylistFile = const WritePlaylistFile(),
-  }) : _storageService = storageService,
-       _scanLibrary = scanLibrary,
-       _listings = listings,
-       _writePlaylistFile = writePlaylistFile;
+    required this._storageService,
+    required this._scanLibrary,
+    required this._listings,
+    this._writePlaylistFile = const WritePlaylistFile(),
+  });
 
   final LibraryStorageService _storageService;
   final LibraryScanner _scanLibrary;

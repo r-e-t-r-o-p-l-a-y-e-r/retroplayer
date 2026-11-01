@@ -12,14 +12,11 @@ import 'package:retroplayer/domain/use_cases/sort_library.dart';
 /// Cache, scan and sort of directory listings.
 class DirectoryListingRepository {
   DirectoryListingRepository({
-    required LibraryScanner scanLibrary,
-    required SortLibrary sortLibrary,
-    required FileScanService fileScanService,
-    required CoverArtService covers,
-  }) : _scanLibrary = scanLibrary,
-       _sortLibrary = sortLibrary,
-       _fileScanService = fileScanService,
-       _covers = covers;
+    required this._scanLibrary,
+    required this._sortLibrary,
+    required this._fileScanService,
+    required this._covers,
+  });
 
   final LibraryScanner _scanLibrary;
   final SortLibrary _sortLibrary;

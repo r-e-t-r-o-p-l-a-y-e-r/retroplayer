@@ -133,7 +133,6 @@ class _MainShellViewState extends State<MainShellView> {
     final playerExpanded = panelVm.isExpanded;
     final chromeT = panelVm.appBarChromeT;
     final libraryChromeOpacity = (1.0 - chromeT).clamp(0.0, 1.0);
-    final nowPlayingChromeOpacity = chromeT.clamp(0.0, 1.0);
 
     final palette = RetroPalette.of(context);
     final playbackBreadcrumbs = libraryVm.breadcrumbsForPlayback(

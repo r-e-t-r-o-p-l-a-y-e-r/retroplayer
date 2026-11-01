@@ -26,11 +26,10 @@ const playbackJumpStep = Duration(seconds: 15);
 
 class PlayerViewModel extends ChangeNotifier with WidgetsBindingObserver {
   PlayerViewModel({
-    required PlaybackRepository playbackRepository,
+    required this._playbackRepository,
     CoverArtSource? resolveCoverArt,
     ({String itemId, SavedPlaybackState state})? coldStartPlaybackSnapshot,
-  }) : _playbackRepository = playbackRepository,
-       _resolveCoverArt =
+  }) : _resolveCoverArt =
            resolveCoverArt ??
            ResolveCoverArt(
              readEmbeddedArtwork: MetadataService().readEmbeddedArtwork,

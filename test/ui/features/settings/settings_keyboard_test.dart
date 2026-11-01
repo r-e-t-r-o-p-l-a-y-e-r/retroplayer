@@ -25,7 +25,6 @@ import 'package:retroplayer/data/services/equalizer_service.dart';
 import 'package:retroplayer/data/services/library_storage_service.dart';
 import 'package:retroplayer/domain/models/equalizer_preset.dart';
 import 'package:retroplayer/domain/models/equalizer_settings.dart';
-import 'package:retroplayer/domain/models/locale_preference.dart';
 import 'package:retroplayer/ui/features/settings/widgets/language_section.dart';
 import 'package:retroplayer/domain/models/theme_preference.dart';
 import 'package:retroplayer/ui/core/keyboard/app_shortcuts.dart';
@@ -133,7 +132,7 @@ void main() {
       isNotNull,
     );
     expect(
-      focusContext!.findAncestorWidgetOfExactType<LanguageSection>(),
+      focusContext.findAncestorWidgetOfExactType<LanguageSection>(),
       isNotNull,
     );
   });

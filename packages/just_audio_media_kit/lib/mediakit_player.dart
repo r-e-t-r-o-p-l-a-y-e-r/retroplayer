@@ -1,4 +1,4 @@
-library just_audio_media_kit;
+library;
 
 import 'dart:async';
 

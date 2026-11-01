@@ -51,15 +51,18 @@ class SettingsView extends StatelessWidget {
       ),
     );
     if (removeFolders == null || !context.mounted) return;
-    await context.read<PlayerViewModel>().stopAndClearPlayback();
-    await context.read<LibraryRepository>().resetDatabase(
-      removeLibraryFolders: removeFolders,
-    );
-    if (!context.mounted) return;
-    await context.read<ThemeViewModel>().load();
-    await context.read<LocaleViewModel>().load();
-    await context.read<EqualizerViewModel>().reloadFromStorage();
-    await context.read<LibraryViewModel>().reloadAfterDatabaseReset();
+    final playerVm = context.read<PlayerViewModel>();
+    final libraryRepo = context.read<LibraryRepository>();
+    final themeVm = context.read<ThemeViewModel>();
+    final localeVm = context.read<LocaleViewModel>();
+    final equalizerVm = context.read<EqualizerViewModel>();
+    final libraryVm = context.read<LibraryViewModel>();
+    await playerVm.stopAndClearPlayback();
+    await libraryRepo.resetDatabase(removeLibraryFolders: removeFolders);
+    await themeVm.load();
+    await localeVm.load();
+    await equalizerVm.reloadFromStorage();
+    await libraryVm.reloadAfterDatabaseReset();
   }
 
   @override

@@ -2,7 +2,7 @@
 ///   ./scripts/capture-tutorial-screenshots.sh --update
 ///
 /// Run on device:
-///   flutter test integration_test/tutorial_screenshots_test.dart -d <serial>
+///   flutter test integration_test/tutorial_screenshots_test.dart -d `<serial>`
 library;
 
 import 'package:flutter/material.dart';

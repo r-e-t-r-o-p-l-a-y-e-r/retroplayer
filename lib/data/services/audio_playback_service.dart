@@ -35,9 +35,8 @@ abstract class AudioPlaybackService implements PlaybackEngine {
 class JustAudioPlaybackService implements AudioPlaybackService {
   JustAudioPlaybackService({
     AudioPlayer? player,
-    ExternalPlaybackRouteGate? externalPlaybackRouteGate,
-  })  : _player = player ?? AudioPlayer(),
-        _externalPlaybackRouteGate = externalPlaybackRouteGate {
+    this._externalPlaybackRouteGate,
+  })  : _player = player ?? AudioPlayer() {
     _indexSub = _player.currentIndexStream.listen(_onIndexChanged);
   }
 
