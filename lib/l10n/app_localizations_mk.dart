@@ -457,6 +457,21 @@ class AppLocalizationsMk extends AppLocalizations {
       'Не се додадени нови песни. Тие можеби веќе се во плејлистата.';
 
   @override
+  String get addToQueue => 'Додај во редот';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Додадени во редот: $count',
+      one: '1 песна е додадена во редот',
+      zero: 'Не се додадени нови песни во редот',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Оваа плејлиста нема песни за репродукција.';
 

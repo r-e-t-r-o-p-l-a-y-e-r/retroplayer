@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Tím se při uložení odstraní položka ze souboru se seznamem skladeb.</string>
     <string name="remove_playlist_track_body_other">Tím se při uložení odstraní položky ze souboru se seznamem skladeb.</string>
     <string name="add_tracks_nothing_added">Nebyly přidány žádné nové skladby. Možná už jsou v seznamu skladeb.</string>
+    <string name="add_to_queue">Přidat do fronty</string>
+    <string name="added_to_queue_eq0">Do fronty nebyly přidány žádné nové skladby</string>
+    <string name="added_to_queue_eq1">Do fronty byla přidána 1 skladba</string>
+    <string name="added_to_queue_other">Přidáno do fronty: %1$d</string>
     <string name="playlist_nothing_to_play">Tento seznam skladeb neobsahuje žádné skladby, které by bylo možné přehrát.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Smazat seznam skladeb?</string>

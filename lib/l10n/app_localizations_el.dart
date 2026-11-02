@@ -459,6 +459,21 @@ class AppLocalizationsEl extends AppLocalizations {
       'Δεν προστέθηκαν νέα κομμάτια. Ίσως να περιλαμβάνονται ήδη στη λίστα αναπαραγωγής.';
 
   @override
+  String get addToQueue => 'Προσθήκη στην ουρά';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Προστέθηκαν $count κομμάτια στην ουρά',
+      one: 'Προστέθηκε 1 κομμάτι στην ουρά',
+      zero: 'Δεν προστέθηκαν νέα κομμάτια στην ουρά',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Αυτή η λίστα αναπαραγωγής δεν περιέχει κομμάτια που μπορούν να αναπαραχθούν.';
 

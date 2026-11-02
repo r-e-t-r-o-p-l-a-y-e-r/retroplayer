@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Це призводить до видалення запису з файлу списку відтворення під час збереження.} other{Це призводить до видалення записів із файлу списку відтворення під час збереження.}}",
   "addTracksNothingAdded": "Нових треків не додано. Можливо, вони вже є у плейлисті.",
+  "addToQueue": "Додати до черги",
+  "addedToQueue": "{count,plural, =0{Нові треки не додано до черги} =1{1 трек додано до черги} other{Додано до черги: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "У цьому плейлисті немає треків, які можна відтворити.",
   "@shortcutTooltip": {
     "placeholders": {

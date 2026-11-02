@@ -449,6 +449,21 @@ class AppLocalizationsAr extends AppLocalizations {
       'لم تتم إضافة أي مسارات جديدة. قد يكونوا موجودين بالفعل في قائمة التشغيل.';
 
   @override
+  String get addToQueue => 'إضافة إلى قائمة الانتظار';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'تمت الإضافة إلى قائمة الانتظار: $count',
+      one: 'تمت إضافة مسار واحد إلى قائمة الانتظار',
+      zero: 'لم تتم إضافة مسارات جديدة إلى قائمة الانتظار',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'لا تحتوي قائمة التشغيل هذه على مسارات قابلة للتشغيل.';
 

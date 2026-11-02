@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{يؤدي هذا إلى حذف العنصر من ملف قائمة التشغيل عند الحفظ.} other{يؤدي هذا إلى حذف العناصر من ملف قائمة التشغيل عند الحفظ.}}",
   "addTracksNothingAdded": "لم تتم إضافة أي مسارات جديدة. قد يكونوا موجودين بالفعل في قائمة التشغيل.",
+  "addToQueue": "إضافة إلى قائمة الانتظار",
+  "addedToQueue": "{count,plural, =0{لم تتم إضافة مسارات جديدة إلى قائمة الانتظار} =1{تمت إضافة مسار واحد إلى قائمة الانتظار} other{تمت الإضافة إلى قائمة الانتظار: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "لا تحتوي قائمة التشغيل هذه على مسارات قابلة للتشغيل.",
   "@shortcutTooltip": {
     "placeholders": {

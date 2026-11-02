@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">जब आप सहेजते हैं, तो यह प्लेलिस्ट फ़ाइल से प्रविष्टि हटा देता है।</string>
     <string name="remove_playlist_track_body_other">यह आपके सहेजते समय प्लेलिस्ट फ़ाइल से प्रविष्टियाँ हटा देता है।</string>
     <string name="add_tracks_nothing_added">कोई नया ट्रैक नहीं जोड़ा गया। वे पहले से ही प्लेलिस्ट में हो सकते हैं।</string>
+    <string name="add_to_queue">कतार में जोड़ें</string>
+    <string name="added_to_queue_eq0">कतार में कोई नया ट्रैक नहीं जोड़ा गया</string>
+    <string name="added_to_queue_eq1">कतार में एक ट्रैक जोड़ा गया</string>
+    <string name="added_to_queue_other">कतार में %1$d ट्रैक जोड़े गए</string>
     <string name="playlist_nothing_to_play">इस प्लेलिस्ट में कोई प्ले करने योग्य ट्रैक नहीं हैं।</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">प्लेलिस्ट मिटाएँ?</string>

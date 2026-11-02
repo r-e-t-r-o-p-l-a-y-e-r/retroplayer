@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{การนี้จะลบรายการดังกล่าวออกจากไฟล์รายชื่อเพลงเมื่อคุณบันทึก} other{การนี้จะลบรายการออกจากไฟล์รายชื่อเพลงเมื่อคุณบันทึก}}",
   "addTracksNothingAdded": "ไม่มีเพลงใหม่ถูกเพิ่มเข้ามา อาจมีอยู่ในรายชื่อเพลงแล้ว",
+  "addToQueue": "เพิ่มในคิว",
+  "addedToQueue": "{count,plural, =0{ไม่มีเพลงใหม่ที่เพิ่มในคิว} =1{เพิ่ม 1 เพลงในคิวแล้ว} other{เพิ่ม {count} เพลงในคิวแล้ว}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "รายชื่อเพลงนี้ไม่มีเพลงใดที่สามารถเล่นได้",
   "@shortcutTooltip": {
     "placeholders": {

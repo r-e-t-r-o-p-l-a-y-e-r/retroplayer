@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Ezzel a mentéskor a bejegyzés eltávolításra kerül a lejátszási lista fájljából.} other{Ezzel a mentéskor a bejegyzések eltávolításra kerülnek a lejátszási lista fájljából.}}",
   "addTracksNothingAdded": "Nem került fel új szám. Lehet, hogy már szerepelnek a lejátszási listában.",
+  "addToQueue": "Hozzáadás a sorhoz",
+  "addedToQueue": "{count,plural, =0{Nem került új szám a sorba} =1{1 szám hozzáadva a sorhoz} other{{count} szám hozzáadva a sorhoz}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Ebben a lejátszási listában nincs lejátszható szám.",
   "@shortcutTooltip": {
     "placeholders": {

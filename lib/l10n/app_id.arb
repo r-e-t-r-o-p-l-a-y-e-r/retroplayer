@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Tindakan ini akan menghapus entri tersebut dari berkas daftar putar saat Anda menyimpannya.} other{Ini akan menghapus entri-entri tersebut dari berkas daftar putar saat Anda menyimpannya.}}",
   "addTracksNothingAdded": "Tidak ada lagu baru yang ditambahkan. Mungkin lagu-lagu tersebut sudah ada di daftar putar.",
+  "addToQueue": "Tambahkan ke antrean",
+  "addedToQueue": "{count,plural, =0{Tidak ada trek baru yang ditambahkan ke antrean} =1{1 trek ditambahkan ke antrean} other{{count} trek ditambahkan ke antrean}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Daftar putar ini tidak memiliki lagu yang dapat diputar.",
   "@shortcutTooltip": {
     "placeholders": {

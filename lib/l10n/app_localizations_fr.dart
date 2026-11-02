@@ -460,6 +460,21 @@ class AppLocalizationsFr extends AppLocalizations {
       'Aucune nouvelle piste n\'a été ajoutée. Ils sont peut-être déjà dans la liste de lecture.';
 
   @override
+  String get addToQueue => 'Ajouter à la file d\'attente';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count titres ajoutés à la file d\'attente',
+      one: '1 titre ajouté à la file d\'attente',
+      zero: 'Aucun nouveau titre ajouté à la file d\'attente',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Cette liste de lecture n\'a pas de pistes jouables.';
 

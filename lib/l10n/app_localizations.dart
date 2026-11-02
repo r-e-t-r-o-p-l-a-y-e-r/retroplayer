@@ -926,6 +926,18 @@ abstract class AppLocalizations {
   /// **'No new tracks were added. They may already be in the playlist.'**
   String get addTracksNothingAdded;
 
+  /// No description provided for @addToQueue.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to queue'**
+  String get addToQueue;
+
+  /// No description provided for @addedToQueue.
+  ///
+  /// In en, this message translates to:
+  /// **'{count,plural, =0{No new tracks added to the queue} =1{1 track added to the queue} other{{count} tracks added to the queue}}'**
+  String addedToQueue(int count);
+
   /// No description provided for @playlistNothingToPlay.
   ///
   /// In en, this message translates to:

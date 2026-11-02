@@ -454,6 +454,21 @@ class AppLocalizationsTh extends AppLocalizations {
       'ไม่มีเพลงใหม่ถูกเพิ่มเข้ามา อาจมีอยู่ในรายชื่อเพลงแล้ว';
 
   @override
+  String get addToQueue => 'เพิ่มในคิว';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'เพิ่ม $count เพลงในคิวแล้ว',
+      one: 'เพิ่ม 1 เพลงในคิวแล้ว',
+      zero: 'ไม่มีเพลงใหม่ที่เพิ่มในคิว',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'รายชื่อเพลงนี้ไม่มีเพลงใดที่สามารถเล่นได้';
 

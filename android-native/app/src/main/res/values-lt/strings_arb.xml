@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Tai pašalina įrašą iš grojaraščio failo, kai jį išsaugote.</string>
     <string name="remove_playlist_track_body_other">Tai pašalina įrašus iš grojaraščio failo, kai jį išsaugote.</string>
     <string name="add_tracks_nothing_added">Naujų kūrinių nebuvo pridėta. Galbūt jie jau yra grojaraštyje.</string>
+    <string name="add_to_queue">Pridėti į eilę</string>
+    <string name="added_to_queue_eq0">Į eilę nepridėta naujų takelių</string>
+    <string name="added_to_queue_eq1">Į eilę pridėtas 1 takelis</string>
+    <string name="added_to_queue_other">Pridėta į eilę: %1$d</string>
     <string name="playlist_nothing_to_play">Šiame grojaraštyje nėra grojamų įrašų.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Ištrinti grojaraštį?</string>

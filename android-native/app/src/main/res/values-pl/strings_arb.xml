@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Spowoduje to usunięcie tego wpisu z pliku listy odtwarzania po zapisaniu.</string>
     <string name="remove_playlist_track_body_other">Spowoduje to usunięcie wpisów z pliku listy odtwarzania podczas zapisywania.</string>
     <string name="add_tracks_nothing_added">Nie dodano żadnych nowych utworów. Być może znajdują się one już na liście odtwarzania.</string>
+    <string name="add_to_queue">Dodaj do kolejki</string>
+    <string name="added_to_queue_eq0">Nie dodano nowych utworów do kolejki</string>
+    <string name="added_to_queue_eq1">Dodano 1 utwór do kolejki</string>
+    <string name="added_to_queue_other">Dodano do kolejki: %1$d</string>
     <string name="playlist_nothing_to_play">Ta playlista nie zawiera żadnych utworów, które można odtworzyć.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Usunąć playlistę?</string>

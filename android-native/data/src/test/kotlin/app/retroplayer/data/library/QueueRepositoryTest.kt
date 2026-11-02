@@ -72,6 +72,14 @@ class QueueRepositoryTest {
     }
 
     @Test
+    fun `add reports how many tracks were new`() = runTest(UnconfinedTestDispatcher()) {
+        val repository = repository(settings())
+        assertThat(repository.add(listOf(p("a.mp3"), p("b.mp3")))).isEqualTo(2)
+        assertThat(repository.add(listOf(p("b.mp3"), p("c.mp3")))).isEqualTo(1)
+        assertThat(repository.add(listOf(p("a.mp3")))).isEqualTo(0)
+    }
+
+    @Test
     fun `missing files resolve to null entries`() = runTest(UnconfinedTestDispatcher()) {
         val repository = repository(settings())
         repository.add(listOf(p("a.mp3"), p("gone.mp3"), p("b.mp3")))

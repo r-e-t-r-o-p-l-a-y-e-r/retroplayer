@@ -452,6 +452,21 @@ class AppLocalizationsEt extends AppLocalizations {
       'Uusi lugusid ei lisatud. Need võivad juba esitusloendis olla.';
 
   @override
+  String get addToQueue => 'Lisa järjekorda';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Järjekorda lisatud: $count',
+      one: 'Järjekorda lisati 1 lugu',
+      zero: 'Järjekorda ei lisatud uusi lugusid',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Sellel esitusloendil pole esitatavaid lugusid.';
 

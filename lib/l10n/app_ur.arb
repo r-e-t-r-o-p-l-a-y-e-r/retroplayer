@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{یہ سِیو کرتے وقت پلے لسٹ فائل سے اندراج کو ہٹا دیتا ہے۔} other{یہ سِیو کرتے وقت پلے لسٹ فائل سے اندراجات کو ہٹا دیتا ہے۔}}",
   "addTracksNothingAdded": "کوئی نئے ٹریک شامل نہیں کیے گئے۔ یہ پہلے ہی پلے لسٹ میں موجود ہو سکتے ہیں۔",
+  "addToQueue": "قطار میں شامل کریں",
+  "addedToQueue": "{count,plural, =0{قطار میں کوئی نیا ٹریک شامل نہیں ہوا} =1{قطار میں ایک ٹریک شامل کیا گیا} other{قطار میں {count} ٹریکس شامل کیے گئے}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "اس پلے لسٹ میں کوئی قابلِ اجرا ٹریک نہیں ہیں۔",
   "@shortcutTooltip": {
     "placeholders": {

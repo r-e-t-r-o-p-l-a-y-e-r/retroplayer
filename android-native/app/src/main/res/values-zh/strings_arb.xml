@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">这会在您保存时从播放列表文件中删除该条目。</string>
     <string name="remove_playlist_track_body_other">这会在您保存时从播放列表文件中删除这些条目。</string>
     <string name="add_tracks_nothing_added">未添加新曲目。 它们可能已经在播放列表中。</string>
+    <string name="add_to_queue">添加到队列</string>
+    <string name="added_to_queue_eq0">没有新曲目添加到队列</string>
+    <string name="added_to_queue_eq1">已将 1 首曲目添加到队列</string>
+    <string name="added_to_queue_other">已将 %1$d 首曲目添加到队列</string>
     <string name="playlist_nothing_to_play">此播放列表没有可播放的曲目。</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">删除播放列表？</string>

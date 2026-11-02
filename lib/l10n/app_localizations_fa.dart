@@ -452,6 +452,21 @@ class AppLocalizationsFa extends AppLocalizations {
       'هیچ آهنگ جدیدی اضافه نشد. ممکن است آن‌ها از قبل در لیست پخش باشند.';
 
   @override
+  String get addToQueue => 'افزودن به صف';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count قطعه به صف افزوده شد',
+      one: 'یک قطعه به صف افزوده شد',
+      zero: 'هیچ قطعهٔ جدیدی به صف افزوده نشد',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'این فهرست پخش هیچ قطعه‌ای برای پخش ندارد.';
 

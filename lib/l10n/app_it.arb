@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{In questo modo, al momento del salvataggio, la voce viene rimossa dal file della playlist.} other{In questo modo, al momento del salvataggio, le voci vengono rimosse dal file della playlist.}}",
   "addTracksNothingAdded": "Non sono state aggiunte nuove tracce. Potrebbero già essere nella playlist.",
+  "addToQueue": "Aggiungi alla coda",
+  "addedToQueue": "{count,plural, =0{Nessun nuovo brano aggiunto alla coda} =1{1 brano aggiunto alla coda} other{{count} brani aggiunti alla coda}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Questa playlist non ha tracce riproducibili.",
   "@shortcutTooltip": {
     "placeholders": {

@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Thao tác này sẽ xóa mục đó khỏi tệp danh sách phát khi bạn lưu.} other{Thao tác này sẽ xóa các mục khỏi tệp danh sách phát khi bạn lưu.}}",
   "addTracksNothingAdded": "Không có bài hát mới nào được thêm vào. Chúng có thể đã có trong danh sách phát.",
+  "addToQueue": "Thêm vào hàng đợi",
+  "addedToQueue": "{count,plural, =0{Không có bản nhạc mới nào được thêm vào hàng đợi} =1{Đã thêm 1 bản nhạc vào hàng đợi} other{Đã thêm {count} bản nhạc vào hàng đợi}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Danh sách phát này không có bản nhạc có thể phát.",
   "@shortcutTooltip": {
     "placeholders": {

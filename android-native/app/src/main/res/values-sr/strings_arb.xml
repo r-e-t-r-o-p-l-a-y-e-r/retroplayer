@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Ово уклања унос из датотеке плејлисте када сачувате.</string>
     <string name="remove_playlist_track_body_other">Ово уклања записе из датотеке плејлисте када сачувате.</string>
     <string name="add_tracks_nothing_added">Није додата ниједна нова песма. Могуће је да су већ на плејлисти.</string>
+    <string name="add_to_queue">Додај у ред</string>
+    <string name="added_to_queue_eq0">Ниједна нова песма није додата у ред</string>
+    <string name="added_to_queue_eq1">1 песма је додата у ред</string>
+    <string name="added_to_queue_other">Додато у ред: %1$d</string>
     <string name="playlist_nothing_to_play">Ова плејлиста нема песме за репродукцију.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Избриши плејлисту?</string>

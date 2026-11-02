@@ -3,6 +3,8 @@ package app.retroplayer.ui.library
 import android.provider.DocumentsContract
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import android.content.res.Resources
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -15,15 +17,20 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material.icons.automirrored.filled.PlaylistPlay
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Album
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material.icons.outlined.Folder
 import androidx.compose.material.icons.outlined.FolderOpen
 import androidx.compose.material.icons.outlined.FolderSpecial
 import androidx.compose.material.icons.outlined.MusicNote
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -32,6 +39,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -45,8 +54,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.CustomAccessibilityAction
+import androidx.compose.ui.semantics.customActions
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -58,6 +72,7 @@ import app.retroplayer.domain.Crumb
 import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.model.AudioAlbum
 import app.retroplayer.domain.model.LibraryItem
+import app.retroplayer.domain.model.PlaybackItem
 import app.retroplayer.domain.model.PlaylistRef
 import app.retroplayer.ui.art.EmbeddedArt
 import app.retroplayer.ui.components.AlbumArt
@@ -85,6 +100,8 @@ data class FolderActions(
     val toggleFavorite: (LibraryPath) -> Unit = {},
     val addFolder: () -> Unit = {},
     val removeRoot: (LibraryRoot) -> Unit = {},
+    /** Queues what the playback item would play; the callback gets how many tracks were new. */
+    val addToQueue: (itemId: String, onAdded: (Int) -> Unit) -> Unit = { _, _ -> },
 )
 
 @Composable
@@ -112,6 +129,7 @@ fun FolderScreen(viewModel: FolderViewModel, navigation: FolderNavigation, playi
             toggleFavorite = viewModel::toggleFavorite,
             addFolder = { picker.launch(MUSIC_FOLDER) },
             removeRoot = { viewModel.removeRoot(it.id) },
+            addToQueue = viewModel::addToQueue,
         ),
         snackbar = snackbar,
     )
@@ -133,6 +151,16 @@ fun FolderContent(
     snackbar: SnackbarHostState = remember { SnackbarHostState() },
 ) {
     var confirmRemove by rememberSaveable { mutableStateOf<String?>(null) }
+    val resources = LocalResources.current
+    val scope = rememberCoroutineScope()
+    val rowActions = actions.copy(
+        addToQueue = { id, onAdded ->
+            actions.addToQueue(id) { count ->
+                onAdded(count)
+                scope.launch { snackbar.showSnackbar(resources.addedToQueue(count)) }
+            }
+        },
+    )
     Scaffold(
         topBar = {
             Column {
@@ -159,8 +187,8 @@ fun FolderContent(
             when (state) {
                 FolderUiState.Loading -> LinearProgressIndicator(Modifier.fillMaxWidth())
                 FolderUiState.Missing -> Message(stringResource(R.string.folder_missing))
-                is FolderUiState.Root -> RootList(state, playingTrackId, navigation, actions, onRemove = { confirmRemove = it.id })
-                is FolderUiState.Folder -> FolderList(state, playingTrackId, navigation, actions)
+                is FolderUiState.Root -> RootList(state, playingTrackId, navigation, rowActions, onRemove = { confirmRemove = it.id })
+                is FolderUiState.Folder -> FolderList(state, playingTrackId, navigation, rowActions)
             }
         }
     }
@@ -192,6 +220,64 @@ private fun Message(text: String) {
     )
 }
 
+private fun Resources.addedToQueue(count: Int) = when (count) {
+    0 -> getString(R.string.added_to_queue_eq0)
+    1 -> getString(R.string.added_to_queue_eq1)
+    else -> getString(R.string.added_to_queue_other, count)
+}
+
+/** Gives [row] a long-press that opens a menu adding [itemId] to the queue. */
+@Composable
+private fun QueueMenu(itemId: String, actions: FolderActions, row: @Composable (openMenu: () -> Unit) -> Unit) {
+    var open by remember { mutableStateOf(false) }
+    Box {
+        row { open = true }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.add_to_queue)) },
+                leadingIcon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, contentDescription = null) },
+                onClick = {
+                    open = false
+                    actions.addToQueue(itemId) {}
+                },
+            )
+        }
+    }
+}
+
+/**
+ * One-way swipe that runs [onSwiped] and snaps back; [label] names the same
+ * action for accessibility services.
+ */
+@Composable
+private fun SwipeAction(
+    fromStart: Boolean,
+    icon: ImageVector,
+    label: String,
+    onSwiped: () -> Unit,
+    content: @Composable () -> Unit,
+) {
+    val palette = LocalRetroPalette.current
+    val state = rememberSwipeToDismissBoxState()
+    val scope = rememberCoroutineScope()
+    SwipeToDismissBox(
+        state = state,
+        modifier = Modifier.semantics { customActions = listOf(CustomAccessibilityAction(label) { onSwiped(); true }) },
+        enableDismissFromStartToEnd = fromStart,
+        enableDismissFromEndToStart = !fromStart,
+        onDismiss = {
+            onSwiped()
+            scope.launch { state.reset() }
+        },
+        backgroundContent = {
+            Box(
+                Modifier.fillMaxSize().background(palette.chrome).padding(horizontal = 24.dp),
+                contentAlignment = if (fromStart) Alignment.CenterStart else Alignment.CenterEnd,
+            ) { Icon(icon, contentDescription = null, tint = palette.accent) }
+        },
+    ) { Box(Modifier.background(palette.screen)) { content() } }
+}
+
 @Composable
 private fun PlayButton(label: String, onClick: () -> Unit) {
     IconButton(onClick = onClick) { Icon(Icons.Filled.PlayArrow, contentDescription = label) }
@@ -216,31 +302,40 @@ private fun RootList(
         return
     }
     val removeLabel = stringResource(R.string.remove)
+    val addLabel = stringResource(R.string.add_to_queue)
     LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
         item { SectionHeader(stringResource(R.string.library_sources)) }
         items(state.roots, key = { "root:" + it.id }) { root ->
-            RetroListRow(
-                title = { RowTitle(root.name) },
-                subtitle = AbsolutePathMapper.displayLocation(root.treeUri)?.let { { RowSubtitle(it) } },
-                leading = { IconChip(Icons.Outlined.Folder) },
-                trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(root.path) } },
-                playing = root.path.holds(playingTrackId),
-                onClick = { navigation.openFolder(root.path) },
-                onLongClick = { onRemove(root) },
-                onLongClickLabel = removeLabel,
-            )
+            SwipeAction(fromStart = false, icon = Icons.Outlined.Delete, label = removeLabel, onSwiped = { onRemove(root) }) {
+                QueueMenu(PlaybackItem.folderId(root.path), actions) { openMenu ->
+                    RetroListRow(
+                        title = { RowTitle(root.name) },
+                        subtitle = AbsolutePathMapper.displayLocation(root.treeUri)?.let { { RowSubtitle(it) } },
+                        leading = { IconChip(Icons.Outlined.Folder) },
+                        trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(root.path) } },
+                        playing = root.path.holds(playingTrackId),
+                        onClick = { navigation.openFolder(root.path) },
+                        onLongClick = openMenu,
+                        onLongClickLabel = addLabel,
+                    )
+                }
+            }
         }
         if (state.favorites.isNotEmpty()) {
             item { SectionHeader(stringResource(R.string.favorites)) }
             items(state.favorites, key = { "fav:" + it.path.value }) { link ->
-                RetroListRow(
-                    title = { RowTitle(link.label) },
-                    subtitle = link.rootName?.let { { RowSubtitle(it) } },
-                    leading = { IconChip(Icons.Outlined.FolderSpecial, contentDescription = stringResource(R.string.favorite)) },
-                    trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(link.path) } },
-                    playing = link.path.holds(playingTrackId),
-                    onClick = { navigation.openFolder(link.path) },
-                )
+                QueueMenu(PlaybackItem.folderId(link.path), actions) { openMenu ->
+                    RetroListRow(
+                        title = { RowTitle(link.label) },
+                        subtitle = link.rootName?.let { { RowSubtitle(it) } },
+                        leading = { IconChip(Icons.Outlined.FolderSpecial, contentDescription = stringResource(R.string.favorite)) },
+                        trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(link.path) } },
+                        playing = link.path.holds(playingTrackId),
+                        onClick = { navigation.openFolder(link.path) },
+                        onLongClick = openMenu,
+                        onLongClickLabel = addLabel,
+                    )
+                }
             }
         }
     }
@@ -278,16 +373,25 @@ private fun LazyListScope.folderSection(
     item(key = "h:folders") { SectionHeader(stringResource(R.string.folders)) }
     items(state.folders, key = { "f:" + it.entry.path.value }) { row ->
         val path = row.entry.path
-        RetroListRow(
-            title = { RowTitle(path.name) },
-            subtitle = { RowSubtitle(parent + "/" + path.name) },
-            leading = { FolderChip(row.isFavorite) },
-            trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(path) } },
-            playing = path.holds(playingTrackId),
-            onClick = { navigation.openFolder(path) },
-            onLongClick = { actions.toggleFavorite(path) },
-            onLongClickLabel = stringResource(if (row.isFavorite) R.string.remove_favorite else R.string.favorite),
-        )
+        SwipeAction(
+            fromStart = true,
+            icon = if (row.isFavorite) Icons.Outlined.StarBorder else Icons.Filled.Star,
+            label = stringResource(if (row.isFavorite) R.string.remove_favorite else R.string.favorite),
+            onSwiped = { actions.toggleFavorite(path) },
+        ) {
+            QueueMenu(PlaybackItem.folderId(path), actions) { openMenu ->
+                RetroListRow(
+                    title = { RowTitle(path.name) },
+                    subtitle = { RowSubtitle(parent + "/" + path.name) },
+                    leading = { FolderChip(row.isFavorite) },
+                    trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(path) } },
+                    playing = path.holds(playingTrackId),
+                    onClick = { navigation.openFolder(path) },
+                    onLongClick = openMenu,
+                    onLongClickLabel = stringResource(R.string.add_to_queue),
+                )
+            }
+        }
     }
 }
 
@@ -311,12 +415,16 @@ private fun LazyListScope.playlistSection(playlists: List<PlaylistRef>, actions:
     item(key = "h:playlists") { SectionHeader(stringResource(R.string.playlists)) }
     items(playlists, key = { "p:" + it.path.value }) { playlist ->
         val item = LibraryItem.Playlist(playlist)
-        RetroListRow(
-            title = { RowTitle(playlist.displayName) },
-            leading = { IconChip(Icons.AutoMirrored.Filled.PlaylistPlay) },
-            trailing = { PlayButton(stringResource(R.string.play_playlist)) { actions.play(item) } },
-            onClick = { actions.play(item) },
-        )
+        QueueMenu(item.id, actions) { openMenu ->
+            RetroListRow(
+                title = { RowTitle(playlist.displayName) },
+                leading = { IconChip(Icons.AutoMirrored.Filled.PlaylistPlay) },
+                trailing = { PlayButton(stringResource(R.string.play_playlist)) { actions.play(item) } },
+                onClick = { actions.play(item) },
+                onLongClick = openMenu,
+                onLongClickLabel = stringResource(R.string.add_to_queue),
+            )
+        }
     }
 }
 
@@ -339,6 +447,7 @@ private fun LazyListScope.audioSection(
 
 @Composable
 private fun AlbumRow(album: AudioAlbum, folderArt: String?, playingTrackId: String?, navigation: FolderNavigation, actions: FolderActions) {
+    QueueMenu(LibraryItem.Album(album).id, actions) { openMenu ->
     RetroListRow(
         title = { RowTitle(album.title) },
         subtitle = {
@@ -350,18 +459,25 @@ private fun AlbumRow(album: AudioAlbum, folderArt: String?, playingTrackId: Stri
         trailing = { PlayButton(stringResource(R.string.play_album)) { actions.play(LibraryItem.Album(album)) } },
         playing = album.tracks.any { it.id == playingTrackId },
         onClick = { navigation.openAlbum(album) },
+        onLongClick = openMenu,
+        onLongClickLabel = stringResource(R.string.add_to_queue),
     )
+    }
 }
 
 @Composable
 private fun TrackRow(item: LibraryItem.Track, playingTrackId: String?, actions: FolderActions) {
     val track = item.track
     val playing = track.id == playingTrackId
+    QueueMenu(item.id, actions) { openMenu ->
     RetroListRow(
         title = { RowTitle(track.displayTitle) },
         subtitle = { RowSubtitle(track.displayArtist ?: stringResource(R.string.track_fallback)) },
         leading = { IconChip(Icons.Outlined.MusicNote, highlight = playing) },
         playing = playing,
         onClick = { actions.play(item) },
+        onLongClick = openMenu,
+        onLongClickLabel = stringResource(R.string.add_to_queue),
     )
+    }
 }

@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Ова го отстранува записот од датотеката со плејлиста кога ќе зачувате.} other{Ова ги отстранува записите од датотеката со плејлиста кога ќе зачувате.}}",
   "addTracksNothingAdded": "Не се додадени нови песни. Тие можеби веќе се во плејлистата.",
+  "addToQueue": "Додај во редот",
+  "addedToQueue": "{count,plural, =0{Не се додадени нови песни во редот} =1{1 песна е додадена во редот} other{Додадени во редот: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Оваа плејлиста нема песни за репродукција.",
   "@shortcutTooltip": {
     "placeholders": {

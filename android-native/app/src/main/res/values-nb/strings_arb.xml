@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Dette fjerner oppføringen fra spillelistefilen når du lagrer.</string>
     <string name="remove_playlist_track_body_other">Dette fjerner oppføringene fra spillelistefilen når du lagrer.</string>
     <string name="add_tracks_nothing_added">Det ble ikke lagt til noen nye spor. De kan allerede være i spillelisten.</string>
+    <string name="add_to_queue">Legg til i kø</string>
+    <string name="added_to_queue_eq0">Ingen nye spor ble lagt til i køen</string>
+    <string name="added_to_queue_eq1">1 spor lagt til i køen</string>
+    <string name="added_to_queue_other">%1$d spor lagt til i køen</string>
     <string name="playlist_nothing_to_play">Denne spillelisten inneholder ingen spor som kan spilles av.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Slette spillelisten?</string>

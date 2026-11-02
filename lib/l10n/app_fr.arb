@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Cela supprime l'entrée du fichier de liste de lecture lorsque vous enregistrez.} other{Cela supprime les entrées du fichier de liste de lecture lorsque vous enregistrez.}}",
   "addTracksNothingAdded": "Aucune nouvelle piste n'a été ajoutée. Ils sont peut-être déjà dans la liste de lecture.",
+  "addToQueue": "Ajouter à la file d'attente",
+  "addedToQueue": "{count,plural, =0{Aucun nouveau titre ajouté à la file d'attente} =1{1 titre ajouté à la file d'attente} other{{count} titres ajoutés à la file d'attente}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Cette liste de lecture n'a pas de pistes jouables.",
   "@shortcutTooltip": {
     "placeholders": {

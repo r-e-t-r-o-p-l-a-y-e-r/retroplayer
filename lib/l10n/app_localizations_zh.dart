@@ -439,6 +439,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get addTracksNothingAdded => '未添加新曲目。 它们可能已经在播放列表中。';
 
   @override
+  String get addToQueue => '添加到队列';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '已将 $count 首曲目添加到队列',
+      one: '已将 1 首曲目添加到队列',
+      zero: '没有新曲目添加到队列',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay => '此播放列表没有可播放的曲目。';
 
   @override

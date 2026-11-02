@@ -454,6 +454,21 @@ class AppLocalizationsDe extends AppLocalizations {
       'Es wurden keine neuen Titel hinzugefügt. Sie sind möglicherweise bereits in der Wiedergabeliste.';
 
   @override
+  String get addToQueue => 'Zur Warteschlange hinzufügen';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Titel zur Warteschlange hinzugefügt',
+      one: '1 Titel zur Warteschlange hinzugefügt',
+      zero: 'Keine neuen Titel zur Warteschlange hinzugefügt',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Diese Wiedergabeliste enthält keine abspielbaren Titel.';
 

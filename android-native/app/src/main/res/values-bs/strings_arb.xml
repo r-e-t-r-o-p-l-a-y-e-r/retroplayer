@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Ovo uklanja unos iz datoteke playliste kada spremate.</string>
     <string name="remove_playlist_track_body_other">Ovo uklanja unose iz datoteke playliste kada spremate.</string>
     <string name="add_tracks_nothing_added">Nije dodana nijedna nova pjesma. Moguće je da su već na playlisti.</string>
+    <string name="add_to_queue">Dodaj u red</string>
+    <string name="added_to_queue_eq0">Nijedna nova pjesma nije dodana u red</string>
+    <string name="added_to_queue_eq1">1 pjesma dodana u red</string>
+    <string name="added_to_queue_other">Dodano u red: %1$d</string>
     <string name="playlist_nothing_to_play">Ova plejlista nema pjesama za reprodukciju.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Obriši plejlistu?</string>

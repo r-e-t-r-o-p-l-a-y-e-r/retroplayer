@@ -456,6 +456,21 @@ class AppLocalizationsDa extends AppLocalizations {
       'Der er ikke blevet tilføjet nye numre. De er muligvis allerede på afspilningslisten.';
 
   @override
+  String get addToQueue => 'Føj til kø';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count spor føjet til køen',
+      one: '1 spor føjet til køen',
+      zero: 'Ingen nye spor blev føjet til køen',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Denne afspilningsliste indeholder ingen numre, der kan afspilles.';
 

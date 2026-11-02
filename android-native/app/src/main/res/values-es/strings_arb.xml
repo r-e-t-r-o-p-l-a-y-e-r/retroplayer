@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Esto elimina la entrada del archivo de la lista de reproducción al guardar.</string>
     <string name="remove_playlist_track_body_other">Esto elimina las entradas del archivo de la lista de reproducción al guardar.</string>
     <string name="add_tracks_nothing_added">No se han añadido nuevas pistas. Es posible que ya estén en la lista de reproducción.</string>
+    <string name="add_to_queue">Añadir a la cola</string>
+    <string name="added_to_queue_eq0">No se añadieron temas nuevos a la cola</string>
+    <string name="added_to_queue_eq1">1 tema añadido a la cola</string>
+    <string name="added_to_queue_other">%1$d temas añadidos a la cola</string>
     <string name="playlist_nothing_to_play">Esta lista de reproducción no tiene pistas reproducibles.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">¿Eliminar lista de reproducción?</string>

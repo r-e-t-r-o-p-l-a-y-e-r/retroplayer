@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">این هنگام ذخیره، ورودی را از فایل لیست پخش حذف می‌کند.</string>
     <string name="remove_playlist_track_body_other">این هنگام ذخیره، ورودی‌ها را از فایل لیست پخش حذف می‌کند.</string>
     <string name="add_tracks_nothing_added">هیچ آهنگ جدیدی اضافه نشد. ممکن است آن‌ها از قبل در لیست پخش باشند.</string>
+    <string name="add_to_queue">افزودن به صف</string>
+    <string name="added_to_queue_eq0">هیچ قطعهٔ جدیدی به صف افزوده نشد</string>
+    <string name="added_to_queue_eq1">یک قطعه به صف افزوده شد</string>
+    <string name="added_to_queue_other">%1$d قطعه به صف افزوده شد</string>
     <string name="playlist_nothing_to_play">این فهرست پخش هیچ قطعه‌ای برای پخش ندارد.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">حذف فهرست پخش؟</string>

@@ -455,6 +455,21 @@ class AppLocalizationsBn extends AppLocalizations {
       'কোনও নতুন ট্র্যাক যোগ করা হয়নি । তারা ইতিমধ্যে প্লেলিস্টে থাকতে পারে ।';
 
   @override
+  String get addToQueue => 'সারিতে যোগ করুন';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'সারিতে $countটি ট্র্যাক যোগ হয়েছে',
+      one: 'সারিতে একটি ট্র্যাক যোগ হয়েছে',
+      zero: 'সারিতে নতুন কোনো ট্র্যাক যোগ হয়নি',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'এই প্লেলিস্টে কোনও প্লেযোগ্য ট্র্যাক নেই ।';
 

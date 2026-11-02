@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{פעולה זו מסירה את הערך מקובץ רשימת ההשמעה בעת השמירה.} other{פעולה זו מסירה את הערכים מקובץ רשימת ההשמעה בעת השמירה.}}",
   "addTracksNothingAdded": "לא נוספו שירים חדשים. ייתכן שהם כבר נמצאים ברשימת ההשמעה.",
+  "addToQueue": "הוסף לתור",
+  "addedToQueue": "{count,plural, =0{לא נוספו רצועות חדשות לתור} =1{רצועה אחת נוספה לתור} other{נוספו לתור: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "ברשימת ההשמעה הזו אין שירים שניתן להשמיע.",
   "@shortcutTooltip": {
     "placeholders": {

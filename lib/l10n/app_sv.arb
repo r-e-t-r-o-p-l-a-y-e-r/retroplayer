@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Detta tar bort posten från spellistfilen när du sparar.} other{Detta tar bort posterna från spellistfilen när du sparar.}}",
   "addTracksNothingAdded": "Inga nya låtar har lagts till. De kanske redan finns i spellistan.",
+  "addToQueue": "Lägg till i kön",
+  "addedToQueue": "{count,plural, =0{Inga nya spår lades till i kön} =1{1 spår har lagts till i kön} other{{count} spår har lagts till i kön}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Den här spellistan innehåller inga spår som går att spela upp.",
   "@shortcutTooltip": {
     "placeholders": {

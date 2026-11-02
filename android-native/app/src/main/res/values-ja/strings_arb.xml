@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">これにより、保存時にプレイリストファイルからそのエントリが削除されます。</string>
     <string name="remove_playlist_track_body_other">これにより、保存時にプレイリストファイルからエントリが削除されます。</string>
     <string name="add_tracks_nothing_added">新しい楽曲は追加されていません。既にプレイリストに含まれている可能性があります。</string>
+    <string name="add_to_queue">キューに追加</string>
+    <string name="added_to_queue_eq0">キューに追加された新しい曲はありません</string>
+    <string name="added_to_queue_eq1">1曲をキューに追加しました</string>
+    <string name="added_to_queue_other">%1$d曲をキューに追加しました</string>
     <string name="playlist_nothing_to_play">このプレイリストには再生可能なトラックがありません。</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">プレイリストの削除</string>

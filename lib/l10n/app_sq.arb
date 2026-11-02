@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Kjo heq hyrjen nga skedari i listës së luajtjes kur e ruani.} other{Kjo heq hyrjet nga skedari i listës së luajtjes kur ruani.}}",
   "addTracksNothingAdded": "Nuk u shtuan këngë të reja. Ato mund të jenë tashmë në listën e luajtjes.",
+  "addToQueue": "Shto në radhë",
+  "addedToQueue": "{count,plural, =0{Nuk u shtua asnjë këngë e re në radhë} =1{U shtua 1 këngë në radhë} other{U shtuan në radhë: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Kjo listë nuk ka asnjë këngë të luajtshme.",
   "@shortcutTooltip": {
     "placeholders": {

@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Dan ineħħi l-entrata mill-fajl tal-playlist meta tissejvja.</string>
     <string name="remove_playlist_track_body_other">Dan ineħħi l-entrati mill-fajl tal-playlist meta tissejvja.</string>
     <string name="add_tracks_nothing_added">Ma ġew miżjuda trakkijiet ġodda. Jistgħu jkunu diġà fil-playlist.</string>
+    <string name="add_to_queue">Żid mal-kju</string>
+    <string name="added_to_queue_eq0">Ma żdiedet l-ebda traċċa ġdida mal-kju</string>
+    <string name="added_to_queue_eq1">Żdiedet traċċa waħda mal-kju</string>
+    <string name="added_to_queue_other">Miżjuda mal-kju: %1$d</string>
     <string name="playlist_nothing_to_play">Din il-playlist m\'għandhiex kanzunetti li jistgħu jitilgħu.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Tħassar il-playlist?</string>

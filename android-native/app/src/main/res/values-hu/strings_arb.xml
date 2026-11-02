@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Ezzel a mentéskor a bejegyzés eltávolításra kerül a lejátszási lista fájljából.</string>
     <string name="remove_playlist_track_body_other">Ezzel a mentéskor a bejegyzések eltávolításra kerülnek a lejátszási lista fájljából.</string>
     <string name="add_tracks_nothing_added">Nem került fel új szám. Lehet, hogy már szerepelnek a lejátszási listában.</string>
+    <string name="add_to_queue">Hozzáadás a sorhoz</string>
+    <string name="added_to_queue_eq0">Nem került új szám a sorba</string>
+    <string name="added_to_queue_eq1">1 szám hozzáadva a sorhoz</string>
+    <string name="added_to_queue_other">%1$d szám hozzáadva a sorhoz</string>
     <string name="playlist_nothing_to_play">Ebben a lejátszási listában nincs lejátszható szám.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Törölni szeretnéd a lejátszási listát?</string>

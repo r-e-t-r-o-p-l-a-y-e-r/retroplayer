@@ -457,6 +457,21 @@ class AppLocalizationsPt extends AppLocalizations {
       'Não foram adicionadas novas faixas. Eles podem já estar na lista de reprodução.';
 
   @override
+  String get addToQueue => 'Adicionar à fila';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count faixas adicionadas à fila',
+      one: '1 faixa adicionada à fila',
+      zero: 'Nenhuma faixa nova adicionada à fila',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Esta lista de reprodução não tem faixas reproduzíveis.';
 

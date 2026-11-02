@@ -455,6 +455,21 @@ class AppLocalizationsNb extends AppLocalizations {
       'Det ble ikke lagt til noen nye spor. De kan allerede være i spillelisten.';
 
   @override
+  String get addToQueue => 'Legg til i kø';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count spor lagt til i køen',
+      one: '1 spor lagt til i køen',
+      zero: 'Ingen nye spor ble lagt til i køen',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Denne spillelisten inneholder ingen spor som kan spilles av.';
 

@@ -455,6 +455,21 @@ class AppLocalizationsGa extends AppLocalizations {
       'Níor cuireadh aon rian nua leis. Seans go bhfuil siad sa liosta seinnte cheana féin.';
 
   @override
+  String get addToQueue => 'Cuir leis an tsraith';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Curtha leis an tsraith: $count',
+      one: 'Cuireadh 1 rian leis an tsraith',
+      zero: 'Níor cuireadh aon rian nua leis an tsraith',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Níl aon rian in-seinnte ar an seinnliosta seo.';
 

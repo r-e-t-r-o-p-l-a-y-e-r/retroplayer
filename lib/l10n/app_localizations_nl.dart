@@ -455,6 +455,21 @@ class AppLocalizationsNl extends AppLocalizations {
       'Er zijn geen nieuwe nummers toegevoegd. Misschien staan ze al in de afspeellijst.';
 
   @override
+  String get addToQueue => 'Toevoegen aan wachtrij';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count nummers aan de wachtrij toegevoegd',
+      one: '1 nummer aan de wachtrij toegevoegd',
+      zero: 'Geen nieuwe nummers aan de wachtrij toegevoegd',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Deze afspeellijst bevat geen nummers die kunnen worden afgespeeld.';
 

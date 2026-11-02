@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{При этом при сохранении запись удаляется из файла плейлиста.} other{При этом при сохранении записи удаляются из файла плейлиста.}}",
   "addTracksNothingAdded": "Новые треки не добавлены. Возможно, они уже есть в плейлисте.",
+  "addToQueue": "Добавить в очередь",
+  "addedToQueue": "{count,plural, =0{Новые треки не добавлены в очередь} =1{1 трек добавлен в очередь} other{Добавлено в очередь: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "В этом плейлисте нет воспроизводимых треков.",
   "@shortcutTooltip": {
     "placeholders": {

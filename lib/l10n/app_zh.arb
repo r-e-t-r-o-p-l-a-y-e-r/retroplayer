@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{这会在您保存时从播放列表文件中删除该条目。} other{这会在您保存时从播放列表文件中删除这些条目。}}",
   "addTracksNothingAdded": "未添加新曲目。 它们可能已经在播放列表中。",
+  "addToQueue": "添加到队列",
+  "addedToQueue": "{count,plural, =0{没有新曲目添加到队列} =1{已将 1 首曲目添加到队列} other{已将 {count} 首曲目添加到队列}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "此播放列表没有可播放的曲目。",
   "@shortcutTooltip": {
     "placeholders": {

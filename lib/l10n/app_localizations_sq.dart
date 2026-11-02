@@ -454,6 +454,21 @@ class AppLocalizationsSq extends AppLocalizations {
       'Nuk u shtuan këngë të reja. Ato mund të jenë tashmë në listën e luajtjes.';
 
   @override
+  String get addToQueue => 'Shto në radhë';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'U shtuan në radhë: $count',
+      one: 'U shtua 1 këngë në radhë',
+      zero: 'Nuk u shtua asnjë këngë e re në radhë',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Kjo listë nuk ka asnjë këngë të luajtshme.';
 

@@ -453,6 +453,21 @@ class AppLocalizationsIs extends AppLocalizations {
       'Engar nýjar lögbætur voru bættar við. Þær kunna þegar að vera á spilunarlistanum.';
 
   @override
+  String get addToQueue => 'Bæta í röð';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Bætt í röðina: $count',
+      one: '1 lagi bætt í röðina',
+      zero: 'Engum nýjum lögum var bætt í röðina',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Þessi spilunarlisti inniheldur engin lög sem hægt er að spila.';
 

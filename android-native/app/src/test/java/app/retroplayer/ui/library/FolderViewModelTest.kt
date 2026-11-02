@@ -8,6 +8,7 @@ import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.domain.model.PlaybackItem
 import app.retroplayer.domain.model.TrackMetadata
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.first
 import org.junit.After
 import org.junit.Before
@@ -47,6 +48,8 @@ class FolderViewModelTest {
         lib.settings,
         lib.playback,
         lib.access,
+        lib.items,
+        lib.queue,
     )
 
     private suspend fun FolderViewModel.folder() = state.first { it is FolderUiState.Folder && it.complete } as FolderUiState.Folder
@@ -97,6 +100,23 @@ class FolderViewModelTest {
             PlaybackItem.folderId(lib.p("Books")),
             PlaybackItem.folderId(lib.p("Books/Alpha")),
         ).inOrder()
+    }
+
+    @Test
+    fun `add to queue appends what play would play without playing it`() = main.runVmTest {
+        val vm = viewModel(lib.p("Albums/Alb").value)
+        val album = vm.folder().audio.single()
+        suspend fun add(itemId: String) = CompletableDeferred<Int>().also { done -> vm.addToQueue(itemId) { done.complete(it) } }.await()
+        val counts = listOf(album.id, lib.p("Books/single.mp3").value, PlaybackItem.folderId(lib.p("Books/Alpha")), album.id).map { add(it) }
+
+        assertThat(lib.settings.session.first().queue).containsExactly(
+            lib.p("Albums/Alb/t1.mp3"),
+            lib.p("Albums/Alb/t2.mp3"),
+            lib.p("Books/single.mp3"),
+            lib.p("Books/Alpha/01.mp3"),
+        ).inOrder()
+        assertThat(counts).containsExactly(2, 1, 1, 0).inOrder()
+        assertThat(lib.playback.played).isEmpty()
     }
 
     @Test

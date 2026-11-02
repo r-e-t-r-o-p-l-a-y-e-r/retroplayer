@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Dan ineħħi l-entrata mill-fajl tal-playlist meta tissejvja.} other{Dan ineħħi l-entrati mill-fajl tal-playlist meta tissejvja.}}",
   "addTracksNothingAdded": "Ma ġew miżjuda trakkijiet ġodda. Jistgħu jkunu diġà fil-playlist.",
+  "addToQueue": "Żid mal-kju",
+  "addedToQueue": "{count,plural, =0{Ma żdiedet l-ebda traċċa ġdida mal-kju} =1{Żdiedet traċċa waħda mal-kju} other{Miżjuda mal-kju: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Din il-playlist m'għandhiex kanzunetti li jistgħu jitilgħu.",
   "@shortcutTooltip": {
     "placeholders": {

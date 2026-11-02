@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Thao tác này sẽ xóa mục đó khỏi tệp danh sách phát khi bạn lưu.</string>
     <string name="remove_playlist_track_body_other">Thao tác này sẽ xóa các mục khỏi tệp danh sách phát khi bạn lưu.</string>
     <string name="add_tracks_nothing_added">Không có bài hát mới nào được thêm vào. Chúng có thể đã có trong danh sách phát.</string>
+    <string name="add_to_queue">Thêm vào hàng đợi</string>
+    <string name="added_to_queue_eq0">Không có bản nhạc mới nào được thêm vào hàng đợi</string>
+    <string name="added_to_queue_eq1">Đã thêm 1 bản nhạc vào hàng đợi</string>
+    <string name="added_to_queue_other">Đã thêm %1$d bản nhạc vào hàng đợi</string>
     <string name="playlist_nothing_to_play">Danh sách phát này không có bản nhạc có thể phát.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Xóa danh sách phát?</string>

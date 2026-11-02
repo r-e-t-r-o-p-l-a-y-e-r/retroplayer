@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">یہ سِیو کرتے وقت پلے لسٹ فائل سے اندراج کو ہٹا دیتا ہے۔</string>
     <string name="remove_playlist_track_body_other">یہ سِیو کرتے وقت پلے لسٹ فائل سے اندراجات کو ہٹا دیتا ہے۔</string>
     <string name="add_tracks_nothing_added">کوئی نئے ٹریک شامل نہیں کیے گئے۔ یہ پہلے ہی پلے لسٹ میں موجود ہو سکتے ہیں۔</string>
+    <string name="add_to_queue">قطار میں شامل کریں</string>
+    <string name="added_to_queue_eq0">قطار میں کوئی نیا ٹریک شامل نہیں ہوا</string>
+    <string name="added_to_queue_eq1">قطار میں ایک ٹریک شامل کیا گیا</string>
+    <string name="added_to_queue_other">قطار میں %1$d ٹریکس شامل کیے گئے</string>
     <string name="playlist_nothing_to_play">اس پلے لسٹ میں کوئی قابلِ اجرا ٹریک نہیں ہیں۔</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">پلے لسٹ حذف کریں؟</string>

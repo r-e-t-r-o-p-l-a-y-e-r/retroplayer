@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Tämä poistaa merkinnän soittolistatiedostosta, kun tallennat.} other{Tämä poistaa merkinnät soittolistatiedostosta, kun tallennat.}}",
   "addTracksNothingAdded": "Uusia kappaleita ei lisätty. Ne saattavat jo olla soittolistalla.",
+  "addToQueue": "Lisää jonoon",
+  "addedToQueue": "{count,plural, =0{Jonoon ei lisätty uusia kappaleita} =1{1 kappale lisätty jonoon} other{Jonoon lisätty: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Tässä soittolistassa ei ole toistettavia kappaleita.",
   "@shortcutTooltip": {
     "placeholders": {

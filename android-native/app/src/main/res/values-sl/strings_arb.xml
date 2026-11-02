@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">S tem se ob shranjevanju vnos odstrani iz datoteke s seznamom predvajanja.</string>
     <string name="remove_playlist_track_body_other">S tem se ob shranjevanju izbrišejo vnosi iz datoteke s seznamom predvajanja.</string>
     <string name="add_tracks_nothing_added">Nove skladbe niso bile dodane. Morda so že v seznamu predvajanja.</string>
+    <string name="add_to_queue">Dodaj v čakalno vrsto</string>
+    <string name="added_to_queue_eq0">V čakalno vrsto ni bila dodana nobena nova skladba</string>
+    <string name="added_to_queue_eq1">V čakalno vrsto je bila dodana 1 skladba</string>
+    <string name="added_to_queue_other">Dodano v čakalno vrsto: %1$d</string>
     <string name="playlist_nothing_to_play">Ta seznam predvajanja ne vsebuje skladb, ki bi jih bilo mogoče predvajati.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Izbrisati seznam predvajanja?</string>

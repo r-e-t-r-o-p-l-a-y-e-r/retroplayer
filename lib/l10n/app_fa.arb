@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{این هنگام ذخیره، ورودی را از فایل لیست پخش حذف می‌کند.} other{این هنگام ذخیره، ورودی‌ها را از فایل لیست پخش حذف می‌کند.}}",
   "addTracksNothingAdded": "هیچ آهنگ جدیدی اضافه نشد. ممکن است آن‌ها از قبل در لیست پخش باشند.",
+  "addToQueue": "افزودن به صف",
+  "addedToQueue": "{count,plural, =0{هیچ قطعهٔ جدیدی به صف افزوده نشد} =1{یک قطعه به صف افزوده شد} other{{count} قطعه به صف افزوده شد}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "این فهرست پخش هیچ قطعه‌ای برای پخش ندارد.",
   "@shortcutTooltip": {
     "placeholders": {

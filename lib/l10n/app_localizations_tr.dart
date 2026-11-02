@@ -452,6 +452,21 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yeni parça eklenmedi. Parçalar zaten çalma listesinde olabilir.';
 
   @override
+  String get addToQueue => 'Sıraya ekle';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Sıraya $count parça eklendi',
+      one: 'Sıraya 1 parça eklendi',
+      zero: 'Sıraya yeni parça eklenmedi',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Bu çalma listesinde oynatılabilir parça bulunmamaktadır.';
 

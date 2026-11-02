@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Tai pašalina įrašą iš grojaraščio failo, kai jį išsaugote.} other{Tai pašalina įrašus iš grojaraščio failo, kai jį išsaugote.}}",
   "addTracksNothingAdded": "Naujų kūrinių nebuvo pridėta. Galbūt jie jau yra grojaraštyje.",
+  "addToQueue": "Pridėti į eilę",
+  "addedToQueue": "{count,plural, =0{Į eilę nepridėta naujų takelių} =1{Į eilę pridėtas 1 takelis} other{Pridėta į eilę: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Šiame grojaraštyje nėra grojamų įrašų.",
   "@shortcutTooltip": {
     "placeholders": {

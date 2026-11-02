@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Tindakan ini akan menghapus entri tersebut dari berkas daftar putar saat Anda menyimpannya.</string>
     <string name="remove_playlist_track_body_other">Ini akan menghapus entri-entri tersebut dari berkas daftar putar saat Anda menyimpannya.</string>
     <string name="add_tracks_nothing_added">Tidak ada lagu baru yang ditambahkan. Mungkin lagu-lagu tersebut sudah ada di daftar putar.</string>
+    <string name="add_to_queue">Tambahkan ke antrean</string>
+    <string name="added_to_queue_eq0">Tidak ada trek baru yang ditambahkan ke antrean</string>
+    <string name="added_to_queue_eq1">1 trek ditambahkan ke antrean</string>
+    <string name="added_to_queue_other">%1$d trek ditambahkan ke antrean</string>
     <string name="playlist_nothing_to_play">Daftar putar ini tidak memiliki lagu yang dapat diputar.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Hapus daftar putar?</string>

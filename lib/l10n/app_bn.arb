@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{এটি আপনি সংরক্ষণ করার সময় প্লেলিস্ট ফাইল থেকে এন্ট্রিটি মুছে ফেলে।} other{এটি যখন আপনি সংরক্ষণ করেন, প্লেলিস্ট ফাইল থেকে এন্ট্রিগুলো মুছে ফেলে।}}",
   "addTracksNothingAdded": "কোনও নতুন ট্র্যাক যোগ করা হয়নি । তারা ইতিমধ্যে প্লেলিস্টে থাকতে পারে ।",
+  "addToQueue": "সারিতে যোগ করুন",
+  "addedToQueue": "{count,plural, =0{সারিতে নতুন কোনো ট্র্যাক যোগ হয়নি} =1{সারিতে একটি ট্র্যাক যোগ হয়েছে} other{সারিতে {count}টি ট্র্যাক যোগ হয়েছে}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "এই প্লেলিস্টে কোনও প্লেযোগ্য ট্র্যাক নেই ।",
   "@shortcutTooltip": {
     "placeholders": {

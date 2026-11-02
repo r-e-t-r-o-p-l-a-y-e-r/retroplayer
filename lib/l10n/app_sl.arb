@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{S tem se ob shranjevanju vnos odstrani iz datoteke s seznamom predvajanja.} other{S tem se ob shranjevanju izbrišejo vnosi iz datoteke s seznamom predvajanja.}}",
   "addTracksNothingAdded": "Nove skladbe niso bile dodane. Morda so že v seznamu predvajanja.",
+  "addToQueue": "Dodaj v čakalno vrsto",
+  "addedToQueue": "{count,plural, =0{V čakalno vrsto ni bila dodana nobena nova skladba} =1{V čakalno vrsto je bila dodana 1 skladba} other{Dodano v čakalno vrsto: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Ta seznam predvajanja ne vsebuje skladb, ki bi jih bilo mogoče predvajati.",
   "@shortcutTooltip": {
     "placeholders": {

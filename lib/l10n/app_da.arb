@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Dette fjerner posten fra afspilningslisten, når du gemmer.} other{Dette fjerner posterne fra afspilningslisten, når du gemmer.}}",
   "addTracksNothingAdded": "Der er ikke blevet tilføjet nye numre. De er muligvis allerede på afspilningslisten.",
+  "addToQueue": "Føj til kø",
+  "addedToQueue": "{count,plural, =0{Ingen nye spor blev føjet til køen} =1{1 spor føjet til køen} other{{count} spor føjet til køen}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Denne afspilningsliste indeholder ingen numre, der kan afspilles.",
   "@shortcutTooltip": {
     "placeholders": {

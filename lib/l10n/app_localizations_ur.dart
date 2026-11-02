@@ -453,6 +453,21 @@ class AppLocalizationsUr extends AppLocalizations {
       'کوئی نئے ٹریک شامل نہیں کیے گئے۔ یہ پہلے ہی پلے لسٹ میں موجود ہو سکتے ہیں۔';
 
   @override
+  String get addToQueue => 'قطار میں شامل کریں';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'قطار میں $count ٹریکس شامل کیے گئے',
+      one: 'قطار میں ایک ٹریک شامل کیا گیا',
+      zero: 'قطار میں کوئی نیا ٹریک شامل نہیں ہوا',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'اس پلے لسٹ میں کوئی قابلِ اجرا ٹریک نہیں ہیں۔';
 

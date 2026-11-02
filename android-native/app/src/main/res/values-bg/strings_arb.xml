@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Това премахва записа от файла с плейлиста при запазване.</string>
     <string name="remove_playlist_track_body_other">Това премахва записите от файла с плейлиста при запазване.</string>
     <string name="add_tracks_nothing_added">Не са добавени нови песни. Възможно е те вече да са в плейлиста.</string>
+    <string name="add_to_queue">Добави към опашката</string>
+    <string name="added_to_queue_eq0">Няма добавени нови песни към опашката</string>
+    <string name="added_to_queue_eq1">1 песен е добавена към опашката</string>
+    <string name="added_to_queue_other">Добавени към опашката: %1$d</string>
     <string name="playlist_nothing_to_play">В този плейлист няма песни, които могат да се възпроизвеждат.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Да изтриете плейлиста?</string>

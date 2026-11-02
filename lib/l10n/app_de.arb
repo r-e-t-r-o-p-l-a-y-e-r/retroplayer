@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Dadurch wird der Eintrag beim Speichern aus der Wiedergabelistendatei entfernt.} other{Dadurch werden die Einträge beim Speichern aus der Wiedergabelistendatei entfernt.}}",
   "addTracksNothingAdded": "Es wurden keine neuen Titel hinzugefügt. Sie sind möglicherweise bereits in der Wiedergabeliste.",
+  "addToQueue": "Zur Warteschlange hinzufügen",
+  "addedToQueue": "{count,plural, =0{Keine neuen Titel zur Warteschlange hinzugefügt} =1{1 Titel zur Warteschlange hinzugefügt} other{{count} Titel zur Warteschlange hinzugefügt}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Diese Wiedergabeliste enthält keine abspielbaren Titel.",
   "@shortcutTooltip": {
     "placeholders": {

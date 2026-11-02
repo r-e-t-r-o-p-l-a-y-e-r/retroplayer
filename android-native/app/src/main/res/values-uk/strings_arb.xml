@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Це призводить до видалення запису з файлу списку відтворення під час збереження.</string>
     <string name="remove_playlist_track_body_other">Це призводить до видалення записів із файлу списку відтворення під час збереження.</string>
     <string name="add_tracks_nothing_added">Нових треків не додано. Можливо, вони вже є у плейлисті.</string>
+    <string name="add_to_queue">Додати до черги</string>
+    <string name="added_to_queue_eq0">Нові треки не додано до черги</string>
+    <string name="added_to_queue_eq1">1 трек додано до черги</string>
+    <string name="added_to_queue_other">Додано до черги: %1$d</string>
     <string name="playlist_nothing_to_play">У цьому плейлисті немає треків, які можна відтворити.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Видалити плейлист?</string>

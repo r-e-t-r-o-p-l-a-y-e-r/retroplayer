@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Това премахва записа от файла с плейлиста при запазване.} other{Това премахва записите от файла с плейлиста при запазване.}}",
   "addTracksNothingAdded": "Не са добавени нови песни. Възможно е те вече да са в плейлиста.",
+  "addToQueue": "Добави към опашката",
+  "addedToQueue": "{count,plural, =0{Няма добавени нови песни към опашката} =1{1 песен е добавена към опашката} other{Добавени към опашката: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "В този плейлист няма песни, които могат да се възпроизвеждат.",
   "@shortcutTooltip": {
     "placeholders": {

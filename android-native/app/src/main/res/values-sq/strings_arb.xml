@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Kjo heq hyrjen nga skedari i listës së luajtjes kur e ruani.</string>
     <string name="remove_playlist_track_body_other">Kjo heq hyrjet nga skedari i listës së luajtjes kur ruani.</string>
     <string name="add_tracks_nothing_added">Nuk u shtuan këngë të reja. Ato mund të jenë tashmë në listën e luajtjes.</string>
+    <string name="add_to_queue">Shto në radhë</string>
+    <string name="added_to_queue_eq0">Nuk u shtua asnjë këngë e re në radhë</string>
+    <string name="added_to_queue_eq1">U shtua 1 këngë në radhë</string>
+    <string name="added_to_queue_other">U shtuan në radhë: %1$d</string>
     <string name="playlist_nothing_to_play">Kjo listë nuk ka asnjë këngë të luajtshme.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Fshij listën e luajtjes?</string>

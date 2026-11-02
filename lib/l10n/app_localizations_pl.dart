@@ -458,6 +458,21 @@ class AppLocalizationsPl extends AppLocalizations {
       'Nie dodano żadnych nowych utworów. Być może znajdują się one już na liście odtwarzania.';
 
   @override
+  String get addToQueue => 'Dodaj do kolejki';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Dodano do kolejki: $count',
+      one: 'Dodano 1 utwór do kolejki',
+      zero: 'Nie dodano nowych utworów do kolejki',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Ta playlista nie zawiera żadnych utworów, które można odtworzyć.';
 

@@ -458,6 +458,21 @@ class AppLocalizationsSl extends AppLocalizations {
       'Nove skladbe niso bile dodane. Morda so že v seznamu predvajanja.';
 
   @override
+  String get addToQueue => 'Dodaj v čakalno vrsto';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Dodano v čakalno vrsto: $count',
+      one: 'V čakalno vrsto je bila dodana 1 skladba',
+      zero: 'V čakalno vrsto ni bila dodana nobena nova skladba',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Ta seznam predvajanja ne vsebuje skladb, ki bi jih bilo mogoče predvajati.';
 

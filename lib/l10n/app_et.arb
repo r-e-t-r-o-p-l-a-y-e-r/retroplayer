@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{See eemaldab kirje esitusloendi failist salvestamisel.} other{See eemaldab kirjed esitusloendi failist salvestamisel.}}",
   "addTracksNothingAdded": "Uusi lugusid ei lisatud. Need võivad juba esitusloendis olla.",
+  "addToQueue": "Lisa järjekorda",
+  "addedToQueue": "{count,plural, =0{Järjekorda ei lisatud uusi lugusid} =1{Järjekorda lisati 1 lugu} other{Järjekorda lisatud: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Sellel esitusloendil pole esitatavaid lugusid.",
   "@shortcutTooltip": {
     "placeholders": {

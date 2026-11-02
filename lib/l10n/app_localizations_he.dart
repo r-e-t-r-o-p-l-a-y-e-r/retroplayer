@@ -449,6 +449,21 @@ class AppLocalizationsHe extends AppLocalizations {
       'לא נוספו שירים חדשים. ייתכן שהם כבר נמצאים ברשימת ההשמעה.';
 
   @override
+  String get addToQueue => 'הוסף לתור';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'נוספו לתור: $count',
+      one: 'רצועה אחת נוספה לתור',
+      zero: 'לא נוספו רצועות חדשות לתור',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'ברשימת ההשמעה הזו אין שירים שניתן להשמיע.';
 

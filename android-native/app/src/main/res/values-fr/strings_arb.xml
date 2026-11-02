@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Cela supprime l\'entrée du fichier de liste de lecture lorsque vous enregistrez.</string>
     <string name="remove_playlist_track_body_other">Cela supprime les entrées du fichier de liste de lecture lorsque vous enregistrez.</string>
     <string name="add_tracks_nothing_added">Aucune nouvelle piste n\'a été ajoutée. Ils sont peut-être déjà dans la liste de lecture.</string>
+    <string name="add_to_queue">Ajouter à la file d\'attente</string>
+    <string name="added_to_queue_eq0">Aucun nouveau titre ajouté à la file d\'attente</string>
+    <string name="added_to_queue_eq1">1 titre ajouté à la file d\'attente</string>
+    <string name="added_to_queue_other">%1$d titres ajoutés à la file d\'attente</string>
     <string name="playlist_nothing_to_play">Cette liste de lecture n\'a pas de pistes jouables.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Supprimer la liste de lecture ?</string>

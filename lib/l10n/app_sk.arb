@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Týmto sa pri uložení odstráni záznam zo súboru so zoznamom skladieb.} other{Týmto sa pri uložení odstránia položky zo súboru so zoznamom skladieb.}}",
   "addTracksNothingAdded": "Neboli pridané žiadne nové skladby. Možno už sú v zozname skladieb.",
+  "addToQueue": "Pridať do čakacej fronty",
+  "addedToQueue": "{count,plural, =0{Do čakacej fronty neboli pridané žiadne nové skladby} =1{Do čakacej fronty bola pridaná 1 skladba} other{Pridané do čakacej fronty: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Tento zoznam skladieb neobsahuje žiadne skladby, ktoré by sa dali prehrať.",
   "@shortcutTooltip": {
     "placeholders": {

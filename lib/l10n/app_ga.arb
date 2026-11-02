@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Baineann sé seo an iontráil as comhad an liosta seinnte nuair a shábhálann tú.} other{Baineann sé seo na hiontrálacha as comhad an liosta seinnte nuair a shábhálann tú.}}",
   "addTracksNothingAdded": "Níor cuireadh aon rian nua leis. Seans go bhfuil siad sa liosta seinnte cheana féin.",
+  "addToQueue": "Cuir leis an tsraith",
+  "addedToQueue": "{count,plural, =0{Níor cuireadh aon rian nua leis an tsraith} =1{Cuireadh 1 rian leis an tsraith} other{Curtha leis an tsraith: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Níl aon rian in-seinnte ar an seinnliosta seo.",
   "@shortcutTooltip": {
     "placeholders": {

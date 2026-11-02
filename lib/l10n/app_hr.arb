@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Ovo uklanja unos iz datoteke s popisom za reprodukciju prilikom spremanja.} other{Ovo uklanja unose iz datoteke playliste prilikom spremanja.}}",
   "addTracksNothingAdded": "Nije dodana nijedna nova pjesma. Moguće je da su već na popisu za reprodukciju.",
+  "addToQueue": "Dodaj u red",
+  "addedToQueue": "{count,plural, =0{Nijedna nova pjesma nije dodana u red} =1{1 pjesma dodana u red} other{Dodano u red: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Ova playlista nema pjesama za reprodukciju.",
   "@shortcutTooltip": {
     "placeholders": {

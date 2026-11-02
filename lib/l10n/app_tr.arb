@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Bu işlem, kaydettiğinizde çalma listesi dosyasından ilgili girişi siler.} other{Bu işlem, kaydettiğinizde çalma listesi dosyasındaki girişleri siler.}}",
   "addTracksNothingAdded": "Yeni parça eklenmedi. Parçalar zaten çalma listesinde olabilir.",
+  "addToQueue": "Sıraya ekle",
+  "addedToQueue": "{count,plural, =0{Sıraya yeni parça eklenmedi} =1{Sıraya 1 parça eklendi} other{Sıraya {count} parça eklendi}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Bu çalma listesinde oynatılabilir parça bulunmamaktadır.",
   "@shortcutTooltip": {
     "placeholders": {

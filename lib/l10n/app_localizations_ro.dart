@@ -456,6 +456,21 @@ class AppLocalizationsRo extends AppLocalizations {
       'Nu s-au adăugat melodii noi. Este posibil ca acestea să se afle deja în lista de redare.';
 
   @override
+  String get addToQueue => 'Adaugă la coadă';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Adăugate la coadă: $count',
+      one: '1 piesă adăugată la coadă',
+      zero: 'Nicio piesă nouă nu a fost adăugată la coadă',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Această listă de redare nu conține piese care pot fi redate.';
 

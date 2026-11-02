@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Tādējādi, saglabājot failu, ieraksts tiek dzēsts no atskaņošanas saraksta faila.} other{Tādējādi ieraksti tiek dzēsti no atskaņošanas saraksta faila, kad to saglabājat.}}",
   "addTracksNothingAdded": "Jauni skaņdarbi netika pievienoti. Iespējams, tie jau ir atskaņošanas sarakstā.",
+  "addToQueue": "Pievienot rindai",
+  "addedToQueue": "{count,plural, =0{Rindai netika pievienota neviena jauna dziesma} =1{Rindai pievienota 1 dziesma} other{Pievienots rindai: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Šajā atskaņošanas sarakstā nav atskaņojamu ierakstu.",
   "@shortcutTooltip": {
     "placeholders": {

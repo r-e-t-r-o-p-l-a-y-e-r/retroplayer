@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Hierdoor wordt het item uit het afspeellijstbestand verwijderd wanneer je het opslaat.} other{Hierdoor worden de vermeldingen uit het afspeellijstbestand verwijderd wanneer je het opslaat.}}",
   "addTracksNothingAdded": "Er zijn geen nieuwe nummers toegevoegd. Misschien staan ze al in de afspeellijst.",
+  "addToQueue": "Toevoegen aan wachtrij",
+  "addedToQueue": "{count,plural, =0{Geen nieuwe nummers aan de wachtrij toegevoegd} =1{1 nummer aan de wachtrij toegevoegd} other{{count} nummers aan de wachtrij toegevoegd}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Deze afspeellijst bevat geen nummers die kunnen worden afgespeeld.",
   "@shortcutTooltip": {
     "placeholders": {

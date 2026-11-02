@@ -225,10 +225,14 @@ Screen layouts (match the screenshots):
 - Library (01): top bar "Library"; breadcrumb strip; section "Library
   sources"; root rows = icon chip, name, location subtitle (`/Music`),
   trailing play button (plays the root folder). Remove a root by swiping
-  the row (T09) or long-press, both with confirmation. No trash icon.
+  the row end-to-start, with confirmation. No trash icon.
 - Folder pages: same top bar ("Library"), breadcrumb strip with the path;
   sections Folders, Playlists, Audio; folder rows have a trailing play
-  button; favorites by swipe (T09).
+  button; swipe start-to-end toggles favorite.
+- Every library row: long-press opens a context menu ("Add to queue"
+  appends what ▶ would play; snackbar with the count). Swipes are for
+  favorite/remove, never for the menu. ▶ never changes the stored queue:
+  the queue is an unsaved playlist, not "what plays now".
 - Mini player (02): drag handle, art 40 dp, title w600 + artist, progress
   bar with times, compact transport row centered; `screenElevated`
   background with a top divider.

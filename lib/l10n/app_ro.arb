@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Această acțiune elimină intrarea din fișierul listei de redare atunci când salvați.} other{Această acțiune elimină intrările din fișierul listei de redare atunci când salvați.}}",
   "addTracksNothingAdded": "Nu s-au adăugat melodii noi. Este posibil ca acestea să se afle deja în lista de redare.",
+  "addToQueue": "Adaugă la coadă",
+  "addedToQueue": "{count,plural, =0{Nicio piesă nouă nu a fost adăugată la coadă} =1{1 piesă adăugată la coadă} other{Adăugate la coadă: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Această listă de redare nu conține piese care pot fi redate.",
   "@shortcutTooltip": {
     "placeholders": {

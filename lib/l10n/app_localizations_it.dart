@@ -458,6 +458,21 @@ class AppLocalizationsIt extends AppLocalizations {
       'Non sono state aggiunte nuove tracce. Potrebbero già essere nella playlist.';
 
   @override
+  String get addToQueue => 'Aggiungi alla coda';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count brani aggiunti alla coda',
+      one: '1 brano aggiunto alla coda',
+      zero: 'Nessun nuovo brano aggiunto alla coda',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Questa playlist non ha tracce riproducibili.';
 

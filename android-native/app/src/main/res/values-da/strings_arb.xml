@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Dette fjerner posten fra afspilningslisten, når du gemmer.</string>
     <string name="remove_playlist_track_body_other">Dette fjerner posterne fra afspilningslisten, når du gemmer.</string>
     <string name="add_tracks_nothing_added">Der er ikke blevet tilføjet nye numre. De er muligvis allerede på afspilningslisten.</string>
+    <string name="add_to_queue">Føj til kø</string>
+    <string name="added_to_queue_eq0">Ingen nye spor blev føjet til køen</string>
+    <string name="added_to_queue_eq1">1 spor føjet til køen</string>
+    <string name="added_to_queue_other">%1$d spor føjet til køen</string>
     <string name="playlist_nothing_to_play">Denne afspilningsliste indeholder ingen numre, der kan afspilles.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Skal afspilningslisten slettes?</string>

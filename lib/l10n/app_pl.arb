@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Spowoduje to usunięcie tego wpisu z pliku listy odtwarzania po zapisaniu.} other{Spowoduje to usunięcie wpisów z pliku listy odtwarzania podczas zapisywania.}}",
   "addTracksNothingAdded": "Nie dodano żadnych nowych utworów. Być może znajdują się one już na liście odtwarzania.",
+  "addToQueue": "Dodaj do kolejki",
+  "addedToQueue": "{count,plural, =0{Nie dodano nowych utworów do kolejki} =1{Dodano 1 utwór do kolejki} other{Dodano do kolejki: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Ta playlista nie zawiera żadnych utworów, które można odtworzyć.",
   "@shortcutTooltip": {
     "placeholders": {

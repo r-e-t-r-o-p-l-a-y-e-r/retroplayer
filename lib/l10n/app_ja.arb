@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{これにより、保存時にプレイリストファイルからそのエントリが削除されます。} other{これにより、保存時にプレイリストファイルからエントリが削除されます。}}",
   "addTracksNothingAdded": "新しい楽曲は追加されていません。既にプレイリストに含まれている可能性があります。",
+  "addToQueue": "キューに追加",
+  "addedToQueue": "{count,plural, =0{キューに追加された新しい曲はありません} =1{1曲をキューに追加しました} other{{count}曲をキューに追加しました}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "このプレイリストには再生可能なトラックがありません。",
   "@shortcutTooltip": {
     "placeholders": {

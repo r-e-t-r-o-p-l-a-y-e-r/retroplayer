@@ -455,6 +455,21 @@ class AppLocalizationsHr extends AppLocalizations {
       'Nije dodana nijedna nova pjesma. Moguće je da su već na popisu za reprodukciju.';
 
   @override
+  String get addToQueue => 'Dodaj u red';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Dodano u red: $count',
+      one: '1 pjesma dodana u red',
+      zero: 'Nijedna nova pjesma nije dodana u red',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Ova playlista nema pjesama za reprodukciju.';
 

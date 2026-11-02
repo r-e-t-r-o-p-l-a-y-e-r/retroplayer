@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{जब आप सहेजते हैं, तो यह प्लेलिस्ट फ़ाइल से प्रविष्टि हटा देता है।} other{यह आपके सहेजते समय प्लेलिस्ट फ़ाइल से प्रविष्टियाँ हटा देता है।}}",
   "addTracksNothingAdded": "कोई नया ट्रैक नहीं जोड़ा गया। वे पहले से ही प्लेलिस्ट में हो सकते हैं।",
+  "addToQueue": "कतार में जोड़ें",
+  "addedToQueue": "{count,plural, =0{कतार में कोई नया ट्रैक नहीं जोड़ा गया} =1{कतार में एक ट्रैक जोड़ा गया} other{कतार में {count} ट्रैक जोड़े गए}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "इस प्लेलिस्ट में कोई प्ले करने योग्य ट्रैक नहीं हैं।",
   "@shortcutTooltip": {
     "placeholders": {

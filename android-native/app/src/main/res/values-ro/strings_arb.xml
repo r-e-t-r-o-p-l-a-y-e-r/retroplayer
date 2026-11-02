@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Această acțiune elimină intrarea din fișierul listei de redare atunci când salvați.</string>
     <string name="remove_playlist_track_body_other">Această acțiune elimină intrările din fișierul listei de redare atunci când salvați.</string>
     <string name="add_tracks_nothing_added">Nu s-au adăugat melodii noi. Este posibil ca acestea să se afle deja în lista de redare.</string>
+    <string name="add_to_queue">Adaugă la coadă</string>
+    <string name="added_to_queue_eq0">Nicio piesă nouă nu a fost adăugată la coadă</string>
+    <string name="added_to_queue_eq1">1 piesă adăugată la coadă</string>
+    <string name="added_to_queue_other">Adăugate la coadă: %1$d</string>
     <string name="playlist_nothing_to_play">Această listă de redare nu conține piese care pot fi redate.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Să ștergi lista de redare?</string>

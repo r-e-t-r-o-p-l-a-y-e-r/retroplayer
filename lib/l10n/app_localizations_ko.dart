@@ -443,6 +443,21 @@ class AppLocalizationsKo extends AppLocalizations {
       '새로운 트랙이 추가되지 않았습니다. 이미 재생 목록에 있을 수 있습니다.';
 
   @override
+  String get addToQueue => '대기열에 추가';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '대기열에 $count곡을 추가했습니다',
+      one: '대기열에 1곡을 추가했습니다',
+      zero: '대기열에 추가된 새 트랙이 없습니다',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay => '이 재생 목록에는 재생할 수 있는 트랙이 없습니다.';
 
   @override

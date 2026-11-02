@@ -456,6 +456,21 @@ class AppLocalizationsLv extends AppLocalizations {
       'Jauni skaņdarbi netika pievienoti. Iespējams, tie jau ir atskaņošanas sarakstā.';
 
   @override
+  String get addToQueue => 'Pievienot rindai';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Pievienots rindai: $count',
+      one: 'Rindai pievienota 1 dziesma',
+      zero: 'Rindai netika pievienota neviena jauna dziesma',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Šajā atskaņošanas sarakstā nav atskaņojamu ierakstu.';
 

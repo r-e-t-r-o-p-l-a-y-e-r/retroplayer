@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Þetta fjarlægir færsluna úr spilunarlistanskránni þegar þú vistað.} other{Þetta fjarlægir færslurnar úr spilunarlistanskránni þegar þú vista.}}",
   "addTracksNothingAdded": "Engar nýjar lögbætur voru bættar við. Þær kunna þegar að vera á spilunarlistanum.",
+  "addToQueue": "Bæta í röð",
+  "addedToQueue": "{count,plural, =0{Engum nýjum lögum var bætt í röðina} =1{1 lagi bætt í röðina} other{Bætt í röðina: {count}}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Þessi spilunarlisti inniheldur engin lög sem hægt er að spila.",
   "@shortcutTooltip": {
     "placeholders": {

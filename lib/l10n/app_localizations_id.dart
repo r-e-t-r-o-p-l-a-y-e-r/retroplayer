@@ -455,6 +455,21 @@ class AppLocalizationsId extends AppLocalizations {
       'Tidak ada lagu baru yang ditambahkan. Mungkin lagu-lagu tersebut sudah ada di daftar putar.';
 
   @override
+  String get addToQueue => 'Tambahkan ke antrean';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count trek ditambahkan ke antrean',
+      one: '1 trek ditambahkan ke antrean',
+      zero: 'Tidak ada trek baru yang ditambahkan ke antrean',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Daftar putar ini tidak memiliki lagu yang dapat diputar.';
 

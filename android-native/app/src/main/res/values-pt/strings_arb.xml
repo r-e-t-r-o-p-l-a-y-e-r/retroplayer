@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Isto remove a entrada do ficheiro da lista de reprodução quando guardares.</string>
     <string name="remove_playlist_track_body_other">Isto remove as entradas do ficheiro da lista de reprodução quando guardares.</string>
     <string name="add_tracks_nothing_added">Não foram adicionadas novas faixas. Eles podem já estar na lista de reprodução.</string>
+    <string name="add_to_queue">Adicionar à fila</string>
+    <string name="added_to_queue_eq0">Nenhuma faixa nova adicionada à fila</string>
+    <string name="added_to_queue_eq1">1 faixa adicionada à fila</string>
+    <string name="added_to_queue_other">%1$d faixas adicionadas à fila</string>
     <string name="playlist_nothing_to_play">Esta lista de reprodução não tem faixas reproduzíveis.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Eliminar lista de reprodução?</string>

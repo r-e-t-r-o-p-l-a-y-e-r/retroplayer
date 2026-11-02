@@ -458,6 +458,21 @@ class AppLocalizationsSk extends AppLocalizations {
       'Neboli pridané žiadne nové skladby. Možno už sú v zozname skladieb.';
 
   @override
+  String get addToQueue => 'Pridať do čakacej fronty';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Pridané do čakacej fronty: $count',
+      one: 'Do čakacej fronty bola pridaná 1 skladba',
+      zero: 'Do čakacej fronty neboli pridané žiadne nové skladby',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Tento zoznam skladieb neobsahuje žiadne skladby, ktoré by sa dali prehrať.';
 

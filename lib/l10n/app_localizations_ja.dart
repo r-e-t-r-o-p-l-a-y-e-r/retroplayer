@@ -447,6 +447,21 @@ class AppLocalizationsJa extends AppLocalizations {
       '新しい楽曲は追加されていません。既にプレイリストに含まれている可能性があります。';
 
   @override
+  String get addToQueue => 'キューに追加';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count曲をキューに追加しました',
+      one: '1曲をキューに追加しました',
+      zero: 'キューに追加された新しい曲はありません',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay => 'このプレイリストには再生可能なトラックがありません。';
 
   @override

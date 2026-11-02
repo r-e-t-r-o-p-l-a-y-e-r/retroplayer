@@ -453,6 +453,21 @@ class AppLocalizationsRu extends AppLocalizations {
       'Новые треки не добавлены. Возможно, они уже есть в плейлисте.';
 
   @override
+  String get addToQueue => 'Добавить в очередь';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Добавлено в очередь: $count',
+      one: '1 трек добавлен в очередь',
+      zero: 'Новые треки не добавлены в очередь',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'В этом плейлисте нет воспроизводимых треков.';
 

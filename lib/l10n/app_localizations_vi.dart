@@ -455,6 +455,21 @@ class AppLocalizationsVi extends AppLocalizations {
       'Không có bài hát mới nào được thêm vào. Chúng có thể đã có trong danh sách phát.';
 
   @override
+  String get addToQueue => 'Thêm vào hàng đợi';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Đã thêm $count bản nhạc vào hàng đợi',
+      one: 'Đã thêm 1 bản nhạc vào hàng đợi',
+      zero: 'Không có bản nhạc mới nào được thêm vào hàng đợi',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Danh sách phát này không có bản nhạc có thể phát.';
 

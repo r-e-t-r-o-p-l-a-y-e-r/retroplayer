@@ -459,6 +459,21 @@ class AppLocalizationsCs extends AppLocalizations {
       'Nebyly přidány žádné nové skladby. Možná už jsou v seznamu skladeb.';
 
   @override
+  String get addToQueue => 'Přidat do fronty';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Přidáno do fronty: $count',
+      one: 'Do fronty byla přidána 1 skladba',
+      zero: 'Do fronty nebyly přidány žádné nové skladby',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Tento seznam skladeb neobsahuje žádné skladby, které by bylo možné přehrát.';
 

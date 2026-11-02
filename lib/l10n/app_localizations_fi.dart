@@ -454,6 +454,21 @@ class AppLocalizationsFi extends AppLocalizations {
       'Uusia kappaleita ei lisätty. Ne saattavat jo olla soittolistalla.';
 
   @override
+  String get addToQueue => 'Lisää jonoon';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Jonoon lisätty: $count',
+      one: '1 kappale lisätty jonoon',
+      zero: 'Jonoon ei lisätty uusia kappaleita',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Tässä soittolistassa ei ole toistettavia kappaleita.';
 

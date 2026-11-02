@@ -452,6 +452,21 @@ class AppLocalizationsHi extends AppLocalizations {
       'कोई नया ट्रैक नहीं जोड़ा गया। वे पहले से ही प्लेलिस्ट में हो सकते हैं।';
 
   @override
+  String get addToQueue => 'कतार में जोड़ें';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'कतार में $count ट्रैक जोड़े गए',
+      one: 'कतार में एक ट्रैक जोड़ा गया',
+      zero: 'कतार में कोई नया ट्रैक नहीं जोड़ा गया',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'इस प्लेलिस्ट में कोई प्ले करने योग्य ट्रैक नहीं हैं।';
 

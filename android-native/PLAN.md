@@ -208,10 +208,10 @@ available, simply continue top to bottom.
   `ui/player/PlayerSheet.kt`.
 - Behaviour changes that come with the look:
   - Root rows: trash icon replaced by a trailing play button (plays the
-    root) and long-press to remove (confirmation unchanged); subtitle shows
-    the root location (`/Music`).
+    root) and swipe end-to-start to remove (confirmation unchanged, T05b);
+    subtitle shows the root location (`/Music`).
   - Folder rows: star replaced by a trailing play button (plays the folder);
-    favorite toggle moves to long-press until T09 adds the swipe.
+    favorite toggle is a swipe start-to-end (T05b).
   - The top-bar play-folder action goes away (row play buttons replace it).
   - Mini player and expanded player get `PlaybackProgress` (seek on
     release) and the transport row (previous / play / next).
@@ -336,6 +336,36 @@ available, simply continue top to bottom.
 - Done when: tests green; playing a folder or album leaves the stored queue
   untouched (existing `SessionQueueTest` stays green).
 
+## T05b Add to queue from the library; swipe actions
+
+- Owner: opus. Status: done. Depends: T05.
+- Queue semantics (same as Flutter): the queue is an unsaved playlist kept
+  in `SettingsStore` (DataStore), never a file. It is not "what plays now":
+  ▶ on a folder, album, playlist or track plays that item and leaves the
+  queue untouched. Only playing the queue (T06) makes it the live list, and
+  only then do queue edits reach the player (T05).
+- As built:
+  - `FolderViewModel.addToQueue(itemId, onAdded)` resolves the playback item
+    with `PlaybackItemResolver` (exactly what ▶ would play, same order),
+    appends via `QueueRepository.add` (skips tracks already queued) and
+    reports how many were new.
+  - Library rows (roots, favorites, folders, playlists, albums, tracks):
+    long-press opens a context menu with "Add to queue"
+    (`add_to_queue`); a snackbar says `added_to_queue_eq0|eq1|other`.
+    Both strings are new ARB keys (`addToQueue`, `addedToQueue`, plural),
+    translated in all 46 ARB files and regenerated for Flutter too.
+  - `SwipeAction` (private in `FolderScreen`): one-way `SwipeToDismissBox`
+    that runs its action and snaps back, plus an accessibility custom
+    action with the same label. Folder rows swipe start-to-end to toggle
+    favorite; root rows swipe end-to-start to ask for removal. The interim
+    long-press favorite/remove from T02b is gone.
+  - Tests: `FolderViewModelTest` `add to queue appends what play would play
+    without playing it`; `FolderContentTest` `swiping a root asks before
+    removing it`, long-press on a root adds it and shows the count, `adding
+    nothing new says so`, `every folder page row can be added to the queue`.
+- Left for later: album-screen track rows get the same menu (T06, with the
+  queue screen); more menu entries (e.g. "Add to playlist", T07).
+
 ## T06 Queue screen + add-tracks picker
 
 - Owner: any. Status: todo. Depends: T05. UC-08.
@@ -433,14 +463,9 @@ available, simply continue top to bottom.
 - Owner: any. Status: todo. Depends: T06 (reorderable dependency). UC-02, UC-04.
 - Spec (each bullet one red/green cycle, tests in `FolderViewModelTest` /
   `FolderContentTest`):
-  - Swipe right on a nested folder row toggles favorite
-    (`SwipeToDismissBox`, only start-to-end, snap back after toggling):
-    `swiping a folder marks it favorite`, `swiping a favorite clears it`.
-    This replaces the interim long-press toggle from T02b (remove it and
-    its test).
-  - Swipe (end-to-start) on a root row asks to remove it (same dialog as
-    the long-press from T02b, UC-02): `swiping a root asks to remove it`.
-  - Long-press drag reorders favorite links at the root (reorderable):
+  - Favorite and remove swipes: done in T05b.
+  - Favorite links at the root reorder by dragging a trailing drag handle
+    (reorderable; long-press is taken by the "Add to queue" menu):
     `dragging a favorite saves the new order` (calls `moveFavorite`).
   - A-Z index bar on lists with more than 30 rows: vertical strip of first
     letters at the right edge; tap or drag jumps to the first row with that

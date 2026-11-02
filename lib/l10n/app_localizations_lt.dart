@@ -456,6 +456,21 @@ class AppLocalizationsLt extends AppLocalizations {
       'Naujų kūrinių nebuvo pridėta. Galbūt jie jau yra grojaraštyje.';
 
   @override
+  String get addToQueue => 'Pridėti į eilę';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Pridėta į eilę: $count',
+      one: 'Į eilę pridėtas 1 takelis',
+      zero: 'Į eilę nepridėta naujų takelių',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay => 'Šiame grojaraštyje nėra grojamų įrašų.';
 
   @override

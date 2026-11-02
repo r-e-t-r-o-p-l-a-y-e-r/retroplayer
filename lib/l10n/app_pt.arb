@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Isto remove a entrada do ficheiro da lista de reprodução quando guardares.} other{Isto remove as entradas do ficheiro da lista de reprodução quando guardares.}}",
   "addTracksNothingAdded": "Não foram adicionadas novas faixas. Eles podem já estar na lista de reprodução.",
+  "addToQueue": "Adicionar à fila",
+  "addedToQueue": "{count,plural, =0{Nenhuma faixa nova adicionada à fila} =1{1 faixa adicionada à fila} other{{count} faixas adicionadas à fila}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Esta lista de reprodução não tem faixas reproduzíveis.",
   "@shortcutTooltip": {
     "placeholders": {

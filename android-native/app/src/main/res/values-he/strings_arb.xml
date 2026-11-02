@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">פעולה זו מסירה את הערך מקובץ רשימת ההשמעה בעת השמירה.</string>
     <string name="remove_playlist_track_body_other">פעולה זו מסירה את הערכים מקובץ רשימת ההשמעה בעת השמירה.</string>
     <string name="add_tracks_nothing_added">לא נוספו שירים חדשים. ייתכן שהם כבר נמצאים ברשימת ההשמעה.</string>
+    <string name="add_to_queue">הוסף לתור</string>
+    <string name="added_to_queue_eq0">לא נוספו רצועות חדשות לתור</string>
+    <string name="added_to_queue_eq1">רצועה אחת נוספה לתור</string>
+    <string name="added_to_queue_other">נוספו לתור: %1$d</string>
     <string name="playlist_nothing_to_play">ברשימת ההשמעה הזו אין שירים שניתן להשמיע.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">למחוק את רשימת ההשמעה?</string>

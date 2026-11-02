@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Αυτό διαγράφει την καταχώριση από το αρχείο της λίστας αναπαραγωγής κατά την αποθήκευση.</string>
     <string name="remove_playlist_track_body_other">Αυτό διαγράφει τις καταχωρήσεις από το αρχείο της λίστας αναπαραγωγής κατά την αποθήκευση.</string>
     <string name="add_tracks_nothing_added">Δεν προστέθηκαν νέα κομμάτια. Ίσως να περιλαμβάνονται ήδη στη λίστα αναπαραγωγής.</string>
+    <string name="add_to_queue">Προσθήκη στην ουρά</string>
+    <string name="added_to_queue_eq0">Δεν προστέθηκαν νέα κομμάτια στην ουρά</string>
+    <string name="added_to_queue_eq1">Προστέθηκε 1 κομμάτι στην ουρά</string>
+    <string name="added_to_queue_other">Προστέθηκαν %1$d κομμάτια στην ουρά</string>
     <string name="playlist_nothing_to_play">Αυτή η λίστα αναπαραγωγής δεν περιέχει κομμάτια που μπορούν να αναπαραχθούν.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Να διαγραφεί η λίστα αναπαραγωγής;</string>

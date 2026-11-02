@@ -19,7 +19,14 @@ class QueueRepository(private val settings: SettingsStore, private val scanner: 
         .distinctUntilChanged()
         .map { scanner.tracksAt(it) }
 
-    suspend fun add(paths: List<LibraryPath>) = settings.updateQueue { QueueEdits.add(it, paths) }
+    /** Appends [paths] not queued yet; returns how many were new. */
+    suspend fun add(paths: List<LibraryPath>): Int {
+        var added = 0
+        settings.updateQueue { queue ->
+            QueueEdits.add(queue, paths).also { added = it.size - queue.size }
+        }
+        return added
+    }
 
     suspend fun move(from: Int, to: Int) = settings.updateQueue { QueueEdits.move(it, from, to) }
 

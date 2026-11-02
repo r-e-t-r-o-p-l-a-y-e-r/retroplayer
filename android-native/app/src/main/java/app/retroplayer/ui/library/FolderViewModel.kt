@@ -7,6 +7,8 @@ import app.retroplayer.data.db.LibraryRoot
 import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.library.FolderEntry
 import app.retroplayer.data.library.LibraryRepository
+import app.retroplayer.data.library.QueueRepository
+import app.retroplayer.playback.PlaybackItemResolver
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.domain.Breadcrumbs
 import app.retroplayer.domain.Crumb
@@ -54,6 +56,8 @@ class FolderViewModel @Inject constructor(
     private val settings: SettingsStore,
     private val playback: PlaybackControls,
     private val access: RootAccess,
+    private val items: PlaybackItemResolver,
+    private val queue: QueueRepository,
 ) : ViewModel() {
     val path: LibraryPath? = savedState.get<String>(PATH_ARG)?.let(::LibraryPath)
 
@@ -104,6 +108,18 @@ class FolderViewModel @Inject constructor(
 
     fun playFolder(folder: LibraryPath? = path) {
         folder?.let { playback.play(PlaybackItem.folderId(it)) }
+    }
+
+    /**
+     * Appends the tracks the playback item [itemId] would play, in play order,
+     * to the stored queue without touching what plays; [onAdded] gets the
+     * number of tracks that were new.
+     */
+    fun addToQueue(itemId: String, onAdded: (Int) -> Unit = {}) {
+        viewModelScope.launch {
+            val tracks = items.resolve(itemId)?.tracks.orEmpty()
+            onAdded(queue.add(tracks.map { it.path }))
+        }
     }
 
     /** [onAdded] gets the new root, or null when access was not granted. */

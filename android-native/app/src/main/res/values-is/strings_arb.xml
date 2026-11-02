@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Þetta fjarlægir færsluna úr spilunarlistanskránni þegar þú vistað.</string>
     <string name="remove_playlist_track_body_other">Þetta fjarlægir færslurnar úr spilunarlistanskránni þegar þú vista.</string>
     <string name="add_tracks_nothing_added">Engar nýjar lögbætur voru bættar við. Þær kunna þegar að vera á spilunarlistanum.</string>
+    <string name="add_to_queue">Bæta í röð</string>
+    <string name="added_to_queue_eq0">Engum nýjum lögum var bætt í röðina</string>
+    <string name="added_to_queue_eq1">1 lagi bætt í röðina</string>
+    <string name="added_to_queue_other">Bætt í röðina: %1$d</string>
     <string name="playlist_nothing_to_play">Þessi spilunarlisti inniheldur engin lög sem hægt er að spila.</string>
     <string name="shortcut_tooltip">Nulstafir (einn stafur)</string>
     <string name="delete_playlist_title">Eyða spilunarlista?</string>

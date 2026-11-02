@@ -457,6 +457,21 @@ class AppLocalizationsMt extends AppLocalizations {
       'Ma ġew miżjuda trakkijiet ġodda. Jistgħu jkunu diġà fil-playlist.';
 
   @override
+  String get addToQueue => 'Żid mal-kju';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Miżjuda mal-kju: $count',
+      one: 'Żdiedet traċċa waħda mal-kju',
+      zero: 'Ma żdiedet l-ebda traċċa ġdida mal-kju',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Din il-playlist m\'għandhiex kanzunetti li jistgħu jitilgħu.';
 

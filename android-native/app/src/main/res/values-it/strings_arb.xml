@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">In questo modo, al momento del salvataggio, la voce viene rimossa dal file della playlist.</string>
     <string name="remove_playlist_track_body_other">In questo modo, al momento del salvataggio, le voci vengono rimosse dal file della playlist.</string>
     <string name="add_tracks_nothing_added">Non sono state aggiunte nuove tracce. Potrebbero già essere nella playlist.</string>
+    <string name="add_to_queue">Aggiungi alla coda</string>
+    <string name="added_to_queue_eq0">Nessun nuovo brano aggiunto alla coda</string>
+    <string name="added_to_queue_eq1">1 brano aggiunto alla coda</string>
+    <string name="added_to_queue_other">%1$d brani aggiunti alla coda</string>
     <string name="playlist_nothing_to_play">Questa playlist non ha tracce riproducibili.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Eliminare la playlist?</string>

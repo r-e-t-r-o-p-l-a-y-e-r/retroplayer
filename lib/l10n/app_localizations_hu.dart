@@ -456,6 +456,21 @@ class AppLocalizationsHu extends AppLocalizations {
       'Nem került fel új szám. Lehet, hogy már szerepelnek a lejátszási listában.';
 
   @override
+  String get addToQueue => 'Hozzáadás a sorhoz';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count szám hozzáadva a sorhoz',
+      one: '1 szám hozzáadva a sorhoz',
+      zero: 'Nem került új szám a sorba',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Ebben a lejátszási listában nincs lejátszható szám.';
 

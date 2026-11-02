@@ -129,6 +129,10 @@
     <string name="remove_playlist_track_body_eq1">Hierdoor wordt het item uit het afspeellijstbestand verwijderd wanneer je het opslaat.</string>
     <string name="remove_playlist_track_body_other">Hierdoor worden de vermeldingen uit het afspeellijstbestand verwijderd wanneer je het opslaat.</string>
     <string name="add_tracks_nothing_added">Er zijn geen nieuwe nummers toegevoegd. Misschien staan ze al in de afspeellijst.</string>
+    <string name="add_to_queue">Toevoegen aan wachtrij</string>
+    <string name="added_to_queue_eq0">Geen nieuwe nummers aan de wachtrij toegevoegd</string>
+    <string name="added_to_queue_eq1">1 nummer aan de wachtrij toegevoegd</string>
+    <string name="added_to_queue_other">%1$d nummers aan de wachtrij toegevoegd</string>
     <string name="playlist_nothing_to_play">Deze afspeellijst bevat geen nummers die kunnen worden afgespeeld.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Afspeellijst verwijderen?</string>

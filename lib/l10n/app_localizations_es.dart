@@ -456,6 +456,21 @@ class AppLocalizationsEs extends AppLocalizations {
       'No se han añadido nuevas pistas. Es posible que ya estén en la lista de reproducción.';
 
   @override
+  String get addToQueue => 'Añadir a la cola';
+
+  @override
+  String addedToQueue(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count temas añadidos a la cola',
+      one: '1 tema añadido a la cola',
+      zero: 'No se añadieron temas nuevos a la cola',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get playlistNothingToPlay =>
       'Esta lista de reproducción no tiene pistas reproducibles.';
 

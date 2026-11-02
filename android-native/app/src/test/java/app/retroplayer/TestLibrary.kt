@@ -9,6 +9,10 @@ import app.retroplayer.data.library.FakeDocumentSource
 import app.retroplayer.data.library.FakeMetadataReader
 import app.retroplayer.data.library.LibraryRepository
 import app.retroplayer.data.library.LibraryScanner
+import app.retroplayer.data.library.PlaylistFiles
+import app.retroplayer.data.library.QueueRepository
+import app.retroplayer.playback.PlaybackItemResolver
+import kotlinx.coroutines.flow.first
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.model.TrackMetadata
@@ -56,6 +60,9 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
     private val roots = mutableMapOf<String, String>()
     val scanner = LibraryScanner(docs, FakeMetadataReader(metadata), db.trackCacheDao(), { roots[it] }, UnconfinedTestDispatcher())
     val repository = LibraryRepository(store, scanner) { Locale.ENGLISH }
+    val playlists = PlaylistFiles(docs, scanner, store, canWrite = { false }, absolute = { null })
+    val items = PlaybackItemResolver(repository, scanner, playlists) { settings.session.first().queue }
+    val queue = QueueRepository(settings, scanner)
     val playback = FakePlayback()
     val access = FakeRootAccess()
 

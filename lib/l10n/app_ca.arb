@@ -238,6 +238,13 @@
   },
   "removePlaylistTrackBody": "{count,plural, =1{Això elimina l'entrada del fitxer de la llista de reproducció quan deses.} other{Això elimina les entrades del fitxer de la llista de reproducció quan deses.}}",
   "addTracksNothingAdded": "No s'han afegit noves pistes. Poden ser que ja estiguin a la llista de reproducció.",
+  "addToQueue": "Afegeix a la fila",
+  "addedToQueue": "{count,plural, =0{No s'ha afegit cap pista nova a la fila} =1{S'ha afegit 1 pista a la fila} other{S'han afegit {count} pistes a la fila}}",
+  "@addedToQueue": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "playlistNothingToPlay": "Aquesta llista de reproducció no té cap pista reproduïble.",
   "@shortcutTooltip": {
     "placeholders": {
