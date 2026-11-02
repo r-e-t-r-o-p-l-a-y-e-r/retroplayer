@@ -1,5 +1,6 @@
 package app.retroplayer.playback
 
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 
 /** What the player shows right now; [hasTrack] is false until the engine has a playable queue. */
@@ -9,6 +10,8 @@ data class NowPlaying(
     val title: String? = null,
     val subtitle: String? = null,
     val artworkUri: String? = null,
+    /** Document of the current track; [artworkUri] equal to it means the art is embedded. */
+    val trackUri: String? = null,
     val isPlaying: Boolean = false,
     val hasTrack: Boolean = false,
     val positionMs: Long = 0,
@@ -23,6 +26,9 @@ data class NowPlaying(
 /** The UI's handle on the playback service. */
 interface PlaybackControls {
     val nowPlaying: StateFlow<NowPlaying>
+
+    /** Item ids passed to [play], as they are requested. */
+    val playRequests: SharedFlow<String>
 
     /** Plays a playback item, resuming its saved position unless another [startTrackId] is chosen. */
     fun play(itemId: String, startTrackId: String? = null)

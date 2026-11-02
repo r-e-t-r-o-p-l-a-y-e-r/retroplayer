@@ -31,7 +31,7 @@ UI look: follow the existing native screens (`FolderScreen.kt`,
 | --- | --- | --- | --- |
 | done | Tooling, domain, data layer, playback service, ARB converter, library + album screens | opus | done |
 | T01 | Transport API on `PlaybackControls` | opus | done |
-| T02 | Player sheet shell + back chain | opus | todo |
+| T02 | Player sheet shell + back chain | opus | done |
 | T03 | Expanded player: seek bar, jumps, speed | any | todo |
 | T04 | Locate now playing + playback breadcrumbs | any | todo |
 | T05 | Queue engine (edit while playing) | opus | todo |
@@ -105,7 +105,32 @@ available, simply continue top to bottom.
 
 ## T02 Player sheet shell + back chain
 
-- Owner: opus. Status: todo. Depends: T01. UC-12, UC-14.
+- Owner: opus. Status: done. Depends: T01. UC-12, UC-14.
+- Notes (what was actually built; follow this, not the design bullets below):
+  - `ui/player/PlayerSheet.kt`: `PlayerHost(state, expanded, onExpandedChange,
+    actions) { content }`. The mini player is docked BELOW the content in a
+    `Column` (screens and FABs shrink above it; content consumes the
+    navigation-bar inset while it is visible). The expanded player is an
+    `AnimatedVisibility` overlay; drags on the mini player (up) and the
+    expanded player (down) expand/collapse. No `AnchoredDraggable`.
+  - `PredictiveBackHandler` in `PlayerHost` is composed after the content.
+    `LocalPlayerExpanded` tells `AbsorbBackAtRoot(isRoot)`
+    (`ui/navigation/BackChain.kt`) to step aside while expanded. Every new
+    "absorb" or screen-level back handler must also check `LocalPlayerExpanded`.
+  - `PlayerActions(toggle, previous, next)`: T03 adds fields here.
+  - `PlaybackControls.playRequests: SharedFlow<String>`; `RetroApp` expands
+    the player on each request (UC-09). `NowPlaying.trackUri` (document of the
+    current track, from `PlaybackRequests.trackUriOf`) lets
+    `PlayerUiState.artModel` pick `EmbeddedArt` vs folder picture.
+  - Cold-start bug fixed: the start destination used to compose first and its
+    `onShown()` wiped the saved browse path. Now `AppViewModel.startRoutes`
+    (StateFlow, read once) gates `RetroApp`, and
+    `rememberRestoredNavController(routes) { graph }` builds the back stack
+    before the NavHost composes (`ui/navigation/RestoredNavigation.kt`).
+    New destinations go into that builder in `RetroApp.LibraryNavHost`.
+  - Tests: `PlayerViewModelTest` (6), `PlayerSheetTest` (6), `BackChainTest` (4),
+    `RestoredNavigationTest` (3), `AppViewModelTest` (2), `PlayerConnectionTest` +2,
+    `QueueBuilderTest` +1.
 - Goal: a mini player at the bottom of library and album screens that
   expands to a full-screen player; back collapses it with the predictive
   back animation; the rest of the back chain stays as is.

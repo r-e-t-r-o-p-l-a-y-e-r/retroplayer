@@ -223,5 +223,11 @@ adb shell dumpsys media_session | grep -A6 app.retroplayer
 - `PlaybackRequests`: the UI never builds full queues. It sends one request
   `MediaItem` (`PlaybackRequests.request(itemId, startTrackId)`); the service
   expands it in `onSetMediaItems`. Keep it that way for Android Auto and the widget.
+- A test that awaits a flow (`first()`, `await()`) must be bounded, or a red
+  test hangs the whole Gradle run (stop it with
+  `pkill -f GradleWorkerMain; ./gradlew --stop`). Inside `main.runVmTest`
+  the 10 s real-time limit already does this; do NOT add `withTimeout` there
+  (it counts virtual time and fires while Room works on a real thread).
+  In `runBlocking` tests wrap the wait in `withTimeout(2_000)`.
 - Album IDs: `AlbumIds.folder(dir)` / `AlbumIds.tag(dir, album, disc)` in
   `:domain`; folder path keeps its case.

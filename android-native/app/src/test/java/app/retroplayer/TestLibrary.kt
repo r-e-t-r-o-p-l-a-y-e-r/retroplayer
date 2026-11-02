@@ -20,6 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.TestScope
@@ -85,6 +86,7 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
 
 class FakePlayback : PlaybackControls {
     override val nowPlaying = MutableStateFlow(NowPlaying())
+    override val playRequests = MutableSharedFlow<String>(extraBufferCapacity = 8)
     val played = mutableListOf<Pair<String, String?>>()
 
     /** Every transport call by name, with its argument when it has one (`seekTo:1000`). */
@@ -92,6 +94,7 @@ class FakePlayback : PlaybackControls {
 
     override fun play(itemId: String, startTrackId: String?) {
         played += itemId to startTrackId
+        playRequests.tryEmit(itemId)
     }
 
     override fun togglePlayPause() { calls += "toggle" }

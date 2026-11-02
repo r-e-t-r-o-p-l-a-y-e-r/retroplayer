@@ -39,6 +39,13 @@ class QueueBuilderTest {
     }
 
     @Test
+    fun `media items carry the document uri for embedded art`() {
+        val first = build()!!.mediaItems.first()
+        assertThat(PlaybackRequests.trackUriOf(first)).isEqualTo("doc:root/Book/01 Intro.mp3")
+        assertThat(PlaybackRequests.trackUriOf(PlaybackRequests.request("folder:1/Book"))).isNull()
+    }
+
+    @Test
     fun `empty items are not playable`() {
         assertThat(build(PlaybackItem.Queue(emptyList()))).isNull()
     }

@@ -8,7 +8,9 @@ import app.retroplayer.domain.TransportRules
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -25,6 +27,9 @@ class PlayerConnection @Inject constructor(
 ) : PlaybackControls {
     private val state = MutableStateFlow(NowPlaying())
     override val nowPlaying: StateFlow<NowPlaying> = state
+
+    private val requests = MutableSharedFlow<String>(extraBufferCapacity = 8)
+    override val playRequests: SharedFlow<String> = requests
 
     private var controller: Player? = null
     private var pending = listOf<Player.() -> Unit>()
@@ -72,7 +77,12 @@ class PlayerConnection @Inject constructor(
         }
     }
 
-    override fun play(itemId: String, startTrackId: String?) = withController {
+    override fun play(itemId: String, startTrackId: String?) {
+        requests.tryEmit(itemId)
+        load(itemId, startTrackId)
+    }
+
+    private fun load(itemId: String, startTrackId: String?) = withController {
         if (PlaybackRequests.itemIdOf(currentMediaItem) == itemId) {
             val index = startTrackId?.let { id -> (0 until mediaItemCount).firstOrNull { getMediaItemAt(it).mediaId == id } }
             if (index != null && index != currentMediaItemIndex) seekTo(index, 0)
@@ -127,6 +137,7 @@ class PlayerConnection @Inject constructor(
             title = metadata.title?.toString(),
             subtitle = (metadata.artist ?: metadata.albumTitle)?.toString(),
             artworkUri = metadata.artworkUri?.toString(),
+            trackUri = PlaybackRequests.trackUriOf(item),
             isPlaying = c.isPlaying,
             hasTrack = c.playbackState != Player.STATE_IDLE,
             positionMs = c.currentPosition.coerceAtLeast(0),

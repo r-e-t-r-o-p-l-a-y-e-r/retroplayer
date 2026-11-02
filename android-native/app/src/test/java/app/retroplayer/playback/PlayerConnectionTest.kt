@@ -14,11 +14,15 @@ import app.retroplayer.TestLibrary
 import app.retroplayer.domain.model.SavedPlaybackState
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -61,7 +65,7 @@ class PlayerConnectionTest {
         MediaItem.Builder()
             .setMediaId(id)
             .setUri("doc:$id")
-            .setMediaMetadata(MediaMetadata.Builder().setTitle(id).setExtras(PlaybackRequests.itemExtras("album")).build())
+            .setMediaMetadata(MediaMetadata.Builder().setTitle(id).setExtras(PlaybackRequests.itemExtras("album", "doc:$id")).build())
             .build()
     }
 
@@ -161,6 +165,20 @@ class PlayerConnectionTest {
         waitUntil { exo.currentPosition == 30_000 + exo.seekForwardIncrement }
         connection.jumpBack()
         waitUntil { exo.currentPosition == 30_000 + exo.seekForwardIncrement - exo.seekBackIncrement }
+    }
+
+    @Test
+    fun `publishes the document uri of the current track`() {
+        val connection = connected("a", "b")
+        assertThat(connection.nowPlaying.value.trackUri).isEqualTo("doc:a")
+    }
+
+    @Test
+    fun `play announces the request so the player can expand`() = runBlocking {
+        val connection = connected("a", "b")
+        val announced = async(start = CoroutineStart.UNDISPATCHED) { connection.playRequests.first() }
+        connection.play("album", startTrackId = "b")
+        assertThat(withTimeout(2_000) { announced.await() }).isEqualTo("album")
     }
 
     @Test

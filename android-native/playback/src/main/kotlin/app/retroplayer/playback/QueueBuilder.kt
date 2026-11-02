@@ -19,6 +19,7 @@ data class PlaybackRequest(val itemId: String, val startTrackId: String?)
 object PlaybackRequests {
     private const val EXTRA_START_TRACK = "app.retroplayer.START_TRACK"
     private const val EXTRA_ITEM_ID = "app.retroplayer.ITEM_ID"
+    private const val EXTRA_TRACK_URI = "app.retroplayer.TRACK_URI"
 
     fun request(itemId: String, startTrackId: String? = null): MediaItem = MediaItem.Builder()
         .setMediaId(itemId)
@@ -37,7 +38,13 @@ object PlaybackRequests {
     /** Playback item a queued media item belongs to. */
     fun itemIdOf(item: MediaItem?): String? = item?.mediaMetadata?.extras?.getString(EXTRA_ITEM_ID)
 
-    fun itemExtras(itemId: String) = Bundle().apply { putString(EXTRA_ITEM_ID, itemId) }
+    /** Document the queued track plays; the UI loads embedded art from it (controllers do not see the media uri). */
+    fun trackUriOf(item: MediaItem?): String? = item?.mediaMetadata?.extras?.getString(EXTRA_TRACK_URI)
+
+    fun itemExtras(itemId: String, trackUri: String? = null) = Bundle().apply {
+        putString(EXTRA_ITEM_ID, itemId)
+        trackUri?.let { putString(EXTRA_TRACK_URI, it) }
+    }
 }
 
 data class PreparedQueue(
@@ -90,7 +97,7 @@ object QueueBuilder {
                 .setIsPlayable(true)
                 .setIsBrowsable(false)
                 .setMediaType(if (path.extension == "m4b") MediaMetadata.MEDIA_TYPE_AUDIO_BOOK else MediaMetadata.MEDIA_TYPE_MUSIC)
-                .setExtras(PlaybackRequests.itemExtras(itemId))
+                .setExtras(PlaybackRequests.itemExtras(itemId, uri))
                 .build(),
         )
         .build()
