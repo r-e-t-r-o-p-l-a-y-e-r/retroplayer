@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -21,9 +23,13 @@ dependencies {
     api(project(":data"))
     api(libs.media3.exoplayer)
     api(libs.media3.session)
+    implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.guava)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
+    testImplementation(testFixtures(project(":data")))
     testImplementation(libs.junit)
     testImplementation(libs.truth)
     testImplementation(libs.kotlinx.coroutines.test)

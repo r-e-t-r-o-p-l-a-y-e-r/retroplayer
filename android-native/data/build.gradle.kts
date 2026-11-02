@@ -17,6 +17,9 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
+    testFixtures {
+        enable = true
+    }
 }
 
 ksp {
@@ -31,6 +34,8 @@ dependencies {
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
     api(libs.datastore.preferences)
+
+    testFixturesImplementation(libs.kotlinx.coroutines.android)
 
     testImplementation(libs.junit)
     testImplementation(libs.truth)
