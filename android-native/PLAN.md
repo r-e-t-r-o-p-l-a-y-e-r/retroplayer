@@ -30,7 +30,7 @@ UI look: follow the existing native screens (`FolderScreen.kt`,
 | ID | Task | Owner | Status |
 | --- | --- | --- | --- |
 | done | Tooling, domain, data layer, playback service, ARB converter, library + album screens | opus | done |
-| T01 | Transport API on `PlaybackControls` | opus | todo |
+| T01 | Transport API on `PlaybackControls` | opus | done |
 | T02 | Player sheet shell + back chain | opus | todo |
 | T03 | Expanded player: seek bar, jumps, speed | any | todo |
 | T04 | Locate now playing + playback breadcrumbs | any | todo |
@@ -61,7 +61,15 @@ available, simply continue top to bottom.
 
 ## T01 Transport API on `PlaybackControls`
 
-- Owner: opus. Status: todo. Depends: none. UC-10, UC-17.
+- Owner: opus. Status: done. Depends: none. UC-10, UC-17.
+- Notes: `PlayerConnector` (fun interface, `PlayerConnector.kt`) with
+  `MediaControllerConnector` bound in `BindingsModule`. Pending actions are a
+  list now (all run on connect). While the current item is still the
+  unexpanded request (no owner item id in its extras), `publish()` keeps the
+  restored snapshot. `PlaybackRequests.itemExtras` is public for tests.
+  Plain ExoPlayer jumps back 5 s (forward 15 s); only `RetroPlayer` in the
+  service makes both 15 s, so tests use `seekBackIncrement`.
+  Tests: `PlayerConnectionTest` (9).
 - Goal: the UI can pause, seek, jump, skip, change speed and stop, and
   `NowPlaying` carries what the player sheet needs.
 - Files:

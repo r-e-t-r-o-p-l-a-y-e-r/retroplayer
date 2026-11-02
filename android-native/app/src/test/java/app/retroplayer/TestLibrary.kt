@@ -87,7 +87,26 @@ class FakePlayback : PlaybackControls {
     override val nowPlaying = MutableStateFlow(NowPlaying())
     val played = mutableListOf<Pair<String, String?>>()
 
+    /** Every transport call by name, with its argument when it has one (`seekTo:1000`). */
+    val calls = mutableListOf<String>()
+
     override fun play(itemId: String, startTrackId: String?) {
         played += itemId to startTrackId
     }
+
+    override fun togglePlayPause() { calls += "toggle" }
+
+    override fun seekTo(positionMs: Long) { calls += "seekTo:$positionMs" }
+
+    override fun jumpBack() { calls += "jumpBack" }
+
+    override fun jumpForward() { calls += "jumpForward" }
+
+    override fun skipToPrevious() { calls += "previous" }
+
+    override fun skipToNext() { calls += "next" }
+
+    override fun setSpeed(speed: Float) { calls += "speed:$speed" }
+
+    override fun stop() { calls += "stop" }
 }

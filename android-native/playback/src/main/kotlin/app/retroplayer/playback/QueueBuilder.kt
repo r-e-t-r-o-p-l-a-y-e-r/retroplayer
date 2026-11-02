@@ -37,7 +37,7 @@ object PlaybackRequests {
     /** Playback item a queued media item belongs to. */
     fun itemIdOf(item: MediaItem?): String? = item?.mediaMetadata?.extras?.getString(EXTRA_ITEM_ID)
 
-    internal fun itemExtras(itemId: String) = Bundle().apply { putString(EXTRA_ITEM_ID, itemId) }
+    fun itemExtras(itemId: String) = Bundle().apply { putString(EXTRA_ITEM_ID, itemId) }
 }
 
 data class PreparedQueue(

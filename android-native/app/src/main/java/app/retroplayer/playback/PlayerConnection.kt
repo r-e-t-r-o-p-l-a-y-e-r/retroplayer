@@ -1,23 +1,16 @@
 package app.retroplayer.playback
 
-import android.content.ComponentName
-import android.content.Context
-import androidx.annotation.OptIn
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
-import androidx.media3.common.util.UnstableApi
-import androidx.media3.session.MediaController
-import androidx.media3.session.SessionToken
 import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.settings.SettingsStore
-import dagger.hilt.android.qualifiers.ApplicationContext
+import app.retroplayer.domain.TransportRules
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.guava.await
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -25,16 +18,16 @@ import javax.inject.Singleton
 /** Connects the UI to [PlaybackService] through a Media3 controller. Main thread only. */
 @Singleton
 class PlayerConnection @Inject constructor(
-    @ApplicationContext private val context: Context,
     @ApplicationScope private val scope: CoroutineScope,
     private val store: LibraryStore,
     private val settings: SettingsStore,
+    private val connector: PlayerConnector,
 ) : PlaybackControls {
     private val state = MutableStateFlow(NowPlaying())
     override val nowPlaying: StateFlow<NowPlaying> = state
 
-    private var controller: MediaController? = null
-    private var pending: (MediaController.() -> Unit)? = null
+    private var controller: Player? = null
+    private var pending = listOf<Player.() -> Unit>()
     private var ticker: Job? = null
 
     private val listener = object : Player.Listener {
@@ -48,21 +41,19 @@ class PlayerConnection @Inject constructor(
         scope.launch { connect() }
     }
 
-    @OptIn(UnstableApi::class)
     private suspend fun connect() {
-        val token = SessionToken(context, ComponentName(context, PlaybackService::class.java))
-        val connected = runCatching { MediaController.Builder(context, token).buildAsync().await() }.getOrNull() ?: return
+        val connected = connector.connect() ?: return
         controller = connected
         connected.addListener(listener)
         if (connected.mediaItemCount == 0) restoreLastItem(connected)
-        pending?.invoke(connected)
-        pending = null
+        pending.forEach { connected.it() }
+        pending = emptyList()
         publish()
         updateTicker()
     }
 
     /** UC-01: the last item comes back paused at its bookmark; its saved title shows until the engine is ready. */
-    private suspend fun restoreLastItem(controller: MediaController) {
+    private suspend fun restoreLastItem(controller: Player) {
         val lastItem = settings.session.first().lastItemId ?: return
         store.playback(lastItem)?.let { saved ->
             state.value = NowPlaying(
@@ -75,7 +66,7 @@ class PlayerConnection @Inject constructor(
                 speed = saved.speed,
             )
         }
-        if (pending == null) {
+        if (pending.isEmpty()) {
             controller.setMediaItem(PlaybackRequests.request(lastItem))
             controller.prepare()
         }
@@ -93,17 +84,45 @@ class PlayerConnection @Inject constructor(
         }
     }
 
-    private fun withController(action: MediaController.() -> Unit) {
+    override fun togglePlayPause() = withController { if (playWhenReady) pause() else play() }
+
+    override fun seekTo(positionMs: Long) = withController { seekTo(positionMs.coerceAtLeast(0)) }
+
+    override fun jumpBack() = withController { seekBack() }
+
+    override fun jumpForward() = withController { seekForward() }
+
+    override fun skipToPrevious() = withController { seekToPrevious() }
+
+    override fun skipToNext() = withController { seekToNext() }
+
+    override fun setSpeed(speed: Float) = withController { setPlaybackSpeed(TransportRules.clampSpeed(speed)) }
+
+    override fun stop() = withController {
+        stop()
+        clearMediaItems()
+    }
+
+    private fun withController(action: Player.() -> Unit) {
         val current = controller
-        if (current != null) current.action() else pending = action
+        if (current != null) current.action() else pending += action
     }
 
     private fun publish() {
         val c = controller ?: return
-        val item: MediaItem = c.currentMediaItem ?: return
+        val item: MediaItem = c.currentMediaItem ?: run {
+            state.value = NowPlaying()
+            return
+        }
+        val itemId = PlaybackRequests.itemIdOf(item)
+        if (itemId == null) {
+            // Still the unexpanded request: keep the restored snapshot.
+            state.value = state.value.copy(isPlaying = c.isPlaying)
+            return
+        }
         val metadata = c.mediaMetadata
         state.value = NowPlaying(
-            itemId = PlaybackRequests.itemIdOf(item),
+            itemId = itemId,
             trackId = item.mediaId,
             title = metadata.title?.toString(),
             subtitle = (metadata.artist ?: metadata.albumTitle)?.toString(),
@@ -113,6 +132,10 @@ class PlayerConnection @Inject constructor(
             positionMs = c.currentPosition.coerceAtLeast(0),
             durationMs = c.duration.coerceAtLeast(0),
             speed = c.playbackParameters.speed,
+            queueIndex = c.currentMediaItemIndex,
+            queueSize = c.mediaItemCount,
+            hasPrevious = c.hasPreviousMediaItem(),
+            hasNext = c.hasNextMediaItem(),
         )
     }
 
