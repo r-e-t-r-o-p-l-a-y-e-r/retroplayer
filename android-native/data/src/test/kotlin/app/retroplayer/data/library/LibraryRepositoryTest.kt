@@ -75,6 +75,13 @@ class LibraryRepositoryTest {
     }
 
     @Test
+    fun `folder view tells a missing folder from an empty one`() = runTest(UnconfinedTestDispatcher()) {
+        docs.dir("Empty")
+        assertThat(repository().folder(p("Empty")).last().exists).isTrue()
+        assertThat(repository().folder(p("Gone")).last().exists).isFalse()
+    }
+
+    @Test
     fun `folder album at the root level takes the root display name as artist`() = runTest(UnconfinedTestDispatcher()) {
         val solo = repository().folder(p("Solo")).last()
         val album = (solo.items.single() as LibraryItem.Album).album

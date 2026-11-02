@@ -60,6 +60,14 @@ class LibraryScannerTest {
     }
 
     @Test
+    fun `missing folders and unknown roots are reported as not existing`() = runTest(UnconfinedTestDispatcher()) {
+        assertThat(scanner().listFolder(LibraryPath("1/Book")).toList().last().exists).isTrue()
+        assertThat(scanner().listFolder(LibraryPath("1/Nope")).toList().single().exists).isFalse()
+        assertThat(scanner().listFolder(LibraryPath("1/Book/01.mp3")).toList().single().exists).isFalse()
+        assertThat(scanner().listFolder(LibraryPath("9")).toList().single().exists).isFalse()
+    }
+
+    @Test
     fun `second listing uses the metadata cache and emits once complete`() = runTest(UnconfinedTestDispatcher()) {
         scanner().listFolder(LibraryPath("1/Book")).toList()
         reader.reads.clear()

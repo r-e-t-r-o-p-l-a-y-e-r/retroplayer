@@ -160,12 +160,14 @@ dependencies {
     implementation(libs.glance.appwidget)
     implementation(libs.glance.material3)
 
+    testImplementation(testFixtures(project(":data")))
     testImplementation(libs.junit)
     testImplementation(libs.truth)
     testImplementation(libs.turbine)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.test.core)
+    testImplementation(libs.room.runtime)
     testImplementation(platform(libs.compose.bom))
     testImplementation(libs.compose.ui.test.junit4)
 

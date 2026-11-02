@@ -29,6 +29,7 @@ data class FolderView(
     val scanned: Int,
     val total: Int,
     val complete: Boolean,
+    val exists: Boolean,
 )
 
 class LibraryRepository(
@@ -53,6 +54,7 @@ class LibraryRepository(
                 scanned = listing.scanned,
                 total = listing.total,
                 complete = listing.complete,
+                exists = listing.exists,
             )
         }.collect { emit(it) }
     }
@@ -67,6 +69,9 @@ class LibraryRepository(
 
     /** Artwork file found in [folder] during its last listing. */
     fun folderArt(folder: LibraryPath): String? = folderArt[folder]
+
+    /** Album ordering for the current locale. */
+    fun albumOrdering(): AlbumOrdering = AlbumOrdering(NaturalOrder(locale()))
 
     suspend fun albumTracks(album: AudioAlbum): List<AudioTrack> =
         logic().ordering.order(album.tracks, store.albumSort(album.id))

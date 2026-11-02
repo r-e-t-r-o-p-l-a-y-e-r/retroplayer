@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 data class FolderEntry(val path: LibraryPath, val uri: String)
 
-/** One state of a progressive folder scan; [complete] once every track has its tags. */
+/** One state of a progressive folder scan; [complete] once every track has its tags, [exists] false when there is no such folder. */
 data class FolderListing(
     val path: LibraryPath,
     val folders: List<FolderEntry>,
@@ -28,6 +28,7 @@ data class FolderListing(
     val scanned: Int,
     val total: Int,
     val complete: Boolean,
+    val exists: Boolean = true,
 )
 
 /** A file found in the tree, with its library path. */
@@ -50,7 +51,7 @@ class LibraryScanner(
     fun listFolder(path: LibraryPath): Flow<FolderListing> = flow {
         val folder = resolve(path)
         if (folder == null || !folder.isDirectory) {
-            emit(FolderListing(path, emptyList(), emptyList(), emptyList(), null, 0, 0, complete = true))
+            emit(FolderListing(path, emptyList(), emptyList(), emptyList(), null, 0, 0, complete = true, exists = false))
             return@flow
         }
         val nodes = refresh(path, folder.uri).filterNot { it.name.startsWith(".") }
