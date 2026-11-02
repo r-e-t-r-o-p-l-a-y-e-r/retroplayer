@@ -50,7 +50,7 @@ screenshot comparison described there.
 | T12 | Equalizer settings UI | any | todo |
 | T13 | Keyboard shortcuts | any | todo |
 | T14 | Text-fit guards and pseudo-locales | any | todo |
-| T15 | M4B chapter reader | opus | todo |
+| T15 | M4B chapter reader | opus | done (reader; cache in T16) |
 | T16 | Chapters in player, notification and seek bar | any | todo |
 | T17 | Headset options UI + resume on reconnect | any | todo |
 | T18 | Android Auto browse tree | opus | todo |
@@ -655,7 +655,17 @@ available, simply continue top to bottom.
 
 ## T15 M4B chapter reader
 
-- Owner: opus. Status: todo. Depends: none.
+- Owner: opus. Status: done (reader). Depends: none.
+- As built: `domain/.../model/Chapter.kt`; `data/.../chapters/Mp4ChapterReader.kt`
+  with `ByteSource` (`of(ByteArray)`, `of(FileChannel)` for a SAF
+  `ParcelFileDescriptor` via `FileInputStream(pfd.fileDescriptor).channel`).
+  Nero `chpl` wins, else the `tref/chap` text track (stts/stsz/stsc/stco|co64,
+  `mdhd` timescale); malformed input returns empty. Tests use boxes built in
+  code plus `data/src/test/resources/chapters/ffmpeg-chapters.m4b` (real
+  ffmpeg output, 1.6 KB).
+- Moved to T16: caching in `TrackCacheEntity.chaptersJson` (Room v3
+  auto-migration, only for `.m4b/.m4a/.mp4`, read on a background
+  dispatcher when the track first plays, not during folder scans).
 - Files: `domain/.../model/Chapter.kt` (`Chapter(startMs: Long, title: String)`),
   `data/.../chapters/Mp4ChapterReader.kt` reading from an `InputStream`/
   random access over the SAF document: parse boxes `moov/udta/chpl` (Nero)
