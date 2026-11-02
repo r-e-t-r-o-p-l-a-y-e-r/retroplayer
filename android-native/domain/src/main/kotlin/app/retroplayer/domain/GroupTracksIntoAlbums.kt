@@ -26,7 +26,7 @@ class GroupTracksIntoAlbums(private val folderName: (LibraryPath) -> String = { 
         for (track in tracks) {
             val album = track.albumTag ?: continue
             val disc = track.metadata.discNumber ?: 0
-            groups.getOrPut("tag:${track.directory.value.lowercase()}::${album.lowercase()}::$disc") { mutableListOf() } += track
+            groups.getOrPut(AlbumIds.tag(track.directory, album, disc)) { mutableListOf() } += track
         }
         return groups.map { (key, members) ->
             members.forEach { used += it.id }
@@ -54,7 +54,7 @@ class GroupTracksIntoAlbums(private val folderName: (LibraryPath) -> String = { 
                 val sorted = members.sortedWith(tagOrder)
                 LibraryItem.Album(
                     AudioAlbum(
-                        id = "dir:${dir.value.lowercase()}",
+                        id = AlbumIds.folder(dir),
                         title = canonicalTitle(sorted, dir),
                         artist = commonArtist(sorted) ?: parentName(dir),
                         tracks = sorted,
@@ -80,5 +80,21 @@ class GroupTracksIntoAlbums(private val folderName: (LibraryPath) -> String = { 
         val tagOrder: Comparator<AudioTrack> = compareBy<AudioTrack> { it.metadata.discNumber ?: 0 }
             .thenBy { it.metadata.trackNumber ?: Int.MAX_VALUE }
             .thenBy { it.path.value }
+    }
+}
+
+/** Album ids carry their folder: `dir:<folder>` or `tag:<folder>::<album lowercase>::<disc>`. */
+object AlbumIds {
+    private const val DIR = "dir:"
+    private const val TAG = "tag:"
+
+    fun folder(dir: LibraryPath) = DIR + dir.value
+
+    fun tag(dir: LibraryPath, album: String, disc: Int) = "$TAG${dir.value}::${album.lowercase()}::$disc"
+
+    fun directoryOf(albumId: String): LibraryPath? = when {
+        albumId.startsWith(DIR) -> LibraryPath(albumId.removePrefix(DIR))
+        albumId.startsWith(TAG) -> LibraryPath(albumId.removePrefix(TAG).substringBefore("::"))
+        else -> null
     }
 }

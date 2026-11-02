@@ -109,6 +109,15 @@ class GroupTracksIntoAlbumsTest {
     }
 
     @Test
+    fun `album id keeps the folder so it can be found again after a restart`() {
+        val byTag = albums(group(listOf(track("1/My Book/1.mp3", album = "X"), track("1/My Book/2.mp3", album = "X")))).single()
+        val byFolder = albums(group(listOf(track("1/My Book/1.mp3"), track("1/My Book/2.mp3")))).single()
+        assertThat(AlbumIds.directoryOf(byTag.id)).isEqualTo(LibraryPath("1/My Book"))
+        assertThat(AlbumIds.directoryOf(byFolder.id)).isEqualTo(LibraryPath("1/My Book"))
+        assertThat(AlbumIds.directoryOf("queue")).isNull()
+    }
+
+    @Test
     fun `album ids are stable for the same folder and tag`() {
         val tracks = listOf(
             track("1/b/1.mp3", album = "X", trackNumber = 1),
