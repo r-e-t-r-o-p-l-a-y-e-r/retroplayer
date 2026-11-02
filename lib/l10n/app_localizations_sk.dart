@@ -473,6 +473,12 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Posunúť nahor';
+
+  @override
+  String get moveDown => 'Posunúť nadol';
+
+  @override
   String get playlistNothingToPlay =>
       'Tento zoznam skladieb neobsahuje žiadne skladby, ktoré by sa dali prehrať.';
 

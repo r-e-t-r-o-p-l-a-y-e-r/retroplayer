@@ -472,6 +472,12 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Перемістити вгору';
+
+  @override
+  String get moveDown => 'Перемістити вниз';
+
+  @override
   String get playlistNothingToPlay =>
       'У цьому плейлисті немає треків, які можна відтворити.';
 

@@ -473,6 +473,12 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Przenieś w górę';
+
+  @override
+  String get moveDown => 'Przenieś w dół';
+
+  @override
   String get playlistNothingToPlay =>
       'Ta playlista nie zawiera żadnych utworów, które można odtworzyć.';
 

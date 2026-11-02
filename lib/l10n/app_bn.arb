@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "উপরে সরান",
+  "moveDown": "নিচে সরান",
   "playlistNothingToPlay": "এই প্লেলিস্টে কোনও প্লেযোগ্য ট্র্যাক নেই ।",
   "@shortcutTooltip": {
     "placeholders": {

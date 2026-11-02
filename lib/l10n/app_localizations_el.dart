@@ -474,6 +474,12 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Μετακίνηση πάνω';
+
+  @override
+  String get moveDown => 'Μετακίνηση κάτω';
+
+  @override
   String get playlistNothingToPlay =>
       'Αυτή η λίστα αναπαραγωγής δεν περιέχει κομμάτια που μπορούν να αναπαραχθούν.';
 

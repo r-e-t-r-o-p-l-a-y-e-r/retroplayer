@@ -472,6 +472,12 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Премести нагоре';
+
+  @override
+  String get moveDown => 'Премести надолу';
+
+  @override
   String get playlistNothingToPlay =>
       'В този плейлист няма песни, които могат да се възпроизвеждат.';
 

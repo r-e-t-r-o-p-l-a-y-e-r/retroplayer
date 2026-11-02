@@ -471,6 +471,12 @@ class AppLocalizationsLv extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Pārvietot uz augšu';
+
+  @override
+  String get moveDown => 'Pārvietot uz leju';
+
+  @override
   String get playlistNothingToPlay =>
       'Šajā atskaņošanas sarakstā nav atskaņojamu ierakstu.';
 

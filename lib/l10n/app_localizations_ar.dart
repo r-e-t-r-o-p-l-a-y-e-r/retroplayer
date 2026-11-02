@@ -464,6 +464,12 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'نقل لأعلى';
+
+  @override
+  String get moveDown => 'نقل لأسفل';
+
+  @override
   String get playlistNothingToPlay =>
       'لا تحتوي قائمة التشغيل هذه على مسارات قابلة للتشغيل.';
 

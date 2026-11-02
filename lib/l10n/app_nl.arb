@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Omhoog verplaatsen",
+  "moveDown": "Omlaag verplaatsen",
   "playlistNothingToPlay": "Deze afspeellijst bevat geen nummers die kunnen worden afgespeeld.",
   "@shortcutTooltip": {
     "placeholders": {

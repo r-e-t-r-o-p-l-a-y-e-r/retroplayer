@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Ma żdiedet l-ebda traċċa ġdida mal-kju</string>
     <string name="added_to_queue_eq1">Żdiedet traċċa waħda mal-kju</string>
     <string name="added_to_queue_other">Miżjuda mal-kju: %1$d</string>
+    <string name="move_up">Ċaqlaq \'il fuq</string>
+    <string name="move_down">Ċaqlaq \'l isfel</string>
     <string name="playlist_nothing_to_play">Din il-playlist m\'għandhiex kanzunetti li jistgħu jitilgħu.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Tħassar il-playlist?</string>

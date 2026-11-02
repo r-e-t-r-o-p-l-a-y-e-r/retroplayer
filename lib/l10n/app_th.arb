@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "ย้ายขึ้น",
+  "moveDown": "ย้ายลง",
   "playlistNothingToPlay": "รายชื่อเพลงนี้ไม่มีเพลงใดที่สามารถเล่นได้",
   "@shortcutTooltip": {
     "placeholders": {

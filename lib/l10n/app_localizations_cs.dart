@@ -474,6 +474,12 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Posunout nahoru';
+
+  @override
+  String get moveDown => 'Posunout dolů';
+
+  @override
   String get playlistNothingToPlay =>
       'Tento seznam skladeb neobsahuje žádné skladby, které by bylo možné přehrát.';
 

@@ -381,8 +381,15 @@ available, simply continue top to bottom.
     order `position, addedAt, id`; new roots go last).
     `RetroDatabaseMigrationTest` covers 1 -> 2 (`room-testing`, schemas as
     test assets).
-  - Known gap: reordering has no accessibility actions yet (would need
-    "Move up/down" strings, which the ARB files don't have).
+  - Accessibility: every reorderable row also offers "Move up" / "Move
+    down" custom actions (`move_up`/`move_down`, new ARB keys
+    `moveUp`/`moveDown`, translated in all 46 files); first row has no
+    "Move up", last row no "Move down".
+  - Screen edges belong to the OS: swipes starting at the left/right edge
+    are system back, from the bottom edge home/recents (gesture navigation
+    delivers them to the system first). Never use
+    `systemGestureExclusion` on rows. Back at the library root does
+    nothing (`AbsorbBackAtRoot`, UC-14). Checked on the emulator.
 - Tests: `RetroDatabaseTest` `roots keep a user order and new roots go
   last`; `RetroDatabaseMigrationTest`; `FolderViewModelTest` `add to queue
   appends what play would play without playing it`, `moving roots and
@@ -390,7 +397,8 @@ available, simply continue top to bottom.
   the queue adds only that track, once`; `FolderContentTest` drags (root,
   favorite, no cross-section moves), swipes (root remove, favorite both
   ways, every folder-page row, swipe again after snap-back), snackbar
-  texts, long press opens nothing; `AlbumContentTest` swipe a track.
+  texts, long press opens nothing, screen-reader move actions;
+  `AlbumContentTest` swipe a track.
 
 ## T06 Queue screen + add-tracks picker
 

@@ -470,6 +470,12 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Omhoog verplaatsen';
+
+  @override
+  String get moveDown => 'Omlaag verplaatsen';
+
+  @override
   String get playlistNothingToPlay =>
       'Deze afspeellijst bevat geen nummers die kunnen worden afgespeeld.';
 

@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Mozgatás fel",
+  "moveDown": "Mozgatás le",
   "playlistNothingToPlay": "Ebben a lejátszási listában nincs lejátszható szám.",
   "@shortcutTooltip": {
     "placeholders": {

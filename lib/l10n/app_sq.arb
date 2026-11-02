@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Lëviz lart",
+  "moveDown": "Lëviz poshtë",
   "playlistNothingToPlay": "Kjo listë nuk ka asnjë këngë të luajtshme.",
   "@shortcutTooltip": {
     "placeholders": {

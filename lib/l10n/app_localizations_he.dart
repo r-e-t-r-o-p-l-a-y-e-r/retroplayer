@@ -464,6 +464,12 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'הזז למעלה';
+
+  @override
+  String get moveDown => 'הזז למטה';
+
+  @override
   String get playlistNothingToPlay =>
       'ברשימת ההשמעה הזו אין שירים שניתן להשמיע.';
 

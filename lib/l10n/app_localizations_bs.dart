@@ -468,6 +468,12 @@ class AppLocalizationsBs extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Pomjeri gore';
+
+  @override
+  String get moveDown => 'Pomjeri dolje';
+
+  @override
   String get playlistNothingToPlay =>
       'Ova plejlista nema pjesama za reprodukciju.';
 

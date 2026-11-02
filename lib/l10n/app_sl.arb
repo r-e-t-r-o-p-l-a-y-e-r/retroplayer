@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Premakni gor",
+  "moveDown": "Premakni dol",
   "playlistNothingToPlay": "Ta seznam predvajanja ne vsebuje skladb, ki bi jih bilo mogoče predvajati.",
   "@shortcutTooltip": {
     "placeholders": {

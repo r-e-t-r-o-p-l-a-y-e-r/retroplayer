@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">No s\'ha afegit cap pista nova a la fila</string>
     <string name="added_to_queue_eq1">S\'ha afegit 1 pista a la fila</string>
     <string name="added_to_queue_other">S\'han afegit %1$d pistes a la fila</string>
+    <string name="move_up">Mou amunt</string>
+    <string name="move_down">Mou avall</string>
     <string name="playlist_nothing_to_play">Aquesta llista de reproducció no té cap pista reproduïble.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Eliminar llista de reproducció?</string>

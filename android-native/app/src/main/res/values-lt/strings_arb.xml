@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Į eilę nepridėta naujų takelių</string>
     <string name="added_to_queue_eq1">Į eilę pridėtas 1 takelis</string>
     <string name="added_to_queue_other">Pridėta į eilę: %1$d</string>
+    <string name="move_up">Perkelti aukštyn</string>
+    <string name="move_down">Perkelti žemyn</string>
     <string name="playlist_nothing_to_play">Šiame grojaraštyje nėra grojamų įrašų.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Ištrinti grojaraštį?</string>

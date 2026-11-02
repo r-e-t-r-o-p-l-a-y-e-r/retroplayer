@@ -472,6 +472,12 @@ class AppLocalizationsMt extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Ċaqlaq \'il fuq';
+
+  @override
+  String get moveDown => 'Ċaqlaq \'l isfel';
+
+  @override
   String get playlistNothingToPlay =>
       'Din il-playlist m\'għandhiex kanzunetti li jistgħu jitilgħu.';
 

@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Nuk u shtua asnjë këngë e re në radhë</string>
     <string name="added_to_queue_eq1">U shtua 1 këngë në radhë</string>
     <string name="added_to_queue_other">U shtuan në radhë: %1$d</string>
+    <string name="move_up">Lëviz lart</string>
+    <string name="move_down">Lëviz poshtë</string>
     <string name="playlist_nothing_to_play">Kjo listë nuk ka asnjë këngë të luajtshme.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Fshij listën e luajtjes?</string>

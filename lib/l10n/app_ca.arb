@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Mou amunt",
+  "moveDown": "Mou avall",
   "playlistNothingToPlay": "Aquesta llista de reproducció no té cap pista reproduïble.",
   "@shortcutTooltip": {
     "placeholders": {

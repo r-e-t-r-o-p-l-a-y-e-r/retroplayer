@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "انتقال به بالا",
+  "moveDown": "انتقال به پایین",
   "playlistNothingToPlay": "این فهرست پخش هیچ قطعه‌ای برای پخش ندارد.",
   "@shortcutTooltip": {
     "placeholders": {

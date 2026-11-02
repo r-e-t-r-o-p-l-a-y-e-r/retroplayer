@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Tidak ada trek baru yang ditambahkan ke antrean</string>
     <string name="added_to_queue_eq1">1 trek ditambahkan ke antrean</string>
     <string name="added_to_queue_other">%1$d trek ditambahkan ke antrean</string>
+    <string name="move_up">Pindahkan ke atas</string>
+    <string name="move_down">Pindahkan ke bawah</string>
     <string name="playlist_nothing_to_play">Daftar putar ini tidak memiliki lagu yang dapat diputar.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Hapus daftar putar?</string>

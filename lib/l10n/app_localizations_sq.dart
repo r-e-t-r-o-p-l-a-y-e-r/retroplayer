@@ -469,6 +469,12 @@ class AppLocalizationsSq extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Lëviz lart';
+
+  @override
+  String get moveDown => 'Lëviz poshtë';
+
+  @override
   String get playlistNothingToPlay =>
       'Kjo listë nuk ka asnjë këngë të luajtshme.';
 

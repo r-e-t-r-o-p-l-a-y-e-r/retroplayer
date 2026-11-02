@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Mover para cima",
+  "moveDown": "Mover para baixo",
   "playlistNothingToPlay": "Esta lista de reprodução não tem faixas reproduzíveis.",
   "@shortcutTooltip": {
     "placeholders": {

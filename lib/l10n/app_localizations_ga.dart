@@ -470,6 +470,12 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Bog suas';
+
+  @override
+  String get moveDown => 'Bog síos';
+
+  @override
   String get playlistNothingToPlay =>
       'Níl aon rian in-seinnte ar an seinnliosta seo.';
 

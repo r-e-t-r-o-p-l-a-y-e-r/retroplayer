@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Posunúť nahor",
+  "moveDown": "Posunúť nadol",
   "playlistNothingToPlay": "Tento zoznam skladieb neobsahuje žiadne skladby, ktoré by sa dali prehrať.",
   "@shortcutTooltip": {
     "placeholders": {

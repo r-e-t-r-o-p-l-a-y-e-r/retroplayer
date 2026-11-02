@@ -467,6 +467,12 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Yukarı taşı';
+
+  @override
+  String get moveDown => 'Aşağı taşı';
+
+  @override
   String get playlistNothingToPlay =>
       'Bu çalma listesinde oynatılabilir parça bulunmamaktadır.';
 

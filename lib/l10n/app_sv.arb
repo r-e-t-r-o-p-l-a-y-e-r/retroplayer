@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Flytta upp",
+  "moveDown": "Flytta ned",
   "playlistNothingToPlay": "Den här spellistan innehåller inga spår som går att spela upp.",
   "@shortcutTooltip": {
     "placeholders": {

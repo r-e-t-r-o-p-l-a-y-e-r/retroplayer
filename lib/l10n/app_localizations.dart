@@ -938,6 +938,18 @@ abstract class AppLocalizations {
   /// **'{count,plural, =0{No new tracks added to the queue} =1{1 track added to the queue} other{{count} tracks added to the queue}}'**
   String addedToQueue(int count);
 
+  /// No description provided for @moveUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Move up'**
+  String get moveUp;
+
+  /// No description provided for @moveDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Move down'**
+  String get moveDown;
+
   /// No description provided for @playlistNothingToPlay.
   ///
   /// In en, this message translates to:

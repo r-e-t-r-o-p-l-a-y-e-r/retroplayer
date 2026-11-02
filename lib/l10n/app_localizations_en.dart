@@ -468,6 +468,12 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Move up';
+
+  @override
+  String get moveDown => 'Move down';
+
+  @override
   String get playlistNothingToPlay => 'This playlist has no playable tracks.';
 
   @override

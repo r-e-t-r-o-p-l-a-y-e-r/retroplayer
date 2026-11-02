@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Nijedna nova pjesma nije dodana u red</string>
     <string name="added_to_queue_eq1">1 pjesma dodana u red</string>
     <string name="added_to_queue_other">Dodano u red: %1$d</string>
+    <string name="move_up">Pomakni gore</string>
+    <string name="move_down">Pomakni dolje</string>
     <string name="playlist_nothing_to_play">Ova playlista nema pjesama za reprodukciju.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Izbriši playlistu?</string>

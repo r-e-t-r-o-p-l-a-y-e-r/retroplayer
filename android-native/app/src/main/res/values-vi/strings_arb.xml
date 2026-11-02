@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Không có bản nhạc mới nào được thêm vào hàng đợi</string>
     <string name="added_to_queue_eq1">Đã thêm 1 bản nhạc vào hàng đợi</string>
     <string name="added_to_queue_other">Đã thêm %1$d bản nhạc vào hàng đợi</string>
+    <string name="move_up">Di chuyển lên</string>
+    <string name="move_down">Di chuyển xuống</string>
     <string name="playlist_nothing_to_play">Danh sách phát này không có bản nhạc có thể phát.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Xóa danh sách phát?</string>

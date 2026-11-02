@@ -471,6 +471,12 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Subir';
+
+  @override
+  String get moveDown => 'Bajar';
+
+  @override
   String get playlistNothingToPlay =>
       'Esta lista de reproducción no tiene pistas reproducibles.';
 

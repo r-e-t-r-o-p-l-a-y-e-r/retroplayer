@@ -470,6 +470,12 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'উপরে সরান';
+
+  @override
+  String get moveDown => 'নিচে সরান';
+
+  @override
   String get playlistNothingToPlay =>
       'এই প্লেলিস্টে কোনও প্লেযোগ্য ট্র্যাক নেই ।';
 

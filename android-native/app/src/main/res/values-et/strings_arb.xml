@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Järjekorda ei lisatud uusi lugusid</string>
     <string name="added_to_queue_eq1">Järjekorda lisati 1 lugu</string>
     <string name="added_to_queue_other">Järjekorda lisatud: %1$d</string>
+    <string name="move_up">Liiguta üles</string>
+    <string name="move_down">Liiguta alla</string>
     <string name="playlist_nothing_to_play">Sellel esitusloendil pole esitatavaid lugusid.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Kas kustutada esitusloend?</string>

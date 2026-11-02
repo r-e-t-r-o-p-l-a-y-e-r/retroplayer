@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "上に移動",
+  "moveDown": "下に移動",
   "playlistNothingToPlay": "このプレイリストには再生可能なトラックがありません。",
   "@shortcutTooltip": {
     "placeholders": {

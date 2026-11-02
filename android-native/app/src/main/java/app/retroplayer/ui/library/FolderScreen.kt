@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -55,6 +56,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -291,6 +293,17 @@ private class DragOrder<T>(private val keyOf: (T) -> String) {
     private fun indexOf(key: String) = (local ?: stored).indexOfFirst { keyOf(it) == key }
 }
 
+/** Screen-reader stand-in for dragging the row at [index] of [count]. */
+@Composable
+private fun moveActions(index: Int, count: Int, move: (from: Int, to: Int) -> Unit): List<CustomAccessibilityAction> {
+    val up = stringResource(R.string.move_up)
+    val down = stringResource(R.string.move_down)
+    return listOfNotNull(
+        CustomAccessibilityAction(up) { move(index, index - 1); true }.takeIf { index > 0 },
+        CustomAccessibilityAction(down) { move(index, index + 1); true }.takeIf { index < count - 1 },
+    )
+}
+
 private fun rootKey(root: LibraryRoot) = "root:" + root.id
 
 private fun favoriteKey(link: FavoriteLink) = "fav:" + link.path.value
@@ -318,7 +331,8 @@ private fun RootList(
     }
     LazyColumn(state = listState, contentPadding = PaddingValues(bottom = 96.dp)) {
         item(key = "h:sources") { SectionHeader(stringResource(R.string.library_sources)) }
-        items(roots.shown, key = ::rootKey) { root ->
+        val shownRoots = roots.shown
+        itemsIndexed(shownRoots, key = { _, root -> rootKey(root) }) { index, root ->
             val key = rootKey(root)
             ReorderableItem(reorder, key = key) { dragging ->
                 SwipeActions(
@@ -330,6 +344,7 @@ private fun RootList(
                         onDragStopped = { roots.stop(key, actions.moveRoot) },
                     ),
                     fromEnd = Swipe(Icons.Outlined.Delete, removeLabel) { onRemove(root) },
+                    moreActions = moveActions(index, shownRoots.size, actions.moveRoot),
                 ) {
                     RetroListRow(
                         title = { RowTitle(root.name) },
@@ -344,7 +359,8 @@ private fun RootList(
         }
         if (state.favorites.isNotEmpty()) {
             item(key = "h:favorites") { SectionHeader(stringResource(R.string.favorites)) }
-            items(favorites.shown, key = ::favoriteKey) { link ->
+            val shownFavorites = favorites.shown
+            itemsIndexed(shownFavorites, key = { _, link -> favoriteKey(link) }) { index, link ->
                 val key = favoriteKey(link)
                 ReorderableItem(reorder, key = key) { dragging ->
                     SwipeActions(
@@ -357,6 +373,7 @@ private fun RootList(
                         ),
                         fromStart = favoriteSwipe(link.path, favorite = true, actions),
                         fromEnd = queueSwipe(PlaybackItem.folderId(link.path), actions),
+                        moreActions = moveActions(index, shownFavorites.size, actions.moveFavorite),
                     ) {
                         RetroListRow(
                             title = { RowTitle(link.label) },

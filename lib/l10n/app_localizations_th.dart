@@ -469,6 +469,12 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'ย้ายขึ้น';
+
+  @override
+  String get moveDown => 'ย้ายลง';
+
+  @override
   String get playlistNothingToPlay =>
       'รายชื่อเพลงนี้ไม่มีเพลงใดที่สามารถเล่นได้';
 

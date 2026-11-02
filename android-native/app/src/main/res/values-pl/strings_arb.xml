@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Nie dodano nowych utworów do kolejki</string>
     <string name="added_to_queue_eq1">Dodano 1 utwór do kolejki</string>
     <string name="added_to_queue_other">Dodano do kolejki: %1$d</string>
+    <string name="move_up">Przenieś w górę</string>
+    <string name="move_down">Przenieś w dół</string>
     <string name="playlist_nothing_to_play">Ta playlista nie zawiera żadnych utworów, które można odtworzyć.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Usunąć playlistę?</string>

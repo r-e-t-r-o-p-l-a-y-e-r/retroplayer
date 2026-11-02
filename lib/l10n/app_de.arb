@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Nach oben verschieben",
+  "moveDown": "Nach unten verschieben",
   "playlistNothingToPlay": "Diese Wiedergabeliste enthält keine abspielbaren Titel.",
   "@shortcutTooltip": {
     "placeholders": {

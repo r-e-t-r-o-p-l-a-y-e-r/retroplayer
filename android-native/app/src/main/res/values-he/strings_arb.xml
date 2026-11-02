@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">לא נוספו רצועות חדשות לתור</string>
     <string name="added_to_queue_eq1">רצועה אחת נוספה לתור</string>
     <string name="added_to_queue_other">נוספו לתור: %1$d</string>
+    <string name="move_up">הזז למעלה</string>
+    <string name="move_down">הזז למטה</string>
     <string name="playlist_nothing_to_play">ברשימת ההשמעה הזו אין שירים שניתן להשמיע.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">למחוק את רשימת ההשמעה?</string>

@@ -469,6 +469,12 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Nach oben verschieben';
+
+  @override
+  String get moveDown => 'Nach unten verschieben';
+
+  @override
   String get playlistNothingToPlay =>
       'Diese Wiedergabeliste enthält keine abspielbaren Titel.';
 

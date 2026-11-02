@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">No new tracks added to the queue</string>
     <string name="added_to_queue_eq1">1 track added to the queue</string>
     <string name="added_to_queue_other">%1$d tracks added to the queue</string>
+    <string name="move_up">Move up</string>
+    <string name="move_down">Move down</string>
     <string name="playlist_nothing_to_play">This playlist has no playable tracks.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Delete playlist?</string>

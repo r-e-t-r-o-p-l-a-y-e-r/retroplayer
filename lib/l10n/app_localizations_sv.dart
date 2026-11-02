@@ -470,6 +470,12 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Flytta upp';
+
+  @override
+  String get moveDown => 'Flytta ned';
+
+  @override
   String get playlistNothingToPlay =>
       'Den här spellistan innehåller inga spår som går att spela upp.';
 

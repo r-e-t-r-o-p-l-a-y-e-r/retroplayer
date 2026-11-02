@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "ऊपर ले जाएँ",
+  "moveDown": "नीचे ले जाएँ",
   "playlistNothingToPlay": "इस प्लेलिस्ट में कोई प्ले करने योग्य ट्रैक नहीं हैं।",
   "@shortcutTooltip": {
     "placeholders": {

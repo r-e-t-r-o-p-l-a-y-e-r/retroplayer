@@ -467,6 +467,12 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'انتقال به بالا';
+
+  @override
+  String get moveDown => 'انتقال به پایین';
+
+  @override
   String get playlistNothingToPlay =>
       'این فهرست پخش هیچ قطعه‌ای برای پخش ندارد.';
 

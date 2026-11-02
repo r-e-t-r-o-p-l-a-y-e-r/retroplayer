@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">ไม่มีเพลงใหม่ที่เพิ่มในคิว</string>
     <string name="added_to_queue_eq1">เพิ่ม 1 เพลงในคิวแล้ว</string>
     <string name="added_to_queue_other">เพิ่ม %1$d เพลงในคิวแล้ว</string>
+    <string name="move_up">ย้ายขึ้น</string>
+    <string name="move_down">ย้ายลง</string>
     <string name="playlist_nothing_to_play">รายชื่อเพลงนี้ไม่มีเพลงใดที่สามารถเล่นได้</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">จะลบรายชื่อเพลงหรือไม่?</string>

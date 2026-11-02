@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Aucun nouveau titre ajouté à la file d\'attente</string>
     <string name="added_to_queue_eq1">1 titre ajouté à la file d\'attente</string>
     <string name="added_to_queue_other">%1$d titres ajoutés à la file d\'attente</string>
+    <string name="move_up">Monter</string>
+    <string name="move_down">Descendre</string>
     <string name="playlist_nothing_to_play">Cette liste de lecture n\'a pas de pistes jouables.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Supprimer la liste de lecture ?</string>

@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Μετακίνηση πάνω",
+  "moveDown": "Μετακίνηση κάτω",
   "playlistNothingToPlay": "Αυτή η λίστα αναπαραγωγής δεν περιέχει κομμάτια που μπορούν να αναπαραχθούν.",
   "@shortcutTooltip": {
     "placeholders": {

@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Не се додадени нови песни во редот</string>
     <string name="added_to_queue_eq1">1 песна е додадена во редот</string>
     <string name="added_to_queue_other">Додадени во редот: %1$d</string>
+    <string name="move_up">Премести нагоре</string>
+    <string name="move_down">Премести надолу</string>
     <string name="playlist_nothing_to_play">Оваа плејлиста нема песни за репродукција.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Избриши плејлиста?</string>

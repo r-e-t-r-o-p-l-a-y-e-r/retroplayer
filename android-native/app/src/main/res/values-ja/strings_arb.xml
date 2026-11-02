@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">キューに追加された新しい曲はありません</string>
     <string name="added_to_queue_eq1">1曲をキューに追加しました</string>
     <string name="added_to_queue_other">%1$d曲をキューに追加しました</string>
+    <string name="move_up">上に移動</string>
+    <string name="move_down">下に移動</string>
     <string name="playlist_nothing_to_play">このプレイリストには再生可能なトラックがありません。</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">プレイリストの削除</string>

@@ -454,6 +454,12 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get moveUp => '上移';
+
+  @override
+  String get moveDown => '下移';
+
+  @override
   String get playlistNothingToPlay => '此播放列表没有可播放的曲目。';
 
   @override

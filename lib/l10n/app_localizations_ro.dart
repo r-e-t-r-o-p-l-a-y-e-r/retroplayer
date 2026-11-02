@@ -471,6 +471,12 @@ class AppLocalizationsRo extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Mută în sus';
+
+  @override
+  String get moveDown => 'Mută în jos';
+
+  @override
   String get playlistNothingToPlay =>
       'Această listă de redare nu conține piese care pot fi redate.';
 

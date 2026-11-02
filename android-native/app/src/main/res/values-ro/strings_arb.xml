@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Nicio piesă nouă nu a fost adăugată la coadă</string>
     <string name="added_to_queue_eq1">1 piesă adăugată la coadă</string>
     <string name="added_to_queue_other">Adăugate la coadă: %1$d</string>
+    <string name="move_up">Mută în sus</string>
+    <string name="move_down">Mută în jos</string>
     <string name="playlist_nothing_to_play">Această listă de redare nu conține piese care pot fi redate.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Să ștergi lista de redare?</string>

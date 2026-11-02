@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Monter",
+  "moveDown": "Descendre",
   "playlistNothingToPlay": "Cette liste de lecture n'a pas de pistes jouables.",
   "@shortcutTooltip": {
     "placeholders": {

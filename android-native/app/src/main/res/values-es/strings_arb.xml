@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">No se añadieron temas nuevos a la cola</string>
     <string name="added_to_queue_eq1">1 tema añadido a la cola</string>
     <string name="added_to_queue_other">%1$d temas añadidos a la cola</string>
+    <string name="move_up">Subir</string>
+    <string name="move_down">Bajar</string>
     <string name="playlist_nothing_to_play">Esta lista de reproducción no tiene pistas reproducibles.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">¿Eliminar lista de reproducción?</string>

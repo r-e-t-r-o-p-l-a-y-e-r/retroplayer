@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Mută în sus",
+  "moveDown": "Mută în jos",
   "playlistNothingToPlay": "Această listă de redare nu conține piese care pot fi redate.",
   "@shortcutTooltip": {
     "placeholders": {

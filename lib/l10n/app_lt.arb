@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Perkelti aukštyn",
+  "moveDown": "Perkelti žemyn",
   "playlistNothingToPlay": "Šiame grojaraštyje nėra grojamų įrašų.",
   "@shortcutTooltip": {
     "placeholders": {

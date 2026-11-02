@@ -229,6 +229,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Move up",
+  "moveDown": "Move down",
   "playlistNothingToPlay": "This playlist has no playable tracks.",
   "shortcutTooltip": "{action} ({shortcut})",
   "@shortcutTooltip": {

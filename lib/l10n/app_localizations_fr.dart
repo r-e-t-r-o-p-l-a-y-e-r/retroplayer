@@ -475,6 +475,12 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Monter';
+
+  @override
+  String get moveDown => 'Descendre';
+
+  @override
   String get playlistNothingToPlay =>
       'Cette liste de lecture n\'a pas de pistes jouables.';
 

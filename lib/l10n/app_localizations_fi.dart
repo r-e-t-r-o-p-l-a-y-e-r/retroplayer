@@ -469,6 +469,12 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Siirrä ylös';
+
+  @override
+  String get moveDown => 'Siirrä alas';
+
+  @override
   String get playlistNothingToPlay =>
       'Tässä soittolistassa ei ole toistettavia kappaleita.';
 

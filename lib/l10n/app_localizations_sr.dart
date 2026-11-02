@@ -471,6 +471,12 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Помери нагоре';
+
+  @override
+  String get moveDown => 'Помери надоле';
+
+  @override
   String get playlistNothingToPlay =>
       'Ова плејлиста нема песме за репродукцију.';
 

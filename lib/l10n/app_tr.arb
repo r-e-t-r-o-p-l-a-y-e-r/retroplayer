@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Yukarı taşı",
+  "moveDown": "Aşağı taşı",
   "playlistNothingToPlay": "Bu çalma listesinde oynatılabilir parça bulunmamaktadır.",
   "@shortcutTooltip": {
     "placeholders": {

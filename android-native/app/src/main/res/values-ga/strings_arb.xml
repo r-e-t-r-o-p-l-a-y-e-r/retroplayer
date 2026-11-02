@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Níor cuireadh aon rian nua leis an tsraith</string>
     <string name="added_to_queue_eq1">Cuireadh 1 rian leis an tsraith</string>
     <string name="added_to_queue_other">Curtha leis an tsraith: %1$d</string>
+    <string name="move_up">Bog suas</string>
+    <string name="move_down">Bog síos</string>
     <string name="playlist_nothing_to_play">Níl aon rian in-seinnte ar an seinnliosta seo.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Scrios an liosta seinnte?</string>

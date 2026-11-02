@@ -470,6 +470,12 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Di chuyển lên';
+
+  @override
+  String get moveDown => 'Di chuyển xuống';
+
+  @override
   String get playlistNothingToPlay =>
       'Danh sách phát này không có bản nhạc có thể phát.';
 

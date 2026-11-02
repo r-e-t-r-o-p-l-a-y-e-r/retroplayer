@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Liiguta üles",
+  "moveDown": "Liiguta alla",
   "playlistNothingToPlay": "Sellel esitusloendil pole esitatavaid lugusid.",
   "@shortcutTooltip": {
     "placeholders": {

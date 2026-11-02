@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "نقل لأعلى",
+  "moveDown": "نقل لأسفل",
   "playlistNothingToPlay": "لا تحتوي قائمة التشغيل هذه على مسارات قابلة للتشغيل.",
   "@shortcutTooltip": {
     "placeholders": {

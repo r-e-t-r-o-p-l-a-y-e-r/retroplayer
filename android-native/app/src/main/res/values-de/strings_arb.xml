@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Keine neuen Titel zur Warteschlange hinzugefügt</string>
     <string name="added_to_queue_eq1">1 Titel zur Warteschlange hinzugefügt</string>
     <string name="added_to_queue_other">%1$d Titel zur Warteschlange hinzugefügt</string>
+    <string name="move_up">Nach oben verschieben</string>
+    <string name="move_down">Nach unten verschieben</string>
     <string name="playlist_nothing_to_play">Diese Wiedergabeliste enthält keine abspielbaren Titel.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Wiedergabeliste löschen?</string>

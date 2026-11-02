@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Færa upp",
+  "moveDown": "Færa niður",
   "playlistNothingToPlay": "Þessi spilunarlisti inniheldur engin lög sem hægt er að spila.",
   "@shortcutTooltip": {
     "placeholders": {

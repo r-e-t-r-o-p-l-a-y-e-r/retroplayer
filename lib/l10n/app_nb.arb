@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Flytt opp",
+  "moveDown": "Flytt ned",
   "playlistNothingToPlay": "Denne spillelisten inneholder ingen spor som kan spilles av.",
   "@shortcutTooltip": {
     "placeholders": {

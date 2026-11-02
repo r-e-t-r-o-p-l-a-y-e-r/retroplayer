@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Ċaqlaq 'il fuq",
+  "moveDown": "Ċaqlaq 'l isfel",
   "playlistNothingToPlay": "Din il-playlist m'għandhiex kanzunetti li jistgħu jitilgħu.",
   "@shortcutTooltip": {
     "placeholders": {

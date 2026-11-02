@@ -458,6 +458,12 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String get moveUp => '위로 이동';
+
+  @override
+  String get moveDown => '아래로 이동';
+
+  @override
   String get playlistNothingToPlay => '이 재생 목록에는 재생할 수 있는 트랙이 없습니다.';
 
   @override

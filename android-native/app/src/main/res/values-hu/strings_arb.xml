@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Nem került új szám a sorba</string>
     <string name="added_to_queue_eq1">1 szám hozzáadva a sorhoz</string>
     <string name="added_to_queue_other">%1$d szám hozzáadva a sorhoz</string>
+    <string name="move_up">Mozgatás fel</string>
+    <string name="move_down">Mozgatás le</string>
     <string name="playlist_nothing_to_play">Ebben a lejátszási listában nincs lejátszható szám.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Törölni szeretnéd a lejátszási listát?</string>

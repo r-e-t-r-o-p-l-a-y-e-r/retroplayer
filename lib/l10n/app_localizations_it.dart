@@ -473,6 +473,12 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Sposta su';
+
+  @override
+  String get moveDown => 'Sposta giù';
+
+  @override
   String get playlistNothingToPlay =>
       'Questa playlist non ha tracce riproducibili.';
 

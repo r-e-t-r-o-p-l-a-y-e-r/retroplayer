@@ -471,6 +471,12 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Flyt op';
+
+  @override
+  String get moveDown => 'Flyt ned';
+
+  @override
   String get playlistNothingToPlay =>
       'Denne afspilningsliste indeholder ingen numre, der kan afspilles.';
 

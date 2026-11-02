@@ -467,6 +467,12 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Liiguta üles';
+
+  @override
+  String get moveDown => 'Liiguta alla';
+
+  @override
   String get playlistNothingToPlay =>
       'Sellel esitusloendil pole esitatavaid lugusid.';
 

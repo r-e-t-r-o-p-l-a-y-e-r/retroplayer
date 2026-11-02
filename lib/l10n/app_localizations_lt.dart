@@ -471,6 +471,12 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Perkelti aukštyn';
+
+  @override
+  String get moveDown => 'Perkelti žemyn';
+
+  @override
   String get playlistNothingToPlay => 'Šiame grojaraštyje nėra grojamų įrašų.';
 
   @override

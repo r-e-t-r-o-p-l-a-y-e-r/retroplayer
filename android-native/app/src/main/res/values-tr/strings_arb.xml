@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Sıraya yeni parça eklenmedi</string>
     <string name="added_to_queue_eq1">Sıraya 1 parça eklendi</string>
     <string name="added_to_queue_other">Sıraya %1$d parça eklendi</string>
+    <string name="move_up">Yukarı taşı</string>
+    <string name="move_down">Aşağı taşı</string>
     <string name="playlist_nothing_to_play">Bu çalma listesinde oynatılabilir parça bulunmamaktadır.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Çalma Listesini Sil</string>

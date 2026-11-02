@@ -234,7 +234,10 @@ Screen layouts (match the screenshots):
   where a list has a user order; never a context menu. Swipe from the end
   edge = add to queue (roots: remove). Swipe from the start edge = favorite
   toggle (queue/playlist editor: remove). Use `SwipeActions` and the
-  `DragOrder` pattern. ▶ never changes the stored queue: the queue is an
+  `DragOrder` pattern, plus "Move up/down" accessibility actions on every
+  reorderable row. Edge swipes (left/right = back, bottom = home/recents)
+  belong to the OS: never set `systemGestureExclusion`. Back at the library
+  root does nothing. ▶ never changes the stored queue: the queue is an
   unsaved playlist, not "what plays now".
 - Mini player (02): drag handle, art 40 dp, title w600 + artist, progress
   bar with times, compact transport row centered; `screenElevated`

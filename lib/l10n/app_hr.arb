@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Pomakni gore",
+  "moveDown": "Pomakni dolje",
   "playlistNothingToPlay": "Ova playlista nema pjesama za reprodukciju.",
   "@shortcutTooltip": {
     "placeholders": {

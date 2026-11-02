@@ -472,6 +472,12 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Mover para cima';
+
+  @override
+  String get moveDown => 'Mover para baixo';
+
+  @override
   String get playlistNothingToPlay =>
       'Esta lista de reprodução não tem faixas reproduzíveis.';
 

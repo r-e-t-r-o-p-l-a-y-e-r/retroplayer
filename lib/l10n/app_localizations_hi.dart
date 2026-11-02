@@ -467,6 +467,12 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'ऊपर ले जाएँ';
+
+  @override
+  String get moveDown => 'नीचे ले जाएँ';
+
+  @override
   String get playlistNothingToPlay =>
       'इस प्लेलिस्ट में कोई प्ले करने योग्य ट्रैक नहीं हैं।';
 

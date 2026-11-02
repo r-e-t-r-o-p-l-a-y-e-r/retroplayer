@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Bog suas",
+  "moveDown": "Bog síos",
   "playlistNothingToPlay": "Níl aon rian in-seinnte ar an seinnliosta seo.",
   "@shortcutTooltip": {
     "placeholders": {

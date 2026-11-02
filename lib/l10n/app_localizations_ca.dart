@@ -475,6 +475,12 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Mou amunt';
+
+  @override
+  String get moveDown => 'Mou avall';
+
+  @override
   String get playlistNothingToPlay =>
       'Aquesta llista de reproducció no té cap pista reproduïble.';
 

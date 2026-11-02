@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">لم تتم إضافة مسارات جديدة إلى قائمة الانتظار</string>
     <string name="added_to_queue_eq1">تمت إضافة مسار واحد إلى قائمة الانتظار</string>
     <string name="added_to_queue_other">تمت الإضافة إلى قائمة الانتظار: %1$d</string>
+    <string name="move_up">نقل لأعلى</string>
+    <string name="move_down">نقل لأسفل</string>
     <string name="playlist_nothing_to_play">لا تحتوي قائمة التشغيل هذه على مسارات قابلة للتشغيل.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">هل تريد حذف قائمة التشغيل ؟</string>

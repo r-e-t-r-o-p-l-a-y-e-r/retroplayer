@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "上移",
+  "moveDown": "下移",
   "playlistNothingToPlay": "此播放列表没有可播放的曲目。",
   "@shortcutTooltip": {
     "placeholders": {

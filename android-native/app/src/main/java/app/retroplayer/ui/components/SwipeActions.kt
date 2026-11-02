@@ -39,13 +39,15 @@ private val SWIPE_THRESHOLD = 72.dp
 /**
  * Row swipes that run an action once the row moved past a threshold, then
  * snap back. [fromStart] runs on a swipe from the start edge (rightwards in
- * LTR), [fromEnd] on a swipe from the end edge.
+ * LTR), [fromEnd] on a swipe from the end edge. [moreActions] are offered to
+ * accessibility services next to the swipes.
  */
 @Composable
 fun SwipeActions(
     modifier: Modifier = Modifier,
     fromStart: Swipe? = null,
     fromEnd: Swipe? = null,
+    moreActions: List<CustomAccessibilityAction> = emptyList(),
     content: @Composable () -> Unit,
 ) {
     val palette = LocalRetroPalette.current
@@ -73,7 +75,7 @@ fun SwipeActions(
                         action.action()
                         true
                     }
-                }
+                } + moreActions
             }
             .draggable(
                 state = dragState,

@@ -468,6 +468,12 @@ class AppLocalizationsIs extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Færa upp';
+
+  @override
+  String get moveDown => 'Færa niður';
+
+  @override
   String get playlistNothingToPlay =>
       'Þessi spilunarlisti inniheldur engin lög sem hægt er að spila.';
 

@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">قطار میں کوئی نیا ٹریک شامل نہیں ہوا</string>
     <string name="added_to_queue_eq1">قطار میں ایک ٹریک شامل کیا گیا</string>
     <string name="added_to_queue_other">قطار میں %1$d ٹریکس شامل کیے گئے</string>
+    <string name="move_up">اوپر منتقل کریں</string>
+    <string name="move_down">نیچے منتقل کریں</string>
     <string name="playlist_nothing_to_play">اس پلے لسٹ میں کوئی قابلِ اجرا ٹریک نہیں ہیں۔</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">پلے لسٹ حذف کریں؟</string>

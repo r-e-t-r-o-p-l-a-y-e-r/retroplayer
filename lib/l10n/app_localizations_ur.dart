@@ -468,6 +468,12 @@ class AppLocalizationsUr extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'اوپر منتقل کریں';
+
+  @override
+  String get moveDown => 'نیچے منتقل کریں';
+
+  @override
   String get playlistNothingToPlay =>
       'اس پلے لسٹ میں کوئی قابلِ اجرا ٹریک نہیں ہیں۔';
 

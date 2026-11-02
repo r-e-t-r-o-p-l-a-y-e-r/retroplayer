@@ -133,6 +133,8 @@
     <string name="added_to_queue_eq0">Do fronty nebyly přidány žádné nové skladby</string>
     <string name="added_to_queue_eq1">Do fronty byla přidána 1 skladba</string>
     <string name="added_to_queue_other">Přidáno do fronty: %1$d</string>
+    <string name="move_up">Posunout nahoru</string>
+    <string name="move_down">Posunout dolů</string>
     <string name="playlist_nothing_to_play">Tento seznam skladeb neobsahuje žádné skladby, které by bylo možné přehrát.</string>
     <string name="shortcut_tooltip">%1$s (%2$s)</string>
     <string name="delete_playlist_title">Smazat seznam skladeb?</string>

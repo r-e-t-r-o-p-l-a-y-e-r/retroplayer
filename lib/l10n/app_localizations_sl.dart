@@ -473,6 +473,12 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Premakni gor';
+
+  @override
+  String get moveDown => 'Premakni dol';
+
+  @override
   String get playlistNothingToPlay =>
       'Ta seznam predvajanja ne vsebuje skladb, ki bi jih bilo mogoče predvajati.';
 

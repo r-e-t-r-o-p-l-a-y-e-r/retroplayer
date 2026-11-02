@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Премести нагоре",
+  "moveDown": "Премести надолу",
   "playlistNothingToPlay": "Оваа плејлиста нема песни за репродукција.",
   "@shortcutTooltip": {
     "placeholders": {

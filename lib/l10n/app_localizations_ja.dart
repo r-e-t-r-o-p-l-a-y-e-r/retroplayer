@@ -462,6 +462,12 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String get moveUp => '上に移動';
+
+  @override
+  String get moveDown => '下に移動';
+
+  @override
   String get playlistNothingToPlay => 'このプレイリストには再生可能なトラックがありません。';
 
   @override

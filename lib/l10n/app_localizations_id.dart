@@ -470,6 +470,12 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Pindahkan ke atas';
+
+  @override
+  String get moveDown => 'Pindahkan ke bawah';
+
+  @override
   String get playlistNothingToPlay =>
       'Daftar putar ini tidak memiliki lagu yang dapat diputar.';
 

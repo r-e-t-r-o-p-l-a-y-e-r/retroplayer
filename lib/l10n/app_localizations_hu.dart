@@ -471,6 +471,12 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Mozgatás fel';
+
+  @override
+  String get moveDown => 'Mozgatás le';
+
+  @override
   String get playlistNothingToPlay =>
       'Ebben a lejátszási listában nincs lejátszható szám.';
 

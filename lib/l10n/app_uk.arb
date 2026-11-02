@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Перемістити вгору",
+  "moveDown": "Перемістити вниз",
   "playlistNothingToPlay": "У цьому плейлисті немає треків, які можна відтворити.",
   "@shortcutTooltip": {
     "placeholders": {

@@ -470,6 +470,12 @@ class AppLocalizationsHr extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Pomakni gore';
+
+  @override
+  String get moveDown => 'Pomakni dolje';
+
+  @override
   String get playlistNothingToPlay =>
       'Ova playlista nema pjesama za reprodukciju.';
 

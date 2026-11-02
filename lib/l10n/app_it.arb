@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Sposta su",
+  "moveDown": "Sposta giù",
   "playlistNothingToPlay": "Questa playlist non ha tracce riproducibili.",
   "@shortcutTooltip": {
     "placeholders": {

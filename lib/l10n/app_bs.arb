@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Pomjeri gore",
+  "moveDown": "Pomjeri dolje",
   "playlistNothingToPlay": "Ova plejlista nema pjesama za reprodukciju.",
   "@shortcutTooltip": {
     "placeholders": {

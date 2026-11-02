@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Pārvietot uz augšu",
+  "moveDown": "Pārvietot uz leju",
   "playlistNothingToPlay": "Šajā atskaņošanas sarakstā nav atskaņojamu ierakstu.",
   "@shortcutTooltip": {
     "placeholders": {

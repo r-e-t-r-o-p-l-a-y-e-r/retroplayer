@@ -5,6 +5,9 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.semantics.SemanticsActions
+import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.hasAnyDescendant
 import androidx.compose.ui.test.hasScrollToIndexAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.geometry.Offset
@@ -207,6 +210,27 @@ class FolderContentTest {
         compose.onNodeWithText("A").performTouchInput { swipeLeft() }
         compose.onNodeWithText("A").performTouchInput { swipeLeft() }
         assertThat(calls).hasSize(2)
+    }
+
+    private fun actionsOf(row: String) = compose
+        .onNode(hasAnyDescendant(hasText(row, substring = false)) and SemanticsMatcher.keyIsDefined(SemanticsActions.CustomActions))
+        .fetchSemanticsNode().config[SemanticsActions.CustomActions]
+
+    private fun runAction(row: String, label: String) {
+        val action = actionsOf(row).first { it.label == label }
+        compose.runOnUiThread { action.action() }
+    }
+
+    @Test
+    fun `screen readers move roots and favorites with up and down actions`() {
+        val links = listOf(FavoriteLink(LibraryPath("1/A"), "A", null), FavoriteLink(LibraryPath("1/B"), "B", null))
+        show(FolderUiState.Root(listOf(music, books), links), isRoot = true)
+        runAction("Music", "Move down")
+        runAction("B", "Move up")
+        assertThat(calls).containsExactly("moveRoot:0->1", "moveFavorite:1->0").inOrder()
+        assertThat(actionsOf("Music").map { it.label }).doesNotContain("Move up")
+        assertThat(actionsOf("Books").map { it.label }).doesNotContain("Move down")
+        assertThat(actionsOf("B").map { it.label }).doesNotContain("Move down")
     }
 
     @Test

@@ -245,6 +245,8 @@
       "count": {"type": "int"}
     }
   },
+  "moveUp": "Flyt op",
+  "moveDown": "Flyt ned",
   "playlistNothingToPlay": "Denne afspilningsliste indeholder ingen numre, der kan afspilles.",
   "@shortcutTooltip": {
     "placeholders": {

@@ -468,6 +468,12 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
+  String get moveUp => 'Переместить вверх';
+
+  @override
+  String get moveDown => 'Переместить вниз';
+
+  @override
   String get playlistNothingToPlay =>
       'В этом плейлисте нет воспроизводимых треков.';
 
