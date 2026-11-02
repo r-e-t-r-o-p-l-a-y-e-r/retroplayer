@@ -1,5 +1,7 @@
 package app.retroplayer.data.db
 
+import androidx.room.AutoMigration
+import androidx.room.ColumnInfo
 import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Entity
@@ -19,6 +21,8 @@ data class RootEntity(
     val name: String,
     val canWrite: Boolean,
     val addedAt: Long,
+    /** User order; rows from version 1 all start at 0 and fall back to addedAt. */
+    @ColumnInfo(defaultValue = "0") val position: Int = 0,
 )
 
 @Entity(tableName = "favorite_folders")
@@ -63,11 +67,14 @@ data class TrackCacheEntity(
 
 @Dao
 interface RootDao {
-    @Query("SELECT * FROM library_roots ORDER BY addedAt, id")
+    @Query("SELECT * FROM library_roots ORDER BY position, addedAt, id")
     fun observeAll(): Flow<List<RootEntity>>
 
-    @Query("SELECT * FROM library_roots ORDER BY addedAt, id")
+    @Query("SELECT * FROM library_roots ORDER BY position, addedAt, id")
     suspend fun all(): List<RootEntity>
+
+    @Query("UPDATE library_roots SET position = :position WHERE id = :id")
+    suspend fun setPosition(id: Long, position: Int)
 
     @Query("SELECT * FROM library_roots WHERE treeUri = :treeUri")
     suspend fun byTree(treeUri: String): RootEntity?
@@ -193,8 +200,9 @@ interface TrackCacheDao {
         AppPlaylistEntity::class,
         TrackCacheEntity::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = true,
+    autoMigrations = [AutoMigration(from = 1, to = 2)],
 )
 abstract class RetroDatabase : RoomDatabase() {
     abstract fun rootDao(): RootDao

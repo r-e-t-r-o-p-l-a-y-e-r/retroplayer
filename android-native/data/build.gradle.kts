@@ -20,6 +20,7 @@ android {
     testFixtures {
         enable = true
     }
+    sourceSets["test"].assets.directories.add("$projectDir/schemas")
 }
 
 ksp {
@@ -44,4 +45,5 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.test.core)
     testImplementation(libs.androidx.test.ext.junit)
+    testImplementation(libs.room.testing)
 }

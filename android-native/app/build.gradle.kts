@@ -157,6 +157,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
 
     implementation(libs.coil.compose)
+    implementation(libs.reorderable)
     implementation(libs.glance.appwidget)
     implementation(libs.glance.material3)
 

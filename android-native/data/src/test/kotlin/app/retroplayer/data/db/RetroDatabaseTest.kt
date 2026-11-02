@@ -40,6 +40,18 @@ class RetroDatabaseTest {
     }
 
     @Test
+    fun `roots keep a user order and new roots go last`() = runTest {
+        val a = library.addRoot("content://t/a", "Music", canWrite = false)
+        val b = library.addRoot("content://t/b", "Books", canWrite = false)
+        val c = library.addRoot("content://t/c", "Talks", canWrite = false)
+        library.moveRoot(from = 2, to = 0)
+        library.moveRoot(from = 5, to = 0)
+        val d = library.addRoot("content://t/d", "Radio", canWrite = false)
+        assertThat(library.roots.first().map { it.id }).containsExactly(c, a, b, d).inOrder()
+        assertThat(library.allRoots().map { it.id }).containsExactly(c, a, b, d).inOrder()
+    }
+
+    @Test
     fun `removing a root forgets its favorites, playback states and album sorts`() = runTest {
         val id = library.addRoot("content://t/a", "Music", canWrite = false)
         val other = library.addRoot("content://t/b", "Books", canWrite = false)

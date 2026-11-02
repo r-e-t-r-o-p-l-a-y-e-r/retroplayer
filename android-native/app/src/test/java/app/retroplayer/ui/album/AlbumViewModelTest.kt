@@ -10,6 +10,7 @@ import app.retroplayer.domain.model.AlbumSortMode
 import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.domain.model.TrackMetadata
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.last
 import org.junit.After
@@ -52,7 +53,7 @@ class AlbumViewModelTest {
     fun tearDown() = lib.close()
 
     private fun viewModel(id: String) =
-        AlbumViewModel(SavedStateHandle(mapOf("albumId" to id)), lib.repository, lib.store, lib.settings, lib.playback)
+        AlbumViewModel(SavedStateHandle(mapOf("albumId" to id)), lib.repository, lib.store, lib.settings, lib.playback, lib.queue)
 
     private suspend fun AlbumViewModel.ready(predicate: (AlbumUiState.Ready) -> Boolean = { true }) =
         state.first { it is AlbumUiState.Ready && predicate(it) } as AlbumUiState.Ready
@@ -119,6 +120,16 @@ class AlbumViewModelTest {
         vm.play(ready.tracks[1])
         vm.playAll()
         assertThat(lib.playback.played).containsExactly(tagged to ready.tracks[1].id, tagged to null).inOrder()
+    }
+
+    @Test
+    fun `adding a track to the queue adds only that track, once`() = main.runVmTest {
+        val vm = viewModel(tagged)
+        val track = vm.ready().tracks.first()
+        suspend fun add() = CompletableDeferred<Int>().also { done -> vm.addToQueue(track) { done.complete(it) } }.await()
+        assertThat(listOf(add(), add())).containsExactly(1, 0).inOrder()
+        assertThat(lib.settings.session.first().queue).containsExactly(track.path)
+        assertThat(lib.playback.played).isEmpty()
     }
 
     @Test

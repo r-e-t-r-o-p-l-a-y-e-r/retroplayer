@@ -25,7 +25,8 @@ class LibraryStore(private val db: RetroDatabase, private val clock: () -> Long 
             db.rootDao().update(existing.id, name, canWrite)
             existing.id.toString()
         } else {
-            db.rootDao().insert(RootEntity(treeUri = treeUri, name = name, canWrite = canWrite, addedAt = clock())).toString()
+            val position = (db.rootDao().all().maxOfOrNull { it.position } ?: -1) + 1
+            db.rootDao().insert(RootEntity(treeUri = treeUri, name = name, canWrite = canWrite, addedAt = clock(), position = position)).toString()
         }
     }
 
@@ -48,6 +49,13 @@ class LibraryStore(private val db: RetroDatabase, private val clock: () -> Long 
         } else {
             db.favoriteDao().upsert(listOf(FavoriteEntity(path.value, (current.maxOfOrNull { it.position } ?: -1) + 1)))
         }
+    }
+
+    suspend fun moveRoot(from: Int, to: Int) = db.withTransaction {
+        val list = db.rootDao().all().toMutableList()
+        if (from !in list.indices || to !in list.indices) return@withTransaction
+        list.add(to, list.removeAt(from))
+        list.forEachIndexed { index, root -> db.rootDao().setPosition(root.id, index) }
     }
 
     suspend fun moveFavorite(from: Int, to: Int) = db.withTransaction {

@@ -40,10 +40,11 @@ screenshot comparison described there.
 | T03 | Expanded player: jumps, speed | any | todo |
 | T04 | Locate now playing + playback breadcrumbs | any | todo |
 | T05 | Queue engine (edit while playing) | opus | done |
+| T05b | Library gestures: swipe to queue, long-press reorder | opus | done |
 | T06 | Queue screen + add-tracks picker | any | todo |
 | T07 | Playlist detail, save, delete | any | todo |
 | T08 | Write-grant upgrade flow | opus | todo |
-| T09 | Library leftovers: favorites gestures, A-Z, scroll restore, root removal | any | todo |
+| T09 | Library leftovers: A-Z, scroll restore, root removal | any | todo |
 | T10 | Settings screens (theme, language, data, reset, licenses, about) | any | todo |
 | T11 | Equalizer engine | opus | todo |
 | T12 | Equalizer settings UI | any | todo |
@@ -336,43 +337,68 @@ available, simply continue top to bottom.
 - Done when: tests green; playing a folder or album leaves the stored queue
   untouched (existing `SessionQueueTest` stays green).
 
-## T05b Add to queue from the library; swipe actions
+## T05b Library gestures: swipe to queue, long-press to reorder
 
 - Owner: opus. Status: done. Depends: T05.
+- Gesture rule for every list in the app (user decision, binding):
+  - Long-press is only ever drag-to-reorder, wherever a list has a user
+    order (library roots, favorites, queue T06, playlist editor T07). No
+    context menus anywhere. Where nothing can be reordered, long-press does
+    nothing special and must not open the row afterwards.
+  - Swipe from the end edge (left in LTR) = add to queue, on every row that
+    can be queued: folders, favorites, playlists, albums, tracks, album-view
+    tracks. Exception: library roots, where it asks to remove the root.
+  - Swipe from the start edge (right in LTR) = favorite toggle on folders
+    and favorite links. In the queue and playlist editor (T06/T07) a swipe
+    removes the entry instead (with the confirmations those tasks specify).
 - Queue semantics (same as Flutter): the queue is an unsaved playlist kept
   in `SettingsStore` (DataStore), never a file. It is not "what plays now":
   ▶ on a folder, album, playlist or track plays that item and leaves the
   queue untouched. Only playing the queue (T06) makes it the live list, and
-  only then do queue edits reach the player (T05).
+  only then do queue edits reach the player (T05). ▶ on an album row and
+  "Play album" in the album view start the same item and resume its saved
+  track and position.
 - As built:
   - `FolderViewModel.addToQueue(itemId, onAdded)` resolves the playback item
     with `PlaybackItemResolver` (exactly what ▶ would play, same order),
     appends via `QueueRepository.add` (skips tracks already queued) and
-    reports how many were new.
-  - Library rows (roots, favorites, folders, playlists, albums, tracks):
-    long-press opens a context menu with "Add to queue"
-    (`add_to_queue`); a snackbar says `added_to_queue_eq0|eq1|other`.
-    Both strings are new ARB keys (`addToQueue`, `addedToQueue`, plural),
-    translated in all 46 ARB files and regenerated for Flutter too.
-  - `SwipeAction` (private in `FolderScreen`): one-way `SwipeToDismissBox`
-    that runs its action and snaps back, plus an accessibility custom
-    action with the same label. Folder rows swipe start-to-end to toggle
-    favorite; root rows swipe end-to-start to ask for removal. The interim
-    long-press favorite/remove from T02b is gone.
-  - Tests: `FolderViewModelTest` `add to queue appends what play would play
-    without playing it`; `FolderContentTest` `swiping a root asks before
-    removing it`, long-press on a root adds it and shows the count, `adding
-    nothing new says so`, `every folder page row can be added to the queue`.
-- Left for later: album-screen track rows get the same menu (T06, with the
-  queue screen); more menu entries (e.g. "Add to playlist", T07).
+    reports how many were new. `AlbumViewModel.addToQueue(track, onAdded)`
+    queues one track. A snackbar says `added_to_queue_eq0|eq1|other`.
+    `addedToQueue` is a new ARB plural (with `addToQueue` as the swipe's
+    accessibility label), translated in all 46 ARB files and regenerated
+    for Flutter too.
+  - `ui/components/SwipeActions.kt`: `SwipeActions(fromStart, fromEnd)` with
+    `Swipe(icon, label, action)`; own `Modifier.draggable` + offset (not
+    `SwipeToDismissBox`, whose dismiss/reset cycle dropped every second
+    swipe). Runs the action past 72 dp, then animates back; RTL aware; each
+    swipe is also an accessibility custom action.
+  - Reorder: `sh.calvin.reorderable` 3.1.0. Roots and favorites are
+    separate sections of one `LazyColumn`; `DragOrder` (private in
+    `FolderScreen`) keeps the shown order during a drag and writes once on
+    drop (`LibraryStore.moveRoot` / `moveFavorite`). It also swallows the
+    click that the release of a long press would otherwise fire.
+  - Room version 2: `library_roots.position` (auto-migration, default 0,
+    order `position, addedAt, id`; new roots go last).
+    `RetroDatabaseMigrationTest` covers 1 -> 2 (`room-testing`, schemas as
+    test assets).
+  - Known gap: reordering has no accessibility actions yet (would need
+    "Move up/down" strings, which the ARB files don't have).
+- Tests: `RetroDatabaseTest` `roots keep a user order and new roots go
+  last`; `RetroDatabaseMigrationTest`; `FolderViewModelTest` `add to queue
+  appends what play would play without playing it`, `moving roots and
+  favorites saves the new order`; `AlbumViewModelTest` `adding a track to
+  the queue adds only that track, once`; `FolderContentTest` drags (root,
+  favorite, no cross-section moves), swipes (root remove, favorite both
+  ways, every folder-page row, swipe again after snap-back), snackbar
+  texts, long press opens nothing; `AlbumContentTest` swipe a track.
 
 ## T06 Queue screen + add-tracks picker
 
 - Owner: any. Status: todo. Depends: T05. UC-08.
 - Flutter reference: `lib/ui/features/playlist/` (queue view and picker).
-- New dependency allowed: `sh.calvin.reorderable:reorderable` (pure
-  Compose, Apache-2.0; add to `libs.versions.toml` as `reorderable`, latest
-  stable version from Maven Central). It is also used in T09.
+- Reorder: `sh.calvin.reorderable` is already in the catalog (T05b); copy
+  the `DragOrder` pattern from `FolderScreen` (one write on drop, swallow
+  the click after a long press). Gesture rule: see T05b.
 - Files: `ui/queue/QueueRoute` in `Routes.kt`, `QueueViewModel.kt`,
   `QueueScreen.kt`; `ui/queue/AddTracksScreen.kt` + `AddTracksViewModel.kt`.
 - Engine (T05): inject `QueueRepository` for reads and edits and
@@ -387,7 +413,7 @@ available, simply continue top to bottom.
     before `PlayerToggleAction()` (screenshot 02).
   - Rows: title, artist, duration; missing entries show `R.string.missing_track`.
     Tap a row: `controls.play(QUEUE_ID, startTrackId = path)`. Long-press drag
-    reorders (reorderable library), swipe (`SwipeToDismissBox`) removes.
+    reorders, swipe (`SwipeActions`, either direction) removes.
     Playing row highlighted. Empty: `R.string.queue_empty`.
   - App bar actions: Add tracks (`R.string.add_tracks`), Clear
     (`R.string.clear_queue`, confirm dialog `clear_queue_title`/`clear_queue_body`),
@@ -421,7 +447,7 @@ available, simply continue top to bottom.
     `playlist_empty`; play with no playable entries: snackbar
     `playlist_nothing_to_play`.
   - Editable only when `PlaylistContent.editable` (app-created and root has
-    write access): add tracks (reuse T06 picker), reorder, remove with
+    write access): add tracks (reuse T06 picker), reorder (long-press drag), remove (swipe) with
     confirmation (`remove_playlist_track_title_eq1/other`, body variants),
     multi-select (`playlist_select`, `playlist_select_all`,
     `playlist_deselect_all`, `playlist_selected_count_*`), delete playlist
@@ -460,13 +486,10 @@ available, simply continue top to bottom.
 
 ## T09 Library leftovers
 
-- Owner: any. Status: todo. Depends: T06 (reorderable dependency). UC-02, UC-04.
+- Owner: any. Status: todo. Depends: T05b. UC-02, UC-04.
 - Spec (each bullet one red/green cycle, tests in `FolderViewModelTest` /
   `FolderContentTest`):
-  - Favorite and remove swipes: done in T05b.
-  - Favorite links at the root reorder by dragging a trailing drag handle
-    (reorderable; long-press is taken by the "Add to queue" menu):
-    `dragging a favorite saves the new order` (calls `moveFavorite`).
+  - Swipes and long-press reordering of roots and favorites: done in T05b.
   - A-Z index bar on lists with more than 30 rows: vertical strip of first
     letters at the right edge; tap or drag jumps to the first row with that
     letter: `index bar appears for long lists`, `tapping a letter scrolls to it`.
@@ -475,7 +498,7 @@ available, simply continue top to bottom.
     stack's saved state): `BackChainTest` `going up restores the parent scroll position`.
   - Removing a root that contains what is playing stops playback
     (`controls.stop()`): `removing the playing root stops playback`.
-- Done when: tests green; smoke: favorite via swipe appears at root, drag reorder persists after restart.
+- Done when: tests green; smoke: index bar jumps, scroll position survives going up.
 
 ## T10 Settings screens
 

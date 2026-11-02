@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.library.LibraryRepository
+import app.retroplayer.data.library.QueueRepository
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.domain.AlbumSortSelection
 import app.retroplayer.domain.Breadcrumbs
@@ -46,6 +47,7 @@ class AlbumViewModel @Inject constructor(
     private val store: LibraryStore,
     private val settings: SettingsStore,
     private val playback: PlaybackControls,
+    private val queue: QueueRepository,
 ) : ViewModel() {
     val albumId: String = checkNotNull(savedState.get<String>(ALBUM_ID_ARG))
 
@@ -95,6 +97,11 @@ class AlbumViewModel @Inject constructor(
     fun play(track: AudioTrack) = playback.play(albumId, track.id)
 
     fun playAll() = playback.play(albumId)
+
+    /** Appends [track] to the stored queue without playing it; [onAdded] gets 1, or 0 if it was queued already. */
+    fun addToQueue(track: AudioTrack, onAdded: (Int) -> Unit = {}) {
+        viewModelScope.launch { onAdded(queue.add(listOf(track.path))) }
+    }
 
     fun onShown() {
         viewModelScope.launch { settings.setOpenAlbum(albumId) }

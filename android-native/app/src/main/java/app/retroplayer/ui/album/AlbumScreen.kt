@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Check
@@ -24,6 +25,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -31,9 +34,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.selected
@@ -53,10 +58,14 @@ import app.retroplayer.ui.components.AlbumArt
 import app.retroplayer.ui.components.BackButton
 import app.retroplayer.ui.components.RetroListRow
 import app.retroplayer.ui.components.RetroTopBar
+import app.retroplayer.ui.components.Swipe
+import app.retroplayer.ui.components.SwipeActions
 import app.retroplayer.ui.components.TransportButton
+import app.retroplayer.ui.components.addedToQueue
 import app.retroplayer.ui.formatDuration
 import app.retroplayer.ui.player.PlayerToggleAction
 import app.retroplayer.ui.theme.LocalRetroPalette
+import kotlinx.coroutines.launch
 
 data class AlbumActions(
     val back: () -> Unit = {},
@@ -65,6 +74,8 @@ data class AlbumActions(
     val selectSort: (AlbumSortMode) -> Unit = {},
     val confirmTagOrder: () -> Unit = {},
     val dismissTagOrder: () -> Unit = {},
+    /** Queues one track; the callback gets how many tracks were new. */
+    val addToQueue: (AudioTrack, onAdded: (Int) -> Unit) -> Unit = { _, _ -> },
 )
 
 @Composable
@@ -88,6 +99,7 @@ fun AlbumScreen(
             selectSort = viewModel::selectSort,
             confirmTagOrder = viewModel::confirmTagOrder,
             dismissTagOrder = viewModel::dismissTagOrder,
+            addToQueue = viewModel::addToQueue,
         ),
     )
 }
@@ -100,6 +112,17 @@ fun AlbumContent(
     playingTrackId: String?,
     actions: AlbumActions,
 ) {
+    val snackbar = remember { SnackbarHostState() }
+    val resources = LocalResources.current
+    val scope = rememberCoroutineScope()
+    val rowActions = actions.copy(
+        addToQueue = { track, onAdded ->
+            actions.addToQueue(track) { count ->
+                onAdded(count)
+                scope.launch { snackbar.showSnackbar(resources.addedToQueue(count)) }
+            }
+        },
+    )
     Scaffold(
         topBar = {
             RetroTopBar(
@@ -111,6 +134,7 @@ fun AlbumContent(
                 },
             )
         },
+        snackbarHost = { SnackbarHost(snackbar) },
     ) { padding ->
         Box(Modifier.padding(padding).fillMaxSize()) {
             when (state) {
@@ -120,7 +144,7 @@ fun AlbumContent(
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxSize().padding(32.dp),
                 )
-                is AlbumUiState.Ready -> AlbumBody(state, artModel, playingTrackId, actions)
+                is AlbumUiState.Ready -> AlbumBody(state, artModel, playingTrackId, rowActions)
             }
         }
     }
@@ -167,7 +191,10 @@ private fun AlbumBody(state: AlbumUiState.Ready, artModel: Any?, playingTrackId:
         HorizontalDivider()
         LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
             itemsIndexed(state.tracks, key = { _, track -> track.id }) { index, track ->
-                TrackRow(index, track, track.id == playingTrackId, onClick = { actions.play(track) })
+                val queueLabel = stringResource(R.string.add_to_queue)
+                SwipeActions(fromEnd = Swipe(Icons.AutoMirrored.Filled.PlaylistAdd, queueLabel) { actions.addToQueue(track) {} }) {
+                    TrackRow(index, track, track.id == playingTrackId, onClick = { actions.play(track) })
+                }
             }
         }
     }

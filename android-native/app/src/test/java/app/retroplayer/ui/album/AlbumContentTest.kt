@@ -7,6 +7,8 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipeLeft
 import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.model.AlbumSource
 import app.retroplayer.domain.model.AlbumSortMode
@@ -43,6 +45,10 @@ class AlbumContentTest {
         selectSort = { calls += "sort:" + it },
         confirmTagOrder = { calls += "confirm" },
         dismissTagOrder = { calls += "dismiss" },
+        addToQueue = { track, onAdded ->
+            calls += "queue:" + track.fileName
+            onAdded(1)
+        },
     )
 
     private fun show(confirm: Int? = null) = compose.setContent {
@@ -56,6 +62,14 @@ class AlbumContentTest {
         compose.onNodeWithText("First").assertIsDisplayed()
         compose.onNodeWithText("Ann · 01:01").assertIsDisplayed()
         compose.onNodeWithText("2").assertIsDisplayed()
+    }
+
+    @Test
+    fun `swiping a track left adds it to the queue`() {
+        show()
+        compose.onNodeWithText("Second").performTouchInput { swipeLeft() }
+        compose.onNodeWithText("1 track added to the queue").assertIsDisplayed()
+        assertThat(calls).containsExactly("queue:b.mp3")
     }
 
     @Test

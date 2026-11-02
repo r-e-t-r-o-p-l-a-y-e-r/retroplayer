@@ -7,7 +7,9 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.hasScrollToIndexAction
 import androidx.compose.ui.test.hasText
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.test.longClick
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
@@ -47,6 +49,8 @@ class FolderContentTest {
         toggleFavorite = { calls += "fav:" + it.value },
         addFolder = { calls += "add" },
         removeRoot = { calls += "remove:" + it.id },
+        moveRoot = { from, to -> calls += "moveRoot:$from->$to" },
+        moveFavorite = { from, to -> calls += "moveFavorite:$from->$to" },
         addToQueue = { id, onAdded ->
             calls += "queue:" + id
             added?.let(onAdded)
@@ -55,6 +59,19 @@ class FolderContentTest {
     private var added: Int? = 2
 
     private val music = LibraryRoot("1", "content://com.android.externalstorage.documents/tree/primary%3AMusic", "Music", false)
+    private val books = LibraryRoot("2", "content://com.android.externalstorage.documents/tree/primary%3ABooks", "Books", false)
+
+    /** Long-press, then drag down by [rows] row heights and release. */
+    private fun dragDown(text: String, rows: Float) = compose.onNodeWithText(text).performTouchInput {
+        down(center)
+        advanceEventTime(viewConfiguration.longPressTimeoutMillis + 100)
+        val step = 56.dp.toPx() * rows / 20
+        repeat(20) {
+            moveBy(Offset(0f, step))
+            advanceEventTime(16)
+        }
+        up()
+    }
 
     private fun show(state: FolderUiState, isRoot: Boolean = false) = compose.setContent {
         RetroTheme { FolderContent(state, isRoot, null, navigation, actions) }
@@ -141,25 +158,77 @@ class FolderContentTest {
     }
 
     @Test
-    fun `long press on a root adds it to the queue and says how many tracks were new`() {
-        show(FolderUiState.Root(listOf(music), emptyList()), isRoot = true)
-        compose.onNodeWithText("Music").performTouchInput { longClick() }
-        compose.onNodeWithText("Add to queue").performClick()
-        assertThat(calls).containsExactly("queue:" + PlaybackItem.folderId(LibraryPath("1")))
+    fun `long press drags a root to a new place`() {
+        show(FolderUiState.Root(listOf(music, books), emptyList()), isRoot = true)
+        dragDown("Music", rows = 1.5f)
+        assertThat(calls).containsExactly("moveRoot:0->1")
+    }
+
+    @Test
+    fun `long press drags a favorite to a new place and leaves the roots alone`() {
+        val links = listOf(FavoriteLink(LibraryPath("1/A"), "A", null), FavoriteLink(LibraryPath("1/B"), "B", null))
+        show(FolderUiState.Root(listOf(music), links), isRoot = true)
+        dragDown("A", rows = 1.5f)
+        dragDown("Music", rows = 3f)
+        assertThat(calls).containsExactly("moveFavorite:0->1")
+    }
+
+    @Test
+    fun `swiping a favorite left queues it and swiping right unfavorites it`() {
+        val link = FavoriteLink(LibraryPath("1/A"), "A", null)
+        show(FolderUiState.Root(listOf(music), listOf(link)), isRoot = true)
+        compose.onNodeWithText("A").performTouchInput { swipeLeft() }
         compose.onNodeWithText("2 tracks added to the queue").assertIsDisplayed()
+        compose.onNodeWithText("A").performTouchInput { swipeRight() }
+        assertThat(calls).containsExactly("queue:" + PlaybackItem.folderId(link.path), "fav:1/A").inOrder()
+    }
+
+    @Test
+    fun `a folder row swipes both ways, one action each`() {
+        added = null
+        val books = LibraryPath("1/Books")
+        show(
+            FolderUiState.Folder(
+                path = books,
+                crumbs = listOf(Crumb("", null, isLibraryRoot = true)),
+                folders = listOf(FolderRow(FolderEntry(books.child("Alpha"), "doc:a"), isFavorite = false)),
+                playlists = emptyList(), audio = emptyList(), artUri = null, scanned = 1, total = 1, complete = true,
+            ),
+        )
+        compose.onNodeWithText("Alpha").performTouchInput { swipeLeft() }
+        compose.onNodeWithText("Alpha").performTouchInput { swipeRight() }
+        assertThat(calls).containsExactly("queue:" + PlaybackItem.folderId(books.child("Alpha")), "fav:1/Books/Alpha").inOrder()
+    }
+
+    @Test
+    fun `a row can be swiped again after it snapped back`() {
+        added = null
+        show(FolderUiState.Root(listOf(music), listOf(FavoriteLink(LibraryPath("1/A"), "A", null))), isRoot = true)
+        compose.onNodeWithText("A").performTouchInput { swipeLeft() }
+        compose.onNodeWithText("A").performTouchInput { swipeLeft() }
+        assertThat(calls).hasSize(2)
     }
 
     @Test
     fun `adding nothing new says so`() {
         added = 0
-        show(FolderUiState.Root(listOf(music), emptyList()), isRoot = true)
-        compose.onNodeWithText("Music").performTouchInput { longClick() }
-        compose.onNodeWithText("Add to queue").performClick()
+        show(FolderUiState.Root(listOf(music), listOf(FavoriteLink(LibraryPath("1/A"), "A", null))), isRoot = true)
+        compose.onNodeWithText("A").performTouchInput { swipeLeft() }
         compose.onNodeWithText("No new tracks added to the queue").assertIsDisplayed()
     }
 
     @Test
-    fun `every folder page row can be added to the queue`() {
+    fun `long press neither opens a menu nor the row, a later tap does`() {
+        show(FolderUiState.Root(listOf(music), emptyList()), isRoot = true)
+        compose.onNodeWithText("Music").performTouchInput { longClick() }
+        compose.onNodeWithText("Add to queue").assertDoesNotExist()
+        assertThat(calls).isEmpty()
+        compose.onNodeWithText("Music").performClick()
+        assertThat(calls).containsExactly("open:1")
+    }
+
+    @Test
+    fun `swiping any folder page row left adds it to the queue`() {
         added = null
         val books = LibraryPath("1/Books")
         val album = AudioAlbum("dir:1/Books", "Alb", "Ann", listOf(AudioTrack(books.child("t1.mp3"), "doc:t1")), AlbumSource.DIRECTORY, books)
@@ -178,8 +247,7 @@ class FolderContentTest {
         )
         for (row in listOf("Alpha", "mix", "Alb", "single")) {
             compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(row, substring = false))
-            compose.onNodeWithText(row).performTouchInput { longClick() }
-            compose.onNodeWithText("Add to queue").performClick()
+            compose.onNodeWithText(row).performTouchInput { swipeLeft() }
         }
         assertThat(calls).containsExactly(
             "queue:" + PlaybackItem.folderId(books.child("Alpha")),

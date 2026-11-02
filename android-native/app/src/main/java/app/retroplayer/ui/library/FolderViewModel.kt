@@ -100,6 +100,10 @@ class FolderViewModel @Inject constructor(
         viewModelScope.launch { store.toggleFavorite(folder) }
     }
 
+    fun moveRoot(from: Int, to: Int) {
+        viewModelScope.launch { store.moveRoot(from, to) }
+    }
+
     fun moveFavorite(from: Int, to: Int) {
         viewModelScope.launch { store.moveFavorite(from, to) }
     }

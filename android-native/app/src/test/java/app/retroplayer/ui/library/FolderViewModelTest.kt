@@ -64,6 +64,20 @@ class FolderViewModelTest {
     }
 
     @Test
+    fun `moving roots and favorites saves the new order`() = main.runVmTest {
+        lib.store.toggleFavorite(lib.p("Books/Alpha"))
+        lib.store.toggleFavorite(lib.p("Albums/Alb"))
+        lib.addRoot("Books")
+        val vm = viewModel(null)
+        vm.moveRoot(1, 0)
+        vm.moveFavorite(1, 0)
+        val root = vm.state.first { it is FolderUiState.Root && it.roots.first().name == "Books" && it.favorites.first().label == "Alb" }
+            as FolderUiState.Root
+        assertThat(root.roots.map { it.name }).containsExactly("Books", "Music").inOrder()
+        assertThat(root.favorites.map { it.label }).containsExactly("Alb", "Alpha").inOrder()
+    }
+
+    @Test
     fun `folder splits into folders, playlists and audio with breadcrumbs`() = main.runVmTest {
         val folder = viewModel(lib.p("Books").value).folder()
         assertThat(folder.folders.map { it.entry.path.name }).containsExactly("Alpha", "Beta 2", "Beta 10").inOrder()
