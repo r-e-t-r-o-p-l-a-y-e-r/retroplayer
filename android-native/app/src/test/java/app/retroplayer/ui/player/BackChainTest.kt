@@ -30,7 +30,7 @@ class BackChainTest {
     private var expanded by mutableStateOf(false)
     private lateinit var nav: NavHostController
     private val state = PlayerUiState(NowPlaying(title = "Song", hasTrack = true))
-    private val actions = PlayerActions(toggle = {}, previous = {}, next = {})
+    private val actions = PlayerActions(toggle = {}, previous = {}, next = {}, seekTo = {})
 
     private fun show() = compose.setContent {
         RetroTheme {

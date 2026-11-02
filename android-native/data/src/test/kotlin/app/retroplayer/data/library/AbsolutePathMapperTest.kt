@@ -37,4 +37,15 @@ class AbsolutePathMapperTest {
         assertThat(AbsolutePathMapper.absoluteFolder(external, "primary:")).isEqualTo("/storage/emulated/0")
         assertThat(AbsolutePathMapper.absoluteFolder("x", "primary:Music")).isNull()
     }
+
+    @Test
+    fun `root location is shown relative to internal storage`() {
+        val tree = "content://$external/tree/"
+        assertThat(AbsolutePathMapper.displayLocation(tree + "primary%3AMusic")).isEqualTo("/Music")
+        assertThat(AbsolutePathMapper.displayLocation(tree + "primary%3AAudio%2FBooks%20%2B%20Kids")).isEqualTo("/Audio/Books + Kids")
+        assertThat(AbsolutePathMapper.displayLocation(tree + "primary%3A")).isEqualTo("/")
+        assertThat(AbsolutePathMapper.displayLocation(tree + "1A2B-3C4D%3AAudiobooks")).isEqualTo("/storage/1A2B-3C4D/Audiobooks")
+        assertThat(AbsolutePathMapper.displayLocation("content://com.other.provider/tree/opaque-42")).isNull()
+        assertThat(AbsolutePathMapper.displayLocation("not a uri")).isNull()
+    }
 }

@@ -1,6 +1,12 @@
 package app.retroplayer.ui.player
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
+import androidx.compose.ui.semantics.SemanticsActions
+import androidx.compose.ui.test.performSemanticsAction
+import app.retroplayer.domain.Crumb
+import app.retroplayer.domain.LibraryPath
+import app.retroplayer.ui.components.PROGRESS_TAG
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -31,15 +37,67 @@ class PlayerSheetTest {
         toggle = { calls += "toggle" },
         previous = { calls += "previous" },
         next = { calls += "next" },
+        seekTo = { calls += "seek:$it" },
     )
     private var expanded by mutableStateOf(false)
 
-    private val playing = PlayerUiState(NowPlaying(title = "Song 2", subtitle = "Tester", hasTrack = true, isPlaying = true, hasNext = true))
+    private val playing = PlayerUiState(
+        NowPlaying(
+            title = "Song 2",
+            subtitle = "Tester",
+            hasTrack = true,
+            isPlaying = true,
+            hasNext = true,
+            positionMs = 30_000,
+            durationMs = 180_000,
+        ),
+        crumbs = listOf(Crumb("", null, isLibraryRoot = true), Crumb("Music", LibraryPath("1")), Crumb("Song 2", null)),
+    )
 
     private fun show(state: PlayerUiState) = compose.setContent {
         RetroTheme {
-            PlayerHost(state, expanded, { expanded = it }, actions) { Text("library content") }
+            PlayerHost(state, expanded, { expanded = it }, actions) {
+                Column {
+                    Text("library content")
+                    PlayerToggleAction()
+                }
+            }
         }
+    }
+
+    @Test
+    fun `mini player shows progress and transport`() {
+        show(playing)
+        compose.onNodeWithText("00:30").assertIsDisplayed()
+        compose.onNodeWithText("03:00").assertIsDisplayed()
+        compose.onNodeWithContentDescription(context.getString(R.string.previous)).performClick()
+        compose.onNodeWithContentDescription(context.getString(R.string.next)).performClick()
+        compose.onNodeWithTag(PROGRESS_TAG).performSemanticsAction(SemanticsActions.SetProgress) { it(90_000f) }
+        assertThat(calls).containsExactly("previous", "next", "seek:90000").inOrder()
+        assertThat(expanded).isFalse()
+    }
+
+    @Test
+    fun `library top bar action expands the player`() {
+        show(playing)
+        compose.onNodeWithContentDescription(context.getString(R.string.expand_player)).performClick()
+        compose.waitForIdle()
+        assertThat(expanded).isTrue()
+    }
+
+    @Test
+    fun `library top bar action is absent without a track`() {
+        show(PlayerUiState())
+        compose.onNodeWithContentDescription(context.getString(R.string.expand_player)).assertDoesNotExist()
+    }
+
+    @Test
+    fun `expanded player shows its title and the playing breadcrumbs`() {
+        expanded = true
+        show(playing)
+        compose.onNodeWithText(context.getString(R.string.now_playing)).assertIsDisplayed()
+        compose.onNodeWithText("Music").assertIsDisplayed()
+        compose.onNodeWithText("library content").assertDoesNotExist()
     }
 
     @Test
@@ -61,7 +119,7 @@ class PlayerSheetTest {
     @Test
     fun `tapping the mini player expands`() {
         show(playing)
-        compose.onNodeWithTag(MINI_PLAYER_TAG).performClick()
+        compose.onNodeWithText("Song 2", useUnmergedTree = true).performClick()
         compose.waitForIdle()
         assertThat(expanded).isTrue()
         compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertIsDisplayed()

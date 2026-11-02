@@ -4,6 +4,7 @@ import androidx.activity.compose.PredictiveBackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
@@ -26,14 +27,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
-import androidx.compose.material3.FilledIconButton
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -49,12 +51,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import app.retroplayer.R
+import app.retroplayer.playback.NowPlaying
 import app.retroplayer.ui.components.AlbumArt
+import app.retroplayer.ui.components.BackButton
+import app.retroplayer.ui.components.BreadcrumbStrip
+import app.retroplayer.ui.components.PlaybackProgress
+import app.retroplayer.ui.components.RetroTopBar
+import app.retroplayer.ui.components.TransportButton
+import app.retroplayer.ui.theme.LocalRetroPalette
 import kotlin.coroutines.cancellation.CancellationException
 
 const val MINI_PLAYER_TAG = "miniPlayer"
@@ -67,7 +80,20 @@ data class PlayerActions(
     val toggle: () -> Unit,
     val previous: () -> Unit,
     val next: () -> Unit,
+    val seekTo: (Long) -> Unit,
 )
+
+/** Expands the player from a library top bar; null while there is nothing to expand. */
+private val LocalExpandPlayer = compositionLocalOf<(() -> Unit)?> { null }
+
+/** Chevron for library top bars (UC-12), shown while the mini player is. */
+@Composable
+fun PlayerToggleAction() {
+    val expand = LocalExpandPlayer.current ?: return
+    IconButton(onClick = expand) {
+        Icon(Icons.Filled.KeyboardArrowUp, contentDescription = stringResource(R.string.expand_player))
+    }
+}
 
 /**
  * The app's content with the mini player docked below it and the expanded
@@ -86,9 +112,10 @@ fun PlayerHost(
     var backProgress by remember { mutableFloatStateOf(0f) }
     LaunchedEffect(showExpanded) { if (showExpanded) backProgress = 0f }
 
-    CompositionLocalProvider(LocalPlayerExpanded provides showExpanded) {
+    val expand = if (state.visible && !showExpanded) ({ onExpandedChange(true) }) else null
+    CompositionLocalProvider(LocalPlayerExpanded provides showExpanded, LocalExpandPlayer provides expand) {
         Box(Modifier.fillMaxSize()) {
-            Column(Modifier.fillMaxSize()) {
+            Column(Modifier.fillMaxSize().then(if (showExpanded) Modifier.clearAndSetSemantics {} else Modifier)) {
                 val contentInsets = if (state.visible) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier
                 Box(Modifier.weight(1f).then(contentInsets)) { content() }
                 if (state.visible) MiniPlayer(state, actions, onExpand = { onExpandedChange(true) })
@@ -124,12 +151,57 @@ fun PlayerHost(
 }
 
 @Composable
+private fun DragHandle() {
+    Box(
+        Modifier
+            .padding(vertical = 6.dp)
+            .size(width = 32.dp, height = 4.dp)
+            .background(LocalRetroPalette.current.divider, RoundedCornerShape(2.dp)),
+    )
+}
+
+@Composable
+private fun Titles(now: NowPlaying, titleStyle: TextStyle, subtitleStyle: TextStyle, align: TextAlign, modifier: Modifier = Modifier) {
+    val palette = LocalRetroPalette.current
+    Column(modifier, horizontalAlignment = if (align == TextAlign.Center) Alignment.CenterHorizontally else Alignment.Start) {
+        Text(
+            now.title ?: stringResource(R.string.track_fallback),
+            style = titleStyle,
+            color = palette.textPrimary,
+            textAlign = align,
+            maxLines = if (align == TextAlign.Center) 2 else 1,
+            overflow = TextOverflow.Ellipsis,
+        )
+        now.subtitle?.let {
+            Text(it, style = subtitleStyle, color = palette.textSecondary, textAlign = align, maxLines = 1, overflow = TextOverflow.Ellipsis)
+        }
+    }
+}
+
+@Composable
+private fun Transport(now: NowPlaying, actions: PlayerActions, skipSize: Dp, playSize: Dp) {
+    Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+        TransportButton(Icons.Filled.SkipPrevious, stringResource(R.string.previous), actions.previous, size = skipSize)
+        TransportButton(
+            if (now.isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
+            stringResource(if (now.isPlaying) R.string.pause else R.string.play),
+            actions.toggle,
+            size = playSize,
+            primary = true,
+        )
+        TransportButton(Icons.Filled.SkipNext, stringResource(R.string.next), actions.next, size = skipSize, enabled = now.hasNext)
+    }
+}
+
+@Composable
 private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: () -> Unit) {
     val now = state.nowPlaying
+    val palette = LocalRetroPalette.current
     var dragged by remember { mutableFloatStateOf(0f) }
     val expandLabel = stringResource(R.string.expand_player)
     Surface(
-        color = MaterialTheme.colorScheme.surfaceContainer,
+        color = palette.screenElevated,
+        shadowElevation = 8.dp,
         modifier = Modifier
             .fillMaxWidth()
             .testTag(MINI_PLAYER_TAG)
@@ -141,33 +213,24 @@ private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: (
                 onDragStopped = { if (dragged < -DRAG_THRESHOLD_PX) onExpand() },
             ),
     ) {
-        Column(Modifier.windowInsetsPadding(WindowInsets.navigationBars)) {
-            LinearProgressIndicator(
-                progress = { if (now.durationMs > 0) now.positionMs.toFloat() / now.durationMs else 0f },
-                modifier = Modifier.fillMaxWidth().height(2.dp),
-                drawStopIndicator = {},
-            )
-            Row(Modifier.padding(horizontal = 12.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                AlbumArt(state.artModel, size = 48.dp)
-                Column(Modifier.weight(1f).padding(horizontal = 12.dp)) {
-                    Text(
-                        now.title ?: stringResource(R.string.track_fallback),
-                        style = MaterialTheme.typography.bodyLarge,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                    now.subtitle?.let {
-                        Text(
-                            it,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                    }
-                }
-                IconButton(onClick = actions.toggle) { PlayPauseIcon(now.isPlaying) }
+        Column(
+            Modifier.windowInsetsPadding(WindowInsets.navigationBars).padding(horizontal = 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            HorizontalDivider(color = palette.divider)
+            DragHandle()
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                AlbumArt(state.artModel, size = 40.dp)
+                Titles(
+                    now,
+                    titleStyle = MaterialTheme.typography.titleMedium.copy(fontSize = 15.sp),
+                    subtitleStyle = MaterialTheme.typography.bodyMedium.copy(fontSize = 13.sp),
+                    align = TextAlign.Start,
+                    modifier = Modifier.weight(1f).padding(start = 12.dp),
+                )
             }
+            PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo, compact = true)
+            Transport(now, actions, skipSize = 28.dp, playSize = 36.dp)
         }
     }
 }
@@ -176,69 +239,50 @@ private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: (
 private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onCollapse: () -> Unit, modifier: Modifier = Modifier) {
     val now = state.nowPlaying
     var dragged by remember { mutableFloatStateOf(0f) }
-    Surface(color = MaterialTheme.colorScheme.background, modifier = modifier.fillMaxSize().testTag(EXPANDED_PLAYER_TAG)) {
-        Column(
-            Modifier
-                .windowInsetsPadding(WindowInsets.safeDrawing)
-                .draggable(
-                    state = rememberDraggableState { dragged += it },
-                    orientation = Orientation.Vertical,
-                    onDragStarted = { dragged = 0f },
-                    onDragStopped = { if (dragged > DRAG_THRESHOLD_PX) onCollapse() },
-                )
-                .padding(horizontal = 24.dp, vertical = 8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Row(Modifier.fillMaxWidth()) {
-                IconButton(onClick = onCollapse) {
-                    Icon(Icons.Filled.KeyboardArrowDown, contentDescription = stringResource(R.string.show_library))
-                }
-            }
-            Spacer(Modifier.weight(1f))
-            BoxWithConstraints(contentAlignment = Alignment.Center) {
-                AlbumArt(state.artModel, size = minOf(maxWidth, 360.dp))
-            }
-            Spacer(Modifier.height(24.dp))
-            Text(
-                now.title ?: stringResource(R.string.track_fallback),
-                style = MaterialTheme.typography.headlineSmall,
-                textAlign = TextAlign.Center,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
+    Surface(color = LocalRetroPalette.current.screenElevated, modifier = modifier.fillMaxSize().testTag(EXPANDED_PLAYER_TAG)) {
+        Column(Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
+            RetroTopBar(
+                stringResource(R.string.now_playing),
+                navigationIcon = { BackButton(onCollapse, contentDescription = stringResource(R.string.library)) },
+                actions = {
+                    IconButton(onClick = onCollapse) {
+                        Icon(Icons.Filled.KeyboardArrowDown, contentDescription = stringResource(R.string.show_library))
+                    }
+                },
             )
-            now.subtitle?.let {
-                Text(
-                    it,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+            if (state.crumbs.isNotEmpty()) BreadcrumbStrip(state.crumbs, onCrumb = null)
+            Column(
+                Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .draggable(
+                        state = rememberDraggableState { dragged += it },
+                        orientation = Orientation.Vertical,
+                        onDragStarted = { dragged = 0f },
+                        onDragStopped = { if (dragged > DRAG_THRESHOLD_PX) onCollapse() },
+                    )
+                    .padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                DragHandle()
+                Spacer(Modifier.weight(1f))
+                BoxWithConstraints(Modifier.weight(4f, fill = false), contentAlignment = Alignment.Center) {
+                    AlbumArt(state.artModel, size = minOf(maxWidth, maxHeight, 248.dp))
+                }
+                Spacer(Modifier.height(16.dp))
+                Titles(
+                    now,
+                    titleStyle = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp, lineHeight = 24.sp),
+                    subtitleStyle = MaterialTheme.typography.bodyLarge.copy(fontSize = 15.sp),
+                    align = TextAlign.Center,
                 )
+                Spacer(Modifier.height(16.dp))
+                PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo)
+                Spacer(Modifier.height(8.dp))
+                Transport(now, actions, skipSize = 40.dp, playSize = 64.dp)
+                Spacer(Modifier.weight(1.4f))
             }
-            Spacer(Modifier.height(24.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(24.dp), verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = actions.previous, modifier = Modifier.size(56.dp)) {
-                    Icon(Icons.Filled.SkipPrevious, contentDescription = stringResource(R.string.previous), modifier = Modifier.size(36.dp))
-                }
-                FilledIconButton(onClick = actions.toggle, modifier = Modifier.size(72.dp)) {
-                    PlayPauseIcon(now.isPlaying, Modifier.size(40.dp))
-                }
-                IconButton(onClick = actions.next, enabled = now.hasNext, modifier = Modifier.size(56.dp)) {
-                    Icon(Icons.Filled.SkipNext, contentDescription = stringResource(R.string.next), modifier = Modifier.size(36.dp))
-                }
-            }
-            Spacer(Modifier.weight(1f))
         }
-    }
-}
-
-@Composable
-private fun PlayPauseIcon(isPlaying: Boolean, modifier: Modifier = Modifier) {
-    if (isPlaying) {
-        Icon(Icons.Filled.Pause, contentDescription = stringResource(R.string.pause), modifier = modifier)
-    } else {
-        Icon(Icons.Filled.PlayArrow, contentDescription = stringResource(R.string.play), modifier = modifier)
     }
 }
 

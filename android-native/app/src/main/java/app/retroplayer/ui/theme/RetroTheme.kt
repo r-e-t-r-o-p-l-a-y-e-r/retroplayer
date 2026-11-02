@@ -3,6 +3,7 @@ package app.retroplayer.ui.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
@@ -11,6 +12,8 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import app.retroplayer.domain.settings.ThemePreference
 
 /** Retro Player colors (Studio Warm light, Studio Night dark), as in the Flutter app. */
@@ -85,8 +88,18 @@ fun RetroTheme(theme: ThemePreference = ThemePreference.SYSTEM, content: @Compos
     }
     val palette = if (dark) RetroPalette.Dark else RetroPalette.Light
     CompositionLocalProvider(LocalRetroPalette provides palette) {
-        MaterialTheme(colorScheme = retroColorScheme(dark), content = content)
+        MaterialTheme(colorScheme = retroColorScheme(dark), typography = RetroTypography, content = content)
     }
+}
+
+/** Flutter `RetroTypography`: semibold condensed titles, small spaced section headers. */
+val RetroTypography: Typography = Typography().run {
+    copy(
+        headlineSmall = headlineSmall.copy(fontWeight = FontWeight.SemiBold, letterSpacing = (-0.3).sp),
+        titleMedium = titleMedium.copy(fontWeight = FontWeight.SemiBold, letterSpacing = (-0.2).sp),
+        titleSmall = titleSmall.copy(fontWeight = FontWeight.SemiBold, letterSpacing = 0.8.sp, fontSize = 12.sp),
+        labelLarge = labelLarge.copy(fontWeight = FontWeight.Medium, letterSpacing = 0.1.sp),
+    )
 }
 
 /** Every slot Material components read is mapped, so no baseline purple leaks into chips, menus or sheets. */
@@ -110,7 +123,7 @@ fun retroColorScheme(dark: Boolean): ColorScheme {
             onTertiary = p.textPrimary,
             tertiaryContainer = tertiaryContainer,
             onTertiaryContainer = p.textPrimary,
-            background = p.body,
+            background = p.screen,
             onBackground = p.textPrimary,
             surface = p.screen,
             onSurface = p.textPrimary,
@@ -143,7 +156,7 @@ fun retroColorScheme(dark: Boolean): ColorScheme {
             onTertiary = p.screenElevated,
             tertiaryContainer = tertiaryContainer,
             onTertiaryContainer = p.textPrimary,
-            background = p.body,
+            background = p.screen,
             onBackground = p.textPrimary,
             surface = p.screen,
             onSurface = p.textPrimary,

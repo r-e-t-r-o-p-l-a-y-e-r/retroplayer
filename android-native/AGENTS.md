@@ -165,6 +165,85 @@ and are available to other modules via `testImplementation(testFixtures(project(
   predictive back preview of the real parent folder.
 - Durations and speeds: `formatDuration`, `formatSpeed` in `ui/Format.kt`.
 
+## Look and feel (must match the user guide)
+
+Reference screenshots: [doc/images/tutorial/](../doc/images/tutorial/)
+(`01-library`, `02-mini-player`, `03-expanded-player`, `04-album-detail`,
+`05-playlist`, `06-settings`). Flutter sources of truth:
+`lib/ui/core/theme.dart`, `lib/ui/core/retro/*`, `lib/ui/core/widgets/retro_list_tile.dart`.
+Every UI task ends with a side-by-side check against the matching screenshot
+in light mode AND a dark-mode screenshot (`adb shell cmd uimode night yes`,
+back with `night no`). Differences are bugs unless PLAN.md says otherwise.
+
+Tokens (already in `RetroPalette` / `RetroTheme`; never hard-code):
+
+| Token | Use |
+| --- | --- |
+| `screen` | page background (`Scaffold` container) |
+| `screenElevated` | top app bar, mini player, cards, slider thumb |
+| `chrome` at 55 % alpha | breadcrumb strip |
+| `iconChip` | 40 dp rounded (8 dp) square behind row icons; transport skip buttons |
+| `accent` | primary buttons, FAB, current crumb, playing row strip + title, slider active track |
+| `accentSecondary` | selected segmented button (theme, EQ preset) |
+| `playingHighlight` | background of the playing row |
+| `textMuted` | section headers, subtitles, time labels |
+| `divider` | dividers, inactive slider track, drag handle |
+
+Typography (`RetroTheme` typography): app bar title = `titleMedium` w600,
+centered; section header = `titleSmall` 12 sp w600 letter-spacing 0.8
+`textMuted`; row title w500 (w600 + accent when playing); row subtitle 13 sp
+`textMuted`; track title in the player 20 sp w600; times 12 sp (11 sp
+compact) in the default font with tabular figures (`fontFeatureSettings =
+"tnum"`; Flutter's `monospace` falls back to Roboto on Android). Durations
+are `mm:ss` / `hh:mm:ss` (`formatDuration`).
+
+Shared components (`ui/components/`), use them instead of raw Material ones:
+
+- `RetroTopBar(title, navigationIcon, actions)`: centered title on
+  `screenElevated`, no elevation/tint. Action order, left to right: queue
+  (T06), player toggle (`PlayerToggleAction`, chevron up/down), settings
+  gear (T10).
+- `BreadcrumbStrip(crumbs, onCrumb)`: below the top bar on library pages
+  (also at the root, showing "Library") and in the expanded player; the
+  current crumb is accent w600, parents `onSurfaceVariant`, chevrons muted.
+- `SectionHeader(text)`.
+- `RetroListRow(title, subtitle, leading, trailing, playing, onClick, onLongClick)`:
+  min height 56 dp, padding 16/8, playing = `playingHighlight` background
+  plus a 3 dp accent strip at the start.
+- `IconChip(icon)`: leading icon for folders, roots, playlists, tracks
+  without art.
+- `TransportButton(icon, size, primary)`: circles; primary = accent filled
+  with white icon (dark mode: `textPrimary`), others `iconChip`. Sizes:
+  expanded 64/40 dp, mini 36/28 dp.
+- `PlaybackProgress(positionMs, durationMs, onSeek, compact)`: 3 dp track,
+  7 dp white thumb, elapsed left and total right under the bar.
+- FAB: extended, accent, 24 dp corner radius, folder icon.
+- Album art: rounded 4 dp frame with placeholder gradient and music-note icon.
+
+Screen layouts (match the screenshots):
+
+- Library (01): top bar "Library"; breadcrumb strip; section "Library
+  sources"; root rows = icon chip, name, location subtitle (`/Music`),
+  trailing play button (plays the root folder). Remove a root by swiping
+  the row (T09) or long-press, both with confirmation. No trash icon.
+- Folder pages: same top bar ("Library"), breadcrumb strip with the path;
+  sections Folders, Playlists, Audio; folder rows have a trailing play
+  button; favorites by swipe (T09).
+- Mini player (02): drag handle, art 40 dp, title w600 + artist, progress
+  bar with times, compact transport row centered; `screenElevated`
+  background with a top divider.
+- Expanded player (03): top bar "Now Playing" (`now_playing`) with back
+  arrow (collapses) and the player toggle; breadcrumb strip of the playing
+  item; drag handle; art 248 dp max with round ±15 buttons on both sides
+  (T03); title, artist, progress bar, transport, speed row (T03).
+- Album (04): top bar "Album" with back arrow; header row with art and bold
+  title; sort chips (native addition); numbered track rows with subtitle.
+- Playlist (05): top bar "Playlist" with back arrow and "Read-only" label
+  when not editable; title header; rows with icon chips.
+- Settings (06): segmented buttons in `accentSecondary` for theme and EQ
+  presets, EQ band sliders in accent with "60 / 230 / 910 / 3.6k / 14k" and
+  "0 dB" labels, rows with chevrons, About block at the end.
+
 ## Code style
 
 - Match the surrounding code: naming, KDoc density, idiom.

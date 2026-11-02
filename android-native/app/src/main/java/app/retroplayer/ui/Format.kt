@@ -3,16 +3,16 @@ package app.retroplayer.ui
 import java.text.NumberFormat
 import java.util.Locale
 
-/** `m:ss`, or `h:mm:ss` from one hour. */
+/** `mm:ss`, or `hh:mm:ss` from one hour (as the Flutter app). */
 fun formatDuration(ms: Long): String {
     val total = ms.coerceAtLeast(0) / 1000
     val hours = total / 3600
     val minutes = total % 3600 / 60
     val seconds = total % 60
     return if (hours > 0) {
-        "%d:%02d:%02d".format(Locale.ROOT, hours, minutes, seconds)
+        "%02d:%02d:%02d".format(Locale.ROOT, hours, minutes, seconds)
     } else {
-        "%d:%02d".format(Locale.ROOT, minutes, seconds)
+        "%02d:%02d".format(Locale.ROOT, minutes, seconds)
     }
 }
 

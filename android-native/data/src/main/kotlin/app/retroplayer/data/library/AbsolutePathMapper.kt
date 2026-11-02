@@ -1,6 +1,7 @@
 package app.retroplayer.data.library
 
 import app.retroplayer.domain.LibraryPath
+import java.net.URLDecoder
 
 data class RootLocation(val rootId: String, val authority: String, val treeDocumentId: String)
 
@@ -44,6 +45,16 @@ class AbsolutePathMapper(private val roots: List<RootLocation>) {
             val relative = treeDocumentId.substringAfter(':').trim('/')
             val base = if (volume.equals("primary", ignoreCase = true)) PRIMARY else "/storage/$volume"
             return if (relative.isEmpty()) base else "$base/$relative"
+        }
+
+        /** Where a picked tree lives, for row subtitles (`primary:Music` → `/Music`); null for opaque providers. */
+        fun displayLocation(treeUri: String): String? {
+            val authority = treeUri.removePrefix("content://").substringBefore('/', missingDelimiterValue = "")
+            val encodedId = treeUri.substringAfter("/tree/", missingDelimiterValue = "").substringBefore('/')
+            if (encodedId.isEmpty()) return null
+            val id = URLDecoder.decode(encodedId.replace("+", "%2B"), "UTF-8")
+            val folder = absoluteFolder(authority, id) ?: return null
+            return folder.removePrefix(PRIMARY).ifEmpty { "/" }
         }
     }
 }

@@ -53,6 +53,7 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
             toggle = playerViewModel::toggle,
             previous = playerViewModel::previous,
             next = playerViewModel::next,
+            seekTo = playerViewModel::seekTo,
         )
         PlayerHost(player, expanded, { expanded = it }, playerActions) {
             LibraryNavHost(routes, nowPlaying)
@@ -79,7 +80,6 @@ private fun LibraryNavHost(routes: List<Any>, nowPlaying: State<NowPlaying>) {
                 viewModel = hiltViewModel(),
                 playingTrackId = nowPlaying.value.trackId,
                 back = { nav.popBackStack() },
-                openCrumb = { nav.openCrumb(it) },
             )
         }
     }

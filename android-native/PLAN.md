@@ -22,8 +22,12 @@ means any model.
 
 Spec sources: [doc/REQUIREMENTS.md](../doc/REQUIREMENTS.md) (UC numbers),
 Flutter code under `lib/ui/features/<feature>/` for look and behaviour.
-UI look: follow the existing native screens (`FolderScreen.kt`,
-`AlbumScreen.kt`), not pixel copies of Flutter.
+UI look: the user-guide screenshots in
+[doc/images/tutorial/](../doc/images/tutorial/), light and dark mode. The
+tokens, shared components and per-screen layouts are in
+[AGENTS.md "Look and feel"](AGENTS.md#look-and-feel-must-match-the-user-guide);
+build every screen from `ui/components/` and finish every UI task with the
+screenshot comparison described there.
 
 ## Status overview
 
@@ -32,7 +36,8 @@ UI look: follow the existing native screens (`FolderScreen.kt`,
 | done | Tooling, domain, data layer, playback service, ARB converter, library + album screens | opus | done |
 | T01 | Transport API on `PlaybackControls` | opus | done |
 | T02 | Player sheet shell + back chain | opus | done |
-| T03 | Expanded player: seek bar, jumps, speed | any | todo |
+| T02b | Look and feel parity with the user guide (light + dark) | opus | done |
+| T03 | Expanded player: jumps, speed | any | todo |
 | T04 | Locate now playing + playback breadcrumbs | any | todo |
 | T05 | Queue engine (edit while playing) | opus | todo |
 | T06 | Queue screen + add-tracks picker | any | todo |
@@ -176,35 +181,84 @@ available, simply continue top to bottom.
   collapses, back again leaves the album.
 - Done when: tests green, smoke test passes, no crash in `logcat -b crash`.
 
-## T03 Expanded player: seek bar, jumps, speed
+## T02b Look and feel parity with the user guide
 
-- Owner: any. Status: todo. Depends: T02. UC-10.
+- Owner: opus. Status: done. Depends: T02.
+- Notes (as built): components in `ui/components/Components.kt`;
+  `PlayerToggleAction` lives in `PlayerSheet.kt` (reads a composition local
+  that `PlayerHost` provides). Rows that contain the playing track (roots,
+  favorites, folders, albums) get the playing highlight, as Flutter's
+  screenshot 02. The album page keeps its breadcrumbs out (screenshot 04);
+  `AlbumUiState.crumbs` is unused until someone needs it. Verified on the
+  API 34 emulator in light and dark mode.
+- Intentional deviations: album sort order is a top-bar menu
+  (`Icons.AutoMirrored.Filled.Sort`, native addition); album header has a
+  round accent "Play album" button; library row highlight also covers the
+  trailing play button. Still missing until their tasks: queue icon (T06),
+  settings gear (T10), ±15 and speed row (T03), crumb taps in the player (T04),
+  two-pane landscape player (T14).
+- Goal: the existing screens (library root, folder, album, mini player,
+  expanded player shell) look like `doc/images/tutorial/01..04` in light
+  mode and use the same components in dark mode. Spec: AGENTS.md
+  "Look and feel".
+- Files: `ui/theme/RetroTheme.kt` (typography, component defaults),
+  new `ui/components/` (`RetroTopBar`, `BreadcrumbStrip`, `SectionHeader`,
+  `RetroListRow`, `IconChip`, `TransportButton`, `PlaybackProgress`,
+  `AlbumArt` frame), `ui/library/FolderScreen.kt`, `ui/album/AlbumScreen.kt`,
+  `ui/player/PlayerSheet.kt`.
+- Behaviour changes that come with the look:
+  - Root rows: trash icon replaced by a trailing play button (plays the
+    root) and long-press to remove (confirmation unchanged); subtitle shows
+    the root location (`/Music`).
+  - Folder rows: star replaced by a trailing play button (plays the folder);
+    favorite toggle moves to long-press until T09 adds the swipe.
+  - The top-bar play-folder action goes away (row play buttons replace it).
+  - Mini player and expanded player get `PlaybackProgress` (seek on
+    release) and the transport row (previous / play / next).
+  - Player toggle chevron in library top bars while the mini player shows.
+- Tests: `RetroComponentsTest` (playing row exposes the accent strip,
+  breadcrumb strip marks the current crumb, progress shows elapsed and
+  total time, releasing the progress bar seeks once), updated
+  `FolderContentTest` / `PlayerSheetTest` for the moved actions,
+  `RootLocationTest` for the location label.
+- Done when: tests green; emulator screenshots of library root, folder,
+  album, mini and expanded player in light and dark mode compared with the
+  user guide; remaining deviations listed here.
+
+## T03 Expanded player: jumps, speed
+
+- Owner: any. Status: todo. Depends: T02b. UC-10.
+- The seek bar (`PlaybackProgress`) already exists since T02b; only add
+  keyboard seeking (←/→ by 5 s on the focused bar) if missing.
 - Flutter reference: `lib/ui/features/player/widgets/player_panel.dart`,
   `now_playing_content.dart`, `player_controls.dart`.
 - Files: `ui/player/PlayerSheet.kt` (or split into `ExpandedPlayer.kt`),
   `ui/player/PlayerViewModel.kt`.
 - Spec:
-  - Seek bar: Material 3 `Slider` 0..durationMs. While dragging, show the
-    drag value and do not follow the player; on release call `seekTo`.
-    Elapsed left, remaining or total right (`formatDuration`).
-  - Jump buttons left and right of the art: `Icons.Rounded.Replay` (back)
+  - Jump buttons left and right of the art (screenshot 03): 40 dp circles
+    in `iconChip` (`TransportButton` style), `Icons.Rounded.Replay` (back)
     and the same icon mirrored with
     `Modifier.scale(scaleX = -1f, scaleY = 1f)` (forward), each with a small
-    "15" text overlaid; content descriptions `R.string.jump_back` /
-    `R.string.jump_forward`.
+    "15" text overlaid (11 sp w700, `textMuted`); content descriptions
+    `R.string.jump_back` / `R.string.jump_forward`.
   - Double tap on the left half of the art jumps back, right half forward
     (`Modifier.pointerInput { detectTapGestures(onDoubleTap = { offset -> ... }) }`).
   - Speed (as Flutter `player_panel.dart` `_buildSlider`): one row with a
-    speed icon, label `R.string.speed`, a `Slider` 0.5..2.0 with
+    speed icon (`Icons.Outlined.Speed`, `textMuted`), label `R.string.speed`
+    (13 sp `textMuted`), a `Slider` 0.5..2.0 (accent active track, visible
+    tick marks, white thumb as `PlaybackProgress`) with
     `steps = 5` (Compose counts inner stops; that gives 0.25 increments),
     and the value on the right (`formatSpeed`, fixed width so the row does
-    not jump). Keyboard ←/→ on the focused slider changes by 0.25 (the
+    not jump). Screenshot 03 shows `1.0x`: change `formatSpeed` (test first
+    in `FormatTest`) to at least one fraction digit and a plain `x`
+    (`1.0x`, `1.25x`, `0.5x`), still with the locale decimal separator.
+    The jump buttons sit left and right of the art: shrink the art so
+    `art + 2 × 40 dp + gaps` fits the width. Keyboard ←/→ on the focused slider changes by 0.25 (the
     Compose `Slider` does this already; just test it).
 - Tests:
   - `PlayerViewModelTest`: `jump back and forward forward to the controls`,
     `speed down stops at the minimum`, `speed up stops at the maximum`
-  - `ExpandedPlayerTest`: `seek bar shows elapsed and total time`,
-    `releasing the seek bar seeks once`, `jump buttons call jump actions`,
+  - `ExpandedPlayerTest`: `jump buttons call jump actions`,
     `double tap on the left half jumps back`, `double tap on the right half jumps forward`,
     `speed slider shows the formatted speed`, `speed slider changes in quarter steps`
 - Done when: tests green, smoke test (seek, jump, speed visible in
@@ -362,8 +416,10 @@ available, simply continue top to bottom.
   - Swipe right on a nested folder row toggles favorite
     (`SwipeToDismissBox`, only start-to-end, snap back after toggling):
     `swiping a folder marks it favorite`, `swiping a favorite clears it`.
-    At the root, roots are not swipe-removable (remove stays a button with
-    confirm): `root rows cannot be swiped away`.
+    This replaces the interim long-press toggle from T02b (remove it and
+    its test).
+  - Swipe (end-to-start) on a root row asks to remove it (same dialog as
+    the long-press from T02b, UC-02): `swiping a root asks to remove it`.
   - Long-press drag reorders favorite links at the root (reorderable):
     `dragging a favorite saves the new order` (calls `moveFavorite`).
   - A-Z index bar on lists with more than 30 rows: vertical strip of first
@@ -493,6 +549,11 @@ available, simply continue top to bottom.
     `@Config(qualifiers = "de")`, `"fi"`, `"el"`, `"ru"`, `"en-rXA"`,
     `"ar-rXB"`, and font scale 2 (`qualifiers = "+w320dp"` and
     `RuntimeEnvironment.setFontScale(2f)`), as parameterized tests.
+  - Landscape / short screens: when the expanded player is wider than tall
+    (`BoxWithConstraints` in `ExpandedPlayer`), show art on the start half
+    and titles, progress, transport and speed on the end half. Test with
+    `@Config(qualifiers = "w800dp-h360dp")`: `landscape player shows art and
+    controls side by side` (transport displayed, art not clipped).
 - Tests: `TextFitTest` per screen: `<screen> controls fit in <locale> at font scale <n>`.
 - Done when: all pass (fix layouts, never shorten translations).
 
@@ -614,6 +675,14 @@ available, simply continue top to bottom.
     to the catalog; screenshot each Content composable light/dark,
     compact/expanded width, `de`, `ar-rXB`, font scale 2. Record with
     `./gradlew recordRoborazziDebug`, verify in CI with `verifyRoborazziDebug`.
+    Before recording, compare the light recordings of Library, mini player,
+    expanded player, album, playlist and settings with
+    `doc/images/tutorial/01..06` and fix deviations first (AGENTS.md
+    "Look and feel").
+  - Re-capture the user-guide screenshots from the native app (light, sample
+    audio from `scripts/push-sample-audio-to-emulator.sh`) with
+    `scripts/ui.sh shot` into `doc/images/tutorial/` only in T21, and only
+    if they still match the layout described in USAGE.md.
   - CI (`.github/workflows/android-native.yml`): add `verifyRoborazziDebug`;
     `phonesGroupDebugAndroidTest` only if the runner has KVM (document).
 - Done when: `./gradlew phonesGroupDebugAndroidTest` passes locally (needs

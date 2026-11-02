@@ -45,6 +45,8 @@ class PlayerViewModel @Inject constructor(
 
     fun next() = controls.skipToNext()
 
+    fun seekTo(positionMs: Long) = controls.seekTo(positionMs)
+
     private fun crumbs(now: NowPlaying, rootName: (String) -> String?): List<Crumb> {
         val trackId = now.trackId ?: return emptyList()
         val track = AudioTrack(LibraryPath(trackId), now.trackUri.orEmpty(), TrackMetadata(title = now.title))

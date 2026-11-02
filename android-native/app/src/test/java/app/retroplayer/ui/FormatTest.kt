@@ -6,18 +6,18 @@ import java.util.Locale
 
 class FormatTest {
     @Test
-    fun `durations show minutes and seconds, hours only when needed`() {
-        assertThat(formatDuration(0)).isEqualTo("0:00")
-        assertThat(formatDuration(5_000)).isEqualTo("0:05")
-        assertThat(formatDuration(65_999)).isEqualTo("1:05")
+    fun `durations show padded minutes and seconds, hours only when needed`() {
+        assertThat(formatDuration(0)).isEqualTo("00:00")
+        assertThat(formatDuration(5_000)).isEqualTo("00:05")
+        assertThat(formatDuration(65_999)).isEqualTo("01:05")
         assertThat(formatDuration(59 * 60_000L + 59_000)).isEqualTo("59:59")
-        assertThat(formatDuration(3_600_000)).isEqualTo("1:00:00")
+        assertThat(formatDuration(3_600_000)).isEqualTo("01:00:00")
         assertThat(formatDuration(10 * 3_600_000L + 61_000)).isEqualTo("10:01:01")
     }
 
     @Test
     fun `negative or unknown durations show as zero`() {
-        assertThat(formatDuration(-1)).isEqualTo("0:00")
+        assertThat(formatDuration(-1)).isEqualTo("00:00")
     }
 
     @Test

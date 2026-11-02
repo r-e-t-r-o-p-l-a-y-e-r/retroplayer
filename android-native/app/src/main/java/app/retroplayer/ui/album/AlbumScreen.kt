@@ -1,60 +1,65 @@
 package app.retroplayer.ui.album
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Sort
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.retroplayer.R
-import app.retroplayer.domain.Crumb
 import app.retroplayer.domain.model.AlbumSortMode
 import app.retroplayer.domain.model.AudioTrack
 import app.retroplayer.ui.art.EmbeddedArt
 import app.retroplayer.ui.components.AlbumArt
-import app.retroplayer.ui.components.BreadcrumbBar
+import app.retroplayer.ui.components.BackButton
+import app.retroplayer.ui.components.RetroListRow
+import app.retroplayer.ui.components.RetroTopBar
+import app.retroplayer.ui.components.TransportButton
 import app.retroplayer.ui.formatDuration
+import app.retroplayer.ui.player.PlayerToggleAction
 import app.retroplayer.ui.theme.LocalRetroPalette
 
 data class AlbumActions(
     val back: () -> Unit = {},
-    val openCrumb: (Crumb) -> Unit = {},
     val play: (AudioTrack) -> Unit = {},
     val playAll: () -> Unit = {},
     val selectSort: (AlbumSortMode) -> Unit = {},
@@ -67,7 +72,6 @@ fun AlbumScreen(
     viewModel: AlbumViewModel,
     playingTrackId: String?,
     back: () -> Unit,
-    openCrumb: (Crumb) -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val confirm by viewModel.confirmTagOrder.collectAsStateWithLifecycle()
@@ -79,7 +83,6 @@ fun AlbumScreen(
         playingTrackId = playingTrackId,
         actions = AlbumActions(
             back = back,
-            openCrumb = openCrumb,
             play = viewModel::play,
             playAll = viewModel::playAll,
             selectSort = viewModel::selectSort,
@@ -89,7 +92,6 @@ fun AlbumScreen(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AlbumContent(
     state: AlbumUiState,
@@ -100,14 +102,12 @@ fun AlbumContent(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    if (state is AlbumUiState.Ready) BreadcrumbBar(state.crumbs, actions.openCrumb) else Text(stringResource(R.string.album))
-                },
-                navigationIcon = {
-                    IconButton(onClick = actions.back) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.library))
-                    }
+            RetroTopBar(
+                stringResource(R.string.album),
+                navigationIcon = { BackButton(actions.back) },
+                actions = {
+                    if (state is AlbumUiState.Ready) SortMenu(state.mode, actions.selectSort)
+                    PlayerToggleAction()
                 },
             )
         },
@@ -137,70 +137,87 @@ fun AlbumContent(
 }
 
 @Composable
-private fun AlbumBody(state: AlbumUiState.Ready, artModel: Any?, playingTrackId: String?, actions: AlbumActions) {
-    LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
-        item(key = "header") { AlbumHeader(state, artModel, actions) }
-        items(state.tracks, key = { it.id }) { track ->
-            val playing = track.id == playingTrackId
-            ListItem(
-                headlineContent = { Text(track.displayTitle, maxLines = 2, overflow = TextOverflow.Ellipsis) },
-                supportingContent = track.displayArtist
-                    ?.takeIf { it != state.album.artist }
-                    ?.let { { Text(it, maxLines = 1, overflow = TextOverflow.Ellipsis) } },
-                leadingContent = {
-                    Text(
-                        track.displayTrackNumber?.toString() ?: "–",
-                        style = MaterialTheme.typography.labelLarge,
-                        textAlign = TextAlign.End,
-                        modifier = Modifier.widthIn(min = 28.dp),
-                    )
-                },
-                trailingContent = track.durationMs?.let { { Text(formatDuration(it), style = MaterialTheme.typography.labelMedium) } },
-                colors = if (playing) ListItemDefaults.colors(containerColor = LocalRetroPalette.current.playingHighlight) else ListItemDefaults.colors(),
-                modifier = Modifier.clickable { actions.play(track) }.testTag("track:" + track.fileName),
-            )
+private fun SortMenu(mode: AlbumSortMode, select: (AlbumSortMode) -> Unit) {
+    var open by remember { mutableStateOf(false) }
+    Box {
+        IconButton(onClick = { open = true }) {
+            Icon(Icons.AutoMirrored.Filled.Sort, contentDescription = stringResource(R.string.sort_order))
+        }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            SortMode.entries.forEach { option ->
+                val selected = mode == option.mode
+                DropdownMenuItem(
+                    text = { Text(stringResource(option.label)) },
+                    onClick = {
+                        open = false
+                        if (!selected) select(option.mode)
+                    },
+                    leadingIcon = { if (selected) Icon(Icons.Filled.Check, contentDescription = null) },
+                    modifier = Modifier.testTag("sort:" + option.mode.name).semantics { this.selected = selected },
+                )
+            }
         }
     }
 }
 
 @Composable
-private fun AlbumHeader(state: AlbumUiState.Ready, artModel: Any?, actions: AlbumActions) {
-    Column(Modifier.fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
-            AlbumArt(artModel, size = 112.dp)
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(state.album.title, style = MaterialTheme.typography.titleLarge, maxLines = 3, overflow = TextOverflow.Ellipsis)
-                Text(
-                    stringResource(R.string.tracks_count_artist, state.tracks.size, state.album.artist ?: stringResource(R.string.unknown_artist)),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                if (state.album.totalDurationMs > 0) {
-                    Text(formatDuration(state.album.totalDurationMs), style = MaterialTheme.typography.labelMedium)
+private fun AlbumBody(state: AlbumUiState.Ready, artModel: Any?, playingTrackId: String?, actions: AlbumActions) {
+    Column(Modifier.fillMaxSize()) {
+        AlbumHeader(state, artModel, actions)
+        HorizontalDivider()
+        LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
+            itemsIndexed(state.tracks, key = { _, track -> track.id }) { index, track ->
+                TrackRow(index, track, track.id == playingTrackId, onClick = { actions.play(track) })
+            }
+        }
+    }
+}
+
+@Composable
+private fun TrackRow(index: Int, track: AudioTrack, playing: Boolean, onClick: () -> Unit) {
+    val palette = LocalRetroPalette.current
+    val subtitle = listOfNotNull(track.metadata.artist, track.durationMs?.let(::formatDuration)).joinToString(" · ")
+    RetroListRow(
+        title = { Text(track.displayTitle, maxLines = 2, overflow = TextOverflow.Ellipsis) },
+        subtitle = subtitle.takeIf { it.isNotEmpty() }?.let { { Text(it, maxLines = 1, overflow = TextOverflow.Ellipsis) } },
+        leading = {
+            Box(Modifier.width(32.dp), contentAlignment = Alignment.Center) {
+                if (playing) {
+                    Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = stringResource(R.string.now_playing), tint = palette.accent)
+                } else {
+                    Text(
+                        "${index + 1}",
+                        style = TextStyle(fontFeatureSettings = "tnum", fontSize = 12.sp, fontWeight = FontWeight.Medium, color = palette.textMuted),
+                    )
                 }
             }
-        }
-        Button(onClick = actions.playAll) {
-            Icon(Icons.Filled.PlayArrow, contentDescription = null)
-            Text(stringResource(R.string.play_album), modifier = Modifier.padding(start = 8.dp))
-        }
-        Text(stringResource(R.string.sort_order), style = MaterialTheme.typography.labelLarge)
-        FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            SortMode.entries.forEach { option ->
-                val selected = state.mode == option.mode
-                FilterChip(
-                    selected = selected,
-                    onClick = { if (!selected) actions.selectSort(option.mode) },
-                    label = { Text(stringResource(option.label)) },
-                    leadingIcon = if (selected) {
-                        { Icon(Icons.Filled.Check, contentDescription = null) }
-                    } else {
-                        null
-                    },
-                    modifier = Modifier.testTag("sort:" + option.mode.name),
-                )
+        },
+        playing = playing,
+        onClick = onClick,
+        modifier = Modifier.testTag("track:" + track.fileName),
+    )
+}
+
+@Composable
+private fun AlbumHeader(state: AlbumUiState.Ready, artModel: Any?, actions: AlbumActions) {
+    val palette = LocalRetroPalette.current
+    Row(
+        Modifier.fillMaxWidth().padding(start = 16.dp, top = 12.dp, end = 16.dp, bottom = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        AlbumArt(artModel, size = 56.dp)
+        Column(Modifier.weight(1f).padding(horizontal = 12.dp)) {
+            Text(
+                state.album.title,
+                style = MaterialTheme.typography.headlineSmall.copy(fontSize = 17.sp),
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+            )
+            state.album.artist?.let {
+                Text(it, fontSize = 13.sp, color = palette.textSecondary, maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
         }
+        TransportButton(Icons.Filled.PlayArrow, stringResource(R.string.play_album), actions.playAll, size = 40.dp, primary = true)
     }
 }
 

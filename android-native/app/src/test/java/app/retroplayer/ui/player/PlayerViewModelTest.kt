@@ -53,7 +53,8 @@ class PlayerViewModelTest {
         viewModel.toggle()
         viewModel.previous()
         viewModel.next()
-        assertThat(lib.playback.calls).containsExactly("toggle", "previous", "next").inOrder()
+        viewModel.seekTo(42_000)
+        assertThat(lib.playback.calls).containsExactly("toggle", "previous", "next", "seekTo:42000").inOrder()
     }
 
     @Test

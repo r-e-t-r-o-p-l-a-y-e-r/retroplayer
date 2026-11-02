@@ -3,8 +3,11 @@ package app.retroplayer.ui.library
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
 import app.retroplayer.data.db.LibraryRoot
 import app.retroplayer.data.library.FolderEntry
 import app.retroplayer.domain.Crumb
@@ -12,6 +15,7 @@ import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.model.AudioTrack
 import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.domain.model.PlaylistRef
+import app.retroplayer.ui.components.PLAYING_STRIP_TAG
 import app.retroplayer.ui.theme.RetroTheme
 import com.google.common.truth.Truth.assertThat
 import org.junit.Rule
@@ -37,6 +41,8 @@ class FolderContentTest {
         removeRoot = { calls += "remove:" + it.id },
     )
 
+    private val music = LibraryRoot("1", "content://com.android.externalstorage.documents/tree/primary%3AMusic", "Music", false)
+
     private fun show(state: FolderUiState, isRoot: Boolean = false) = compose.setContent {
         RetroTheme { FolderContent(state, isRoot, null, navigation, actions) }
     }
@@ -50,9 +56,39 @@ class FolderContentTest {
     }
 
     @Test
-    fun `removing a root asks first`() {
-        show(FolderUiState.Root(listOf(LibraryRoot("1", "content://t", "Music", false)), emptyList()), isRoot = true)
-        compose.onNodeWithContentDescription("Remove").performClick()
+    fun `root rows show where they live and play the root`() {
+        show(FolderUiState.Root(listOf(music), emptyList()), isRoot = true)
+        compose.onNodeWithText("Library sources").assertIsDisplayed()
+        compose.onNodeWithText("/Music").assertIsDisplayed()
+        compose.onNodeWithContentDescription("Play folder").performClick()
+        compose.onNodeWithText("Music").performClick()
+        assertThat(calls).containsExactly("playFolder:1", "open:1").inOrder()
+    }
+
+    @Test
+    fun `the root holding the playing track is highlighted`() {
+        compose.setContent {
+            RetroTheme {
+                FolderContent(FolderUiState.Root(listOf(music), emptyList()), true, "1/Books/a.mp3", navigation, actions)
+            }
+        }
+        compose.onNodeWithTag(PLAYING_STRIP_TAG, useUnmergedTree = true).assertIsDisplayed()
+    }
+
+    @Test
+    fun `roots without the playing track are not highlighted`() {
+        compose.setContent {
+            RetroTheme {
+                FolderContent(FolderUiState.Root(listOf(music), emptyList()), true, "10/a.mp3", navigation, actions)
+            }
+        }
+        compose.onNodeWithTag(PLAYING_STRIP_TAG, useUnmergedTree = true).assertDoesNotExist()
+    }
+
+    @Test
+    fun `long press on a root asks before removing it`() {
+        show(FolderUiState.Root(listOf(music), emptyList()), isRoot = true)
+        compose.onNodeWithText("Music").performTouchInput { longClick() }
         compose.onNodeWithText("Remove library folder?").assertIsDisplayed()
         compose.onNodeWithText("Remove").performClick()
         assertThat(calls).containsExactly("remove:1")
@@ -78,16 +114,16 @@ class FolderContentTest {
         compose.onNodeWithText("Playlists").assertIsDisplayed()
         compose.onNodeWithText("Audio").assertIsDisplayed()
         compose.onNodeWithText("Alpha").performClick()
-        compose.onNodeWithContentDescription("Favorite").performClick()
+        compose.onNodeWithText("Alpha").performTouchInput { longClick() }
+        compose.onNodeWithContentDescription("Play folder").performClick()
         compose.onNodeWithText("single").performClick()
         compose.onNodeWithText("Music").performClick()
-        compose.onNodeWithContentDescription("Play folder").performClick()
         assertThat(calls).containsExactly(
             "open:1/Books/Alpha",
             "fav:1/Books/Alpha",
+            "playFolder:1/Books/Alpha",
             "play:1/Books/single.mp3",
             "crumb:1",
-            "playFolder:1/Books",
         ).inOrder()
     }
 

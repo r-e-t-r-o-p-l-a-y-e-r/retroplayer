@@ -1,10 +1,9 @@
 package app.retroplayer.ui.album
 
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -26,7 +25,7 @@ class AlbumContentTest {
     @get:Rule val compose = createComposeRule()
 
     private val tracks = listOf(
-        AudioTrack(LibraryPath("1/Alb/a.mp3"), "doc:a", TrackMetadata(title = "First", trackNumber = 1, durationMs = 61_000)),
+        AudioTrack(LibraryPath("1/Alb/a.mp3"), "doc:a", TrackMetadata(title = "First", artist = "Ann", trackNumber = 1, durationMs = 61_000)),
         AudioTrack(LibraryPath("1/Alb/b.mp3"), "doc:b", TrackMetadata(title = "Second")),
     )
     private val ready = AlbumUiState.Ready(
@@ -51,18 +50,28 @@ class AlbumContentTest {
     }
 
     @Test
-    fun `tracks show number, title and duration`() {
+    fun `tracks show number, title and artist with duration`() {
         show()
+        compose.onNodeWithText("Album").assertIsDisplayed()
         compose.onNodeWithText("First").assertIsDisplayed()
-        compose.onAllNodesWithText("1:01").assertCountEquals(2)
-        compose.onNodeWithText("–").assertIsDisplayed()
+        compose.onNodeWithText("Ann · 01:01").assertIsDisplayed()
+        compose.onNodeWithText("2").assertIsDisplayed()
+    }
+
+    @Test
+    fun `playing track shows the speaker instead of its number`() {
+        compose.setContent { RetroTheme { AlbumContent(ready, null, null, tracks[1].id, actions) } }
+        compose.onNodeWithContentDescription("Now Playing").assertIsDisplayed()
+        compose.onNodeWithText("2").assertDoesNotExist()
     }
 
     @Test
     fun `current order is selected and choosing another one asks the view model`() {
         show()
+        compose.onNodeWithContentDescription("Track order").performClick()
         compose.onNodeWithTag("sort:FILE_NAME").assertIsSelected()
         compose.onNodeWithTag("sort:TAG").performClick()
+        compose.onNodeWithContentDescription("Track order").performClick()
         compose.onNodeWithTag("sort:FILE_NAME").performClick()
         assertThat(calls).containsExactly("sort:TAG")
     }
@@ -80,7 +89,7 @@ class AlbumContentTest {
     fun `tapping a track and play album start playback`() {
         show()
         compose.onNodeWithTag("track:b.mp3").performClick()
-        compose.onNodeWithText("Play album").performClick()
+        compose.onNodeWithContentDescription("Play album").performClick()
         assertThat(calls).containsExactly("play:b.mp3", "playAll").inOrder()
     }
 }
