@@ -24,7 +24,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v5
 
       - name: Strings are in sync with lib/l10n
-        run: python3 scripts/arb_to_android.py --check
+        run: python3 scripts/test_arb_to_android.py && python3 scripts/arb_to_android.py --check
 
       - name: Unit, Robolectric and screenshot tests, lint, privacy
         run: ./gradlew check assembleRelease
