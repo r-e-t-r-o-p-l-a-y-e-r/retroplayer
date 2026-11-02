@@ -44,8 +44,27 @@ object PlaybackRequests {
 
     fun parse(item: MediaItem): PlaybackRequest? {
         if (item.mediaId.isEmpty() || item.mediaId == MediaItem.DEFAULT_MEDIA_ID) return null
-        return PlaybackRequest(item.mediaId, item.requestMetadata.extras?.getString(EXTRA_START_TRACK))
+        val start = item.requestMetadata.extras?.getString(EXTRA_START_TRACK)
+        return parseId(item.mediaId).let { if (start != null) it.copy(startTrackId = start) else it }
     }
+
+    /**
+     * One media id that plays [itemId] from [trackId]; media browsers such as
+     * Android Auto only send the id back.
+     */
+    fun inItem(itemId: String, trackId: String) = IN_ITEM + itemId + IN_ITEM_SEPARATOR + trackId
+
+    fun parseId(mediaId: String): PlaybackRequest {
+        if (!mediaId.startsWith(IN_ITEM)) return PlaybackRequest(mediaId, null)
+        val rest = mediaId.removePrefix(IN_ITEM)
+        val split = rest.indexOf(IN_ITEM_SEPARATOR)
+        if (split < 0) return PlaybackRequest(mediaId, null)
+        return PlaybackRequest(rest.substring(0, split), rest.substring(split + 1))
+    }
+
+    private const val IN_ITEM = "in:"
+    private const val IN_ITEM_SEPARATOR = '\n'
+
 
     /** Playback item a queued media item belongs to. */
     fun itemIdOf(item: MediaItem?): String? = item?.mediaMetadata?.extras?.getString(EXTRA_ITEM_ID)

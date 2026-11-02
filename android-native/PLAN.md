@@ -53,7 +53,7 @@ screenshot comparison described there.
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
 | T16 | Chapters in player, notification and seek bar | any | todo |
 | T17 | Headset options UI + resume on reconnect | any | todo |
-| T18 | Android Auto browse tree | opus | todo |
+| T18 | Android Auto browse tree | opus | done |
 | T19 | Glance home-screen widget | any | todo |
 | T20 | Managed devices + Roborazzi screenshots | any | todo |
 | T21 | Docs | any | todo |
@@ -720,7 +720,7 @@ available, simply continue top to bottom.
 
 ## T18 Android Auto browse tree
 
-- Owner: opus. Status: todo. Depends: T05.
+- Owner: opus. Status: done. Depends: T05.
 - Files: `playback/.../LibraryTree.kt` (pure over repository/store
   interfaces), `PlaybackService.onGetChildren/onGetItem/onGetLibraryRoot`,
   `res/xml/automotive_app_desc.xml` (`<uses name="media"/>`), manifest
@@ -740,6 +740,16 @@ available, simply continue top to bottom.
 - Done when: tests green; manual check with the Desktop Head Unit if
   available (`$ANDROID_HOME/extras/google/auto/desktop-head-unit`), else
   note "DHU not run" in Notes.
+- As built: `LibraryTree` takes lambdas (roots, favorites, folder,
+  album tracks) plus `TreeLabels` (provided by `AppModule` from
+  `library_sources`/`favorites`/`queue`, not a singleton so it follows the
+  app language at service start). Folder nodes use `PlaybackItem` folder ids
+  and are browsable and playable; album track ids are
+  `PlaybackRequests.inItem(albumId, trackId)`, which `parseId` turns into
+  "play the album starting at this track". `onGetItem` returns a bare
+  playable item for the id; playback always goes through `onSetMediaItems`.
+  Notes: DHU not run (not installed). Artwork on browse nodes not set yet
+  (T16/T19 may add it via the existing art URIs).
 
 ## T19 Glance home-screen widget
 

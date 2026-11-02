@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application>
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
         <!-- Media controllers (Android Auto, Bluetooth, system media controls) bind without a permission. -->
         <service
             android:name="app.retroplayer.playback.PlaybackService"

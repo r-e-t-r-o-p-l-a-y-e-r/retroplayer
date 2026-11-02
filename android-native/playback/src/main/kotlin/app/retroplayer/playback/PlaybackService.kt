@@ -20,6 +20,7 @@ import app.retroplayer.data.library.LibraryRepository
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.domain.model.AudioTrack
 import app.retroplayer.domain.settings.HeadsetSettings
+import com.google.common.collect.ImmutableList
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,6 +42,7 @@ class PlaybackService : MediaLibraryService() {
     @Inject lateinit var repository: LibraryRepository
     @Inject @ApplicationScope lateinit var appScope: CoroutineScope
     @Inject lateinit var equalizerAvailability: EqualizerAvailability
+    @Inject lateinit var treeLabels: TreeLabels
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private var session: MediaLibrarySession? = null
@@ -48,6 +50,7 @@ class PlaybackService : MediaLibraryService() {
     private lateinit var saver: ProgressSaver
     private lateinit var queue: SessionQueue
     private lateinit var equalizer: EqualizerBinder
+    private lateinit var tree: LibraryTree
 
     @Volatile private var headset = HeadsetSettings()
 
@@ -78,6 +81,13 @@ class PlaybackService : MediaLibraryService() {
             lastItemId = { settings.session.first().lastItemId },
             rememberLastItem = settings::setLastItem,
             artwork = ::artworkFor,
+        )
+        tree = LibraryTree(
+            roots = { store.allRoots().map { it.path to it.name } },
+            favorites = { store.favorites.first() },
+            folder = { path -> repository.folder(path).first { it.complete || !it.exists }.takeIf { it.exists } },
+            albumTracks = { id -> repository.album(id)?.let { repository.albumTracks(it) } },
+            labels = treeLabels,
         )
         session = MediaLibrarySession.Builder(this, player, Callback())
             .setBitmapLoader(EmbeddedArtBitmapLoader(this))
@@ -162,6 +172,31 @@ class PlaybackService : MediaLibraryService() {
             (queue.resumption() ?: throw IllegalStateException("Nothing to resume")).toResult()
         }
 
+        override fun onGetChildren(
+            session: MediaLibrarySession,
+            browser: MediaSession.ControllerInfo,
+            parentId: String,
+            page: Int,
+            pageSize: Int,
+            params: LibraryParams?,
+        ): ListenableFuture<LibraryResult<ImmutableList<MediaItem>>> = scope.future {
+            LibraryResult.ofItemList(tree.children(parentId, page, pageSize).map { it.toMediaItem() }, params)
+        }
+
+        override fun onGetItem(
+            session: MediaLibrarySession,
+            browser: MediaSession.ControllerInfo,
+            mediaId: String,
+        ): ListenableFuture<LibraryResult<MediaItem>> = Futures.immediateFuture(
+            LibraryResult.ofItem(
+                MediaItem.Builder()
+                    .setMediaId(mediaId)
+                    .setMediaMetadata(MediaMetadata.Builder().setIsBrowsable(false).setIsPlayable(true).build())
+                    .build(),
+                null,
+            ),
+        )
+
         override fun onGetLibraryRoot(
             session: MediaLibrarySession,
             browser: MediaSession.ControllerInfo,
@@ -169,7 +204,7 @@ class PlaybackService : MediaLibraryService() {
         ): ListenableFuture<LibraryResult<MediaItem>> = Futures.immediateFuture(
             LibraryResult.ofItem(
                 MediaItem.Builder()
-                    .setMediaId(ROOT_ID)
+                    .setMediaId(LibraryTree.ROOT_ID)
                     .setMediaMetadata(
                         MediaMetadata.Builder()
                             .setIsBrowsable(true)
@@ -183,7 +218,16 @@ class PlaybackService : MediaLibraryService() {
         )
     }
 
-    private companion object {
-        const val ROOT_ID = "root"
-    }
+    private fun TreeNode.toMediaItem(): MediaItem = MediaItem.Builder()
+        .setMediaId(id)
+        .setMediaMetadata(
+            MediaMetadata.Builder()
+                .setTitle(title)
+                .setArtist(subtitle)
+                .setIsBrowsable(browsable)
+                .setIsPlayable(playable)
+                .setMediaType(if (browsable) MediaMetadata.MEDIA_TYPE_FOLDER_MIXED else MediaMetadata.MEDIA_TYPE_MUSIC)
+                .build(),
+        )
+        .build()
 }

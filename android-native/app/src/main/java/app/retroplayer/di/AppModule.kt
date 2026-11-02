@@ -6,26 +6,30 @@ import android.provider.DocumentsContract
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.room.Room
+import app.retroplayer.R
 import app.retroplayer.data.db.LibraryRoot
 import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.db.RetroDatabase
 import app.retroplayer.data.library.AbsolutePathMapper
 import app.retroplayer.data.library.DocumentSource
 import app.retroplayer.data.library.LibraryRepository
-import app.retroplayer.data.library.QueueRepository
 import app.retroplayer.data.library.LibraryScanner
 import app.retroplayer.data.library.PlaylistFiles
+import app.retroplayer.data.library.QueueRepository
 import app.retroplayer.data.library.RootLocation
 import app.retroplayer.data.saf.RetrieverMetadataReader
 import app.retroplayer.data.saf.SafDocumentSource
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.playback.ApplicationScope
 import app.retroplayer.playback.PlaybackItemResolver
+import app.retroplayer.playback.TreeLabels
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Qualifier
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -33,8 +37,6 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
-import javax.inject.Qualifier
-import javax.inject.Singleton
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
@@ -107,6 +109,14 @@ object AppModule {
         store,
         canWrite = { id -> store.root(id)?.canWrite == true },
         absolute = { path -> AbsolutePathMapper(roots.value.mapNotNull(::location)).toLibraryPath(path) },
+    )
+
+    /** Not a singleton: the service reads it when it starts, in the current app language. */
+    @Provides
+    fun treeLabels(@ApplicationContext context: Context) = TreeLabels(
+        sources = context.getString(R.string.library_sources),
+        favorites = context.getString(R.string.favorites),
+        queue = context.getString(R.string.queue),
     )
 
     @Provides
