@@ -1,0 +1,615 @@
+# Native Android Retro Player: work plan
+
+Read [AGENTS.md](AGENTS.md) first. It has the commands, test recipes,
+conventions and pitfalls this plan relies on.
+
+## How to use this plan
+
+1. Pick the first task (top to bottom) with `Status: todo` whose `Depends`
+   tasks are all `done`. Set it to `in progress` and commit nothing yet.
+2. Do its "Tests" list in order, one red/green cycle per bullet, using the
+   test names given (backticked). You may add tests; do not skip any.
+3. When every item under "Done when" holds, set `Status: done`, fill in
+   "Notes" (what you changed beyond the spec, anything surprising), run
+   `./gradlew check`, commit (see AGENTS.md "Commits").
+4. If blocked: `Status: blocked`, write why under "Notes", continue with the
+   next independent task.
+
+Owner field: `opus` means Claude Opus intends to do it first because it is
+risky (new architecture, tricky APIs). If it is still `todo` when you are
+another model, you may take it: the spec below is complete enough. `any`
+means any model.
+
+Spec sources: [doc/REQUIREMENTS.md](../doc/REQUIREMENTS.md) (UC numbers),
+Flutter code under `lib/ui/features/<feature>/` for look and behaviour.
+UI look: follow the existing native screens (`FolderScreen.kt`,
+`AlbumScreen.kt`), not pixel copies of Flutter.
+
+## Status overview
+
+| ID | Task | Owner | Status |
+| --- | --- | --- | --- |
+| done | Tooling, domain, data layer, playback service, ARB converter, library + album screens | opus | done |
+| T01 | Transport API on `PlaybackControls` | opus | todo |
+| T02 | Player sheet shell + back chain | opus | todo |
+| T03 | Expanded player: seek bar, jumps, speed | any | todo |
+| T04 | Locate now playing + playback breadcrumbs | any | todo |
+| T05 | Queue engine (edit while playing) | opus | todo |
+| T06 | Queue screen + add-tracks picker | any | todo |
+| T07 | Playlist detail, save, delete | any | todo |
+| T08 | Write-grant upgrade flow | opus | todo |
+| T09 | Library leftovers: favorites gestures, A-Z, scroll restore, root removal | any | todo |
+| T10 | Settings screens (theme, language, data, reset, licenses, about) | any | todo |
+| T11 | Equalizer engine | opus | todo |
+| T12 | Equalizer settings UI | any | todo |
+| T13 | Keyboard shortcuts | any | todo |
+| T14 | Text-fit guards and pseudo-locales | any | todo |
+| T15 | M4B chapter reader | opus | todo |
+| T16 | Chapters in player, notification and seek bar | any | todo |
+| T17 | Headset options UI + resume on reconnect | any | todo |
+| T18 | Android Auto browse tree | opus | todo |
+| T19 | Glance home-screen widget | any | todo |
+| T20 | Managed devices + Roborazzi screenshots | any | todo |
+| T21 | Docs | any | todo |
+| T22 | Final release check | any | todo |
+
+Recommended order for a single agent is the table order. Opus will try to do
+T01, T02, T05, T08, T11, T15, T18 first (in that order); when Opus is not
+available, simply continue top to bottom.
+
+---
+
+## T01 Transport API on `PlaybackControls`
+
+- Owner: opus. Status: todo. Depends: none. UC-10, UC-17.
+- Goal: the UI can pause, seek, jump, skip, change speed and stop, and
+  `NowPlaying` carries what the player sheet needs.
+- Files:
+  - `app/.../playback/PlaybackControls.kt` (interface + `NowPlaying`)
+  - `app/.../playback/PlayerConnection.kt`
+  - `app/src/test/.../TestLibrary.kt` (`FakePlayback`)
+  - new `app/src/test/.../playback/PlayerConnectionTest.kt`
+- Design:
+  - Make `PlayerConnection` testable: move the controller creation behind a
+    constructor parameter `connect: suspend () -> Player?` (production passes
+    the `MediaController.Builder(...).buildAsync().await()` lambda from a Hilt
+    `@Provides`; tests pass a `TestExoPlayerBuilder` player). All logic talks
+    to `androidx.media3.common.Player`, never `MediaController` directly.
+  - Add to `PlaybackControls`:
+    `togglePlayPause()`, `seekTo(positionMs: Long)`, `jumpBack()`,
+    `jumpForward()` (call `player.seekBack()` / `seekForward()`; the service's
+    `RetroPlayer` turns these into 15 s chapter-aware jumps), `skipToPrevious()`,
+    `skipToNext()`, `setSpeed(speed: Float)` (clamped with
+    `TransportRules.clampSpeed`), `stop()` (stop + clear media items).
+  - Add to `NowPlaying`: `queueIndex: Int = 0`, `queueSize: Int = 0`,
+    `hasPrevious: Boolean`, `hasNext: Boolean`.
+- Tests (`PlayerConnectionTest`, Robolectric, TestExoPlayer):
+  - `toggle pauses a playing player and resumes a paused one`
+  - `seekTo moves the position and publishes it`
+  - `setSpeed clamps to the allowed range`
+  - `skipToNext moves to the next queue entry and publishes index and size`
+  - `stop clears the queue and publishes no track`
+  - `actions before the player connects run once it is connected`
+  - `cold start restores the last item paused with its saved title` (existing
+    behaviour; move it under test now)
+- Done when: all tests green, `FakePlayback` implements every new method
+  (records calls in a list), app still builds, `./gradlew check` green.
+
+## T02 Player sheet shell + back chain
+
+- Owner: opus. Status: todo. Depends: T01. UC-12, UC-14.
+- Goal: a mini player at the bottom of library and album screens that
+  expands to a full-screen player; back collapses it with the predictive
+  back animation; the rest of the back chain stays as is.
+- Files:
+  - new `app/.../ui/player/PlayerViewModel.kt` (`@HiltViewModel`, exposes
+    `NowPlaying` + playback breadcrumbs from `Breadcrumbs.playback`, forwards
+    actions to `PlaybackControls`)
+  - new `app/.../ui/player/PlayerSheet.kt` with stateless `MiniPlayer`,
+    `ExpandedPlayer` and the container `PlayerSheet(state, expanded,
+    onExpandedChange, actions)`
+  - `app/.../ui/RetroApp.kt` (host the sheet around the `NavHost`)
+- Design:
+  - Sheet state `expanded: Boolean` lives in `RetroApp` via `rememberSaveable`.
+    Container: `Box` with the NavHost and, on top, the sheet anchored to the
+    bottom. Use `AnchoredDraggable` (foundation) with anchors Collapsed and
+    Expanded for the drag; tapping the mini player expands.
+  - Mini player: art (`AlbumArt`), title, subtitle (ellipsized), play/pause
+    button. Hidden while `nowPlaying.hasTrack` is false and no title is known.
+  - Expanded player (shell only in this task): art, title, subtitle,
+    previous / play-pause / next. T03 adds the rest.
+  - Back: `PredictiveBackHandler(enabled = expanded)` composed AFTER the
+    NavHost (later handlers win). During the gesture scale the expanded
+    player by `1 - progress * 0.1` and translate it down; on completion
+    collapse; on cancellation restore.
+  - Starting playback from a library page (folder or album screen `play`
+    actions) expands the sheet (UC-09): expose a `SharedFlow<Unit>`
+    `playbackStarted` from `PlaybackControls`, or call `onExpandedChange(true)`
+    from the screens' play lambdas in `RetroApp`. Prefer the lambda.
+  - Bottom padding: library and album lists get content padding equal to the
+    mini player height when it is visible, so the last row is reachable.
+- Tests:
+  - `PlayerViewModelTest`: `exposes now playing from the controls`,
+    `toggle forwards to the controls`, `breadcrumbs follow the playing track`
+  - `PlayerSheetTest` (Compose): `mini player shows title and subtitle`,
+    `mini player is hidden without a track`, `tapping the mini player expands`,
+    `play button toggles without expanding`
+  - `BackChainTest` (Compose with `createAndroidComposeRule<ComponentActivity>()`,
+    press back via `activity.onBackPressedDispatcher.onBackPressed()`):
+    `back collapses the expanded player first`,
+    `back from an album returns to its folder`,
+    `back at the library root is absorbed`
+- Smoke test (AGENTS.md): play a track, mini player visible, expand, back
+  collapses, back again leaves the album.
+- Done when: tests green, smoke test passes, no crash in `logcat -b crash`.
+
+## T03 Expanded player: seek bar, jumps, speed
+
+- Owner: any. Status: todo. Depends: T02. UC-10.
+- Flutter reference: `lib/ui/features/player/widgets/player_panel.dart`,
+  `now_playing_content.dart`, `player_controls.dart`.
+- Files: `ui/player/PlayerSheet.kt` (or split into `ExpandedPlayer.kt`),
+  `ui/player/PlayerViewModel.kt`.
+- Spec:
+  - Seek bar: Material 3 `Slider` 0..durationMs. While dragging, show the
+    drag value and do not follow the player; on release call `seekTo`.
+    Elapsed left, remaining or total right (`formatDuration`).
+  - Jump buttons left and right of the art: `Icons.Rounded.Replay` (back)
+    and the same icon mirrored with
+    `Modifier.scale(scaleX = -1f, scaleY = 1f)` (forward), each with a small
+    "15" text overlaid; content descriptions `R.string.jump_back` /
+    `R.string.jump_forward`.
+  - Double tap on the left half of the art jumps back, right half forward
+    (`Modifier.pointerInput { detectTapGestures(onDoubleTap = { offset -> ... }) }`).
+  - Speed (as Flutter `player_panel.dart` `_buildSlider`): one row with a
+    speed icon, label `R.string.speed`, a `Slider` 0.5..2.0 with
+    `steps = 5` (Compose counts inner stops; that gives 0.25 increments),
+    and the value on the right (`formatSpeed`, fixed width so the row does
+    not jump). Keyboard ←/→ on the focused slider changes by 0.25 (the
+    Compose `Slider` does this already; just test it).
+- Tests:
+  - `PlayerViewModelTest`: `jump back and forward forward to the controls`,
+    `speed down stops at the minimum`, `speed up stops at the maximum`
+  - `ExpandedPlayerTest`: `seek bar shows elapsed and total time`,
+    `releasing the seek bar seeks once`, `jump buttons call jump actions`,
+    `double tap on the left half jumps back`, `double tap on the right half jumps forward`,
+    `speed slider shows the formatted speed`, `speed slider changes in quarter steps`
+- Done when: tests green, smoke test (seek, jump, speed visible in
+  `dumpsys media_session` as position/speed changes).
+
+## T04 Locate now playing + playback breadcrumbs
+
+- Owner: any. Status: todo. Depends: T02. UC-13.
+- Spec:
+  - Tapping the title or art in the expanded player collapses the sheet and
+    navigates to where the current track lives: if `nowPlaying.itemId` is an
+    album id (`AlbumIds.directoryOf(id) != null`) open `AlbumRoute(itemId)`
+    with its folder chain behind it (`StartupRoutes.build`); otherwise
+    `showFolder(track folder)` where the track folder is
+    `LibraryPath(nowPlaying.trackId).parent`. For a playlist item
+    (`PlaybackItem.playlistPathFromId`) open the playlist route (after T07;
+    until then the playlist's folder).
+  - The track row is highlighted (existing `playingTrackId` highlight) and
+    scrolled into view (`LazyListState.animateScrollToItem`).
+  - The highlight clears on manual browsing: keep a `locatedTrackId` in
+    `AppViewModel`; set on locate, clear on any folder/album navigation not
+    caused by locate. The row highlight for "currently playing" stays.
+  - Playback breadcrumbs: in the expanded player under the title, a
+    `BreadcrumbBar` (existing component) from `Breadcrumbs.playback(...)`;
+    tapping a crumb collapses and calls `showFolder(crumb.path)`.
+- Tests: `AppViewModelTest`: `locate sets the located track`,
+  `manual navigation clears the located track`; `ExpandedPlayerTest`:
+  `tapping the title calls locate`, `breadcrumbs of the playing item are shown`;
+  `StartupRoutesTest`: `locate in an album builds folder chain plus album`.
+- Done when: tests green, smoke: play in album, browse to root, expand,
+  tap title, album opens with the track highlighted.
+
+## T05 Queue engine (edit while playing)
+
+- Owner: opus. Status: todo. Depends: T01. UC-08.
+- Goal: a queue the user edits (add, move, remove, clear) that persists in
+  `SettingsStore.queue`, plays as item `PlaybackItem.QUEUE_ID`, and when it
+  is what is playing, edits apply to the live player without interrupting.
+- Files:
+  - new `domain/.../QueueEdits.kt`: pure functions `add(queue, paths)`
+    (appends, skips paths already in the queue, keeps order),
+    `move(queue, from, to)`, `remove(queue, index)`.
+  - new `data/.../library/QueueRepository.kt`: `queue: Flow<List<AudioTrack?>>`
+    (resolves paths via `LibraryRepository`/scanner, missing ones as null),
+    `add`, `move`, `remove`, `clear`, all writing `SettingsStore.setQueue`.
+  - `PlaybackControls`: `queueChanged(edit: QueueEdit)` where `QueueEdit` is
+    a sealed type (Added(paths at end), Moved(from, to), Removed(index),
+    Cleared). `PlayerConnection` applies it with `addMediaItems`,
+    `moveMediaItem`, `removeMediaItem` only if the current item id is the
+    queue; `Cleared` while the queue plays calls `stop()`.
+  - Service: `onAddMediaItems` already expands ids; added items must carry
+    the queue's item id in their extras (`PlaybackRequests.itemExtras`).
+- Tests:
+  - `QueueEditsTest` (domain): `add appends new paths in order`,
+    `add skips paths already queued`, `move reorders`, `remove drops one entry`,
+    `out of range edits leave the queue unchanged`
+  - `QueueRepositoryTest` (data): `edits persist across a new repository`,
+    `missing files resolve to null entries`, `clear removes the stored key`
+  - `PlayerConnectionTest`: `queue edits apply to the live player when the queue plays`,
+    `queue edits do not touch the player when an album plays`,
+    `clearing the playing queue stops playback`
+- Done when: tests green; playing a folder or album leaves the stored queue
+  untouched (existing `SessionQueueTest` stays green).
+
+## T06 Queue screen + add-tracks picker
+
+- Owner: any. Status: todo. Depends: T05. UC-08.
+- Flutter reference: `lib/ui/features/playlist/` (queue view and picker).
+- New dependency allowed: `sh.calvin.reorderable:reorderable` (pure
+  Compose, Apache-2.0; add to `libs.versions.toml` as `reorderable`, latest
+  stable version from Maven Central). It is also used in T09.
+- Files: `ui/queue/QueueRoute` in `Routes.kt`, `QueueViewModel.kt`,
+  `QueueScreen.kt`; `ui/queue/AddTracksScreen.kt` + `AddTracksViewModel.kt`.
+- Spec:
+  - Open from an app-bar action (icon `Icons.Rounded.QueueMusic`, label
+    `R.string.queue`) on every folder screen including the root.
+  - Rows: title, artist, duration; missing entries show `R.string.missing_track`.
+    Tap a row: `controls.play(QUEUE_ID, startTrackId = path)`. Long-press drag
+    reorders (reorderable library), swipe (`SwipeToDismissBox`) removes.
+    Playing row highlighted. Empty: `R.string.queue_empty`.
+  - App bar actions: Add tracks (`R.string.add_tracks`), Clear
+    (`R.string.clear_queue`, confirm dialog `clear_queue_title`/`clear_queue_body`),
+    Save as playlist (`R.string.save_as_playlist`, implemented in T07; until
+    then hidden).
+  - Add-tracks picker: browse folders like the library (reuse
+    `LibraryRepository.folder`), checkboxes on tracks and albums
+    (album = all its tracks in effective order), confirm button
+    `R.string.add_tracks_confirm`; nothing selected shows
+    `add_tracks_nothing_selected`; all already queued shows
+    `add_tracks_nothing_added` (use `PlaylistEntries.filterNew`).
+- Tests: `QueueViewModelTest`: `shows queued tracks in order`, `tap plays the queue from that track`,
+  `remove updates the queue`, `move updates the queue`, `clear asks first`,
+  `confirm clear empties the queue`; `QueueContentTest`: `empty queue shows the empty text`,
+  `missing entry shows missing track`, `playing row is highlighted`;
+  `AddTracksViewModelTest`: `selecting an album adds its tracks in album order`,
+  `already queued tracks are not added twice`.
+- Done when: tests green; smoke: add tracks, reorder, play from row 2,
+  restart app, queue still there and resumes (UC-08 AC).
+
+## T07 Playlist detail, save, delete
+
+- Owner: any. Status: todo. Depends: T06. UC-08.
+- Existing code: `PlaylistFiles.read/save/overwrite/delete`, `M3u`,
+  `LibraryStore.registerAppPlaylist/isAppPlaylist`.
+- Files: `PlaylistRoute(path)` in `Routes.kt`, `ui/playlist/PlaylistViewModel.kt`,
+  `PlaylistScreen.kt`; folder screen playlist rows open it.
+- Spec:
+  - Detail lists entries (missing ones as `missing_track`), tap plays the
+    playlist from that entry (`PlaybackItem.playlistId(path)`). Empty:
+    `playlist_empty`; play with no playable entries: snackbar
+    `playlist_nothing_to_play`.
+  - Editable only when `PlaylistContent.editable` (app-created and root has
+    write access): add tracks (reuse T06 picker), reorder, remove with
+    confirmation (`remove_playlist_track_title_eq1/other`, body variants),
+    multi-select (`playlist_select`, `playlist_select_all`,
+    `playlist_deselect_all`, `playlist_selected_count_*`), delete playlist
+    (`delete_playlist_title/body`). Read-only playlists show
+    `playlist_read_only` and no edit actions.
+  - Save queue as playlist (queue screen action): only when a real folder is
+    the current browse path (not the virtual root); name dialog
+    (`new_playlist_name`, `save`); if the root has no write grant, start T08's
+    flow; if still not writable, show `folder_access_denied` (native string).
+- Tests: `PlaylistViewModelTest`: `read only playlist offers no edits`,
+  `app playlist can remove an entry`, `delete removes the file and the registry entry`,
+  `tap plays the playlist from that entry`; `QueueViewModelTest`:
+  `save is refused at the library root`, `save writes an app playlist in the open folder`.
+- Done when: tests green; smoke with a write-granted root.
+
+## T08 Write-grant upgrade flow
+
+- Owner: opus. Status: todo. Depends: none. UC-02, UC-08.
+- Goal: a read-only root can be upgraded to read+write when the user wants
+  to save a playlist; declining keeps everything working read-only.
+- Files: `app/.../library/RootAccess.kt` (+ `requestWrite`),
+  `SafRootAccess.kt`, `LibraryStore` (`setCanWrite(rootId)`; exists as
+  `RootDao.update`), a small explanation dialog (native strings
+  `write_access_title`, `write_access_body`, `write_access_grant`).
+- Spec: launch `ACTION_OPEN_DOCUMENT_TREE` with `EXTRA_INITIAL_URI` = the
+  root's tree URI and flags read+write+persistable. Accept only if the
+  returned tree URI equals the root's; then `takePersistableUriPermission`
+  with read|write and store `canWrite = true`. Any other folder: release that
+  new grant, show `folder_access_denied`.
+- Tests: `SafRootAccessTest` (Robolectric `ShadowContentResolver`):
+  `write grant for the same tree marks the root writable`,
+  `a different tree is rejected and its grant released`;
+  `FolderViewModelTest`/`QueueViewModelTest`: `save without write access asks for it`.
+- Done when: tests green; smoke on emulator: save playlist on a fresh root
+  shows the explanation, picker, then saves.
+
+## T09 Library leftovers
+
+- Owner: any. Status: todo. Depends: T06 (reorderable dependency). UC-02, UC-04.
+- Spec (each bullet one red/green cycle, tests in `FolderViewModelTest` /
+  `FolderContentTest`):
+  - Swipe right on a nested folder row toggles favorite
+    (`SwipeToDismissBox`, only start-to-end, snap back after toggling):
+    `swiping a folder marks it favorite`, `swiping a favorite clears it`.
+    At the root, roots are not swipe-removable (remove stays a button with
+    confirm): `root rows cannot be swiped away`.
+  - Long-press drag reorders favorite links at the root (reorderable):
+    `dragging a favorite saves the new order` (calls `moveFavorite`).
+  - A-Z index bar on lists with more than 30 rows: vertical strip of first
+    letters at the right edge; tap or drag jumps to the first row with that
+    letter: `index bar appears for long lists`, `tapping a letter scrolls to it`.
+  - Scroll position per folder survives going into a subfolder and back
+    (each `FolderRoute` keeps its `rememberLazyListState()` via the back
+    stack's saved state): `BackChainTest` `going up restores the parent scroll position`.
+  - Removing a root that contains what is playing stops playback
+    (`controls.stop()`): `removing the playing root stops playback`.
+- Done when: tests green; smoke: favorite via swipe appears at root, drag reorder persists after restart.
+
+## T10 Settings screens
+
+- Owner: any. Status: todo. Depends: T02. UC-16, UC-12 (fixed mini dock in settings).
+- Flutter reference: `lib/ui/features/settings/`.
+- Files: `SettingsRoute`, `SettingsDataRoute`, `SettingsLicensesRoute`,
+  `SettingsAboutRoute` in `Routes.kt`; `ui/settings/SettingsViewModel.kt`,
+  `SettingsScreen.kt` and one file per subpage. Entry: app-bar overflow or
+  gear icon on folder screens (`R.string.settings`).
+- Spec:
+  - Appearance: theme radio group (`theme_system`, `theme_light`, `theme_dark`)
+    → `SettingsStore.setTheme`; applies immediately (AppViewModel already
+    collects theme).
+  - Language: list "System" (`language_system`) plus every locale in
+    `res/xml/locales_config.xml`, each shown in its own language
+    (`Locale.forLanguageTag(tag).getDisplayName(locale)`). Apply with
+    `AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag))`
+    (empty list = system). This needs `MainActivity` to extend
+    `AppCompatActivity` (theme parent `Theme.AppCompat.DayNight.NoActionBar`)
+    and, for API < 33, in the manifest the service
+    `androidx.appcompat.app.AppLocalesMetadataHolderService` with meta-data
+    `autoStoreLocales=true`. Do not store the language in DataStore (the
+    system/AppCompat owns it); remove `AppSettings.languageTag` if unused.
+  - Equalizer entry row → T12 page (show the row now, page in T12).
+  - Data storage page: `data_storage_intro`, then the app data, library,
+    playlists and Android sections (`data_storage_*_title/body`, Android
+    variants only).
+  - Reset (`reset_database`): dialog `reset_database_title/body` with
+    `reset_database_keep_folders` and `reset_database_clear_everything`;
+    both call `controls.stop()`, `SettingsStore.reset()`,
+    `LibraryStore.reset(keepRoots)`; clear everything also releases the
+    persisted URI grants (`RootAccess.remove` for each root) and resets the
+    language to system.
+  - Licenses (`open_source_licenses`): static list of the libraries in
+    `libs.versions.toml` with license name; a unit test reads the catalog
+    file and fails if a library group is missing from the list.
+  - About: app name, `about_version` (versionName), build date, git branch and
+    commit via `BuildConfig` fields set in `app/build.gradle.kts` from
+    `providers.exec { commandLine("git", ...) }` (fallback "unknown").
+  - While Settings is open the player shows only the mini player, not
+    expandable (UC-12 alternative).
+- Tests: `SettingsViewModelTest`: `choosing the default theme leaves no stored key`,
+  `reset keeping folders keeps roots`, `clear everything removes roots and grants`,
+  `reset stops playback`; `LicensesTest`: `every catalog library is listed`;
+  `SettingsContentTest`: `theme choice is checked`, `reset asks first`;
+  `BackChainTest`: `back closes settings before the player`.
+- Done when: tests green; smoke: switch to German, UI is German after
+  restart; switch back to system.
+
+## T11 Equalizer engine
+
+- Owner: opus. Status: todo. Depends: none. UC-16.
+- Goal: `EqualizerSettings` drive `android.media.audiofx.Equalizer` on the
+  player's audio session, with graceful "unavailable".
+- Files (`:playback`): `EqualizerEngine.kt` interface
+  (`centersHz: List<Int>`, `rangeDb: ClosedFloatingPointRange<Float>`,
+  `apply(gainsDb: List<Float>)`, `setEnabled(Boolean)`, `release()`);
+  `AudioFxEqualizer.kt` (real, millibels); `EqualizerBinder.kt` (a
+  `Player.Listener`/`AnalyticsListener` that creates the engine for each
+  audio session id, applies `settings.gainsForDevice(...)`, releases on
+  change and in `onDestroy`); `EqualizerAvailability` singleton
+  `StateFlow<EqualizerInfo?>` (null = unavailable) for the UI. Wire it in
+  `PlaybackService`. Create the engine with a factory lambda so tests use a fake.
+- Tests (`EqualizerBinderTest`): `applies device gains when a session starts`,
+  `reapplies when settings change`, `disabled settings turn the effect off`,
+  `releases the old effect on a new session`, `creation failure reports unavailable`.
+- Done when: tests green; smoke: enable bass boost, `adb shell dumpsys media.audio_flinger`
+  shows an equalizer effect on the session.
+
+## T12 Equalizer settings UI
+
+- Owner: any. Status: todo. Depends: T10, T11.
+- Flutter reference: `lib/ui/features/settings/` equalizer widgets.
+- Spec: page title `equalizer`; enable switch; presets as a wrapping
+  `FlowRow` of `FilterChip`s (`eq_manually`, `eq_bass`, `eq_treble`,
+  `eq_voice`); `bands` heading with 5 vertical sliders (rotate a `Slider`
+  or custom) -15..15 dB, label below each = frequency (60 Hz, 230 Hz,
+  910 Hz, 3.6 kHz, 14 kHz; locale-neutral), content description includes
+  the value; moving a slider switches the preset to manual; `reset` button
+  sets flat manual. Unavailable: show `equalizer_unavailable` and disable.
+- Tests: `EqualizerViewModelTest`: `moving a band switches to manual`,
+  `choosing a preset stores it`, `reset to flat leaves no stored keys`;
+  `EqualizerContentTest`: `unavailable disables the controls`,
+  `preset chips wrap instead of clipping` (with T14 helper).
+- Done when: tests green, smoke.
+
+## T13 Keyboard shortcuts
+
+- Owner: any. Status: todo. Depends: T03, T06, T10. UC-15.
+- Table (from `doc/DEVELOPMENT_PLAN.md` "Key navigation"): Ctrl+P play/pause,
+  Ctrl+←/→ previous/next, Ctrl+Shift+←/→ jump ∓15 s, Ctrl+↑ expand player,
+  Ctrl+↓ collapse, Ctrl+O add folder, Ctrl+N queue, Ctrl+, settings,
+  Ctrl+S save playlist, Ctrl+Shift+O add tracks, Escape = back,
+  Backspace / Alt+← = folder up.
+- Implementation: pure `KeyShortcuts.match(key, ctrl, shift, alt): Shortcut?`
+  in `ui/keyboard/` (unit-tested), one `Modifier.onPreviewKeyEvent` at the
+  root in `RetroApp` that dispatches. Disabled while a text field has focus:
+  a `CompositionLocal` flag set by our text fields via `onFocusChanged`.
+- Tests: `KeyShortcutsTest` (one per row of the table), `ShortcutsTest`
+  (Compose `performKeyInput`): `ctrl p toggles playback`,
+  `shortcuts are ignored while typing a playlist name`.
+- Done when: tests green.
+
+## T14 Text-fit guards and pseudo-locales
+
+- Owner: any. Status: todo. Depends: T03, T10, T12.
+- Spec:
+  - Debug build: `isPseudoLocalesEnabled = true` (en-XA, ar-XB).
+  - Test helper `assertNoClippedText(tag)` in `app/src/test/.../TextFit.kt`:
+    for every node under `tag` with `SemanticsActions.GetTextLayoutResult`,
+    invoke it and assert `!result.hasVisualOverflow`. Use it on controls that
+    must never cut text (buttons, chips, dialog actions, speed, EQ).
+  - Single-line labels that cannot wrap: `BasicText(autoSize =
+    TextAutoSize.StepBased(minFontSize = 11.sp))`.
+  - Run each screen's Content test additionally with
+    `@Config(qualifiers = "de")`, `"fi"`, `"el"`, `"ru"`, `"en-rXA"`,
+    `"ar-rXB"`, and font scale 2 (`qualifiers = "+w320dp"` and
+    `RuntimeEnvironment.setFontScale(2f)`), as parameterized tests.
+- Tests: `TextFitTest` per screen: `<screen> controls fit in <locale> at font scale <n>`.
+- Done when: all pass (fix layouts, never shorten translations).
+
+## T15 M4B chapter reader
+
+- Owner: opus. Status: todo. Depends: none.
+- Files: `domain/.../model/Chapter.kt` (`Chapter(startMs: Long, title: String)`),
+  `data/.../chapters/Mp4ChapterReader.kt` reading from an `InputStream`/
+  random access over the SAF document: parse boxes `moov/udta/chpl` (Nero)
+  and QuickTime chapter tracks (`trak` referenced by `tref/chap`, samples are
+  text with 2-byte length prefix, times from `stts` + `mdhd` timescale).
+  Prefer Nero when both exist; titles UTF-8; cache result in
+  `TrackCacheEntity` (new column `chaptersJson`, Room migration).
+- Fixtures: create with ffmpeg (QuickTime text chapters) and a hand-built
+  `chpl` box in test code; put files in `data/src/test/resources/chapters/`.
+- Tests: `Mp4ChapterReaderTest`: `reads nero chapters`, `reads quicktime chapter track`,
+  `no chapters returns empty`, `truncated file returns empty without throwing`,
+  `chapter times use the media timescale`.
+- Done when: tests green.
+
+## T16 Chapters in player, notification and seek bar
+
+- Owner: any. Status: todo. Depends: T03, T15.
+- Spec: service loads chapters for the current track (on media item
+  transition, IO dispatcher), feeds `RetroPlayer(chapterStartsMs = ...)`, and
+  publishes them in the media item's extras; `NowPlaying.chapters`.
+  Expanded player: ticks on the seek bar at chapter starts, current chapter
+  title under the track title, chapter list sheet (tap seeks), chapter
+  previous/next buttons when chapters exist. Notification: Media3
+  `CommandButton`s with custom `SessionCommand`s `app.retroplayer.CHAPTER_PREV`
+  / `CHAPTER_NEXT` via `MediaSession.setMediaButtonPreferences` only when
+  the track has chapters. Native strings `chapters`, `previous_chapter`, `next_chapter`.
+- Tests: `RetroPlayerTest`: `jump stops at chapter start` (exists, keep);
+  `ChapterNavigationTest` (domain pure): `next chapter from inside a chapter`,
+  `previous chapter within 3 s of a start goes to the one before`;
+  `ExpandedPlayerTest`: `chapter list seeks to the chapter`.
+- Done when: tests green; smoke with an M4B fixture pushed to the emulator.
+
+## T17 Headset options UI + resume on reconnect
+
+- Owner: any. Status: todo. Depends: T10.
+- Existing: `HeadsetSettings(autoRewind, autoRewindSeconds, resumeOnReconnect)`,
+  `AutoRewindTracker`, `TransportRules.autoRewindMs`, becoming-noisy pause.
+- Spec:
+  - Settings page "Headset" (native strings): auto-rewind switch, seconds
+    (5, 10, 15, 30 chips), resume on reconnect switch.
+  - Resume on reconnect: pure `ReconnectPolicy.shouldResume(pausedByNoisyAtMs,
+    nowMs, enabled)` (true when enabled and the pause came from becoming
+    noisy less than 10 minutes ago). Service records the time when
+    `onPlayWhenReadyChanged` reason is
+    `PLAY_WHEN_READY_CHANGE_REASON_AUDIO_BECOMING_NOISY`; an
+    `AudioDeviceCallback` (`AudioManager.registerAudioDeviceCallback`) on
+    added outputs of type wired headset/headphones, BT A2DP, USB headset
+    asks the policy and calls `play()`.
+- Tests: `ReconnectPolicyTest` (4 cases), `HeadsetSettingsViewModelTest`:
+  `default values leave no stored keys`, `turning resume on stores it`.
+- Done when: tests green.
+
+## T18 Android Auto browse tree
+
+- Owner: opus. Status: todo. Depends: T05.
+- Files: `playback/.../LibraryTree.kt` (pure over repository/store
+  interfaces), `PlaybackService.onGetChildren/onGetItem/onGetLibraryRoot`,
+  `res/xml/automotive_app_desc.xml` (`<uses name="media"/>`), manifest
+  meta-data `com.google.android.gms.car.application` (resource reference
+  only; no Play services dependency).
+- Tree: root → `Library sources` (each root → its folder tree), `Favorites`,
+  `Queue`. Folder node children: subfolders (browsable), albums (browsable
+  and playable; children are tracks), playlists (playable), loose tracks
+  (playable). Media ids: `nav:roots`, `nav:favorites`, `browse:<path>`,
+  album ids, `playlist:<path>`, track paths, `queue`. Playing any playable
+  node sends the same request path as the phone UI (`onSetMediaItems`).
+  Paging: honour `page`/`pageSize`.
+- Tests: `LibraryTreeTest`: `root lists sources favorites and queue`,
+  `folder lists subfolders albums playlists and tracks in display order`,
+  `album children are its tracks in effective order`, `paging slices children`,
+  `unknown id returns no children`.
+- Done when: tests green; manual check with the Desktop Head Unit if
+  available (`$ANDROID_HOME/extras/google/auto/desktop-head-unit`), else
+  note "DHU not run" in Notes.
+
+## T19 Glance home-screen widget
+
+- Owner: any. Status: todo. Depends: T01.
+- New dependency allowed: `androidx.glance:glance-appwidget-testing`
+  (testImplementation, same version as glance).
+- Spec: `ui/widget/RetroWidget.kt` (`GlanceAppWidget`) + receiver; layout:
+  art, title, subtitle, previous, jump back, play/pause, jump forward, next;
+  sizes `SizeMode.Responsive` (small: title + play/pause; wide: all).
+  Actions: an `ActionCallback` that connects a `MediaController` to the
+  session and runs the command. State: the service writes title, subtitle,
+  isPlaying, art URI into the widget's Glance state on `onEvents` (throttled)
+  and calls `updateAll`. Tap on the widget body opens `MainActivity`.
+  Review the merged release manifest: WorkManager (from Glance) adds
+  `RECEIVE_BOOT_COMPLETED`; keep it and document why in T21.
+- Tests (`runGlanceAppWidgetUnitTest`): `shows title and play button when paused`,
+  `shows pause button while playing`, `small size shows only title and play pause`.
+- Done when: tests green; smoke: add widget on emulator home screen
+  (long-press home, Widgets), controls work.
+
+## T20 Managed devices + Roborazzi screenshots
+
+- Owner: any. Status: todo. Depends: T02.
+- Spec:
+  - Gradle Managed Devices in `app/build.gradle.kts` (`testOptions.managedDevices`),
+    AOSP ATD images (`systemImageSource = "aosp-atd"`): `pixel2Api26`
+    (Pixel 2, API 26), `pixel4Api30`, `pixel7Api33`, `pixel9Api35`,
+    `pixelTabletApi35`, `pixelFoldApi35`. Groups: `phones` (26, 33, 35),
+    `fullMatrix` (all). Check the AGP 9 DSL names in the AGP docs if the
+    build complains (`localDevices` vs `allDevices`).
+  - Instrumented tests `app/src/androidTest/`: launch shows the empty
+    library; add a root through the real picker with UiAutomator
+    (`androidx.test.uiautomator`, add to catalog) using a pre-pushed folder;
+    play a track and see the mini player; rotate keeps the state.
+    If ATD images lack DocumentsUI, use `systemImageSource = "aosp"` for the
+    picker test only.
+  - Roborazzi: add plugin `io.github.takahirom.roborazzi` (version ref
+    `roborazzi`) and libs `roborazzi`, `roborazzi-compose`, `roborazzi-junit-rule`
+    to the catalog; screenshot each Content composable light/dark,
+    compact/expanded width, `de`, `ar-rXB`, font scale 2. Record with
+    `./gradlew recordRoborazziDebug`, verify in CI with `verifyRoborazziDebug`.
+  - CI (`.github/workflows/android-native.yml`): add `verifyRoborazziDebug`;
+    `phonesGroupDebugAndroidTest` only if the runner has KVM (document).
+- Done when: `./gradlew phonesGroupDebugAndroidTest` passes locally (needs
+  `["all"]`), screenshots recorded and committed.
+
+## T21 Docs
+
+- Owner: any. Status: todo. Depends: all feature tasks.
+- `android-native/README.md`: what it is, build, test, emulator smoke test,
+  managed devices, screenshot tests, module map (link AGENTS.md).
+- Root `README.md`: section "Native Android app".
+- `doc/REQUIREMENTS.md` UC-07: "no reordering" becomes "no manual
+  reordering; selectable sort order (tag order, file name, title), stored per
+  album". Add Android-native notes where behaviour differs (natural sort,
+  write access optional).
+- `doc/USAGE.md`: Android section (adding folders, write access for
+  playlists, Android Auto, widget, headset options, chapters).
+- Done when: links checked, no stale Flutter-only statements for Android.
+
+## T22 Final release check
+
+- Owner: any. Status: todo. Depends: T01-T21.
+- `./gradlew check assembleRelease` green; merged release manifest has no
+  `INTERNET`/`ACCESS_NETWORK_STATE`; full smoke test of UC-01 to UC-17 on
+  the emulator (list each UC with pass/fail in Notes); APK size noted;
+  `git log` clean; update the status table.
+
+---
+
+## Notes
+
+(Agents: add dated notes per task here when the task section is not enough.)
