@@ -100,8 +100,10 @@ class FolderViewModelTest {
     }
 
     @Test
-    fun `showing a folder remembers it as the browse path`() = main.runVmTest {
+    fun `showing a folder remembers it as the browse path and closes the album`() = main.runVmTest {
+        lib.settings.setOpenAlbum("dir:x")
         viewModel(lib.p("Books").value).onShown()
+        assertThat(lib.settings.session.first().openAlbumId).isNull()
         assertThat(lib.settings.session.first().browsePath).isEqualTo(lib.p("Books"))
         viewModel(null).onShown()
         assertThat(lib.settings.session.first().browsePath).isNull()

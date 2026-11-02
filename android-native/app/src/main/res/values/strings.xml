@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<!-- Strings for Android-only features. Shared UI text comes from strings_arb.xml (generated from lib/l10n). -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name" translatable="false">Retro Player</string>
+
+    <string name="sort_order">Track order</string>
+    <string name="sort_tag">Tag order</string>
+    <string name="sort_file_name">File name</string>
+    <string name="sort_title">Title</string>
+    <string name="sort_by_tag_title">Sort by tag anyway?</string>
+    <string name="sort_by_tag_body">%1$d of the tracks have no track number. They are listed after the numbered ones, by file name.</string>
+    <string name="sort_by_tag_confirm">Sort by tag anyway</string>
+    <string name="sort_keep_file_name">Keep file name order</string>
+
+    <string name="folder_missing">This folder is no longer available.</string>
+    <string name="folder_access_denied">Retro Player could not keep access to that folder.</string>
+    <string name="scanning_progress">Reading tags %1$d / %2$d</string>
 </resources>

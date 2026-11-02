@@ -123,10 +123,15 @@ class AlbumViewModelTest {
 
     @Test
     fun `open album is remembered while shown`() = main.runVmTest {
-        val vm = viewModel(tagged)
-        vm.onShown()
+        viewModel(tagged).onShown()
         assertThat(lib.settings.session.first().openAlbumId).isEqualTo(tagged)
-        vm.onClosed()
-        assertThat(lib.settings.session.first().openAlbumId).isNull()
+    }
+
+    @Test
+    fun `album art is its folder picture`() = main.runVmTest {
+        lib.docs.file("Albums/Alb/cover.jpg")
+        lib.repository.folder(lib.p("Albums/Alb")).last()
+        assertThat(viewModel(tagged).ready().artUri).isEqualTo("doc:root/Albums/Alb/cover.jpg")
+        assertThat(viewModel(loose).ready().artUri).isNull()
     }
 }

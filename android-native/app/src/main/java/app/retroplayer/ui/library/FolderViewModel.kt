@@ -84,8 +84,12 @@ class FolderViewModel @Inject constructor(
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS), FolderUiState.Loading)
 
+    /** Remembers this page for the next start; a library page on screen means no album is open. */
     fun onShown() {
-        viewModelScope.launch { settings.setBrowsePath(path) }
+        viewModelScope.launch {
+            settings.setBrowsePath(path)
+            settings.setOpenAlbum(null)
+        }
     }
 
     fun toggleFavorite(folder: LibraryPath) {
@@ -102,8 +106,9 @@ class FolderViewModel @Inject constructor(
         folder?.let { playback.play(PlaybackItem.folderId(it)) }
     }
 
-    fun addRoot(treeUri: String) {
-        viewModelScope.launch { access.add(treeUri) }
+    /** [onAdded] gets the new root, or null when access was not granted. */
+    fun addRoot(treeUri: String, onAdded: (LibraryPath?) -> Unit = {}) {
+        viewModelScope.launch { onAdded(access.add(treeUri)?.let(LibraryPath::root)) }
     }
 
     fun removeRoot(rootId: String) {

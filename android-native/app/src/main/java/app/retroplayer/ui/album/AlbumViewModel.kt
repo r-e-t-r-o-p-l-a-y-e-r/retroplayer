@@ -34,6 +34,7 @@ sealed interface AlbumUiState {
         val mode: AlbumSortMode,
         val tagsUsable: Boolean,
         val crumbs: List<Crumb>,
+        val artUri: String?,
     ) : AlbumUiState
 }
 
@@ -65,6 +66,7 @@ class AlbumViewModel @Inject constructor(
             mode = ordering.effectiveMode(album.tracks, choice),
             tagsUsable = ordering.tagsUsable(album.tracks),
             crumbs = Breadcrumbs.library(album.directory) { names[it] },
+            artUri = repository.folderArt(album.directory),
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(STOP_TIMEOUT_MS), AlbumUiState.Loading)
 
@@ -96,10 +98,6 @@ class AlbumViewModel @Inject constructor(
 
     fun onShown() {
         viewModelScope.launch { settings.setOpenAlbum(albumId) }
-    }
-
-    fun onClosed() {
-        viewModelScope.launch { settings.setOpenAlbum(null) }
     }
 
     private fun store(choice: AlbumSortChoice) {
