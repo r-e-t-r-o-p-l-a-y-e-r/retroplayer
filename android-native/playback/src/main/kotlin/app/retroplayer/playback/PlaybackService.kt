@@ -11,6 +11,7 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.analytics.AnalyticsListener
 import androidx.media3.session.LibraryResult
 import androidx.media3.session.MediaLibraryService
 import androidx.media3.session.MediaSession
@@ -39,12 +40,14 @@ class PlaybackService : MediaLibraryService() {
     @Inject lateinit var settings: SettingsStore
     @Inject lateinit var repository: LibraryRepository
     @Inject @ApplicationScope lateinit var appScope: CoroutineScope
+    @Inject lateinit var equalizerAvailability: EqualizerAvailability
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private var session: MediaLibrarySession? = null
     private lateinit var player: RetroPlayer
     private lateinit var saver: ProgressSaver
     private lateinit var queue: SessionQueue
+    private lateinit var equalizer: EqualizerBinder
 
     @Volatile private var headset = HeadsetSettings()
 
@@ -58,6 +61,14 @@ class PlaybackService : MediaLibraryService() {
             .setHandleAudioBecomingNoisy(true)
             .setWakeMode(C.WAKE_MODE_LOCAL)
             .build()
+        equalizer = EqualizerBinder(AudioFxEqualizer::createOrNull, equalizerAvailability::report)
+        exo.addAnalyticsListener(
+            object : AnalyticsListener {
+                override fun onAudioSessionIdChanged(eventTime: AnalyticsListener.EventTime, audioSessionId: Int) =
+                    equalizer.onSession(audioSessionId)
+            },
+        )
+        equalizer.onSession(exo.audioSessionId)
         player = RetroPlayer(exo, AutoRewindTracker(SystemClock::elapsedRealtime), { headset }, { emptyList() })
         saver = ProgressSaver(player, appScope) { id, state -> store.savePlayback(id, state) }
         saver.start()
@@ -72,7 +83,12 @@ class PlaybackService : MediaLibraryService() {
             .setBitmapLoader(EmbeddedArtBitmapLoader(this))
             .apply { launchIntent()?.let(::setSessionActivity) }
             .build()
-        scope.launch { settings.settings.collect { headset = it.headset } }
+        scope.launch {
+            settings.settings.collect {
+                headset = it.headset
+                equalizer.onSettings(it.equalizer)
+            }
+        }
     }
 
     override fun onGetSession(controllerInfo: MediaSession.ControllerInfo): MediaLibrarySession? = session
@@ -85,6 +101,7 @@ class PlaybackService : MediaLibraryService() {
     override fun onDestroy() {
         saver.saveNow()
         saver.stop()
+        equalizer.release()
         session?.run {
             player.release()
             release()

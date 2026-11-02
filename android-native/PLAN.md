@@ -46,7 +46,7 @@ screenshot comparison described there.
 | T08 | Write-grant upgrade flow | opus | done (engine; UI in T07) |
 | T09 | Library leftovers: A-Z, scroll restore, root removal | any | todo |
 | T10 | Settings screens (theme, language, data, reset, licenses, about) | any | todo |
-| T11 | Equalizer engine | opus | todo |
+| T11 | Equalizer engine | opus | done |
 | T12 | Equalizer settings UI | any | todo |
 | T13 | Keyboard shortcuts | any | todo |
 | T14 | Text-fit guards and pseudo-locales | any | todo |
@@ -569,7 +569,16 @@ available, simply continue top to bottom.
 
 ## T11 Equalizer engine
 
-- Owner: opus. Status: todo. Depends: none. UC-16.
+- Owner: opus. Status: done. Depends: none. UC-16.
+- As built (all in `playback/.../EqualizerBinder.kt`): `EqualizerEngine`,
+  `EqualizerInfo(centersHz, rangeDb)`, `EqualizerBinder(create, report)`
+  (one engine per audio session, applies `gainsForDevice` clamped to the
+  device range, `setEnabled(false)` when off, releases on new session and
+  in `onDestroy`), `AudioFxEqualizer` (millibels, `createOrNull`), and the
+  Hilt singleton `EqualizerAvailability.info: StateFlow<EqualizerInfo?>`
+  for T12. `PlaybackService` feeds it from `onAudioSessionIdChanged` and the
+  settings flow. Emulator: `dumpsys media.audio_flinger` lists the
+  Equalizer effect on the session.
 - Goal: `EqualizerSettings` drive `android.media.audiofx.Equalizer` on the
   player's audio session, with graceful "unavailable".
 - Files (`:playback`): `EqualizerEngine.kt` interface
