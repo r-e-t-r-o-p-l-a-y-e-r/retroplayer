@@ -12,6 +12,14 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/** Folder picker that opens at [treeUri] and offers a persistable read and write grant. */
+fun writeAccessIntent(treeUri: String): Intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
+    .putExtra(DocumentsContract.EXTRA_INITIAL_URI, treeUri.toUri())
+    .addFlags(
+        Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
+            Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION,
+    )
+
 /** Library roots backed by persisted Storage Access Framework tree grants (read only by default). */
 @Singleton
 class SafRootAccess @Inject constructor(
@@ -29,6 +37,20 @@ class SafRootAccess @Inject constructor(
         return store.addRoot(treeUri, displayName(tree), canWrite = false)
     }
 
+    override suspend fun grantWrite(rootId: String, pickedTreeUri: String): Boolean {
+        val root = store.root(rootId) ?: return false
+        val picked = pickedTreeUri.toUri()
+        if (!sameTree(picked, root.treeUri.toUri())) return false
+        val flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+        try {
+            context.contentResolver.takePersistableUriPermission(root.treeUri.toUri(), flags)
+        } catch (_: SecurityException) {
+            return false
+        }
+        store.setCanWrite(rootId, true)
+        return true
+    }
+
     override suspend fun remove(rootId: String) {
         val root = store.root(rootId) ?: return
         store.removeRoot(rootId)
@@ -44,6 +66,10 @@ class SafRootAccess @Inject constructor(
                 }
         }
     }
+
+    private fun sameTree(a: Uri, b: Uri): Boolean = runCatching {
+        a.authority == b.authority && DocumentsContract.getTreeDocumentId(a) == DocumentsContract.getTreeDocumentId(b)
+    }.getOrDefault(false)
 
     private fun displayName(tree: Uri): String {
         val fallback = DocumentsContract.getTreeDocumentId(tree).substringAfterLast(':').substringAfterLast('/')

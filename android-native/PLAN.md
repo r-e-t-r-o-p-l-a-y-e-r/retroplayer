@@ -43,7 +43,7 @@ screenshot comparison described there.
 | T05b | Library gestures: swipe to queue, long-press reorder | opus | done |
 | T06 | Queue screen + add-tracks picker | any | todo |
 | T07 | Playlist detail, save, delete | any | todo |
-| T08 | Write-grant upgrade flow | opus | todo |
+| T08 | Write-grant upgrade flow | opus | done (engine; UI in T07) |
 | T09 | Library leftovers: A-Z, scroll restore, root removal | any | todo |
 | T10 | Settings screens (theme, language, data, reset, licenses, about) | any | todo |
 | T11 | Equalizer engine | opus | todo |
@@ -473,7 +473,18 @@ available, simply continue top to bottom.
 
 ## T08 Write-grant upgrade flow
 
-- Owner: opus. Status: todo. Depends: none. UC-02, UC-08.
+- Owner: opus. Status: done (engine). Depends: none. UC-02, UC-08.
+- As built: `writeAccessIntent(treeUri)` (in `SafRootAccess.kt`: picker
+  opens at the root, read+write+persistable flags) and
+  `RootAccess.grantWrite(rootId, pickedTreeUri)`: same tree (authority +
+  tree document id) takes the persistable read|write grant and sets
+  `LibraryStore.setCanWrite`; any other folder returns false and nothing is
+  kept. `SafRootAccessTest` covers all three. No explanation dialog (it
+  would need new strings); on false show `folder_access_denied`.
+  Wiring for T07: when saving needs write access, launch
+  `rememberLauncherForActivityResult(StartActivityForResult())` with
+  `writeAccessIntent(root.treeUri)`, pass `result.data?.data` to
+  `grantWrite`, then retry the save.
 - Goal: a read-only root can be upgraded to read+write when the user wants
   to save a playlist; declining keeps everything working read-only.
 - Files: `app/.../library/RootAccess.kt` (+ `requestWrite`),

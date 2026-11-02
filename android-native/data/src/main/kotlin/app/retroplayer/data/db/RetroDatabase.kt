@@ -88,6 +88,9 @@ interface RootDao {
     @Query("UPDATE library_roots SET canWrite = :canWrite, name = :name WHERE id = :id")
     suspend fun update(id: Long, name: String, canWrite: Boolean)
 
+    @Query("UPDATE library_roots SET canWrite = :canWrite WHERE id = :id")
+    suspend fun setCanWrite(id: Long, canWrite: Boolean)
+
     @Query("DELETE FROM library_roots WHERE id = :id")
     suspend fun delete(id: Long)
 

@@ -87,6 +87,12 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
             return store.addRoot(treeUri, treeUri.substringAfterLast('/'), canWrite = false)
         }
 
+        override suspend fun grantWrite(rootId: String, pickedTreeUri: String): Boolean {
+            val ok = store.root(rootId)?.treeUri == pickedTreeUri
+            if (ok) store.setCanWrite(rootId, true)
+            return ok
+        }
+
         override suspend fun remove(rootId: String) = store.removeRoot(rootId)
     }
 }

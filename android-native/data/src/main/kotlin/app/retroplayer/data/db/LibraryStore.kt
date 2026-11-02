@@ -51,6 +51,10 @@ class LibraryStore(private val db: RetroDatabase, private val clock: () -> Long 
         }
     }
 
+    suspend fun setCanWrite(id: String, canWrite: Boolean) {
+        id.toLongOrNull()?.let { db.rootDao().setCanWrite(it, canWrite) }
+    }
+
     suspend fun moveRoot(from: Int, to: Int) = db.withTransaction {
         val list = db.rootDao().all().toMutableList()
         if (from !in list.indices || to !in list.indices) return@withTransaction
