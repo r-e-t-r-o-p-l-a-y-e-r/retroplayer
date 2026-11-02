@@ -116,4 +116,13 @@ class QueueBuilderTest {
         assertThat(queue.startPositionMs).isEqualTo(0)
         assertThat(queue.speed).isEqualTo(0.75f)
     }
+
+    @Test
+    fun `additions name the track and the item they join`() {
+        val addition = PlaybackRequests.addition("1/Book/03.mp3", PlaybackItem.QUEUE_ID)
+        assertThat(addition.mediaId).isEqualTo("1/Book/03.mp3")
+        assertThat(addition.localConfiguration).isNull()
+        assertThat(PlaybackRequests.additionTargetOf(addition)).isEqualTo(PlaybackItem.QUEUE_ID)
+        assertThat(PlaybackRequests.additionTargetOf(PlaybackRequests.request("folder:1/Book"))).isNull()
+    }
 }

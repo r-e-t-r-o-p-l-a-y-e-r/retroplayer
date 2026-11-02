@@ -12,6 +12,7 @@ import app.retroplayer.data.db.RetroDatabase
 import app.retroplayer.data.library.AbsolutePathMapper
 import app.retroplayer.data.library.DocumentSource
 import app.retroplayer.data.library.LibraryRepository
+import app.retroplayer.data.library.QueueRepository
 import app.retroplayer.data.library.LibraryScanner
 import app.retroplayer.data.library.PlaylistFiles
 import app.retroplayer.data.library.RootLocation
@@ -88,6 +89,10 @@ object AppModule {
     @Provides
     @Singleton
     fun repository(store: LibraryStore, scanner: LibraryScanner) = LibraryRepository(store, scanner)
+
+    @Provides
+    @Singleton
+    fun queue(settings: SettingsStore, scanner: LibraryScanner) = QueueRepository(settings, scanner)
 
     @Provides
     @Singleton

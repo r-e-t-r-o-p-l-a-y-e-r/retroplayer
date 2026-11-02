@@ -129,7 +129,11 @@ class PlaybackService : MediaLibraryService() {
             mediaItems: MutableList<MediaItem>,
         ): ListenableFuture<MutableList<MediaItem>> = scope.future {
             mediaItems.flatMap { item ->
-                if (item.localConfiguration != null) listOf(item) else queue.expand(listOf(item.mediaId))
+                if (item.localConfiguration != null) {
+                    listOf(item)
+                } else {
+                    queue.expand(listOf(item.mediaId), PlaybackRequests.additionTargetOf(item))
+                }
             }.toMutableList()
         }
 

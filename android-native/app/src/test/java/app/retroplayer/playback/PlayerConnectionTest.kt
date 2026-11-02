@@ -11,6 +11,8 @@ import androidx.media3.test.utils.TestExoPlayerBuilder
 import androidx.media3.test.utils.robolectric.TestPlayerRunHelper.advance
 import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.TestLibrary
+import app.retroplayer.domain.LibraryPath
+import app.retroplayer.domain.model.PlaybackItem
 import app.retroplayer.domain.model.SavedPlaybackState
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.CompletableDeferred
@@ -61,16 +63,16 @@ class PlayerConnectionTest {
 
     private fun connection() = PlayerConnection(scope, lib.store, lib.settings) { player.await() }
 
-    private fun queued(vararg ids: String) = ids.map { id ->
+    private fun queued(vararg ids: String, itemId: String = "album") = ids.map { id ->
         MediaItem.Builder()
             .setMediaId(id)
             .setUri("doc:$id")
-            .setMediaMetadata(MediaMetadata.Builder().setTitle(id).setExtras(PlaybackRequests.itemExtras("album", "doc:$id")).build())
+            .setMediaMetadata(MediaMetadata.Builder().setTitle(id).setExtras(PlaybackRequests.itemExtras(itemId, "doc:$id")).build())
             .build()
     }
 
-    private fun loadQueue(vararg ids: String) {
-        exo.setMediaItems(queued(*ids))
+    private fun loadQueue(vararg ids: String, itemId: String = "album") {
+        exo.setMediaItems(queued(*ids, itemId = itemId))
         exo.prepare()
         advance(exo).untilState(Player.STATE_READY)
     }
@@ -87,8 +89,8 @@ class PlayerConnectionTest {
         }
     }
 
-    private fun connected(vararg ids: String = arrayOf("a", "b")): PlayerConnection {
-        loadQueue(*ids)
+    private fun connected(vararg ids: String = arrayOf("a", "b"), itemId: String = "album"): PlayerConnection {
+        loadQueue(*ids, itemId = itemId)
         val connection = connection()
         player.complete(exo)
         waitUntil { connection.nowPlaying.value.hasTrack }
@@ -218,5 +220,45 @@ class PlayerConnectionTest {
             assertThat(it.itemId).isEqualTo("album")
             assertThat(it.subtitle).isEqualTo("Tester")
         }
+    }
+
+    private fun ids() = List(exo.mediaItemCount) { exo.getMediaItemAt(it).mediaId }
+
+    private fun storeQueue(vararg ids: String) = runBlocking { lib.settings.setQueue(ids.map(::LibraryPath)) }
+
+    @Test
+    fun `queue edits apply to the live player when the queue plays`() {
+        storeQueue("a", "b", "c")
+        connected("a", "b", "c", itemId = PlaybackItem.QUEUE_ID)
+
+        storeQueue("c", "a")
+        waitUntil { ids() == listOf("c", "a") }
+        assertThat(exo.currentMediaItem?.mediaId).isEqualTo("a")
+
+        storeQueue("c", "a", "d")
+        waitUntil { ids() == listOf("c", "a", "d") }
+        assertThat(PlaybackRequests.additionTargetOf(exo.getMediaItemAt(2))).isEqualTo(PlaybackItem.QUEUE_ID)
+        assertThat(exo.currentMediaItem?.mediaId).isEqualTo("a")
+    }
+
+    @Test
+    fun `queue edits do not touch the player when an album plays`() {
+        storeQueue("a", "b")
+        connected("a", "b")
+
+        storeQueue("b")
+        waitUntil { runBlocking { lib.settings.session.first().queue } == listOf(LibraryPath("b")) }
+        repeat(5) { waitUntil { true } }
+        assertThat(ids()).containsExactly("a", "b").inOrder()
+    }
+
+    @Test
+    fun `clearing the playing queue stops playback`() {
+        storeQueue("a", "b")
+        val connection = connected("a", "b", itemId = PlaybackItem.QUEUE_ID)
+
+        storeQueue()
+        waitUntil { exo.mediaItemCount == 0 }
+        waitUntil { !connection.nowPlaying.value.hasTrack }
     }
 }

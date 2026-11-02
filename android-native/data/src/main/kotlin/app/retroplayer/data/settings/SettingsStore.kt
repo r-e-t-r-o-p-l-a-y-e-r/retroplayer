@@ -67,7 +67,7 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
             browsePath = p[Keys.browsePath]?.let(::LibraryPath),
             openAlbumId = p[Keys.openAlbum],
             lastItemId = p[Keys.lastItem],
-            queue = p[Keys.queue]?.split('\n')?.filter { it.isNotEmpty() }?.map(::LibraryPath).orEmpty(),
+            queue = parseQueue(p[Keys.queue]),
         )
     }.distinctUntilChanged()
 
@@ -95,9 +95,16 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
 
     suspend fun setLastItem(itemId: String?) = dataStore.edit { it.put(Keys.lastItem, itemId, null) }
 
-    suspend fun setQueue(paths: List<LibraryPath>) = dataStore.edit {
-        it.put(Keys.queue, paths.joinToString("\n") { p -> p.value }.ifEmpty { null }, null)
+    suspend fun setQueue(paths: List<LibraryPath>) = updateQueue { paths }
+
+    /** Reads and writes the queue in one DataStore transaction, so concurrent edits do not overwrite each other. */
+    suspend fun updateQueue(transform: (List<LibraryPath>) -> List<LibraryPath>) = dataStore.edit {
+        val updated = transform(parseQueue(it[Keys.queue]))
+        it.put(Keys.queue, updated.joinToString("\n") { p -> p.value }.ifEmpty { null }, null)
     }
+
+    private fun parseQueue(raw: String?): List<LibraryPath> =
+        raw?.split('\n')?.filter { it.isNotEmpty() }?.map(::LibraryPath).orEmpty()
 
     suspend fun reset() = dataStore.edit { it.clear() }
 

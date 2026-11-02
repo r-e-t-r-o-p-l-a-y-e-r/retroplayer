@@ -28,9 +28,13 @@ class SessionQueue(
         return QueueBuilder.build(item, savedState(id), null, artwork)
     }
 
-    /** For controllers that add plain media ids (Assistant, Auto search): each id plays its whole item. */
-    suspend fun expand(mediaIds: List<String>): List<MediaItem> = mediaIds.flatMap { id ->
+    /**
+     * For controllers that add plain media ids (Assistant, Auto search): each
+     * id plays its whole item. With [intoItemId] the tracks join that item
+     * (queue edits while the queue plays).
+     */
+    suspend fun expand(mediaIds: List<String>, intoItemId: String? = null): List<MediaItem> = mediaIds.flatMap { id ->
         val item = items(id) ?: return@flatMap emptyList()
-        item.tracks.map { it.toMediaItem(item.id, artwork(it)) }
+        item.tracks.map { it.toMediaItem(intoItemId ?: item.id, artwork(it)) }
     }
 }

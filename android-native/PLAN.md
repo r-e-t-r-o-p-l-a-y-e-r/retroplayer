@@ -39,7 +39,7 @@ screenshot comparison described there.
 | T02b | Look and feel parity with the user guide (light + dark) | opus | done |
 | T03 | Expanded player: jumps, speed | any | todo |
 | T04 | Locate now playing + playback breadcrumbs | any | todo |
-| T05 | Queue engine (edit while playing) | opus | todo |
+| T05 | Queue engine (edit while playing) | opus | done |
 | T06 | Queue screen + add-tracks picker | any | todo |
 | T07 | Playlist detail, save, delete | any | todo |
 | T08 | Write-grant upgrade flow | opus | todo |
@@ -293,7 +293,20 @@ available, simply continue top to bottom.
 
 ## T05 Queue engine (edit while playing)
 
-- Owner: opus. Status: todo. Depends: T01. UC-08.
+- Owner: opus. Status: done. Depends: T01. UC-08.
+- As built (differs from the spec below; the code is the reference):
+  - `QueueEdits` (domain) `add` / `move` / `remove`; `SettingsStore.updateQueue`
+    does read-modify-write in one DataStore transaction.
+  - `QueueRepository(settings, scanner)` (data, Hilt singleton): `queue`
+    flow of `AudioTrack?`, `add(paths)`, `move(from, to)`, `remove(index)`,
+    `clear()`. UI code only talks to this; there is no `queueChanged` on
+    `PlaybackControls`.
+  - `PlayerConnection` follows the stored queue itself: while the current
+    item id is `queue` it removes, reorders and appends media items by
+    track id (current track keeps playing), and an emptied queue stops.
+    Appends use `PlaybackRequests.addition(trackId, QUEUE_ID)`, which the
+    service expands with `SessionQueue.expand(ids, intoItemId)`.
+  - To play the queue: `controls.play(PlaybackItem.QUEUE_ID, startTrackId)`.
 - Goal: a queue the user edits (add, move, remove, clear) that persists in
   `SettingsStore.queue`, plays as item `PlaybackItem.QUEUE_ID`, and when it
   is what is playing, edits apply to the live player without interrupting.
@@ -332,9 +345,16 @@ available, simply continue top to bottom.
   stable version from Maven Central). It is also used in T09.
 - Files: `ui/queue/QueueRoute` in `Routes.kt`, `QueueViewModel.kt`,
   `QueueScreen.kt`; `ui/queue/AddTracksScreen.kt` + `AddTracksViewModel.kt`.
+- Engine (T05): inject `QueueRepository` for reads and edits and
+  `PlaybackControls` to play; edits reach the live player automatically.
+- Look: no guide screenshot; build it like the playlist page (05) from
+  `ui/components`: `RetroTopBar(stringResource(R.string.queue))` with
+  `BackButton`, `RetroListRow` with `IconChip(Icons.Outlined.MusicNote)`,
+  `playing` on the current track.
 - Spec:
   - Open from an app-bar action (icon `Icons.Rounded.QueueMusic`, label
-    `R.string.queue`) on every folder screen including the root.
+    `R.string.queue`) on every folder screen including the root, placed
+    before `PlayerToggleAction()` (screenshot 02).
   - Rows: title, artist, duration; missing entries show `R.string.missing_track`.
     Tap a row: `controls.play(QUEUE_ID, startTrackId = path)`. Long-press drag
     reorders (reorderable library), swipe (`SwipeToDismissBox`) removes.

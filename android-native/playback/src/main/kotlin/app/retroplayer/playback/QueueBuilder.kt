@@ -30,6 +30,18 @@ object PlaybackRequests {
         )
         .build()
 
+    /** Asks the session to append the playback item [mediaId] to the playing [intoItemId] (the queue). */
+    fun addition(mediaId: String, intoItemId: String): MediaItem = MediaItem.Builder()
+        .setMediaId(mediaId)
+        .setRequestMetadata(
+            MediaItem.RequestMetadata.Builder()
+                .setExtras(Bundle().apply { putString(EXTRA_ITEM_ID, intoItemId) })
+                .build(),
+        )
+        .build()
+
+    fun additionTargetOf(item: MediaItem): String? = item.requestMetadata.extras?.getString(EXTRA_ITEM_ID)
+
     fun parse(item: MediaItem): PlaybackRequest? {
         if (item.mediaId.isEmpty() || item.mediaId == MediaItem.DEFAULT_MEDIA_ID) return null
         return PlaybackRequest(item.mediaId, item.requestMetadata.extras?.getString(EXTRA_START_TRACK))

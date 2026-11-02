@@ -87,6 +87,16 @@ class SettingsStoreTest {
     }
 
     @Test
+    fun `queue updates read and write in one step`() = runTest(UnconfinedTestDispatcher()) {
+        val (store, ds) = store()
+        store.updateQueue { it + LibraryPath("1/a.mp3") }
+        store.updateQueue { it + LibraryPath("1/b.mp3") }
+        assertThat(store.session.first().queue).containsExactly(LibraryPath("1/a.mp3"), LibraryPath("1/b.mp3")).inOrder()
+        store.updateQueue { emptyList() }
+        assertThat(ds.data.first().asMap()).isEmpty()
+    }
+
+    @Test
     fun `reset removes everything`() = runTest(UnconfinedTestDispatcher()) {
         val (store, ds) = store()
         store.setTheme(ThemePreference.LIGHT)

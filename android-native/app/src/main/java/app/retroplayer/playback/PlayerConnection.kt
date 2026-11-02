@@ -4,7 +4,9 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.settings.SettingsStore
+import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.TransportRules
+import app.retroplayer.domain.model.PlaybackItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -12,7 +14,9 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -44,7 +48,41 @@ class PlayerConnection @Inject constructor(
 
     init {
         scope.launch { connect() }
+        scope.launch { followStoredQueue() }
     }
+
+    /** UC-08: edits of the stored queue reach the live player while the queue plays, without interrupting it. */
+    private suspend fun followStoredQueue() {
+        var last: List<LibraryPath>? = null
+        settings.session.map { it.queue }.distinctUntilChanged().collect { queue ->
+            last?.let { before -> withController { syncQueue(before, queue) } }
+            last = queue
+        }
+    }
+
+    private fun Player.syncQueue(before: List<LibraryPath>, after: List<LibraryPath>) {
+        if (PlaybackRequests.itemIdOf(currentMediaItem) != PlaybackItem.QUEUE_ID) return
+        if (after.isEmpty()) {
+            stop()
+            clearMediaItems()
+            return
+        }
+        val wanted = after.map { it.value }
+        val keep = wanted.toSet()
+        for (index in mediaItemCount - 1 downTo 0) {
+            if (getMediaItemAt(index).mediaId !in keep) removeMediaItem(index)
+        }
+        wanted.filter { it in mediaIds() }.forEachIndexed { to, id ->
+            val from = mediaIds().indexOf(id)
+            if (from != to) moveMediaItem(from, to)
+        }
+        // Only paths new to the stored queue: missing files that never resolved are not retried.
+        val known = before.map { it.value }.toSet() + mediaIds()
+        val added = wanted.filter { it !in known }
+        if (added.isNotEmpty()) addMediaItems(added.map { PlaybackRequests.addition(it, PlaybackItem.QUEUE_ID) })
+    }
+
+    private fun Player.mediaIds() = List(mediaItemCount) { getMediaItemAt(it).mediaId }
 
     private suspend fun connect() {
         val connected = connector.connect() ?: return

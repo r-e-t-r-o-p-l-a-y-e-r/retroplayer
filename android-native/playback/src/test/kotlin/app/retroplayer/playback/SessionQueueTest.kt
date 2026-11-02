@@ -16,7 +16,8 @@ class SessionQueueTest {
 
     private val folder = PlaybackItem.Folder(LibraryPath("1/Book"), listOf(track("01.mp3"), track("02.mp3")))
     private val empty = PlaybackItem.Folder(LibraryPath("1/Empty"), emptyList())
-    private val items = mapOf(folder.id to folder, empty.id to empty)
+    private val single = PlaybackItem.Single(track("03.mp3"))
+    private val items = mapOf(folder.id to folder, empty.id to empty, single.id to single)
     private val saved = mutableMapOf<String, SavedPlaybackState>()
     private var lastItem: String? = null
 
@@ -59,6 +60,13 @@ class SessionQueueTest {
     @Test
     fun `nothing to resume on a fresh install`() = runTest {
         assertThat(queue.resumption()).isNull()
+    }
+
+    @Test
+    fun `tracks added to another item carry that item's id`() = runTest {
+        val expanded = queue.expand(listOf(single.id), intoItemId = PlaybackItem.QUEUE_ID)
+        assertThat(expanded.map { it.mediaId }).containsExactly("1/Book/03.mp3")
+        assertThat(PlaybackRequests.itemIdOf(expanded.single())).isEqualTo(PlaybackItem.QUEUE_ID)
     }
 
     @Test
