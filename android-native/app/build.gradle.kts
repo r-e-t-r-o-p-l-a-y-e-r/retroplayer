@@ -34,7 +34,14 @@ android {
     }
 
     buildTypes {
+        // Test builds install next to the release app (and the Flutter app, which uses the same id).
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            manifestPlaceholders["appLabel"] = "Retro Player test"
+        }
         release {
+            manifestPlaceholders["appLabel"] = "@string/app_name"
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")

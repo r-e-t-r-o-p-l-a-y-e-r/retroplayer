@@ -298,6 +298,15 @@ task status in PLAN.md in the same commit.
 Tasks that touch only `:domain` with no UI change still need `./gradlew check`;
 run smoke when the task’s “Done when” mentions smoke or when UI/playback changed.
 
+## Test build on a phone
+
+`scripts/install-test-build.sh` (`-d SERIAL`, `--no-launch`) builds the debug
+APK and installs it. Debug builds use the app id `app.retroplayer.debug`
+and the label "Retro Player test", so they sit next to the Flutter app
+(same id `app.retroplayer`) and a release build with separate data.
+`scripts/device-smoke.sh` defaults to the emulator, so the device tests never
+clear data on an attached phone.
+
 ## Device smoke test
 
 End-to-end checks run as instrumented tests against the real app
