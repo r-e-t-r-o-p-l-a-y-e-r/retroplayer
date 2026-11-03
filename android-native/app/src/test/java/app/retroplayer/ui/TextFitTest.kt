@@ -36,6 +36,7 @@ import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.model.AlbumSource
 import app.retroplayer.domain.model.AudioAlbum
 import app.retroplayer.domain.model.AudioTrack
+import app.retroplayer.domain.model.Chapter
 import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.domain.model.PlaylistRef
 import app.retroplayer.domain.model.TrackMetadata
@@ -62,6 +63,9 @@ import app.retroplayer.ui.queue.QueueUiState
 import app.retroplayer.ui.settings.EqualizerActions
 import app.retroplayer.ui.settings.EqualizerSection
 import app.retroplayer.ui.settings.EqualizerUiState
+import app.retroplayer.ui.settings.HeadsetActions
+import app.retroplayer.ui.settings.HeadsetSection
+import app.retroplayer.domain.settings.HeadsetSettings
 import app.retroplayer.ui.settings.LanguageOption
 import app.retroplayer.ui.settings.SettingsActions
 import app.retroplayer.ui.settings.SettingsContent
@@ -130,6 +134,7 @@ class TextFitTest(private val screen: Screen, private val locale: String) {
         SETTINGS_DATA({ SettingsDataContent(SettingsUiState(databaseFileName = "retroplayer.db", databasePath = "/data/user/0/app.retroplayer/databases"), {}) }),
         EQUALIZER_UNAVAILABLE({ SettingsContent(SettingsUiState(languages = languages), SettingsActions(), EqualizerUiState(available = false)) }),
         EQUALIZER({ Column(Modifier.verticalScroll(rememberScrollState())) { EqualizerSection(EqualizerUiState(available = true, settings = EqualizerSettings(enabled = true)), EqualizerActions()) } }),
+        HEADSET({ Column(Modifier.verticalScroll(rememberScrollState())) { HeadsetSection(HeadsetSettings(autoRewindSeconds = 30), HeadsetActions()) } }),
         ABOUT(
             { SettingsContent(SettingsUiState(languages = languages), SettingsActions()) },
             { compose -> compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(string(R.string.about_git_commit))) },
@@ -141,6 +146,11 @@ class TextFitTest(private val screen: Screen, private val locale: String) {
         PLAYER({ PlayerHost(playing, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) { LibraryHeader() } }),
         PLAYER_LANDSCAPE({ PlayerHost(playing, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) { LibraryHeader() } }, size = "w800dp-h360dp"),
         MINI_PLAYER({ PlayerHost(playing, expanded = false, onExpandedChange = {}, PLAYER_ACTIONS) {} }),
+        PLAYER_CHAPTERS({ PlayerHost(book, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) { LibraryHeader() } }),
+        CHAPTER_LIST(
+            { PlayerHost(book, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) { LibraryHeader() } },
+            { compose -> compose.onNodeWithText(book.chapters[1].title).performClick() },
+        ),
         ;
 
         override fun toString() = name.lowercase()
@@ -219,6 +229,17 @@ class TextFitTest(private val screen: Screen, private val locale: String) {
             complete = true,
         )
         private val languages = listOf(LanguageOption("de", "Deutsch"), LanguageOption("fi", "suomi"))
+        private val book by lazy {
+            playing.copy(
+                nowPlaying = playing.nowPlaying.copy(positionMs = 70_000),
+                chapters = listOf(
+                    Chapter(0, "Prologue"),
+                    Chapter(60_000, "Chapter 1: A rather long chapter title that does not fit on one line"),
+                    Chapter(120_000, "Epilogue"),
+                ),
+            )
+        }
+
         private val playing = PlayerUiState(
             NowPlaying(
                 title = "Song 2",

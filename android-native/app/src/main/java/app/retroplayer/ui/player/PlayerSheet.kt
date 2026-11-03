@@ -596,7 +596,7 @@ private fun ChapterRow(state: PlayerUiState, actions: PlayerActions) {
                 style = TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Medium, color = palette.textSecondary),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
-                modifier = Modifier.padding(start = 6.dp),
+                modifier = Modifier.padding(start = 6.dp).mayEllipsize(),
             )
         }
         IconButton(onClick = actions.nextChapter) {

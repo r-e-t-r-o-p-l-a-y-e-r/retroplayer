@@ -56,7 +56,7 @@ screenshot comparison described there.
 | T14d | Device feedback round 3 (mini drag, build time, swipe back, add tracks picker) | any | done |
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
 | T16 | Chapters in player, notification and seek bar | any | done |
-| T17 | Headset options UI + resume on reconnect | any | todo |
+| T17 | Headset options UI + resume on reconnect | any | done |
 | T18 | Android Auto browse tree | opus | done |
 | T19 | Glance home-screen widget | any | todo |
 | T20 | Managed devices + Roborazzi screenshots | any | todo |
@@ -863,7 +863,7 @@ available, simply continue top to bottom.
 
 ## T17 Headset options UI + resume on reconnect
 
-- Owner: any. Status: todo. Depends: T10.
+- Owner: any. Status: done. Depends: T10.
 - Existing: `HeadsetSettings(autoRewind, autoRewindSeconds, resumeOnReconnect)`,
   `AutoRewindTracker`, `TransportRules.autoRewindMs`, becoming-noisy pause.
 - Spec:
@@ -880,6 +880,22 @@ available, simply continue top to bottom.
 - Tests: `ReconnectPolicyTest` (4 cases), `HeadsetSettingsViewModelTest`:
   `default values leave no stored keys`, `turning resume on stores it`.
 - Done when: tests green.
+- Done (as built):
+  - A "Headphones" section on the settings page (after the equalizer), not
+    a separate page: `HeadsetSection` (switch rows with hints, seconds as a
+    segmented row, disabled while rewinding is off) over
+    `HeadsetSettingsViewModel`; strings are the ARB keys added in T16.
+  - `domain/.../ReconnectPolicy.kt`; `playback/.../ReconnectWatcher.kt`
+    keeps the noisy-pause time (cleared by any play) and resumes once on
+    added wired/USB/A2DP/BLE headset outputs. The service feeds it from an
+    exo listener and an `AudioDeviceCallback`. Starting the foreground
+    service from the background can be refused on Android 12+; Media3 then
+    shows its resume notification.
+  - Tests: `ReconnectPolicyTest` (4), `ReconnectWatcherTest` (5),
+    `HeadsetSettingsViewModelTest` (4), `HeadsetSectionTest` (4),
+    `TextFitTest` `headset`, `player_chapters`, `chapter_list`.
+  - Emulator: section look and stored choices checked; reconnect itself
+    needs real headphones (Pixel).
 
 ## T18 Android Auto browse tree
 

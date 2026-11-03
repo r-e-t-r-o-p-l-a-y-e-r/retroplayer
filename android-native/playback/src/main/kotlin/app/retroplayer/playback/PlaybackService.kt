@@ -2,14 +2,20 @@ package app.retroplayer.playback
 
 import android.app.PendingIntent
 import android.content.Intent
+import android.media.AudioDeviceCallback
+import android.media.AudioDeviceInfo
+import android.media.AudioManager
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.os.SystemClock
 import androidx.core.net.toUri
 import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
+import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.analytics.AnalyticsListener
@@ -60,6 +66,7 @@ class PlaybackService : MediaLibraryService() {
     private lateinit var equalizer: EqualizerBinder
     private lateinit var tree: LibraryTree
     private lateinit var chapterTracker: ChapterTracker
+    private lateinit var outputs: AudioDeviceCallback
 
     @Volatile private var headset = HeadsetSettings()
 
@@ -87,6 +94,18 @@ class PlaybackService : MediaLibraryService() {
         player = RetroPlayer(exo, AutoRewindTracker(SystemClock::elapsedRealtime), { headset }) {
             chapterTracker.chapters.map { it.startMs }
         }
+        val reconnect = ReconnectWatcher(SystemClock::elapsedRealtime, { headset.resumeOnReconnect }, player::play)
+        exo.addListener(
+            object : Player.Listener {
+                override fun onPlayWhenReadyChanged(playWhenReady: Boolean, reason: Int) =
+                    reconnect.onPlayWhenReadyChanged(playWhenReady, reason)
+            },
+        )
+        outputs = object : AudioDeviceCallback() {
+            override fun onAudioDevicesAdded(addedDevices: Array<out AudioDeviceInfo>) =
+                reconnect.onOutputsAdded(addedDevices.filter { it.isSink }.map { it.type })
+        }
+        getSystemService(AudioManager::class.java).registerAudioDeviceCallback(outputs, Handler(Looper.getMainLooper()))
         saver = ProgressSaver(player, appScope) { id, state -> store.savePlayback(id, state) }
         saver.start()
         queue = SessionQueue(
@@ -123,6 +142,7 @@ class PlaybackService : MediaLibraryService() {
     }
 
     override fun onDestroy() {
+        getSystemService(AudioManager::class.java).unregisterAudioDeviceCallback(outputs)
         saver.saveNow()
         saver.stop()
         equalizer.release()

@@ -45,6 +45,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.retroplayer.BuildConfig
 import app.retroplayer.R
+import app.retroplayer.domain.settings.HeadsetSettings
 import app.retroplayer.domain.settings.ThemePreference
 import app.retroplayer.ui.components.BackButton
 import app.retroplayer.ui.components.DialogText
@@ -73,9 +74,11 @@ fun SettingsScreen(
     openLicenses: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel(),
     equalizerViewModel: EqualizerViewModel = hiltViewModel(),
+    headsetViewModel: HeadsetSettingsViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val equalizer by equalizerViewModel.state.collectAsStateWithLifecycle()
+    val headset by headsetViewModel.state.collectAsStateWithLifecycle()
     SettingsContent(
         state = state,
         actions = SettingsActions(
@@ -92,6 +95,12 @@ fun SettingsScreen(
             setBand = equalizerViewModel::setBand,
             reset = equalizerViewModel::reset,
         ),
+        headset = headset,
+        headsetActions = HeadsetActions(
+            setAutoRewind = headsetViewModel::setAutoRewind,
+            setAutoRewindSeconds = headsetViewModel::setAutoRewindSeconds,
+            setResumeOnReconnect = headsetViewModel::setResumeOnReconnect,
+        ),
     )
 }
 
@@ -101,6 +110,8 @@ fun SettingsContent(
     actions: SettingsActions,
     equalizer: EqualizerUiState = EqualizerUiState(),
     equalizerActions: EqualizerActions = EqualizerActions(),
+    headset: HeadsetSettings = HeadsetSettings.DEFAULT,
+    headsetActions: HeadsetActions = HeadsetActions(),
 ) {
     var confirmReset by remember { mutableStateOf(false) }
     Scaffold(
@@ -122,6 +133,8 @@ fun SettingsContent(
             item { LanguageDropdown(state, actions.setLanguage) }
             item { HorizontalDivider(Modifier.padding(vertical = 8.dp)) }
             item { EqualizerSection(equalizer, equalizerActions) }
+            item { HorizontalDivider(Modifier.padding(vertical = 8.dp)) }
+            item { HeadsetSection(headset, headsetActions) }
             item { HorizontalDivider(Modifier.padding(vertical = 8.dp)) }
             item { NavigationRow(stringResource(R.string.data_storage), actions.openDataStorage) }
             item { NavigationRow(stringResource(R.string.open_source_licenses), actions.openLicenses) }
