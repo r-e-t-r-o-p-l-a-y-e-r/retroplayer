@@ -19,6 +19,12 @@ Hard rules (never break these):
   (`verifyReleasePrivacy` in `app/build.gradle.kts`).
 - Storage only through the Storage Access Framework (`content://` tree URIs).
   No `READ_MEDIA_*` or `MANAGE_EXTERNAL_STORAGE` permissions.
+- The user's folders and media files are read-only. Never create, change,
+  rename, move or delete them. The only exception is M3U playlists this app
+  created (`LibraryStore.isAppPlaylist`), written only through `PlaylistFiles`.
+  Removing a folder from the library or resetting the database only forgets
+  it (database rows and the app's access grant); nothing on disk changes.
+  `DiskWriteGuardTest` fails the build if any other code can write documents.
 - Store only non-default settings: writing a value equal to its default removes
   the key or row (see `SettingsStore.put`). Every new setting needs a test
   "set to default leaves no entry".

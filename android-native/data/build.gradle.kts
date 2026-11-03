@@ -47,3 +47,8 @@ dependencies {
     testImplementation(libs.androidx.test.ext.junit)
     testImplementation(libs.room.testing)
 }
+
+// DiskWriteGuardTest reads every module's main sources; rerun it when any of them changes.
+tasks.withType<Test>().configureEach {
+    inputs.files(fileTree(rootDir) { include("*/src/main/**/*.kt") }).withPropertyName("guardedSources")
+}
