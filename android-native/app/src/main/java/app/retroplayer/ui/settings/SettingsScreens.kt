@@ -274,23 +274,6 @@ fun SettingsAboutScreen(back: () -> Unit) {
     }
 }
 
-@Composable
-fun SettingsEqualizerScreen(back: () -> Unit) {
-    Scaffold(
-        topBar = {
-            RetroTopBar(
-                stringResource(R.string.equalizer),
-                navigationIcon = { BackButton(back) },
-            )
-        },
-    ) { padding ->
-        Text(
-            stringResource(R.string.equalizer_unavailable),
-            Modifier.padding(padding).padding(16.dp),
-        )
-    }
-}
-
 /** Settings gear for library top bars. */
 @Composable
 fun SettingsNavAction(onClick: () -> Unit) {

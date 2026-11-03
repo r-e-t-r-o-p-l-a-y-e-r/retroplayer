@@ -160,7 +160,7 @@ class DeviceSmokeTest {
             R.string.data_storage to hasText("retroplayer.db", substring = true),
             R.string.open_source_licenses to hasText("AndroidX Media3 ExoPlayer", substring = true),
             R.string.app_name to hasText(s(R.string.about_version), substring = true),
-            R.string.equalizer to hasText(s(R.string.equalizer_unavailable)),
+            R.string.equalizer to hasContentDescription("60 Hz"),
         )
         pages.forEach { (row, content) ->
             compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(s(row)))

@@ -43,7 +43,7 @@ import app.retroplayer.ui.navigation.SettingsRoute
 import app.retroplayer.ui.navigation.isSettings
 import app.retroplayer.ui.settings.SettingsAboutScreen
 import app.retroplayer.ui.settings.SettingsDataScreen
-import app.retroplayer.ui.settings.SettingsEqualizerScreen
+import app.retroplayer.ui.settings.EqualizerScreen
 import app.retroplayer.ui.settings.SettingsLicensesScreen
 import app.retroplayer.ui.settings.SettingsScreen
 import app.retroplayer.ui.playlist.PlaylistScreen
@@ -205,7 +205,7 @@ private fun LibraryNavHost(
             SettingsAboutScreen(back = { nav.popBackStack() })
         }
         composable<SettingsEqualizerRoute> {
-            SettingsEqualizerScreen(back = { nav.popBackStack() })
+            EqualizerScreen(back = { nav.popBackStack() })
         }
     }
     val backStackEntry by nav.currentBackStackEntryAsState()

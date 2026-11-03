@@ -48,7 +48,7 @@ screenshot comparison described there.
 | T10 | Settings screens (theme, language, data, reset, licenses, about) | any | done |
 | T11 | Equalizer engine | opus | done |
 | T10b | Device smoke tests (instrumented, AGENTS gate) | any | done |
-| T12 | Equalizer settings UI | any | todo |
+| T12 | Equalizer settings UI | any | done |
 | T13 | Keyboard shortcuts | any | todo |
 | T14 | Text-fit guards and pseudo-locales | any | todo |
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
@@ -634,7 +634,7 @@ available, simply continue top to bottom.
 
 ## T12 Equalizer settings UI
 
-- Owner: any. Status: todo. Depends: T10, T11.
+- Owner: any. Status: done. Depends: T10, T11.
 - Flutter reference: `lib/ui/features/settings/` equalizer widgets.
 - Spec: page title `equalizer`; enable switch; presets as a wrapping
   `FlowRow` of `FilterChip`s (`eq_manually`, `eq_bass`, `eq_treble`,
@@ -648,6 +648,9 @@ available, simply continue top to bottom.
   `EqualizerContentTest`: `unavailable disables the controls`,
   `preset chips wrap instead of clipping` (with T14 helper).
 - Done when: tests green, smoke.
+- Done: `EqualizerScreen.kt` (rotated `Slider`s in forced LTR, whole-dB
+  steps), `EqualizerViewModel` (100 ms debounced band saves); device smoke
+  checks the page shows the 60 Hz band.
 
 ## T13 Keyboard shortcuts
 
