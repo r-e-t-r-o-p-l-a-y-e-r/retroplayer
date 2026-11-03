@@ -379,6 +379,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get addTracks => 'Titel hinzufügen';
 
   @override
+  String get addSelectedTracks => 'Ausgewählte Titel hinzufügen';
+
+  @override
   String get save => 'Speichern';
 
   @override

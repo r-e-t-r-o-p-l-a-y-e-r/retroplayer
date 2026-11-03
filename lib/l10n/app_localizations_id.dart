@@ -380,6 +380,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get addTracks => 'Tambahkan trek';
 
   @override
+  String get addSelectedTracks => 'Tambahkan trek terpilih';
+
+  @override
   String get save => 'Simpan';
 
   @override

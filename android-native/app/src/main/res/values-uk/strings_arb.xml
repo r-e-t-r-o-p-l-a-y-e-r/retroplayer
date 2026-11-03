@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Це видаляє всі треки з черги. Аудіофайли та збережені плейлисти залишаються.</string>
     <string name="new_playlist_name">Назва плейлиста</string>
     <string name="add_tracks">Додати треки</string>
+    <string name="add_selected_tracks">Додати вибрані треки</string>
     <string name="save">Зберегти</string>
     <string name="add_tracks_from_library">Додати з бібліотеки</string>
     <string name="add_tracks_confirm">Додати (%1$d)</string>

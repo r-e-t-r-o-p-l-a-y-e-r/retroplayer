@@ -195,6 +195,7 @@
   "clearQueueBody": "Baineann sé seo gach rian as an scuaine. Fánann comhaid fuaime agus liostaí seinnte sábháilte.",
   "newPlaylistName": "Ainm an liosta seinnte",
   "addTracks": "Cuir ri rianacha",
+  "addSelectedTracks": "Cuir na rianta roghnaithe leis",
   "save": "Sábháil",
   "addTracksFromLibrary": "Cuir leis an leabharlann",
   "@addTracksConfirm": {

@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Това премахва всички песни от опашката. Аудиофайловете и запазените плейлисти остават.</string>
     <string name="new_playlist_name">Име на плейлиста</string>
     <string name="add_tracks">Добави песни</string>
+    <string name="add_selected_tracks">Добави избраните песни</string>
     <string name="save">Запази</string>
     <string name="add_tracks_from_library">Добави от библиотеката</string>
     <string name="add_tracks_confirm">Добави (%1$d)</string>

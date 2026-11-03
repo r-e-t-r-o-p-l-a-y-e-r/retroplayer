@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Με αυτόν τον τρόπο αφαιρούνται όλα τα κομμάτια από την ουρά αναπαραγωγής. Τα αρχεία ήχου και οι αποθηκευμένες λίστες αναπαραγωγής παραμένουν.</string>
     <string name="new_playlist_name">Όνομα λίστας αναπαραγωγής</string>
     <string name="add_tracks">Προσθήκη κομματιών</string>
+    <string name="add_selected_tracks">Προσθήκη επιλεγμένων κομματιών</string>
     <string name="save">Αποθήκευση</string>
     <string name="add_tracks_from_library">Προσθήκη από τη βιβλιοθήκη</string>
     <string name="add_tracks_confirm">Προσθήκη (%1$d)</string>

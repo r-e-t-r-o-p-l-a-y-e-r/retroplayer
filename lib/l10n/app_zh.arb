@@ -195,6 +195,7 @@
   "clearQueueBody": "这将从队列中删除每个轨道。 保留音频文件和已保存的播放列表。",
   "newPlaylistName": "播放列表名称",
   "addTracks": "添加曲目",
+  "addSelectedTracks": "添加所选曲目",
   "save": "保存",
   "addTracksFromLibrary": "从库中添加",
   "@addTracksConfirm": {

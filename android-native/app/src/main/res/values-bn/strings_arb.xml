@@ -110,6 +110,7 @@
     <string name="clear_queue_body">এটি সারি থেকে প্রতিটি ট্র্যাক সরিয়ে দেয় । অডিও ফাইল এবং সংরক্ষিত প্লেলিস্ট থাকা ।</string>
     <string name="new_playlist_name">প্লেলিস্টের নাম</string>
     <string name="add_tracks">ট্র্যাক যোগ করুন</string>
+    <string name="add_selected_tracks">নির্বাচিত ট্র্যাক যোগ করুন</string>
     <string name="save">সেভ করুন</string>
     <string name="add_tracks_from_library">লাইব্রেরি থেকে যোগ করুন</string>
     <string name="add_tracks_confirm">(%1$d) যোগ করুন</string>

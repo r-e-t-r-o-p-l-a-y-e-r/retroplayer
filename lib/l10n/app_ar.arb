@@ -195,6 +195,7 @@
   "clearQueueBody": "يؤدي هذا إلى إزالة كل مسار من قائمة الانتظار. تبقى ملفات الصوت وقوائم التشغيل المحفوظة.",
   "newPlaylistName": "اسم قائمة التشغيل",
   "addTracks": "إضافة مسارات",
+  "addSelectedTracks": "إضافة المسارات المحددة",
   "save": "حفظ",
   "addTracksFromLibrary": "إضافة من المكتبة",
   "@addTracksConfirm": {

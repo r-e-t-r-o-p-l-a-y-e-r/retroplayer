@@ -379,6 +379,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get addTracks => 'ট্র্যাক যোগ করুন';
 
   @override
+  String get addSelectedTracks => 'নির্বাচিত ট্র্যাক যোগ করুন';
+
+  @override
   String get save => 'সেভ করুন';
 
   @override

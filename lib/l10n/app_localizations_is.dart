@@ -377,6 +377,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get addTracks => 'Bæta við lögum';
 
   @override
+  String get addSelectedTracks => 'Bæta við völdum lögum';
+
+  @override
   String get save => 'Vista';
 
   @override

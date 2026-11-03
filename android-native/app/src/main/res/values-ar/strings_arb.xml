@@ -110,6 +110,7 @@
     <string name="clear_queue_body">يؤدي هذا إلى إزالة كل مسار من قائمة الانتظار. تبقى ملفات الصوت وقوائم التشغيل المحفوظة.</string>
     <string name="new_playlist_name">اسم قائمة التشغيل</string>
     <string name="add_tracks">إضافة مسارات</string>
+    <string name="add_selected_tracks">إضافة المسارات المحددة</string>
     <string name="save">حفظ</string>
     <string name="add_tracks_from_library">إضافة من المكتبة</string>
     <string name="add_tracks_confirm">إضافة (%1$d)</string>

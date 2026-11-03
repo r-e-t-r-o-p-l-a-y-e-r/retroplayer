@@ -63,6 +63,53 @@ class AddTracksViewModelTest {
     }
 
     @Test
+    fun `selecting a folder adds every track under it in play order`() = main.runVmTest {
+        viewModel.openFolder(lib.p("Albums").parent!!)
+        viewModel.toggleFolder(lib.p("Albums"))
+        val browse = viewModel.state.first { it is AddTracksUiState.Browse && it.selected.isNotEmpty() } as AddTracksUiState.Browse
+        assertThat(browse.checkedFolders).containsExactly(lib.p("Albums"))
+        val result = CompletableDeferred<AddTracksConfirmResult>()
+        viewModel.confirm { result.complete(it) }
+        assertThat(result.await()).isEqualTo(AddTracksConfirmResult.Added(2))
+        assertThat(lib.settings.session.first().queue.map { it.name }).containsExactly("t2.mp3", "t1.mp3").inOrder()
+    }
+
+    @Test
+    fun `selecting a folder again clears it`() = main.runVmTest {
+        viewModel.openFolder(lib.p("Loose").parent!!)
+        viewModel.toggleFolder(lib.p("Loose"))
+        val checked = viewModel.state.first { it is AddTracksUiState.Browse && it.selected.isNotEmpty() } as AddTracksUiState.Browse
+        assertThat(checked.checkedFolders).containsExactly(lib.p("Loose"))
+        viewModel.toggleFolder(lib.p("Loose"))
+        val browse = viewModel.state.first { it is AddTracksUiState.Browse && it.selected.isEmpty() } as AddTracksUiState.Browse
+        assertThat(browse.checkedFolders).isEmpty()
+    }
+
+    @Test
+    fun `an opened album lists its tracks in album order to pick single ones`() = main.runVmTest {
+        val browse = viewModel.state.first { it is AddTracksUiState.Browse && it.complete } as AddTracksUiState.Browse
+        viewModel.openAlbum(browse.audio.filterIsInstance<LibraryItem.Album>().single().album)
+        val album = viewModel.state.first { it is AddTracksUiState.AlbumTracks } as AddTracksUiState.AlbumTracks
+        assertThat(album.tracks.map { it.fileName }).containsExactly("t2.mp3", "t1.mp3").inOrder()
+        viewModel.toggleTrack(album.tracks.last().path)
+        val result = CompletableDeferred<AddTracksConfirmResult>()
+        viewModel.confirm { result.complete(it) }
+        assertThat(result.await()).isEqualTo(AddTracksConfirmResult.Added(1))
+        assertThat(lib.settings.session.first().queue.map { it.name }).containsExactly("t1.mp3")
+    }
+
+    @Test
+    fun `back returns to the previous place, then leaves`() = main.runVmTest {
+        val browse = viewModel.state.first { it is AddTracksUiState.Browse } as AddTracksUiState.Browse
+        viewModel.openAlbum(browse.audio.filterIsInstance<LibraryItem.Album>().single().album)
+        viewModel.state.first { it is AddTracksUiState.AlbumTracks }
+        assertThat(viewModel.back()).isTrue()
+        val again = viewModel.state.first { it is AddTracksUiState.Browse } as AddTracksUiState.Browse
+        assertThat(again.path).isEqualTo(lib.p("Albums/Alb"))
+        assertThat(viewModel.back()).isFalse()
+    }
+
+    @Test
     fun `already queued tracks are not added twice`() = main.runVmTest {
         lib.queue.add(listOf(lib.p("Albums/Alb/t1.mp3")))
         viewModel.toggleTrack(lib.p("Albums/Alb/t1.mp3"))

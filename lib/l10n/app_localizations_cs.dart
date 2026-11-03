@@ -381,6 +381,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get addTracks => 'Přidat skladby';
 
   @override
+  String get addSelectedTracks => 'Přidat vybrané skladby';
+
+  @override
   String get save => 'Uložit';
 
   @override

@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Bu işlem, sıradaki tüm parçaları siler. Ses dosyaları ve kaydedilmiş çalma listeleri kalır.</string>
     <string name="new_playlist_name">Oynatma listesinin adı</string>
     <string name="add_tracks">Yardımcı metin ekle</string>
+    <string name="add_selected_tracks">Seçili parçaları ekle</string>
     <string name="save">Kaydet</string>
     <string name="add_tracks_from_library">Kitaplıktan Ekle</string>
     <string name="add_tracks_confirm">(%1$d) ekle</string>

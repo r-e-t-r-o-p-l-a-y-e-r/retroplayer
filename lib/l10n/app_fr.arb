@@ -195,6 +195,7 @@
   "clearQueueBody": "Cela supprime chaque piste de la file d'attente. Les fichiers audio et les listes de lecture enregistrées restent.",
   "newPlaylistName": "Nom de la liste de lecture",
   "addTracks": "Ajouter des pistes",
+  "addSelectedTracks": "Ajouter les pistes sélectionnées",
   "save": "Enregistrer",
   "addTracksFromLibrary": "Ajouter depuis la bibliothèque",
   "@addTracksConfirm": {

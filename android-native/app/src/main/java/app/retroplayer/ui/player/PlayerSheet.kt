@@ -197,6 +197,7 @@ fun PlayerHost(
                             state,
                             actions,
                             onExpand = { onExpandedChange(true) },
+                            drag = sheet.drag,
                             modifier = Modifier
                                 .graphicsLayer { alpha = (1f - sheet.fraction / MINI_FADED).coerceIn(0f, 1f) }
                                 .then(if (miniActive) Modifier else Modifier.clearAndSetSemantics {}),
@@ -409,7 +410,7 @@ private fun Transport(now: NowPlaying, actions: PlayerActions, skipSize: Dp, pla
 }
 
 @Composable
-private fun MiniBody(state: PlayerUiState, actions: PlayerActions, onExpand: () -> Unit, modifier: Modifier = Modifier) {
+private fun MiniBody(state: PlayerUiState, actions: PlayerActions, onExpand: () -> Unit, drag: Modifier, modifier: Modifier = Modifier) {
     val now = state.nowPlaying
     val locateLabel = stringResource(R.string.show_library)
     val expandLabel = stringResource(R.string.expand_player)
@@ -418,6 +419,7 @@ private fun MiniBody(state: PlayerUiState, actions: PlayerActions, onExpand: () 
             .testTag(MINI_PLAYER_TAG)
             .then(modifier)
             .fillMaxWidth()
+            .then(drag)
             .clickable(interactionSource = null, indication = null, onClickLabel = expandLabel, onClick = onExpand)
             .windowInsetsPadding(WindowInsets.navigationBars)
             .padding(horizontal = 16.dp),

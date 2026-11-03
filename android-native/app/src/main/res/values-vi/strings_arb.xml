@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Thao tác này xóa tất cả các bản nhạc khỏi hàng đợi. Các tệp âm thanh và danh sách phát đã lưu vẫn được giữ nguyên.</string>
     <string name="new_playlist_name">Tên danh sách phát</string>
     <string name="add_tracks">Thêm bản nhạc</string>
+    <string name="add_selected_tracks">Thêm các bản nhạc đã chọn</string>
     <string name="save">Lưu</string>
     <string name="add_tracks_from_library">Thêm từ thư viện</string>
     <string name="add_tracks_confirm">Thêm (%1$d)</string>

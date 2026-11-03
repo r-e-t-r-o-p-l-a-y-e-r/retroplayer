@@ -195,6 +195,7 @@
   "clearQueueBody": "Týmto sa odstránia všetky skladby z fronty. Zvukové súbory a uložené zoznamy skladieb zostanú zachované.",
   "newPlaylistName": "Názov zoznamu skladieb",
   "addTracks": "Pridať skladby",
+  "addSelectedTracks": "Pridať vybrané skladby",
   "save": "Uložiť",
   "addTracksFromLibrary": "Pridať z knižnice",
   "@addTracksConfirm": {

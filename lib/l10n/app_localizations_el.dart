@@ -383,6 +383,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get addTracks => 'Προσθήκη κομματιών';
 
   @override
+  String get addSelectedTracks => 'Προσθήκη επιλεγμένων κομματιών';
+
+  @override
   String get save => 'Αποθήκευση';
 
   @override

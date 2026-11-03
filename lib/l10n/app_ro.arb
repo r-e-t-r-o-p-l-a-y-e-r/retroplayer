@@ -195,6 +195,7 @@
   "clearQueueBody": "Această acțiune elimină toate melodiile din coada de redare. Fișierele audio și listele de redare salvate rămân.",
   "newPlaylistName": "Numele listei de redare",
   "addTracks": "Adaugă piese",
+  "addSelectedTracks": "Adaugă piesele selectate",
   "save": "Salvare",
   "addTracksFromLibrary": "Adaugă din bibliotecă",
   "@addTracksConfirm": {

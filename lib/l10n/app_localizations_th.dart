@@ -379,6 +379,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get addTracks => 'เพิ่มเพลง';
 
   @override
+  String get addSelectedTracks => 'เพิ่มเพลงที่เลือก';
+
+  @override
   String get save => 'บันทึก';
 
   @override

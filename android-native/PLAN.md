@@ -53,6 +53,7 @@ screenshot comparison described there.
 | T14 | Text-fit guards and pseudo-locales | any | done |
 | T14b | Device feedback round 1 (settings like Flutter, player gestures) | any | done |
 | T14c | Device feedback round 2 (sheet below the header, save anywhere, queue icons) | any | done |
+| T14d | Device feedback round 3 (mini drag, build time, swipe back, add tracks picker) | any | done |
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
 | T16 | Chapters in player, notification and seek bar | any | todo |
 | T17 | Headset options UI + resume on reconnect | any | todo |
@@ -761,6 +762,34 @@ available, simply continue top to bottom.
   `SavePlaylistContentTest`, `QueueContentTest`, `PlaylistContentTest`,
   `LibraryRepositoryTest.album of a track`, `StartupRoutesTest`,
   `AppViewModelTest`; smoke saves through the picker.
+
+## T14d Device feedback round 3
+
+- Owner: opus. Status: done. Depends: T14c.
+- The whole mini player drags the sheet, not only the handle.
+- About shows the build's commit time `yyyy-MM-dd HH:mm:ss` in the device
+  zone (`BuildConfig.BUILD_TIME`, `buildTimeLabel`), as Flutter does.
+- Back swipes: `NavHost` used its default predictive pop transitions (the
+  page shrank to about 70 %), only back presses slid. `RetroNavHost` now
+  passes the slide as `predictivePopEnter/ExitTransition`. Emulator framestats:
+  the first swipe in a process has a ~2 s GPU frame (software renderer warm-up),
+  later swipes stay under 120 ms.
+- Add tracks: folders have a checkbox (every track below, in play order via
+  `folderQueue`), albums open to pick single tracks, checkbox takes the whole
+  album; back steps through the picker's history; "Add selected tracks"
+  (`addSelectedTracks`, new ARB key in all 46 languages, approved) is a
+  `RetroFab`; after adding it closes at once (it used to wait for the snackbar).
+- Library pages use `LibraryRepository.watchFolder`: `LibraryScanner.invalidate`
+  publishes `changed`, so a playlist saved or deleted by the app shows without
+  leaving the page for 5 s (found by the smoke test once adding got faster).
+- Save playlist: `RetroTextField` (underlined, page background, accent focus,
+  as Flutter's `TextField`); keyboard Done saves; Save sits above the keyboard.
+- Found, not changed: Turkish `addTracks` reads "Yardımcı metin ekle" ("add
+  helper text").
+- Tests: `PlayerSheetTest` (body drag), `BuildTimeTest`, `RetroNavHostTest`
+  (swipe slides full width), `AddTracksViewModelTest`, `AddTracksContentTest`,
+  `LibraryRepositoryTest` (watch), `SavePlaylistContentTest` (Done key); smoke
+  adds through the new button.
 
 ## T15 M4B chapter reader
 

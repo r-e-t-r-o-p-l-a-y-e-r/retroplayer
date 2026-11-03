@@ -382,6 +382,9 @@ class AppLocalizationsMk extends AppLocalizations {
   String get addTracks => 'Додај траки';
 
   @override
+  String get addSelectedTracks => 'Додај ги избраните траки';
+
+  @override
   String get save => 'Зачувај';
 
   @override

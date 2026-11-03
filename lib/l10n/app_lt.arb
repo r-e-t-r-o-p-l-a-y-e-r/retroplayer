@@ -195,6 +195,7 @@
   "clearQueueBody": "Tai pašalina visus įrašus iš eilės. Garso failai ir išsaugoti grojaraščiai lieka.",
   "newPlaylistName": "Grojaraščio pavadinimas",
   "addTracks": "Pridėti takelius",
+  "addSelectedTracks": "Pridėti pasirinktus takelius",
   "save": "Išsaugoti",
   "addTracksFromLibrary": "Pridėti iš bibliotekos",
   "@addTracksConfirm": {

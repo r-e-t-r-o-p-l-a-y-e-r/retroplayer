@@ -195,6 +195,7 @@
   "clearQueueBody": "यह कतार से हर ट्रैक को हटा देता है। ऑडियो फ़ाइलें और सेव की गई प्लेलिस्ट ठहरती हैं।",
   "newPlaylistName": "प्लेलिस्ट का नाम",
   "addTracks": "ट्रैक जोड़ें",
+  "addSelectedTracks": "चुने गए ट्रैक जोड़ें",
   "save": "सेव करें",
   "addTracksFromLibrary": "लाइब्रेरी से जोड़ें",
   "@addTracksConfirm": {

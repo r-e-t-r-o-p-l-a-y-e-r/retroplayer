@@ -195,6 +195,7 @@
   "clearQueueBody": "یہ قطار سے ہر ٹریک کو ہٹا دیتا ہے۔ آڈیو فائلیں اور محفوظ شدہ پلے لسٹس برقرار رہتی ہیں۔",
   "newPlaylistName": "پلے لسٹ کا نام",
   "addTracks": "ٹریکس شامل کریں",
+  "addSelectedTracks": "منتخب ٹریکس شامل کریں",
   "save": "محفوظ کریں",
   "addTracksFromLibrary": "لائبریری سے شامل کریں",
   "@addTracksConfirm": {

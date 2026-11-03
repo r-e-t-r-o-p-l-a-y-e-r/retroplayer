@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Þetta fjarlægir alla laga úr biðröðinni. Hljóðskrár og vistaðar spilunarlistar verða áfram.</string>
     <string name="new_playlist_name">Heiti spilunarlistans</string>
     <string name="add_tracks">Bæta við lögum</string>
+    <string name="add_selected_tracks">Bæta við völdum lögum</string>
     <string name="save">Vista</string>
     <string name="add_tracks_from_library">Bæta úr bókasafni</string>
     <string name="add_tracks_confirm">Bæta við (%1$d)</string>

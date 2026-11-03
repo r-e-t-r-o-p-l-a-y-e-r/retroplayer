@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Baineann sé seo gach rian as an scuaine. Fánann comhaid fuaime agus liostaí seinnte sábháilte.</string>
     <string name="new_playlist_name">Ainm an liosta seinnte</string>
     <string name="add_tracks">Cuir ri rianacha</string>
+    <string name="add_selected_tracks">Cuir na rianta roghnaithe leis</string>
     <string name="save">Sábháil</string>
     <string name="add_tracks_from_library">Cuir leis an leabharlann</string>
     <string name="add_tracks_confirm">Cuir (%1$d)</string>

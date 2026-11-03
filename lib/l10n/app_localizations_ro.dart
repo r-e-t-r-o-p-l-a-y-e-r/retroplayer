@@ -380,6 +380,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get addTracks => 'Adaugă piese';
 
   @override
+  String get addSelectedTracks => 'Adaugă piesele selectate';
+
+  @override
   String get save => 'Salvare';
 
   @override

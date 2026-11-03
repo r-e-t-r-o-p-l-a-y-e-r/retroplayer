@@ -195,6 +195,7 @@
   "clearQueueBody": "Þetta fjarlægir alla laga úr biðröðinni. Hljóðskrár og vistaðar spilunarlistar verða áfram.",
   "newPlaylistName": "Heiti spilunarlistans",
   "addTracks": "Bæta við lögum",
+  "addSelectedTracks": "Bæta við völdum lögum",
   "save": "Vista",
   "addTracksFromLibrary": "Bæta úr bókasafni",
   "@addTracksConfirm": {

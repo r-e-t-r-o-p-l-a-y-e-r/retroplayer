@@ -195,6 +195,7 @@
   "clearQueueBody": "Això elimina totes les pistes de la cua. Els fitxers d'àudio i les llistes de reproducció guardades es mantenen.",
   "newPlaylistName": "Nom de la llista de reproducció",
   "addTracks": "Afegir pistes",
+  "addSelectedTracks": "Afegir les pistes seleccionades",
   "save": "Desa",
   "addTracksFromLibrary": "Afegeix de la biblioteca",
   "@addTracksConfirm": {

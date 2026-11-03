@@ -12,6 +12,9 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.withContext
 import java.util.concurrent.ConcurrentHashMap
@@ -120,9 +123,15 @@ class LibraryScanner(
         return node
     }
 
+    private val changes = MutableSharedFlow<LibraryPath>(extraBufferCapacity = 64)
+
+    /** Folders the app changed through [invalidate]; listings at or below them are stale. */
+    val changed: SharedFlow<LibraryPath> = changes.asSharedFlow()
+
     /** Forgets cached children of [path] and everything below it. */
     fun invalidate(path: LibraryPath) {
         children.keys.removeIf { it.isWithin(path) }
+        changes.tryEmit(path)
     }
 
     fun invalidateAll() = children.clear()

@@ -195,6 +195,7 @@
   "clearQueueBody": "Dan ineħħi kull traċċa mill-kju. Il-fajls tal-awdjo u l-playlists salvati jibqgħu.",
   "newPlaylistName": "Isem il-playlist",
   "addTracks": "Żid traċċi",
+  "addSelectedTracks": "Żid it-traċċi magħżula",
   "save": "Salva",
   "addTracksFromLibrary": "Żid mill-librerija",
   "@addTracksConfirm": {

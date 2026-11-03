@@ -384,6 +384,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get addTracks => 'Ajouter des pistes';
 
   @override
+  String get addSelectedTracks => 'Ajouter les pistes sélectionnées';
+
+  @override
   String get save => 'Enregistrer';
 
   @override

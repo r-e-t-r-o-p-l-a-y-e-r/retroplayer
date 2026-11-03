@@ -195,6 +195,7 @@
   "clearQueueBody": "Detta tar bort alla låtar från kön. Ljudfiler och sparade spellistor finns kvar.",
   "newPlaylistName": "Namn på spellista",
   "addTracks": "Lägg till spår",
+  "addSelectedTracks": "Lägg till valda spår",
   "save": "Spara",
   "addTracksFromLibrary": "Lägg till från biblioteket",
   "@addTracksConfirm": {

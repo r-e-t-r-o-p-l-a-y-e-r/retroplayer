@@ -195,6 +195,7 @@
   "clearQueueBody": "פעולה זו מסירה את כל הרצועות מהתור. קבצי האודיו ורשימות ההשמעה השמורות נשארים.",
   "newPlaylistName": "שם רשימת ההשמעה",
   "addTracks": "הוסף רצועות",
+  "addSelectedTracks": "הוסף רצועות נבחרות",
   "save": "שמור",
   "addTracksFromLibrary": "הוסף מהספרייה",
   "@addTracksConfirm": {

@@ -195,6 +195,7 @@
   "clearQueueBody": "Isso remove todas as faixas da fila. Os arquivos de áudio e as listas de reprodução salvas permanecem.",
   "newPlaylistName": "Nome da lista de reprodução",
   "addTracks": "Adicionar faixas",
+  "addSelectedTracks": "Adicionar faixas selecionadas",
   "save": "Guardar",
   "addTracksFromLibrary": "Adicionar da biblioteca",
   "@addTracksConfirm": {

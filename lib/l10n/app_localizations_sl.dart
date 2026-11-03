@@ -383,6 +383,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get addTracks => 'Dodaj skladbe';
 
   @override
+  String get addSelectedTracks => 'Dodaj izbrane skladbe';
+
+  @override
   String get save => 'Shrani';
 
   @override

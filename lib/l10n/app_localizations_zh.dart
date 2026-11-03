@@ -367,6 +367,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get addTracks => '添加曲目';
 
   @override
+  String get addSelectedTracks => '添加所选曲目';
+
+  @override
   String get save => '保存';
 
   @override

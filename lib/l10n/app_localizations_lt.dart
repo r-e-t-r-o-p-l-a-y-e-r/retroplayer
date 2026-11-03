@@ -381,6 +381,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get addTracks => 'Pridėti takelius';
 
   @override
+  String get addSelectedTracks => 'Pridėti pasirinktus takelius';
+
+  @override
   String get save => 'Išsaugoti';
 
   @override

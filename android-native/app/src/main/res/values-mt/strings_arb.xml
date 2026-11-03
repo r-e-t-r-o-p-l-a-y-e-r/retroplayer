@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Dan ineħħi kull traċċa mill-kju. Il-fajls tal-awdjo u l-playlists salvati jibqgħu.</string>
     <string name="new_playlist_name">Isem il-playlist</string>
     <string name="add_tracks">Żid traċċi</string>
+    <string name="add_selected_tracks">Żid it-traċċi magħżula</string>
     <string name="save">Salva</string>
     <string name="add_tracks_from_library">Żid mill-librerija</string>
     <string name="add_tracks_confirm">Żid (%1$d)</string>

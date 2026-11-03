@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Dette fjerner alle spor fra køen. Lydfiler og lagrede spillelister beholdes.</string>
     <string name="new_playlist_name">Navn på spilleliste</string>
     <string name="add_tracks">Legg til spor</string>
+    <string name="add_selected_tracks">Legg til valgte spor</string>
     <string name="save">Lagre</string>
     <string name="add_tracks_from_library">Legg til fra biblioteket</string>
     <string name="add_tracks_confirm">Legg til (%1$d)</string>

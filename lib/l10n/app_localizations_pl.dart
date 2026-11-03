@@ -381,6 +381,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get addTracks => 'Dodaj utwory';
 
   @override
+  String get addSelectedTracks => 'Dodaj wybrane utwory';
+
+  @override
   String get save => 'Zapisz';
 
   @override

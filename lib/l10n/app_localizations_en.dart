@@ -378,6 +378,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addTracks => 'Add tracks';
 
   @override
+  String get addSelectedTracks => 'Add selected tracks';
+
+  @override
   String get save => 'Save';
 
   @override

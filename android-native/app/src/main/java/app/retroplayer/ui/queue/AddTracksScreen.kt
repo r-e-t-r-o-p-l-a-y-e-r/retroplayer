@@ -1,5 +1,6 @@
 package app.retroplayer.ui.queue
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.PlaylistAdd
 import androidx.compose.material.icons.outlined.Album
 import androidx.compose.material.icons.outlined.Folder
 import androidx.compose.material.icons.outlined.MusicNote
@@ -18,7 +20,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -37,58 +38,52 @@ import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.ui.components.BackButton
 import app.retroplayer.ui.components.BreadcrumbStrip
 import app.retroplayer.ui.components.IconChip
+import app.retroplayer.ui.components.RetroFab
 import app.retroplayer.ui.components.RetroListRow
 import app.retroplayer.ui.components.RetroTopBar
 import app.retroplayer.ui.components.SectionHeader
-import app.retroplayer.ui.components.addedToQueue
 import kotlinx.coroutines.launch
 
 data class AddTracksActions(
     val back: () -> Unit = {},
     val openRoot: (LibraryRoot) -> Unit = {},
     val openFolder: (LibraryPath) -> Unit = {},
+    val openAlbum: (AudioAlbum) -> Unit = {},
     val openCrumb: (Crumb) -> Unit = {},
-    val toggleTrack: (LibraryPath) -> Unit = {},
+    val toggleFolder: (LibraryPath) -> Unit = {},
     val toggleAlbum: (AudioAlbum) -> Unit = {},
+    val toggleTrack: (LibraryPath) -> Unit = {},
     val confirm: () -> Unit = {},
 )
 
+/** [onDone] closes the picker right after tracks were added; the queue or playlist shows them. */
 @Composable
 fun AddTracksScreen(viewModel: AddTracksViewModel, back: () -> Unit, onDone: () -> Unit) {
     val state = viewModel.state.collectAsStateWithLifecycle().value
     val snackbar = remember { SnackbarHostState() }
     val resources = LocalResources.current
     val scope = rememberCoroutineScope()
-    val selectedCount = (state as? AddTracksUiState.PickRoot)?.selected?.size
-        ?: (state as? AddTracksUiState.Browse)?.selected?.size
-        ?: 0
+    val stepBack = { if (!viewModel.back()) back() }
+    BackHandler(enabled = viewModel.canStepBack.collectAsStateWithLifecycle().value) { viewModel.back() }
     AddTracksContent(
         state = state,
-        confirmLabel = if (selectedCount == 0) {
-            stringResource(R.string.add_tracks)
-        } else {
-            stringResource(R.string.add_tracks_confirm, selectedCount)
-        },
         actions = AddTracksActions(
-            back = back,
+            back = stepBack,
             openRoot = viewModel::openRoot,
             openFolder = viewModel::openFolder,
+            openAlbum = viewModel::openAlbum,
             openCrumb = viewModel::openCrumb,
-            toggleTrack = viewModel::toggleTrack,
+            toggleFolder = viewModel::toggleFolder,
             toggleAlbum = viewModel::toggleAlbum,
+            toggleTrack = viewModel::toggleTrack,
             confirm = {
                 viewModel.confirm { result ->
-                    scope.launch {
-                        when (result) {
-                            AddTracksConfirmResult.NothingSelected ->
-                                snackbar.showSnackbar(resources.getString(R.string.add_tracks_nothing_selected))
-                            AddTracksConfirmResult.NothingAdded ->
-                                snackbar.showSnackbar(resources.getString(R.string.add_tracks_nothing_added))
-                            is AddTracksConfirmResult.Added -> {
-                                snackbar.showSnackbar(resources.addedToQueue(result.count))
-                                if (result.count > 0) onDone()
-                            }
-                        }
+                    when (result) {
+                        is AddTracksConfirmResult.Added -> onDone()
+                        AddTracksConfirmResult.NothingSelected ->
+                            scope.launch { snackbar.showSnackbar(resources.getString(R.string.add_tracks_nothing_selected)) }
+                        AddTracksConfirmResult.NothingAdded ->
+                            scope.launch { snackbar.showSnackbar(resources.getString(R.string.add_tracks_nothing_added)) }
                     }
                 }
             },
@@ -100,7 +95,6 @@ fun AddTracksScreen(viewModel: AddTracksViewModel, back: () -> Unit, onDone: () 
 @Composable
 fun AddTracksContent(
     state: AddTracksUiState,
-    confirmLabel: String,
     actions: AddTracksActions,
     snackbar: SnackbarHostState = remember { SnackbarHostState() },
 ) {
@@ -108,15 +102,19 @@ fun AddTracksContent(
         topBar = {
             Column {
                 RetroTopBar(
-                    stringResource(R.string.add_tracks),
+                    if (state is AddTracksUiState.AlbumTracks) state.album.title else stringResource(R.string.add_tracks),
                     navigationIcon = { BackButton(actions.back) },
-                    textActions = {
-                        TextButton(onClick = actions.confirm, enabled = state !is AddTracksUiState.Loading) { Text(confirmLabel) }
-                    },
                 )
-                if (state is AddTracksUiState.Browse) {
-                    BreadcrumbStrip(state.crumbs, actions.openCrumb)
+                when (state) {
+                    is AddTracksUiState.Browse -> BreadcrumbStrip(state.crumbs, actions.openCrumb)
+                    is AddTracksUiState.AlbumTracks -> BreadcrumbStrip(state.crumbs, actions.openCrumb)
+                    else -> Unit
                 }
+            }
+        },
+        floatingActionButton = {
+            if (state !is AddTracksUiState.Loading) {
+                RetroFab(stringResource(R.string.add_selected_tracks), Icons.AutoMirrored.Outlined.PlaylistAdd, actions.confirm)
             }
         },
         snackbarHost = { SnackbarHost(snackbar) },
@@ -126,6 +124,7 @@ fun AddTracksContent(
                 AddTracksUiState.Loading -> LinearProgressIndicator(Modifier.fillMaxWidth())
                 is AddTracksUiState.PickRoot -> RootPicker(state, actions)
                 is AddTracksUiState.Browse -> FolderPicker(state, actions)
+                is AddTracksUiState.AlbumTracks -> AlbumPicker(state, actions)
             }
         }
     }
@@ -156,6 +155,7 @@ private fun FolderPicker(state: AddTracksUiState.Browse, actions: AddTracksActio
                     RetroListRow(
                         title = { Text(path.name, maxLines = 2, overflow = TextOverflow.Ellipsis) },
                         leading = { IconChip(Icons.Outlined.Folder) },
+                        trailing = { Checkbox(path in state.checkedFolders, onCheckedChange = { actions.toggleFolder(path) }) },
                         onClick = { actions.openFolder(path) },
                     )
                 }
@@ -175,6 +175,15 @@ private fun FolderPicker(state: AddTracksUiState.Browse, actions: AddTracksActio
 }
 
 @Composable
+private fun AlbumPicker(state: AddTracksUiState.AlbumTracks, actions: AddTracksActions) {
+    LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
+        items(state.tracks, key = { it.id }) { track ->
+            TrackPickRow(track.path, track.displayTitle, state.selected, actions)
+        }
+    }
+}
+
+@Composable
 private fun AlbumPickRow(album: AudioAlbum, selected: Set<LibraryPath>, actions: AddTracksActions) {
     val paths = album.tracks.map { it.path }
     val checked = paths.isNotEmpty() && paths.all { it in selected }
@@ -183,7 +192,7 @@ private fun AlbumPickRow(album: AudioAlbum, selected: Set<LibraryPath>, actions:
         subtitle = { Text(stringResource(R.string.tracks_count_artist, album.tracks.size, album.artist ?: stringResource(R.string.unknown_artist))) },
         leading = { IconChip(Icons.Outlined.Album) },
         trailing = { Checkbox(checked, onCheckedChange = { actions.toggleAlbum(album) }) },
-        onClick = { actions.toggleAlbum(album) },
+        onClick = { actions.openAlbum(album) },
     )
 }
 

@@ -380,6 +380,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get addTracks => 'Pievienot dziesmas';
 
   @override
+  String get addSelectedTracks => 'Pievienot atlasītās dziesmas';
+
+  @override
   String get save => 'Saglabāt';
 
   @override

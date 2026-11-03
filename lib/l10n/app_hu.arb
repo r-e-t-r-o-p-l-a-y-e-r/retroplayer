@@ -195,6 +195,7 @@
   "clearQueueBody": "Ezzel az összes szám eltávolításra kerül a várólistából. Az audiofájlok és a mentett lejátszási listák megmaradnak.",
   "newPlaylistName": "A lejátszási lista neve",
   "addTracks": "Sávok hozzáadása",
+  "addSelectedTracks": "Kijelölt sávok hozzáadása",
   "save": "Mentés",
   "addTracksFromLibrary": "Hozzáadás a könyvtárból",
   "@addTracksConfirm": {

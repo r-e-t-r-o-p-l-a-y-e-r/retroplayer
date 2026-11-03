@@ -195,6 +195,7 @@
   "clearQueueBody": "これにより、キューからすべてのトラックが削除されます。 オーディオファイルと保存されたプレイリストはそのまま残ります。",
   "newPlaylistName": "プレイリスト名",
   "addTracks": "トラックを追加",
+  "addSelectedTracks": "選択したトラックを追加",
   "save": "保存",
   "addTracksFromLibrary": "ライブラリから追加",
   "@addTracksConfirm": {

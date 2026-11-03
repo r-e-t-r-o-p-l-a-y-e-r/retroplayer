@@ -377,6 +377,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get addTracks => 'افزودن ترک‌ها';
 
   @override
+  String get addSelectedTracks => 'افزودن ترک‌های انتخاب‌شده';
+
+  @override
   String get save => 'ذخیره';
 
   @override

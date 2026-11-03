@@ -377,6 +377,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get addTracks => 'Lisa lugusid';
 
   @override
+  String get addSelectedTracks => 'Lisa valitud lood';
+
+  @override
   String get save => 'Salvesta';
 
   @override

@@ -187,6 +187,7 @@
   "clearQueueBody": "This removes every track from the queue. Audio files and saved playlists stay.",
   "newPlaylistName": "Playlist name",
   "addTracks": "Add tracks",
+  "addSelectedTracks": "Add selected tracks",
   "save": "Save",
   "addTracksFromLibrary": "Add from library",
   "addTracksConfirm": "Add ({count})",

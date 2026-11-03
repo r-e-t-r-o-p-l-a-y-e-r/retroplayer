@@ -381,6 +381,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get addTracks => 'Додај траке';
 
   @override
+  String get addSelectedTracks => 'Додај изабране траке';
+
+  @override
   String get save => 'Сачувај';
 
   @override

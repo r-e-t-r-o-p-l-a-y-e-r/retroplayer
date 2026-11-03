@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Tämä poistaa kaikki kappaleet jonosta. Äänitiedostot ja tallennetut soittolistat säilyvät.</string>
     <string name="new_playlist_name">Soittolistan nimi</string>
     <string name="add_tracks">Lisää kappaleita</string>
+    <string name="add_selected_tracks">Lisää valitut kappaleet</string>
     <string name="save">Tallenna</string>
     <string name="add_tracks_from_library">Lisää kirjastosta</string>
     <string name="add_tracks_confirm">Lisää (%1$d)</string>

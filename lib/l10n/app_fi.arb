@@ -195,6 +195,7 @@
   "clearQueueBody": "Tämä poistaa kaikki kappaleet jonosta. Äänitiedostot ja tallennetut soittolistat säilyvät.",
   "newPlaylistName": "Soittolistan nimi",
   "addTracks": "Lisää kappaleita",
+  "addSelectedTracks": "Lisää valitut kappaleet",
   "save": "Tallenna",
   "addTracksFromLibrary": "Lisää kirjastosta",
   "@addTracksConfirm": {

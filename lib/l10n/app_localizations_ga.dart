@@ -380,6 +380,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get addTracks => 'Cuir ri rianacha';
 
   @override
+  String get addSelectedTracks => 'Cuir na rianta roghnaithe leis';
+
+  @override
   String get save => 'Sábháil';
 
   @override

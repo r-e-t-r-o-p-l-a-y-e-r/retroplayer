@@ -12,11 +12,15 @@ import app.retroplayer.domain.model.AlbumSortChoice
 import app.retroplayer.domain.model.AudioAlbum
 import app.retroplayer.domain.model.AudioTrack
 import app.retroplayer.domain.model.LibraryItem
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import java.util.Locale
 import java.util.concurrent.ConcurrentHashMap
 
@@ -58,6 +62,11 @@ class LibraryRepository(
             )
         }.collect { emit(it) }
     }
+
+    /** [folder], listed again whenever the app changes it or a folder above it (e.g. saves a playlist there). */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    fun watchFolder(path: LibraryPath): Flow<FolderView> =
+        scanner.changed.filter { path.isWithin(it) }.map { }.onStart { emit(Unit) }.flatMapLatest { folder(path) }
 
     /** Album by id; loads its folder when it was not listed in this process (e.g. after a restart). */
     suspend fun album(id: String): AudioAlbum? {

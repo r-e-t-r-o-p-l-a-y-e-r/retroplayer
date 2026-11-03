@@ -195,6 +195,7 @@
   "clearQueueBody": "Esto elimina todas las pistas de la cola. Los archivos de audio y las listas de reproducción guardadas permanecen.",
   "newPlaylistName": "Nombre de la lista de reproducción",
   "addTracks": "Añadir pistas",
+  "addSelectedTracks": "Añadir pistas seleccionadas",
   "save": "Guardar",
   "addTracksFromLibrary": "Añadir desde la biblioteca",
   "@addTracksConfirm": {

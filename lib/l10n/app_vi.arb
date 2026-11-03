@@ -195,6 +195,7 @@
   "clearQueueBody": "Thao tác này xóa tất cả các bản nhạc khỏi hàng đợi. Các tệp âm thanh và danh sách phát đã lưu vẫn được giữ nguyên.",
   "newPlaylistName": "Tên danh sách phát",
   "addTracks": "Thêm bản nhạc",
+  "addSelectedTracks": "Thêm các bản nhạc đã chọn",
   "save": "Lưu",
   "addTracksFromLibrary": "Thêm từ thư viện",
   "@addTracksConfirm": {

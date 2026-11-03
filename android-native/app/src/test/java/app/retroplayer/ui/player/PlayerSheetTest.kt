@@ -189,14 +189,25 @@ class PlayerSheetTest {
     }
 
     @Test
-    fun `dragging the mini player body leaves the sheet where it is`() {
+    fun `a fling up on the mini player body expands it`() {
         show(playing)
         compose.onNodeWithText("Tester", useUnmergedTree = true).performTouchInput {
             swipe(center, center - Offset(0f, 600f), durationMillis = 120)
         }
         compose.waitForIdle()
+        assertThat(expanded).isTrue()
+    }
+
+    @Test
+    fun `the mini player body follows the finger while dragging up`() {
+        show(playing)
+        compose.onNodeWithText("Tester", useUnmergedTree = true).performTouchInput {
+            down(center)
+            repeat(10) { moveBy(Offset(0f, -30f)) }
+        }
+        compose.waitForIdle()
+        compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertExists()
         assertThat(expanded).isFalse()
-        compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertDoesNotExist()
     }
 
     @Test

@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Ова ги отстранува сите песни од редот за репродукција. Аудио-датотеките и зачуваните плейлисти остануваат.</string>
     <string name="new_playlist_name">Име на плејлистата</string>
     <string name="add_tracks">Додај траки</string>
+    <string name="add_selected_tracks">Додај ги избраните траки</string>
     <string name="save">Зачувај</string>
     <string name="add_tracks_from_library">Додај од библиотека</string>
     <string name="add_tracks_confirm">Додај (%1$d)</string>

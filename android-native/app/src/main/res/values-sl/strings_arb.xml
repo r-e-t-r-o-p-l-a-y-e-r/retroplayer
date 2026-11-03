@@ -110,6 +110,7 @@
     <string name="clear_queue_body">S tem se iz čakalne vrste odstranijo vse skladbe. Avdio datoteke in shranjeni seznami predvajanja ostanejo.</string>
     <string name="new_playlist_name">Ime seznama predvajanja</string>
     <string name="add_tracks">Dodaj skladbe</string>
+    <string name="add_selected_tracks">Dodaj izbrane skladbe</string>
     <string name="save">Shrani</string>
     <string name="add_tracks_from_library">Dodaj iz knjižnice</string>
     <string name="add_tracks_confirm">Dodaj (%1$d)</string>

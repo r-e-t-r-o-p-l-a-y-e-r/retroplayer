@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Ovo uklanja svaku pjesmu iz reda za reprodukciju. Audio datoteke i spremljene playliste ostaju.</string>
     <string name="new_playlist_name">Naziv playliste</string>
     <string name="add_tracks">Dodaj staze</string>
+    <string name="add_selected_tracks">Dodaj odabrane staze</string>
     <string name="save">Sačuvaj</string>
     <string name="add_tracks_from_library">Dodaj iz biblioteke</string>
     <string name="add_tracks_confirm">Dodaj (%1$d)</string>

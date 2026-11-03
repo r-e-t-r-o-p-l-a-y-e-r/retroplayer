@@ -375,6 +375,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addTracks => 'إضافة مسارات';
 
   @override
+  String get addSelectedTracks => 'إضافة المسارات المحددة';
+
+  @override
   String get save => 'حفظ';
 
   @override

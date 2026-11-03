@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Ezzel az összes szám eltávolításra kerül a várólistából. Az audiofájlok és a mentett lejátszási listák megmaradnak.</string>
     <string name="new_playlist_name">A lejátszási lista neve</string>
     <string name="add_tracks">Sávok hozzáadása</string>
+    <string name="add_selected_tracks">Kijelölt sávok hozzáadása</string>
     <string name="save">Mentés</string>
     <string name="add_tracks_from_library">Hozzáadás a könyvtárból</string>
     <string name="add_tracks_confirm">Hozzáadás (%1$d)</string>

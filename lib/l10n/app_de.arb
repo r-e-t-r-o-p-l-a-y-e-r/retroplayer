@@ -195,6 +195,7 @@
   "clearQueueBody": "Alle Titel werden aus der Warteschlange entfernt. Audiodateien und gespeicherte Wiedergabelisten bleiben.",
   "newPlaylistName": "Name der Wiedergabeliste",
   "addTracks": "Titel hinzufügen",
+  "addSelectedTracks": "Ausgewählte Titel hinzufügen",
   "save": "Speichern",
   "addTracksFromLibrary": "Aus Bibliothek hinzufügen",
   "@addTracksConfirm": {

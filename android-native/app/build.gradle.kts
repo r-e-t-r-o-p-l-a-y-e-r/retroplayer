@@ -26,11 +26,11 @@ android {
         }.standardOutput.asText.get().trim().ifEmpty { "unknown" }
         val gitBranch = git("rev-parse", "--abbrev-ref", "HEAD")
         val gitCommit = git("rev-parse", "--short", "HEAD")
-        // Commit date, not the clock: the same commit builds the same APK.
-        val buildDate = git("log", "-1", "--format=%cs")
+        // Commit time, not the clock: the same commit builds the same APK.
+        val buildTime = git("log", "-1", "--format=%ct").toLongOrNull() ?: 0L
         buildConfigField("String", "GIT_BRANCH", "\"$gitBranch\"")
         buildConfigField("String", "GIT_COMMIT", "\"$gitCommit\"")
-        buildConfigField("String", "BUILD_DATE", "\"$buildDate\"")
+        buildConfigField("long", "BUILD_TIME", "${buildTime}L")
     }
 
     buildTypes {

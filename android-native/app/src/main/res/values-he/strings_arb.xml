@@ -110,6 +110,7 @@
     <string name="clear_queue_body">פעולה זו מסירה את כל הרצועות מהתור. קבצי האודיו ורשימות ההשמעה השמורות נשארים.</string>
     <string name="new_playlist_name">שם רשימת ההשמעה</string>
     <string name="add_tracks">הוסף רצועות</string>
+    <string name="add_selected_tracks">הוסף רצועות נבחרות</string>
     <string name="save">שמור</string>
     <string name="add_tracks_from_library">הוסף מהספרייה</string>
     <string name="add_tracks_confirm">הוסף (%1$d)</string>

@@ -110,6 +110,7 @@
     <string name="clear_queue_body">See eemaldab järjekorrast kõik rajad. Helifailid ja salvestatud esitusloendid jäävad alles.</string>
     <string name="new_playlist_name">Esitusloendi nimi</string>
     <string name="add_tracks">Lisa lugusid</string>
+    <string name="add_selected_tracks">Lisa valitud lood</string>
     <string name="save">Salvesta</string>
     <string name="add_tracks_from_library">Lisa teegist</string>
     <string name="add_tracks_confirm">Lisa (%1$d)</string>

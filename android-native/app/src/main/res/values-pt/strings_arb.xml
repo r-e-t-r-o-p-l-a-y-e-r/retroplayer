@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Isso remove todas as faixas da fila. Os arquivos de áudio e as listas de reprodução salvas permanecem.</string>
     <string name="new_playlist_name">Nome da lista de reprodução</string>
     <string name="add_tracks">Adicionar faixas</string>
+    <string name="add_selected_tracks">Adicionar faixas selecionadas</string>
     <string name="save">Guardar</string>
     <string name="add_tracks_from_library">Adicionar da biblioteca</string>
     <string name="add_tracks_confirm">Adicionar (%1$d)</string>

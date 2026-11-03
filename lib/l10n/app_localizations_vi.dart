@@ -380,6 +380,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get addTracks => 'Thêm bản nhạc';
 
   @override
+  String get addSelectedTracks => 'Thêm các bản nhạc đã chọn';
+
+  @override
   String get save => 'Lưu';
 
   @override

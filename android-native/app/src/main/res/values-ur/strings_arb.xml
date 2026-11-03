@@ -110,6 +110,7 @@
     <string name="clear_queue_body">یہ قطار سے ہر ٹریک کو ہٹا دیتا ہے۔ آڈیو فائلیں اور محفوظ شدہ پلے لسٹس برقرار رہتی ہیں۔</string>
     <string name="new_playlist_name">پلے لسٹ کا نام</string>
     <string name="add_tracks">ٹریکس شامل کریں</string>
+    <string name="add_selected_tracks">منتخب ٹریکس شامل کریں</string>
     <string name="save">محفوظ کریں</string>
     <string name="add_tracks_from_library">لائبریری سے شامل کریں</string>
     <string name="add_tracks_confirm">(%1$d) شامل کریں</string>

@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Esto elimina todas las pistas de la cola. Los archivos de audio y las listas de reproducción guardadas permanecen.</string>
     <string name="new_playlist_name">Nombre de la lista de reproducción</string>
     <string name="add_tracks">Añadir pistas</string>
+    <string name="add_selected_tracks">Añadir pistas seleccionadas</string>
     <string name="save">Guardar</string>
     <string name="add_tracks_from_library">Añadir desde la biblioteca</string>
     <string name="add_tracks_confirm">Añadir (%1$d)</string>

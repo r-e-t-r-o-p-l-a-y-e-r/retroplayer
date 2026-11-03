@@ -24,6 +24,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -46,7 +48,21 @@ sealed interface AddTracksUiState {
         val audio: List<LibraryItem>,
         val selected: Set<LibraryPath>,
         val complete: Boolean,
+        /** Listed folders whose every track is selected. */
+        val checkedFolders: Set<LibraryPath> = emptySet(),
     ) : AddTracksUiState
+
+    data class AlbumTracks(
+        val album: AudioAlbum,
+        val crumbs: List<Crumb>,
+        val tracks: List<AudioTrack>,
+        val selected: Set<LibraryPath>,
+    ) : AddTracksUiState
+}
+
+private sealed interface PickLocation {
+    data class Folder(val path: LibraryPath) : PickLocation
+    data class Album(val album: AudioAlbum) : PickLocation
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -61,44 +77,84 @@ class AddTracksViewModel @Inject constructor(
 ) : ViewModel() {
     private val ordering = repository.albumOrdering()
     private val appendPlaylist = savedState.get<String>(PLAYLIST_PATH_ARG)?.let(::LibraryPath)
-    private val browsePath = MutableStateFlow(savedState.get<String>(PATH_ARG)?.let(::LibraryPath))
-    private val selected = MutableStateFlow(emptySet<LibraryPath>())
+    private val location = MutableStateFlow<PickLocation?>(savedState.get<String>(PATH_ARG)?.let { PickLocation.Folder(LibraryPath(it)) })
+    private val history = MutableStateFlow(emptyList<PickLocation?>())
 
-    val state: StateFlow<AddTracksUiState> = browsePath.flatMapLatest { path ->
-        if (path == null) {
-            combine(store.roots, selected) { roots, picked -> AddTracksUiState.PickRoot(roots, picked) }
-        } else {
-            combine(repository.folder(path), store.roots, selected) { view, roots, picked ->
-                if (!view.exists) AddTracksUiState.Loading
-                else {
-                    val names = roots.associate { it.id to it.name }
-                    AddTracksUiState.Browse(
-                        path = path,
-                        crumbs = Breadcrumbs.library(path) { names[it] },
-                        folders = view.folders.map { it.path },
-                        audio = view.items.filterNot { it is LibraryItem.Playlist },
-                        selected = picked,
-                        complete = view.complete,
-                    )
-                }
-            }
+    /** True while [back] steps inside the picker instead of closing it. */
+    val canStepBack: StateFlow<Boolean> = history.map { it.isNotEmpty() }
+        .stateIn(viewModelScope, SharingStarted.Eagerly, false)
+    private val selected = MutableStateFlow(emptySet<LibraryPath>())
+    private val folderTracks = MutableStateFlow(emptyMap<LibraryPath, List<LibraryPath>>())
+
+    val state: StateFlow<AddTracksUiState> = location.flatMapLatest { at ->
+        when (at) {
+            null -> combine(store.roots, selected) { roots, picked -> AddTracksUiState.PickRoot(roots, picked) }
+            is PickLocation.Folder -> browse(at.path)
+            is PickLocation.Album -> pickInAlbum(at.album)
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AddTracksUiState.Loading)
 
-    fun openRoot(root: LibraryRoot) {
-        browsePath.value = LibraryPath.root(root.id)
+    private fun browse(path: LibraryPath) =
+        combine(repository.folder(path), store.roots, selected, folderTracks) { view, roots, picked, underFolders ->
+            if (!view.exists) AddTracksUiState.Loading
+            else {
+                val names = roots.associate { it.id to it.name }
+                val folders = view.folders.map { it.path }
+                AddTracksUiState.Browse(
+                    path = path,
+                    crumbs = Breadcrumbs.library(path) { names[it] },
+                    folders = folders,
+                    audio = view.items.filterNot { it is LibraryItem.Playlist },
+                    selected = picked,
+                    complete = view.complete,
+                    checkedFolders = folders.filter { folder ->
+                        underFolders[folder]?.let { it.isNotEmpty() && picked.containsAll(it) } == true
+                    }.toSet(),
+                )
+            }
+        }
+
+    private fun pickInAlbum(album: AudioAlbum) =
+        combine(flow { emit(albumTracks(album)) }, store.roots, selected) { tracks, roots, picked ->
+            val names = roots.associate { it.id to it.name }
+            AddTracksUiState.AlbumTracks(album, Breadcrumbs.library(album.directory) { names[it] }, tracks, picked)
+        }
+
+    fun openRoot(root: LibraryRoot) = go(PickLocation.Folder(LibraryPath.root(root.id)))
+
+    fun openFolder(path: LibraryPath) = go(PickLocation.Folder(path))
+
+    fun openAlbum(album: AudioAlbum) = go(PickLocation.Album(album))
+
+    fun openCrumb(crumb: Crumb) = go(crumb.path?.let(PickLocation::Folder))
+
+    /** Steps back to the previous place; false when the picker should close. */
+    fun back(): Boolean {
+        val previous = history.value
+        if (previous.isEmpty()) return false
+        history.value = previous.dropLast(1)
+        location.value = previous.last()
+        return true
     }
 
-    fun openFolder(path: LibraryPath) {
-        browsePath.value = path
-    }
-
-    fun openCrumb(crumb: Crumb) {
-        browsePath.value = crumb.path
+    private fun go(to: PickLocation?) {
+        if (to == location.value) return
+        history.value += location.value
+        location.value = to
     }
 
     fun toggleTrack(path: LibraryPath) {
         selected.value = selected.value.toggle(path)
+    }
+
+    /** Selects every track under [folder] in play order, or clears them when all are selected. */
+    fun toggleFolder(folder: LibraryPath) {
+        viewModelScope.launch {
+            val paths = folderTracks.value[folder] ?: repository.folderQueue(folder).map { it.path }.also { tracks ->
+                folderTracks.value += folder to tracks
+            }
+            selected.value = if (paths.all { it in selected.value }) selected.value - paths.toSet() else selected.value + paths
+        }
     }
 
     fun toggleAlbum(album: AudioAlbum) {

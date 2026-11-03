@@ -382,6 +382,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get addTracks => 'Żid traċċi';
 
   @override
+  String get addSelectedTracks => 'Żid it-traċċi magħżula';
+
+  @override
   String get save => 'Salva';
 
   @override

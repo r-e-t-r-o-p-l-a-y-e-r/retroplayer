@@ -195,6 +195,7 @@
   "clearQueueBody": "S tem se iz čakalne vrste odstranijo vse skladbe. Avdio datoteke in shranjeni seznami predvajanja ostanejo.",
   "newPlaylistName": "Ime seznama predvajanja",
   "addTracks": "Dodaj skladbe",
+  "addSelectedTracks": "Dodaj izbrane skladbe",
   "save": "Shrani",
   "addTracksFromLibrary": "Dodaj iz knjižnice",
   "@addTracksConfirm": {

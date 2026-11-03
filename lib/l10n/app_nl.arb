@@ -195,6 +195,7 @@
   "clearQueueBody": "Hiermee worden alle nummers uit de wachtrij verwijderd. Audiobestanden en opgeslagen afspeellijsten blijven behouden.",
   "newPlaylistName": "Naam van de afspeellijst",
   "addTracks": "Nummers toevoegen",
+  "addSelectedTracks": "Geselecteerde nummers toevoegen",
   "save": "Opslaan",
   "addTracksFromLibrary": "Toevoegen vanuit bibliotheek",
   "@addTracksConfirm": {

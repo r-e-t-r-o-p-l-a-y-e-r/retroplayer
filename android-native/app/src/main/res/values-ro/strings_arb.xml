@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Această acțiune elimină toate melodiile din coada de redare. Fișierele audio și listele de redare salvate rămân.</string>
     <string name="new_playlist_name">Numele listei de redare</string>
     <string name="add_tracks">Adaugă piese</string>
+    <string name="add_selected_tracks">Adaugă piesele selectate</string>
     <string name="save">Salvare</string>
     <string name="add_tracks_from_library">Adaugă din bibliotecă</string>
     <string name="add_tracks_confirm">Adăugare (%1$d)</string>

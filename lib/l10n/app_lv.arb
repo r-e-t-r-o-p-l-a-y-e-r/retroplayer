@@ -195,6 +195,7 @@
   "clearQueueBody": "Tādējādi no rindas tiek izdzēsti visi ieraksti. Audiofaili un saglabātās atskaņošanas saraksti paliek.",
   "newPlaylistName": "Atskaņošanas saraksta nosaukums",
   "addTracks": "Pievienot dziesmas",
+  "addSelectedTracks": "Pievienot atlasītās dziesmas",
   "save": "Saglabāt",
   "addTracksFromLibrary": "Pievienot no bibliotēkas",
   "@addTracksConfirm": {

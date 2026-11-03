@@ -195,6 +195,7 @@
   "clearQueueBody": "Questa operazione rimuove tutti i brani dalla coda. I file audio e le playlist salvate rimangono.",
   "newPlaylistName": "Nome playlist",
   "addTracks": "Aggiungi tracce",
+  "addSelectedTracks": "Aggiungi tracce selezionate",
   "save": "Salva",
   "addTracksFromLibrary": "Aggiungi dalla libreria",
   "@addTracksConfirm": {

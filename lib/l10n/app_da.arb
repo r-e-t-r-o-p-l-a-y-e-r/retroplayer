@@ -195,6 +195,7 @@
   "clearQueueBody": "Dette fjerner alle numre fra køen. Lydfiler og gemte afspilningslister forbliver.",
   "newPlaylistName": "Navn på afspilningsliste",
   "addTracks": "Tilføj spor",
+  "addSelectedTracks": "Tilføj valgte spor",
   "save": "Gem",
   "addTracksFromLibrary": "Tilføj fra biblioteket",
   "@addTracksConfirm": {

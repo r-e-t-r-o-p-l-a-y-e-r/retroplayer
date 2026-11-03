@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Questa operazione rimuove tutti i brani dalla coda. I file audio e le playlist salvate rimangono.</string>
     <string name="new_playlist_name">Nome playlist</string>
     <string name="add_tracks">Aggiungi tracce</string>
+    <string name="add_selected_tracks">Aggiungi tracce selezionate</string>
     <string name="save">Salva</string>
     <string name="add_tracks_from_library">Aggiungi dalla libreria</string>
     <string name="add_tracks_confirm">Aggiungi (%1$d)</string>

@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Spowoduje to usunięcie wszystkich utworów z kolejki. Pliki audio i zapisane listy odtwarzania pozostaną.</string>
     <string name="new_playlist_name">Nazwa listy odtwarzania</string>
     <string name="add_tracks">Dodaj utwory</string>
+    <string name="add_selected_tracks">Dodaj wybrane utwory</string>
     <string name="save">Zapisz</string>
     <string name="add_tracks_from_library">Dodaj z biblioteki</string>
     <string name="add_tracks_confirm">Dodaj (%1$d)</string>

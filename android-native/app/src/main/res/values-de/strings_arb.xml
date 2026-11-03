@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Alle Titel werden aus der Warteschlange entfernt. Audiodateien und gespeicherte Wiedergabelisten bleiben.</string>
     <string name="new_playlist_name">Name der Wiedergabeliste</string>
     <string name="add_tracks">Titel hinzufügen</string>
+    <string name="add_selected_tracks">Ausgewählte Titel hinzufügen</string>
     <string name="save">Speichern</string>
     <string name="add_tracks_from_library">Aus Bibliothek hinzufügen</string>
     <string name="add_tracks_confirm">Hinzufügen (%1$d)</string>

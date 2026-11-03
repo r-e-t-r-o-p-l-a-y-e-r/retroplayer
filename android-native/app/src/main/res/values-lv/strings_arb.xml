@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Tādējādi no rindas tiek izdzēsti visi ieraksti. Audiofaili un saglabātās atskaņošanas saraksti paliek.</string>
     <string name="new_playlist_name">Atskaņošanas saraksta nosaukums</string>
     <string name="add_tracks">Pievienot dziesmas</string>
+    <string name="add_selected_tracks">Pievienot atlasītās dziesmas</string>
     <string name="save">Saglabāt</string>
     <string name="add_tracks_from_library">Pievienot no bibliotēkas</string>
     <string name="add_tracks_confirm">Pievienot (%1$d)</string>

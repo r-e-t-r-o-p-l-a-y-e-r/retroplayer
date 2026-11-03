@@ -380,6 +380,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get addTracks => 'Tilføj spor';
 
   @override
+  String get addSelectedTracks => 'Tilføj valgte spor';
+
+  @override
   String get save => 'Gem';
 
   @override

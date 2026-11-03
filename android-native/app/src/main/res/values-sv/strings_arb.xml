@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Detta tar bort alla låtar från kön. Ljudfiler och sparade spellistor finns kvar.</string>
     <string name="new_playlist_name">Namn på spellista</string>
     <string name="add_tracks">Lägg till spår</string>
+    <string name="add_selected_tracks">Lägg till valda spår</string>
     <string name="save">Spara</string>
     <string name="add_tracks_from_library">Lägg till från biblioteket</string>
     <string name="add_tracks_confirm">Lägg till (%1$d)</string>

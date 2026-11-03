@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Tím se odstraní všechny skladby z fronty. Zvukové soubory a uložené seznamy skladeb zůstanou zachovány.</string>
     <string name="new_playlist_name">Název seznamu skladeb</string>
     <string name="add_tracks">Přidat skladby</string>
+    <string name="add_selected_tracks">Přidat vybrané skladby</string>
     <string name="save">Uložit</string>
     <string name="add_tracks_from_library">Přidat z knihovny</string>
     <string name="add_tracks_confirm">Přidat (%1$d)</string>

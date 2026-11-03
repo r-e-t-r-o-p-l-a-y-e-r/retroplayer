@@ -375,6 +375,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get addTracks => 'הוסף רצועות';
 
   @override
+  String get addSelectedTracks => 'הוסף רצועות נבחרות';
+
+  @override
   String get save => 'שמור';
 
   @override

@@ -378,6 +378,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get addTracks => 'Добавить треки';
 
   @override
+  String get addSelectedTracks => 'Добавить выбранные треки';
+
+  @override
   String get save => 'Сохранить';
 
   @override

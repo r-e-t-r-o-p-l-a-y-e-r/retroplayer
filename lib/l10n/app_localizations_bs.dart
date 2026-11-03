@@ -378,6 +378,9 @@ class AppLocalizationsBs extends AppLocalizations {
   String get addTracks => 'Dodaj staze';
 
   @override
+  String get addSelectedTracks => 'Dodaj odabrane staze';
+
+  @override
   String get save => 'Sačuvaj';
 
   @override

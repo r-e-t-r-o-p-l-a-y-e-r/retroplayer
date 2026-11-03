@@ -195,6 +195,7 @@
   "clearQueueBody": "Tindakan ini akan menghapus semua lagu dari antrian. File audio dan daftar putar yang telah disimpan tetap ada.",
   "newPlaylistName": "Nama daftar putar",
   "addTracks": "Tambahkan trek",
+  "addSelectedTracks": "Tambahkan trek terpilih",
   "save": "Simpan",
   "addTracksFromLibrary": "Tambahkan dari perpustakaan",
   "@addTracksConfirm": {

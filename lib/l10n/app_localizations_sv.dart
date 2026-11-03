@@ -380,6 +380,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get addTracks => 'Lägg till spår';
 
   @override
+  String get addSelectedTracks => 'Lägg till valda spår';
+
+  @override
   String get save => 'Spara';
 
   @override

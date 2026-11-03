@@ -110,6 +110,7 @@
     <string name="clear_queue_body">This removes every track from the queue. Audio files and saved playlists stay.</string>
     <string name="new_playlist_name">Playlist name</string>
     <string name="add_tracks">Add tracks</string>
+    <string name="add_selected_tracks">Add selected tracks</string>
     <string name="save">Save</string>
     <string name="add_tracks_from_library">Add from library</string>
     <string name="add_tracks_confirm">Add (%1$d)</string>

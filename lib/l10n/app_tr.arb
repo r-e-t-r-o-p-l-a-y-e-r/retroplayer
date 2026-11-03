@@ -195,6 +195,7 @@
   "clearQueueBody": "Bu işlem, sıradaki tüm parçaları siler. Ses dosyaları ve kaydedilmiş çalma listeleri kalır.",
   "newPlaylistName": "Oynatma listesinin adı",
   "addTracks": "Yardımcı metin ekle",
+  "addSelectedTracks": "Seçili parçaları ekle",
   "save": "Kaydet",
   "addTracksFromLibrary": "Kitaplıktan Ekle",
   "@addTracksConfirm": {

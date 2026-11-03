@@ -195,6 +195,7 @@
   "clearQueueBody": "Kjo heq çdo këngë nga radha. Skedarët audio dhe listat e luajtjes së ruajtura mbeten.",
   "newPlaylistName": "Emri i listës së luajtjes",
   "addTracks": "Shto këngë",
+  "addSelectedTracks": "Shto këngët e zgjedhura",
   "save": "Ruaj",
   "addTracksFromLibrary": "Shto nga biblioteka",
   "@addTracksConfirm": {

@@ -379,6 +379,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get addTracks => 'Lisää kappaleita';
 
   @override
+  String get addSelectedTracks => 'Lisää valitut kappaleet';
+
+  @override
   String get save => 'Tallenna';
 
   @override

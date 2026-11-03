@@ -130,7 +130,7 @@ class DeviceSmokeTest {
         clickText("Demo Artist")
         clickText("Demo Album")
         click(isToggleable())
-        clickText(s(R.string.add_tracks_confirm, 3))
+        click(hasContentDescription(s(R.string.add_selected_tracks)))
         clickText(s(R.string.save_as_playlist))
         clickText("RetroPlayerSamples")
         clickText("Demo Artist")

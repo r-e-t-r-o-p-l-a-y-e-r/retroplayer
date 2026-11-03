@@ -110,6 +110,7 @@
     <string name="clear_queue_body">การนี้จะลบทุกเพลงออกจากคิว แต่ไฟล์เสียงและรายชื่อเพลงที่บันทึกไว้จะยังคงอยู่</string>
     <string name="new_playlist_name">ชื่อเพลย์ลิสต์</string>
     <string name="add_tracks">เพิ่มเพลง</string>
+    <string name="add_selected_tracks">เพิ่มเพลงที่เลือก</string>
     <string name="save">บันทึก</string>
     <string name="add_tracks_from_library">เพิ่มจากไลบรารี</string>
     <string name="add_tracks_confirm">เพิ่ม (%1$d)</string>

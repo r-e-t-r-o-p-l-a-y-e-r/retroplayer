@@ -380,6 +380,9 @@ class AppLocalizationsNb extends AppLocalizations {
   String get addTracks => 'Legg til spor';
 
   @override
+  String get addSelectedTracks => 'Legg til valgte spor';
+
+  @override
   String get save => 'Lagre';
 
   @override

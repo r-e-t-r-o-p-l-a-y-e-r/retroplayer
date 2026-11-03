@@ -377,6 +377,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get addTracks => 'ट्रैक जोड़ें';
 
   @override
+  String get addSelectedTracks => 'चुने गए ट्रैक जोड़ें';
+
+  @override
   String get save => 'सेव करें';
 
   @override

@@ -378,6 +378,9 @@ class AppLocalizationsUr extends AppLocalizations {
   String get addTracks => 'ٹریکس شامل کریں';
 
   @override
+  String get addSelectedTracks => 'منتخب ٹریکس شامل کریں';
+
+  @override
   String get save => 'محفوظ کریں';
 
   @override

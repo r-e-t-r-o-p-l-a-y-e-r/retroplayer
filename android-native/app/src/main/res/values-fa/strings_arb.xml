@@ -110,6 +110,7 @@
     <string name="clear_queue_body">این همهٔ ترک‌ها را از صف حذف می‌کند. فایل‌های صوتی و فهرست‌های پخش ذخیره‌شده باقی می‌مانند.</string>
     <string name="new_playlist_name">نام فهرست پخش</string>
     <string name="add_tracks">افزودن ترک‌ها</string>
+    <string name="add_selected_tracks">افزودن ترک‌های انتخاب‌شده</string>
     <string name="save">ذخیره</string>
     <string name="add_tracks_from_library">از کتابخانه اضافه کنید</string>
     <string name="add_tracks_confirm">اضافه کنید (%1$d)</string>

@@ -374,6 +374,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addTracks => 'トラックを追加';
 
   @override
+  String get addSelectedTracks => '選択したトラックを追加';
+
+  @override
   String get save => '保存';
 
   @override

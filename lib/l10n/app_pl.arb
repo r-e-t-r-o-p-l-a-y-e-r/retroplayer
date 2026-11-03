@@ -195,6 +195,7 @@
   "clearQueueBody": "Spowoduje to usunięcie wszystkich utworów z kolejki. Pliki audio i zapisane listy odtwarzania pozostaną.",
   "newPlaylistName": "Nazwa listy odtwarzania",
   "addTracks": "Dodaj utwory",
+  "addSelectedTracks": "Dodaj wybrane utwory",
   "save": "Zapisz",
   "addTracksFromLibrary": "Dodaj z biblioteki",
   "@addTracksConfirm": {

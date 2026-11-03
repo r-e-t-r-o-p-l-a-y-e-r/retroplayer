@@ -195,6 +195,7 @@
   "clearQueueBody": "Ово уклања сваки трак из реда. Аудио датотеке и сачуване плејлисте остају.",
   "newPlaylistName": "Назив плејлисте",
   "addTracks": "Додај траке",
+  "addSelectedTracks": "Додај изабране траке",
   "save": "Сачувај",
   "addTracksFromLibrary": "Додај из библиотеке",
   "@addTracksConfirm": {

@@ -195,6 +195,7 @@
   "clearQueueBody": "การนี้จะลบทุกเพลงออกจากคิว แต่ไฟล์เสียงและรายชื่อเพลงที่บันทึกไว้จะยังคงอยู่",
   "newPlaylistName": "ชื่อเพลย์ลิสต์",
   "addTracks": "เพิ่มเพลง",
+  "addSelectedTracks": "เพิ่มเพลงที่เลือก",
   "save": "บันทึก",
   "addTracksFromLibrary": "เพิ่มจากไลบรารี",
   "@addTracksConfirm": {

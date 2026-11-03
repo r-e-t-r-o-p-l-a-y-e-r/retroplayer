@@ -195,6 +195,7 @@
   "clearQueueBody": "See eemaldab järjekorrast kõik rajad. Helifailid ja salvestatud esitusloendid jäävad alles.",
   "newPlaylistName": "Esitusloendi nimi",
   "addTracks": "Lisa lugusid",
+  "addSelectedTracks": "Lisa valitud lood",
   "save": "Salvesta",
   "addTracksFromLibrary": "Lisa teegist",
   "@addTracksConfirm": {

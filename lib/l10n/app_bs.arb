@@ -195,6 +195,7 @@
   "clearQueueBody": "Ovo uklanja svaku pjesmu iz reda. Audio datoteke i sačuvane playliste ostaju.",
   "newPlaylistName": "Naziv playliste",
   "addTracks": "Dodaj staze",
+  "addSelectedTracks": "Dodaj odabrane staze",
   "save": "Sačuvaj",
   "addTracksFromLibrary": "Dodaj iz biblioteke",
   "@addTracksConfirm": {

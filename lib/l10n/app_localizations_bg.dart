@@ -382,6 +382,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get addTracks => 'Добави песни';
 
   @override
+  String get addSelectedTracks => 'Добави избраните песни';
+
+  @override
   String get save => 'Запази';
 
   @override

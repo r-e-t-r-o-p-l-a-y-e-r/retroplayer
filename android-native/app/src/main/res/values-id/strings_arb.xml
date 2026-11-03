@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Tindakan ini akan menghapus semua lagu dari antrian. File audio dan daftar putar yang telah disimpan tetap ada.</string>
     <string name="new_playlist_name">Nama daftar putar</string>
     <string name="add_tracks">Tambahkan trek</string>
+    <string name="add_selected_tracks">Tambahkan trek terpilih</string>
     <string name="save">Simpan</string>
     <string name="add_tracks_from_library">Tambahkan dari perpustakaan</string>
     <string name="add_tracks_confirm">Tambahkan (%1$d)</string>

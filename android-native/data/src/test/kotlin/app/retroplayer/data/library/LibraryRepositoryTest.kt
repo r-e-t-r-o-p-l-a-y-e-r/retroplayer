@@ -9,7 +9,11 @@ import app.retroplayer.domain.model.AlbumSortChoice
 import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.domain.model.TrackMetadata
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.last
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -32,9 +36,34 @@ class LibraryRepositoryTest {
     )
     private lateinit var rootId: String
 
+    private lateinit var scanner: LibraryScanner
+
     private fun repository(): LibraryRepository {
-        val scanner = LibraryScanner(docs, reader, db.trackCacheDao(), rootUri = { if (it == rootId) "doc:root" else null }, ioDispatcher = UnconfinedTestDispatcher())
+        scanner = LibraryScanner(docs, reader, db.trackCacheDao(), rootUri = { if (it == rootId) "doc:root" else null }, ioDispatcher = UnconfinedTestDispatcher())
         return LibraryRepository(store, scanner, locale = { Locale.ENGLISH })
+    }
+
+    private suspend fun watchedPlaylists(changed: LibraryPath) = coroutineScope {
+        val repository = repository()
+        val latest = MutableStateFlow<FolderView?>(null)
+        val watching = launch { repository.watchFolder(p("Solo")).collect { latest.value = it } }
+        val playlists = { view: FolderView? -> view?.items?.filterIsInstance<LibraryItem.Playlist>()?.map { it.playlist.path } }
+        assertThat(playlists(latest.first { it != null })).isEmpty()
+        docs.file("Solo/Mix.m3u")
+        scanner.invalidate(changed)
+        val found = playlists(latest.first { !playlists(it).isNullOrEmpty() })
+        watching.cancel()
+        found
+    }
+
+    @Test
+    fun `a watched folder lists again when the app changes it`() = runTest {
+        assertThat(watchedPlaylists(changed = p("Solo"))).containsExactly(p("Solo/Mix.m3u"))
+    }
+
+    @Test
+    fun `a change above a watched folder lists it again`() = runTest {
+        assertThat(watchedPlaylists(changed = LibraryPath.root(rootId))).containsExactly(p("Solo/Mix.m3u"))
     }
 
     @Before

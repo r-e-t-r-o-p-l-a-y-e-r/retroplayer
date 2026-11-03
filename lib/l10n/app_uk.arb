@@ -195,6 +195,7 @@
   "clearQueueBody": "Це видаляє всі треки з черги. Аудіофайли та збережені плейлисти залишаються.",
   "newPlaylistName": "Назва плейлиста",
   "addTracks": "Додати треки",
+  "addSelectedTracks": "Додати вибрані треки",
   "save": "Зберегти",
   "addTracksFromLibrary": "Додати з бібліотеки",
   "@addTracksConfirm": {

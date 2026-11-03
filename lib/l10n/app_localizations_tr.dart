@@ -377,6 +377,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addTracks => 'Yardımcı metin ekle';
 
   @override
+  String get addSelectedTracks => 'Seçili parçaları ekle';
+
+  @override
   String get save => 'Kaydet';
 
   @override

@@ -195,6 +195,7 @@
   "clearQueueBody": "이렇게 하면 대기열에서 모든 트랙이 제거됩니다. 오디오 파일과 저장된 재생 목록은 그대로 유지됩니다.",
   "newPlaylistName": "재생 목록 이름",
   "addTracks": "트랙 추가",
+  "addSelectedTracks": "선택한 트랙 추가",
   "save": "저장",
   "addTracksFromLibrary": "라이브러리에서 추가...",
   "@addTracksConfirm": {

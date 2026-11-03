@@ -384,6 +384,9 @@ class AppLocalizationsCa extends AppLocalizations {
   String get addTracks => 'Afegir pistes';
 
   @override
+  String get addSelectedTracks => 'Afegir les pistes seleccionades';
+
+  @override
   String get save => 'Desa';
 
   @override

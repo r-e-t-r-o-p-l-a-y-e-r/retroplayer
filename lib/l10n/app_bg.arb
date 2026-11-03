@@ -195,6 +195,7 @@
   "clearQueueBody": "Това премахва всички песни от опашката. Аудиофайловете и запазените плейлисти остават.",
   "newPlaylistName": "Име на плейлиста",
   "addTracks": "Добави песни",
+  "addSelectedTracks": "Добави избраните песни",
   "save": "Запази",
   "addTracksFromLibrary": "Добави от библиотеката",
   "@addTracksConfirm": {

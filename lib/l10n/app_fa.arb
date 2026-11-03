@@ -195,6 +195,7 @@
   "clearQueueBody": "این همهٔ ترک‌ها را از صف حذف می‌کند. فایل‌های صوتی و فهرست‌های پخش ذخیره‌شده باقی می‌مانند.",
   "newPlaylistName": "نام فهرست پخش",
   "addTracks": "افزودن ترک‌ها",
+  "addSelectedTracks": "افزودن ترک‌های انتخاب‌شده",
   "save": "ذخیره",
   "addTracksFromLibrary": "از کتابخانه اضافه کنید",
   "@addTracksConfirm": {

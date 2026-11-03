@@ -382,6 +382,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get addTracks => 'Pridať skladby';
 
   @override
+  String get addSelectedTracks => 'Pridať vybrané skladby';
+
+  @override
   String get save => 'Uložiť';
 
   @override

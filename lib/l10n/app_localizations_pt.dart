@@ -382,6 +382,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get addTracks => 'Adicionar faixas';
 
   @override
+  String get addSelectedTracks => 'Adicionar faixas selecionadas';
+
+  @override
   String get save => 'Guardar';
 
   @override

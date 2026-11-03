@@ -110,6 +110,7 @@
     <string name="clear_queue_body">यह कतार से हर ट्रैक को हटा देता है। ऑडियो फ़ाइलें और सेव की गई प्लेलिस्ट ठहरती हैं।</string>
     <string name="new_playlist_name">प्लेलिस्ट का नाम</string>
     <string name="add_tracks">ट्रैक जोड़ें</string>
+    <string name="add_selected_tracks">चुने गए ट्रैक जोड़ें</string>
     <string name="save">सेव करें</string>
     <string name="add_tracks_from_library">लाइब्रेरी से जोड़ें</string>
     <string name="add_tracks_confirm">(%1$d) जोड़ें</string>

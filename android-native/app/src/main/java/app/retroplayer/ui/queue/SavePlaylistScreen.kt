@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,7 +17,6 @@ import androidx.compose.material.icons.outlined.Folder
 import androidx.compose.material3.Button
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -47,6 +48,7 @@ import app.retroplayer.library.writeAccessIntent
 import app.retroplayer.ui.components.BackButton
 import app.retroplayer.ui.components.IconChip
 import app.retroplayer.ui.components.RetroListRow
+import app.retroplayer.ui.components.RetroTextField
 import app.retroplayer.ui.components.RetroTopBar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -195,6 +197,8 @@ fun SavePlaylistContent(
     snackbar: SnackbarHostState = remember { SnackbarHostState() },
 ) {
     var name by rememberSaveable { mutableStateOf("") }
+    val canSave = state.canSaveHere && name.isNotBlank()
+    val save = { if (canSave) actions.save(name.trim()) }
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
@@ -202,9 +206,9 @@ fun SavePlaylistContent(
         },
         bottomBar = {
             Button(
-                onClick = { actions.save(name.trim()) },
-                enabled = state.canSaveHere && name.isNotBlank(),
-                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                onClick = save,
+                enabled = canSave,
+                modifier = Modifier.fillMaxWidth().imePadding().navigationBarsPadding().padding(16.dp),
             ) { Text(stringResource(R.string.save)) }
         },
     ) { padding ->
@@ -221,12 +225,12 @@ fun SavePlaylistContent(
                     modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 8.dp),
                 )
             }
-            OutlinedTextField(
+            RetroTextField(
                 value = name,
                 onValueChange = { name = it },
-                label = { Text(stringResource(R.string.new_playlist_name)) },
-                singleLine = true,
+                label = stringResource(R.string.new_playlist_name),
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                onDone = save,
             )
             Box(Modifier.weight(1f).fillMaxWidth().padding(top = 8.dp)) {
                 if (state.loading) LinearProgressIndicator(Modifier.fillMaxWidth())

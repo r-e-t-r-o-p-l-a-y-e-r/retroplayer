@@ -195,6 +195,7 @@
   "clearQueueBody": "Dette fjerner alle spor fra køen. Lydfiler og lagrede spillelister beholdes.",
   "newPlaylistName": "Navn på spilleliste",
   "addTracks": "Legg til spor",
+  "addSelectedTracks": "Legg til valgte spor",
   "save": "Lagre",
   "addTracksFromLibrary": "Legg til fra biblioteket",
   "@addTracksConfirm": {

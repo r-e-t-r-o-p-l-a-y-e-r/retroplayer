@@ -9,6 +9,7 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performImeAction
 import androidx.compose.ui.test.performTextInput
 import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.R
@@ -63,5 +64,21 @@ class SavePlaylistContentTest {
         compose.onNode(hasSetTextAction()).performTextInput("Trip")
         compose.onNode(hasText(context.getString(R.string.save))).assertIsEnabled().performClick()
         assertThat(calls).containsExactly("save:Trip")
+    }
+
+    @Test
+    fun `the keyboard done key saves like the button`() {
+        show(inMusic)
+        compose.onNode(hasSetTextAction()).performTextInput("Trip")
+        compose.onNode(hasSetTextAction()).performImeAction()
+        assertThat(calls).containsExactly("save:Trip")
+    }
+
+    @Test
+    fun `the keyboard done key does nothing where saving is not possible`() {
+        show(sources)
+        compose.onNode(hasSetTextAction()).performTextInput("Trip")
+        compose.onNode(hasSetTextAction()).performImeAction()
+        assertThat(calls).isEmpty()
     }
 }

@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Tai pašalina visus įrašus iš eilės. Garso failai ir išsaugoti grojaraščiai lieka.</string>
     <string name="new_playlist_name">Grojaraščio pavadinimas</string>
     <string name="add_tracks">Pridėti takelius</string>
+    <string name="add_selected_tracks">Pridėti pasirinktus takelius</string>
     <string name="save">Išsaugoti</string>
     <string name="add_tracks_from_library">Pridėti iš bibliotekos</string>
     <string name="add_tracks_confirm">Pridėti (%1$d)</string>

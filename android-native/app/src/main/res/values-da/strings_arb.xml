@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Dette fjerner alle numre fra køen. Lydfiler og gemte afspilningslister forbliver.</string>
     <string name="new_playlist_name">Navn på afspilningsliste</string>
     <string name="add_tracks">Tilføj spor</string>
+    <string name="add_selected_tracks">Tilføj valgte spor</string>
     <string name="save">Gem</string>
     <string name="add_tracks_from_library">Tilføj fra biblioteket</string>
     <string name="add_tracks_confirm">Tilføj (%1$d)</string>

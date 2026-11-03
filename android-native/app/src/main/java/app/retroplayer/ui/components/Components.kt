@@ -47,6 +47,8 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -69,7 +71,10 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.TextAutoSize
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -487,6 +492,39 @@ fun AlbumArt(model: Any?, modifier: Modifier = Modifier, size: Dp = 56.dp, place
             )
         }
     }
+}
+
+/** The app's one text input: underlined like the Flutter app, on the page background, accent when focused. */
+@Composable
+fun RetroTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    modifier: Modifier = Modifier,
+    onDone: (() -> Unit)? = null,
+) {
+    val palette = LocalRetroPalette.current
+    TextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = { Text(label) },
+        singleLine = true,
+        modifier = modifier,
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+        keyboardActions = KeyboardActions(onDone = onDone?.let { done -> { done() } }),
+        colors = TextFieldDefaults.colors(
+            focusedContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
+            disabledContainerColor = Color.Transparent,
+            focusedTextColor = palette.textPrimary,
+            unfocusedTextColor = palette.textPrimary,
+            cursorColor = palette.accent,
+            focusedIndicatorColor = palette.accent,
+            unfocusedIndicatorColor = palette.divider,
+            focusedLabelColor = palette.accent,
+            unfocusedLabelColor = palette.textMuted,
+        ),
+    )
 }
 
 /** The accent extended button at the bottom end of a page (Add folder, Add tracks). */

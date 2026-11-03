@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Ово уклања сваки трак из реда. Аудио датотеке и сачуване плејлисте остају.</string>
     <string name="new_playlist_name">Назив плејлисте</string>
     <string name="add_tracks">Додај траке</string>
+    <string name="add_selected_tracks">Додај изабране траке</string>
     <string name="save">Сачувај</string>
     <string name="add_tracks_from_library">Додај из библиотеке</string>
     <string name="add_tracks_confirm">Додај (%1$d)</string>

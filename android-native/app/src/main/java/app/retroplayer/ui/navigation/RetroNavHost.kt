@@ -29,5 +29,8 @@ fun RetroNavHost(nav: NavHostController) {
         },
         popEnterTransition = { slideIntoContainer(SlideDirection.End, backSlide) { it / PARALLAX_DIVISOR } },
         popExitTransition = { slideOutOfContainer(SlideDirection.End, backSlide) },
+        // The defaults shrink the page during a back swipe; slide it like a back press instead.
+        predictivePopEnterTransition = { slideIntoContainer(SlideDirection.End, backSlide) { it / PARALLAX_DIVISOR } },
+        predictivePopExitTransition = { slideOutOfContainer(SlideDirection.End, backSlide) },
     )
 }

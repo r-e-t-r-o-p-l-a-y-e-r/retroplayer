@@ -110,6 +110,7 @@
     <string name="clear_queue_body">这将从队列中删除每个轨道。 保留音频文件和已保存的播放列表。</string>
     <string name="new_playlist_name">播放列表名称</string>
     <string name="add_tracks">添加曲目</string>
+    <string name="add_selected_tracks">添加所选曲目</string>
     <string name="save">保存</string>
     <string name="add_tracks_from_library">从库中添加</string>
     <string name="add_tracks_confirm">添加(%1$d)</string>

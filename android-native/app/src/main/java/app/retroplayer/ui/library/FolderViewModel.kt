@@ -79,7 +79,7 @@ class FolderViewModel @Inject constructor(
                 FolderUiState.Root(roots, favorites.map { FavoriteLink(it, it.name, names[it.rootId]) })
             }
         } else {
-            combine(repository.folder(path), store.favorites, store.roots) { view, favorites, roots ->
+            combine(repository.watchFolder(path), store.favorites, store.roots) { view, favorites, roots ->
                 if (!view.exists) return@combine FolderUiState.Missing
                 val names = roots.associate { it.id to it.name }
                 val favoriteSet = favorites.toSet()

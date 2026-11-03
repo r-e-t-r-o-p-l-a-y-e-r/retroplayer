@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Hiermee worden alle nummers uit de wachtrij verwijderd. Audiobestanden en opgeslagen afspeellijsten blijven behouden.</string>
     <string name="new_playlist_name">Naam van de afspeellijst</string>
     <string name="add_tracks">Nummers toevoegen</string>
+    <string name="add_selected_tracks">Geselecteerde nummers toevoegen</string>
     <string name="save">Opslaan</string>
     <string name="add_tracks_from_library">Toevoegen vanuit bibliotheek</string>
     <string name="add_tracks_confirm">Toevoegen (%1$d)</string>

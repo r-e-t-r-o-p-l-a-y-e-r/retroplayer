@@ -110,6 +110,7 @@
     <string name="clear_queue_body">これにより、キューからすべてのトラックが削除されます。 オーディオファイルと保存されたプレイリストはそのまま残ります。</string>
     <string name="new_playlist_name">プレイリスト名</string>
     <string name="add_tracks">トラックを追加</string>
+    <string name="add_selected_tracks">選択したトラックを追加</string>
     <string name="save">保存</string>
     <string name="add_tracks_from_library">ライブラリから追加</string>
     <string name="add_tracks_confirm">(%1$d) を追加</string>

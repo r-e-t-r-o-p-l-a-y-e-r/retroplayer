@@ -836,6 +836,12 @@ abstract class AppLocalizations {
   /// **'Add tracks'**
   String get addTracks;
 
+  /// No description provided for @addSelectedTracks.
+  ///
+  /// In en, this message translates to:
+  /// **'Add selected tracks'**
+  String get addSelectedTracks;
+
   /// No description provided for @save.
   ///
   /// In en, this message translates to:

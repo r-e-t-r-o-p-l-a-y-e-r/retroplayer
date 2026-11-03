@@ -195,6 +195,7 @@
   "clearQueueBody": "এটি সারি থেকে প্রতিটি ট্র্যাক সরিয়ে দেয় । অডিও ফাইল এবং সংরক্ষিত প্লেলিস্ট থাকা ।",
   "newPlaylistName": "প্লেলিস্টের নাম",
   "addTracks": "ট্র্যাক যোগ করুন",
+  "addSelectedTracks": "নির্বাচিত ট্র্যাক যোগ করুন",
   "save": "সেভ করুন",
   "addTracksFromLibrary": "লাইব্রেরি থেকে যোগ করুন",
   "@addTracksConfirm": {

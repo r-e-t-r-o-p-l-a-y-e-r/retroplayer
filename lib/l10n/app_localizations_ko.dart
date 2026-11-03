@@ -370,6 +370,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addTracks => '트랙 추가';
 
   @override
+  String get addSelectedTracks => '선택한 트랙 추가';
+
+  @override
   String get save => '저장';
 
   @override

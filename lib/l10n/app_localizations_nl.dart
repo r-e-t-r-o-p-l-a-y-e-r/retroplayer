@@ -380,6 +380,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get addTracks => 'Nummers toevoegen';
 
   @override
+  String get addSelectedTracks => 'Geselecteerde nummers toevoegen';
+
+  @override
   String get save => 'Opslaan';
 
   @override

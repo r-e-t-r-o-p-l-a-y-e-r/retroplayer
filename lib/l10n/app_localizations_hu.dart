@@ -380,6 +380,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get addTracks => 'Sávok hozzáadása';
 
   @override
+  String get addSelectedTracks => 'Kijelölt sávok hozzáadása';
+
+  @override
   String get save => 'Mentés';
 
   @override

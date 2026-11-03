@@ -379,6 +379,9 @@ class AppLocalizationsSq extends AppLocalizations {
   String get addTracks => 'Shto këngë';
 
   @override
+  String get addSelectedTracks => 'Shto këngët e zgjedhura';
+
+  @override
   String get save => 'Ruaj';
 
   @override

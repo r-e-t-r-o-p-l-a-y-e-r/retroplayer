@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Això elimina totes les pistes de la cua. Els fitxers d\'àudio i les llistes de reproducció guardades es mantenen.</string>
     <string name="new_playlist_name">Nom de la llista de reproducció</string>
     <string name="add_tracks">Afegir pistes</string>
+    <string name="add_selected_tracks">Afegir les pistes seleccionades</string>
     <string name="save">Desa</string>
     <string name="add_tracks_from_library">Afegeix de la biblioteca</string>
     <string name="add_tracks_confirm">Afegir (%1$d)</string>

@@ -216,7 +216,7 @@ private fun AboutSection() {
         Text(stringResource(R.string.about_subtitle), color = palette.textMuted, modifier = Modifier.padding(top = 4.dp, bottom = 12.dp))
         listOf(
             R.string.about_version to BuildConfig.VERSION_NAME,
-            R.string.about_build_date to BuildConfig.BUILD_DATE,
+            R.string.about_build_date to buildTimeLabel(BuildConfig.BUILD_TIME),
             R.string.about_git_branch to BuildConfig.GIT_BRANCH,
             R.string.about_git_commit to BuildConfig.GIT_COMMIT,
         ).forEach { (label, value) ->

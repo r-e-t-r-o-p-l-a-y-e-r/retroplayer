@@ -382,6 +382,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get addTracks => 'Додати треки';
 
   @override
+  String get addSelectedTracks => 'Додати вибрані треки';
+
+  @override
   String get save => 'Зберегти';
 
   @override

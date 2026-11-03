@@ -114,8 +114,11 @@ class TextFitTest(private val screen: Screen, private val locale: String) {
         PLAYLIST_SELECT({ PlaylistContent(playlist.copy(selectMode = true, selectedIndices = setOf(0)), PlaylistActions()) }),
         PLAYLIST_REMOVE({ PlaylistContent(playlist.copy(confirmRemove = setOf(0, 1)), PlaylistActions()) }),
         PLAYLIST_DELETE({ PlaylistContent(playlist.copy(confirmDelete = true), PlaylistActions()) }),
-        ADD_TRACKS_ROOTS({ AddTracksContent(AddTracksUiState.PickRoot(listOf(music, books), emptySet()), string(R.string.add_tracks), AddTracksActions()) }),
-        ADD_TRACKS_FOLDER({ AddTracksContent(addTracksFolder, string(R.string.add_tracks_confirm, 12), AddTracksActions()) }),
+        ADD_TRACKS_ROOTS({ AddTracksContent(AddTracksUiState.PickRoot(listOf(music, books), emptySet()), AddTracksActions()) }),
+        ADD_TRACKS_FOLDER({ AddTracksContent(addTracksFolder, AddTracksActions()) }),
+        ADD_TRACKS_ALBUM({
+            AddTracksContent(AddTracksUiState.AlbumTracks(album.album, addTracksFolder.crumbs, tracks, setOf(tracks[0].path)), AddTracksActions())
+        }),
         SETTINGS({ SettingsContent(SettingsUiState(languages = languages), SettingsActions()) }),
         SETTINGS_RESET(
             { SettingsContent(SettingsUiState(languages = languages), SettingsActions()) },

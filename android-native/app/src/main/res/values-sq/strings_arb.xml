@@ -110,6 +110,7 @@
     <string name="clear_queue_body">Kjo heq çdo këngë nga radha. Skedarët audio dhe listat e luajtjes së ruajtura mbeten.</string>
     <string name="new_playlist_name">Emri i listës së luajtjes</string>
     <string name="add_tracks">Shto këngë</string>
+    <string name="add_selected_tracks">Shto këngët e zgjedhura</string>
     <string name="save">Ruaj</string>
     <string name="add_tracks_from_library">Shto nga biblioteka</string>
     <string name="add_tracks_confirm">Shto (%1$d)</string>
