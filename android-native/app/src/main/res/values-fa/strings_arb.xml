@@ -46,6 +46,16 @@
     <string name="next">بعدی</string>
     <string name="jump_back">بازگشت ۱۵ ثانیه</string>
     <string name="jump_forward">پیش‌روی ۱۵ ثانیه</string>
+    <string name="chapters">فصل‌ها</string>
+    <string name="previous_chapter">فصل قبلی</string>
+    <string name="next_chapter">فصل بعدی</string>
+    <string name="headphones">هدفون</string>
+    <string name="auto_rewind">عقب بردن هنگام ادامه</string>
+    <string name="auto_rewind_hint">پس از توقف دست‌کم یک دقیقه‌ای، ترک‌های طولانی‌تر از ۲۰ دقیقه چند ثانیه زودتر ادامه می‌یابند.</string>
+    <string name="rewind_by">عقب بردن به اندازه</string>
+    <string name="seconds_short">%1$d ث</string>
+    <string name="resume_on_reconnect">ادامه پس از اتصال دوباره هدفون</string>
+    <string name="resume_on_reconnect_hint">فقط اگر پخش به دلیل جدا شدن هدفون کمتر از ۱۰ دقیقه پیش متوقف شده باشد.</string>
     <string name="track_fallback">مسیر</string>
     <string name="unknown_artist">نامشخص</string>
     <string name="tracks_count_artist">⟦۰⟧ قطعه · ⟦۱⟧</string>

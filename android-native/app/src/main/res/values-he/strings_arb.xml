@@ -46,6 +46,16 @@
     <string name="next">הבא</string>
     <string name="jump_back">חזרה 15 שניות</string>
     <string name="jump_forward">הרצה קדימה ב-15 שניות</string>
+    <string name="chapters">פרקים</string>
+    <string name="previous_chapter">הפרק הקודם</string>
+    <string name="next_chapter">הפרק הבא</string>
+    <string name="headphones">אוזניות</string>
+    <string name="auto_rewind">חזרה לאחור בעת המשך</string>
+    <string name="auto_rewind_hint">אחרי הפסקה של דקה לפחות, רצועות ארוכות מ־20 דקות ממשיכות כמה שניות מוקדם יותר.</string>
+    <string name="rewind_by">חזרה לאחור ב־</string>
+    <string name="seconds_short">%1$d שנ׳</string>
+    <string name="resume_on_reconnect">המשך כשהאוזניות מתחברות מחדש</string>
+    <string name="resume_on_reconnect_hint">רק אם ההשמעה נעצרה כי האוזניות נותקו לפני פחות מ־10 דקות.</string>
     <string name="track_fallback">מסלול</string>
     <string name="unknown_artist">לא ידוע</string>
     <string name="tracks_count_artist">%1$d רצועות · %2$s</string>

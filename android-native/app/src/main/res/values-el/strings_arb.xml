@@ -46,6 +46,16 @@
     <string name="next">Επόμενο</string>
     <string name="jump_back">Πίσω 15 δευτερόλεπτα</string>
     <string name="jump_forward">Προώθηση κατά 15 δευτερόλεπτα</string>
+    <string name="chapters">Κεφάλαια</string>
+    <string name="previous_chapter">Προηγούμενο κεφάλαιο</string>
+    <string name="next_chapter">Επόμενο κεφάλαιο</string>
+    <string name="headphones">Ακουστικά</string>
+    <string name="auto_rewind">Επιστροφή πίσω κατά τη συνέχιση</string>
+    <string name="auto_rewind_hint">Μετά από παύση τουλάχιστον ενός λεπτού, τα κομμάτια μεγαλύτερα από 20 λεπτά συνεχίζουν λίγα δευτερόλεπτα νωρίτερα.</string>
+    <string name="rewind_by">Πίσω κατά</string>
+    <string name="seconds_short">%1$d δ</string>
+    <string name="resume_on_reconnect">Συνέχιση όταν επανασυνδεθούν τα ακουστικά</string>
+    <string name="resume_on_reconnect_hint">Μόνο αν η αναπαραγωγή σταμάτησε επειδή τα ακουστικά αποσυνδέθηκαν πριν από λιγότερο από 10 λεπτά.</string>
     <string name="track_fallback">Πίστα</string>
     <string name="unknown_artist">Άγνωστο</string>
     <string name="tracks_count_artist">%1$d κομμάτια · %2$s</string>

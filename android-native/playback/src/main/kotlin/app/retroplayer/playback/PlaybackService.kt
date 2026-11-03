@@ -3,6 +3,7 @@ package app.retroplayer.playback
 import android.app.PendingIntent
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.os.SystemClock
 import androidx.core.net.toUri
 import androidx.media3.common.AudioAttributes
@@ -15,10 +16,15 @@ import androidx.media3.exoplayer.analytics.AnalyticsListener
 import androidx.media3.session.LibraryResult
 import androidx.media3.session.MediaLibraryService
 import androidx.media3.session.MediaSession
+import androidx.media3.session.SessionCommand
+import androidx.media3.session.SessionResult
+import app.retroplayer.data.chapters.ChapterRepository
 import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.library.LibraryRepository
 import app.retroplayer.data.settings.SettingsStore
+import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.model.AudioTrack
+import app.retroplayer.domain.model.Chapter
 import app.retroplayer.domain.settings.HeadsetSettings
 import com.google.common.collect.ImmutableList
 import com.google.common.util.concurrent.Futures
@@ -43,6 +49,8 @@ class PlaybackService : MediaLibraryService() {
     @Inject @ApplicationScope lateinit var appScope: CoroutineScope
     @Inject lateinit var equalizerAvailability: EqualizerAvailability
     @Inject lateinit var treeLabels: TreeLabels
+    @Inject lateinit var chapterLabels: ChapterLabels
+    @Inject lateinit var chapterRepository: ChapterRepository
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private var session: MediaLibrarySession? = null
@@ -51,6 +59,7 @@ class PlaybackService : MediaLibraryService() {
     private lateinit var queue: SessionQueue
     private lateinit var equalizer: EqualizerBinder
     private lateinit var tree: LibraryTree
+    private lateinit var chapterTracker: ChapterTracker
 
     @Volatile private var headset = HeadsetSettings()
 
@@ -72,7 +81,12 @@ class PlaybackService : MediaLibraryService() {
             },
         )
         equalizer.onSession(exo.audioSessionId)
-        player = RetroPlayer(exo, AutoRewindTracker(SystemClock::elapsedRealtime), { headset }, { emptyList() })
+        chapterTracker = ChapterTracker(exo, scope, ::chaptersOf) { chapters ->
+            session?.setMediaButtonPreferences(ChapterCommands.buttons(chapters, chapterLabels))
+        }
+        player = RetroPlayer(exo, AutoRewindTracker(SystemClock::elapsedRealtime), { headset }) {
+            chapterTracker.chapters.map { it.startMs }
+        }
         saver = ProgressSaver(player, appScope) { id, state -> store.savePlayback(id, state) }
         saver.start()
         queue = SessionQueue(
@@ -121,6 +135,11 @@ class PlaybackService : MediaLibraryService() {
         super.onDestroy()
     }
 
+    private suspend fun chaptersOf(item: MediaItem): List<Chapter> {
+        val uri = PlaybackRequests.trackUriOf(item) ?: item.localConfiguration?.uri?.toString() ?: return emptyList()
+        return chapterRepository.chapters(uri, LibraryPath(item.mediaId).name)
+    }
+
     private fun artworkFor(track: AudioTrack): Uri =
         (repository.folderArt(track.directory) ?: track.uri).toUri()
 
@@ -135,6 +154,29 @@ class PlaybackService : MediaLibraryService() {
     }
 
     private inner class Callback : MediaLibrarySession.Callback {
+        override fun onConnect(session: MediaSession, controller: MediaSession.ControllerInfo): MediaSession.ConnectionResult =
+            MediaSession.ConnectionResult.AcceptedResultBuilder(session)
+                .setAvailableSessionCommands(
+                    ChapterCommands.addTo(MediaSession.ConnectionResult.DEFAULT_SESSION_AND_LIBRARY_COMMANDS),
+                )
+                .setMediaButtonPreferences(ChapterCommands.buttons(chapterTracker.chapters, chapterLabels))
+                .build()
+
+        override fun onCustomCommand(
+            session: MediaSession,
+            controller: MediaSession.ControllerInfo,
+            customCommand: SessionCommand,
+            args: Bundle,
+        ): ListenableFuture<SessionResult> {
+            val target = when (customCommand) {
+                ChapterCommands.PREVIOUS -> chapterTracker.previousTarget()
+                ChapterCommands.NEXT -> chapterTracker.nextTarget()
+                else -> return super.onCustomCommand(session, controller, customCommand, args)
+            }
+            target?.let(player::seekTo)
+            return Futures.immediateFuture(SessionResult(SessionResult.RESULT_SUCCESS))
+        }
+
         override fun onSetMediaItems(
             mediaSession: MediaSession,
             controller: MediaSession.ControllerInfo,

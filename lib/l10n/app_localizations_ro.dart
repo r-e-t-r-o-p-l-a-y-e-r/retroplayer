@@ -155,6 +155,40 @@ class AppLocalizationsRo extends AppLocalizations {
   String get jumpForward => 'Avansează cu 15 secunde';
 
   @override
+  String get chapters => 'Capitole';
+
+  @override
+  String get previousChapter => 'Capitolul anterior';
+
+  @override
+  String get nextChapter => 'Capitolul următor';
+
+  @override
+  String get headphones => 'Căști';
+
+  @override
+  String get autoRewind => 'Derulează înapoi la reluare';
+
+  @override
+  String get autoRewindHint =>
+      'După o pauză de cel puțin un minut, piesele mai lungi de 20 de minute se reiau cu câteva secunde mai devreme.';
+
+  @override
+  String get rewindBy => 'Derulează înapoi cu';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Reia când căștile se reconectează';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Doar dacă redarea s-a oprit pentru că acum mai puțin de 10 minute căștile au fost deconectate.';
+
+  @override
   String get trackFallback => 'Pistă';
 
   @override

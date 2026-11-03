@@ -155,6 +155,40 @@ class AppLocalizationsLv extends AppLocalizations {
   String get jumpForward => 'Pāriet uz priekšu par 15 sekundēm';
 
   @override
+  String get chapters => 'Nodaļas';
+
+  @override
+  String get previousChapter => 'Iepriekšējā nodaļa';
+
+  @override
+  String get nextChapter => 'Nākamā nodaļa';
+
+  @override
+  String get headphones => 'Austiņas';
+
+  @override
+  String get autoRewind => 'Atsākot attīt atpakaļ';
+
+  @override
+  String get autoRewindHint =>
+      'Pēc vismaz minūti ilgas pauzes ierakstus, kas garāki par 20 minūtēm, atsāk dažas sekundes agrāk.';
+
+  @override
+  String get rewindBy => 'Attīt atpakaļ par';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Atsākt, kad austiņas atkal pievienotas';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Tikai tad, ja atskaņošana tika pauzēta, jo austiņas tika atvienotas mazāk nekā pirms 10 minūtēm.';
+
+  @override
   String get trackFallback => 'Dziesma';
 
   @override

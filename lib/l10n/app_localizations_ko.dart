@@ -152,6 +152,38 @@ class AppLocalizationsKo extends AppLocalizations {
   String get jumpForward => '15초 후';
 
   @override
+  String get chapters => '챕터';
+
+  @override
+  String get previousChapter => '이전 챕터';
+
+  @override
+  String get nextChapter => '다음 챕터';
+
+  @override
+  String get headphones => '헤드폰';
+
+  @override
+  String get autoRewind => '이어 재생 시 되감기';
+
+  @override
+  String get autoRewindHint => '1분 이상 일시정지한 후 20분보다 긴 트랙은 몇 초 앞에서 다시 재생됩니다.';
+
+  @override
+  String get rewindBy => '되감기';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds초';
+  }
+
+  @override
+  String get resumeOnReconnect => '헤드폰이 다시 연결되면 재생';
+
+  @override
+  String get resumeOnReconnectHint => '10분 이내에 헤드폰 연결이 끊겨 일시정지된 경우에만 해당합니다.';
+
+  @override
   String get trackFallback => '추적';
 
   @override

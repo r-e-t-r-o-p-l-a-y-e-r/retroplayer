@@ -155,6 +155,40 @@ class AppLocalizationsHu extends AppLocalizations {
   String get jumpForward => '15 másodperccel előre';
 
   @override
+  String get chapters => 'Fejezetek';
+
+  @override
+  String get previousChapter => 'Előző fejezet';
+
+  @override
+  String get nextChapter => 'Következő fejezet';
+
+  @override
+  String get headphones => 'Fejhallgató';
+
+  @override
+  String get autoRewind => 'Visszatekerés folytatáskor';
+
+  @override
+  String get autoRewindHint =>
+      'Legalább egyperces szünet után a 20 percnél hosszabb sávok néhány másodperccel korábbról folytatódnak.';
+
+  @override
+  String get rewindBy => 'Visszatekerés mértéke';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds mp';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Folytatás a fejhallgató újracsatlakozásakor';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Csak ha a lejátszás azért állt le, mert a fejhallgatót kevesebb mint 10 perce leválasztották.';
+
+  @override
   String get trackFallback => 'Pálya';
 
   @override

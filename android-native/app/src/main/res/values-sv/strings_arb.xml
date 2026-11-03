@@ -46,6 +46,16 @@
     <string name="next">Nästa</string>
     <string name="jump_back">15 sekunder tillbaka</string>
     <string name="jump_forward">Spola fram 15 sekunder</string>
+    <string name="chapters">Kapitel</string>
+    <string name="previous_chapter">Föregående kapitel</string>
+    <string name="next_chapter">Nästa kapitel</string>
+    <string name="headphones">Hörlurar</string>
+    <string name="auto_rewind">Spola tillbaka vid återupptagning</string>
+    <string name="auto_rewind_hint">Efter en paus på minst en minut återupptas spår längre än 20 minuter några sekunder tidigare.</string>
+    <string name="rewind_by">Spola tillbaka</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Återuppta när hörlurarna ansluts igen</string>
+    <string name="resume_on_reconnect_hint">Bara om uppspelningen pausades för att hörlurarna kopplades från för mindre än 10 minuter sedan.</string>
     <string name="track_fallback">Spår</string>
     <string name="unknown_artist">Okänt</string>
     <string name="tracks_count_artist">%1$d låtar · %2$s</string>

@@ -22,6 +22,7 @@ import android.content.Context
 import app.retroplayer.R
 import app.retroplayer.domain.Crumb
 import app.retroplayer.domain.LibraryPath
+import app.retroplayer.domain.model.Chapter
 import app.retroplayer.playback.NowPlaying
 import app.retroplayer.ui.theme.RetroTheme
 import com.google.common.truth.Truth.assertThat
@@ -40,12 +41,14 @@ class ExpandedPlayerTest {
         toggle = {},
         previous = {},
         next = {},
-        seekTo = {},
+        seekTo = { calls += "seekTo:$it" },
         jumpBack = { calls += "jumpBack" },
         jumpForward = { calls += "jumpForward" },
         setSpeed = { calls += "speed:$it" },
         locate = { calls += "locate" },
         playbackCrumb = { calls += "crumb:${it.label}" },
+        previousChapter = { calls += "previousChapter" },
+        nextChapter = { calls += "nextChapter" },
     )
 
     private val playing = PlayerUiState(
@@ -148,6 +151,38 @@ class ExpandedPlayerTest {
         assertThat(art.bottom - art.top).isAtLeast(120.dp)
         compose.onNodeWithTag(SPEED_SLIDER_TAG).assertIsDisplayed()
         compose.assertNoClippedText()
+    }
+
+    private val book = playing.copy(
+        nowPlaying = playing.nowPlaying.copy(title = "Book", positionMs = 700_000, durationMs = 1_800_000),
+        chapters = listOf(Chapter(0, "Intro"), Chapter(600_000, "Middle"), Chapter(1_200_000, "End")),
+    )
+
+    @Test
+    fun `a track without chapters has no chapter controls`() {
+        show()
+        compose.onNodeWithContentDescription(context.getString(R.string.next_chapter)).assertDoesNotExist()
+        compose.onNodeWithContentDescription(context.getString(R.string.chapters)).assertDoesNotExist()
+    }
+
+    @Test
+    fun `the current chapter shows under the titles with chapter steps`() {
+        show(book)
+        compose.onNodeWithText("Middle").assertIsDisplayed()
+        compose.onNodeWithContentDescription(context.getString(R.string.previous_chapter)).performClick()
+        compose.onNodeWithContentDescription(context.getString(R.string.next_chapter)).performClick()
+        assertThat(calls).containsExactly("previousChapter", "nextChapter").inOrder()
+    }
+
+    @Test
+    fun `chapter list seeks to the chapter`() {
+        show(book)
+        compose.onNodeWithText("Middle").performClick()
+        compose.onNodeWithText("Intro").assertIsDisplayed()
+        compose.onNodeWithText("End").performClick()
+        compose.waitForIdle()
+        assertThat(calls).containsExactly("seekTo:1200000")
+        compose.onNodeWithText("Intro").assertDoesNotExist()
     }
 
     @Test

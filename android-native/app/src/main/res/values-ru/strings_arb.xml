@@ -46,6 +46,16 @@
     <string name="next">Далее</string>
     <string name="jump_back">Назад на 15 секунд</string>
     <string name="jump_forward">Вперед на 15 секунд</string>
+    <string name="chapters">Главы</string>
+    <string name="previous_chapter">Предыдущая глава</string>
+    <string name="next_chapter">Следующая глава</string>
+    <string name="headphones">Наушники</string>
+    <string name="auto_rewind">Перематывать назад при возобновлении</string>
+    <string name="auto_rewind_hint">После паузы не менее минуты треки длиннее 20 минут продолжаются на несколько секунд раньше.</string>
+    <string name="rewind_by">Перемотать назад на</string>
+    <string name="seconds_short">%1$d с</string>
+    <string name="resume_on_reconnect">Возобновлять при повторном подключении наушников</string>
+    <string name="resume_on_reconnect_hint">Только если воспроизведение остановилось из-за отключения наушников менее 10 минут назад.</string>
     <string name="track_fallback">Трек</string>
     <string name="unknown_artist">Неизвестно</string>
     <string name="tracks_count_artist">%1$d треков · %2$s</string>

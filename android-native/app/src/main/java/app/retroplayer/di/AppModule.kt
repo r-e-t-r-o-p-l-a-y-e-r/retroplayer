@@ -22,6 +22,7 @@ import app.retroplayer.data.saf.SafDocumentSource
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.playback.ApplicationScope
 import app.retroplayer.playback.PlaybackItemResolver
+import app.retroplayer.playback.ChapterLabels
 import app.retroplayer.playback.TreeLabels
 import app.retroplayer.playback.AudioFxEqualizer
 import app.retroplayer.playback.EqualizerProbe
@@ -39,6 +40,8 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
+import app.retroplayer.data.chapters.ChapterRepository
+import app.retroplayer.data.saf.SafChapterSource
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
@@ -100,6 +103,10 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun chapters(@ApplicationContext context: Context) = ChapterRepository(SafChapterSource(context.contentResolver, Dispatchers.IO))
+
+    @Provides
+    @Singleton
     fun playlists(
         source: DocumentSource,
         scanner: LibraryScanner,
@@ -119,6 +126,12 @@ object AppModule {
         sources = context.getString(R.string.library_sources),
         favorites = context.getString(R.string.favorites),
         queue = context.getString(R.string.queue),
+    )
+
+    @Provides
+    fun chapterLabels(@ApplicationContext context: Context) = ChapterLabels(
+        previous = context.getString(R.string.previous_chapter),
+        next = context.getString(R.string.next_chapter),
     )
 
     @Provides

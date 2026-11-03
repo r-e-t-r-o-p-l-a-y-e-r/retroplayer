@@ -155,6 +155,40 @@ class AppLocalizationsPl extends AppLocalizations {
   String get jumpForward => 'Przewiń o 15 sekund do przodu';
 
   @override
+  String get chapters => 'Rozdziały';
+
+  @override
+  String get previousChapter => 'Poprzedni rozdział';
+
+  @override
+  String get nextChapter => 'Następny rozdział';
+
+  @override
+  String get headphones => 'Słuchawki';
+
+  @override
+  String get autoRewind => 'Cofnij przy wznowieniu';
+
+  @override
+  String get autoRewindHint =>
+      'Po co najmniej minutowej przerwie utwory dłuższe niż 20 minut wznawiają się kilka sekund wcześniej.';
+
+  @override
+  String get rewindBy => 'Cofnij o';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Wznów po ponownym podłączeniu słuchawek';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Tylko jeśli odtwarzanie zostało wstrzymane, bo słuchawki odłączono mniej niż 10 minut temu.';
+
+  @override
   String get trackFallback => 'Utwór';
 
   @override

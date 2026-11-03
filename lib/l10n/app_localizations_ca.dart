@@ -157,6 +157,41 @@ class AppLocalizationsCa extends AppLocalizations {
   String get jumpForward => 'Avançar 15 segons';
 
   @override
+  String get chapters => 'Capítols';
+
+  @override
+  String get previousChapter => 'Capítol anterior';
+
+  @override
+  String get nextChapter => 'Capítol següent';
+
+  @override
+  String get headphones => 'Auriculars';
+
+  @override
+  String get autoRewind => 'Retrocedeix en reprendre';
+
+  @override
+  String get autoRewindHint =>
+      'Després d\'una pausa d\'almenys un minut, les pistes de més de 20 minuts es reprenen uns segons abans.';
+
+  @override
+  String get rewindBy => 'Retrocedeix';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect =>
+      'Reprèn quan es tornin a connectar els auriculars';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Només si la reproducció es va aturar perquè els auriculars es van desconnectar fa menys de 10 minuts.';
+
+  @override
   String get trackFallback => 'Pista';
 
   @override

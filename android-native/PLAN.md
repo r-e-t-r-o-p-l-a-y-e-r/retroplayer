@@ -55,7 +55,7 @@ screenshot comparison described there.
 | T14c | Device feedback round 2 (sheet below the header, save anywhere, queue icons) | any | done |
 | T14d | Device feedback round 3 (mini drag, build time, swipe back, add tracks picker) | any | done |
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
-| T16 | Chapters in player, notification and seek bar | any | todo |
+| T16 | Chapters in player, notification and seek bar | any | done |
 | T17 | Headset options UI + resume on reconnect | any | todo |
 | T18 | Android Auto browse tree | opus | done |
 | T19 | Glance home-screen widget | any | todo |
@@ -820,7 +820,7 @@ available, simply continue top to bottom.
 
 ## T16 Chapters in player, notification and seek bar
 
-- Owner: any. Status: todo. Depends: T03, T15.
+- Owner: any. Status: done. Depends: T03, T15.
 - Spec: service loads chapters for the current track (on media item
   transition, IO dispatcher), feeds `RetroPlayer(chapterStartsMs = ...)`, and
   publishes them in the media item's extras; `NowPlaying.chapters`.
@@ -835,6 +835,31 @@ available, simply continue top to bottom.
   `previous chapter within 3 s of a start goes to the one before`;
   `ExpandedPlayerTest`: `chapter list seeks to the chapter`.
 - Done when: tests green; smoke with an M4B fixture pushed to the emulator.
+- Done (as built):
+  - No Room column: `data/.../chapters/ChapterRepository.kt` reads
+    `.m4b/.m4a/.mp4` once through `SafChapterSource` and keeps the last 32
+    tracks in memory (failures read as no chapters). The service and the UI
+    run in one process and share the singleton, so the UI does not need
+    media item extras.
+  - `domain/.../ChapterNavigation.kt`: `current`, `next`, `previous`
+    (restart within the chapter, the one before within 3 s of a start).
+  - Service: `ChapterTracker` loads on media item transition and feeds
+    `RetroPlayer` chapter starts and `ChapterCommands.buttons` (notification
+    back/forward slots, `ChapterLabels` from `AppModule`); `onConnect` adds
+    the two commands, `onCustomCommand` seeks.
+  - UI: `PlayerViewModel` loads chapters for `trackUri`, chapter steps seek
+    through `PlaybackControls.seekTo`; expanded player shows
+    "‹ chapter ›" under the titles (tap opens a `ModalBottomSheet` list) and
+    ticks on `PlaybackProgress(marksMs)`.
+  - Strings as ARB keys in all 46 languages: `chapters`, `previousChapter`,
+    `nextChapter` (plus the T17 keys `headphones`, `autoRewind`,
+    `autoRewindHint`, `rewindBy`, `secondsShort`, `resumeOnReconnect`,
+    `resumeOnReconnectHint`).
+  - Tests: `ChapterNavigationTest`, `ChapterRepositoryTest`,
+    `ChapterTrackerTest`, `ChapterCommandsTest`, `PlayerViewModelTest`
+    (5 chapter cases), `ExpandedPlayerTest` (3 chapter cases).
+  - Emulator: 6-min M4B with 4 chapters; row, ticks, list seek and the
+    notification's chapter back (restart, then previous) checked.
 
 ## T17 Headset options UI + resume on reconnect
 

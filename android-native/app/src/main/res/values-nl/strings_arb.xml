@@ -46,6 +46,16 @@
     <string name="next">Volgende</string>
     <string name="jump_back">15 seconden terug</string>
     <string name="jump_forward">15 seconden vooruitspoelen</string>
+    <string name="chapters">Hoofdstukken</string>
+    <string name="previous_chapter">Vorig hoofdstuk</string>
+    <string name="next_chapter">Volgend hoofdstuk</string>
+    <string name="headphones">Koptelefoon</string>
+    <string name="auto_rewind">Terugspoelen bij hervatten</string>
+    <string name="auto_rewind_hint">Na een pauze van minstens een minuut worden nummers langer dan 20 minuten een paar seconden eerder hervat.</string>
+    <string name="rewind_by">Terugspoelen met</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Hervatten wanneer de koptelefoon opnieuw verbindt</string>
+    <string name="resume_on_reconnect_hint">Alleen als het afspelen pauzeerde omdat de koptelefoon minder dan 10 minuten geleden werd losgekoppeld.</string>
     <string name="track_fallback">Track</string>
     <string name="unknown_artist">Onbekend</string>
     <string name="tracks_count_artist">%1$d nummers · %2$s</string>

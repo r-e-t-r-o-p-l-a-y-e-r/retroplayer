@@ -46,6 +46,16 @@
     <string name="next">Următorul</string>
     <string name="jump_back">Înapoi cu 15 secunde</string>
     <string name="jump_forward">Avansează cu 15 secunde</string>
+    <string name="chapters">Capitole</string>
+    <string name="previous_chapter">Capitolul anterior</string>
+    <string name="next_chapter">Capitolul următor</string>
+    <string name="headphones">Căști</string>
+    <string name="auto_rewind">Derulează înapoi la reluare</string>
+    <string name="auto_rewind_hint">După o pauză de cel puțin un minut, piesele mai lungi de 20 de minute se reiau cu câteva secunde mai devreme.</string>
+    <string name="rewind_by">Derulează înapoi cu</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Reia când căștile se reconectează</string>
+    <string name="resume_on_reconnect_hint">Doar dacă redarea s-a oprit pentru că acum mai puțin de 10 minute căștile au fost deconectate.</string>
     <string name="track_fallback">Pistă</string>
     <string name="unknown_artist">Necunoscut</string>
     <string name="tracks_count_artist">%1$d piese · %2$s</string>

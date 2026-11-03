@@ -46,6 +46,16 @@
     <string name="next">Следеће</string>
     <string name="jump_back">Назад 15 секунди</string>
     <string name="jump_forward">Премотај за 15 секунди</string>
+    <string name="chapters">Поглавља</string>
+    <string name="previous_chapter">Претходно поглавље</string>
+    <string name="next_chapter">Следеће поглавље</string>
+    <string name="headphones">Слушалице</string>
+    <string name="auto_rewind">Премотај уназад при наставку</string>
+    <string name="auto_rewind_hint">После паузе од најмање минут нумере дуже од 20 минута настављају се неколико секунди раније.</string>
+    <string name="rewind_by">Премотај уназад за</string>
+    <string name="seconds_short">%1$d с</string>
+    <string name="resume_on_reconnect">Настави када се слушалице поново повежу</string>
+    <string name="resume_on_reconnect_hint">Само ако је репродукција паузирана јер су слушалице искључене пре мање од 10 минута.</string>
     <string name="track_fallback">Стаза</string>
     <string name="unknown_artist">Непознато</string>
     <string name="tracks_count_artist">%1$d трака · %2$s</string>

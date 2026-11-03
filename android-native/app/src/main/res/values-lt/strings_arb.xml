@@ -46,6 +46,16 @@
     <string name="next">Toliau</string>
     <string name="jump_back">Atgal 15 sekundžių</string>
     <string name="jump_forward">Pereiti 15 sekundžių į priekį</string>
+    <string name="chapters">Skyriai</string>
+    <string name="previous_chapter">Ankstesnis skyrius</string>
+    <string name="next_chapter">Kitas skyrius</string>
+    <string name="headphones">Ausinės</string>
+    <string name="auto_rewind">Tęsiant atsukti atgal</string>
+    <string name="auto_rewind_hint">Po bent minutės pauzės ilgesni nei 20 minučių takeliai tęsiami keliomis sekundėmis anksčiau.</string>
+    <string name="rewind_by">Atsukti atgal</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Tęsti, kai ausinės vėl prijungiamos</string>
+    <string name="resume_on_reconnect_hint">Tik jei atkūrimas sustojo, nes ausinės buvo atjungtos mažiau nei prieš 10 minučių.</string>
     <string name="track_fallback">Takelis</string>
     <string name="unknown_artist">Nežinoma</string>
     <string name="tracks_count_artist">%1$d įrašų · %2$s</string>

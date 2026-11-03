@@ -155,6 +155,41 @@ class AppLocalizationsNl extends AppLocalizations {
   String get jumpForward => '15 seconden vooruitspoelen';
 
   @override
+  String get chapters => 'Hoofdstukken';
+
+  @override
+  String get previousChapter => 'Vorig hoofdstuk';
+
+  @override
+  String get nextChapter => 'Volgend hoofdstuk';
+
+  @override
+  String get headphones => 'Koptelefoon';
+
+  @override
+  String get autoRewind => 'Terugspoelen bij hervatten';
+
+  @override
+  String get autoRewindHint =>
+      'Na een pauze van minstens een minuut worden nummers langer dan 20 minuten een paar seconden eerder hervat.';
+
+  @override
+  String get rewindBy => 'Terugspoelen met';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect =>
+      'Hervatten wanneer de koptelefoon opnieuw verbindt';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Alleen als het afspelen pauzeerde omdat de koptelefoon minder dan 10 minuten geleden werd losgekoppeld.';
+
+  @override
   String get trackFallback => 'Track';
 
   @override

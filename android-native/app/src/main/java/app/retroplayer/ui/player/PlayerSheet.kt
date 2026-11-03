@@ -99,6 +99,20 @@ import app.retroplayer.domain.Crumb
 import app.retroplayer.domain.TransportRules
 import app.retroplayer.playback.NowPlaying
 import app.retroplayer.ui.formatSpeed
+import app.retroplayer.ui.formatDuration
+import app.retroplayer.domain.model.Chapter
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.draw.clip
 import app.retroplayer.ui.components.mayEllipsize
 import app.retroplayer.ui.components.AlbumArt
 import app.retroplayer.ui.components.BackButton
@@ -130,6 +144,8 @@ data class PlayerActions(
     val locate: () -> Unit,
     val playbackCrumb: (Crumb) -> Unit,
     val openSettings: () -> Unit = {},
+    val previousChapter: () -> Unit = {},
+    val nextChapter: () -> Unit = {},
 )
 
 /** Expands the player from a library top bar; null while there is nothing to expand. */
@@ -465,7 +481,6 @@ private fun NowPlayingHeader(state: PlayerUiState, actions: PlayerActions, onCol
 
 @Composable
 private fun ExpandedBody(state: PlayerUiState, actions: PlayerActions, drag: Modifier, modifier: Modifier = Modifier) {
-    val now = state.nowPlaying
     BoxWithConstraints(
         Modifier
             .testTag(EXPANDED_PLAYER_TAG)
@@ -482,7 +497,7 @@ private fun ExpandedBody(state: PlayerUiState, actions: PlayerActions, drag: Mod
                     Modifier.weight(1f).verticalScroll(rememberScrollState()),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    Controls(now, actions)
+                    Controls(state, actions)
                 }
             }
         } else {
@@ -490,7 +505,7 @@ private fun ExpandedBody(state: PlayerUiState, actions: PlayerActions, drag: Mod
                 Spacer(Modifier.weight(1f))
                 ArtWithJumps(state, actions, Modifier.weight(4f, fill = false).fillMaxWidth())
                 Spacer(Modifier.height(16.dp))
-                Controls(now, actions)
+                Controls(state, actions)
                 Spacer(Modifier.weight(1.4f))
             }
         }
@@ -537,7 +552,8 @@ private fun ArtWithJumps(state: PlayerUiState, actions: PlayerActions, modifier:
 }
 
 @Composable
-private fun Controls(now: NowPlaying, actions: PlayerActions) {
+private fun Controls(state: PlayerUiState, actions: PlayerActions) {
+    val now = state.nowPlaying
     Titles(
         now,
         titleStyle = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp, lineHeight = 24.sp),
@@ -547,13 +563,100 @@ private fun Controls(now: NowPlaying, actions: PlayerActions) {
             .testTag(EXPANDED_LOCATE_TITLE_TAG)
             .clickable(onClick = actions.locate),
     )
-    Spacer(Modifier.height(16.dp))
-    PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo)
+    if (state.chapters.isNotEmpty()) ChapterRow(state, actions) else Spacer(Modifier.height(16.dp))
+    PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo, marksMs = state.chapters.map { it.startMs })
     Spacer(Modifier.height(8.dp))
     Transport(now, actions, skipSize = 40.dp, playSize = 64.dp)
     Spacer(Modifier.height(16.dp))
     SpeedRow(now.speed, actions.setSpeed)
 }
+
+/** The current chapter between chapter steps; tapping it lists all chapters. */
+@Composable
+private fun ChapterRow(state: PlayerUiState, actions: PlayerActions) {
+    val palette = LocalRetroPalette.current
+    var listOpen by rememberSaveable { mutableStateOf(false) }
+    val current = state.currentChapter ?: state.chapters.first()
+    Row(Modifier.fillMaxWidth().padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        IconButton(onClick = actions.previousChapter) {
+            Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, stringResource(R.string.previous_chapter), tint = palette.textSecondary)
+        }
+        Row(
+            Modifier
+                .weight(1f)
+                .clip(RoundedCornerShape(8.dp))
+                .clickable(onClickLabel = stringResource(R.string.chapters)) { listOpen = true }
+                .padding(horizontal = 8.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(Icons.AutoMirrored.Filled.List, contentDescription = null, tint = palette.textMuted, modifier = Modifier.size(18.dp))
+            Text(
+                chapterLabel(state.chapters, current),
+                style = TextStyle(fontSize = 14.sp, fontWeight = FontWeight.Medium, color = palette.textSecondary),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(start = 6.dp),
+            )
+        }
+        IconButton(onClick = actions.nextChapter) {
+            Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, stringResource(R.string.next_chapter), tint = palette.textSecondary)
+        }
+    }
+    if (listOpen) ChapterList(state, onSeek = actions.seekTo, onDismiss = { listOpen = false })
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ChapterList(state: PlayerUiState, onSeek: (Long) -> Unit, onDismiss: () -> Unit) {
+    val palette = LocalRetroPalette.current
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val scope = rememberCoroutineScope()
+    val current = state.currentChapter
+    val list = rememberLazyListState(initialFirstVisibleItemIndex = state.chapters.indexOf(current).coerceAtLeast(0))
+    ModalBottomSheet(onDismissRequest = onDismiss, sheetState = sheetState, containerColor = palette.screenElevated) {
+        Text(
+            stringResource(R.string.chapters),
+            style = MaterialTheme.typography.titleMedium,
+            color = palette.textPrimary,
+            modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
+        )
+        LazyColumn(state = list) {
+            items(state.chapters) { chapter ->
+                val selected = chapter == current
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            onSeek(chapter.startMs)
+                            scope.launch { sheetState.hide() }.invokeOnCompletion { onDismiss() }
+                        }
+                        .padding(horizontal = 24.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        chapterLabel(state.chapters, chapter),
+                        style = TextStyle(
+                            fontSize = 15.sp,
+                            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+                            color = if (selected) palette.accent else palette.textPrimary,
+                        ),
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        formatDuration(chapter.startMs),
+                        style = TextStyle(fontSize = 13.sp, fontFeatureSettings = "tnum", color = palette.textMuted),
+                        modifier = Modifier.padding(start = 12.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+/** Untitled chapters show their number. */
+private fun chapterLabel(chapters: List<Chapter>, chapter: Chapter): String =
+    chapter.title.ifBlank { (chapters.indexOf(chapter) + 1).toString() }
 
 @Composable
 private fun JumpButton(forward: Boolean, onClick: () -> Unit) {

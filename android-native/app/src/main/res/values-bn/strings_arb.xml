@@ -46,6 +46,16 @@
     <string name="next">পরবর্তী</string>
     <string name="jump_back">15 সেকেন্ড পিছনে</string>
     <string name="jump_forward">15 সেকেন্ড এগিয়ে যান</string>
+    <string name="chapters">অধ্যায়</string>
+    <string name="previous_chapter">আগের অধ্যায়</string>
+    <string name="next_chapter">পরের অধ্যায়</string>
+    <string name="headphones">হেডফোন</string>
+    <string name="auto_rewind">আবার চালু করলে পিছিয়ে দিন</string>
+    <string name="auto_rewind_hint">অন্তত এক মিনিট বিরতির পর, 20 মিনিটের বেশি দীর্ঘ ট্র্যাক কয়েক সেকেন্ড আগে থেকে চলে।</string>
+    <string name="rewind_by">এতটা পিছিয়ে দিন</string>
+    <string name="seconds_short">%1$d সে.</string>
+    <string name="resume_on_reconnect">হেডফোন আবার যুক্ত হলে চালিয়ে যান</string>
+    <string name="resume_on_reconnect_hint">শুধু যদি 10 মিনিটের কম আগে হেডফোন বিচ্ছিন্ন হওয়ার কারণে প্লেব্যাক থেমে থাকে।</string>
     <string name="track_fallback">ট্র্যাক</string>
     <string name="unknown_artist">অজানা</string>
     <string name="tracks_count_artist">%1$d ট্র্যাক · %2$s</string>

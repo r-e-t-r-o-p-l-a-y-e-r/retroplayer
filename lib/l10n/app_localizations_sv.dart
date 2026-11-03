@@ -155,6 +155,40 @@ class AppLocalizationsSv extends AppLocalizations {
   String get jumpForward => 'Spola fram 15 sekunder';
 
   @override
+  String get chapters => 'Kapitel';
+
+  @override
+  String get previousChapter => 'Föregående kapitel';
+
+  @override
+  String get nextChapter => 'Nästa kapitel';
+
+  @override
+  String get headphones => 'Hörlurar';
+
+  @override
+  String get autoRewind => 'Spola tillbaka vid återupptagning';
+
+  @override
+  String get autoRewindHint =>
+      'Efter en paus på minst en minut återupptas spår längre än 20 minuter några sekunder tidigare.';
+
+  @override
+  String get rewindBy => 'Spola tillbaka';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Återuppta när hörlurarna ansluts igen';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Bara om uppspelningen pausades för att hörlurarna kopplades från för mindre än 10 minuter sedan.';
+
+  @override
   String get trackFallback => 'Spår';
 
   @override

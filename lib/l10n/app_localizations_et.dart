@@ -154,6 +154,40 @@ class AppLocalizationsEt extends AppLocalizations {
   String get jumpForward => 'Edasi 15 sekundit';
 
   @override
+  String get chapters => 'Peatükid';
+
+  @override
+  String get previousChapter => 'Eelmine peatükk';
+
+  @override
+  String get nextChapter => 'Järgmine peatükk';
+
+  @override
+  String get headphones => 'Kõrvaklapid';
+
+  @override
+  String get autoRewind => 'Jätkamisel keri tagasi';
+
+  @override
+  String get autoRewindHint =>
+      'Vähemalt minutilise pausi järel jätkuvad üle 20 minuti pikkused lood mõni sekund varasemast kohast.';
+
+  @override
+  String get rewindBy => 'Keri tagasi';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Jätka, kui kõrvaklapid uuesti ühenduvad';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Ainult siis, kui esitus peatus, sest kõrvaklapid ühendati lahti vähem kui 10 minutit tagasi.';
+
+  @override
   String get trackFallback => 'Rada';
 
   @override

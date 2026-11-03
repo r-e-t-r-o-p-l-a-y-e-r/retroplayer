@@ -62,6 +62,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -91,6 +92,8 @@ import coil3.compose.SubcomposeAsyncImage
 
 const val PLAYING_STRIP_TAG = "playingStrip"
 const val PROGRESS_TAG = "playbackProgress"
+
+private val SLIDER_THUMB = 14.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -338,6 +341,8 @@ fun PlaybackProgress(
     onSeek: (Long) -> Unit,
     modifier: Modifier = Modifier,
     compact: Boolean = false,
+    /** Chapter starts, ticked on the track. */
+    marksMs: List<Long> = emptyList(),
 ) {
     val palette = LocalRetroPalette.current
     var dragging by remember { mutableStateOf<Float?>(null) }
@@ -360,7 +365,23 @@ fun PlaybackProgress(
             },
             valueRange = 0f..max,
             enabled = durationMs > 0,
-            modifier = Modifier.fillMaxWidth().heightIn(max = if (compact) 24.dp else 32.dp).testTag(PROGRESS_TAG),
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(max = if (compact) 24.dp else 32.dp)
+                .testTag(PROGRESS_TAG)
+                .drawWithContent {
+                    drawContent()
+                    if (durationMs <= 0) return@drawWithContent
+                    // The track runs between the thumb's centres at either end.
+                    val inset = (SLIDER_THUMB / 2).toPx()
+                    val half = 3.5.dp.toPx()
+                    marksMs.filter { it in 1 until durationMs }.forEach { mark ->
+                        val fraction = mark.toFloat() / durationMs
+                        val x = inset + fraction * (size.width - inset * 2)
+                        val at = if (layoutDirection == LayoutDirection.Rtl) size.width - x else x
+                        drawLine(palette.textMuted, Offset(at, center.y - half), Offset(at, center.y + half), strokeWidth = 1.5.dp.toPx())
+                    }
+                },
         )
         Row(Modifier.fillMaxWidth()) {
             Text(formatDuration(value.toLong()), style = time)
@@ -437,7 +458,7 @@ fun RetroSlider(
         thumb = {
             Box(
                 Modifier
-                    .size(14.dp)
+                    .size(SLIDER_THUMB)
                     .shadow(2.dp, CircleShape)
                     .background(palette.screenElevated, CircleShape)
                     .border(1.dp, palette.textPrimary.copy(alpha = if (enabled) 0.6f else 0.3f), CircleShape),

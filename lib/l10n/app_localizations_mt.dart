@@ -156,6 +156,40 @@ class AppLocalizationsMt extends AppLocalizations {
   String get jumpForward => 'Avvanza 15-il sekonda';
 
   @override
+  String get chapters => 'Kapitli';
+
+  @override
+  String get previousChapter => 'Kapitlu preċedenti';
+
+  @override
+  String get nextChapter => 'Kapitlu li jmiss';
+
+  @override
+  String get headphones => 'Kuffji';
+
+  @override
+  String get autoRewind => 'Erġa\' lura meta tkompli';
+
+  @override
+  String get autoRewindHint =>
+      'Wara waqfa ta\' mill-inqas minuta, traċċi itwal minn 20 minuta jkomplu ftit sekondi qabel.';
+
+  @override
+  String get rewindBy => 'Erġa\' lura b\'';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Kompli meta l-kuffji jerġgħu jitqabbdu';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Biss jekk id-daqq waqaf għax il-kuffji ġew skonnettjati inqas minn 10 minuti ilu.';
+
+  @override
   String get trackFallback => 'Traċċa';
 
   @override

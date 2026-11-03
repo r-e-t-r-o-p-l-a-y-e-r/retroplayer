@@ -46,6 +46,16 @@
     <string name="next">An chéad cheann eile</string>
     <string name="jump_back">Ar ais 15 soicind</string>
     <string name="jump_forward">Ar aghaidh 15 soicind</string>
+    <string name="chapters">Caibidlí</string>
+    <string name="previous_chapter">An chaibidil roimhe seo</string>
+    <string name="next_chapter">An chéad chaibidil eile</string>
+    <string name="headphones">Cluasáin</string>
+    <string name="auto_rewind">Cas siar nuair a atosaítear</string>
+    <string name="auto_rewind_hint">Tar éis sos nóiméid ar a laghad, atosaíonn rianta níos faide ná 20 nóiméad cúpla soicind níos luaithe.</string>
+    <string name="rewind_by">Cas siar</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Atosaigh nuair a athcheanglaítear na cluasáin</string>
+    <string name="resume_on_reconnect_hint">Ach amháin má stopadh an seinm toisc gur dícheanglaíodh na cluasáin níos lú ná 10 nóiméad ó shin.</string>
     <string name="track_fallback">Rian</string>
     <string name="unknown_artist">Neamh-aithnid</string>
     <string name="tracks_count_artist">%1$d rian · %2$s</string>

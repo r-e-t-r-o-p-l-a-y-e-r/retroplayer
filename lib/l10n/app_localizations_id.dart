@@ -155,6 +155,40 @@ class AppLocalizationsId extends AppLocalizations {
   String get jumpForward => 'Maju 15 detik';
 
   @override
+  String get chapters => 'Bab';
+
+  @override
+  String get previousChapter => 'Bab sebelumnya';
+
+  @override
+  String get nextChapter => 'Bab berikutnya';
+
+  @override
+  String get headphones => 'Headphone';
+
+  @override
+  String get autoRewind => 'Mundur saat melanjutkan';
+
+  @override
+  String get autoRewindHint =>
+      'Setelah jeda minimal satu menit, trek yang lebih dari 20 menit dilanjutkan beberapa detik lebih awal.';
+
+  @override
+  String get rewindBy => 'Mundur sebanyak';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds dtk';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Lanjutkan saat headphone tersambung lagi';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Hanya jika pemutaran berhenti karena headphone diputus kurang dari 10 menit yang lalu.';
+
+  @override
   String get trackFallback => 'Lintasan';
 
   @override

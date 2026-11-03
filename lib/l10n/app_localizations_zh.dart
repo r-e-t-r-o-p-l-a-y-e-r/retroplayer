@@ -152,6 +152,38 @@ class AppLocalizationsZh extends AppLocalizations {
   String get jumpForward => '前进15秒';
 
   @override
+  String get chapters => '章节';
+
+  @override
+  String get previousChapter => '上一章';
+
+  @override
+  String get nextChapter => '下一章';
+
+  @override
+  String get headphones => '耳机';
+
+  @override
+  String get autoRewind => '继续播放时回退';
+
+  @override
+  String get autoRewindHint => '暂停至少一分钟后，超过 20 分钟的曲目会从早几秒处继续播放。';
+
+  @override
+  String get rewindBy => '回退';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds 秒';
+  }
+
+  @override
+  String get resumeOnReconnect => '耳机重新连接时继续播放';
+
+  @override
+  String get resumeOnReconnectHint => '仅当播放因耳机在不到 10 分钟前断开而暂停时。';
+
+  @override
   String get trackFallback => '跟踪';
 
   @override

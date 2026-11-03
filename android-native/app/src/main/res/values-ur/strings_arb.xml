@@ -46,6 +46,16 @@
     <string name="next">اگلا</string>
     <string name="jump_back">15 سیکنڈ پیچھے</string>
     <string name="jump_forward">15 سیکنڈ آگے بڑھائیں</string>
+    <string name="chapters">ابواب</string>
+    <string name="previous_chapter">پچھلا باب</string>
+    <string name="next_chapter">اگلا باب</string>
+    <string name="headphones">ہیڈ فون</string>
+    <string name="auto_rewind">دوبارہ شروع کرنے پر پیچھے کریں</string>
+    <string name="auto_rewind_hint">کم از کم ایک منٹ کے وقفے کے بعد، 20 منٹ سے لمبے ٹریکس چند سیکنڈ پہلے سے شروع ہوتے ہیں۔</string>
+    <string name="rewind_by">اتنا پیچھے کریں</string>
+    <string name="seconds_short">%1$d سیکنڈ</string>
+    <string name="resume_on_reconnect">ہیڈ فون دوبارہ جڑنے پر جاری رکھیں</string>
+    <string name="resume_on_reconnect_hint">صرف اس صورت میں جب پلے بیک اس لیے رکا ہو کہ ہیڈ فون 10 منٹ سے کم پہلے منقطع ہوئے۔</string>
     <string name="track_fallback">ٹریک</string>
     <string name="unknown_artist">نامعلوم</string>
     <string name="tracks_count_artist">%1$d ٹریکس · %2$s</string>

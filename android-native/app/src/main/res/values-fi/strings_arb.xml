@@ -46,6 +46,16 @@
     <string name="next">Seuraava</string>
     <string name="jump_back">Takaisin 15 sekuntia</string>
     <string name="jump_forward">Siirry 15 sekuntia eteenpäin</string>
+    <string name="chapters">Luvut</string>
+    <string name="previous_chapter">Edellinen luku</string>
+    <string name="next_chapter">Seuraava luku</string>
+    <string name="headphones">Kuulokkeet</string>
+    <string name="auto_rewind">Kelaa taaksepäin jatkettaessa</string>
+    <string name="auto_rewind_hint">Vähintään minuutin tauon jälkeen yli 20 minuutin kappaleet jatkuvat muutaman sekunnin aiemmasta kohdasta.</string>
+    <string name="rewind_by">Kelaa taaksepäin</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Jatka, kun kuulokkeet yhdistetään uudelleen</string>
+    <string name="resume_on_reconnect_hint">Vain jos toisto keskeytyi, koska kuulokkeet irrotettiin alle 10 minuuttia sitten.</string>
     <string name="track_fallback">Rata</string>
     <string name="unknown_artist">Tuntematon</string>
     <string name="tracks_count_artist">%1$d kappaletta · %2$s</string>

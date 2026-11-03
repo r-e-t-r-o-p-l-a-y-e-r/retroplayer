@@ -154,6 +154,40 @@ class AppLocalizationsTr extends AppLocalizations {
   String get jumpForward => '15 saniye ileri';
 
   @override
+  String get chapters => 'Bölümler';
+
+  @override
+  String get previousChapter => 'Önceki bölüm';
+
+  @override
+  String get nextChapter => 'Sonraki bölüm';
+
+  @override
+  String get headphones => 'Kulaklık';
+
+  @override
+  String get autoRewind => 'Devam ederken geri sar';
+
+  @override
+  String get autoRewindHint =>
+      'En az bir dakikalık duraklatmadan sonra 20 dakikadan uzun parçalar birkaç saniye önceden devam eder.';
+
+  @override
+  String get rewindBy => 'Geri sarma süresi';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds sn';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Kulaklık yeniden bağlanınca devam et';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Yalnızca kulaklığın 10 dakikadan kısa süre önce çıkarılması nedeniyle oynatma duraklatıldıysa.';
+
+  @override
   String get trackFallback => 'İzle';
 
   @override

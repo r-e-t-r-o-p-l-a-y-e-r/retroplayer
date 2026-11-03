@@ -155,6 +155,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get jumpForward => 'Forward 15 seconds';
 
   @override
+  String get chapters => 'Chapters';
+
+  @override
+  String get previousChapter => 'Previous chapter';
+
+  @override
+  String get nextChapter => 'Next chapter';
+
+  @override
+  String get headphones => 'Headphones';
+
+  @override
+  String get autoRewind => 'Rewind on resume';
+
+  @override
+  String get autoRewindHint =>
+      'After a pause of at least a minute, tracks longer than 20 minutes resume a few seconds earlier.';
+
+  @override
+  String get rewindBy => 'Rewind by';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Resume when headphones reconnect';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Only if playback paused because the headphones were disconnected less than 10 minutes ago.';
+
+  @override
   String get trackFallback => 'Track';
 
   @override

@@ -46,6 +46,16 @@
     <string name="next">下一步</string>
     <string name="jump_back">后退15秒</string>
     <string name="jump_forward">前进15秒</string>
+    <string name="chapters">章节</string>
+    <string name="previous_chapter">上一章</string>
+    <string name="next_chapter">下一章</string>
+    <string name="headphones">耳机</string>
+    <string name="auto_rewind">继续播放时回退</string>
+    <string name="auto_rewind_hint">暂停至少一分钟后，超过 20 分钟的曲目会从早几秒处继续播放。</string>
+    <string name="rewind_by">回退</string>
+    <string name="seconds_short">%1$d 秒</string>
+    <string name="resume_on_reconnect">耳机重新连接时继续播放</string>
+    <string name="resume_on_reconnect_hint">仅当播放因耳机在不到 10 分钟前断开而暂停时。</string>
     <string name="track_fallback">跟踪</string>
     <string name="unknown_artist">未知</string>
     <string name="tracks_count_artist">%1$d首曲目· %2$s</string>

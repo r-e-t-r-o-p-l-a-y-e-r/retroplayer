@@ -154,6 +154,40 @@ class AppLocalizationsBn extends AppLocalizations {
   String get jumpForward => '15 সেকেন্ড এগিয়ে যান';
 
   @override
+  String get chapters => 'অধ্যায়';
+
+  @override
+  String get previousChapter => 'আগের অধ্যায়';
+
+  @override
+  String get nextChapter => 'পরের অধ্যায়';
+
+  @override
+  String get headphones => 'হেডফোন';
+
+  @override
+  String get autoRewind => 'আবার চালু করলে পিছিয়ে দিন';
+
+  @override
+  String get autoRewindHint =>
+      'অন্তত এক মিনিট বিরতির পর, 20 মিনিটের বেশি দীর্ঘ ট্র্যাক কয়েক সেকেন্ড আগে থেকে চলে।';
+
+  @override
+  String get rewindBy => 'এতটা পিছিয়ে দিন';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds সে.';
+  }
+
+  @override
+  String get resumeOnReconnect => 'হেডফোন আবার যুক্ত হলে চালিয়ে যান';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'শুধু যদি 10 মিনিটের কম আগে হেডফোন বিচ্ছিন্ন হওয়ার কারণে প্লেব্যাক থেমে থাকে।';
+
+  @override
   String get trackFallback => 'ট্র্যাক';
 
   @override

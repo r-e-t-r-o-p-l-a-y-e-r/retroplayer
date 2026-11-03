@@ -46,6 +46,16 @@
     <string name="next">Tiếp theo</string>
     <string name="jump_back">Quay lại 15 giây</string>
     <string name="jump_forward">Tiến lên 15 giây</string>
+    <string name="chapters">Chương</string>
+    <string name="previous_chapter">Chương trước</string>
+    <string name="next_chapter">Chương sau</string>
+    <string name="headphones">Tai nghe</string>
+    <string name="auto_rewind">Tua lại khi tiếp tục</string>
+    <string name="auto_rewind_hint">Sau khi tạm dừng ít nhất một phút, các bản nhạc dài hơn 20 phút sẽ tiếp tục sớm hơn vài giây.</string>
+    <string name="rewind_by">Tua lại</string>
+    <string name="seconds_short">%1$d giây</string>
+    <string name="resume_on_reconnect">Tiếp tục khi tai nghe kết nối lại</string>
+    <string name="resume_on_reconnect_hint">Chỉ khi phát bị tạm dừng vì tai nghe bị ngắt kết nối cách đây chưa đến 10 phút.</string>
     <string name="track_fallback">Bám</string>
     <string name="unknown_artist">Không xác định</string>
     <string name="tracks_count_artist">%1$d bài hát · %2$s</string>

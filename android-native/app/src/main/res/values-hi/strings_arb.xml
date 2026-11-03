@@ -46,6 +46,16 @@
     <string name="next">अगला</string>
     <string name="jump_back">15 सेकंड पीछे जाएँ</string>
     <string name="jump_forward">15 सेकंड आगे भेजें</string>
+    <string name="chapters">अध्याय</string>
+    <string name="previous_chapter">पिछला अध्याय</string>
+    <string name="next_chapter">अगला अध्याय</string>
+    <string name="headphones">हेडफ़ोन</string>
+    <string name="auto_rewind">फिर से शुरू करने पर पीछे करें</string>
+    <string name="auto_rewind_hint">कम से कम एक मिनट के विराम के बाद, 20 मिनट से लंबे ट्रैक कुछ सेकंड पहले से शुरू होते हैं।</string>
+    <string name="rewind_by">इतना पीछे करें</string>
+    <string name="seconds_short">%1$d से.</string>
+    <string name="resume_on_reconnect">हेडफ़ोन फिर से जुड़ने पर जारी रखें</string>
+    <string name="resume_on_reconnect_hint">केवल तब जब प्लेबैक इसलिए रुका हो कि हेडफ़ोन 10 मिनट से कम पहले डिस्कनेक्ट हुए थे।</string>
     <string name="track_fallback">ट्रैक</string>
     <string name="unknown_artist">अज्ञात</string>
     <string name="tracks_count_artist">%1$d ट्रैक · %2$s</string>

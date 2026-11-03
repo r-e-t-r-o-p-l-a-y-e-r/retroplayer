@@ -46,6 +46,16 @@
     <string name="next">Tālāk</string>
     <string name="jump_back">Atpakaļ par 15 sekundēm</string>
     <string name="jump_forward">Pāriet uz priekšu par 15 sekundēm</string>
+    <string name="chapters">Nodaļas</string>
+    <string name="previous_chapter">Iepriekšējā nodaļa</string>
+    <string name="next_chapter">Nākamā nodaļa</string>
+    <string name="headphones">Austiņas</string>
+    <string name="auto_rewind">Atsākot attīt atpakaļ</string>
+    <string name="auto_rewind_hint">Pēc vismaz minūti ilgas pauzes ierakstus, kas garāki par 20 minūtēm, atsāk dažas sekundes agrāk.</string>
+    <string name="rewind_by">Attīt atpakaļ par</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Atsākt, kad austiņas atkal pievienotas</string>
+    <string name="resume_on_reconnect_hint">Tikai tad, ja atskaņošana tika pauzēta, jo austiņas tika atvienotas mazāk nekā pirms 10 minūtēm.</string>
     <string name="track_fallback">Dziesma</string>
     <string name="unknown_artist">Nezināms</string>
     <string name="tracks_count_artist">%1$d dziesmas · %2$s</string>

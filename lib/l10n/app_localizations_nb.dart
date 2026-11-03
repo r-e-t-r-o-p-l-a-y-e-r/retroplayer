@@ -155,6 +155,41 @@ class AppLocalizationsNb extends AppLocalizations {
   String get jumpForward => 'Spol frem 15 sekunder';
 
   @override
+  String get chapters => 'Kapitler';
+
+  @override
+  String get previousChapter => 'Forrige kapittel';
+
+  @override
+  String get nextChapter => 'Neste kapittel';
+
+  @override
+  String get headphones => 'Hodetelefoner';
+
+  @override
+  String get autoRewind => 'Spol tilbake ved gjenopptak';
+
+  @override
+  String get autoRewindHint =>
+      'Etter en pause på minst ett minutt gjenopptas spor over 20 minutter noen sekunder tidligere.';
+
+  @override
+  String get rewindBy => 'Spol tilbake';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect =>
+      'Fortsett når hodetelefonene kobles til igjen';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Bare hvis avspillingen ble satt på pause fordi hodetelefonene ble koblet fra for mindre enn 10 minutter siden.';
+
+  @override
   String get trackFallback => 'Spor';
 
   @override

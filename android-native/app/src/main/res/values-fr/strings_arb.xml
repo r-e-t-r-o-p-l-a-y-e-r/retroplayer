@@ -46,6 +46,16 @@
     <string name="next">Suivant</string>
     <string name="jump_back">Retour 15 secondes</string>
     <string name="jump_forward">Avancer de 15 secondes</string>
+    <string name="chapters">Chapitres</string>
+    <string name="previous_chapter">Chapitre précédent</string>
+    <string name="next_chapter">Chapitre suivant</string>
+    <string name="headphones">Écouteurs</string>
+    <string name="auto_rewind">Reculer à la reprise</string>
+    <string name="auto_rewind_hint">Après une pause d\'au moins une minute, les pistes de plus de 20 minutes reprennent quelques secondes plus tôt.</string>
+    <string name="rewind_by">Reculer de</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Reprendre à la reconnexion des écouteurs</string>
+    <string name="resume_on_reconnect_hint">Seulement si la lecture s\'est mise en pause parce que les écouteurs ont été déconnectés il y a moins de 10 minutes.</string>
     <string name="track_fallback">Suivre</string>
     <string name="unknown_artist">Inconnu</string>
     <string name="tracks_count_artist">%1$d piste · %2$s</string>

@@ -156,6 +156,40 @@ class AppLocalizationsEl extends AppLocalizations {
   String get jumpForward => 'Προώθηση κατά 15 δευτερόλεπτα';
 
   @override
+  String get chapters => 'Κεφάλαια';
+
+  @override
+  String get previousChapter => 'Προηγούμενο κεφάλαιο';
+
+  @override
+  String get nextChapter => 'Επόμενο κεφάλαιο';
+
+  @override
+  String get headphones => 'Ακουστικά';
+
+  @override
+  String get autoRewind => 'Επιστροφή πίσω κατά τη συνέχιση';
+
+  @override
+  String get autoRewindHint =>
+      'Μετά από παύση τουλάχιστον ενός λεπτού, τα κομμάτια μεγαλύτερα από 20 λεπτά συνεχίζουν λίγα δευτερόλεπτα νωρίτερα.';
+
+  @override
+  String get rewindBy => 'Πίσω κατά';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds δ';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Συνέχιση όταν επανασυνδεθούν τα ακουστικά';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Μόνο αν η αναπαραγωγή σταμάτησε επειδή τα ακουστικά αποσυνδέθηκαν πριν από λιγότερο από 10 λεπτά.';
+
+  @override
   String get trackFallback => 'Πίστα';
 
   @override

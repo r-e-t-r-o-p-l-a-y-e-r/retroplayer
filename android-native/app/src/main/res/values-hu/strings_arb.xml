@@ -46,6 +46,16 @@
     <string name="next">Következő</string>
     <string name="jump_back">15 másodperccel vissza</string>
     <string name="jump_forward">15 másodperccel előre</string>
+    <string name="chapters">Fejezetek</string>
+    <string name="previous_chapter">Előző fejezet</string>
+    <string name="next_chapter">Következő fejezet</string>
+    <string name="headphones">Fejhallgató</string>
+    <string name="auto_rewind">Visszatekerés folytatáskor</string>
+    <string name="auto_rewind_hint">Legalább egyperces szünet után a 20 percnél hosszabb sávok néhány másodperccel korábbról folytatódnak.</string>
+    <string name="rewind_by">Visszatekerés mértéke</string>
+    <string name="seconds_short">%1$d mp</string>
+    <string name="resume_on_reconnect">Folytatás a fejhallgató újracsatlakozásakor</string>
+    <string name="resume_on_reconnect_hint">Csak ha a lejátszás azért állt le, mert a fejhallgatót kevesebb mint 10 perce leválasztották.</string>
     <string name="track_fallback">Pálya</string>
     <string name="unknown_artist">Ismeretlen</string>
     <string name="tracks_count_artist">%1$d szám · %2$s</string>

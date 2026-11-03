@@ -46,6 +46,16 @@
     <string name="next">Më tej</string>
     <string name="jump_back">Kthehu 15 sekonda</string>
     <string name="jump_forward">Shko përpara 15 sekonda</string>
+    <string name="chapters">Kapituj</string>
+    <string name="previous_chapter">Kapitulli i mëparshëm</string>
+    <string name="next_chapter">Kapitulli tjetër</string>
+    <string name="headphones">Kufje</string>
+    <string name="auto_rewind">Kthe pas kur rifillon</string>
+    <string name="auto_rewind_hint">Pas një pauze prej të paktën një minute, këngët më të gjata se 20 minuta rifillojnë disa sekonda më herët.</string>
+    <string name="rewind_by">Kthe pas me</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Rifillo kur kufjet rilidhen</string>
+    <string name="resume_on_reconnect_hint">Vetëm nëse luajtja u ndal sepse kufjet u shkëputën më pak se 10 minuta më parë.</string>
     <string name="track_fallback">Këngë</string>
     <string name="unknown_artist">E panjohur</string>
     <string name="tracks_count_artist">%1$d këngë · %2$s</string>

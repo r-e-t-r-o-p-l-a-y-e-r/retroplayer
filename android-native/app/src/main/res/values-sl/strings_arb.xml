@@ -46,6 +46,16 @@
     <string name="next">Naprej</string>
     <string name="jump_back">Nazaj za 15 sekund</string>
     <string name="jump_forward">Preskoči 15 sekund naprej</string>
+    <string name="chapters">Poglavja</string>
+    <string name="previous_chapter">Prejšnje poglavje</string>
+    <string name="next_chapter">Naslednje poglavje</string>
+    <string name="headphones">Slušalke</string>
+    <string name="auto_rewind">Ob nadaljevanju previj nazaj</string>
+    <string name="auto_rewind_hint">Po premoru vsaj ene minute se skladbe, daljše od 20 minut, nadaljujejo nekaj sekund prej.</string>
+    <string name="rewind_by">Previj nazaj za</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Nadaljuj, ko se slušalke znova povežejo</string>
+    <string name="resume_on_reconnect_hint">Samo če se je predvajanje ustavilo, ker so bile slušalke odklopljene pred manj kot 10 minutami.</string>
     <string name="track_fallback">Proga</string>
     <string name="unknown_artist">Neznano</string>
     <string name="tracks_count_artist">%1$d skladb · %2$s</string>

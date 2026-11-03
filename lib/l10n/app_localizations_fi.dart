@@ -155,6 +155,40 @@ class AppLocalizationsFi extends AppLocalizations {
   String get jumpForward => 'Siirry 15 sekuntia eteenpäin';
 
   @override
+  String get chapters => 'Luvut';
+
+  @override
+  String get previousChapter => 'Edellinen luku';
+
+  @override
+  String get nextChapter => 'Seuraava luku';
+
+  @override
+  String get headphones => 'Kuulokkeet';
+
+  @override
+  String get autoRewind => 'Kelaa taaksepäin jatkettaessa';
+
+  @override
+  String get autoRewindHint =>
+      'Vähintään minuutin tauon jälkeen yli 20 minuutin kappaleet jatkuvat muutaman sekunnin aiemmasta kohdasta.';
+
+  @override
+  String get rewindBy => 'Kelaa taaksepäin';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Jatka, kun kuulokkeet yhdistetään uudelleen';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Vain jos toisto keskeytyi, koska kuulokkeet irrotettiin alle 10 minuuttia sitten.';
+
+  @override
   String get trackFallback => 'Rata';
 
   @override

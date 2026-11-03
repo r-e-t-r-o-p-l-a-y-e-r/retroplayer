@@ -154,6 +154,40 @@ class AppLocalizationsFa extends AppLocalizations {
   String get jumpForward => 'پیش‌روی ۱۵ ثانیه';
 
   @override
+  String get chapters => 'فصل‌ها';
+
+  @override
+  String get previousChapter => 'فصل قبلی';
+
+  @override
+  String get nextChapter => 'فصل بعدی';
+
+  @override
+  String get headphones => 'هدفون';
+
+  @override
+  String get autoRewind => 'عقب بردن هنگام ادامه';
+
+  @override
+  String get autoRewindHint =>
+      'پس از توقف دست‌کم یک دقیقه‌ای، ترک‌های طولانی‌تر از ۲۰ دقیقه چند ثانیه زودتر ادامه می‌یابند.';
+
+  @override
+  String get rewindBy => 'عقب بردن به اندازه';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds ث';
+  }
+
+  @override
+  String get resumeOnReconnect => 'ادامه پس از اتصال دوباره هدفون';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'فقط اگر پخش به دلیل جدا شدن هدفون کمتر از ۱۰ دقیقه پیش متوقف شده باشد.';
+
+  @override
   String get trackFallback => 'مسیر';
 
   @override

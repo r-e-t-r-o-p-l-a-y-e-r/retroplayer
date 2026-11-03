@@ -46,6 +46,16 @@
     <string name="next">Следваща</string>
     <string name="jump_back">Назад с 15 секунди</string>
     <string name="jump_forward">Превърти напред с 15 секунди</string>
+    <string name="chapters">Глави</string>
+    <string name="previous_chapter">Предишна глава</string>
+    <string name="next_chapter">Следваща глава</string>
+    <string name="headphones">Слушалки</string>
+    <string name="auto_rewind">Превъртане назад при продължаване</string>
+    <string name="auto_rewind_hint">След пауза от поне минута песните, по-дълги от 20 минути, продължават няколко секунди по-рано.</string>
+    <string name="rewind_by">Превъртане назад с</string>
+    <string name="seconds_short">%1$d с</string>
+    <string name="resume_on_reconnect">Продължаване при повторно свързване на слушалките</string>
+    <string name="resume_on_reconnect_hint">Само ако възпроизвеждането е спряло, защото слушалките са изключени преди по-малко от 10 минути.</string>
     <string name="track_fallback">Писта</string>
     <string name="unknown_artist">Неизвестно</string>
     <string name="tracks_count_artist">%1$d песни · %2$s</string>

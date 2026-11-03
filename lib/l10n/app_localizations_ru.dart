@@ -155,6 +155,41 @@ class AppLocalizationsRu extends AppLocalizations {
   String get jumpForward => 'Вперед на 15 секунд';
 
   @override
+  String get chapters => 'Главы';
+
+  @override
+  String get previousChapter => 'Предыдущая глава';
+
+  @override
+  String get nextChapter => 'Следующая глава';
+
+  @override
+  String get headphones => 'Наушники';
+
+  @override
+  String get autoRewind => 'Перематывать назад при возобновлении';
+
+  @override
+  String get autoRewindHint =>
+      'После паузы не менее минуты треки длиннее 20 минут продолжаются на несколько секунд раньше.';
+
+  @override
+  String get rewindBy => 'Перемотать назад на';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds с';
+  }
+
+  @override
+  String get resumeOnReconnect =>
+      'Возобновлять при повторном подключении наушников';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Только если воспроизведение остановилось из-за отключения наушников менее 10 минут назад.';
+
+  @override
   String get trackFallback => 'Трек';
 
   @override

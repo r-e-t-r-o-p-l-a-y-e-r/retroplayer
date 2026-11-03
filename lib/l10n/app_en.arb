@@ -71,6 +71,21 @@
   "next": "Next",
   "jumpBack": "Back 15 seconds",
   "jumpForward": "Forward 15 seconds",
+  "chapters": "Chapters",
+  "previousChapter": "Previous chapter",
+  "nextChapter": "Next chapter",
+  "headphones": "Headphones",
+  "autoRewind": "Rewind on resume",
+  "autoRewindHint": "After a pause of at least a minute, tracks longer than 20 minutes resume a few seconds earlier.",
+  "rewindBy": "Rewind by",
+  "secondsShort": "{seconds} s",
+  "@secondsShort": {
+    "placeholders": {
+      "seconds": {"type": "int"}
+    }
+  },
+  "resumeOnReconnect": "Resume when headphones reconnect",
+  "resumeOnReconnectHint": "Only if playback paused because the headphones were disconnected less than 10 minutes ago.",
   "trackFallback": "Track",
   "unknownArtist": "Unknown",
   "tracksCountArtist": "{count} tracks · {artist}",

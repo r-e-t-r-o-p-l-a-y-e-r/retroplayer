@@ -46,6 +46,16 @@
     <string name="next">Ďalej</string>
     <string name="jump_back">Späť o 15 sekúnd</string>
     <string name="jump_forward">Posunúť o 15 sekúnd dopredu</string>
+    <string name="chapters">Kapitoly</string>
+    <string name="previous_chapter">Predchádzajúca kapitola</string>
+    <string name="next_chapter">Ďalšia kapitola</string>
+    <string name="headphones">Slúchadlá</string>
+    <string name="auto_rewind">Pri pokračovaní pretočiť späť</string>
+    <string name="auto_rewind_hint">Po pauze aspoň jednej minúty budú skladby dlhšie ako 20 minút pokračovať o niekoľko sekúnd skôr.</string>
+    <string name="rewind_by">Pretočiť späť o</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Pokračovať po opätovnom pripojení slúchadiel</string>
+    <string name="resume_on_reconnect_hint">Len ak sa prehrávanie pozastavilo pre odpojenie slúchadiel pred menej ako 10 minútami.</string>
     <string name="track_fallback">Trať</string>
     <string name="unknown_artist">Neznáme</string>
     <string name="tracks_count_artist">%1$d skladieb · %2$s</string>

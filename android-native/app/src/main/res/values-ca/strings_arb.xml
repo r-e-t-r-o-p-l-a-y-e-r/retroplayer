@@ -46,6 +46,16 @@
     <string name="next">Següent</string>
     <string name="jump_back">Tornar 15 segons</string>
     <string name="jump_forward">Avançar 15 segons</string>
+    <string name="chapters">Capítols</string>
+    <string name="previous_chapter">Capítol anterior</string>
+    <string name="next_chapter">Capítol següent</string>
+    <string name="headphones">Auriculars</string>
+    <string name="auto_rewind">Retrocedeix en reprendre</string>
+    <string name="auto_rewind_hint">Després d\'una pausa d\'almenys un minut, les pistes de més de 20 minuts es reprenen uns segons abans.</string>
+    <string name="rewind_by">Retrocedeix</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Reprèn quan es tornin a connectar els auriculars</string>
+    <string name="resume_on_reconnect_hint">Només si la reproducció es va aturar perquè els auriculars es van desconnectar fa menys de 10 minuts.</string>
     <string name="track_fallback">Pista</string>
     <string name="unknown_artist">Desconegut</string>
     <string name="tracks_count_artist">%1$d pistes · %2$s</string>

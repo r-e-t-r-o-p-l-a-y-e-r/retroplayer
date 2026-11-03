@@ -156,6 +156,40 @@ class AppLocalizationsSr extends AppLocalizations {
   String get jumpForward => 'Премотај за 15 секунди';
 
   @override
+  String get chapters => 'Поглавља';
+
+  @override
+  String get previousChapter => 'Претходно поглавље';
+
+  @override
+  String get nextChapter => 'Следеће поглавље';
+
+  @override
+  String get headphones => 'Слушалице';
+
+  @override
+  String get autoRewind => 'Премотај уназад при наставку';
+
+  @override
+  String get autoRewindHint =>
+      'После паузе од најмање минут нумере дуже од 20 минута настављају се неколико секунди раније.';
+
+  @override
+  String get rewindBy => 'Премотај уназад за';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds с';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Настави када се слушалице поново повежу';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Само ако је репродукција паузирана јер су слушалице искључене пре мање од 10 минута.';
+
+  @override
   String get trackFallback => 'Стаза';
 
   @override

@@ -154,6 +154,40 @@ class AppLocalizationsIs extends AppLocalizations {
   String get jumpForward => 'Framlenging um 15 sekúndur';
 
   @override
+  String get chapters => 'Kaflar';
+
+  @override
+  String get previousChapter => 'Fyrri kafli';
+
+  @override
+  String get nextChapter => 'Næsti kafli';
+
+  @override
+  String get headphones => 'Heyrnartól';
+
+  @override
+  String get autoRewind => 'Spóla til baka við áframhald';
+
+  @override
+  String get autoRewindHint =>
+      'Eftir hlé í að minnsta kosti mínútu halda lög sem eru lengri en 20 mínútur áfram nokkrum sekúndum fyrr.';
+
+  @override
+  String get rewindBy => 'Spóla til baka um';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds sek.';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Halda áfram þegar heyrnartól tengjast aftur';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Aðeins ef spilun stöðvaðist vegna þess að heyrnartólin voru aftengd fyrir minna en 10 mínútum.';
+
+  @override
   String get trackFallback => 'Lag';
 
   @override

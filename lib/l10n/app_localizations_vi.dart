@@ -156,6 +156,40 @@ class AppLocalizationsVi extends AppLocalizations {
   String get jumpForward => 'Tiến lên 15 giây';
 
   @override
+  String get chapters => 'Chương';
+
+  @override
+  String get previousChapter => 'Chương trước';
+
+  @override
+  String get nextChapter => 'Chương sau';
+
+  @override
+  String get headphones => 'Tai nghe';
+
+  @override
+  String get autoRewind => 'Tua lại khi tiếp tục';
+
+  @override
+  String get autoRewindHint =>
+      'Sau khi tạm dừng ít nhất một phút, các bản nhạc dài hơn 20 phút sẽ tiếp tục sớm hơn vài giây.';
+
+  @override
+  String get rewindBy => 'Tua lại';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds giây';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Tiếp tục khi tai nghe kết nối lại';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Chỉ khi phát bị tạm dừng vì tai nghe bị ngắt kết nối cách đây chưa đến 10 phút.';
+
+  @override
   String get trackFallback => 'Bám';
 
   @override

@@ -46,6 +46,16 @@
     <string name="next">التالي</string>
     <string name="jump_back">رجوع 15 ثانية</string>
     <string name="jump_forward">إلى الأمام 15 ثانية</string>
+    <string name="chapters">الفصول</string>
+    <string name="previous_chapter">الفصل السابق</string>
+    <string name="next_chapter">الفصل التالي</string>
+    <string name="headphones">سماعات الرأس</string>
+    <string name="auto_rewind">الرجوع قليلًا عند الاستئناف</string>
+    <string name="auto_rewind_hint">بعد توقف لمدة دقيقة على الأقل، تُستأنف المسارات الأطول من 20 دقيقة قبل بضع ثوانٍ.</string>
+    <string name="rewind_by">الرجوع بمقدار</string>
+    <string name="seconds_short">%1$d ث</string>
+    <string name="resume_on_reconnect">الاستئناف عند إعادة توصيل السماعات</string>
+    <string name="resume_on_reconnect_hint">فقط إذا توقف التشغيل بسبب فصل السماعات قبل أقل من 10 دقائق.</string>
     <string name="track_fallback">المسار</string>
     <string name="unknown_artist">غير معروف</string>
     <string name="tracks_count_artist">%1$d مسار · %2$s</string>

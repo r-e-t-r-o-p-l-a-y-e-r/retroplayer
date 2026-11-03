@@ -2,6 +2,8 @@ package app.retroplayer.ui.player
 
 import app.retroplayer.MainDispatcherRule
 import app.retroplayer.TestLibrary
+import app.retroplayer.data.chapters.ChapterRepository
+import app.retroplayer.domain.model.Chapter
 import app.retroplayer.playback.NowPlaying
 import app.retroplayer.runVmTest
 import app.retroplayer.ui.art.EmbeddedArt
@@ -27,7 +29,20 @@ class PlayerViewModelTest {
     fun setUp() = main.runVmTest {
         lib = TestLibrary(tmp)
         lib.addRoot()
-        viewModel = PlayerViewModel(lib.playback, lib.store)
+        viewModel = PlayerViewModel(lib.playback, lib.store, ChapterRepository { uri -> if (uri == "doc:book") book else emptyList() })
+    }
+
+    private val book = listOf(Chapter(0, "Intro"), Chapter(600_000, "Middle"), Chapter(1_200_000, "End"))
+
+    private fun playBook(positionMs: Long) {
+        lib.playback.nowPlaying.value = NowPlaying(
+            trackId = lib.p("Books/Book.m4b").value,
+            trackUri = "doc:book",
+            title = "Book",
+            hasTrack = true,
+            positionMs = positionMs,
+            durationMs = 1_800_000,
+        )
     }
 
     @After
@@ -87,6 +102,49 @@ class PlayerViewModelTest {
         viewModel.jumpBack()
         viewModel.jumpForward()
         assertThat(lib.playback.calls).containsExactly("jumpBack", "jumpForward").inOrder()
+    }
+
+    @Test
+    fun `a track with chapters shows them and the current one`() = main.runVmTest {
+        playBook(positionMs = 700_000)
+        val state = stateWhere { it.chapters.isNotEmpty() }
+        assertThat(state.chapters).isEqualTo(book)
+        assertThat(state.currentChapter).isEqualTo(Chapter(600_000, "Middle"))
+    }
+
+    @Test
+    fun `a track without chapters shows none`() = main.runVmTest {
+        lib.playback.nowPlaying.value = NowPlaying(trackId = lib.p("Rock/Song.m4a").value, trackUri = "doc:song", hasTrack = true)
+        val state = stateWhere { it.nowPlaying.trackUri == "doc:song" }
+        assertThat(state.chapters).isEmpty()
+        assertThat(state.currentChapter).isNull()
+    }
+
+    @Test
+    fun `next chapter seeks to the following chapter start`() = main.runVmTest {
+        playBook(positionMs = 700_000)
+        stateWhere { it.chapters.isNotEmpty() }
+        viewModel.nextChapter()
+        assertThat(lib.playback.calls).containsExactly("seekTo:1200000")
+    }
+
+    @Test
+    fun `previous chapter restarts the chapter, or goes back one right after its start`() = main.runVmTest {
+        playBook(positionMs = 700_000)
+        stateWhere { it.chapters.isNotEmpty() }
+        viewModel.previousChapter()
+        playBook(positionMs = 601_000)
+        stateWhere { it.nowPlaying.positionMs == 601_000L }
+        viewModel.previousChapter()
+        assertThat(lib.playback.calls).containsExactly("seekTo:600000", "seekTo:0").inOrder()
+    }
+
+    @Test
+    fun `next chapter in the last chapter does nothing`() = main.runVmTest {
+        playBook(positionMs = 1_300_000)
+        stateWhere { it.chapters.isNotEmpty() }
+        viewModel.nextChapter()
+        assertThat(lib.playback.calls).isEmpty()
     }
 
     @Test

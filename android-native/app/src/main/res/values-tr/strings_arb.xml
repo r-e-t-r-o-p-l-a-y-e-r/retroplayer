@@ -46,6 +46,16 @@
     <string name="next">İleri</string>
     <string name="jump_back">15 saniye</string>
     <string name="jump_forward">15 saniye ileri</string>
+    <string name="chapters">Bölümler</string>
+    <string name="previous_chapter">Önceki bölüm</string>
+    <string name="next_chapter">Sonraki bölüm</string>
+    <string name="headphones">Kulaklık</string>
+    <string name="auto_rewind">Devam ederken geri sar</string>
+    <string name="auto_rewind_hint">En az bir dakikalık duraklatmadan sonra 20 dakikadan uzun parçalar birkaç saniye önceden devam eder.</string>
+    <string name="rewind_by">Geri sarma süresi</string>
+    <string name="seconds_short">%1$d sn</string>
+    <string name="resume_on_reconnect">Kulaklık yeniden bağlanınca devam et</string>
+    <string name="resume_on_reconnect_hint">Yalnızca kulaklığın 10 dakikadan kısa süre önce çıkarılması nedeniyle oynatma duraklatıldıysa.</string>
     <string name="track_fallback">İzle</string>
     <string name="unknown_artist">Bilinmiyor</string>
     <string name="tracks_count_artist">%1$d parça · %2$s</string>

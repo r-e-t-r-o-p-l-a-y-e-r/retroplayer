@@ -46,6 +46,16 @@
     <string name="next">Weiter</string>
     <string name="jump_back">15 Sekunden zurück</string>
     <string name="jump_forward">15 Sekunden vor</string>
+    <string name="chapters">Kapitel</string>
+    <string name="previous_chapter">Vorheriges Kapitel</string>
+    <string name="next_chapter">Nächstes Kapitel</string>
+    <string name="headphones">Kopfhörer</string>
+    <string name="auto_rewind">Beim Fortsetzen zurückspulen</string>
+    <string name="auto_rewind_hint">Nach einer Pause von mindestens einer Minute setzen Titel, die länger als 20 Minuten sind, ein paar Sekunden früher fort.</string>
+    <string name="rewind_by">Zurückspulen um</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Fortsetzen, wenn Kopfhörer wieder verbunden werden</string>
+    <string name="resume_on_reconnect_hint">Nur wenn die Wiedergabe pausiert wurde, weil die Kopfhörer vor weniger als 10 Minuten getrennt wurden.</string>
     <string name="track_fallback">Titel</string>
     <string name="unknown_artist">Unbekannt</string>
     <string name="tracks_count_artist">%1$d Titel · %2$s</string>

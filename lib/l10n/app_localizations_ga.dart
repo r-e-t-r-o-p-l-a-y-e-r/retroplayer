@@ -156,6 +156,41 @@ class AppLocalizationsGa extends AppLocalizations {
   String get jumpForward => 'Ar aghaidh 15 soicind';
 
   @override
+  String get chapters => 'Caibidlí';
+
+  @override
+  String get previousChapter => 'An chaibidil roimhe seo';
+
+  @override
+  String get nextChapter => 'An chéad chaibidil eile';
+
+  @override
+  String get headphones => 'Cluasáin';
+
+  @override
+  String get autoRewind => 'Cas siar nuair a atosaítear';
+
+  @override
+  String get autoRewindHint =>
+      'Tar éis sos nóiméid ar a laghad, atosaíonn rianta níos faide ná 20 nóiméad cúpla soicind níos luaithe.';
+
+  @override
+  String get rewindBy => 'Cas siar';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect =>
+      'Atosaigh nuair a athcheanglaítear na cluasáin';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Ach amháin má stopadh an seinm toisc gur dícheanglaíodh na cluasáin níos lú ná 10 nóiméad ó shin.';
+
+  @override
   String get trackFallback => 'Rian';
 
   @override

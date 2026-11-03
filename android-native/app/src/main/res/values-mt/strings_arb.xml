@@ -46,6 +46,16 @@
     <string name="next">Li jmiss</string>
     <string name="jump_back">Lura 15-il sekonda</string>
     <string name="jump_forward">Avvanza 15-il sekonda</string>
+    <string name="chapters">Kapitli</string>
+    <string name="previous_chapter">Kapitlu preċedenti</string>
+    <string name="next_chapter">Kapitlu li jmiss</string>
+    <string name="headphones">Kuffji</string>
+    <string name="auto_rewind">Erġa\' lura meta tkompli</string>
+    <string name="auto_rewind_hint">Wara waqfa ta\' mill-inqas minuta, traċċi itwal minn 20 minuta jkomplu ftit sekondi qabel.</string>
+    <string name="rewind_by">Erġa\' lura b\'</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Kompli meta l-kuffji jerġgħu jitqabbdu</string>
+    <string name="resume_on_reconnect_hint">Biss jekk id-daqq waqaf għax il-kuffji ġew skonnettjati inqas minn 10 minuti ilu.</string>
     <string name="track_fallback">Traċċa</string>
     <string name="unknown_artist">Mhux magħruf</string>
     <string name="tracks_count_artist">%1$d trakkijiet · %2$s</string>

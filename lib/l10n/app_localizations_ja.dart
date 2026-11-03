@@ -152,6 +152,38 @@ class AppLocalizationsJa extends AppLocalizations {
   String get jumpForward => '15秒進む';
 
   @override
+  String get chapters => 'チャプター';
+
+  @override
+  String get previousChapter => '前のチャプター';
+
+  @override
+  String get nextChapter => '次のチャプター';
+
+  @override
+  String get headphones => 'ヘッドホン';
+
+  @override
+  String get autoRewind => '再開時に巻き戻す';
+
+  @override
+  String get autoRewindHint => '1 分以上一時停止した後、20 分を超えるトラックは数秒前から再開します。';
+
+  @override
+  String get rewindBy => '巻き戻す秒数';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds 秒';
+  }
+
+  @override
+  String get resumeOnReconnect => 'ヘッドホン再接続時に再開';
+
+  @override
+  String get resumeOnReconnectHint => 'ヘッドホンが外れて一時停止してから 10 分以内の場合のみ。';
+
+  @override
   String get trackFallback => 'トラック';
 
   @override

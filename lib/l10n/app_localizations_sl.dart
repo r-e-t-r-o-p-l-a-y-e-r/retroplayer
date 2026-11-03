@@ -156,6 +156,40 @@ class AppLocalizationsSl extends AppLocalizations {
   String get jumpForward => 'Preskoči 15 sekund naprej';
 
   @override
+  String get chapters => 'Poglavja';
+
+  @override
+  String get previousChapter => 'Prejšnje poglavje';
+
+  @override
+  String get nextChapter => 'Naslednje poglavje';
+
+  @override
+  String get headphones => 'Slušalke';
+
+  @override
+  String get autoRewind => 'Ob nadaljevanju previj nazaj';
+
+  @override
+  String get autoRewindHint =>
+      'Po premoru vsaj ene minute se skladbe, daljše od 20 minut, nadaljujejo nekaj sekund prej.';
+
+  @override
+  String get rewindBy => 'Previj nazaj za';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Nadaljuj, ko se slušalke znova povežejo';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Samo če se je predvajanje ustavilo, ker so bile slušalke odklopljene pred manj kot 10 minutami.';
+
+  @override
   String get trackFallback => 'Proga';
 
   @override

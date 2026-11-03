@@ -82,6 +82,8 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
             jumpBack = playerViewModel::jumpBack,
             jumpForward = playerViewModel::jumpForward,
             setSpeed = playerViewModel::setSpeed,
+            previousChapter = playerViewModel::previousChapter,
+            nextChapter = playerViewModel::nextChapter,
             locate = {
                 expanded = false
                 appViewModel.locate(nowPlaying.value)

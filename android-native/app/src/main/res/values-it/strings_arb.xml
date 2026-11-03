@@ -46,6 +46,16 @@
     <string name="next">Avanti</string>
     <string name="jump_back">15 secondi</string>
     <string name="jump_forward">Avanti di 15 secondi</string>
+    <string name="chapters">Capitoli</string>
+    <string name="previous_chapter">Capitolo precedente</string>
+    <string name="next_chapter">Capitolo successivo</string>
+    <string name="headphones">Cuffie</string>
+    <string name="auto_rewind">Riavvolgi alla ripresa</string>
+    <string name="auto_rewind_hint">Dopo una pausa di almeno un minuto, le tracce più lunghe di 20 minuti riprendono qualche secondo prima.</string>
+    <string name="rewind_by">Riavvolgi di</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Riprendi quando le cuffie si riconnettono</string>
+    <string name="resume_on_reconnect_hint">Solo se la riproduzione è stata messa in pausa perché le cuffie sono state scollegate meno di 10 minuti fa.</string>
     <string name="track_fallback">Traccia</string>
     <string name="unknown_artist">Sconosciuto</string>
     <string name="tracks_count_artist">%1$d tracce · %2$s</string>

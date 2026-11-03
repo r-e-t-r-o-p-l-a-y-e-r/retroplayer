@@ -458,6 +458,66 @@ abstract class AppLocalizations {
   /// **'Forward 15 seconds'**
   String get jumpForward;
 
+  /// No description provided for @chapters.
+  ///
+  /// In en, this message translates to:
+  /// **'Chapters'**
+  String get chapters;
+
+  /// No description provided for @previousChapter.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous chapter'**
+  String get previousChapter;
+
+  /// No description provided for @nextChapter.
+  ///
+  /// In en, this message translates to:
+  /// **'Next chapter'**
+  String get nextChapter;
+
+  /// No description provided for @headphones.
+  ///
+  /// In en, this message translates to:
+  /// **'Headphones'**
+  String get headphones;
+
+  /// No description provided for @autoRewind.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewind on resume'**
+  String get autoRewind;
+
+  /// No description provided for @autoRewindHint.
+  ///
+  /// In en, this message translates to:
+  /// **'After a pause of at least a minute, tracks longer than 20 minutes resume a few seconds earlier.'**
+  String get autoRewindHint;
+
+  /// No description provided for @rewindBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewind by'**
+  String get rewindBy;
+
+  /// No description provided for @secondsShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{seconds} s'**
+  String secondsShort(int seconds);
+
+  /// No description provided for @resumeOnReconnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume when headphones reconnect'**
+  String get resumeOnReconnect;
+
+  /// No description provided for @resumeOnReconnectHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Only if playback paused because the headphones were disconnected less than 10 minutes ago.'**
+  String get resumeOnReconnectHint;
+
   /// No description provided for @trackFallback.
   ///
   /// In en, this message translates to:

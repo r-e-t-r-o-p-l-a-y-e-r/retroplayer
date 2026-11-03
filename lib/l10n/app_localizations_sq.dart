@@ -154,6 +154,40 @@ class AppLocalizationsSq extends AppLocalizations {
   String get jumpForward => 'Shko përpara 15 sekonda';
 
   @override
+  String get chapters => 'Kapituj';
+
+  @override
+  String get previousChapter => 'Kapitulli i mëparshëm';
+
+  @override
+  String get nextChapter => 'Kapitulli tjetër';
+
+  @override
+  String get headphones => 'Kufje';
+
+  @override
+  String get autoRewind => 'Kthe pas kur rifillon';
+
+  @override
+  String get autoRewindHint =>
+      'Pas një pauze prej të paktën një minute, këngët më të gjata se 20 minuta rifillojnë disa sekonda më herët.';
+
+  @override
+  String get rewindBy => 'Kthe pas me';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds s';
+  }
+
+  @override
+  String get resumeOnReconnect => 'Rifillo kur kufjet rilidhen';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Vetëm nëse luajtja u ndal sepse kufjet u shkëputën më pak se 10 minuta më parë.';
+
+  @override
   String get trackFallback => 'Këngë';
 
   @override

@@ -46,6 +46,16 @@
     <string name="next">다음</string>
     <string name="jump_back">15초</string>
     <string name="jump_forward">15초 후</string>
+    <string name="chapters">챕터</string>
+    <string name="previous_chapter">이전 챕터</string>
+    <string name="next_chapter">다음 챕터</string>
+    <string name="headphones">헤드폰</string>
+    <string name="auto_rewind">이어 재생 시 되감기</string>
+    <string name="auto_rewind_hint">1분 이상 일시정지한 후 20분보다 긴 트랙은 몇 초 앞에서 다시 재생됩니다.</string>
+    <string name="rewind_by">되감기</string>
+    <string name="seconds_short">%1$d초</string>
+    <string name="resume_on_reconnect">헤드폰이 다시 연결되면 재생</string>
+    <string name="resume_on_reconnect_hint">10분 이내에 헤드폰 연결이 끊겨 일시정지된 경우에만 해당합니다.</string>
     <string name="track_fallback">추적</string>
     <string name="unknown_artist">미상</string>
     <string name="tracks_count_artist">%1$d 트랙 · %2$s</string>

@@ -46,6 +46,16 @@
     <string name="next">Järgmine</string>
     <string name="jump_back">Tagasi 15 sekundit</string>
     <string name="jump_forward">Edasi 15 sekundit</string>
+    <string name="chapters">Peatükid</string>
+    <string name="previous_chapter">Eelmine peatükk</string>
+    <string name="next_chapter">Järgmine peatükk</string>
+    <string name="headphones">Kõrvaklapid</string>
+    <string name="auto_rewind">Jätkamisel keri tagasi</string>
+    <string name="auto_rewind_hint">Vähemalt minutilise pausi järel jätkuvad üle 20 minuti pikkused lood mõni sekund varasemast kohast.</string>
+    <string name="rewind_by">Keri tagasi</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Jätka, kui kõrvaklapid uuesti ühenduvad</string>
+    <string name="resume_on_reconnect_hint">Ainult siis, kui esitus peatus, sest kõrvaklapid ühendati lahti vähem kui 10 minutit tagasi.</string>
     <string name="track_fallback">Rada</string>
     <string name="unknown_artist">Teadmata</string>
     <string name="tracks_count_artist">%1$d roomikut · %2$s</string>

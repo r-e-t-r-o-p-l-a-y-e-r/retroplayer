@@ -154,6 +154,40 @@ class AppLocalizationsUr extends AppLocalizations {
   String get jumpForward => '15 سیکنڈ آگے بڑھائیں';
 
   @override
+  String get chapters => 'ابواب';
+
+  @override
+  String get previousChapter => 'پچھلا باب';
+
+  @override
+  String get nextChapter => 'اگلا باب';
+
+  @override
+  String get headphones => 'ہیڈ فون';
+
+  @override
+  String get autoRewind => 'دوبارہ شروع کرنے پر پیچھے کریں';
+
+  @override
+  String get autoRewindHint =>
+      'کم از کم ایک منٹ کے وقفے کے بعد، 20 منٹ سے لمبے ٹریکس چند سیکنڈ پہلے سے شروع ہوتے ہیں۔';
+
+  @override
+  String get rewindBy => 'اتنا پیچھے کریں';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds سیکنڈ';
+  }
+
+  @override
+  String get resumeOnReconnect => 'ہیڈ فون دوبارہ جڑنے پر جاری رکھیں';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'صرف اس صورت میں جب پلے بیک اس لیے رکا ہو کہ ہیڈ فون 10 منٹ سے کم پہلے منقطع ہوئے۔';
+
+  @override
   String get trackFallback => 'ٹریک';
 
   @override

@@ -153,6 +153,40 @@ class AppLocalizationsAr extends AppLocalizations {
   String get jumpForward => 'إلى الأمام 15 ثانية';
 
   @override
+  String get chapters => 'الفصول';
+
+  @override
+  String get previousChapter => 'الفصل السابق';
+
+  @override
+  String get nextChapter => 'الفصل التالي';
+
+  @override
+  String get headphones => 'سماعات الرأس';
+
+  @override
+  String get autoRewind => 'الرجوع قليلًا عند الاستئناف';
+
+  @override
+  String get autoRewindHint =>
+      'بعد توقف لمدة دقيقة على الأقل، تُستأنف المسارات الأطول من 20 دقيقة قبل بضع ثوانٍ.';
+
+  @override
+  String get rewindBy => 'الرجوع بمقدار';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds ث';
+  }
+
+  @override
+  String get resumeOnReconnect => 'الاستئناف عند إعادة توصيل السماعات';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'فقط إذا توقف التشغيل بسبب فصل السماعات قبل أقل من 10 دقائق.';
+
+  @override
   String get trackFallback => 'المسار';
 
   @override

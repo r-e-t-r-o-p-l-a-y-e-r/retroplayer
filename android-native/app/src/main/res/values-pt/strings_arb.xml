@@ -46,6 +46,16 @@
     <string name="next">Próximo</string>
     <string name="jump_back">Voltar 15 segundos</string>
     <string name="jump_forward">Avançar 15 segundos</string>
+    <string name="chapters">Capítulos</string>
+    <string name="previous_chapter">Capítulo anterior</string>
+    <string name="next_chapter">Capítulo seguinte</string>
+    <string name="headphones">Auscultadores</string>
+    <string name="auto_rewind">Recuar ao retomar</string>
+    <string name="auto_rewind_hint">Após uma pausa de pelo menos um minuto, as faixas com mais de 20 minutos retomam alguns segundos antes.</string>
+    <string name="rewind_by">Recuar</string>
+    <string name="seconds_short">%1$d s</string>
+    <string name="resume_on_reconnect">Retomar quando os auscultadores voltarem a ligar-se</string>
+    <string name="resume_on_reconnect_hint">Só se a reprodução tiver parado porque os auscultadores foram desligados há menos de 10 minutos.</string>
     <string name="track_fallback">Faixa</string>
     <string name="unknown_artist">Desconhecido</string>
     <string name="tracks_count_artist">%1$d faixas · %2$s</string>

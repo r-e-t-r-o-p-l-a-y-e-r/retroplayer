@@ -156,6 +156,41 @@ class AppLocalizationsBg extends AppLocalizations {
   String get jumpForward => 'Превърти напред с 15 секунди';
 
   @override
+  String get chapters => 'Глави';
+
+  @override
+  String get previousChapter => 'Предишна глава';
+
+  @override
+  String get nextChapter => 'Следваща глава';
+
+  @override
+  String get headphones => 'Слушалки';
+
+  @override
+  String get autoRewind => 'Превъртане назад при продължаване';
+
+  @override
+  String get autoRewindHint =>
+      'След пауза от поне минута песните, по-дълги от 20 минути, продължават няколко секунди по-рано.';
+
+  @override
+  String get rewindBy => 'Превъртане назад с';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds с';
+  }
+
+  @override
+  String get resumeOnReconnect =>
+      'Продължаване при повторно свързване на слушалките';
+
+  @override
+  String get resumeOnReconnectHint =>
+      'Само ако възпроизвеждането е спряло, защото слушалките са изключени преди по-малко от 10 минути.';
+
+  @override
   String get trackFallback => 'Писта';
 
   @override

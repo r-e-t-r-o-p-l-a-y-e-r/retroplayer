@@ -46,6 +46,16 @@
     <string name="next">次へ</string>
     <string name="jump_back">15秒</string>
     <string name="jump_forward">15秒進む</string>
+    <string name="chapters">チャプター</string>
+    <string name="previous_chapter">前のチャプター</string>
+    <string name="next_chapter">次のチャプター</string>
+    <string name="headphones">ヘッドホン</string>
+    <string name="auto_rewind">再開時に巻き戻す</string>
+    <string name="auto_rewind_hint">1 分以上一時停止した後、20 分を超えるトラックは数秒前から再開します。</string>
+    <string name="rewind_by">巻き戻す秒数</string>
+    <string name="seconds_short">%1$d 秒</string>
+    <string name="resume_on_reconnect">ヘッドホン再接続時に再開</string>
+    <string name="resume_on_reconnect_hint">ヘッドホンが外れて一時停止してから 10 分以内の場合のみ。</string>
     <string name="track_fallback">トラック</string>
     <string name="unknown_artist">不明</string>
     <string name="tracks_count_artist">%1$d トラック · %2$s</string>

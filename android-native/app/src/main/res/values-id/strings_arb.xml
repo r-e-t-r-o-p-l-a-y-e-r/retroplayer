@@ -46,6 +46,16 @@
     <string name="next">Selanjutnya</string>
     <string name="jump_back">Kembali 15 detik</string>
     <string name="jump_forward">Maju 15 detik</string>
+    <string name="chapters">Bab</string>
+    <string name="previous_chapter">Bab sebelumnya</string>
+    <string name="next_chapter">Bab berikutnya</string>
+    <string name="headphones">Headphone</string>
+    <string name="auto_rewind">Mundur saat melanjutkan</string>
+    <string name="auto_rewind_hint">Setelah jeda minimal satu menit, trek yang lebih dari 20 menit dilanjutkan beberapa detik lebih awal.</string>
+    <string name="rewind_by">Mundur sebanyak</string>
+    <string name="seconds_short">%1$d dtk</string>
+    <string name="resume_on_reconnect">Lanjutkan saat headphone tersambung lagi</string>
+    <string name="resume_on_reconnect_hint">Hanya jika pemutaran berhenti karena headphone diputus kurang dari 10 menit yang lalu.</string>
     <string name="track_fallback">Lintasan</string>
     <string name="unknown_artist">Tidak diketahui</string>
     <string name="tracks_count_artist">%1$d lagu · %2$s</string>

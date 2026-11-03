@@ -46,6 +46,16 @@
     <string name="next">Næst</string>
     <string name="jump_back">Aftur 15 sekúndur</string>
     <string name="jump_forward">Framlenging um 15 sekúndur</string>
+    <string name="chapters">Kaflar</string>
+    <string name="previous_chapter">Fyrri kafli</string>
+    <string name="next_chapter">Næsti kafli</string>
+    <string name="headphones">Heyrnartól</string>
+    <string name="auto_rewind">Spóla til baka við áframhald</string>
+    <string name="auto_rewind_hint">Eftir hlé í að minnsta kosti mínútu halda lög sem eru lengri en 20 mínútur áfram nokkrum sekúndum fyrr.</string>
+    <string name="rewind_by">Spóla til baka um</string>
+    <string name="seconds_short">%1$d sek.</string>
+    <string name="resume_on_reconnect">Halda áfram þegar heyrnartól tengjast aftur</string>
+    <string name="resume_on_reconnect_hint">Aðeins ef spilun stöðvaðist vegna þess að heyrnartólin voru aftengd fyrir minna en 10 mínútum.</string>
     <string name="track_fallback">Lag</string>
     <string name="unknown_artist">Óþekkt</string>
     <string name="tracks_count_artist">%1$d lög · %2$s</string>
