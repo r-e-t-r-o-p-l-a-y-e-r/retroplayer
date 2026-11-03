@@ -58,7 +58,6 @@ data class HeadsetSettings(
 /** User settings. Every field has its default here; storage keeps only values that differ. */
 data class AppSettings(
     val theme: ThemePreference = ThemePreference.SYSTEM,
-    val languageTag: String? = null,
     val equalizer: EqualizerSettings = EqualizerSettings.DEFAULT,
     val headset: HeadsetSettings = HeadsetSettings.DEFAULT,
 ) {

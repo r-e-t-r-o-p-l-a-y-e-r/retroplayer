@@ -85,6 +85,7 @@ import app.retroplayer.ui.components.SwipeActions
 import app.retroplayer.ui.components.addedToQueue
 import app.retroplayer.ui.player.PlayerToggleAction
 import app.retroplayer.ui.queue.QueueNavAction
+import app.retroplayer.ui.settings.SettingsNavAction
 import app.retroplayer.ui.theme.LocalRetroPalette
 import app.retroplayer.ui.theme.RetroPalette
 import kotlinx.coroutines.launch
@@ -98,6 +99,7 @@ data class FolderNavigation(
     val openAlbum: (AudioAlbum) -> Unit,
     val openQueue: () -> Unit = {},
     val openPlaylist: (LibraryPath) -> Unit = {},
+    val openSettings: () -> Unit = {},
 )
 
 /** Everything a library page can ask its view model to do. */
@@ -203,6 +205,7 @@ fun FolderContent(
                 RetroTopBar(
                     stringResource(R.string.library),
                     actions = {
+                        SettingsNavAction(navigation.openSettings)
                         QueueNavAction(navigation.openQueue)
                         PlayerToggleAction()
                     },

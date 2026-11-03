@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat
+import java.util.Date
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -17,6 +20,18 @@ android {
         versionCode = 2
         versionName = "2.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val gitBranch = providers.exec {
+            commandLine("git", "rev-parse", "--abbrev-ref", "HEAD")
+            isIgnoreExitValue = true
+        }.standardOutput.asText.get().trim().ifEmpty { "unknown" }
+        val gitCommit = providers.exec {
+            commandLine("git", "rev-parse", "--short", "HEAD")
+            isIgnoreExitValue = true
+        }.standardOutput.asText.get().trim().ifEmpty { "unknown" }
+        buildConfigField("String", "GIT_BRANCH", "\"$gitBranch\"")
+        buildConfigField("String", "GIT_COMMIT", "\"$gitCommit\"")
+        buildConfigField("String", "BUILD_DATE", "\"${SimpleDateFormat("yyyy-MM-dd").format(Date())}\"")
     }
 
     buildTypes {
@@ -34,6 +49,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     androidResources {

@@ -129,19 +129,26 @@ fun PlayerHost(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     actions: PlayerActions,
+    allowExpansion: Boolean = true,
     content: @Composable () -> Unit,
 ) {
-    val showExpanded = expanded && state.visible
+    val showExpanded = expanded && state.visible && allowExpansion
     var backProgress by remember { mutableFloatStateOf(0f) }
     LaunchedEffect(showExpanded) { if (showExpanded) backProgress = 0f }
 
-    val expand = if (state.visible && !showExpanded) ({ onExpandedChange(true) }) else null
+    val expand = if (state.visible && !showExpanded && allowExpansion) ({ onExpandedChange(true) }) else null
     CompositionLocalProvider(LocalPlayerExpanded provides showExpanded, LocalExpandPlayer provides expand) {
         Box(Modifier.fillMaxSize()) {
             Column(Modifier.fillMaxSize().then(if (showExpanded) Modifier.clearAndSetSemantics {} else Modifier)) {
                 val contentInsets = if (state.visible) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier
                 Box(Modifier.weight(1f).then(contentInsets)) { content() }
-                if (state.visible) MiniPlayer(state, actions, onExpand = { onExpandedChange(true) })
+                if (state.visible) {
+                    MiniPlayer(
+                        state,
+                        actions,
+                        onExpand = if (allowExpansion) ({ onExpandedChange(true) }) else ({}),
+                    )
+                }
             }
             PredictiveBackHandler(enabled = showExpanded) { events ->
                 try {

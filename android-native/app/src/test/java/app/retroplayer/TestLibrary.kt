@@ -81,6 +81,7 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
 
     inner class FakeRootAccess : RootAccess {
         val added = mutableListOf<String>()
+        val removed = mutableListOf<String>()
 
         override suspend fun add(treeUri: String): String? {
             added += treeUri
@@ -93,7 +94,10 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
             return ok
         }
 
-        override suspend fun remove(rootId: String) = store.removeRoot(rootId)
+        override suspend fun remove(rootId: String) {
+            removed += rootId
+            store.removeRoot(rootId)
+        }
     }
 }
 

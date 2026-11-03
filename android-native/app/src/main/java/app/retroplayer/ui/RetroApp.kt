@@ -19,6 +19,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import app.retroplayer.domain.Crumb
 import app.retroplayer.domain.LibraryPath
 import app.retroplayer.playback.NowPlaying
@@ -32,6 +33,16 @@ import app.retroplayer.ui.navigation.AlbumRoute
 import app.retroplayer.ui.navigation.FolderRoute
 import app.retroplayer.ui.navigation.PlaylistRoute
 import app.retroplayer.ui.navigation.QueueRoute
+import app.retroplayer.ui.navigation.SettingsAboutRoute
+import app.retroplayer.ui.navigation.SettingsDataRoute
+import app.retroplayer.ui.navigation.SettingsEqualizerRoute
+import app.retroplayer.ui.navigation.SettingsLicensesRoute
+import app.retroplayer.ui.navigation.SettingsRoute
+import app.retroplayer.ui.settings.SettingsAboutScreen
+import app.retroplayer.ui.settings.SettingsDataScreen
+import app.retroplayer.ui.settings.SettingsEqualizerScreen
+import app.retroplayer.ui.settings.SettingsLicensesScreen
+import app.retroplayer.ui.settings.SettingsScreen
 import app.retroplayer.ui.playlist.PlaylistScreen
 import app.retroplayer.ui.playlist.PlaylistViewModel
 import app.retroplayer.ui.navigation.StartupRoutes
@@ -56,6 +67,7 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
             return@RetroTheme
         }
         var expanded by rememberSaveable { mutableStateOf(false) }
+        var settingsOpen by remember { mutableStateOf(false) }
         val locatedTrackId by appViewModel.locatedTrackId.collectAsStateWithLifecycle()
         val navRef = remember { mutableStateOf<NavController?>(null) }
         // UC-09: starting playback from a library page brings up the player.
@@ -78,7 +90,10 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
                 navRef.value?.showFolder(crumb.path)
             },
         )
-        PlayerHost(player, expanded, { expanded = it }, playerActions) {
+        LaunchedEffect(settingsOpen) {
+            if (settingsOpen) expanded = false
+        }
+        PlayerHost(player, expanded, { expanded = it }, playerActions, allowExpansion = !settingsOpen) {
             LibraryNavHost(
                 routes = routes,
                 nowPlaying = nowPlaying,
@@ -87,6 +102,7 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
                 onExpandedChange = { expanded = it },
                 onNavReady = { navRef.value = it },
                 onUserBrowsing = appViewModel::onUserBrowsing,
+                onSettingsOpen = { settingsOpen = it },
             )
         }
     }
@@ -101,6 +117,7 @@ private fun LibraryNavHost(
     onExpandedChange: (Boolean) -> Unit,
     onNavReady: (NavController) -> Unit,
     onUserBrowsing: () -> Unit,
+    onSettingsOpen: (Boolean) -> Unit,
 ) {
     lateinit var nav: NavController
     val folderNavigation = FolderNavigation(
@@ -121,6 +138,10 @@ private fun LibraryNavHost(
         },
         openQueue = { nav.navigate(QueueRoute) },
         openPlaylist = { nav.navigate(PlaylistRoute(it.value)) },
+        openSettings = {
+            onUserBrowsing()
+            nav.navigate(SettingsRoute)
+        },
     )
     nav = rememberRestoredNavController(routes) {
         composable<FolderRoute> {
@@ -165,6 +186,32 @@ private fun LibraryNavHost(
                 onDone = { nav.popBackStack() },
             )
         }
+        composable<SettingsRoute> {
+            SettingsScreen(
+                back = { nav.popBackStack() },
+                openDataStorage = { nav.navigate(SettingsDataRoute) },
+                openLicenses = { nav.navigate(SettingsLicensesRoute) },
+                openAbout = { nav.navigate(SettingsAboutRoute) },
+                openEqualizer = { nav.navigate(SettingsEqualizerRoute) },
+            )
+        }
+        composable<SettingsDataRoute> {
+            SettingsDataScreen(back = { nav.popBackStack() })
+        }
+        composable<SettingsLicensesRoute> {
+            SettingsLicensesScreen(back = { nav.popBackStack() })
+        }
+        composable<SettingsAboutRoute> {
+            SettingsAboutScreen(back = { nav.popBackStack() })
+        }
+        composable<SettingsEqualizerRoute> {
+            SettingsEqualizerScreen(back = { nav.popBackStack() })
+        }
+    }
+    val backStackEntry by nav.currentBackStackEntryAsState()
+    LaunchedEffect(backStackEntry) {
+        val route = backStackEntry?.destination?.route.orEmpty()
+        onSettingsOpen(route.contains("Settings", ignoreCase = true))
     }
     LaunchedEffect(nav) {
         onNavReady(nav)

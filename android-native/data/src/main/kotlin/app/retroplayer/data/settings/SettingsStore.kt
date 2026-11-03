@@ -47,7 +47,6 @@ class SettingsStore(private val dataStore: DataStore<Preferences>) {
         val defaults = AppSettings.DEFAULT
         AppSettings(
             theme = ThemePreference.fromStorage(p[Keys.theme]),
-            languageTag = null,
             equalizer = EqualizerSettings(
                 enabled = p[Keys.eqEnabled] ?: defaults.equalizer.enabled,
                 preset = p[Keys.eqPreset]?.let { name -> EqualizerPreset.entries.firstOrNull { it.name == name } }

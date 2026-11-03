@@ -19,3 +19,18 @@ data class AddTracksRoute(val path: String? = null, val playlistPath: String? = 
 
 @Serializable
 data class PlaylistRoute(val path: String)
+
+@Serializable
+data object SettingsRoute
+
+@Serializable
+data object SettingsDataRoute
+
+@Serializable
+data object SettingsLicensesRoute
+
+@Serializable
+data object SettingsAboutRoute
+
+@Serializable
+data object SettingsEqualizerRoute

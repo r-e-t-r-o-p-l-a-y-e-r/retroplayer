@@ -192,4 +192,19 @@ class BackChainTest {
         compose.waitForIdle()
         compose.onNodeWithText("zebra").assertIsDisplayed()
     }
+
+    @Test
+    fun `back closes settings before the player`() {
+        compose.setContent {
+            RetroTheme {
+                PlayerHost(state, expanded = true, { expanded = it }, actions, allowExpansion = false) {
+                    Text("settings page")
+                }
+            }
+        }
+        compose.waitForIdle()
+        compose.onNodeWithText("settings page").assertIsDisplayed()
+        compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertDoesNotExist()
+        compose.onNodeWithTag(MINI_PLAYER_TAG).assertIsDisplayed()
+    }
 }

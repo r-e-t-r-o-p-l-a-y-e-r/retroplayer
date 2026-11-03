@@ -7,10 +7,9 @@ import org.junit.Test
 
 class SettingsDefaultsTest {
     @Test
-    fun `defaults are system theme and language, equalizer off, speed one`() {
+    fun `defaults are system theme, equalizer off, speed one`() {
         val d = AppSettings.DEFAULT
         assertThat(d.theme).isEqualTo(ThemePreference.SYSTEM)
-        assertThat(d.languageTag).isNull()
         assertThat(d.equalizer.enabled).isFalse()
         assertThat(AppSettings.DEFAULT_SPEED).isEqualTo(1f)
     }

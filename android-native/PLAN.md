@@ -45,7 +45,7 @@ screenshot comparison described there.
 | T07 | Playlist detail, save, delete | any | done |
 | T08 | Write-grant upgrade flow | opus | done (engine; UI in T07) |
 | T09 | Library leftovers: A-Z, scroll restore, root removal | any | done |
-| T10 | Settings screens (theme, language, data, reset, licenses, about) | any | todo |
+| T10 | Settings screens (theme, language, data, reset, licenses, about) | any | done |
 | T11 | Equalizer engine | opus | done |
 | T12 | Equalizer settings UI | any | todo |
 | T13 | Keyboard shortcuts | any | todo |
@@ -542,7 +542,8 @@ available, simply continue top to bottom.
 
 ## T10 Settings screens
 
-- Owner: any. Status: todo. Depends: T02. UC-16, UC-12 (fixed mini dock in settings).
+- Owner: any. Status: done. Depends: T02. UC-16, UC-12 (fixed mini dock in settings).
+- Notes: `SettingsRoute` + data/licenses/about/equalizer stub screens; theme via `SettingsStore`, language via `AppCompatDelegate` + `locales_config.xml`; reset stops playback and optionally clears roots/grants; `BuildConfig` git/build date; gear on library top bar; `PlayerHost(allowExpansion=false)` while settings visible. Tests: `SettingsViewModelTest`, `SettingsContentTest`, `LicensesTest`, `BackChainTest` (mini-only player). Language smoke not re-run this session.
 - Flutter reference: `lib/ui/features/settings/`.
 - Files: `SettingsRoute`, `SettingsDataRoute`, `SettingsLicensesRoute`,
   `SettingsAboutRoute` in `Routes.kt`; `ui/settings/SettingsViewModel.kt`,
