@@ -72,6 +72,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.retroplayer.R
+import app.retroplayer.domain.Crumb
 import app.retroplayer.domain.TransportRules
 import app.retroplayer.playback.NowPlaying
 import app.retroplayer.ui.formatSpeed
@@ -88,6 +89,7 @@ const val MINI_PLAYER_TAG = "miniPlayer"
 const val EXPANDED_PLAYER_TAG = "expandedPlayer"
 const val EXPANDED_ART_TAG = "expandedPlayerArt"
 const val SPEED_SLIDER_TAG = "speedSlider"
+const val EXPANDED_LOCATE_TITLE_TAG = "expandedPlayerLocateTitle"
 
 /** True while the expanded player covers the screen; back handlers below it step aside. */
 val LocalPlayerExpanded = compositionLocalOf { false }
@@ -100,6 +102,8 @@ data class PlayerActions(
     val jumpBack: () -> Unit,
     val jumpForward: () -> Unit,
     val setSpeed: (Float) -> Unit,
+    val locate: () -> Unit,
+    val playbackCrumb: (Crumb) -> Unit,
 )
 
 /** Expands the player from a library top bar; null while there is nothing to expand. */
@@ -180,7 +184,14 @@ private fun DragHandle() {
 }
 
 @Composable
-private fun Titles(now: NowPlaying, titleStyle: TextStyle, subtitleStyle: TextStyle, align: TextAlign, modifier: Modifier = Modifier) {
+private fun Titles(
+    now: NowPlaying,
+    titleStyle: TextStyle,
+    subtitleStyle: TextStyle,
+    align: TextAlign,
+    modifier: Modifier = Modifier,
+    titleModifier: Modifier = Modifier,
+) {
     val palette = LocalRetroPalette.current
     Column(modifier, horizontalAlignment = if (align == TextAlign.Center) Alignment.CenterHorizontally else Alignment.Start) {
         Text(
@@ -190,6 +201,7 @@ private fun Titles(now: NowPlaying, titleStyle: TextStyle, subtitleStyle: TextSt
             textAlign = align,
             maxLines = if (align == TextAlign.Center) 2 else 1,
             overflow = TextOverflow.Ellipsis,
+            modifier = titleModifier,
         )
         now.subtitle?.let {
             Text(it, style = subtitleStyle, color = palette.textSecondary, textAlign = align, maxLines = 1, overflow = TextOverflow.Ellipsis)
@@ -269,7 +281,7 @@ private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onColla
                     }
                 },
             )
-            if (state.crumbs.isNotEmpty()) BreadcrumbStrip(state.crumbs, onCrumb = null)
+            if (state.crumbs.isNotEmpty()) BreadcrumbStrip(state.crumbs, actions.playbackCrumb)
             Column(
                 Modifier
                     .weight(1f)
@@ -299,10 +311,13 @@ private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onColla
                             Modifier
                                 .weight(1f)
                                 .testTag(EXPANDED_ART_TAG)
-                                .pointerInput(actions.jumpBack, actions.jumpForward) {
-                                    detectTapGestures(onDoubleTap = { offset ->
-                                        if (offset.x < size.width / 2f) actions.jumpBack() else actions.jumpForward()
-                                    })
+                                .pointerInput(actions.locate, actions.jumpBack, actions.jumpForward) {
+                                    detectTapGestures(
+                                        onTap = { actions.locate() },
+                                        onDoubleTap = { offset ->
+                                            if (offset.x < size.width / 2f) actions.jumpBack() else actions.jumpForward()
+                                        },
+                                    )
                                 },
                             contentAlignment = Alignment.Center,
                         ) {
@@ -317,6 +332,9 @@ private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onColla
                     titleStyle = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp, lineHeight = 24.sp),
                     subtitleStyle = MaterialTheme.typography.bodyLarge.copy(fontSize = 15.sp),
                     align = TextAlign.Center,
+                    titleModifier = Modifier
+                        .testTag(EXPANDED_LOCATE_TITLE_TAG)
+                        .clickable(onClick = actions.locate),
                 )
                 Spacer(Modifier.height(16.dp))
                 PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo)

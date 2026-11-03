@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material.icons.automirrored.filled.Sort
@@ -82,6 +83,7 @@ data class AlbumActions(
 fun AlbumScreen(
     viewModel: AlbumViewModel,
     playingTrackId: String?,
+    scrollToTrackId: String?,
     back: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -92,6 +94,7 @@ fun AlbumScreen(
         confirmMissing = confirm,
         artModel = (state as? AlbumUiState.Ready)?.let { ready -> ready.artUri ?: ready.tracks.firstOrNull()?.let { EmbeddedArt(it.uri) } },
         playingTrackId = playingTrackId,
+        scrollToTrackId = scrollToTrackId,
         actions = AlbumActions(
             back = back,
             play = viewModel::play,
@@ -110,6 +113,7 @@ fun AlbumContent(
     confirmMissing: Int?,
     artModel: Any?,
     playingTrackId: String?,
+    scrollToTrackId: String?,
     actions: AlbumActions,
 ) {
     val snackbar = remember { SnackbarHostState() }
@@ -144,7 +148,7 @@ fun AlbumContent(
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxSize().padding(32.dp),
                 )
-                is AlbumUiState.Ready -> AlbumBody(state, artModel, playingTrackId, rowActions)
+                is AlbumUiState.Ready -> AlbumBody(state, artModel, playingTrackId, scrollToTrackId, rowActions)
             }
         }
     }
@@ -185,11 +189,23 @@ private fun SortMenu(mode: AlbumSortMode, select: (AlbumSortMode) -> Unit) {
 }
 
 @Composable
-private fun AlbumBody(state: AlbumUiState.Ready, artModel: Any?, playingTrackId: String?, actions: AlbumActions) {
+private fun AlbumBody(
+    state: AlbumUiState.Ready,
+    artModel: Any?,
+    playingTrackId: String?,
+    scrollToTrackId: String?,
+    actions: AlbumActions,
+) {
+    val listState = rememberLazyListState()
+    LaunchedEffect(scrollToTrackId, state.tracks) {
+        val id = scrollToTrackId ?: return@LaunchedEffect
+        val index = state.tracks.indexOfFirst { it.id == id }
+        if (index >= 0) listState.animateScrollToItem(index)
+    }
     Column(Modifier.fillMaxSize()) {
         AlbumHeader(state, artModel, actions)
         HorizontalDivider()
-        LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
+        LazyColumn(state = listState, contentPadding = PaddingValues(bottom = 96.dp)) {
             itemsIndexed(state.tracks, key = { _, track -> track.id }) { index, track ->
                 val queueLabel = stringResource(R.string.add_to_queue)
                 SwipeActions(fromEnd = Swipe(Icons.AutoMirrored.Filled.PlaylistAdd, queueLabel) { actions.addToQueue(track) {} }) {

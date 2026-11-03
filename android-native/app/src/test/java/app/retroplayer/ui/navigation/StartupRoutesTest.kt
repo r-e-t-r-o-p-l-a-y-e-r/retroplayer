@@ -2,6 +2,8 @@ package app.retroplayer.ui.navigation
 
 import app.retroplayer.domain.AlbumIds
 import app.retroplayer.domain.LibraryPath
+import app.retroplayer.domain.model.PlaybackItem
+import app.retroplayer.playback.NowPlaying
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 
@@ -45,5 +47,39 @@ class StartupRoutesTest {
     fun `folder chain lists the library root and every ancestor`() {
         assertThat(StartupRoutes.folderChain(null)).containsExactly(FolderRoute())
         assertThat(StartupRoutes.folderChain(LibraryPath("1/A"))).containsExactly(FolderRoute(), FolderRoute("1"), FolderRoute("1/A")).inOrder()
+    }
+
+    @Test
+    fun `locate in an album builds folder chain plus album`() {
+        val album = AlbumIds.folder(LibraryPath("1/Books/Hobbit"))
+        val now = NowPlaying(itemId = album, trackId = "1/Books/Hobbit/01.mp3")
+        assertThat(StartupRoutes.locate(now, roots)).containsExactly(
+            FolderRoute(),
+            FolderRoute("1"),
+            FolderRoute("1/Books"),
+            FolderRoute("1/Books/Hobbit"),
+            AlbumRoute(album),
+        ).inOrder()
+    }
+
+    @Test
+    fun `locate for a loose track opens its folder`() {
+        val now = NowPlaying(trackId = "1/Music/demo.mp3")
+        assertThat(StartupRoutes.locate(now, roots)).containsExactly(
+            FolderRoute(),
+            FolderRoute("1"),
+            FolderRoute("1/Music"),
+        ).inOrder()
+    }
+
+    @Test
+    fun `locate for a playlist opens the playlist folder until the playlist screen exists`() {
+        val playlist = LibraryPath("1/Lists/set.m3u")
+        val now = NowPlaying(itemId = PlaybackItem.playlistId(playlist), trackId = "1/Lists/set.m3u#0")
+        assertThat(StartupRoutes.locate(now, roots)).containsExactly(
+            FolderRoute(),
+            FolderRoute("1"),
+            FolderRoute("1/Lists"),
+        ).inOrder()
     }
 }

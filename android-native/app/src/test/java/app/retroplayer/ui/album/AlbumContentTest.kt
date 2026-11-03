@@ -52,7 +52,7 @@ class AlbumContentTest {
     )
 
     private fun show(confirm: Int? = null) = compose.setContent {
-        RetroTheme { AlbumContent(ready, confirm, null, null, actions) }
+        RetroTheme { AlbumContent(ready, confirm, null, null, null, actions) }
     }
 
     @Test
@@ -74,7 +74,7 @@ class AlbumContentTest {
 
     @Test
     fun `playing track shows the speaker instead of its number`() {
-        compose.setContent { RetroTheme { AlbumContent(ready, null, null, tracks[1].id, actions) } }
+        compose.setContent { RetroTheme { AlbumContent(ready, null, null, tracks[1].id, null, actions) } }
         compose.onNodeWithContentDescription("Now Playing").assertIsDisplayed()
         compose.onNodeWithText("2").assertDoesNotExist()
     }

@@ -38,6 +38,8 @@ class ExpandedPlayerTest {
         jumpBack = { calls += "jumpBack" },
         jumpForward = { calls += "jumpForward" },
         setSpeed = { calls += "speed:$it" },
+        locate = { calls += "locate" },
+        playbackCrumb = { calls += "crumb:${it.label}" },
     )
 
     private val playing = PlayerUiState(
@@ -50,7 +52,12 @@ class ExpandedPlayerTest {
             positionMs = 30_000,
             durationMs = 180_000,
         ),
-        crumbs = listOf(Crumb("", null, isLibraryRoot = true), Crumb("Music", LibraryPath("1"))),
+        crumbs = listOf(
+            Crumb("", null, isLibraryRoot = true),
+            Crumb("Music", LibraryPath("1")),
+            Crumb("Test Album", LibraryPath("1/Alb")),
+            Crumb("Song 2", null),
+        ),
     )
 
     private fun show(state: PlayerUiState = playing) = compose.setContent {
@@ -96,5 +103,27 @@ class ExpandedPlayerTest {
         show()
         compose.onNodeWithTag(SPEED_SLIDER_TAG).performSemanticsAction(SemanticsActions.SetProgress) { it(1.25f) }
         assertThat(calls).contains("speed:1.25")
+    }
+
+    @Test
+    fun `tapping the title calls locate`() {
+        show()
+        compose.onNodeWithTag(EXPANDED_LOCATE_TITLE_TAG).performClick()
+        assertThat(calls).containsExactly("locate")
+    }
+
+    @Test
+    fun `breadcrumbs of the playing item are shown`() {
+        show()
+        compose.onNodeWithText("Library").assertIsDisplayed()
+        compose.onNodeWithText("Music").assertIsDisplayed()
+        compose.onNodeWithText("Test Album").assertIsDisplayed()
+    }
+
+    @Test
+    fun `tapping a playback breadcrumb opens the folder`() {
+        show()
+        compose.onNodeWithText("Music").performClick()
+        assertThat(calls).contains("crumb:Music")
     }
 }

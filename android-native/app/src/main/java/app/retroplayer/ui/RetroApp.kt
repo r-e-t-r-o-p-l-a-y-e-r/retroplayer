@@ -9,8 +9,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import kotlinx.coroutines.flow.SharedFlow
 import androidx.compose.ui.Modifier
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -47,6 +49,8 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
             return@RetroTheme
         }
         var expanded by rememberSaveable { mutableStateOf(false) }
+        val locatedTrackId by appViewModel.locatedTrackId.collectAsStateWithLifecycle()
+        val navRef = remember { mutableStateOf<NavController?>(null) }
         // UC-09: starting playback from a library page brings up the player.
         LaunchedEffect(Unit) { appViewModel.playRequests.collect { expanded = true } }
         val playerActions = PlayerActions(
@@ -57,20 +61,54 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
             jumpBack = playerViewModel::jumpBack,
             jumpForward = playerViewModel::jumpForward,
             setSpeed = playerViewModel::setSpeed,
+            locate = {
+                expanded = false
+                appViewModel.locate(nowPlaying.value)
+            },
+            playbackCrumb = { crumb ->
+                expanded = false
+                appViewModel.onUserBrowsing()
+                navRef.value?.showFolder(crumb.path)
+            },
         )
         PlayerHost(player, expanded, { expanded = it }, playerActions) {
-            LibraryNavHost(routes, nowPlaying)
+            LibraryNavHost(
+                routes = routes,
+                nowPlaying = nowPlaying,
+                scrollToTrackId = locatedTrackId,
+                locateRoutes = appViewModel.locateRoutes,
+                onExpandedChange = { expanded = it },
+                onNavReady = { navRef.value = it },
+                onUserBrowsing = appViewModel::onUserBrowsing,
+            )
         }
     }
 }
 
 @Composable
-private fun LibraryNavHost(routes: List<Any>, nowPlaying: State<NowPlaying>) {
+private fun LibraryNavHost(
+    routes: List<Any>,
+    nowPlaying: State<NowPlaying>,
+    scrollToTrackId: String?,
+    locateRoutes: SharedFlow<List<Any>>,
+    onExpandedChange: (Boolean) -> Unit,
+    onNavReady: (NavController) -> Unit,
+    onUserBrowsing: () -> Unit,
+) {
     lateinit var nav: NavController
     val folderNavigation = FolderNavigation(
-        openFolder = { nav.navigate(FolderRoute(it.value)) },
-        openCrumb = { nav.openCrumb(it) },
-        openAlbum = { nav.navigate(AlbumRoute(it.id)) },
+        openFolder = {
+            onUserBrowsing()
+            nav.navigate(FolderRoute(it.value))
+        },
+        openCrumb = {
+            onUserBrowsing()
+            nav.openCrumb(it)
+        },
+        openAlbum = {
+            onUserBrowsing()
+            nav.navigate(AlbumRoute(it.id))
+        },
     )
     nav = rememberRestoredNavController(routes) {
         composable<FolderRoute> {
@@ -82,8 +120,19 @@ private fun LibraryNavHost(routes: List<Any>, nowPlaying: State<NowPlaying>) {
             AlbumScreen(
                 viewModel = hiltViewModel(),
                 playingTrackId = nowPlaying.value.trackId,
-                back = { nav.popBackStack() },
+                scrollToTrackId = scrollToTrackId,
+                back = {
+                    onUserBrowsing()
+                    nav.popBackStack()
+                },
             )
+        }
+    }
+    LaunchedEffect(nav) {
+        onNavReady(nav)
+        locateRoutes.collect { stack ->
+            onExpandedChange(false)
+            nav.navigateLocateStack(stack)
         }
     }
     NavHost(nav, nav.graph)
@@ -97,3 +146,11 @@ fun NavController.showFolder(path: LibraryPath?) {
 }
 
 private fun NavController.openCrumb(crumb: Crumb) = showFolder(crumb.path)
+
+/** Replaces the library back stack when locating the playing track (UC-13). */
+private fun NavController.navigateLocateStack(routes: List<Any>) {
+    navigate(FolderRoute()) {
+        popUpTo(graph.startDestinationId) { inclusive = true }
+    }
+    routes.drop(1).forEach { route -> navigate(route) { launchSingleTop = true } }
+}

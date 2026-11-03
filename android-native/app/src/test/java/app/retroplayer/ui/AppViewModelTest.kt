@@ -3,6 +3,7 @@ package app.retroplayer.ui
 import app.retroplayer.MainDispatcherRule
 import app.retroplayer.TestLibrary
 import app.retroplayer.domain.AlbumIds
+import app.retroplayer.playback.NowPlaying
 import app.retroplayer.runVmTest
 import app.retroplayer.ui.navigation.AlbumRoute
 import app.retroplayer.ui.navigation.FolderRoute
@@ -49,5 +50,29 @@ class AppViewModelTest {
 
         lib.settings.setBrowsePath(null)
         assertThat(viewModel.startRoutes.value).isEqualTo(routes)
+    }
+
+    @Test
+    fun `locate sets the located track`() = main.runVmTest {
+        lib = TestLibrary(tmp)
+        lib.addRoot()
+        val track = lib.p("Rock/Album/01 Song.mp3").value
+        val album = AlbumIds.folder(lib.p("Rock/Album"))
+        lib.playback.nowPlaying.value = NowPlaying(trackId = track, itemId = album, hasTrack = true)
+        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback)
+        viewModel.locate()
+        assertThat(viewModel.locatedTrackId.filterNotNull().first()).isEqualTo(track)
+    }
+
+    @Test
+    fun `manual navigation clears the located track`() = main.runVmTest {
+        lib = TestLibrary(tmp)
+        lib.addRoot()
+        lib.playback.nowPlaying.value = NowPlaying(trackId = lib.p("A/t.mp3").value, hasTrack = true)
+        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback)
+        viewModel.locate()
+        assertThat(viewModel.locatedTrackId.filterNotNull().first()).isNotNull()
+        viewModel.onUserBrowsing()
+        assertThat(viewModel.locatedTrackId.value).isNull()
     }
 }

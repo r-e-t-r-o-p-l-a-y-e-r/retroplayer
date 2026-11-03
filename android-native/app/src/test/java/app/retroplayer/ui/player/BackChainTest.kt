@@ -38,6 +38,8 @@ class BackChainTest {
         jumpBack = {},
         jumpForward = {},
         setSpeed = {},
+        locate = {},
+        playbackCrumb = {},
     )
 
     private fun show() = compose.setContent {

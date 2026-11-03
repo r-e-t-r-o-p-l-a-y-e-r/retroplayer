@@ -41,6 +41,8 @@ class PlayerSheetTest {
         jumpBack = { calls += "jumpBack" },
         jumpForward = { calls += "jumpForward" },
         setSpeed = { calls += "speed:$it" },
+        locate = { calls += "locate" },
+        playbackCrumb = { calls += "crumb:${it.label}" },
     )
     private var expanded by mutableStateOf(false)
 

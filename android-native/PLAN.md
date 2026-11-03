@@ -38,7 +38,7 @@ screenshot comparison described there.
 | T02 | Player sheet shell + back chain | opus | done |
 | T02b | Look and feel parity with the user guide (light + dark) | opus | done |
 | T03 | Expanded player: jumps, speed | any | done |
-| T04 | Locate now playing + playback breadcrumbs | any | todo |
+| T04 | Locate now playing + playback breadcrumbs | any | done |
 | T05 | Queue engine (edit while playing) | opus | done |
 | T05b | Library gestures: swipe to queue, long-press reorder | opus | done |
 | T06 | Queue screen + add-tracks picker | any | todo |
@@ -234,7 +234,8 @@ available, simply continue top to bottom.
   (`steps = 5`, 0.25 increments). `formatSpeed` uses `1.0x` style (plain `x`,
   min one fraction digit). `PlayerViewModel.speedDown` / `speedUp` for
   quarter steps at bounds. Tests: `FormatTest` (updated), `PlayerViewModelTest`
-  +3, new `ExpandedPlayerTest` (5). Emulator smoke not run this session.
+  +3, new `ExpandedPlayerTest` (5). Emulator smoke: forward/back jump
+  (position 0→15s→0), speed slider → 2.0× in session + UI, no crashes.
 - The seek bar (`PlaybackProgress`) already exists since T02b; only add
   keyboard seeking (←/→ by 5 s on the focused bar) if missing.
 - Flutter reference: `lib/ui/features/player/widgets/player_panel.dart`,
@@ -273,7 +274,13 @@ available, simply continue top to bottom.
 
 ## T04 Locate now playing + playback breadcrumbs
 
-- Owner: any. Status: todo. Depends: T02. UC-13.
+- Owner: any. Status: done. Depends: T02. UC-13.
+- Notes: `StartupRoutes.locate`, `AppViewModel.locate` / `locatedTrackId` /
+  `onUserBrowsing`, `NavController.navigateLocateStack`. Expanded player:
+  title + art tap locate (collapses sheet), playback crumbs navigate.
+  Album scroll via `scrollToTrackId`. Tests: `StartupRoutesTest` +3,
+  `AppViewModelTest` +2, `ExpandedPlayerTest` +3. Emulator smoke: play in
+  album, library root, expand, tap title → album with track visible.
 - Spec:
   - Tapping the title or art in the expanded player collapses the sheet and
     navigates to where the current track lives: if `nowPlaying.itemId` is an
