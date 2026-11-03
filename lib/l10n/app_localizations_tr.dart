@@ -374,7 +374,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get newPlaylistName => 'Oynatma listesinin adı';
 
   @override
-  String get addTracks => 'Yardımcı metin ekle';
+  String get addTracks => 'Parça ekle';
 
   @override
   String get addSelectedTracks => 'Seçili parçaları ekle';

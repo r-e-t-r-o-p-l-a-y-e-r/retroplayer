@@ -194,7 +194,7 @@
   "clearQueueTitle": "Kuyruğu & Temizle",
   "clearQueueBody": "Bu işlem, sıradaki tüm parçaları siler. Ses dosyaları ve kaydedilmiş çalma listeleri kalır.",
   "newPlaylistName": "Oynatma listesinin adı",
-  "addTracks": "Yardımcı metin ekle",
+  "addTracks": "Parça ekle",
   "addSelectedTracks": "Seçili parçaları ekle",
   "save": "Kaydet",
   "addTracksFromLibrary": "Kitaplıktan Ekle",
