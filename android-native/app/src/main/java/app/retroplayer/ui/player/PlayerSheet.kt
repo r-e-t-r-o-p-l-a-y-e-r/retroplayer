@@ -1,5 +1,8 @@
 package app.retroplayer.ui.player
 
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.activity.compose.PredictiveBackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
@@ -76,6 +79,7 @@ import app.retroplayer.domain.Crumb
 import app.retroplayer.domain.TransportRules
 import app.retroplayer.playback.NowPlaying
 import app.retroplayer.ui.formatSpeed
+import app.retroplayer.ui.components.mayEllipsize
 import app.retroplayer.ui.components.AlbumArt
 import app.retroplayer.ui.components.BackButton
 import app.retroplayer.ui.components.BreadcrumbStrip
@@ -200,7 +204,7 @@ private fun Titles(
     titleModifier: Modifier = Modifier,
 ) {
     val palette = LocalRetroPalette.current
-    Column(modifier, horizontalAlignment = if (align == TextAlign.Center) Alignment.CenterHorizontally else Alignment.Start) {
+    Column(modifier.mayEllipsize(), horizontalAlignment = if (align == TextAlign.Center) Alignment.CenterHorizontally else Alignment.Start) {
         Text(
             now.title ?: stringResource(R.string.track_fallback),
             style = titleStyle,
@@ -289,7 +293,7 @@ private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onColla
                 },
             )
             if (state.crumbs.isNotEmpty()) BreadcrumbStrip(state.crumbs, actions.playbackCrumb)
-            Column(
+            BoxWithConstraints(
                 Modifier
                     .weight(1f)
                     .fillMaxWidth()
@@ -298,61 +302,85 @@ private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onColla
                         orientation = Orientation.Vertical,
                         onDragStarted = { dragged = 0f },
                         onDragStopped = { if (dragged > DRAG_THRESHOLD_PX) onCollapse() },
-                    )
-                    .padding(horizontal = 24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
+                    ),
             ) {
-                DragHandle()
-                Spacer(Modifier.weight(1f))
-                BoxWithConstraints(Modifier.weight(4f, fill = false).fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    val jumps = 40.dp
-                    val gaps = 12.dp
-                    val artSize = minOf(maxWidth - jumps * 2 - gaps * 2, maxHeight, 248.dp)
-                    Row(
-                        Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(gaps),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        JumpButton(forward = false, onClick = actions.jumpBack)
-                        Box(
-                            Modifier
-                                .weight(1f)
-                                .testTag(EXPANDED_ART_TAG)
-                                .pointerInput(actions.locate, actions.jumpBack, actions.jumpForward) {
-                                    detectTapGestures(
-                                        onTap = { actions.locate() },
-                                        onDoubleTap = { offset ->
-                                            if (offset.x < size.width / 2f) actions.jumpBack() else actions.jumpForward()
-                                        },
-                                    )
-                                },
-                            contentAlignment = Alignment.Center,
+                if (maxWidth > maxHeight) {
+                    Row(Modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+                        ArtWithJumps(state, actions, Modifier.weight(1f).fillMaxHeight())
+                        Spacer(Modifier.width(24.dp))
+                        Column(
+                            Modifier.weight(1f).verticalScroll(rememberScrollState()),
+                            horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
-                            AlbumArt(state.artModel, size = artSize)
+                            Controls(now, actions)
                         }
-                        JumpButton(forward = true, onClick = actions.jumpForward)
+                    }
+                } else {
+                    Column(Modifier.fillMaxSize().padding(horizontal = 24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                        DragHandle()
+                        Spacer(Modifier.weight(1f))
+                        ArtWithJumps(state, actions, Modifier.weight(4f, fill = false).fillMaxWidth())
+                        Spacer(Modifier.height(16.dp))
+                        Controls(now, actions)
+                        Spacer(Modifier.weight(1.4f))
                     }
                 }
-                Spacer(Modifier.height(16.dp))
-                Titles(
-                    now,
-                    titleStyle = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp, lineHeight = 24.sp),
-                    subtitleStyle = MaterialTheme.typography.bodyLarge.copy(fontSize = 15.sp),
-                    align = TextAlign.Center,
-                    titleModifier = Modifier
-                        .testTag(EXPANDED_LOCATE_TITLE_TAG)
-                        .clickable(onClick = actions.locate),
-                )
-                Spacer(Modifier.height(16.dp))
-                PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo)
-                Spacer(Modifier.height(8.dp))
-                Transport(now, actions, skipSize = 40.dp, playSize = 64.dp)
-                Spacer(Modifier.height(16.dp))
-                SpeedRow(now.speed, actions.setSpeed)
-                Spacer(Modifier.weight(1.4f))
             }
         }
     }
+}
+
+/** Cover between the jump buttons; tap locates, double tap on a half jumps. */
+@Composable
+private fun ArtWithJumps(state: PlayerUiState, actions: PlayerActions, modifier: Modifier) {
+    BoxWithConstraints(modifier, contentAlignment = Alignment.Center) {
+        val jumps = 40.dp
+        val gaps = 12.dp
+        val artSize = minOf(maxWidth - jumps * 2 - gaps * 2, maxHeight, 248.dp)
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(gaps),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            JumpButton(forward = false, onClick = actions.jumpBack)
+            Box(
+                Modifier
+                    .weight(1f)
+                    .testTag(EXPANDED_ART_TAG)
+                    .pointerInput(actions.locate, actions.jumpBack, actions.jumpForward) {
+                        detectTapGestures(
+                            onTap = { actions.locate() },
+                            onDoubleTap = { offset ->
+                                if (offset.x < size.width / 2f) actions.jumpBack() else actions.jumpForward()
+                            },
+                        )
+                    },
+                contentAlignment = Alignment.Center,
+            ) {
+                AlbumArt(state.artModel, size = artSize)
+            }
+            JumpButton(forward = true, onClick = actions.jumpForward)
+        }
+    }
+}
+
+@Composable
+private fun Controls(now: NowPlaying, actions: PlayerActions) {
+    Titles(
+        now,
+        titleStyle = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp, lineHeight = 24.sp),
+        subtitleStyle = MaterialTheme.typography.bodyLarge.copy(fontSize = 15.sp),
+        align = TextAlign.Center,
+        titleModifier = Modifier
+            .testTag(EXPANDED_LOCATE_TITLE_TAG)
+            .clickable(onClick = actions.locate),
+    )
+    Spacer(Modifier.height(16.dp))
+    PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo)
+    Spacer(Modifier.height(8.dp))
+    Transport(now, actions, skipSize = 40.dp, playSize = 64.dp)
+    Spacer(Modifier.height(16.dp))
+    SpeedRow(now.speed, actions.setSpeed)
 }
 
 @Composable

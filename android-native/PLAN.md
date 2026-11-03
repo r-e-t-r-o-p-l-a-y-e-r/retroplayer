@@ -50,7 +50,7 @@ screenshot comparison described there.
 | T10b | Device smoke tests (instrumented, AGENTS gate) | any | done |
 | T12 | Equalizer settings UI | any | done |
 | T13 | Keyboard shortcuts | any | dropped |
-| T14 | Text-fit guards and pseudo-locales | any | todo |
+| T14 | Text-fit guards and pseudo-locales | any | done |
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
 | T16 | Chapters in player, notification and seek bar | any | todo |
 | T17 | Headset options UI + resume on reconnect | any | todo |
@@ -660,7 +660,7 @@ available, simply continue top to bottom.
 
 ## T14 Text-fit guards and pseudo-locales
 
-- Owner: any. Status: todo. Depends: T03, T10, T12.
+- Owner: any. Status: done. Depends: T03, T10, T12.
 - Spec:
   - Debug build: `isPseudoLocalesEnabled = true` (en-XA, ar-XB).
   - Test helper `assertNoClippedText(tag)` in `app/src/test/.../TextFit.kt`:
@@ -680,6 +680,16 @@ available, simply continue top to bottom.
     controls side by side` (transport displayed, art not clipped).
 - Tests: `TextFitTest` per screen: `<screen> controls fit in <locale> at font scale <n>`.
 - Done when: all pass (fix layouts, never shorten translations).
+- Done: `app/src/test/.../ui/TextFit.kt` (`assertNoClippedText`, `DisplayRule`;
+  needs `@GraphicsMode(NATIVE)`, and checks lines itself because the
+  semantics layout reports `hasVisualOverflow` for every text).
+  `Modifier.mayEllipsize()` marks user data (list rows, player titles).
+  `TextFitTest` runs 22 screen states x 7 locales at font scale 2 (154 cases).
+  Fixes: top bar titles wrap to 2 lines and shrink to 11 sp; text actions
+  moved to a wrapping row under the bar (`RetroTopBar(textActions)`) on
+  queue, playlist and add tracks; dialog bodies scroll (`DialogBody`); EQ
+  bands header and reset wrap; landscape expanded player puts art and
+  controls side by side (art had collapsed to 0 height).
 
 ## T15 M4B chapter reader
 

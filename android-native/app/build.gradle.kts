@@ -39,6 +39,7 @@ android {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
             manifestPlaceholders["appLabel"] = "Retro Player test"
+            isPseudoLocalesEnabled = true
         }
         release {
             manifestPlaceholders["appLabel"] = "@string/app_name"

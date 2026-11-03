@@ -1,5 +1,6 @@
 package app.retroplayer.ui.queue
 
+import app.retroplayer.ui.components.DialogText
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -145,7 +146,8 @@ fun QueueContent(
             RetroTopBar(
                 stringResource(R.string.queue),
                 navigationIcon = { BackButton(actions.back) },
-                actions = {
+                actions = { PlayerToggleAction() },
+                textActions = {
                     if (canSaveAsPlaylist) {
                         TextButton(onClick = actions.requestSaveAsPlaylist) {
                             Text(stringResource(R.string.save_as_playlist))
@@ -153,7 +155,6 @@ fun QueueContent(
                     }
                     TextButton(onClick = actions.addTracks) { Text(stringResource(R.string.add_tracks)) }
                     TextButton(onClick = actions.requestClear) { Text(stringResource(R.string.clear_queue)) }
-                    PlayerToggleAction()
                 },
             )
         },
@@ -171,7 +172,7 @@ fun QueueContent(
                         AlertDialog(
                             onDismissRequest = actions.dismissClear,
                             title = { Text(stringResource(R.string.clear_queue_title)) },
-                            text = { Text(stringResource(R.string.clear_queue_body)) },
+                            text = { DialogText(stringResource(R.string.clear_queue_body)) },
                             confirmButton = {
                                 TextButton(onClick = actions.confirmClear) { Text(stringResource(R.string.clear_queue)) }
                             },

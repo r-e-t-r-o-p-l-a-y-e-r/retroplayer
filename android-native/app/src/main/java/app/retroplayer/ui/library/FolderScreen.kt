@@ -1,5 +1,6 @@
 package app.retroplayer.ui.library
 
+import app.retroplayer.ui.components.DialogText
 import android.provider.DocumentsContract
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -247,7 +248,7 @@ fun FolderContent(
         AlertDialog(
             onDismissRequest = { confirmRemove = null },
             title = { Text(stringResource(R.string.remove_library_folder_title)) },
-            text = { Text(stringResource(R.string.remove_library_folder_body, root.name)) },
+            text = { DialogText(stringResource(R.string.remove_library_folder_body, root.name)) },
             confirmButton = {
                 TextButton(onClick = {
                     confirmRemove = null

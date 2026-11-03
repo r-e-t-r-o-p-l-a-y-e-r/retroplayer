@@ -1,5 +1,6 @@
 package app.retroplayer.ui.settings
 
+import app.retroplayer.ui.components.DialogBody
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.layout.Column
@@ -134,7 +135,7 @@ fun SettingsContent(state: SettingsUiState, actions: SettingsActions) {
             onDismissRequest = { confirmReset = false },
             title = { Text(stringResource(R.string.reset_database_title)) },
             text = {
-                Column {
+                DialogBody {
                     Text(stringResource(R.string.reset_database_body))
                     TextButton(onClick = {
                         confirmReset = false

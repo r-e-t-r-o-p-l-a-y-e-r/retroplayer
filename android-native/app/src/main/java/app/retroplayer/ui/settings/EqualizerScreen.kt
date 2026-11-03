@@ -113,8 +113,12 @@ fun EqualizerContent(state: EqualizerUiState, actions: EqualizerActions) {
                     )
                 }
             }
-            Row(Modifier.fillMaxWidth().padding(end = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                SectionHeader(stringResource(R.string.bands), Modifier.weight(1f))
+            FlowRow(
+                Modifier.fillMaxWidth().padding(end = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                itemVerticalAlignment = Alignment.CenterVertically,
+            ) {
+                SectionHeader(stringResource(R.string.bands))
                 TextButton(onClick = actions.reset, enabled = enabled) { Text(stringResource(R.string.reset)) }
             }
             // Bands run low to high frequency left to right, and up means louder, in every language.

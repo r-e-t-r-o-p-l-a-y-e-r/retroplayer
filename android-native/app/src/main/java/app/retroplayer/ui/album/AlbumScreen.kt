@@ -1,5 +1,6 @@
 package app.retroplayer.ui.album
 
+import app.retroplayer.ui.components.DialogText
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -156,7 +157,7 @@ fun AlbumContent(
         AlertDialog(
             onDismissRequest = actions.dismissTagOrder,
             title = { Text(stringResource(R.string.sort_by_tag_title)) },
-            text = { Text(stringResource(R.string.sort_by_tag_body, confirmMissing)) },
+            text = { DialogText(stringResource(R.string.sort_by_tag_body, confirmMissing)) },
             confirmButton = { TextButton(onClick = actions.confirmTagOrder) { Text(stringResource(R.string.sort_by_tag_confirm)) } },
             dismissButton = { TextButton(onClick = actions.dismissTagOrder) { Text(stringResource(R.string.sort_keep_file_name)) } },
             modifier = Modifier.testTag("confirmTagOrder"),

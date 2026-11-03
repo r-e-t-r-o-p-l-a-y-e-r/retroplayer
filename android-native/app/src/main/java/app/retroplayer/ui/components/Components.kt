@@ -1,12 +1,17 @@
 package app.retroplayer.ui.components
 
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.FlowRowScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
@@ -56,6 +61,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -80,22 +86,54 @@ fun RetroTopBar(
     modifier: Modifier = Modifier,
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
+    textActions: (@Composable FlowRowScope.() -> Unit)? = null,
 ) {
     val palette = LocalRetroPalette.current
-    CenterAlignedTopAppBar(
-        title = { Text(title, style = MaterialTheme.typography.titleMedium, maxLines = 1, overflow = TextOverflow.Ellipsis) },
-        navigationIcon = navigationIcon,
-        actions = actions,
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = palette.screenElevated,
-            scrolledContainerColor = palette.screenElevated,
-            titleContentColor = palette.textPrimary,
-            navigationIconContentColor = palette.textPrimary,
-            actionIconContentColor = palette.textPrimary,
-        ),
-        modifier = modifier,
-    )
+    val titleStyle = MaterialTheme.typography.titleMedium
+    Column(modifier.background(palette.screenElevated)) {
+        CenterAlignedTopAppBar(
+            title = {
+                Text(
+                    title,
+                    style = titleStyle,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    autoSize = TextAutoSize.StepBased(minFontSize = MIN_LABEL_SIZE, maxFontSize = titleStyle.fontSize),
+                )
+            },
+            navigationIcon = navigationIcon,
+            actions = actions,
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = palette.screenElevated,
+                scrolledContainerColor = palette.screenElevated,
+                titleContentColor = palette.textPrimary,
+                navigationIconContentColor = palette.textPrimary,
+                actionIconContentColor = palette.textPrimary,
+            ),
+        )
+        // Text buttons wrap below the bar: beside the title they get squeezed to nothing in long translations.
+        if (textActions != null) {
+            FlowRow(
+                Modifier.fillMaxWidth().padding(horizontal = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.End),
+                itemVerticalAlignment = Alignment.CenterVertically,
+                content = textActions,
+            )
+        }
+    }
 }
+
+/** Dialog text that scrolls when a translation is longer than the dialog can show. */
+@Composable
+fun DialogBody(content: @Composable ColumnScope.() -> Unit) {
+    Column(Modifier.verticalScroll(rememberScrollState()), content = content)
+}
+
+@Composable
+fun DialogText(text: String) = DialogBody { Text(text) }
+
+/** The smallest size a label may shrink to before it wraps or ellipsizes. */
+val MIN_LABEL_SIZE = 11.sp
 
 /** Back arrow for sub pages; every one of them leads back towards the library. */
 @Composable
@@ -191,7 +229,7 @@ fun RetroListRow(
                     leading()
                     Spacer(Modifier.width(12.dp))
                 }
-                Column(Modifier.weight(1f)) {
+                Column(Modifier.weight(1f).mayEllipsize()) {
                     ProvideTextStyle(
                         MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = if (playing) FontWeight.SemiBold else FontWeight.Medium,

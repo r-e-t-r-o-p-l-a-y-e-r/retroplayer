@@ -8,6 +8,12 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.getBoundsInRoot
+import androidx.compose.ui.unit.dp
+import app.retroplayer.ui.assertNoClippedText
+import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.test.performTouchInput
@@ -125,5 +131,22 @@ class ExpandedPlayerTest {
         show()
         compose.onNodeWithText("Music").performClick()
         assertThat(calls).contains("crumb:Music")
+    }
+
+    @Test
+    @Config(qualifiers = "w800dp-h360dp")
+    @GraphicsMode(GraphicsMode.Mode.NATIVE)
+    fun `landscape player shows art and controls side by side`() {
+        show()
+        val root = compose.onRoot().getBoundsInRoot()
+        val art = compose.onNodeWithTag(EXPANDED_ART_TAG).getBoundsInRoot()
+        val play = compose.onNodeWithContentDescription(context.getString(R.string.pause))
+        play.assertIsDisplayed()
+        assertThat(art.right).isAtMost(play.getBoundsInRoot().left)
+        assertThat(art.top).isAtLeast(root.top)
+        assertThat(art.bottom).isAtMost(root.bottom)
+        assertThat(art.bottom - art.top).isAtLeast(120.dp)
+        compose.onNodeWithTag(SPEED_SLIDER_TAG).assertIsDisplayed()
+        compose.assertNoClippedText()
     }
 }

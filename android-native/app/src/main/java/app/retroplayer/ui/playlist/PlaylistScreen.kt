@@ -1,5 +1,6 @@
 package app.retroplayer.ui.playlist
 
+import app.retroplayer.ui.components.DialogText
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -147,23 +148,28 @@ private fun PlaylistTopBar(state: PlaylistUiState.Ready, actions: PlaylistAction
         RetroTopBar(
             selectedLabel,
             navigationIcon = { BackButton(actions.toggleSelectMode) },
-            actions = {
+            actions = { PlayerToggleAction() },
+            textActions = {
                 TextButton(onClick = actions.selectAll) { Text(stringResource(R.string.playlist_select_all)) }
                 TextButton(onClick = actions.deselectAll) { Text(stringResource(R.string.playlist_deselect_all)) }
                 TextButton(
                     onClick = { actions.requestRemove(state.selectedIndices) },
                     enabled = state.selectedIndices.isNotEmpty(),
                 ) { Text(stringResource(R.string.remove)) }
-                PlayerToggleAction()
             },
         )
     } else {
         RetroTopBar(
             state.title,
             navigationIcon = { BackButton(actions.back) },
-            actions = {
+            actions = { PlayerToggleAction() },
+            textActions = {
                 if (!state.editable) {
-                    Text(stringResource(R.string.playlist_read_only), style = MaterialTheme.typography.labelLarge)
+                    Text(
+                        stringResource(R.string.playlist_read_only),
+                        style = MaterialTheme.typography.labelLarge,
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+                    )
                 } else {
                     TextButton(onClick = actions.addTracks) { Text(stringResource(R.string.add_tracks)) }
                     TextButton(onClick = actions.toggleSelectMode) { Text(stringResource(R.string.playlist_select)) }
@@ -171,7 +177,6 @@ private fun PlaylistTopBar(state: PlaylistUiState.Ready, actions: PlaylistAction
                         Text(stringResource(R.string.delete_playlist_title))
                     }
                 }
-                PlayerToggleAction()
             },
         )
     }
@@ -279,7 +284,7 @@ private fun RemoveTracksDialog(indices: Set<Int>, actions: PlaylistActions) {
     AlertDialog(
         onDismissRequest = actions.dismissRemove,
         title = { Text(title) },
-        text = { Text(body) },
+        text = { DialogText(body) },
         confirmButton = { TextButton(onClick = actions.confirmRemove) { Text(stringResource(R.string.remove)) } },
         dismissButton = { TextButton(onClick = actions.dismissRemove) { Text(stringResource(R.string.cancel)) } },
     )
@@ -290,7 +295,7 @@ private fun DeletePlaylistDialog(title: String, actions: PlaylistActions) {
     AlertDialog(
         onDismissRequest = actions.dismissDelete,
         title = { Text(stringResource(R.string.delete_playlist_title)) },
-        text = { Text(stringResource(R.string.delete_playlist_body, title)) },
+        text = { DialogText(stringResource(R.string.delete_playlist_body, title)) },
         confirmButton = { TextButton(onClick = actions.confirmDelete) { Text(stringResource(R.string.remove)) } },
         dismissButton = { TextButton(onClick = actions.dismissDelete) { Text(stringResource(R.string.cancel)) } },
     )

@@ -110,7 +110,9 @@ fun AddTracksContent(
                 RetroTopBar(
                     stringResource(R.string.add_tracks),
                     navigationIcon = { BackButton(actions.back) },
-                    actions = { TextButton(onClick = actions.confirm, enabled = state !is AddTracksUiState.Loading) { Text(confirmLabel) } },
+                    textActions = {
+                        TextButton(onClick = actions.confirm, enabled = state !is AddTracksUiState.Loading) { Text(confirmLabel) }
+                    },
                 )
                 if (state is AddTracksUiState.Browse) {
                     BreadcrumbStrip(state.crumbs, actions.openCrumb)
