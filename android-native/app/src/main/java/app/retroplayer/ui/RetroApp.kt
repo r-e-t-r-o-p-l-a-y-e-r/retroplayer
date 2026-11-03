@@ -222,7 +222,6 @@ private fun LibraryNavHost(
     NavHost(nav, nav.graph)
 }
 
-/** Shows a folder with its parents behind it; reuses the back stack when the folder is already on it. */
 /**
  * Every folder is the same destination, so `launchSingleTop` would treat any folder as already
  * on top and push nothing; compare the path instead.

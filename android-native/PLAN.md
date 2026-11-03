@@ -49,7 +49,7 @@ screenshot comparison described there.
 | T11 | Equalizer engine | opus | done |
 | T10b | Device smoke tests (instrumented, AGENTS gate) | any | done |
 | T12 | Equalizer settings UI | any | done |
-| T13 | Keyboard shortcuts | any | todo |
+| T13 | Keyboard shortcuts | any | dropped |
 | T14 | Text-fit guards and pseudo-locales | any | todo |
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
 | T16 | Chapters in player, notification and seek bar | any | todo |
@@ -654,20 +654,9 @@ available, simply continue top to bottom.
 
 ## T13 Keyboard shortcuts
 
-- Owner: any. Status: todo. Depends: T03, T06, T10. UC-15.
-- Table (from `doc/DEVELOPMENT_PLAN.md` "Key navigation"): Ctrl+P play/pause,
-  Ctrl+←/→ previous/next, Ctrl+Shift+←/→ jump ∓15 s, Ctrl+↑ expand player,
-  Ctrl+↓ collapse, Ctrl+O add folder, Ctrl+N queue, Ctrl+, settings,
-  Ctrl+S save playlist, Ctrl+Shift+O add tracks, Escape = back,
-  Backspace / Alt+← = folder up.
-- Implementation: pure `KeyShortcuts.match(key, ctrl, shift, alt): Shortcut?`
-  in `ui/keyboard/` (unit-tested), one `Modifier.onPreviewKeyEvent` at the
-  root in `RetroApp` that dispatches. Disabled while a text field has focus:
-  a `CompositionLocal` flag set by our text fields via `onFocusChanged`.
-- Tests: `KeyShortcutsTest` (one per row of the table), `ShortcutsTest`
-  (Compose `performKeyInput`): `ctrl p toggles playback`,
-  `shortcuts are ignored while typing a playlist name`.
-- Done when: tests green.
+- Status: dropped. The Flutter shortcut table is desktop-only (Linux,
+  Windows, macOS); the Flutter Android app has none. Android keeps what the
+  platform gives: media keys via Media3 and Compose focus navigation.
 
 ## T14 Text-fit guards and pseudo-locales
 
