@@ -61,6 +61,7 @@ import app.retroplayer.ui.components.AlbumArt
 import app.retroplayer.ui.components.BackButton
 import app.retroplayer.ui.components.RetroListRow
 import app.retroplayer.ui.components.RetroTopBar
+import app.retroplayer.ui.player.ShareHeaderWithPlayer
 import app.retroplayer.ui.components.Swipe
 import app.retroplayer.ui.components.SwipeActions
 import app.retroplayer.ui.components.TransportButton
@@ -134,6 +135,7 @@ fun AlbumContent(
     )
     Scaffold(
         topBar = {
+            ShareHeaderWithPlayer()
             RetroTopBar(
                 stringResource(R.string.album),
                 navigationIcon = { BackButton(actions.back) },

@@ -1,6 +1,9 @@
 package app.retroplayer.ui.settings
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
+import kotlinx.coroutines.launch
 import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.MainDispatcherRule
 import app.retroplayer.TestLibrary
@@ -31,7 +34,10 @@ class SettingsViewModelTest {
     }
 
     @After
-    fun tearDown() = lib.close()
+    fun tearDown() {
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
+        lib.close()
+    }
 
     private fun viewModel(): SettingsViewModel {
         val app = ApplicationProvider.getApplicationContext<Application>()
@@ -48,6 +54,19 @@ class SettingsViewModelTest {
         advanceUntilIdle()
         assertThat(lib.settings.settings.first().theme).isEqualTo(ThemePreference.SYSTEM)
         assertThat(lib.settingsData.data.first().asMap()).isEmpty()
+    }
+
+    @Test
+    fun `the chosen language shows after every switch`() = main.runVmTest {
+        val vm = viewModel()
+        val collecting = backgroundScope.launch { vm.state.collect {} }
+        vm.setLanguage("fi")
+        assertThat(vm.state.first { it.languageTag == "fi" }.languageTag).isEqualTo("fi")
+        vm.setLanguage("de")
+        assertThat(vm.state.first { it.languageTag == "de" }.languageTag).isEqualTo("de")
+        vm.setLanguage(null)
+        assertThat(vm.state.first { it.languageTag == null }.languageTag).isNull()
+        collecting.cancel()
     }
 
     @Test

@@ -13,9 +13,10 @@ import app.retroplayer.playback.PlaybackControls
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -43,10 +44,13 @@ class SettingsViewModel @Inject constructor(
 
     private val languageOptions = localeTags.map { LanguageOption(it, displayNameForLocaleTag(it)) }
 
-    val state: StateFlow<SettingsUiState> = settings.settings.map { app ->
+    /** Not part of [settings]: AppCompat stores the app language itself. */
+    private val languageTag = MutableStateFlow(currentAppLocaleTag())
+
+    val state: StateFlow<SettingsUiState> = combine(settings.settings, languageTag) { app, language ->
         SettingsUiState(
             theme = app.theme,
-            languageTag = currentAppLocaleTag(),
+            languageTag = language,
             languages = languageOptions,
             databaseFileName = databaseFile.name,
             databasePath = databaseFile.absolutePath,
@@ -61,6 +65,7 @@ class SettingsViewModel @Inject constructor(
         AppCompatDelegate.setApplicationLocales(
             if (tag.isNullOrEmpty()) LocaleListCompat.getEmptyLocaleList() else LocaleListCompat.forLanguageTags(tag),
         )
+        languageTag.value = tag?.takeIf { it.isNotEmpty() }
     }
 
     fun resetDatabase(keepRoots: Boolean) {

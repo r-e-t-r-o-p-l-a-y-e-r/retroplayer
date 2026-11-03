@@ -1,7 +1,6 @@
 package app.retroplayer.ui.settings
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -14,12 +13,22 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuAnchorType
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.material3.MenuDefaults
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,7 +46,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
@@ -185,8 +193,11 @@ private fun ThemeSection(theme: ThemePreference, onTheme: (ThemePreference) -> U
     )
 }
 
+/** An outlined field like the theme row; its list opens right below it, as wide as the field. */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun LanguageDropdown(state: SettingsUiState, onLanguage: (String?) -> Unit) {
+    val palette = LocalRetroPalette.current
     var open by remember { mutableStateOf(false) }
     val system = stringResource(R.string.language_system)
     val current = state.languages.firstOrNull { it.tag == state.languageTag }?.label ?: system
@@ -194,13 +205,32 @@ private fun LanguageDropdown(state: SettingsUiState, onLanguage: (String?) -> Un
         open = false
         onLanguage(tag)
     }
-    Box {
-        ListItem(
-            headlineContent = { Text(current) },
-            trailingContent = { Icon(Icons.Filled.ArrowDropDown, contentDescription = null) },
-            modifier = Modifier.clickable(role = Role.DropdownList) { open = true }.testTag(LANGUAGE_DROPDOWN_TAG),
-        )
-        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+    ExposedDropdownMenuBox(
+        expanded = open,
+        onExpandedChange = { open = it },
+        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+    ) {
+        Row(
+            Modifier
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
+                .fillMaxWidth()
+                .heightIn(min = 48.dp)
+                .clip(FIELD_SHAPE)
+                .border(1.dp, if (open) palette.accentSecondary else palette.divider, FIELD_SHAPE)
+                .background(palette.screenElevated)
+                .padding(start = 16.dp, end = 8.dp)
+                .testTag(LANGUAGE_DROPDOWN_TAG),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(current, style = MaterialTheme.typography.bodyLarge, color = palette.textPrimary, modifier = Modifier.weight(1f))
+            ExposedDropdownMenuDefaults.TrailingIcon(expanded = open)
+        }
+        ExposedDropdownMenu(
+            expanded = open,
+            onDismissRequest = { open = false },
+            shape = RoundedCornerShape(12.dp),
+            containerColor = palette.screenElevated,
+        ) {
             LanguageItem(system, state.languageTag == null) { choose(null) }
             state.languages.forEach { option ->
                 LanguageItem(option.label, option.tag == state.languageTag) { choose(option.tag) }
@@ -211,13 +241,21 @@ private fun LanguageDropdown(state: SettingsUiState, onLanguage: (String?) -> Un
 
 @Composable
 private fun LanguageItem(label: String, selected: Boolean, onClick: () -> Unit) {
+    val palette = LocalRetroPalette.current
     DropdownMenuItem(
-        text = { Text(label) },
+        text = { Text(label, fontWeight = if (selected) FontWeight.SemiBold else null) },
         onClick = onClick,
-        leadingIcon = { if (selected) Icon(Icons.Filled.Check, contentDescription = null) },
+        trailingIcon = { if (selected) Icon(Icons.Filled.Check, contentDescription = null) },
+        colors = MenuDefaults.itemColors(
+            textColor = if (selected) palette.accentSecondary else palette.textPrimary,
+            trailingIconColor = palette.accentSecondary,
+        ),
+        contentPadding = PaddingValues(horizontal = 16.dp),
         modifier = Modifier.semantics { this.selected = selected },
     )
 }
+
+private val FIELD_SHAPE = RoundedCornerShape(50)
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

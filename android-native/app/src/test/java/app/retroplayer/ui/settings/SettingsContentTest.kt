@@ -10,6 +10,9 @@ import androidx.compose.ui.test.assertIsNotSelected
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasScrollToIndexAction
 import androidx.compose.ui.test.hasText
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.unit.toSize
+import androidx.compose.ui.test.isSelected
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.onNodeWithTag
@@ -22,6 +25,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 class SettingsContentTest {
@@ -94,6 +98,25 @@ class SettingsContentTest {
         compose.onNodeWithText("System language").performClick()
         compose.onNodeWithText("Deutsch").performClick()
         assertThat(chosen).isEqualTo("de")
+    }
+
+    @Test
+    @Config(qualifiers = "w360dp-h800dp")
+    fun `the language list opens below the field at its width`() {
+        compose.setContent {
+            RetroTheme {
+                SettingsContent(SettingsUiState(languageTag = "de", languages = listOf(LanguageOption("de", "Deutsch"))), SettingsActions())
+            }
+        }
+        compose.onNodeWithTag(LANGUAGE_DROPDOWN_TAG).performClick()
+        // The list is a popup window: compare positions on screen, not in each window's root.
+        val field = compose.onNodeWithTag(LANGUAGE_DROPDOWN_TAG).fetchSemanticsNode().let { Rect(it.positionOnScreen, it.size.toSize()) }
+        val item = compose.onNode(hasText("System language") and hasClickAction()).fetchSemanticsNode()
+            .let { Rect(it.positionOnScreen, it.size.toSize()) }
+        assertThat(item.top).isAtLeast(field.bottom)
+        assertThat(item.left).isWithin(4f).of(field.left)
+        assertThat(item.right).isWithin(4f).of(field.right)
+        compose.onNode(hasText("Deutsch") and hasClickAction() and isSelected()).assertExists()
     }
 
     @Test

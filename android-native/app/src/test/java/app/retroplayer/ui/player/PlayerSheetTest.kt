@@ -5,6 +5,9 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.performSemanticsAction
 import app.retroplayer.domain.Crumb
+import app.retroplayer.ui.album.AlbumActions
+import app.retroplayer.ui.album.AlbumContent
+import app.retroplayer.ui.album.AlbumUiState
 import app.retroplayer.domain.LibraryPath
 import app.retroplayer.ui.components.PROGRESS_TAG
 import androidx.compose.runtime.getValue
@@ -233,6 +236,14 @@ class PlayerSheetTest {
         show(playing)
         compose.onNodeWithText(context.getString(R.string.now_playing)).assertIsDisplayed()
         compose.onNodeWithText("Folder page").assertDoesNotExist()
+    }
+
+    @Test
+    fun `the album page hands its header to now playing`() {
+        expanded = true
+        show(playing) { AlbumContent(AlbumUiState.Loading, null, null, null, null, AlbumActions()) }
+        compose.onNodeWithText(context.getString(R.string.now_playing)).assertIsDisplayed()
+        compose.onNodeWithText(context.getString(R.string.album)).assertDoesNotExist()
     }
 
     @Test
