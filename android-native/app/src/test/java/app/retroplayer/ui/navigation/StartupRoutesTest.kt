@@ -73,13 +73,14 @@ class StartupRoutesTest {
     }
 
     @Test
-    fun `locate for a playlist opens the playlist folder until the playlist screen exists`() {
+    fun `locate for a playlist opens the playlist detail`() {
         val playlist = LibraryPath("1/Lists/set.m3u")
         val now = NowPlaying(itemId = PlaybackItem.playlistId(playlist), trackId = "1/Lists/set.m3u#0")
         assertThat(StartupRoutes.locate(now, roots)).containsExactly(
             FolderRoute(),
             FolderRoute("1"),
             FolderRoute("1/Lists"),
+            PlaylistRoute("1/Lists/set.m3u"),
         ).inOrder()
     }
 }

@@ -34,7 +34,7 @@ class QueueContentTest {
     fun `empty queue shows the empty text`() {
         compose.setContent {
             RetroTheme {
-                QueueContent(QueueUiState.Ready(emptyList(), null, false), QueueActions())
+                QueueContent(QueueUiState.Ready(emptyList(), null, false, false), QueueActions())
             }
         }
         compose.onNodeWithTag(QUEUE_EMPTY_TAG).assertIsDisplayed()
@@ -42,7 +42,7 @@ class QueueContentTest {
 
     @Test
     fun `missing entry shows missing track`() {
-        val state = QueueUiState.Ready(listOf(QueueEntry(LibraryPath("1/gone.mp3"), null)), null, false)
+        val state = QueueUiState.Ready(listOf(QueueEntry(LibraryPath("1/gone.mp3"), null)), null, false, false)
         compose.setContent { RetroTheme { QueueContent(state, QueueActions()) } }
         compose.onNodeWithText(context.getString(R.string.missing_track)).assertIsDisplayed()
     }
@@ -53,6 +53,7 @@ class QueueContentTest {
             listOf(QueueEntry(track.path, track)),
             playingTrackId = track.id,
             confirmClear = false,
+            showSaveDialog = false,
         )
         compose.setContent { RetroTheme { QueueContent(state, QueueActions()) } }
         compose.onNodeWithTag(PLAYING_STRIP_TAG).assertIsDisplayed()

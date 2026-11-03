@@ -26,7 +26,7 @@ object StartupRoutes {
             return build(dir, now.itemId, rootIds)
         }
         PlaybackItem.playlistPathFromId(now.itemId.orEmpty())?.takeIf { it.rootId in rootIds }?.let { playlist ->
-            return folderChain(playlist.parent)
+            return folderChain(playlist.parent) + PlaylistRoute(playlist.value)
         }
         PlaybackItem.folderPathFromId(now.itemId.orEmpty())?.takeIf { it.rootId in rootIds }?.let { folder ->
             return folderChain(folder)

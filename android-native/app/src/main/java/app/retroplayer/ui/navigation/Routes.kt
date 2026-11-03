@@ -13,6 +13,9 @@ data class AlbumRoute(val albumId: String)
 @Serializable
 data object QueueRoute
 
-/** Optional [path] is the folder the picker opens on; null starts at library sources. */
+/** Optional [path] opens the picker on that folder; [playlistPath] appends to a playlist instead of the queue. */
 @Serializable
-data class AddTracksRoute(val path: String? = null)
+data class AddTracksRoute(val path: String? = null, val playlistPath: String? = null)
+
+@Serializable
+data class PlaylistRoute(val path: String)

@@ -45,6 +45,7 @@ class AddTracksViewModelTest {
             lib.store,
             lib.queue,
             lib.settings,
+            lib.playlists,
         )
     }
 

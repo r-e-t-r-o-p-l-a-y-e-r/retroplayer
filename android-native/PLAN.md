@@ -42,7 +42,7 @@ screenshot comparison described there.
 | T05 | Queue engine (edit while playing) | opus | done |
 | T05b | Library gestures: swipe to queue, long-press reorder | opus | done |
 | T06 | Queue screen + add-tracks picker | any | done |
-| T07 | Playlist detail, save, delete | any | todo |
+| T07 | Playlist detail, save, delete | any | done |
 | T08 | Write-grant upgrade flow | opus | done (engine; UI in T07) |
 | T09 | Library leftovers: A-Z, scroll restore, root removal | any | todo |
 | T10 | Settings screens (theme, language, data, reset, licenses, about) | any | todo |
@@ -463,7 +463,8 @@ available, simply continue top to bottom.
 
 ## T07 Playlist detail, save, delete
 
-- Owner: any. Status: todo. Depends: T06. UC-08.
+- Owner: any. Status: done. Depends: T06. UC-08.
+- Notes: `PlaylistRoute`, detail editor (add/reorder/remove/select/delete), queue save-as-playlist with write-grant retry; locate opens playlist route; tests `PlaylistViewModelTest`, `QueueViewModelTest` save cases.
 - Existing code: `PlaylistFiles.read/save/overwrite/delete`, `M3u`,
   `LibraryStore.registerAppPlaylist/isAppPlaylist`.
 - Files: `PlaylistRoute(path)` in `Routes.kt`, `ui/playlist/PlaylistViewModel.kt`,

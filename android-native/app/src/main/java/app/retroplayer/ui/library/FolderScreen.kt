@@ -94,6 +94,7 @@ data class FolderNavigation(
     val openCrumb: (Crumb) -> Unit,
     val openAlbum: (AudioAlbum) -> Unit,
     val openQueue: () -> Unit = {},
+    val openPlaylist: (LibraryPath) -> Unit = {},
 )
 
 /** Everything a library page can ask its view model to do. */
@@ -413,7 +414,7 @@ private fun FolderList(state: FolderUiState.Folder, playingTrackId: String?, nav
         }
         LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
             folderSection(state, playingTrackId, navigation, actions)
-            playlistSection(state.playlists, actions)
+            playlistSection(state.playlists, navigation, actions)
             audioSection(state, playingTrackId, navigation, actions)
         }
     }
@@ -461,7 +462,7 @@ private fun FolderChip(favorite: Boolean) {
     }
 }
 
-private fun LazyListScope.playlistSection(playlists: List<PlaylistRef>, actions: FolderActions) {
+private fun LazyListScope.playlistSection(playlists: List<PlaylistRef>, navigation: FolderNavigation, actions: FolderActions) {
     if (playlists.isEmpty()) return
     item(key = "h:playlists") { SectionHeader(stringResource(R.string.playlists)) }
     items(playlists, key = { "p:" + it.path.value }) { playlist ->
@@ -471,7 +472,7 @@ private fun LazyListScope.playlistSection(playlists: List<PlaylistRef>, actions:
                 title = { RowTitle(playlist.displayName) },
                 leading = { IconChip(Icons.AutoMirrored.Filled.PlaylistPlay) },
                 trailing = { PlayButton(stringResource(R.string.play_playlist)) { actions.play(item) } },
-                onClick = { actions.play(item) },
+                onClick = { navigation.openPlaylist(playlist.path) },
             )
         }
     }

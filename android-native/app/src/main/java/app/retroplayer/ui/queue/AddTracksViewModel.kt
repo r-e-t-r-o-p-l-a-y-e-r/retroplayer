@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import app.retroplayer.data.db.LibraryRoot
 import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.library.LibraryRepository
+import app.retroplayer.data.library.PlaylistFiles
 import app.retroplayer.data.library.QueueRepository
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.domain.Breadcrumbs
@@ -56,8 +57,10 @@ class AddTracksViewModel @Inject constructor(
     private val store: LibraryStore,
     private val queue: QueueRepository,
     private val settings: SettingsStore,
+    private val playlists: PlaylistFiles,
 ) : ViewModel() {
     private val ordering = repository.albumOrdering()
+    private val appendPlaylist = savedState.get<String>(PLAYLIST_PATH_ARG)?.let(::LibraryPath)
     private val browsePath = MutableStateFlow(savedState.get<String>(PATH_ARG)?.let(::LibraryPath))
     private val selected = MutableStateFlow(emptySet<LibraryPath>())
 
@@ -112,14 +115,31 @@ class AddTracksViewModel @Inject constructor(
                 onResult(AddTracksConfirmResult.NothingSelected)
                 return@launch
             }
-            val existing = settings.session.first().queue.toSet()
-            val roots = store.allRoots().map { LibraryPath.root(it.id) }
-            val newPaths = PlaylistEntries.filterNew(picks, roots, existing)
-            if (newPaths.isEmpty()) {
-                onResult(AddTracksConfirmResult.NothingAdded)
-                return@launch
+            val playlist = appendPlaylist
+            if (playlist != null) {
+                val existing = playlists.read(playlist).entries.map { it.path }.toSet()
+                val roots = store.allRoots().map { LibraryPath.root(it.id) }
+                val newPaths = PlaylistEntries.filterNew(picks, roots, existing)
+                if (newPaths.isEmpty()) {
+                    onResult(AddTracksConfirmResult.NothingAdded)
+                    return@launch
+                }
+                val merged = existing.toList() + newPaths
+                if (!playlists.overwrite(playlist, merged)) {
+                    onResult(AddTracksConfirmResult.NothingAdded)
+                    return@launch
+                }
+                onResult(AddTracksConfirmResult.Added(newPaths.size))
+            } else {
+                val existing = settings.session.first().queue.toSet()
+                val roots = store.allRoots().map { LibraryPath.root(it.id) }
+                val newPaths = PlaylistEntries.filterNew(picks, roots, existing)
+                if (newPaths.isEmpty()) {
+                    onResult(AddTracksConfirmResult.NothingAdded)
+                    return@launch
+                }
+                onResult(AddTracksConfirmResult.Added(queue.add(newPaths)))
             }
-            onResult(AddTracksConfirmResult.Added(queue.add(newPaths)))
         }
     }
 
@@ -134,5 +154,6 @@ class AddTracksViewModel @Inject constructor(
 
     companion object {
         const val PATH_ARG = "path"
+        const val PLAYLIST_PATH_ARG = "playlistPath"
     }
 }

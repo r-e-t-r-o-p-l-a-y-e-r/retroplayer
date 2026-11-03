@@ -30,7 +30,10 @@ import app.retroplayer.ui.navigation.AbsorbBackAtRoot
 import app.retroplayer.ui.navigation.AddTracksRoute
 import app.retroplayer.ui.navigation.AlbumRoute
 import app.retroplayer.ui.navigation.FolderRoute
+import app.retroplayer.ui.navigation.PlaylistRoute
 import app.retroplayer.ui.navigation.QueueRoute
+import app.retroplayer.ui.playlist.PlaylistScreen
+import app.retroplayer.ui.playlist.PlaylistViewModel
 import app.retroplayer.ui.navigation.StartupRoutes
 import app.retroplayer.ui.queue.AddTracksScreen
 import app.retroplayer.ui.queue.QueueScreen
@@ -114,6 +117,7 @@ private fun LibraryNavHost(
             nav.navigate(AlbumRoute(it.id))
         },
         openQueue = { nav.navigate(QueueRoute) },
+        openPlaylist = { nav.navigate(PlaylistRoute(it.value)) },
     )
     nav = rememberRestoredNavController(routes) {
         composable<FolderRoute> {
@@ -137,6 +141,18 @@ private fun LibraryNavHost(
                 viewModel = hiltViewModel(),
                 back = { nav.popBackStack() },
                 onAddTracks = { nav.navigate(AddTracksRoute()) },
+            )
+        }
+        composable<PlaylistRoute> {
+            val playlistViewModel: PlaylistViewModel = hiltViewModel()
+            PlaylistScreen(
+                viewModel = playlistViewModel,
+                back = { nav.popBackStack() },
+                onAddTracks = {
+                    val playlist = playlistViewModel.path
+                    nav.navigate(AddTracksRoute(path = playlist.parent?.value, playlistPath = playlist.value))
+                },
+                onDeleted = { nav.popBackStack() },
             )
         }
         composable<AddTracksRoute> {

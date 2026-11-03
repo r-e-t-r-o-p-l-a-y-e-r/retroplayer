@@ -60,7 +60,7 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
     private val roots = mutableMapOf<String, String>()
     val scanner = LibraryScanner(docs, FakeMetadataReader(metadata), db.trackCacheDao(), { roots[it] }, UnconfinedTestDispatcher())
     val repository = LibraryRepository(store, scanner) { Locale.ENGLISH }
-    val playlists = PlaylistFiles(docs, scanner, store, canWrite = { false }, absolute = { null })
+    val playlists = PlaylistFiles(docs, scanner, store, canWrite = { store.root(it)?.canWrite == true }, absolute = { null })
     val items = PlaybackItemResolver(repository, scanner, playlists) { settings.session.first().queue }
     val queue = QueueRepository(settings, scanner)
     val playback = FakePlayback()
