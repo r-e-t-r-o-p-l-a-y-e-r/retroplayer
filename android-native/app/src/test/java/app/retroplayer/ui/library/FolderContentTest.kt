@@ -1,5 +1,7 @@
 package app.retroplayer.ui.library
 
+import androidx.compose.ui.test.hasClickAction
+import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
@@ -85,7 +87,7 @@ class FolderContentTest {
     fun `empty library explains how to start and offers add folder`() {
         show(FolderUiState.Root(emptyList(), emptyList()), isRoot = true)
         compose.onNodeWithText("No folders added. Tap \"Add folder\" to get started.").assertIsDisplayed()
-        compose.onNodeWithText("Add folder", substring = false, ignoreCase = false, useUnmergedTree = true).performClick()
+        compose.onNode(hasContentDescription("Add folder") and hasClickAction()).performClick()
         assertThat(calls).containsExactly("add")
     }
 

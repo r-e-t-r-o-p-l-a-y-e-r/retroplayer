@@ -1,6 +1,3 @@
-import java.text.SimpleDateFormat
-import java.util.Date
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -20,18 +17,20 @@ android {
         versionCode = 2
         versionName = "2.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // Every device test starts from a fresh install state (no roots, no grants).
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
 
-        val gitBranch = providers.exec {
-            commandLine("git", "rev-parse", "--abbrev-ref", "HEAD")
+        fun git(vararg args: String) = providers.exec {
+            commandLine("git", *args)
             isIgnoreExitValue = true
         }.standardOutput.asText.get().trim().ifEmpty { "unknown" }
-        val gitCommit = providers.exec {
-            commandLine("git", "rev-parse", "--short", "HEAD")
-            isIgnoreExitValue = true
-        }.standardOutput.asText.get().trim().ifEmpty { "unknown" }
+        val gitBranch = git("rev-parse", "--abbrev-ref", "HEAD")
+        val gitCommit = git("rev-parse", "--short", "HEAD")
+        // Commit date, not the clock: the same commit builds the same APK.
+        val buildDate = git("log", "-1", "--format=%cs")
         buildConfigField("String", "GIT_BRANCH", "\"$gitBranch\"")
         buildConfigField("String", "GIT_COMMIT", "\"$gitCommit\"")
-        buildConfigField("String", "BUILD_DATE", "\"${SimpleDateFormat("yyyy-MM-dd").format(Date())}\"")
+        buildConfigField("String", "BUILD_DATE", "\"$buildDate\"")
     }
 
     buildTypes {
@@ -58,6 +57,7 @@ android {
 
     testOptions {
         unitTests.isIncludeAndroidResources = true
+        execution = "ANDROIDX_TEST_ORCHESTRATOR"
     }
 
     packaging {
@@ -195,4 +195,8 @@ dependencies {
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.compose.ui.test.junit4)
+    androidTestImplementation(libs.androidx.test.uiautomator)
+    androidTestImplementation(libs.truth)
+    androidTestUtil(libs.androidx.test.orchestrator)
+    androidTestUtil(libs.androidx.test.services)
 }

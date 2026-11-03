@@ -47,6 +47,7 @@ class SettingsViewModelTest {
         vm.setTheme(ThemePreference.SYSTEM)
         advanceUntilIdle()
         assertThat(lib.settings.settings.first().theme).isEqualTo(ThemePreference.SYSTEM)
+        assertThat(lib.settingsData.data.first().asMap()).isEmpty()
     }
 
     @Test

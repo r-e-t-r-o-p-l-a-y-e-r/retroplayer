@@ -54,7 +54,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
@@ -176,7 +175,6 @@ fun RetroListRow(
     playing: Boolean = false,
     onLongClick: (() -> Unit)? = null,
     onLongClickLabel: String? = null,
-    contentDescription: String? = null,
 ) {
     val palette = LocalRetroPalette.current
     Box(modifier.fillMaxWidth().background(if (playing) palette.playingHighlight else Color.Transparent)) {
@@ -185,15 +183,6 @@ fun RetroListRow(
                 Modifier
                     .weight(1f)
                     .combinedClickable(onClick = onClick, onLongClick = onLongClick, onLongClickLabel = onLongClickLabel)
-                    .then(
-                        if (contentDescription != null) {
-                            Modifier.semantics(mergeDescendants = true) {
-                                this.contentDescription = contentDescription
-                            }
-                        } else {
-                            Modifier
-                        },
-                    )
                     .heightIn(min = 56.dp)
                     .padding(horizontal = 16.dp, vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically,

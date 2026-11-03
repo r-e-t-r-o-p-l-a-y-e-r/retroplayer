@@ -138,7 +138,6 @@ private fun RootPicker(state: AddTracksUiState.PickRoot, actions: AddTracksActio
                 title = { Text(root.name, maxLines = 2, overflow = TextOverflow.Ellipsis) },
                 leading = { IconChip(Icons.Outlined.Folder) },
                 onClick = { actions.openRoot(root) },
-                contentDescription = root.name,
             )
         }
     }
@@ -156,7 +155,6 @@ private fun FolderPicker(state: AddTracksUiState.Browse, actions: AddTracksActio
                         title = { Text(path.name, maxLines = 2, overflow = TextOverflow.Ellipsis) },
                         leading = { IconChip(Icons.Outlined.Folder) },
                         onClick = { actions.openFolder(path) },
-                        contentDescription = path.name,
                     )
                 }
             }
@@ -184,7 +182,6 @@ private fun AlbumPickRow(album: AudioAlbum, selected: Set<LibraryPath>, actions:
         leading = { IconChip(Icons.Outlined.Album) },
         trailing = { Checkbox(checked, onCheckedChange = { actions.toggleAlbum(album) }) },
         onClick = { actions.toggleAlbum(album) },
-        contentDescription = album.title,
     )
 }
 

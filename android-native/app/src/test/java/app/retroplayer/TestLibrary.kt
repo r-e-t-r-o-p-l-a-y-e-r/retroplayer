@@ -55,7 +55,8 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
     val db: RetroDatabase = Room.inMemoryDatabaseBuilder(ApplicationProvider.getApplicationContext(), RetroDatabase::class.java)
         .allowMainThreadQueries().build()
     val store = LibraryStore(db)
-    val settings = SettingsStore(PreferenceDataStoreFactory.create(scope = scope) { File(tmp.newFolder(), "s.preferences_pb") })
+    val settingsData = PreferenceDataStoreFactory.create(scope = scope) { File(tmp.newFolder(), "s.preferences_pb") }
+    val settings = SettingsStore(settingsData)
     var rootId = ""
     private val roots = mutableMapOf<String, String>()
     val scanner = LibraryScanner(docs, FakeMetadataReader(metadata), db.trackCacheDao(), { roots[it] }, UnconfinedTestDispatcher())
@@ -94,7 +95,9 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
             return ok
         }
 
+        /** Like [app.retroplayer.library.SafRootAccess]: an unknown root has no grant to release. */
         override suspend fun remove(rootId: String) {
+            if (store.root(rootId) == null) return
             removed += rootId
             store.removeRoot(rootId)
         }

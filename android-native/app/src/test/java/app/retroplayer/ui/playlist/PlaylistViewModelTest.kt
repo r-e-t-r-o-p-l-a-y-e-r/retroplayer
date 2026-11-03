@@ -62,14 +62,10 @@ class PlaylistViewModelTest {
         val folder = lib.p("Mix")
         val saved = lib.playlists.save(folder, "Mine", listOf(lib.p("Mix/a.mp3"), lib.p("Mix/b.mp3"))) as SaveResult.Saved
         viewModel = vm(saved.path.value)
-        ready()
+        assertThat(ready().editable).isTrue()
         viewModel.requestRemove(setOf(0))
         viewModel.confirmRemove()
-        viewModel.state.first {
-            it is PlaylistUiState.Ready &&
-                it.entries.map { e -> e.path } == listOf(lib.p("Mix/b.mp3")) &&
-                runCatching { lib.docs.text("Mix/Mine.m3u") }.getOrNull() == "#EXTM3U\nb.mp3\n"
-        }
+        viewModel.state.first { it is PlaylistUiState.Ready && it.entries.map { e -> e.path } == listOf(lib.p("Mix/b.mp3")) }
         assertThat(lib.docs.text("Mix/Mine.m3u")).isEqualTo("#EXTM3U\nb.mp3\n")
     }
 

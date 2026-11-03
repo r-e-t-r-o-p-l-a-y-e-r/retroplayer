@@ -1,5 +1,7 @@
 package app.retroplayer.ui.navigation
 
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hasRoute
 import kotlinx.serialization.Serializable
 
 /** A library page; [path] null is the virtual root listing the library folders. Argument name matches FolderViewModel.PATH_ARG. */
@@ -34,3 +36,13 @@ data object SettingsAboutRoute
 
 @Serializable
 data object SettingsEqualizerRoute
+
+private val settingsRoutes = listOf(
+    SettingsRoute::class,
+    SettingsDataRoute::class,
+    SettingsLicensesRoute::class,
+    SettingsAboutRoute::class,
+    SettingsEqualizerRoute::class,
+)
+
+fun NavDestination.isSettings(): Boolean = settingsRoutes.any { hasRoute(it) }

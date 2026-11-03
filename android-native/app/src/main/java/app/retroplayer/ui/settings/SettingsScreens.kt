@@ -1,6 +1,7 @@
 package app.retroplayer.ui.settings
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +15,9 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -27,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -96,10 +100,11 @@ fun SettingsContent(state: SettingsUiState, actions: SettingsActions) {
             item { ThemeSection(state.theme, actions.setTheme) }
             item { HorizontalDivider(Modifier.padding(vertical = 16.dp)) }
             item { SectionHeader(stringResource(R.string.language)) }
-            items(state.languages, key = { it.tag ?: "system" }) { option ->
-                LanguageRow(option, selected = option.tag == state.languageTag) {
-                    actions.setLanguage(option.tag)
-                }
+            item(key = "system") {
+                RadioRow(stringResource(R.string.language_system), state.languageTag == null) { actions.setLanguage(null) }
+            }
+            items(state.languages, key = { it.tag }) { option ->
+                RadioRow(option.label, option.tag == state.languageTag) { actions.setLanguage(option.tag) }
             }
             item { HorizontalDivider(Modifier.padding(vertical = 16.dp)) }
             item {
@@ -159,21 +164,15 @@ private fun ThemeSection(theme: ThemePreference, onTheme: (ThemePreference) -> U
 
 @Composable
 private fun ThemeRadio(label: Int, value: ThemePreference, selected: ThemePreference, onSelect: (ThemePreference) -> Unit) {
-    ListItem(
-        headlineContent = { Text(stringResource(label)) },
-        leadingContent = {
-            RadioButton(selected = selected == value, onClick = { onSelect(value) })
-        },
-        modifier = Modifier.clickable { onSelect(value) },
-    )
+    RadioRow(stringResource(label), selected == value) { onSelect(value) }
 }
 
 @Composable
-private fun LanguageRow(option: LanguageOption, selected: Boolean, onSelect: () -> Unit) {
+private fun RadioRow(label: String, selected: Boolean, onSelect: () -> Unit) {
     ListItem(
-        headlineContent = { Text(option.label) },
-        leadingContent = { RadioButton(selected = selected, onClick = onSelect) },
-        modifier = Modifier.clickable(onClick = onSelect),
+        headlineContent = { Text(label) },
+        leadingContent = { RadioButton(selected = selected, onClick = null) },
+        modifier = Modifier.selectable(selected = selected, role = Role.RadioButton, onClick = onSelect),
     )
 }
 
@@ -222,7 +221,7 @@ fun SettingsDataContent(state: SettingsUiState, back: () -> Unit) {
 @Composable
 private fun StorageSection(title: String, body: String) {
     Column(Modifier.padding(vertical = 12.dp)) {
-        Text(title, style = androidx.compose.material3.MaterialTheme.typography.titleSmall)
+        Text(title, style = MaterialTheme.typography.titleSmall)
         Text(body, Modifier.padding(top = 4.dp))
     }
 }
@@ -265,7 +264,7 @@ fun SettingsAboutScreen(back: () -> Unit) {
         },
     ) { padding ->
         Column(Modifier.padding(padding).fillMaxSize().padding(16.dp)) {
-            Text(stringResource(R.string.app_name), style = androidx.compose.material3.MaterialTheme.typography.headlineSmall)
+            Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineSmall)
             Text(stringResource(R.string.about_subtitle), Modifier.padding(top = 8.dp))
             Text(stringResource(R.string.about_version) + ": " + BuildConfig.VERSION_NAME, Modifier.padding(top = 16.dp))
             Text(stringResource(R.string.about_build_date) + ": " + BuildConfig.BUILD_DATE, Modifier.padding(top = 4.dp))
@@ -295,7 +294,7 @@ fun SettingsEqualizerScreen(back: () -> Unit) {
 /** Settings gear for library top bars. */
 @Composable
 fun SettingsNavAction(onClick: () -> Unit) {
-    androidx.compose.material3.IconButton(onClick = onClick) {
+    IconButton(onClick = onClick) {
         Icon(Icons.Outlined.Settings, contentDescription = stringResource(R.string.settings))
     }
 }

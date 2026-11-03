@@ -174,8 +174,9 @@ class PlaylistViewModel @Inject constructor(
 
     private suspend fun reloadFromDisk() {
         val content = playlists.read(path)
-        paths.value = content.entries.map { it.path }
+        // Editable first: the first Ready state must not offer a writable playlist as read-only.
         editable.value = content.editable && store.root(path.rootId)?.canWrite == true
+        paths.value = content.entries.map { it.path }
         syncEntries()
     }
 

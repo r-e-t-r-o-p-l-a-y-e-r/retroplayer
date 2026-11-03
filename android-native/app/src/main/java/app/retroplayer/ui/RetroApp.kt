@@ -18,6 +18,8 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.toRoute
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import app.retroplayer.domain.Crumb
@@ -38,6 +40,7 @@ import app.retroplayer.ui.navigation.SettingsDataRoute
 import app.retroplayer.ui.navigation.SettingsEqualizerRoute
 import app.retroplayer.ui.navigation.SettingsLicensesRoute
 import app.retroplayer.ui.navigation.SettingsRoute
+import app.retroplayer.ui.navigation.isSettings
 import app.retroplayer.ui.settings.SettingsAboutScreen
 import app.retroplayer.ui.settings.SettingsDataScreen
 import app.retroplayer.ui.settings.SettingsEqualizerScreen
@@ -123,14 +126,7 @@ private fun LibraryNavHost(
     val folderNavigation = FolderNavigation(
         openFolder = { path ->
             onUserBrowsing()
-            val dest = FolderRoute(path.value)
-            nav.navigate(dest) {
-                launchSingleTop = true
-                restoreState = true
-                if (path.value == path.rootId) {
-                    popUpTo(FolderRoute()) { saveState = true }
-                }
-            }
+            nav.openFolder(path)
         },
         openCrumb = {
             onUserBrowsing()
@@ -214,8 +210,7 @@ private fun LibraryNavHost(
     }
     val backStackEntry by nav.currentBackStackEntryAsState()
     LaunchedEffect(backStackEntry) {
-        val route = backStackEntry?.destination?.route.orEmpty()
-        onSettingsOpen(route.contains("Settings", ignoreCase = true))
+        onSettingsOpen(backStackEntry?.destination?.isSettings() == true)
     }
     LaunchedEffect(nav) {
         onNavReady(nav)
@@ -228,15 +223,24 @@ private fun LibraryNavHost(
 }
 
 /** Shows a folder with its parents behind it; reuses the back stack when the folder is already on it. */
+/**
+ * Every folder is the same destination, so `launchSingleTop` would treat any folder as already
+ * on top and push nothing; compare the path instead.
+ */
+fun NavController.openFolder(path: LibraryPath) {
+    if (currentFolderPath() == path.value) return
+    navigate(FolderRoute(path.value)) {
+        if (path.value == path.rootId) popUpTo(FolderRoute())
+    }
+}
+
+private fun NavController.currentFolderPath(): String? =
+    currentBackStackEntry?.takeIf { it.destination.hasRoute<FolderRoute>() }?.toRoute<FolderRoute>()?.path
+
 fun NavController.showFolder(path: LibraryPath?) {
     if (popBackStack(FolderRoute(path?.value), inclusive = false)) return
     popBackStack(FolderRoute(), inclusive = false)
-    StartupRoutes.folderChain(path).drop(1).forEach { route ->
-        navigate(route) {
-            launchSingleTop = true
-            restoreState = true
-        }
-    }
+    StartupRoutes.folderChain(path).drop(1).forEach { navigate(it) }
 }
 
 private fun NavController.openCrumb(crumb: Crumb) = showFolder(crumb.path)
@@ -246,5 +250,5 @@ private fun NavController.navigateLocateStack(routes: List<Any>) {
     navigate(FolderRoute()) {
         popUpTo(graph.startDestinationId) { inclusive = true }
     }
-    routes.drop(1).forEach { route -> navigate(route) { launchSingleTop = true } }
+    routes.drop(1).forEach { navigate(it) }
 }

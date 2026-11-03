@@ -1,6 +1,8 @@
 package app.retroplayer.ui.settings
 
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertIsNotSelected
+import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasScrollToIndexAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -33,11 +35,10 @@ class SettingsContentTest {
                 )
             }
         }
-        compose.onNodeWithText("Dark mode").assertIsDisplayed()
-        compose.onNode(
-            androidx.compose.ui.test.hasText("Dark mode")
-                .and(androidx.compose.ui.test.hasClickAction()),
-        ).assertExists()
+        compose.onNodeWithText("Dark mode").assertIsSelected()
+        compose.onNodeWithText("System theme").assertIsNotSelected()
+        compose.onNodeWithText("Light mode").performClick()
+        assertThat(theme).isEqualTo(ThemePreference.LIGHT)
     }
 
     @Test
@@ -58,5 +59,19 @@ class SettingsContentTest {
         compose.onNodeWithText("Reset database?").assertIsDisplayed()
         compose.onNodeWithText("Keep library folders").performClick()
         assertThat(resetKeep).isTrue()
+    }
+
+    @Test
+    fun `system language is always offered and checked when no language is chosen`() {
+        compose.setContent {
+            RetroTheme {
+                SettingsContent(
+                    SettingsUiState(languageTag = null, languages = listOf(LanguageOption("de", "Deutsch"))),
+                    SettingsActions(),
+                )
+            }
+        }
+        compose.onNodeWithText("System language").assertIsSelected()
+        compose.onNodeWithText("Deutsch").assertIsNotSelected()
     }
 }
