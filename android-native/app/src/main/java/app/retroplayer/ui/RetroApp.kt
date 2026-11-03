@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
 import androidx.navigation.toRoute
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.composable
@@ -35,15 +34,12 @@ import app.retroplayer.ui.navigation.AlbumRoute
 import app.retroplayer.ui.navigation.FolderRoute
 import app.retroplayer.ui.navigation.PlaylistRoute
 import app.retroplayer.ui.navigation.QueueRoute
-import app.retroplayer.ui.navigation.SettingsAboutRoute
+import app.retroplayer.ui.navigation.RetroNavHost
 import app.retroplayer.ui.navigation.SettingsDataRoute
-import app.retroplayer.ui.navigation.SettingsEqualizerRoute
 import app.retroplayer.ui.navigation.SettingsLicensesRoute
 import app.retroplayer.ui.navigation.SettingsRoute
 import app.retroplayer.ui.navigation.isSettings
-import app.retroplayer.ui.settings.SettingsAboutScreen
 import app.retroplayer.ui.settings.SettingsDataScreen
-import app.retroplayer.ui.settings.EqualizerScreen
 import app.retroplayer.ui.settings.SettingsLicensesScreen
 import app.retroplayer.ui.settings.SettingsScreen
 import app.retroplayer.ui.playlist.PlaylistScreen
@@ -91,6 +87,10 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
                 expanded = false
                 appViewModel.onUserBrowsing()
                 navRef.value?.showFolder(crumb.path)
+            },
+            openSettings = {
+                expanded = false
+                navRef.value?.navigate(SettingsRoute)
             },
         )
         LaunchedEffect(settingsOpen) {
@@ -158,6 +158,7 @@ private fun LibraryNavHost(
                     onUserBrowsing()
                     nav.popBackStack()
                 },
+                openSettings = folderNavigation.openSettings,
             )
         }
         composable<QueueRoute> {
@@ -191,8 +192,6 @@ private fun LibraryNavHost(
                 back = { nav.popBackStack() },
                 openDataStorage = { nav.navigate(SettingsDataRoute) },
                 openLicenses = { nav.navigate(SettingsLicensesRoute) },
-                openAbout = { nav.navigate(SettingsAboutRoute) },
-                openEqualizer = { nav.navigate(SettingsEqualizerRoute) },
             )
         }
         composable<SettingsDataRoute> {
@@ -200,12 +199,6 @@ private fun LibraryNavHost(
         }
         composable<SettingsLicensesRoute> {
             SettingsLicensesScreen(back = { nav.popBackStack() })
-        }
-        composable<SettingsAboutRoute> {
-            SettingsAboutScreen(back = { nav.popBackStack() })
-        }
-        composable<SettingsEqualizerRoute> {
-            EqualizerScreen(back = { nav.popBackStack() })
         }
     }
     val backStackEntry by nav.currentBackStackEntryAsState()
@@ -219,7 +212,7 @@ private fun LibraryNavHost(
             nav.navigateLocateStack(stack)
         }
     }
-    NavHost(nav, nav.graph)
+    RetroNavHost(nav)
 }
 
 /**

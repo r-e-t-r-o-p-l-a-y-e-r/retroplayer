@@ -23,6 +23,8 @@ import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.playback.ApplicationScope
 import app.retroplayer.playback.PlaybackItemResolver
 import app.retroplayer.playback.TreeLabels
+import app.retroplayer.playback.AudioFxEqualizer
+import app.retroplayer.playback.EqualizerProbe
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -118,6 +120,9 @@ object AppModule {
         favorites = context.getString(R.string.favorites),
         queue = context.getString(R.string.queue),
     )
+
+    @Provides
+    fun equalizerProbe() = EqualizerProbe(AudioFxEqualizer::deviceHasEqualizer)
 
     @Provides
     @Singleton

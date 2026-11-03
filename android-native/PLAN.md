@@ -51,6 +51,7 @@ screenshot comparison described there.
 | T12 | Equalizer settings UI | any | done |
 | T13 | Keyboard shortcuts | any | dropped |
 | T14 | Text-fit guards and pseudo-locales | any | done |
+| T14b | Device feedback round 1 (settings like Flutter, player gestures) | any | done |
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
 | T16 | Chapters in player, notification and seek bar | any | todo |
 | T17 | Headset options UI + resume on reconnect | any | todo |
@@ -690,6 +691,42 @@ available, simply continue top to bottom.
   queue, playlist and add tracks; dialog bodies scroll (`DialogBody`); EQ
   bands header and reset wrap; landscape expanded player puts art and
   controls side by side (art had collapsed to 0 height).
+
+## T14b Device feedback round 1
+
+- Owner: any. Status: done. From the user's first run on a Pixel 8.
+- Equalizer availability comes from the device (`AudioEffect.queryEffects`
+  has an equalizer), not from a live audio session; the page said
+  "not available" until something played.
+- Settings like the Flutter guide (`doc/images/tutorial/06-settings.png`):
+  theme as segmented buttons; language as a dropdown row; equalizer inline
+  (segmented presets, horizontal band sliders with Hz label and dB value,
+  reset bands); data storage, licenses, reset rows; About inline at the
+  bottom. The equalizer and about sub pages go away.
+- Reset dialog: buttons stacked, end aligned: keep library folders, clear
+  everything, cancel.
+- Speed slider drawn like the progress bar (thin track, same thumb).
+- Jump buttons: three-quarter arc with arrowhead, "-15" / "+15" inside
+  (Flutter `_JumpArcPainter`).
+- Player sheet follows the finger between mini and expanded, snaps on release
+  (velocity or past half way).
+- Mini player: tapping the titles locates the playing track; the handle,
+  drag and the bar chevron expand.
+- Top bar actions in Flutter order with the settings cog last; the cog also
+  on the expanded player and the album page.
+- Navigation transitions: short slide instead of the 700 ms default fade, so
+  predictive back follows the finger quickly.
+- Done when: tests green, smoke, installed on the phone.
+- As built: `EqualizerAvailability` + `EqualizerProbe`; `EqualizerSection`
+  inline in `SettingsContent` (bands switch the EQ on, flat manual bands off;
+  no enable switch); `LanguageDropdown`; `AboutSection`; `RetroSegmentedRow`,
+  `RetroSlider` in `Components.kt`; `rememberSheetPosition` drives the sheet
+  (`Animatable` fraction, 400 dp/s fling or half way); the expanded bar keeps
+  only back and the cog (the collapse chevron duplicated back and squeezed
+  the title); `RetroNavHost` slides in 250 ms. Tests: `EqualizerSectionTest`,
+  `SettingsContentTest`, `PlayerSheetTest` drag cases, `RetroNavHostTest`,
+  cog tests in `AlbumContentTest` / `ExpandedPlayerTest`, bar order in
+  `FolderContentTest`; smoke checks the inline sections and the dropdown.
 
 ## T15 M4B chapter reader
 

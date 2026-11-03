@@ -1,5 +1,8 @@
 package app.retroplayer.smoke
 
+import app.retroplayer.ui.settings.LANGUAGE_DROPDOWN_TAG
+import androidx.compose.ui.test.hasScrollAction
+import androidx.compose.ui.test.isPopup
 import android.content.res.Configuration
 import android.os.ParcelFileDescriptor
 import androidx.appcompat.app.AppCompatDelegate
@@ -17,7 +20,6 @@ import androidx.compose.ui.test.isRoot
 import androidx.compose.ui.test.isToggleable
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onFirst
-import androidx.compose.ui.test.onLast
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performTextInput
@@ -72,6 +74,15 @@ class DeviceSmokeTest {
     }
 
     private fun clickText(text: String) = click(hasText(text))
+
+    private fun pickLanguage(language: SemanticsMatcher) {
+        compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasTestTag(LANGUAGE_DROPDOWN_TAG))
+        click(hasTestTag(LANGUAGE_DROPDOWN_TAG))
+        val inMenu = hasAnyAncestor(isPopup())
+        waitFor(language and inMenu)
+        compose.onNode(hasScrollAction() and inMenu).performScrollToNode(language and inMenu)
+        click(language and inMenu)
+    }
 
     private fun back() = compose.runOnUiThread { compose.activity.onBackPressedDispatcher.onBackPressed() }
 
@@ -159,9 +170,11 @@ class DeviceSmokeTest {
         val pages = listOf(
             R.string.data_storage to hasText("retroplayer.db", substring = true),
             R.string.open_source_licenses to hasText("AndroidX Media3 ExoPlayer", substring = true),
-            R.string.app_name to hasText(s(R.string.about_version), substring = true),
-            R.string.equalizer to hasContentDescription("60 Hz"),
         )
+        listOf(hasContentDescription("60 Hz"), hasText(s(R.string.about_version), substring = true)).forEach {
+            compose.onNode(hasScrollToIndexAction()).performScrollToNode(it)
+            waitFor(it)
+        }
         pages.forEach { (row, content) ->
             compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(s(row)))
             clickText(s(row))
@@ -183,13 +196,9 @@ class DeviceSmokeTest {
         )
         try {
             click(hasContentDescription(settings))
-            compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText("Deutsch"))
-            clickText("Deutsch")
+            pickLanguage(hasText("Deutsch"))
             waitFor(hasText(german.getString(R.string.settings)))
-            val system = hasText(german.getString(R.string.language_system))
-            compose.onNode(hasScrollToIndexAction()).performScrollToNode(system)
-            // In some languages the theme and language "System" rows read the same; language comes last.
-            compose.onAllNodes(system).onLast().performClick()
+            pickLanguage(hasText(german.getString(R.string.language_system)))
             waitFor(hasText(settings))
         } finally {
             compose.runOnUiThread { AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList()) }

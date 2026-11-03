@@ -1,5 +1,6 @@
 package app.retroplayer.ui.library
 
+import androidx.compose.ui.test.getBoundsInRoot
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.assertIsDisplayed
@@ -324,5 +325,13 @@ class FolderContentTest {
         compose.onNodeWithText("Z", substring = false).performClick()
         compose.waitForIdle()
         compose.onNodeWithText("zebra").assertIsDisplayed()
+    }
+
+    @Test
+    fun `settings sit at the end of the top bar after the queue`() {
+        show(FolderUiState.Root(listOf(music), emptyList()), isRoot = true)
+        val queue = compose.onNodeWithContentDescription("Queue").getBoundsInRoot()
+        val settings = compose.onNodeWithContentDescription("Settings").getBoundsInRoot()
+        assertThat(settings.left).isGreaterThan(queue.left)
     }
 }

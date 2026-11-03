@@ -208,9 +208,9 @@ fun FolderContent(
                 RetroTopBar(
                     stringResource(R.string.library),
                     actions = {
-                        SettingsNavAction(navigation.openSettings)
                         QueueNavAction(navigation.openQueue)
                         PlayerToggleAction()
+                        SettingsNavAction(navigation.openSettings)
                     },
                 )
                 BreadcrumbStrip((state as? FolderUiState.Folder)?.crumbs ?: LIBRARY_CRUMBS, navigation.openCrumb)

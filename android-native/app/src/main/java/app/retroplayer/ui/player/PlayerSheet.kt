@@ -1,16 +1,35 @@
 package app.retroplayer.ui.player
 
+import app.retroplayer.ui.settings.SettingsNavAction
+import androidx.compose.foundation.combinedClickable
+import kotlinx.coroutines.launch
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.Animatable
+import kotlin.math.sin
+import kotlin.math.cos
+import app.retroplayer.ui.components.RetroSlider
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.activity.compose.PredictiveBackHandler
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.width
@@ -32,22 +51,17 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
 import androidx.compose.material.icons.outlined.Speed
-import androidx.compose.material.icons.rounded.Replay
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -60,9 +74,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
@@ -108,6 +120,7 @@ data class PlayerActions(
     val setSpeed: (Float) -> Unit,
     val locate: () -> Unit,
     val playbackCrumb: (Crumb) -> Unit,
+    val openSettings: () -> Unit = {},
 )
 
 /** Expands the player from a library top bar; null while there is nothing to expand. */
@@ -142,7 +155,9 @@ fun PlayerHost(
 
     val expand = if (state.visible && !showExpanded && allowExpansion) ({ onExpandedChange(true) }) else null
     CompositionLocalProvider(LocalPlayerExpanded provides showExpanded, LocalExpandPlayer provides expand) {
-        Box(Modifier.fillMaxSize()) {
+        BoxWithConstraints(Modifier.fillMaxSize()) {
+            val travel = constraints.maxHeight.toFloat().coerceAtLeast(1f)
+            val sheet = rememberSheetPosition(showExpanded, travel, onExpandedChange)
             Column(Modifier.fillMaxSize().then(if (showExpanded) Modifier.clearAndSetSemantics {} else Modifier)) {
                 val contentInsets = if (state.visible) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier
                 Box(Modifier.weight(1f).then(contentInsets)) { content() }
@@ -151,6 +166,7 @@ fun PlayerHost(
                         state,
                         actions,
                         onExpand = if (allowExpansion) ({ onExpandedChange(true) }) else ({}),
+                        drag = if (allowExpansion) sheet.drag else Modifier,
                     )
                 }
             }
@@ -163,25 +179,57 @@ fun PlayerHost(
                     throw cancelled
                 }
             }
-            AnimatedVisibility(
-                visible = showExpanded,
-                enter = slideInVertically { it },
-                exit = slideOutVertically { it },
-            ) {
+            if (state.visible && (showExpanded || sheet.fraction > 0f)) {
                 ExpandedPlayer(
                     state = state,
                     actions = actions,
                     onCollapse = { onExpandedChange(false) },
+                    drag = sheet.drag,
                     modifier = Modifier.graphicsLayer {
                         val scale = 1f - backProgress * 0.1f
                         scaleX = scale
                         scaleY = scale
-                        translationY = backProgress * 48.dp.toPx()
+                        translationY = (1f - sheet.fraction) * travel + backProgress * 48.dp.toPx()
                     },
                 )
             }
         }
     }
+}
+
+/** How far the expanded player is pulled up (0 = mini, 1 = expanded) and the drag that moves it. */
+private class SheetPosition(val drag: Modifier, private val position: Animatable<Float, *>) {
+    val fraction: Float get() = position.value
+}
+
+/**
+ * The sheet follows the finger; on release it snaps to the end a fling points at,
+ * else to the nearer one, and reports it through [onExpandedChange].
+ */
+@Composable
+private fun rememberSheetPosition(expanded: Boolean, travel: Float, onExpandedChange: (Boolean) -> Unit): SheetPosition {
+    val position = remember { Animatable(if (expanded) 1f else 0f) }
+    val scope = rememberCoroutineScope()
+    val flingPx = with(LocalDensity.current) { FLING_VELOCITY.toPx() }
+    val currentExpanded by rememberUpdatedState(expanded)
+    val report by rememberUpdatedState(onExpandedChange)
+    LaunchedEffect(expanded) { position.animateTo(if (expanded) 1f else 0f, SHEET_SPRING) }
+    val dragState = rememberDraggableState { delta ->
+        scope.launch { position.snapTo((position.value - delta / travel).coerceIn(0f, 1f)) }
+    }
+    val drag = Modifier.draggable(
+        state = dragState,
+        orientation = Orientation.Vertical,
+        onDragStopped = { velocity ->
+            val target = when {
+                velocity < -flingPx -> true
+                velocity > flingPx -> false
+                else -> position.value > 0.5f
+            }
+            if (target != currentExpanded) report(target) else scope.launch { position.animateTo(if (target) 1f else 0f, SHEET_SPRING) }
+        },
+    )
+    return SheetPosition(drag, position)
 }
 
 @Composable
@@ -236,10 +284,10 @@ private fun Transport(now: NowPlaying, actions: PlayerActions, skipSize: Dp, pla
 }
 
 @Composable
-private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: () -> Unit) {
+private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: () -> Unit, drag: Modifier) {
     val now = state.nowPlaying
     val palette = LocalRetroPalette.current
-    var dragged by remember { mutableFloatStateOf(0f) }
+    val locateLabel = stringResource(R.string.show_library)
     val expandLabel = stringResource(R.string.expand_player)
     Surface(
         color = palette.screenElevated,
@@ -248,12 +296,7 @@ private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: (
             .fillMaxWidth()
             .testTag(MINI_PLAYER_TAG)
             .clickable(onClickLabel = expandLabel, onClick = onExpand)
-            .draggable(
-                state = rememberDraggableState { dragged += it },
-                orientation = Orientation.Vertical,
-                onDragStarted = { dragged = 0f },
-                onDragStopped = { if (dragged < -DRAG_THRESHOLD_PX) onExpand() },
-            ),
+            .then(drag),
     ) {
         Column(
             Modifier.windowInsetsPadding(WindowInsets.navigationBars).padding(horizontal = 16.dp),
@@ -268,7 +311,10 @@ private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: (
                     titleStyle = MaterialTheme.typography.titleMedium.copy(fontSize = 15.sp),
                     subtitleStyle = MaterialTheme.typography.bodyMedium.copy(fontSize = 13.sp),
                     align = TextAlign.Start,
-                    modifier = Modifier.weight(1f).padding(start = 12.dp),
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(start = 12.dp)
+                        .clickable(onClickLabel = locateLabel, onClick = actions.locate),
                 )
             }
             PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo, compact = true)
@@ -278,31 +324,21 @@ private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: (
 }
 
 @Composable
-private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onCollapse: () -> Unit, modifier: Modifier = Modifier) {
+private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onCollapse: () -> Unit, drag: Modifier, modifier: Modifier = Modifier) {
     val now = state.nowPlaying
-    var dragged by remember { mutableFloatStateOf(0f) }
     Surface(color = LocalRetroPalette.current.screenElevated, modifier = modifier.fillMaxSize().testTag(EXPANDED_PLAYER_TAG)) {
         Column(Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
             RetroTopBar(
                 stringResource(R.string.now_playing),
                 navigationIcon = { BackButton(onCollapse, contentDescription = stringResource(R.string.library)) },
-                actions = {
-                    IconButton(onClick = onCollapse) {
-                        Icon(Icons.Filled.KeyboardArrowDown, contentDescription = stringResource(R.string.show_library))
-                    }
-                },
+                actions = { SettingsNavAction(actions.openSettings) },
             )
             if (state.crumbs.isNotEmpty()) BreadcrumbStrip(state.crumbs, actions.playbackCrumb)
             BoxWithConstraints(
                 Modifier
                     .weight(1f)
                     .fillMaxWidth()
-                    .draggable(
-                        state = rememberDraggableState { dragged += it },
-                        orientation = Orientation.Vertical,
-                        onDragStarted = { dragged = 0f },
-                        onDragStopped = { if (dragged > DRAG_THRESHOLD_PX) onCollapse() },
-                    ),
+                    .then(drag),
             ) {
                 if (maxWidth > maxHeight) {
                     Row(Modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -343,21 +379,26 @@ private fun ArtWithJumps(state: PlayerUiState, actions: PlayerActions, modifier:
             verticalAlignment = Alignment.CenterVertically,
         ) {
             JumpButton(forward = false, onClick = actions.jumpBack)
-            Box(
-                Modifier
-                    .weight(1f)
-                    .testTag(EXPANDED_ART_TAG)
-                    .pointerInput(actions.locate, actions.jumpBack, actions.jumpForward) {
-                        detectTapGestures(
-                            onTap = { actions.locate() },
-                            onDoubleTap = { offset ->
-                                if (offset.x < size.width / 2f) actions.jumpBack() else actions.jumpForward()
-                            },
-                        )
-                    },
-                contentAlignment = Alignment.Center,
-            ) {
+            val locateLabel = stringResource(R.string.show_library)
+            Box(Modifier.weight(1f).testTag(EXPANDED_ART_TAG), contentAlignment = Alignment.Center) {
                 AlbumArt(state.artModel, size = artSize)
+                // Clickables, unlike a tap detector, leave drags to the sheet.
+                Row(Modifier.matchParentSize()) {
+                    listOf(actions.jumpBack, actions.jumpForward).forEach { jump ->
+                        Box(
+                            Modifier
+                                .weight(1f)
+                                .fillMaxHeight()
+                                .combinedClickable(
+                                    interactionSource = null,
+                                    indication = null,
+                                    onClickLabel = locateLabel,
+                                    onClick = actions.locate,
+                                    onDoubleClick = jump,
+                                ),
+                        )
+                    }
+                }
             }
             JumpButton(forward = true, onClick = actions.jumpForward)
         }
@@ -387,35 +428,60 @@ private fun Controls(now: NowPlaying, actions: PlayerActions) {
 private fun JumpButton(forward: Boolean, onClick: () -> Unit) {
     val palette = LocalRetroPalette.current
     val description = stringResource(if (forward) R.string.jump_forward else R.string.jump_back)
-    Surface(onClick = onClick, shape = CircleShape, color = palette.iconChip, modifier = Modifier.size(40.dp)) {
-        Box(contentAlignment = Alignment.Center) {
-            Icon(
-                Icons.Rounded.Replay,
-                contentDescription = description,
-                tint = palette.textPrimary,
-                modifier = Modifier
-                    .size(22.dp)
-                    .then(if (forward) Modifier.scale(scaleX = -1f, scaleY = 1f) else Modifier),
-            )
+    val ink = palette.textSecondary
+    Surface(
+        onClick = onClick,
+        shape = CircleShape,
+        color = palette.iconChip,
+        modifier = Modifier.size(40.dp).semantics { contentDescription = description },
+    ) {
+        Box(Modifier.drawBehind { drawJumpArc(forward, ink) }, contentAlignment = Alignment.Center) {
             Text(
-                "15",
-                style = TextStyle(fontSize = 11.sp, fontWeight = FontWeight.W700, color = palette.textMuted),
-                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 5.dp),
+                if (forward) "+15" else "-15",
+                style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.W700, color = ink, letterSpacing = (-0.2).sp),
+                modifier = Modifier.clearAndSetSemantics {},
             )
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+/** Three-quarter circle open towards the jump, arrowhead on its upper end; the seconds sit inside. */
+private fun DrawScope.drawJumpArc(forward: Boolean, color: Color) {
+    val radius = size.minDimension * 0.36f
+    val stroke = size.minDimension * 0.065f
+    // Degrees clockwise from 3 o'clock, as drawArc measures them.
+    val start = if (forward) 45f else 135f
+    val sweep = if (forward) 270f else -270f
+    drawArc(
+        color = color,
+        startAngle = start,
+        sweepAngle = sweep,
+        useCenter = false,
+        topLeft = center - Offset(radius, radius),
+        size = Size(radius * 2, radius * 2),
+        style = Stroke(width = stroke, cap = StrokeCap.Butt),
+    )
+    val end = Math.toRadians((start + sweep).toDouble())
+    val base = center + Offset(cos(end).toFloat(), sin(end).toFloat()) * radius
+    val tangent = if (forward) Offset(-sin(end).toFloat(), cos(end).toFloat()) else Offset(sin(end).toFloat(), -cos(end).toFloat())
+    val normal = Offset(-tangent.y, tangent.x)
+    val tip = base + tangent * (size.minDimension * 0.16f)
+    val half = stroke * 1.35f
+    drawPath(
+        Path().apply {
+            moveTo(tip.x, tip.y)
+            lineTo(base.x + normal.x * half, base.y + normal.y * half)
+            lineTo(base.x - normal.x * half, base.y - normal.y * half)
+            close()
+        },
+        color,
+    )
+}
+
 @Composable
 private fun SpeedRow(speed: Float, onSpeed: (Float) -> Unit) {
     val palette = LocalRetroPalette.current
     val locale = LocalConfiguration.current.locales[0]
-    val colors = SliderDefaults.colors(
-        thumbColor = palette.screenElevated,
-        activeTrackColor = palette.accent,
-        inactiveTrackColor = palette.divider,
-    )
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Icon(Icons.Outlined.Speed, contentDescription = null, tint = palette.textMuted, modifier = Modifier.size(20.dp))
         Text(
@@ -423,20 +489,12 @@ private fun SpeedRow(speed: Float, onSpeed: (Float) -> Unit) {
             style = TextStyle(fontSize = 13.sp, color = palette.textMuted),
             modifier = Modifier.padding(start = 8.dp),
         )
-        Slider(
+        RetroSlider(
             value = speed.coerceIn(TransportRules.MIN_SPEED, TransportRules.MAX_SPEED),
             onValueChange = { onSpeed(it) },
             valueRange = TransportRules.MIN_SPEED..TransportRules.MAX_SPEED,
             steps = 5,
-            colors = colors,
-            thumb = {
-                Box(
-                    Modifier
-                        .size(14.dp)
-                        .background(palette.screenElevated, CircleShape),
-                )
-            },
-            modifier = Modifier.weight(1f).padding(horizontal = 8.dp).testTag(SPEED_SLIDER_TAG),
+            modifier = Modifier.weight(1f).heightIn(max = 32.dp).padding(horizontal = 8.dp).testTag(SPEED_SLIDER_TAG),
         )
         Text(
             formatSpeed(speed, locale),
@@ -447,4 +505,7 @@ private fun SpeedRow(speed: Float, onSpeed: (Float) -> Unit) {
     }
 }
 
-private const val DRAG_THRESHOLD_PX = 120f
+/** Faster than this the sheet goes where the finger flung it, wherever it is let go. */
+private val FLING_VELOCITY = 400.dp
+
+private val SHEET_SPRING = spring<Float>(stiffness = Spring.StiffnessMediumLow)

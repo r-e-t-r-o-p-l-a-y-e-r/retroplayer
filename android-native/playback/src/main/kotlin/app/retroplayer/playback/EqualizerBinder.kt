@@ -1,5 +1,6 @@
 package app.retroplayer.playback
 
+import android.media.audiofx.AudioEffect
 import android.media.audiofx.Equalizer
 import app.retroplayer.domain.settings.EqualizerSettings
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,9 +21,19 @@ interface EqualizerEngine {
 /** What the device equalizer offers; null where it reports one means unavailable. */
 data class EqualizerInfo(val centersHz: List<Int>, val rangeDb: ClosedFloatingPointRange<Float>)
 
-/** The device equalizer as the playback service last saw it, for the settings UI; null = unavailable. */
+/** Whether the platform offers an equalizer effect at all, before any audio session exists. */
+fun interface EqualizerProbe {
+    fun deviceHasEqualizer(): Boolean
+}
+
+/**
+ * The device equalizer for the settings UI: [supported] from the [EqualizerProbe],
+ * [info] as the playback service last saw it on a live session (null = none).
+ */
 @Singleton
-class EqualizerAvailability @Inject constructor() {
+class EqualizerAvailability @Inject constructor(private val probe: EqualizerProbe) {
+    val supported: Boolean by lazy { runCatching { probe.deviceHasEqualizer() }.getOrDefault(false) }
+
     private val current = MutableStateFlow<EqualizerInfo?>(null)
     val info: StateFlow<EqualizerInfo?> = current.asStateFlow()
 
@@ -100,6 +111,9 @@ class AudioFxEqualizer(sessionId: Int) : EqualizerEngine {
     override fun release() = effect.release()
 
     companion object {
+        fun deviceHasEqualizer(): Boolean =
+            AudioEffect.queryEffects().orEmpty().any { it.type == AudioEffect.EFFECT_TYPE_EQUALIZER }
+
         /** Null when the device has no equalizer for this session. */
         fun createOrNull(sessionId: Int): EqualizerEngine? = runCatching { AudioFxEqualizer(sessionId) }.getOrNull()
     }

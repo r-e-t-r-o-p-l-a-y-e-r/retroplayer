@@ -29,7 +29,7 @@ data class EqualizerUiState(
 @HiltViewModel
 class EqualizerViewModel @Inject constructor(
     private val settings: SettingsStore,
-    availability: EqualizerAvailability,
+    private val availability: EqualizerAvailability,
 ) : ViewModel() {
     /** Edits not yet stored, so a dragged slider follows the finger without waiting for DataStore. */
     private val draft = MutableStateFlow<EqualizerSettings?>(null)
@@ -37,12 +37,10 @@ class EqualizerViewModel @Inject constructor(
 
     val state: StateFlow<EqualizerUiState> =
         combine(settings.settings, draft, availability.info) { stored, edit, info ->
-            EqualizerUiState(available = info != null, settings = edit ?: stored.equalizer)
+            EqualizerUiState(available = availability.supported || info != null, settings = edit ?: stored.equalizer)
         }.stateIn(viewModelScope, SharingStarted.Eagerly, EqualizerUiState())
 
     private val current: EqualizerSettings get() = state.value.settings
-
-    fun setEnabled(enabled: Boolean) = save(current.copy(enabled = enabled))
 
     fun choosePreset(preset: EqualizerPreset) = save(current.copy(preset = preset))
 
@@ -55,7 +53,10 @@ class EqualizerViewModel @Inject constructor(
         save(current.copy(preset = EqualizerPreset.MANUAL, manualGainsDb = gains), debounceMs = SLIDER_DEBOUNCE_MS)
     }
 
-    private fun save(next: EqualizerSettings, debounceMs: Long = 0) {
+    /** No separate switch: anything but flat manual bands is on, so flat stores nothing. */
+    private fun save(edit: EqualizerSettings, debounceMs: Long = 0) {
+        val flat = edit.preset == EqualizerPreset.MANUAL && edit.manualGainsDb.all { it == 0f }
+        val next = edit.copy(enabled = !flat)
         draft.value = next
         pendingSave?.cancel()
         pendingSave = viewModelScope.launch {

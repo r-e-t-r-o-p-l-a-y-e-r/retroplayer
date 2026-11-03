@@ -106,4 +106,12 @@ class AlbumContentTest {
         compose.onNodeWithContentDescription("Play album").performClick()
         assertThat(calls).containsExactly("play:b.mp3", "playAll").inOrder()
     }
+
+    @Test
+    fun `the settings cog opens settings`() {
+        var opened = false
+        compose.setContent { RetroTheme { AlbumContent(ready, null, null, null, null, actions.copy(openSettings = { opened = true })) } }
+        compose.onNodeWithContentDescription("Settings").performClick()
+        assertThat(opened).isTrue()
+    }
 }

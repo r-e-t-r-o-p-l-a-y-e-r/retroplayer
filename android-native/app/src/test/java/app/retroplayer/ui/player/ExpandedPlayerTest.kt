@@ -149,4 +149,15 @@ class ExpandedPlayerTest {
         compose.onNodeWithTag(SPEED_SLIDER_TAG).assertIsDisplayed()
         compose.assertNoClippedText()
     }
+
+    @Test
+    fun `the settings cog opens settings`() {
+        compose.setContent {
+            RetroTheme {
+                PlayerHost(playing, expanded = true, onExpandedChange = {}, actions.copy(openSettings = { calls += "settings" })) {}
+            }
+        }
+        compose.onNodeWithContentDescription(context.getString(R.string.settings)).performClick()
+        assertThat(calls).containsExactly("settings")
+    }
 }

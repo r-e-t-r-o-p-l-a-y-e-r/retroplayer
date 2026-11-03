@@ -1,5 +1,9 @@
 package app.retroplayer.ui.components
 
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SegmentedButton
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -331,14 +335,6 @@ fun PlaybackProgress(
     var dragging by remember { mutableStateOf<Float?>(null) }
     val max = durationMs.coerceAtLeast(1).toFloat()
     val value = (dragging ?: positionMs.toFloat()).coerceIn(0f, max)
-    val colors = SliderDefaults.colors(
-        thumbColor = palette.screenElevated,
-        activeTrackColor = palette.accent,
-        inactiveTrackColor = palette.divider,
-        disabledThumbColor = palette.screenElevated,
-        disabledActiveTrackColor = palette.divider,
-        disabledInactiveTrackColor = palette.divider,
-    )
     val time = TextStyle(
         fontFeatureSettings = "tnum",
         fontSize = if (compact) 11.sp else 12.sp,
@@ -347,7 +343,7 @@ fun PlaybackProgress(
         color = palette.textMuted,
     )
     Column(modifier) {
-        Slider(
+        RetroSlider(
             value = value,
             onValueChange = { dragging = it },
             onValueChangeFinished = {
@@ -356,26 +352,6 @@ fun PlaybackProgress(
             },
             valueRange = 0f..max,
             enabled = durationMs > 0,
-            colors = colors,
-            thumb = {
-                Box(
-                    Modifier
-                        .size(14.dp)
-                        .shadow(2.dp, CircleShape)
-                        .background(palette.screenElevated, CircleShape)
-                        .border(1.dp, palette.textPrimary.copy(alpha = 0.6f), CircleShape),
-                )
-            },
-            track = { state ->
-                SliderDefaults.Track(
-                    sliderState = state,
-                    colors = colors,
-                    enabled = durationMs > 0,
-                    thumbTrackGapSize = 0.dp,
-                    drawStopIndicator = null,
-                    modifier = Modifier.heightIn(max = 3.dp),
-                )
-            },
             modifier = Modifier.fillMaxWidth().heightIn(max = if (compact) 24.dp else 32.dp).testTag(PROGRESS_TAG),
         )
         Row(Modifier.fillMaxWidth()) {
@@ -384,6 +360,93 @@ fun PlaybackProgress(
             Text(formatDuration(durationMs), style = time)
         }
     }
+}
+
+/** One choice out of a few, as connected buttons (theme, equalizer preset); selected = [selected] index. */
+@Composable
+fun RetroSegmentedRow(
+    labels: List<String>,
+    selected: Int,
+    onSelect: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+) {
+    val palette = LocalRetroPalette.current
+    val colors = SegmentedButtonDefaults.colors(
+        activeContainerColor = palette.accentSecondary,
+        activeContentColor = Color.White,
+        activeBorderColor = palette.accentSecondary,
+        inactiveContainerColor = palette.screenElevated,
+        inactiveContentColor = palette.textPrimary,
+        inactiveBorderColor = palette.divider,
+    )
+    SingleChoiceSegmentedButtonRow(modifier.fillMaxWidth()) {
+        labels.forEachIndexed { index, label ->
+            SegmentedButton(
+                selected = index == selected,
+                onClick = { onSelect(index) },
+                shape = SegmentedButtonDefaults.itemShape(index, labels.size),
+                enabled = enabled,
+                colors = colors,
+                icon = {},
+                label = { Text(label, textAlign = TextAlign.Center) },
+            )
+        }
+    }
+}
+
+/** The app's one slider look: thin accent track, small ringed thumb (progress, speed, equalizer). */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun RetroSlider(
+    value: Float,
+    onValueChange: (Float) -> Unit,
+    valueRange: ClosedFloatingPointRange<Float>,
+    modifier: Modifier = Modifier,
+    steps: Int = 0,
+    enabled: Boolean = true,
+    onValueChangeFinished: (() -> Unit)? = null,
+) {
+    val palette = LocalRetroPalette.current
+    val colors = SliderDefaults.colors(
+        thumbColor = palette.screenElevated,
+        activeTrackColor = palette.accent,
+        inactiveTrackColor = palette.divider,
+        activeTickColor = palette.screenElevated,
+        inactiveTickColor = palette.textMuted,
+        disabledThumbColor = palette.screenElevated,
+        disabledActiveTrackColor = palette.divider,
+        disabledInactiveTrackColor = palette.divider,
+    )
+    Slider(
+        value = value,
+        onValueChange = onValueChange,
+        onValueChangeFinished = onValueChangeFinished,
+        valueRange = valueRange,
+        steps = steps,
+        enabled = enabled,
+        colors = colors,
+        thumb = {
+            Box(
+                Modifier
+                    .size(14.dp)
+                    .shadow(2.dp, CircleShape)
+                    .background(palette.screenElevated, CircleShape)
+                    .border(1.dp, palette.textPrimary.copy(alpha = if (enabled) 0.6f else 0.3f), CircleShape),
+            )
+        },
+        track = { state ->
+            SliderDefaults.Track(
+                sliderState = state,
+                colors = colors,
+                enabled = enabled,
+                thumbTrackGapSize = 0.dp,
+                drawStopIndicator = null,
+                modifier = Modifier.heightIn(max = 3.dp),
+            )
+        },
+        modifier = modifier,
+    )
 }
 
 /** Square cover: [model] is a folder picture uri or an [app.retroplayer.ui.art.EmbeddedArt]. */

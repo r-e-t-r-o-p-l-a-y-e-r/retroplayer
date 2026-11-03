@@ -10,9 +10,10 @@ import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.assertIsNotSelected
+import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.hasText
-import androidx.compose.ui.test.isToggleable
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
@@ -30,7 +31,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
-class EqualizerContentTest {
+class EqualizerSectionTest {
     @get:Rule val compose = createComposeRule()
 
     private val presetLabels = listOf("Manually", "Bass", "Treble", "Voice")
@@ -41,7 +42,7 @@ class EqualizerContentTest {
         CompositionLocalProvider(LocalDensity provides Density(density.density, fontScale)) {
             RetroTheme {
                 Box(if (width != null) Modifier.width(width.dp) else Modifier) {
-                    EqualizerContent(state, EqualizerActions(setBand = { band, db -> moved = band to db }))
+                    EqualizerSection(state, EqualizerActions(setBand = { band, db -> moved = band to db }))
                 }
             }
         }
@@ -53,7 +54,6 @@ class EqualizerContentTest {
     fun `unavailable disables the controls`() {
         show(EqualizerUiState(available = false))
         compose.onNodeWithText("Equalizer is not available on this platform.").assertIsDisplayed()
-        compose.onNode(isToggleable()).assertIsNotEnabled()
         presetLabels.forEach { compose.onNode(hasText(it)).assertIsNotEnabled() }
         compose.onAllNodesWithContentDescription("Hz", substring = true).fetchSemanticsNodes().forEach { node ->
             assertThat(node.config.contains(SemanticsProperties.Disabled)).isTrue()
@@ -61,7 +61,7 @@ class EqualizerContentTest {
     }
 
     @Test
-    fun `preset chips wrap instead of clipping`() {
+    fun `presets fit a narrow screen at a large font`() {
         show(available, width = 220, fontScale = 1.6f)
         val right = compose.onRoot().fetchSemanticsNode().boundsInRoot.right
         presetLabels.forEach { label ->
@@ -86,5 +86,12 @@ class EqualizerContentTest {
         compose.onNode(hasContentDescription("910 Hz"))
             .performSemanticsAction(SemanticsActions.SetProgress) { it(5f) }
         assertThat(moved).isEqualTo(2 to 5f)
+    }
+
+    @Test
+    fun `the chosen preset is selected`() {
+        show(available.copy(settings = EqualizerSettings(enabled = true, preset = EqualizerPreset.VOICE)))
+        compose.onNode(hasText("Voice")).assertIsSelected()
+        compose.onNode(hasText("Manually")).assertIsNotSelected()
     }
 }

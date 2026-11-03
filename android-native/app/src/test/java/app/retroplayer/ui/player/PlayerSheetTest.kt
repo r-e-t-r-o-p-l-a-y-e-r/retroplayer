@@ -16,6 +16,12 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.test.getBoundsInRoot
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipe
+import androidx.compose.ui.unit.dp
 import androidx.test.core.app.ApplicationProvider
 import android.content.Context
 import app.retroplayer.R
@@ -122,12 +128,79 @@ class PlayerSheetTest {
     }
 
     @Test
-    fun `tapping the mini player expands`() {
+    fun `tapping the mini player titles locates the track`() {
         show(playing)
         compose.onNodeWithText("Song 2", useUnmergedTree = true).performClick()
         compose.waitForIdle()
+        assertThat(calls).containsExactly("locate")
+        assertThat(expanded).isFalse()
+    }
+
+    @Test
+    fun `the sheet follows the finger while dragging up`() {
+        show(playing)
+        val height = compose.onRoot().getBoundsInRoot().bottom
+        compose.onNodeWithTag(MINI_PLAYER_TAG).performTouchInput {
+            down(Offset(centerX, top + 8f))
+            repeat(10) { moveBy(Offset(0f, -30f)) }
+        }
+        compose.waitForIdle()
+        val sheetTop = compose.onNodeWithTag(EXPANDED_PLAYER_TAG).getBoundsInRoot().top
+        assertThat(sheetTop).isGreaterThan(0.dp)
+        assertThat(sheetTop).isLessThan(height)
+        assertThat(expanded).isFalse()
+    }
+
+    @Test
+    fun `releasing past half way expands`() {
+        show(playing)
+        compose.onNodeWithTag(MINI_PLAYER_TAG).performTouchInput {
+            down(Offset(centerX, top + 8f))
+            val step = -(this@performTouchInput.visibleSize.height + 900f) / 40
+            repeat(40) {
+                moveBy(Offset(0f, step))
+                advanceEventTime(40)
+            }
+            advanceEventTime(200)
+            up()
+        }
+        compose.waitForIdle()
         assertThat(expanded).isTrue()
-        compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertIsDisplayed()
+    }
+
+    @Test
+    fun `a short slow drag up springs back to the mini player`() {
+        show(playing)
+        compose.onNodeWithTag(MINI_PLAYER_TAG).performTouchInput {
+            down(Offset(centerX, top + 8f))
+            repeat(5) {
+                moveBy(Offset(0f, -10f))
+                advanceEventTime(100)
+            }
+            advanceEventTime(300)
+            up()
+        }
+        compose.waitForIdle()
+        assertThat(expanded).isFalse()
+        compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertDoesNotExist()
+    }
+
+    @Test
+    fun `a fling down collapses the expanded player`() {
+        expanded = true
+        show(playing)
+        compose.onNodeWithTag(EXPANDED_ART_TAG).performTouchInput { swipe(center, center + Offset(0f, 300f), durationMillis = 120) }
+        compose.waitForIdle()
+        assertThat(expanded).isFalse()
+    }
+
+    @Test
+    fun `a fling down on the player body collapses it`() {
+        expanded = true
+        show(playing)
+        compose.onNodeWithTag(EXPANDED_PLAYER_TAG).performTouchInput { swipe(Offset(centerX, centerY), Offset(centerX, bottom - 1f), durationMillis = 120) }
+        compose.waitForIdle()
+        assertThat(expanded).isFalse()
     }
 
     @Test
@@ -149,10 +222,10 @@ class PlayerSheetTest {
     }
 
     @Test
-    fun `collapse button shows the library again`() {
+    fun `the back arrow shows the library again`() {
         expanded = true
         show(playing)
-        compose.onNodeWithContentDescription(context.getString(R.string.show_library)).performClick()
+        compose.onNodeWithContentDescription(context.getString(R.string.library)).performClick()
         compose.waitForIdle()
         assertThat(expanded).isFalse()
         compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertDoesNotExist()

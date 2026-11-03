@@ -24,7 +24,8 @@ class EqualizerViewModelTest {
     @get:Rule val tmp = TemporaryFolder()
 
     private lateinit var lib: TestLibrary
-    private val availability = EqualizerAvailability()
+    private var deviceHasEqualizer = false
+    private val availability by lazy { EqualizerAvailability { deviceHasEqualizer } }
 
     @Before
     fun setUp() {
@@ -58,11 +59,29 @@ class EqualizerViewModelTest {
     }
 
     @Test
-    fun `switching on stores it`() = main.runVmTest {
+    fun `choosing a preset switches the equalizer on`() = main.runVmTest {
         val vm = viewModel()
-        vm.setEnabled(true)
+        vm.choosePreset(EqualizerPreset.TREBLE_BOOST)
         advanceUntilIdle()
         assertThat(stored().enabled).isTrue()
+    }
+
+    @Test
+    fun `moving a band switches the equalizer on`() = main.runVmTest {
+        val vm = viewModel()
+        vm.setBand(1, 2f)
+        advanceUntilIdle()
+        assertThat(stored().enabled).isTrue()
+    }
+
+    @Test
+    fun `flat manual bands switch the equalizer off`() = main.runVmTest {
+        lib.settings.setEqualizer(EqualizerSettings(enabled = true, preset = EqualizerPreset.VOICE))
+        val vm = viewModel()
+        advanceUntilIdle()
+        vm.choosePreset(EqualizerPreset.MANUAL)
+        advanceUntilIdle()
+        assertThat(stored().enabled).isFalse()
     }
 
     @Test
@@ -81,5 +100,22 @@ class EqualizerViewModelTest {
         assertThat(vm.state.first().available).isFalse()
         availability.report(EqualizerInfo(listOf(60, 230, 910, 3600, 14000), -15f..15f))
         assertThat(vm.state.first { it.available }.available).isTrue()
+    }
+
+    @Test
+    fun `the page is available before anything plays when the device has an equalizer`() = main.runVmTest {
+        deviceHasEqualizer = true
+        val vm = viewModel()
+        assertThat(vm.state.first { it.available }.available).isTrue()
+    }
+
+    @Test
+    fun `the page stays available after playback releases its session`() = main.runVmTest {
+        deviceHasEqualizer = true
+        val vm = viewModel()
+        availability.report(EqualizerInfo(listOf(60, 230, 910, 3600, 14000), -15f..15f))
+        availability.report(null)
+        advanceUntilIdle()
+        assertThat(vm.state.value.available).isTrue()
     }
 }

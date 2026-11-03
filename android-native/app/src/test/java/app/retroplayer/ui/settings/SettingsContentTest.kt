@@ -1,6 +1,11 @@
 package app.retroplayer.ui.settings
 
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.hasClickAction
+import androidx.compose.ui.test.hasContentDescription
+import androidx.compose.ui.test.onAllNodesWithText
+import app.retroplayer.BuildConfig
 import androidx.compose.ui.test.assertIsNotSelected
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasScrollToIndexAction
@@ -62,7 +67,52 @@ class SettingsContentTest {
     }
 
     @Test
-    fun `system language is always offered and checked when no language is chosen`() {
+    fun `reset buttons are stacked and end aligned, keeping folders first`() {
+        compose.setContent { RetroTheme { SettingsContent(SettingsUiState(), SettingsActions()) } }
+        compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText("Reset database"))
+        compose.onNodeWithText("Reset database").performClick()
+        compose.waitForIdle()
+        val buttons = listOf("Keep library folders", "Clear everything", "Cancel").map {
+            compose.onNode(hasText(it) and hasClickAction()).fetchSemanticsNode().boundsInRoot
+        }
+        assertThat(buttons.map { it.top }).isInStrictOrder()
+        assertThat(buttons.map { it.right }.distinct()).hasSize(1)
+    }
+
+    @Test
+    fun `languages are picked from a dropdown`() {
+        var chosen: String? = "none"
+        compose.setContent {
+            RetroTheme {
+                SettingsContent(
+                    SettingsUiState(languageTag = null, languages = listOf(LanguageOption("de", "Deutsch"), LanguageOption("fi", "suomi"))),
+                    SettingsActions(setLanguage = { chosen = it }),
+                )
+            }
+        }
+        compose.onNodeWithText("Deutsch").assertDoesNotExist()
+        compose.onNodeWithText("System language").performClick()
+        compose.onNodeWithText("Deutsch").performClick()
+        assertThat(chosen).isEqualTo("de")
+    }
+
+    @Test
+    fun `about is shown on the settings page`() {
+        compose.setContent { RetroTheme { SettingsContent(SettingsUiState(), SettingsActions()) } }
+        compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText("Version"))
+        compose.onNodeWithText("Version").assertIsDisplayed()
+        compose.onNodeWithText(BuildConfig.VERSION_NAME).assertIsDisplayed()
+    }
+
+    @Test
+    fun `the equalizer is shown on the settings page`() {
+        compose.setContent { RetroTheme { SettingsContent(SettingsUiState(), SettingsActions()) } }
+        compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasContentDescription("60 Hz"))
+        compose.onNode(hasContentDescription("60 Hz")).assertIsDisplayed()
+    }
+
+    @Test
+    fun `system language is shown when no language is chosen`() {
         compose.setContent {
             RetroTheme {
                 SettingsContent(
@@ -71,7 +121,8 @@ class SettingsContentTest {
                 )
             }
         }
-        compose.onNodeWithText("System language").assertIsSelected()
-        compose.onNodeWithText("Deutsch").assertIsNotSelected()
+        compose.onNodeWithText("System language").assertIsDisplayed()
+        compose.onNodeWithText("System language").performClick()
+        compose.onAllNodesWithText("System language").assertCountEquals(2)
     }
 }

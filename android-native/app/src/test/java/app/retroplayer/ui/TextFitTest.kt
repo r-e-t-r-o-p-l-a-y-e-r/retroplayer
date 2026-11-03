@@ -1,12 +1,18 @@
 package app.retroplayer.ui
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import android.content.Context
 import androidx.compose.ui.test.hasScrollToIndexAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import app.retroplayer.ui.settings.LANGUAGE_DROPDOWN_TAG
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import androidx.test.core.app.ApplicationProvider
@@ -49,7 +55,7 @@ import app.retroplayer.ui.queue.QueueContent
 import app.retroplayer.ui.queue.QueueEntry
 import app.retroplayer.ui.queue.QueueUiState
 import app.retroplayer.ui.settings.EqualizerActions
-import app.retroplayer.ui.settings.EqualizerContent
+import app.retroplayer.ui.settings.EqualizerSection
 import app.retroplayer.ui.settings.EqualizerUiState
 import app.retroplayer.ui.settings.LanguageOption
 import app.retroplayer.ui.settings.SettingsActions
@@ -109,7 +115,16 @@ class TextFitTest(private val screen: Screen, private val locale: String) {
             },
         ),
         SETTINGS_DATA({ SettingsDataContent(SettingsUiState(databaseFileName = "retroplayer.db", databasePath = "/data/user/0/app.retroplayer/databases"), {}) }),
-        EQUALIZER({ EqualizerContent(EqualizerUiState(available = true, settings = EqualizerSettings(enabled = true)), EqualizerActions()) }),
+        EQUALIZER_UNAVAILABLE({ SettingsContent(SettingsUiState(languages = languages), SettingsActions(), EqualizerUiState(available = false)) }),
+        EQUALIZER({ Column(Modifier.verticalScroll(rememberScrollState())) { EqualizerSection(EqualizerUiState(available = true, settings = EqualizerSettings(enabled = true)), EqualizerActions()) } }),
+        ABOUT(
+            { SettingsContent(SettingsUiState(languages = languages), SettingsActions()) },
+            { compose -> compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(string(R.string.about_git_commit))) },
+        ),
+        LANGUAGES(
+            { SettingsContent(SettingsUiState(languages = languages), SettingsActions()) },
+            { compose -> compose.onNodeWithTag(LANGUAGE_DROPDOWN_TAG).performClick() },
+        ),
         PLAYER({ PlayerHost(playing, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) {} }),
         PLAYER_LANDSCAPE({ PlayerHost(playing, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) {} }, size = "w800dp-h360dp"),
         MINI_PLAYER({ PlayerHost(playing, expanded = false, onExpandedChange = {}, PLAYER_ACTIONS) {} }),

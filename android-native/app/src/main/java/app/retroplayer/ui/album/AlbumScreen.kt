@@ -1,5 +1,6 @@
 package app.retroplayer.ui.album
 
+import app.retroplayer.ui.settings.SettingsNavAction
 import app.retroplayer.ui.components.DialogText
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -78,6 +79,7 @@ data class AlbumActions(
     val dismissTagOrder: () -> Unit = {},
     /** Queues one track; the callback gets how many tracks were new. */
     val addToQueue: (AudioTrack, onAdded: (Int) -> Unit) -> Unit = { _, _ -> },
+    val openSettings: () -> Unit = {},
 )
 
 @Composable
@@ -86,6 +88,7 @@ fun AlbumScreen(
     playingTrackId: String?,
     scrollToTrackId: String?,
     back: () -> Unit,
+    openSettings: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val confirm by viewModel.confirmTagOrder.collectAsStateWithLifecycle()
@@ -104,6 +107,7 @@ fun AlbumScreen(
             confirmTagOrder = viewModel::confirmTagOrder,
             dismissTagOrder = viewModel::dismissTagOrder,
             addToQueue = viewModel::addToQueue,
+            openSettings = openSettings,
         ),
     )
 }
@@ -136,6 +140,7 @@ fun AlbumContent(
                 actions = {
                     if (state is AlbumUiState.Ready) SortMenu(state.mode, actions.selectSort)
                     PlayerToggleAction()
+                    SettingsNavAction(actions.openSettings)
                 },
             )
         },

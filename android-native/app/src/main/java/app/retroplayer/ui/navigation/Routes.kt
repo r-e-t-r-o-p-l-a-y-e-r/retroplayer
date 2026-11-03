@@ -31,18 +31,10 @@ data object SettingsDataRoute
 @Serializable
 data object SettingsLicensesRoute
 
-@Serializable
-data object SettingsAboutRoute
-
-@Serializable
-data object SettingsEqualizerRoute
-
 private val settingsRoutes = listOf(
     SettingsRoute::class,
     SettingsDataRoute::class,
     SettingsLicensesRoute::class,
-    SettingsAboutRoute::class,
-    SettingsEqualizerRoute::class,
 )
 
 fun NavDestination.isSettings(): Boolean = settingsRoutes.any { hasRoute(it) }
