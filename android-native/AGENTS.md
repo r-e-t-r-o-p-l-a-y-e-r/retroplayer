@@ -84,7 +84,7 @@ Agent sandbox notes (Cursor):
 4. Run the whole module's tests. All green.
 5. Refactor if needed, rerun module tests.
 6. Next behaviour. At the end of the task: `./gradlew check` (with `["all"]`),
-   then `scripts/emulator-smoke.sh` (booted emulator; see below), then commit
+   then `scripts/device-smoke.sh` (booted emulator; see below), then commit
    (see "Commits") — only if both are green.
 
 Never weaken or delete an existing test to get green. If an existing test
@@ -278,7 +278,7 @@ body lists the tests added.
 
 1. `./gradlew check` (Gradle tests, lint, privacy; use `required_permissions:
    ["all"]` in the agent sandbox).
-2. `scripts/emulator-smoke.sh` on a booted emulator or device (see below).
+2. `scripts/device-smoke.sh` on a booted emulator or device (see below).
 
 If either fails, fix the issue and re-run both before committing. Update the
 task status in PLAN.md in the same commit.
@@ -286,15 +286,16 @@ task status in PLAN.md in the same commit.
 ## After each completed PLAN todo
 
 1. `./gradlew check`
-2. `scripts/emulator-smoke.sh`
+2. `scripts/device-smoke.sh`
 3. Commit (only when 1 and 2 succeeded)
 
 Tasks that touch only `:domain` with no UI change still need `./gradlew check`;
 run smoke when the task’s “Done when” mentions smoke or when UI/playback changed.
 
-## Emulator smoke test
+## Device smoke test
 
-Automated script (preferred after every UI-related todo):
+End-to-end checks run as instrumented tests against the real app
+(`app/src/androidTest/.../smoke/DeviceSmokeTest.kt`, about one minute):
 
 ```bash
 # boot (headless; only -gpu host works on this machine)
@@ -303,18 +304,26 @@ $ANDROID_HOME/emulator/emulator -avd routePlannerApi34 -no-window -no-audio \
 adb shell getprop sys.boot_completed   # wait until it prints 1
 
 cd android-native
-scripts/emulator-smoke.sh              # push fixtures, build, install, run flows
+scripts/device-smoke.sh                # fixtures if missing, then all tests
+scripts/device-smoke.sh <testMethod>   # one test while debugging
 ```
 
-`scripts/emulator-smoke.sh` covers: library root + playback session, queue,
-**T07** (save/delete playlist `SmokeTrip`), **T09** (LongList index bar +
-scroll restore), **T10** (settings subpages, mini-only player, German locale),
-and an empty `adb logcat -b crash`. Fixtures:
-`scripts/push-smoke-fixtures.sh` (wraps repo `scripts/push-sample-audio-to-emulator.sh`
-+ `LongList/` for the index bar).
-
-Useful flags: `SMOKE_FRESH=1` (`pm clear` before run), `SKIP_FIXTURES=1`,
-`SKIP_BUILD=1`, `ANDROID_SERIAL=emulator-5554`.
+- Covers: add a folder through the system picker, play it (player expands,
+  back collapses to mini), queue; T07 save the queue as `SmokeTrip.m3u` with
+  the write grant, open and delete it; T09 index bar jump and scroll after
+  recreation; T10 settings pages, mini-only player, German and back to system.
+- The test orchestrator clears app data before every test, so each test adds
+  the sample folder itself. Gradle uninstalls the app afterwards.
+- Compose is driven with the Compose test rule (semantics, no coordinates);
+  only the system folder picker uses UiAutomator (`FolderPicker`). Select by
+  string resources, not English text. On a timeout the failure message prints
+  the whole semantics tree: read it before guessing.
+- Fixtures: `scripts/push-smoke-fixtures.sh` (wraps the repo's
+  `scripts/push-sample-audio-to-emulator.sh` and adds `LongList/`, 31
+  one-track folders). `FIXTURES=1` forces a re-push.
+- Add a test here for every new end-to-end flow; prefer Robolectric for
+  anything a single screen can show.
+- Not automated: long-press drag reorder (covered by Robolectric tests).
 
 Manual debugging helpers:
 
@@ -328,11 +337,16 @@ adb shell dumpsys media_session | grep -A6 app.retroplayer
 
 - Screenshots you read are downscaled: device pixels = image pixels x 1080 /
   image width (about x2.34 for a 461 px wide image).
-- uiautomator does not see most Compose text; the smoke script uses
-  `content-desc` where available and `tapxy` fallbacks on a ~1080×2400 layout.
-- Playlist reorder in T07 is not automated (long-press drag); verify manually if needed.
+- `uiautomator dump` misses some Compose text; do not build checks on it.
 
 ## Known pitfalls (already hit once; do not repeat)
+
+- Every folder is the same `FolderRoute` destination: `launchSingleTop`
+  pushes nothing when the path differs. Use `NavController.openFolder`.
+- `ExtendedFloatingActionButton` does not expose its text to accessibility;
+  set a content description.
+- Reading `android:` attributes from compiled XML needs the Android
+  namespace (`getAttributeValue(ANDROID_NS, "name")`), not `null`.
 
 - Robolectric lock-file error = sandbox, rerun with `["all"]`.
 - Emulator with `-gpu swiftshader_indirect` or `-gpu guest` crashes (exit 139).

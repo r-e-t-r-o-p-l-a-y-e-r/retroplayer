@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Device smoke test: the instrumented end-to-end tests in app/src/androidTest (DeviceSmokeTest).
+#
+# Usage (from android-native/, emulator booted):
+#   scripts/device-smoke.sh            push fixtures if missing, then run every test
+#   scripts/device-smoke.sh <method>   run one test, e.g. theQueueSavesAsAPlaylistThatCanBeDeleted
+#
+# Environment:
+#   FIXTURES=1       push the sample audio even if it is already on the device
+#   ANDROID_SERIAL   pick a device (same as adb)
+
+set -euo pipefail
+
+NATIVE="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$NATIVE"
+adb="${ANDROID_HOME:-$HOME/Android/Sdk}/platform-tools/adb"
+
+if [ "$("$adb" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" != "1" ]; then
+  echo "error: no booted device (boot an emulator first; see AGENTS.md)" >&2
+  exit 1
+fi
+
+if [ "${FIXTURES:-0}" = "1" ] || ! "$adb" shell ls /sdcard/Music/RetroPlayerSamples/LongList/zebra >/dev/null 2>&1; then
+  scripts/push-smoke-fixtures.sh
+fi
+
+filter=()
+if [ $# -gt 0 ]; then
+  filter=("-Pandroid.testInstrumentationRunnerArguments.class=app.retroplayer.smoke.DeviceSmokeTest#$1")
+fi
+
+if ./gradlew -q :app:connectedDebugAndroidTest "${filter[@]}"; then
+  echo "Device smoke passed."
+else
+  echo "Device smoke failed; report: app/build/reports/androidTests/connected/debug/index.html" >&2
+  exit 1
+fi

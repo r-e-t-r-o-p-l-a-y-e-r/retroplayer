@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Push RetroPlayerSamples plus a LongList folder for T09 index-bar smoke (>30 rows).
+# Push RetroPlayerSamples plus a LongList folder for the index-bar device test.
 #
 # Usage: scripts/push-smoke-fixtures.sh
 #
 # Requires: adb, ffmpeg, booted emulator/device. Calls repo push-sample-audio-to-emulator.sh
-# first, then adds LongList/ with 31 audio tracks + Sub/ subfolder.
+# first, then adds LongList/ with 31 subfolders (alpha, track00..track28, zebra) of one
+# track each: the index bar counts rows, and loose tracks would group into one album.
 
 set -euo pipefail
 
@@ -28,22 +29,19 @@ generate_tone() {
     -f lavfi -i "sine=frequency=${frequency}:duration=${duration}" \
     -metadata title="${title}" \
     -metadata artist="Long List" \
-    -metadata album="LongList" \
     -metadata track="${track}" \
     "${output}"
 }
 
 echo "Generating LongList fixtures in ${SAMPLE_LONG}..."
 rm -rf "${SAMPLE_LONG}"
-mkdir -p "${SAMPLE_LONG}/Sub"
+mkdir -p "${SAMPLE_LONG}"
 
-generate_tone "${SAMPLE_LONG}/alpha.mp3" 440 2 "alpha" 1
-for i in $(seq 0 28); do
-  freq=$((400 + i * 10))
-  generate_tone "${SAMPLE_LONG}/track${i}.mp3" "${freq}" 2 "track${i}" $((i + 2))
+names=(alpha $(seq -f 'track%02g' 0 28) zebra)
+for i in "${!names[@]}"; do
+  mkdir -p "${SAMPLE_LONG}/${names[$i]}"
+  generate_tone "${SAMPLE_LONG}/${names[$i]}/tone.mp3" $((400 + i * 10)) 1 "${names[$i]}" 1
 done
-generate_tone "${SAMPLE_LONG}/zebra.mp3" 880 2 "zebra" 32
-touch "${SAMPLE_LONG}/Sub/.keep"
 
 echo "Pushing LongList to ${DEVICE_LONG}..."
 adb shell mkdir -p "${DEVICE_LONG}"
@@ -52,4 +50,4 @@ adb push "${SAMPLE_LONG}/." "${DEVICE_LONG}/"
 adb shell am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE \
   -d "file://${DEVICE_LONG}" >/dev/null 2>&1 || true
 
-echo "LongList ready (31 audio tracks + Sub/ folder for index-bar smoke)."
+echo "LongList ready (31 one-track folders for the index bar)."

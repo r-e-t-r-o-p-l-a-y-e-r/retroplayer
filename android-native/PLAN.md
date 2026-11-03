@@ -47,7 +47,7 @@ screenshot comparison described there.
 | T09 | Library leftovers: A-Z, scroll restore, root removal | any | done |
 | T10 | Settings screens (theme, language, data, reset, licenses, about) | any | done |
 | T11 | Equalizer engine | opus | done |
-| T10b | Emulator smoke harness (scripts, row a11y, AGENTS gate) | any | in progress |
+| T10b | Device smoke tests (instrumented, AGENTS gate) | any | done |
 | T12 | Equalizer settings UI | any | todo |
 | T13 | Keyboard shortcuts | any | todo |
 | T14 | Text-fit guards and pseudo-locales | any | todo |
@@ -465,7 +465,7 @@ available, simply continue top to bottom.
 ## T07 Playlist detail, save, delete
 
 - Owner: any. Status: done. Depends: T06. UC-08.
-- Notes: `PlaylistRoute`, detail editor (add/reorder/remove/select/delete), queue save-as-playlist with write-grant retry; locate opens playlist route; tests `PlaylistViewModelTest`, `QueueViewModelTest` save cases. Emulator smoke: `scripts/emulator-smoke.sh` (T07 section — save/delete `SmokeTrip.m3u`, write grant); extended add/remove/select/reorder still manual. See AGENTS.md.
+- Notes: `PlaylistRoute`, detail editor (add/reorder/remove/select/delete), queue save-as-playlist with write-grant retry; locate opens playlist route; tests `PlaylistViewModelTest`, `QueueViewModelTest` save cases. Device test: `DeviceSmokeTest.theQueueSavesAsAPlaylistThatCanBeDeleted` (save with write grant, open, delete); extended add/remove/select/reorder still manual. See AGENTS.md.
 - Existing code: `PlaylistFiles.read/save/overwrite/delete`, `M3u`,
   `LibraryStore.registerAppPlaylist/isAppPlaylist`.
 - Files: `PlaylistRoute(path)` in `Routes.kt`, `ui/playlist/PlaylistViewModel.kt`,
@@ -527,7 +527,7 @@ available, simply continue top to bottom.
 ## T09 Library leftovers
 
 - Owner: any. Status: done. Depends: T05b. UC-02, UC-04.
-- Notes: `LibraryIndex` + `AlphabetIndexBar` on folder/root lists (>30 rows); list scroll in `FolderViewModel` `SavedStateHandle` via `FolderListScroll`; removing the playing root calls `playback.stop()`; `RetroApp` folder navigation uses `launchSingleTop` + `restoreState`. Tests: `LibraryIndexTest`, `FolderContentTest` (index bar), `FolderViewModelTest` (scroll + stop), `BackChainTest` (scroll restore). Emulator smoke: `scripts/emulator-smoke.sh` (T09 — `LongList/` fixtures, index jump, scroll restore).
+- Notes: `LibraryIndex` + `AlphabetIndexBar` on folder/root lists (>30 rows); list scroll in `FolderViewModel` `SavedStateHandle` via `FolderListScroll`; removing the playing root calls `playback.stop()`; `RetroApp` folder navigation: `NavController.openFolder` (no `launchSingleTop`, which pushed nothing for a different path; review fix with `FolderNavigationTest`). Tests: `LibraryIndexTest`, `FolderContentTest` (index bar), `FolderViewModelTest` (scroll + stop), `BackChainTest` (scroll restore). Device test: `DeviceSmokeTest.theIndexBarJumpsAndTheScrollSurvivesRecreation` (`LongList/` of 31 one-track folders).
 - Spec (each bullet one red/green cycle, tests in `FolderViewModelTest` /
   `FolderContentTest`):
   - Swipes and long-press reordering of roots and favorites: done in T05b.
@@ -544,7 +544,7 @@ available, simply continue top to bottom.
 ## T10 Settings screens
 
 - Owner: any. Status: done. Depends: T02. UC-16, UC-12 (fixed mini dock in settings).
-- Notes: `SettingsRoute` + data/licenses/about/equalizer stub screens; theme via `SettingsStore`, language via `AppCompatDelegate` + `locales_config.xml`; reset stops playback and optionally clears roots/grants; `BuildConfig` git/build date; gear on library top bar; `PlayerHost(allowExpansion=false)` while settings visible. Tests: `SettingsViewModelTest`, `SettingsContentTest`, `LicensesTest`, `BackChainTest` (mini-only player). Emulator smoke: `scripts/emulator-smoke.sh` (T10 — subpages, mini player, Deutsch + system reset).
+- Notes: `SettingsRoute` + data/licenses/about/equalizer stub screens; theme via `SettingsStore`, language via `AppCompatDelegate` + `locales_config.xml`; reset stops playback and optionally clears roots/grants; `BuildConfig` git/build date; gear on library top bar; `PlayerHost(allowExpansion=false)` while settings visible. Tests: `SettingsViewModelTest`, `SettingsContentTest`, `LicensesTest`, `BackChainTest` (mini-only player). Review fixes: locales were never read from `locales_config.xml` (missing Android namespace, `LocaleTagsTest`); "clear everything" released no grants (roots were deleted first); the system-language row is drawn by the screen so it follows the language; selectable radio rows; build date = commit date. Device tests: `settingsPagesOpenAndThePlayerStaysMini`, `choosingGermanTranslatesTheAppUntilSystemIsChosenAgain`.
 - Flutter reference: `lib/ui/features/settings/`.
 - Files: `SettingsRoute`, `SettingsDataRoute`, `SettingsLicensesRoute`,
   `SettingsAboutRoute` in `Routes.kt`; `ui/settings/SettingsViewModel.kt`,
@@ -590,15 +590,18 @@ available, simply continue top to bottom.
 - Done when: tests green; smoke: switch to German, UI is German after
   restart; switch back to system.
 
-## T10b Emulator smoke harness
+## T10b Device smoke tests
 
-- Owner: any. Status: in progress. Depends: T07, T09, T10 (behaviour under test).
-- Goal: repeatable emulator smoke for agents and CI prep: `./gradlew check` then
-  `scripts/emulator-smoke.sh` (see AGENTS.md). Includes `scripts/push-smoke-fixtures.sh`,
-  `scripts/smoke-tap.py`, row `contentDescription` on library/add-tracks rows for
-  uiautomator, and post-add SAF navigation fix in `RetroApp` / `FolderScreen`.
-- Done when: `SMOKE_FRESH=1 scripts/emulator-smoke.sh` exits 0 on API 34 AVD;
-  `./gradlew check` green; AGENTS.md commit gate documented.
+- Owner: any. Status: done. Depends: T07, T09, T10 (behaviour under test).
+- As built: `app/src/androidTest/.../smoke/DeviceSmokeTest.kt` (5 tests, about
+  one minute) run by `scripts/device-smoke.sh`; `FolderPicker` drives the system
+  picker with UiAutomator; the orchestrator clears app data before each test.
+  Replaced the first version (`emulator-smoke.sh`, uiautomator dumps and
+  coordinate taps, 15+ minutes and flaky). The flows found three app bugs:
+  folder navigation pushed nothing (`launchSingleTop`), no languages listed,
+  and the Add folder button had no accessible label.
+- Done when: `scripts/device-smoke.sh` passes on the API 34 AVD; `./gradlew
+  check` green; AGENTS.md commit gate documented.
 
 ## T11 Equalizer engine
 
