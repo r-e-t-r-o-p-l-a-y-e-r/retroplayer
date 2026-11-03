@@ -6,6 +6,7 @@ import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.domain.Breadcrumbs
 import app.retroplayer.domain.Crumb
 import app.retroplayer.domain.LibraryPath
+import app.retroplayer.domain.TransportRules
 import app.retroplayer.domain.model.AudioTrack
 import app.retroplayer.domain.model.TrackMetadata
 import app.retroplayer.playback.NowPlaying
@@ -46,6 +47,16 @@ class PlayerViewModel @Inject constructor(
     fun next() = controls.skipToNext()
 
     fun seekTo(positionMs: Long) = controls.seekTo(positionMs)
+
+    fun jumpBack() = controls.jumpBack()
+
+    fun jumpForward() = controls.jumpForward()
+
+    fun setSpeed(speed: Float) = controls.setSpeed(speed)
+
+    fun speedDown() = setSpeed(TransportRules.clampSpeed(controls.nowPlaying.value.speed - 0.25f))
+
+    fun speedUp() = setSpeed(TransportRules.clampSpeed(controls.nowPlaying.value.speed + 0.25f))
 
     private fun crumbs(now: NowPlaying, rootName: (String) -> String?): List<Crumb> {
         val trackId = now.trackId ?: return emptyList()

@@ -54,6 +54,9 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
             previous = playerViewModel::previous,
             next = playerViewModel::next,
             seekTo = playerViewModel::seekTo,
+            jumpBack = playerViewModel::jumpBack,
+            jumpForward = playerViewModel::jumpForward,
+            setSpeed = playerViewModel::setSpeed,
         )
         PlayerHost(player, expanded, { expanded = it }, playerActions) {
             LibraryNavHost(routes, nowPlaying)

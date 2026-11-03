@@ -17,6 +17,9 @@ fun formatDuration(ms: Long): String {
 }
 
 fun formatSpeed(speed: Float, locale: Locale = Locale.getDefault()): String {
-    val number = NumberFormat.getNumberInstance(locale).apply { maximumFractionDigits = 2 }
-    return number.format(speed.toDouble()) + "×"
+    val number = NumberFormat.getNumberInstance(locale).apply {
+        minimumFractionDigits = 1
+        maximumFractionDigits = 2
+    }
+    return number.format(speed.toDouble()) + "x"
 }

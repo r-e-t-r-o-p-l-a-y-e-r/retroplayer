@@ -7,8 +7,11 @@ import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -32,11 +35,16 @@ import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
+import androidx.compose.material.icons.outlined.Speed
+import androidx.compose.material.icons.rounded.Replay
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,8 +57,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.res.stringResource
@@ -60,7 +72,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.retroplayer.R
+import app.retroplayer.domain.TransportRules
 import app.retroplayer.playback.NowPlaying
+import app.retroplayer.ui.formatSpeed
 import app.retroplayer.ui.components.AlbumArt
 import app.retroplayer.ui.components.BackButton
 import app.retroplayer.ui.components.BreadcrumbStrip
@@ -72,6 +86,8 @@ import kotlin.coroutines.cancellation.CancellationException
 
 const val MINI_PLAYER_TAG = "miniPlayer"
 const val EXPANDED_PLAYER_TAG = "expandedPlayer"
+const val EXPANDED_ART_TAG = "expandedPlayerArt"
+const val SPEED_SLIDER_TAG = "speedSlider"
 
 /** True while the expanded player covers the screen; back handlers below it step aside. */
 val LocalPlayerExpanded = compositionLocalOf { false }
@@ -81,6 +97,9 @@ data class PlayerActions(
     val previous: () -> Unit,
     val next: () -> Unit,
     val seekTo: (Long) -> Unit,
+    val jumpBack: () -> Unit,
+    val jumpForward: () -> Unit,
+    val setSpeed: (Float) -> Unit,
 )
 
 /** Expands the player from a library top bar; null while there is nothing to expand. */
@@ -266,8 +285,31 @@ private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onColla
             ) {
                 DragHandle()
                 Spacer(Modifier.weight(1f))
-                BoxWithConstraints(Modifier.weight(4f, fill = false), contentAlignment = Alignment.Center) {
-                    AlbumArt(state.artModel, size = minOf(maxWidth, maxHeight, 248.dp))
+                BoxWithConstraints(Modifier.weight(4f, fill = false).fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    val jumps = 40.dp
+                    val gaps = 12.dp
+                    val artSize = minOf(maxWidth - jumps * 2 - gaps * 2, maxHeight, 248.dp)
+                    Row(
+                        Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(gaps),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        JumpButton(forward = false, onClick = actions.jumpBack)
+                        Box(
+                            Modifier
+                                .weight(1f)
+                                .testTag(EXPANDED_ART_TAG)
+                                .pointerInput(actions.jumpBack, actions.jumpForward) {
+                                    detectTapGestures(onDoubleTap = { offset ->
+                                        if (offset.x < size.width / 2f) actions.jumpBack() else actions.jumpForward()
+                                    })
+                                },
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            AlbumArt(state.artModel, size = artSize)
+                        }
+                        JumpButton(forward = true, onClick = actions.jumpForward)
+                    }
                 }
                 Spacer(Modifier.height(16.dp))
                 Titles(
@@ -280,9 +322,75 @@ private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onColla
                 PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo)
                 Spacer(Modifier.height(8.dp))
                 Transport(now, actions, skipSize = 40.dp, playSize = 64.dp)
+                Spacer(Modifier.height(16.dp))
+                SpeedRow(now.speed, actions.setSpeed)
                 Spacer(Modifier.weight(1.4f))
             }
         }
+    }
+}
+
+@Composable
+private fun JumpButton(forward: Boolean, onClick: () -> Unit) {
+    val palette = LocalRetroPalette.current
+    val description = stringResource(if (forward) R.string.jump_forward else R.string.jump_back)
+    Surface(onClick = onClick, shape = CircleShape, color = palette.iconChip, modifier = Modifier.size(40.dp)) {
+        Box(contentAlignment = Alignment.Center) {
+            Icon(
+                Icons.Rounded.Replay,
+                contentDescription = description,
+                tint = palette.textPrimary,
+                modifier = Modifier
+                    .size(22.dp)
+                    .then(if (forward) Modifier.scale(scaleX = -1f, scaleY = 1f) else Modifier),
+            )
+            Text(
+                "15",
+                style = TextStyle(fontSize = 11.sp, fontWeight = FontWeight.W700, color = palette.textMuted),
+                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 5.dp),
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun SpeedRow(speed: Float, onSpeed: (Float) -> Unit) {
+    val palette = LocalRetroPalette.current
+    val locale = LocalConfiguration.current.locales[0]
+    val colors = SliderDefaults.colors(
+        thumbColor = palette.screenElevated,
+        activeTrackColor = palette.accent,
+        inactiveTrackColor = palette.divider,
+    )
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Icon(Icons.Outlined.Speed, contentDescription = null, tint = palette.textMuted, modifier = Modifier.size(20.dp))
+        Text(
+            stringResource(R.string.speed),
+            style = TextStyle(fontSize = 13.sp, color = palette.textMuted),
+            modifier = Modifier.padding(start = 8.dp),
+        )
+        Slider(
+            value = speed.coerceIn(TransportRules.MIN_SPEED, TransportRules.MAX_SPEED),
+            onValueChange = { onSpeed(it) },
+            valueRange = TransportRules.MIN_SPEED..TransportRules.MAX_SPEED,
+            steps = 5,
+            colors = colors,
+            thumb = {
+                Box(
+                    Modifier
+                        .size(14.dp)
+                        .background(palette.screenElevated, CircleShape),
+                )
+            },
+            modifier = Modifier.weight(1f).padding(horizontal = 8.dp).testTag(SPEED_SLIDER_TAG),
+        )
+        Text(
+            formatSpeed(speed, locale),
+            style = TextStyle(fontSize = 13.sp, fontWeight = FontWeight.Medium, color = palette.textMuted),
+            textAlign = TextAlign.End,
+            modifier = Modifier.width(52.dp),
+        )
     }
 }
 

@@ -81,4 +81,25 @@ class PlayerViewModelTest {
         lib.playback.nowPlaying.value = NowPlaying(title = "Song", artworkUri = "doc:cover.jpg", trackUri = "doc:a", hasTrack = true)
         assertThat(stateWhere { it.nowPlaying.title == "Song" }.artModel).isEqualTo("doc:cover.jpg")
     }
+
+    @Test
+    fun `jump back and forward forward to the controls`() = main.runVmTest {
+        viewModel.jumpBack()
+        viewModel.jumpForward()
+        assertThat(lib.playback.calls).containsExactly("jumpBack", "jumpForward").inOrder()
+    }
+
+    @Test
+    fun `speed down stops at the minimum`() = main.runVmTest {
+        lib.playback.nowPlaying.value = NowPlaying(speed = 0.5f, hasTrack = true)
+        viewModel.speedDown()
+        assertThat(lib.playback.calls).containsExactly("speed:0.5")
+    }
+
+    @Test
+    fun `speed up stops at the maximum`() = main.runVmTest {
+        lib.playback.nowPlaying.value = NowPlaying(speed = 2f, hasTrack = true)
+        viewModel.speedUp()
+        assertThat(lib.playback.calls).containsExactly("speed:2.0")
+    }
 }

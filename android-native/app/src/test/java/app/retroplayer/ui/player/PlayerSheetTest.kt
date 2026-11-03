@@ -38,6 +38,9 @@ class PlayerSheetTest {
         previous = { calls += "previous" },
         next = { calls += "next" },
         seekTo = { calls += "seek:$it" },
+        jumpBack = { calls += "jumpBack" },
+        jumpForward = { calls += "jumpForward" },
+        setSpeed = { calls += "speed:$it" },
     )
     private var expanded by mutableStateOf(false)
 

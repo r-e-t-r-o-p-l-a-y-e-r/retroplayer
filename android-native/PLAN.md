@@ -37,7 +37,7 @@ screenshot comparison described there.
 | T01 | Transport API on `PlaybackControls` | opus | done |
 | T02 | Player sheet shell + back chain | opus | done |
 | T02b | Look and feel parity with the user guide (light + dark) | opus | done |
-| T03 | Expanded player: jumps, speed | any | todo |
+| T03 | Expanded player: jumps, speed | any | done |
 | T04 | Locate now playing + playback breadcrumbs | any | todo |
 | T05 | Queue engine (edit while playing) | opus | done |
 | T05b | Library gestures: swipe to queue, long-press reorder | opus | done |
@@ -228,7 +228,13 @@ available, simply continue top to bottom.
 
 ## T03 Expanded player: jumps, speed
 
-- Owner: any. Status: todo. Depends: T02b. UC-10.
+- Owner: any. Status: done. Depends: T02b. UC-10.
+- Notes: `PlayerActions` adds `jumpBack`, `jumpForward`, `setSpeed`.
+  Expanded player: ±15 jump buttons, double-tap art halves, speed row
+  (`steps = 5`, 0.25 increments). `formatSpeed` uses `1.0x` style (plain `x`,
+  min one fraction digit). `PlayerViewModel.speedDown` / `speedUp` for
+  quarter steps at bounds. Tests: `FormatTest` (updated), `PlayerViewModelTest`
+  +3, new `ExpandedPlayerTest` (5). Emulator smoke not run this session.
 - The seek bar (`PlaybackProgress`) already exists since T02b; only add
   keyboard seeking (←/→ by 5 s on the focused bar) if missing.
 - Flutter reference: `lib/ui/features/player/widgets/player_panel.dart`,

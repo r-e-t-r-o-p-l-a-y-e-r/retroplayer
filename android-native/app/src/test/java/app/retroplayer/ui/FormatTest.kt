@@ -21,14 +21,15 @@ class FormatTest {
     }
 
     @Test
-    fun `speed shows without trailing zeros`() {
-        assertThat(formatSpeed(1f, Locale.US)).isEqualTo("1×")
-        assertThat(formatSpeed(1.5f, Locale.US)).isEqualTo("1.5×")
-        assertThat(formatSpeed(0.75f, Locale.US)).isEqualTo("0.75×")
+    fun `speed shows at least one fraction digit with a plain x suffix`() {
+        assertThat(formatSpeed(1f, Locale.US)).isEqualTo("1.0x")
+        assertThat(formatSpeed(1.5f, Locale.US)).isEqualTo("1.5x")
+        assertThat(formatSpeed(0.5f, Locale.US)).isEqualTo("0.5x")
+        assertThat(formatSpeed(1.25f, Locale.US)).isEqualTo("1.25x")
     }
 
     @Test
     fun `speed uses the locale decimal separator`() {
-        assertThat(formatSpeed(1.25f, Locale.GERMANY)).isEqualTo("1,25×")
+        assertThat(formatSpeed(1.25f, Locale.GERMANY)).isEqualTo("1,25x")
     }
 }
