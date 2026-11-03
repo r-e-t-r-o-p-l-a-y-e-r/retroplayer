@@ -27,9 +27,13 @@ import app.retroplayer.ui.library.FolderNavigation
 import app.retroplayer.ui.library.FolderScreen
 import app.retroplayer.ui.library.FolderViewModel
 import app.retroplayer.ui.navigation.AbsorbBackAtRoot
+import app.retroplayer.ui.navigation.AddTracksRoute
 import app.retroplayer.ui.navigation.AlbumRoute
 import app.retroplayer.ui.navigation.FolderRoute
+import app.retroplayer.ui.navigation.QueueRoute
 import app.retroplayer.ui.navigation.StartupRoutes
+import app.retroplayer.ui.queue.AddTracksScreen
+import app.retroplayer.ui.queue.QueueScreen
 import app.retroplayer.ui.navigation.rememberRestoredNavController
 import app.retroplayer.ui.player.PlayerActions
 import app.retroplayer.ui.player.PlayerHost
@@ -109,6 +113,7 @@ private fun LibraryNavHost(
             onUserBrowsing()
             nav.navigate(AlbumRoute(it.id))
         },
+        openQueue = { nav.navigate(QueueRoute) },
     )
     nav = rememberRestoredNavController(routes) {
         composable<FolderRoute> {
@@ -125,6 +130,20 @@ private fun LibraryNavHost(
                     onUserBrowsing()
                     nav.popBackStack()
                 },
+            )
+        }
+        composable<QueueRoute> {
+            QueueScreen(
+                viewModel = hiltViewModel(),
+                back = { nav.popBackStack() },
+                onAddTracks = { nav.navigate(AddTracksRoute()) },
+            )
+        }
+        composable<AddTracksRoute> {
+            AddTracksScreen(
+                viewModel = hiltViewModel(),
+                back = { nav.popBackStack() },
+                onDone = { nav.popBackStack() },
             )
         }
     }

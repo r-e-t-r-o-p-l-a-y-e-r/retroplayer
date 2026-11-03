@@ -81,6 +81,7 @@ import app.retroplayer.ui.components.Swipe
 import app.retroplayer.ui.components.SwipeActions
 import app.retroplayer.ui.components.addedToQueue
 import app.retroplayer.ui.player.PlayerToggleAction
+import app.retroplayer.ui.queue.QueueNavAction
 import app.retroplayer.ui.theme.LocalRetroPalette
 import app.retroplayer.ui.theme.RetroPalette
 import kotlinx.coroutines.launch
@@ -92,6 +93,7 @@ data class FolderNavigation(
     val openFolder: (LibraryPath) -> Unit,
     val openCrumb: (Crumb) -> Unit,
     val openAlbum: (AudioAlbum) -> Unit,
+    val openQueue: () -> Unit = {},
 )
 
 /** Everything a library page can ask its view model to do. */
@@ -169,7 +171,13 @@ fun FolderContent(
     Scaffold(
         topBar = {
             Column {
-                RetroTopBar(stringResource(R.string.library), actions = { PlayerToggleAction() })
+                RetroTopBar(
+                    stringResource(R.string.library),
+                    actions = {
+                        QueueNavAction(navigation.openQueue)
+                        PlayerToggleAction()
+                    },
+                )
                 BreadcrumbStrip((state as? FolderUiState.Folder)?.crumbs ?: LIBRARY_CRUMBS, navigation.openCrumb)
             }
         },
