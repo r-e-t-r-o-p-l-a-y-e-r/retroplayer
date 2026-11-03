@@ -60,6 +60,8 @@ import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.CustomAccessibilityAction
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -124,7 +126,14 @@ fun FolderScreen(viewModel: FolderViewModel, navigation: FolderNavigation, playi
     val picker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocumentTree()) { uri ->
         if (uri != null) {
             viewModel.addRoot(uri.toString()) { root ->
-                if (root != null) navigation.openFolder(root) else scope.launch { snackbar.showSnackbar(accessDenied) }
+                if (root != null) {
+                    scope.launch {
+                        kotlinx.coroutines.delay(300)
+                        navigation.openFolder(root)
+                    }
+                } else {
+                    scope.launch { snackbar.showSnackbar(accessDenied) }
+                }
             }
         }
     }
@@ -216,10 +225,12 @@ fun FolderContent(
         floatingActionButton = {
             if (isRoot) {
                 val palette = LocalRetroPalette.current
+                val addFolderLabel = stringResource(R.string.add_folder)
                 ExtendedFloatingActionButton(
                     onClick = actions.addFolder,
+                    modifier = Modifier.semantics { contentDescription = addFolderLabel },
                     icon = { Icon(Icons.Outlined.FolderOpen, contentDescription = null) },
-                    text = { Text(stringResource(R.string.add_folder)) },
+                    text = { Text(addFolderLabel) },
                     containerColor = palette.accent,
                     contentColor = if (palette == RetroPalette.Dark) palette.textPrimary else Color.White,
                     shape = RoundedCornerShape(24.dp),
@@ -402,6 +413,7 @@ private fun RootList(
                         trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(root.path) } },
                         playing = root.path.holds(playingTrackId),
                         onClick = { roots.click(key) { navigation.openFolder(root.path) } },
+                        contentDescription = root.name,
                     )
                 }
             }
@@ -543,6 +555,7 @@ private fun LazyListScope.folderSection(
                 trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(path) } },
                 playing = path.holds(playingTrackId),
                 onClick = { navigation.openFolder(path) },
+                contentDescription = path.name,
             )
         }
     }
@@ -574,6 +587,7 @@ private fun LazyListScope.playlistSection(playlists: List<PlaylistRef>, navigati
                 leading = { IconChip(Icons.AutoMirrored.Filled.PlaylistPlay) },
                 trailing = { PlayButton(stringResource(R.string.play_playlist)) { actions.play(item) } },
                 onClick = { navigation.openPlaylist(playlist.path) },
+                contentDescription = playlist.displayName,
             )
         }
     }
@@ -624,5 +638,6 @@ private fun TrackRow(item: LibraryItem.Track, playingTrackId: String?, actions: 
         leading = { IconChip(Icons.Outlined.MusicNote, highlight = playing) },
         playing = playing,
         onClick = { actions.play(item) },
+        contentDescription = track.displayTitle,
     )
 }

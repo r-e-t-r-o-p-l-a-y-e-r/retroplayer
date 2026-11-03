@@ -121,11 +121,15 @@ private fun LibraryNavHost(
 ) {
     lateinit var nav: NavController
     val folderNavigation = FolderNavigation(
-        openFolder = {
+        openFolder = { path ->
             onUserBrowsing()
-            nav.navigate(FolderRoute(it.value)) {
+            val dest = FolderRoute(path.value)
+            nav.navigate(dest) {
                 launchSingleTop = true
                 restoreState = true
+                if (path.value == path.rootId) {
+                    popUpTo(FolderRoute()) { saveState = true }
+                }
             }
         },
         openCrumb = {

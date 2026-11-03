@@ -84,7 +84,8 @@ Agent sandbox notes (Cursor):
 4. Run the whole module's tests. All green.
 5. Refactor if needed, rerun module tests.
 6. Next behaviour. At the end of the task: `./gradlew check` (with `["all"]`),
-   then commit (see "Commits").
+   then `scripts/emulator-smoke.sh` (booted emulator; see below), then commit
+   (see "Commits") — only if both are green.
 
 Never weaken or delete an existing test to get green. If an existing test
 breaks, your change is wrong or the test documents a rule you must keep.
@@ -271,34 +272,65 @@ Screen layouts (match the screenshots):
 
 Branch `feat/native-android`. One commit per finished task (or per green
 step for large tasks), message: first line `<area>: <what>` under 72 chars,
-body lists the tests added. Always run `./gradlew check` before committing.
-Update the task status in PLAN.md in the same commit.
+body lists the tests added.
 
-## Manual smoke test on the emulator
+**Do not commit until both pass:**
 
-Use this after each UI task (the plan says when).
+1. `./gradlew check` (Gradle tests, lint, privacy; use `required_permissions:
+   ["all"]` in the agent sandbox).
+2. `scripts/emulator-smoke.sh` on a booted emulator or device (see below).
+
+If either fails, fix the issue and re-run both before committing. Update the
+task status in PLAN.md in the same commit.
+
+## After each completed PLAN todo
+
+1. `./gradlew check`
+2. `scripts/emulator-smoke.sh`
+3. Commit (only when 1 and 2 succeeded)
+
+Tasks that touch only `:domain` with no UI change still need `./gradlew check`;
+run smoke when the task’s “Done when” mentions smoke or when UI/playback changed.
+
+## Emulator smoke test
+
+Automated script (preferred after every UI-related todo):
 
 ```bash
 # boot (headless; only -gpu host works on this machine)
 $ANDROID_HOME/emulator/emulator -avd routePlannerApi34 -no-window -no-audio \
-  -no-boot-anim -no-snapshot-save -gpu host &    # start detached with setsid nohup
-adb shell getprop sys.boot_completed             # wait until it prints 1
-./gradlew :app:assembleDebug && adb install -r app/build/outputs/apk/debug/app-debug.apk
-adb shell am start -W -n app.retroplayer/.MainActivity
-scripts/ui.sh shot /tmp/s.png                    # then read the PNG
-scripts/ui.sh tap "use this folder"              # tap by text (system dialogs)
-scripts/ui.sh tapxy 540 1200                     # tap by device pixels
-adb logcat -d -b crash                           # must be empty
+  -no-boot-anim -no-snapshot-save -gpu host &
+adb shell getprop sys.boot_completed   # wait until it prints 1
+
+cd android-native
+scripts/emulator-smoke.sh              # push fixtures, build, install, run flows
+```
+
+`scripts/emulator-smoke.sh` covers: library root + playback session, queue,
+**T07** (save/delete playlist `SmokeTrip`), **T09** (LongList index bar +
+scroll restore), **T10** (settings subpages, mini-only player, German locale),
+and an empty `adb logcat -b crash`. Fixtures:
+`scripts/push-smoke-fixtures.sh` (wraps repo `scripts/push-sample-audio-to-emulator.sh`
++ `LongList/` for the index bar).
+
+Useful flags: `SMOKE_FRESH=1` (`pm clear` before run), `SKIP_FIXTURES=1`,
+`SKIP_BUILD=1`, `ANDROID_SERIAL=emulator-5554`.
+
+Manual debugging helpers:
+
+```bash
+scripts/ui.sh dump
+scripts/ui.sh tap "use this folder"
+scripts/ui.sh tapxy 540 1200
+scripts/ui.sh shot /tmp/s.png
 adb shell dumpsys media_session | grep -A6 app.retroplayer
 ```
 
 - Screenshots you read are downscaled: device pixels = image pixels x 1080 /
   image width (about x2.34 for a 461 px wide image).
-- uiautomator does not see most text in our Compose screens, so `tap` works
-  for system UI (picker, permission dialogs) and `tapxy` for app screens.
-- Test audio: `ffmpeg -f lavfi -i "sine=frequency=440:duration=20" -metadata
-  title=... -metadata track=1 ... file.mp3`, then
-  `adb push <dir> /sdcard/Music/`.
+- uiautomator does not see most Compose text; the smoke script uses
+  `content-desc` where available and `tapxy` fallbacks on a ~1080×2400 layout.
+- Playlist reorder in T07 is not automated (long-press drag); verify manually if needed.
 
 ## Known pitfalls (already hit once; do not repeat)
 
