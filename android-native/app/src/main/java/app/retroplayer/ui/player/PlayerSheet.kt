@@ -2,6 +2,16 @@ package app.retroplayer.ui.player
 
 import app.retroplayer.ui.settings.SettingsNavAction
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.unit.Constraints
+import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.runtime.rememberUpdatedState
@@ -69,9 +79,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
@@ -102,6 +110,7 @@ import app.retroplayer.ui.theme.LocalRetroPalette
 import kotlin.coroutines.cancellation.CancellationException
 
 const val MINI_PLAYER_TAG = "miniPlayer"
+const val SHEET_HANDLE_TAG = "playerSheetHandle"
 const val EXPANDED_PLAYER_TAG = "expandedPlayer"
 const val EXPANDED_ART_TAG = "expandedPlayerArt"
 const val SPEED_SLIDER_TAG = "speedSlider"
@@ -136,9 +145,13 @@ fun PlayerToggleAction() {
 }
 
 /**
- * The app's content with the mini player docked below it and the expanded
- * player on top (UC-12). Must wrap the NavHost: its back handler is composed
- * after the content so it wins while the player is expanded (UC-14).
+ * The app's content with the player sheet over it (UC-12): collapsed it is the mini player at
+ * the bottom; dragged up by its handle it grows into the expanded player below the current
+ * page's header. Must wrap the NavHost: its back handler is composed after the content so it
+ * wins while the player is expanded (UC-14).
+ *
+ * [currentPage] is the back stack entry on top; pages report their header through
+ * [rememberPlayerSheetAnchor] and [ShareHeaderWithPlayer].
  */
 @Composable
 fun PlayerHost(
@@ -146,60 +159,129 @@ fun PlayerHost(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     actions: PlayerActions,
-    allowExpansion: Boolean = true,
+    showPlayer: Boolean = true,
+    currentPage: Any? = null,
     content: @Composable () -> Unit,
 ) {
-    val showExpanded = expanded && state.visible && allowExpansion
-    var backProgress by remember { mutableFloatStateOf(0f) }
-    LaunchedEffect(showExpanded) { if (showExpanded) backProgress = 0f }
-
-    val expand = if (state.visible && !showExpanded && allowExpansion) ({ onExpandedChange(true) }) else null
-    CompositionLocalProvider(LocalPlayerExpanded provides showExpanded, LocalExpandPlayer provides expand) {
-        BoxWithConstraints(Modifier.fillMaxSize()) {
-            val travel = constraints.maxHeight.toFloat().coerceAtLeast(1f)
-            val sheet = rememberSheetPosition(showExpanded, travel, onExpandedChange)
-            Column(Modifier.fillMaxSize().then(if (showExpanded) Modifier.clearAndSetSemantics {} else Modifier)) {
-                val contentInsets = if (state.visible) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier
-                Box(Modifier.weight(1f).then(contentInsets)) { content() }
-                if (state.visible) {
-                    MiniPlayer(
-                        state,
-                        actions,
-                        onExpand = if (allowExpansion) ({ onExpandedChange(true) }) else ({}),
-                        drag = if (allowExpansion) sheet.drag else Modifier,
-                    )
-                }
-            }
-            PredictiveBackHandler(enabled = showExpanded) { events ->
-                try {
-                    events.collect { backProgress = it.progress }
-                    onExpandedChange(false)
-                } catch (cancelled: CancellationException) {
-                    backProgress = 0f
-                    throw cancelled
-                }
-            }
-            if (state.visible && (showExpanded || sheet.fraction > 0f)) {
-                ExpandedPlayer(
-                    state = state,
-                    actions = actions,
-                    onCollapse = { onExpandedChange(false) },
-                    drag = sheet.drag,
-                    modifier = Modifier.graphicsLayer {
-                        val scale = 1f - backProgress * 0.1f
-                        scaleX = scale
-                        scaleY = scale
-                        translationY = (1f - sheet.fraction) * travel + backProgress * 48.dp.toPx()
-                    },
-                )
+    val visible = state.visible && showPlayer
+    val showExpanded = expanded && visible
+    val anchors = remember { PlayerSheetAnchors() }
+    val sheet = rememberSheetPosition(showExpanded, onExpandedChange)
+    val collapse = { onExpandedChange(false) }
+    val expand = if (visible && !showExpanded) ({ onExpandedChange(true) }) else null
+    val statusBarTop = WindowInsets.statusBars.getTop(LocalDensity.current)
+    val miniHeight = remember { IntArray(1) }
+    val miniActive by remember { derivedStateOf { sheet.fraction <= MINI_FADED } }
+    val bodyShown by remember { derivedStateOf { sheet.fraction > BODY_APPEARS || sheet.dragging } }
+    val bodyActive by remember { derivedStateOf { sheet.fraction >= BODY_ACTIVE } }
+    val headerShared by remember(currentPage) { derivedStateOf { anchors.sharesHeader(currentPage) } }
+    val headerShown by remember { derivedStateOf { sheet.fraction >= 0.5f } }
+    CompositionLocalProvider(
+        LocalPlayerExpanded provides showExpanded,
+        LocalExpandPlayer provides expand,
+        LocalPlayerSheetAnchors provides anchors,
+    ) {
+        Layout(
+            contents = listOf(
+                {
+                    Box(
+                        Modifier
+                            .then(if (visible) Modifier.consumeWindowInsets(WindowInsets.navigationBars) else Modifier)
+                            .then(if (showExpanded) Modifier.clearAndSetSemantics {} else Modifier),
+                    ) { content() }
+                },
+                { if (visible) SheetBackground() },
+                {
+                    if (visible) {
+                        MiniBody(
+                            state,
+                            actions,
+                            onExpand = { onExpandedChange(true) },
+                            modifier = Modifier
+                                .graphicsLayer { alpha = (1f - sheet.fraction / MINI_FADED).coerceIn(0f, 1f) }
+                                .then(if (miniActive) Modifier else Modifier.clearAndSetSemantics {}),
+                        )
+                    }
+                },
+                {
+                    if (visible && bodyShown) {
+                        ExpandedBody(
+                            state,
+                            actions,
+                            drag = sheet.drag,
+                            modifier = Modifier
+                                .graphicsLayer { alpha = ((sheet.fraction - MINI_FADED) / (1f - MINI_FADED)).coerceIn(0f, 1f) }
+                                .then(if (bodyActive) Modifier else Modifier.clearAndSetSemantics {}),
+                        )
+                    }
+                },
+                { if (visible) SheetHandle(showExpanded, sheet.drag, onToggle = { onExpandedChange(!showExpanded) }) },
+                {
+                    if (visible && headerShared) {
+                        CompositionLocalProvider(LocalPlayerSheetAnchors provides null) {
+                            NowPlayingHeader(
+                                state,
+                                actions,
+                                collapse,
+                                if (headerShown) Modifier else Modifier.clearAndSetSemantics {},
+                            )
+                        }
+                    }
+                },
+            ),
+        ) { parts, constraints ->
+            val (contentPart, backgroundPart, miniPart, bodyPart, handlePart) = parts
+            val headerPart = parts[5]
+            val width = constraints.maxWidth
+            val height = constraints.maxHeight
+            val handle = handlePart.firstOrNull()?.measure(Constraints.fixedWidth(width))
+            val mini = miniPart.firstOrNull()?.measure(Constraints(minWidth = width, maxWidth = width))
+            if (mini != null) miniHeight[0] = mini.height
+            val collapsedHeight = if (visible) (handle?.height ?: 0) + miniHeight[0] else 0
+            val pageTop = maxOf(anchors.headerBottom(currentPage), statusBarTop).coerceIn(0, height)
+            // The Now Playing header can wrap taller than the page header it replaces.
+            val header = headerPart.firstOrNull()?.measure(Constraints(width, width, pageTop, height))
+            val top = maxOf(pageTop, header?.height ?: 0)
+            val travel = (height - top - collapsedHeight).coerceAtLeast(1)
+            sheet.travel = travel.toFloat()
+            val sheetHeight = collapsedHeight + (sheet.fraction * travel).roundToInt()
+            val sheetTop = height - sheetHeight
+            val handleHeight = handle?.height ?: 0
+            val page = contentPart.first().measure(Constraints.fixed(width, (height - collapsedHeight).coerceAtLeast(0)))
+            val background = backgroundPart.firstOrNull()?.measure(Constraints.fixed(width, sheetHeight))
+            val body = bodyPart.firstOrNull()?.measure(Constraints.fixed(width, (height - top - handleHeight).coerceAtLeast(0)))
+            layout(width, height) {
+                page.place(0, 0)
+                background?.place(0, sheetTop)
+                mini?.place(0, sheetTop + handleHeight)
+                body?.place(0, sheetTop + handleHeight)
+                handle?.place(0, sheetTop)
+                // Measured even while hidden so the sheet top stays put when it appears.
+                if (sheet.fraction >= 0.5f) header?.place(0, 0)
             }
         }
+        if (visible) SheetBackHandler(sheet, showExpanded, onExpandedChange)
     }
 }
 
-/** How far the expanded player is pulled up (0 = mini, 1 = expanded) and the drag that moves it. */
-private class SheetPosition(val drag: Modifier, private val position: Animatable<Float, *>) {
+/** How far the sheet is pulled up (0 = mini, 1 = expanded) and the drag that moves it. */
+private class SheetPosition(
+    val drag: Modifier,
+    val position: Animatable<Float, *>,
+    private val travelPx: FloatArray,
+    private val draggingState: State<Boolean>,
+) {
     val fraction: Float get() = position.value
+
+    /** True while a finger moves the sheet; the part being dragged must stay composed. */
+    val dragging: Boolean get() = draggingState.value
+
+    /** Pixels between the collapsed and the expanded sheet top; set by the layout. */
+    var travel: Float
+        get() = travelPx[0]
+        set(value) {
+            travelPx[0] = value
+        }
 }
 
 /**
@@ -207,20 +289,24 @@ private class SheetPosition(val drag: Modifier, private val position: Animatable
  * else to the nearer one, and reports it through [onExpandedChange].
  */
 @Composable
-private fun rememberSheetPosition(expanded: Boolean, travel: Float, onExpandedChange: (Boolean) -> Unit): SheetPosition {
+private fun rememberSheetPosition(expanded: Boolean, onExpandedChange: (Boolean) -> Unit): SheetPosition {
     val position = remember { Animatable(if (expanded) 1f else 0f) }
+    val travel = remember { floatArrayOf(1f) }
+    val dragging = remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
     val flingPx = with(LocalDensity.current) { FLING_VELOCITY.toPx() }
     val currentExpanded by rememberUpdatedState(expanded)
     val report by rememberUpdatedState(onExpandedChange)
     LaunchedEffect(expanded) { position.animateTo(if (expanded) 1f else 0f, SHEET_SPRING) }
     val dragState = rememberDraggableState { delta ->
-        scope.launch { position.snapTo((position.value - delta / travel).coerceIn(0f, 1f)) }
+        scope.launch { position.snapTo((position.value - delta / travel[0]).coerceIn(0f, 1f)) }
     }
     val drag = Modifier.draggable(
         state = dragState,
         orientation = Orientation.Vertical,
+        onDragStarted = { dragging.value = true },
         onDragStopped = { velocity ->
+            dragging.value = false
             val target = when {
                 velocity < -flingPx -> true
                 velocity > flingPx -> false
@@ -229,7 +315,46 @@ private fun rememberSheetPosition(expanded: Boolean, travel: Float, onExpandedCh
             if (target != currentExpanded) report(target) else scope.launch { position.animateTo(if (target) 1f else 0f, SHEET_SPRING) }
         },
     )
-    return SheetPosition(drag, position)
+    return remember(drag) { SheetPosition(drag, position, travel, dragging) }
+}
+
+/** Back pulls the expanded sheet down with the finger; letting go finishes the collapse, cancelling springs it back. */
+@Composable
+private fun SheetBackHandler(sheet: SheetPosition, expanded: Boolean, onExpandedChange: (Boolean) -> Unit) {
+    val scope = rememberCoroutineScope()
+    PredictiveBackHandler(enabled = expanded) { events ->
+        try {
+            events.collect { sheet.position.snapTo(1f - it.progress) }
+            onExpandedChange(false)
+        } catch (cancelled: CancellationException) {
+            scope.launch { sheet.position.animateTo(1f, SHEET_SPRING) }
+            throw cancelled
+        }
+    }
+}
+
+@Composable
+private fun SheetBackground() {
+    val palette = LocalRetroPalette.current
+    Surface(color = palette.screenElevated, shadowElevation = 8.dp, modifier = Modifier.fillMaxSize()) {
+        Box(Modifier.fillMaxSize()) { HorizontalDivider(color = palette.divider) }
+    }
+}
+
+/** The grip on top of the sheet: drag it to pull the player up or down, tap it to toggle. */
+@Composable
+private fun SheetHandle(expanded: Boolean, drag: Modifier, onToggle: () -> Unit) {
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .height(HANDLE_HEIGHT)
+            .testTag(SHEET_HANDLE_TAG)
+            .clickable(onClickLabel = stringResource(if (expanded) R.string.show_library else R.string.expand_player), onClick = onToggle)
+            .then(drag),
+        contentAlignment = Alignment.Center,
+    ) {
+        DragHandle()
+    }
 }
 
 @Composable
@@ -284,83 +409,87 @@ private fun Transport(now: NowPlaying, actions: PlayerActions, skipSize: Dp, pla
 }
 
 @Composable
-private fun MiniPlayer(state: PlayerUiState, actions: PlayerActions, onExpand: () -> Unit, drag: Modifier) {
+private fun MiniBody(state: PlayerUiState, actions: PlayerActions, onExpand: () -> Unit, modifier: Modifier = Modifier) {
     val now = state.nowPlaying
-    val palette = LocalRetroPalette.current
     val locateLabel = stringResource(R.string.show_library)
     val expandLabel = stringResource(R.string.expand_player)
-    Surface(
-        color = palette.screenElevated,
-        shadowElevation = 8.dp,
-        modifier = Modifier
-            .fillMaxWidth()
+    Column(
+        Modifier
             .testTag(MINI_PLAYER_TAG)
-            .clickable(onClickLabel = expandLabel, onClick = onExpand)
-            .then(drag),
+            .then(modifier)
+            .fillMaxWidth()
+            .clickable(interactionSource = null, indication = null, onClickLabel = expandLabel, onClick = onExpand)
+            .windowInsetsPadding(WindowInsets.navigationBars)
+            .padding(horizontal = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Column(
-            Modifier.windowInsetsPadding(WindowInsets.navigationBars).padding(horizontal = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            HorizontalDivider(color = palette.divider)
-            DragHandle()
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                AlbumArt(state.artModel, size = 40.dp)
-                Titles(
-                    now,
-                    titleStyle = MaterialTheme.typography.titleMedium.copy(fontSize = 15.sp),
-                    subtitleStyle = MaterialTheme.typography.bodyMedium.copy(fontSize = 13.sp),
-                    align = TextAlign.Start,
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(start = 12.dp)
-                        .clickable(onClickLabel = locateLabel, onClick = actions.locate),
-                )
-            }
-            PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo, compact = true)
-            Transport(now, actions, skipSize = 28.dp, playSize = 36.dp)
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            AlbumArt(state.artModel, size = 40.dp)
+            Titles(
+                now,
+                titleStyle = MaterialTheme.typography.titleMedium.copy(fontSize = 15.sp),
+                subtitleStyle = MaterialTheme.typography.bodyMedium.copy(fontSize = 13.sp),
+                align = TextAlign.Start,
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 12.dp)
+                    .clickable(onClickLabel = locateLabel, onClick = actions.locate),
+            )
+        }
+        PlaybackProgress(now.positionMs, now.durationMs, actions.seekTo, compact = true)
+        Transport(now, actions, skipSize = 28.dp, playSize = 36.dp)
+    }
+}
+
+/** The library header while the player is open: Now Playing with the playing item's breadcrumbs. */
+@Composable
+private fun NowPlayingHeader(state: PlayerUiState, actions: PlayerActions, onCollapse: () -> Unit, modifier: Modifier) {
+    Surface(color = LocalRetroPalette.current.screen, modifier = modifier.fillMaxWidth()) {
+        Column(Modifier.windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top + WindowInsetsSides.Horizontal))) {
+            RetroTopBar(
+                stringResource(R.string.now_playing),
+                navigationIcon = { BackButton(onCollapse, contentDescription = stringResource(R.string.library)) },
+                actions = {
+                    IconButton(onClick = onCollapse) {
+                        Icon(Icons.Filled.KeyboardArrowDown, contentDescription = stringResource(R.string.show_library))
+                    }
+                    SettingsNavAction(actions.openSettings)
+                },
+            )
+            if (state.crumbs.isNotEmpty()) BreadcrumbStrip(state.crumbs, actions.playbackCrumb)
         }
     }
 }
 
 @Composable
-private fun ExpandedPlayer(state: PlayerUiState, actions: PlayerActions, onCollapse: () -> Unit, drag: Modifier, modifier: Modifier = Modifier) {
+private fun ExpandedBody(state: PlayerUiState, actions: PlayerActions, drag: Modifier, modifier: Modifier = Modifier) {
     val now = state.nowPlaying
-    Surface(color = LocalRetroPalette.current.screenElevated, modifier = modifier.fillMaxSize().testTag(EXPANDED_PLAYER_TAG)) {
-        Column(Modifier.windowInsetsPadding(WindowInsets.safeDrawing)) {
-            RetroTopBar(
-                stringResource(R.string.now_playing),
-                navigationIcon = { BackButton(onCollapse, contentDescription = stringResource(R.string.library)) },
-                actions = { SettingsNavAction(actions.openSettings) },
-            )
-            if (state.crumbs.isNotEmpty()) BreadcrumbStrip(state.crumbs, actions.playbackCrumb)
-            BoxWithConstraints(
-                Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .then(drag),
-            ) {
-                if (maxWidth > maxHeight) {
-                    Row(Modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                        ArtWithJumps(state, actions, Modifier.weight(1f).fillMaxHeight())
-                        Spacer(Modifier.width(24.dp))
-                        Column(
-                            Modifier.weight(1f).verticalScroll(rememberScrollState()),
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                        ) {
-                            Controls(now, actions)
-                        }
-                    }
-                } else {
-                    Column(Modifier.fillMaxSize().padding(horizontal = 24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                        DragHandle()
-                        Spacer(Modifier.weight(1f))
-                        ArtWithJumps(state, actions, Modifier.weight(4f, fill = false).fillMaxWidth())
-                        Spacer(Modifier.height(16.dp))
-                        Controls(now, actions)
-                        Spacer(Modifier.weight(1.4f))
-                    }
+    BoxWithConstraints(
+        Modifier
+            .testTag(EXPANDED_PLAYER_TAG)
+            .then(modifier)
+            .fillMaxSize()
+            .then(drag)
+            .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Bottom + WindowInsetsSides.Horizontal)),
+    ) {
+        if (maxWidth > maxHeight) {
+            Row(Modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+                ArtWithJumps(state, actions, Modifier.weight(1f).fillMaxHeight())
+                Spacer(Modifier.width(24.dp))
+                Column(
+                    Modifier.weight(1f).verticalScroll(rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Controls(now, actions)
                 }
+            }
+        } else {
+            Column(Modifier.fillMaxSize().padding(horizontal = 24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                Spacer(Modifier.weight(1f))
+                ArtWithJumps(state, actions, Modifier.weight(4f, fill = false).fillMaxWidth())
+                Spacer(Modifier.height(16.dp))
+                Controls(now, actions)
+                Spacer(Modifier.weight(1.4f))
             }
         }
     }
@@ -509,3 +638,10 @@ private fun SpeedRow(speed: Float, onSpeed: (Float) -> Unit) {
 private val FLING_VELOCITY = 400.dp
 
 private val SHEET_SPRING = spring<Float>(stiffness = Spring.StiffnessMediumLow)
+
+private val HANDLE_HEIGHT = 20.dp
+
+/** Sheet fractions where the mini player has faded out and the expanded player appears and takes touches. */
+private const val MINI_FADED = 0.25f
+private const val BODY_APPEARS = 0.2f
+private const val BODY_ACTIVE = 0.75f

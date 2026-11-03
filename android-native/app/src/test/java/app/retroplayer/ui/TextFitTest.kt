@@ -1,5 +1,9 @@
 package app.retroplayer.ui
 
+import app.retroplayer.ui.queue.SavePlaylistActions
+import app.retroplayer.ui.queue.SaveFolderChoice
+import app.retroplayer.ui.queue.SavePlaylistUiState
+import app.retroplayer.ui.queue.SavePlaylistContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -49,6 +53,7 @@ import app.retroplayer.ui.library.FolderRow
 import app.retroplayer.ui.library.FolderUiState
 import app.retroplayer.ui.player.PlayerActions
 import app.retroplayer.ui.player.PlayerHost
+import app.retroplayer.ui.player.LibraryHeader
 import app.retroplayer.ui.player.PlayerUiState
 import app.retroplayer.ui.queue.QueueActions
 import app.retroplayer.ui.queue.QueueContent
@@ -96,9 +101,14 @@ class TextFitTest(private val screen: Screen, private val locale: String) {
         FOLDER({ FolderContent(folder, false, null, NAVIGATION, FolderActions()) }),
         ALBUM({ AlbumContent(album, null, null, null, null, AlbumActions()) }),
         ALBUM_MISSING_TAGS({ AlbumContent(album, 2, null, null, null, AlbumActions()) }),
-        QUEUE({ QueueContent(queue, QueueActions(), canSaveAsPlaylist = true) }),
+        QUEUE({ QueueContent(queue, QueueActions()) }),
         QUEUE_CLEAR({ QueueContent(queue.copy(confirmClear = true), QueueActions()) }),
-        QUEUE_SAVE({ QueueContent(queue.copy(showSaveDialog = true), QueueActions(), canSaveAsPlaylist = true) }),
+        SAVE_PLAYLIST_SOURCES({
+            SavePlaylistContent(SavePlaylistUiState(null, null, listOf(SaveFolderChoice(LibraryPath("1"), "Music")), loading = false), SavePlaylistActions())
+        }),
+        SAVE_PLAYLIST_FOLDER({
+            SavePlaylistContent(SavePlaylistUiState(LibraryPath("1/Mix"), "Mix", listOf(SaveFolderChoice(LibraryPath("1/Mix/Road"), "Road")), loading = false), SavePlaylistActions())
+        }),
         PLAYLIST({ PlaylistContent(playlist, PlaylistActions()) }),
         PLAYLIST_READ_ONLY({ PlaylistContent(playlist.copy(editable = false), PlaylistActions()) }),
         PLAYLIST_SELECT({ PlaylistContent(playlist.copy(selectMode = true, selectedIndices = setOf(0)), PlaylistActions()) }),
@@ -125,8 +135,8 @@ class TextFitTest(private val screen: Screen, private val locale: String) {
             { SettingsContent(SettingsUiState(languages = languages), SettingsActions()) },
             { compose -> compose.onNodeWithTag(LANGUAGE_DROPDOWN_TAG).performClick() },
         ),
-        PLAYER({ PlayerHost(playing, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) {} }),
-        PLAYER_LANDSCAPE({ PlayerHost(playing, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) {} }, size = "w800dp-h360dp"),
+        PLAYER({ PlayerHost(playing, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) { LibraryHeader() } }),
+        PLAYER_LANDSCAPE({ PlayerHost(playing, expanded = true, onExpandedChange = {}, PLAYER_ACTIONS) { LibraryHeader() } }, size = "w800dp-h360dp"),
         MINI_PLAYER({ PlayerHost(playing, expanded = false, onExpandedChange = {}, PLAYER_ACTIONS) {} }),
         ;
 
@@ -184,7 +194,6 @@ class TextFitTest(private val screen: Screen, private val locale: String) {
             tracks.map { QueueEntry(it.path, it) } + QueueEntry(LibraryPath("1/gone.mp3"), null),
             playingTrackId = tracks[0].id,
             confirmClear = false,
-            showSaveDialog = false,
         )
         private fun string(id: Int, vararg args: Any) = ApplicationProvider.getApplicationContext<Context>().getString(id, *args)
 

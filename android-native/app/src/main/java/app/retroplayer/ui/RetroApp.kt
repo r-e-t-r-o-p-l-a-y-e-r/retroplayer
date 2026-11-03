@@ -38,6 +38,8 @@ import app.retroplayer.ui.navigation.RetroNavHost
 import app.retroplayer.ui.navigation.SettingsDataRoute
 import app.retroplayer.ui.navigation.SettingsLicensesRoute
 import app.retroplayer.ui.navigation.SettingsRoute
+import app.retroplayer.ui.navigation.SavePlaylistRoute
+import app.retroplayer.ui.queue.SavePlaylistScreen
 import app.retroplayer.ui.navigation.isSettings
 import app.retroplayer.ui.settings.SettingsDataScreen
 import app.retroplayer.ui.settings.SettingsLicensesScreen
@@ -67,6 +69,7 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
         }
         var expanded by rememberSaveable { mutableStateOf(false) }
         var settingsOpen by remember { mutableStateOf(false) }
+        var currentPage by remember { mutableStateOf<Any?>(null) }
         val locatedTrackId by appViewModel.locatedTrackId.collectAsStateWithLifecycle()
         val navRef = remember { mutableStateOf<NavController?>(null) }
         // UC-09: starting playback from a library page brings up the player.
@@ -96,7 +99,7 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
         LaunchedEffect(settingsOpen) {
             if (settingsOpen) expanded = false
         }
-        PlayerHost(player, expanded, { expanded = it }, playerActions, allowExpansion = !settingsOpen) {
+        PlayerHost(player, expanded, { expanded = it }, playerActions, showPlayer = !settingsOpen, currentPage = currentPage) {
             LibraryNavHost(
                 routes = routes,
                 nowPlaying = nowPlaying,
@@ -106,6 +109,7 @@ fun RetroApp(appViewModel: AppViewModel = hiltViewModel(), playerViewModel: Play
                 onNavReady = { navRef.value = it },
                 onUserBrowsing = appViewModel::onUserBrowsing,
                 onSettingsOpen = { settingsOpen = it },
+                onPageChange = { currentPage = it },
             )
         }
     }
@@ -121,6 +125,7 @@ private fun LibraryNavHost(
     onNavReady: (NavController) -> Unit,
     onUserBrowsing: () -> Unit,
     onSettingsOpen: (Boolean) -> Unit,
+    onPageChange: (Any?) -> Unit,
 ) {
     lateinit var nav: NavController
     val folderNavigation = FolderNavigation(
@@ -166,6 +171,14 @@ private fun LibraryNavHost(
                 viewModel = hiltViewModel(),
                 back = { nav.popBackStack() },
                 onAddTracks = { nav.navigate(AddTracksRoute()) },
+                onSaveAsPlaylist = { nav.navigate(SavePlaylistRoute) },
+            )
+        }
+        composable<SavePlaylistRoute> {
+            SavePlaylistScreen(
+                viewModel = hiltViewModel(),
+                close = { nav.popBackStack() },
+                onSaved = { nav.popBackStack() },
             )
         }
         composable<PlaylistRoute> {
@@ -204,6 +217,7 @@ private fun LibraryNavHost(
     val backStackEntry by nav.currentBackStackEntryAsState()
     LaunchedEffect(backStackEntry) {
         onSettingsOpen(backStackEntry?.destination?.isSettings() == true)
+        onPageChange(backStackEntry)
     }
     LaunchedEffect(nav) {
         onNavReady(nav)

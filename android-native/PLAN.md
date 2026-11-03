@@ -52,6 +52,7 @@ screenshot comparison described there.
 | T13 | Keyboard shortcuts | any | dropped |
 | T14 | Text-fit guards and pseudo-locales | any | done |
 | T14b | Device feedback round 1 (settings like Flutter, player gestures) | any | done |
+| T14c | Device feedback round 2 (sheet below the header, save anywhere, queue icons) | any | done |
 | T15 | M4B chapter reader | opus | done (reader; cache in T16) |
 | T16 | Chapters in player, notification and seek bar | any | todo |
 | T17 | Headset options UI + resume on reconnect | any | todo |
@@ -723,10 +724,43 @@ available, simply continue top to bottom.
   `RetroSlider` in `Components.kt`; `rememberSheetPosition` drives the sheet
   (`Animatable` fraction, 400 dp/s fling or half way); the expanded bar keeps
   only back and the cog (the collapse chevron duplicated back and squeezed
-  the title); `RetroNavHost` slides in 250 ms. Tests: `EqualizerSectionTest`,
+  the title; T14c brings it back as in the Flutter screenshots); `RetroNavHost` slides in 250 ms. Tests: `EqualizerSectionTest`,
   `SettingsContentTest`, `PlayerSheetTest` drag cases, `RetroNavHostTest`,
   cog tests in `AlbumContentTest` / `ExpandedPlayerTest`, bar order in
   `FolderContentTest`; smoke checks the inline sections and the dropdown.
+
+## T14c Device feedback round 2
+
+- Owner: any. Status: done. Second run on the Pixel 8; checked against
+  `doc/images/tutorial/*.png`.
+- Settings show no player at all (`PlayerHost(showPlayer = false)`).
+- The sheet grows from the mini player up to the bottom of the current
+  page's header (top bar + breadcrumbs), never over it; only the handle
+  drags the collapsed sheet (the expanded body drags too). Pages report their
+  header through `RetroTopBar` / `BreadcrumbStrip`
+  (`rememberPlayerSheetAnchor`, keyed by the back stack entry); library pages
+  call `ShareHeaderWithPlayer()` and past half way their header becomes
+  "Now Playing" with the playback crumbs, back, the collapse chevron and the
+  cog (Flutter `main_shell_view`). Album, playlist and queue keep their own
+  bar. Mini body fades out by 25 %, the expanded body fades in from 25 %.
+- Back pulls the sheet down with the finger (`SheetBackHandler`), cancel
+  springs it back. Pop transitions are linear so the page stays under the
+  finger.
+- Locate from a played folder or the queue opens the album holding the track
+  (`LibraryRepository.albumOf`, `StartupRoutes.locate(albumOfTrack)`).
+- Queue: clear is the sweep icon, save as playlist opens
+  `SavePlaylistScreen` (folder picker from the library sources, as Flutter's
+  `SaveQueuePlaylistPage`); add tracks is a `RetroFab` like Add folder, also
+  in the playlist editor.
+- Bar titles may shrink below the label minimum at large font scales
+  (`MIN_LABEL_SIZE / fontScale`); TextFit tolerates sub-pixel height.
+- Open: no strings exist for "name taken" / "save failed"; the picker stays
+  open without a message. Needs translations (ask first).
+- Tests: `PlayerSheetTest` (header, handle-only drag, settings), `BackChainTest`
+  (back gesture follows / cancels), `SavePlaylistViewModelTest`,
+  `SavePlaylistContentTest`, `QueueContentTest`, `PlaylistContentTest`,
+  `LibraryRepositoryTest.album of a track`, `StartupRoutesTest`,
+  `AppViewModelTest`; smoke saves through the picker.
 
 ## T15 M4B chapter reader
 

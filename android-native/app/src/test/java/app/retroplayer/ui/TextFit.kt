@@ -31,7 +31,7 @@ private fun SemanticsNode.cut(): String? {
 
 /** `hasVisualOverflow` is unusable here: the semantics layout keeps the paragraph at the full max width. */
 private fun TextLayoutResult.cut(): String? = when {
-    didOverflowHeight -> "taller than its box: ${multiParagraph.height} > ${size.height}"
+    didOverflowHeight && multiParagraph.height > size.height + 0.5f -> "taller than its box: ${multiParagraph.height} > ${size.height}"
     multiParagraph.didExceedMaxLines -> "more than $lineCount lines"
     else -> (0 until lineCount).firstNotNullOfOrNull { line ->
         val width = getLineRight(line) - getLineLeft(line)

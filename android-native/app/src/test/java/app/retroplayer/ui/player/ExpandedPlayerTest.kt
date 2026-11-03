@@ -68,7 +68,7 @@ class ExpandedPlayerTest {
 
     private fun show(state: PlayerUiState = playing) = compose.setContent {
         RetroTheme {
-            PlayerHost(state, expanded = true, onExpandedChange = {}, actions) {}
+            PlayerHost(state, expanded = true, onExpandedChange = {}, actions) { LibraryHeader() }
         }
     }
 
@@ -154,10 +154,22 @@ class ExpandedPlayerTest {
     fun `the settings cog opens settings`() {
         compose.setContent {
             RetroTheme {
-                PlayerHost(playing, expanded = true, onExpandedChange = {}, actions.copy(openSettings = { calls += "settings" })) {}
+                PlayerHost(playing, expanded = true, onExpandedChange = {}, actions.copy(openSettings = { calls += "settings" })) {
+                    LibraryHeader()
+                }
             }
         }
         compose.onNodeWithContentDescription(context.getString(R.string.settings)).performClick()
         assertThat(calls).containsExactly("settings")
+    }
+}
+
+/** A library page header (bar and breadcrumbs) that the open player takes over. */
+@androidx.compose.runtime.Composable
+internal fun LibraryHeader() {
+    androidx.compose.foundation.layout.Column {
+        ShareHeaderWithPlayer()
+        app.retroplayer.ui.components.RetroTopBar("Folder page")
+        app.retroplayer.ui.components.BreadcrumbStrip(listOf(app.retroplayer.domain.Crumb("", null, isLibraryRoot = true)), onCrumb = {})
     }
 }

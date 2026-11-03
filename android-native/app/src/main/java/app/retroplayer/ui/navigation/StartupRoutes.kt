@@ -19,14 +19,20 @@ object StartupRoutes {
         return listOf(FolderRoute()) + chain.map { FolderRoute(it.value) }
     }
 
-    /** Back stack to show where [now] is playing (UC-13). */
-    fun locate(now: NowPlaying, rootIds: Set<String>): List<Any> {
+    /**
+     * Back stack to show where [now] is playing (UC-13). [albumOfTrack] is the album holding the
+     * track, for items that are not an album themselves (a played folder, the queue).
+     */
+    fun locate(now: NowPlaying, rootIds: Set<String>, albumOfTrack: String? = null): List<Any> {
         val trackId = now.trackId ?: return listOf(FolderRoute())
         AlbumIds.directoryOf(now.itemId.orEmpty())?.takeIf { it.rootId in rootIds }?.let { dir ->
             return build(dir, now.itemId, rootIds)
         }
         PlaybackItem.playlistPathFromId(now.itemId.orEmpty())?.takeIf { it.rootId in rootIds }?.let { playlist ->
             return folderChain(playlist.parent) + PlaylistRoute(playlist.value)
+        }
+        albumOfTrack?.takeIf { AlbumIds.directoryOf(it)?.rootId in rootIds }?.let { album ->
+            return build(AlbumIds.directoryOf(album), album, rootIds)
         }
         PlaybackItem.folderPathFromId(now.itemId.orEmpty())?.takeIf { it.rootId in rootIds }?.let { folder ->
             return folderChain(folder)

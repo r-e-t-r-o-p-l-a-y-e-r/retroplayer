@@ -1,5 +1,10 @@
 package app.retroplayer.ui.queue
 
+import app.retroplayer.ui.components.RetroFab
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.automirrored.outlined.PlaylistAdd
+import androidx.compose.material.icons.outlined.DeleteSweep
 import app.retroplayer.ui.components.DialogText
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,12 +17,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.MusicNote
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -28,11 +28,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.core.net.toUri
-import app.retroplayer.library.writeAccessIntent
-import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -64,12 +61,10 @@ data class QueueActions(
     val remove: (Int) -> Unit = {},
     val move: (Int, Int) -> Unit = { _, _ -> },
     val addTracks: () -> Unit = {},
+    val saveAsPlaylist: () -> Unit = {},
     val requestClear: () -> Unit = {},
     val confirmClear: () -> Unit = {},
     val dismissClear: () -> Unit = {},
-    val requestSaveAsPlaylist: () -> Unit = {},
-    val dismissSaveAsPlaylist: () -> Unit = {},
-    val confirmSaveAsPlaylist: (String) -> Unit = {},
 )
 
 @Composable
@@ -77,87 +72,49 @@ fun QueueScreen(
     viewModel: QueueViewModel,
     back: () -> Unit,
     onAddTracks: () -> Unit,
+    onSaveAsPlaylist: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    val canSave by viewModel.canSaveAsPlaylist.collectAsStateWithLifecycle()
-    val snackbar = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
-    var pendingSaveName by remember { mutableStateOf<String?>(null) }
-    var pendingWriteRoot by remember { mutableStateOf<String?>(null) }
-    val accessDenied = stringResource(R.string.folder_access_denied)
-    val writeLauncher = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        val rootId = pendingWriteRoot ?: return@rememberLauncherForActivityResult
-        val name = pendingSaveName ?: return@rememberLauncherForActivityResult
-        val uri = result.data?.data?.toString()
-        pendingWriteRoot = null
-        if (uri == null) return@rememberLauncherForActivityResult
-        scope.launch {
-            if (viewModel.grantWrite(rootId, uri)) {
-                viewModel.confirmSaveAsPlaylist(name) { }
-            } else {
-                snackbar.showSnackbar(accessDenied)
-            }
-            pendingSaveName = null
-        }
-    }
     QueueContent(
         state = state,
-        canSaveAsPlaylist = canSave,
-        snackbar = snackbar,
         actions = QueueActions(
             back = back,
             play = viewModel::play,
             remove = viewModel::remove,
             move = viewModel::move,
             addTracks = onAddTracks,
+            saveAsPlaylist = onSaveAsPlaylist,
             requestClear = viewModel::requestClear,
             confirmClear = viewModel::confirmClear,
             dismissClear = viewModel::dismissClear,
-            requestSaveAsPlaylist = viewModel::requestSaveAsPlaylist,
-            dismissSaveAsPlaylist = viewModel::dismissSaveAsPlaylist,
-            confirmSaveAsPlaylist = { name ->
-                viewModel.confirmSaveAsPlaylist(name) { outcome ->
-                    when (outcome) {
-                        is SavePlaylistOutcome.NeedsWrite -> {
-                            pendingSaveName = name
-                            pendingWriteRoot = outcome.rootId
-                            outcome.treeUri?.let { writeLauncher.launch(writeAccessIntent(it)) }
-                                ?: scope.launch { snackbar.showSnackbar(accessDenied) }
-                        }
-                        else -> Unit
-                    }
-                }
-            },
         ),
     )
 }
 
 @Composable
-fun QueueContent(
-    state: QueueUiState,
-    actions: QueueActions,
-    canSaveAsPlaylist: Boolean = false,
-    snackbar: SnackbarHostState = remember { SnackbarHostState() },
-) {
-    var saveName by remember { mutableStateOf("") }
+fun QueueContent(state: QueueUiState, actions: QueueActions) {
+    val hasEntries = (state as? QueueUiState.Ready)?.entries?.isNotEmpty() == true
     Scaffold(
-        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             RetroTopBar(
                 stringResource(R.string.queue),
                 navigationIcon = { BackButton(actions.back) },
-                actions = { PlayerToggleAction() },
-                textActions = {
-                    if (canSaveAsPlaylist) {
-                        TextButton(onClick = actions.requestSaveAsPlaylist) {
-                            Text(stringResource(R.string.save_as_playlist))
+                actions = {
+                    if (hasEntries) {
+                        IconButton(onClick = actions.requestClear) {
+                            Icon(Icons.Outlined.DeleteSweep, contentDescription = stringResource(R.string.clear_queue))
                         }
                     }
-                    TextButton(onClick = actions.addTracks) { Text(stringResource(R.string.add_tracks)) }
-                    TextButton(onClick = actions.requestClear) { Text(stringResource(R.string.clear_queue)) }
+                    PlayerToggleAction()
+                },
+                textActions = if (hasEntries) {
+                    { TextButton(onClick = actions.saveAsPlaylist) { Text(stringResource(R.string.save_as_playlist)) } }
+                } else {
+                    null
                 },
             )
         },
+        floatingActionButton = { RetroFab(stringResource(R.string.add_tracks), Icons.AutoMirrored.Outlined.PlaylistAdd, actions.addTracks) },
     ) { padding ->
         Box(Modifier.padding(padding).fillMaxSize()) {
             when (state) {
@@ -178,32 +135,6 @@ fun QueueContent(
                             },
                             dismissButton = { TextButton(onClick = actions.dismissClear) { Text(stringResource(R.string.cancel)) } },
                             modifier = Modifier.testTag(CLEAR_QUEUE_DIALOG_TAG),
-                        )
-                    }
-                    if (state.showSaveDialog) {
-                        AlertDialog(
-                            onDismissRequest = actions.dismissSaveAsPlaylist,
-                            title = { Text(stringResource(R.string.save_as_playlist)) },
-                            text = {
-                                OutlinedTextField(
-                                    value = saveName,
-                                    onValueChange = { saveName = it },
-                                    label = { Text(stringResource(R.string.new_playlist_name)) },
-                                    singleLine = true,
-                                )
-                            },
-                            confirmButton = {
-                                TextButton(
-                                    onClick = {
-                                        actions.confirmSaveAsPlaylist(saveName)
-                                        saveName = ""
-                                    },
-                                    enabled = saveName.isNotBlank(),
-                                ) { Text(stringResource(R.string.save)) }
-                            },
-                            dismissButton = {
-                                TextButton(onClick = actions.dismissSaveAsPlaylist) { Text(stringResource(R.string.cancel)) }
-                            },
                         )
                     }
                 }

@@ -22,6 +22,10 @@ data class AddTracksRoute(val path: String? = null, val playlistPath: String? = 
 @Serializable
 data class PlaylistRoute(val path: String)
 
+/** Picks the folder the queue is saved into as a playlist. */
+@Serializable
+data object SavePlaylistRoute
+
 @Serializable
 data object SettingsRoute
 

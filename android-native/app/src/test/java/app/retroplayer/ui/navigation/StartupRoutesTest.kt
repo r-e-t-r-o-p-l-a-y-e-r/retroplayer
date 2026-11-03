@@ -63,6 +63,19 @@ class StartupRoutesTest {
     }
 
     @Test
+    fun `locate in a played folder opens the album holding the track`() {
+        val album = AlbumIds.folder(LibraryPath("1/Books/Hobbit"))
+        val now = NowPlaying(itemId = PlaybackItem.folderId(LibraryPath("1/Books")), trackId = "1/Books/Hobbit/01.mp3")
+        assertThat(StartupRoutes.locate(now, roots, albumOfTrack = album)).containsExactly(
+            FolderRoute(),
+            FolderRoute("1"),
+            FolderRoute("1/Books"),
+            FolderRoute("1/Books/Hobbit"),
+            AlbumRoute(album),
+        ).inOrder()
+    }
+
+    @Test
     fun `locate for a loose track opens its folder`() {
         val now = NowPlaying(trackId = "1/Music/demo.mp3")
         assertThat(StartupRoutes.locate(now, roots)).containsExactly(

@@ -1,5 +1,7 @@
 package app.retroplayer.ui.library
 
+import app.retroplayer.ui.components.RetroFab
+import app.retroplayer.ui.player.ShareHeaderWithPlayer
 import app.retroplayer.ui.components.DialogText
 import android.provider.DocumentsContract
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -205,6 +207,7 @@ fun FolderContent(
     Scaffold(
         topBar = {
             Column {
+                ShareHeaderWithPlayer()
                 RetroTopBar(
                     stringResource(R.string.library),
                     actions = {
@@ -217,20 +220,7 @@ fun FolderContent(
             }
         },
         floatingActionButton = {
-            if (isRoot) {
-                val palette = LocalRetroPalette.current
-                val addFolder = stringResource(R.string.add_folder)
-                ExtendedFloatingActionButton(
-                    onClick = actions.addFolder,
-                    // The extended FAB does not expose its text label to accessibility.
-                    modifier = Modifier.semantics { contentDescription = addFolder },
-                    icon = { Icon(Icons.Outlined.FolderOpen, contentDescription = null) },
-                    text = { Text(addFolder) },
-                    containerColor = palette.accent,
-                    contentColor = if (palette == RetroPalette.Dark) palette.textPrimary else Color.White,
-                    shape = RoundedCornerShape(24.dp),
-                )
-            }
+            if (isRoot) RetroFab(stringResource(R.string.add_folder), Icons.Outlined.FolderOpen, actions.addFolder)
         },
         snackbarHost = { SnackbarHost(snackbar) },
     ) { padding ->

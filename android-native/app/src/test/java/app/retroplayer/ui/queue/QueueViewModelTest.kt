@@ -2,10 +2,7 @@ package app.retroplayer.ui.queue
 
 import app.retroplayer.MainDispatcherRule
 import app.retroplayer.TestLibrary
-import app.retroplayer.data.library.SaveResult
-import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.model.PlaybackItem
-import app.retroplayer.domain.model.TrackMetadata
 import app.retroplayer.runVmTest
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.first
@@ -33,7 +30,7 @@ class QueueViewModelTest {
         lib.docs.file("b.mp3")
         lib.docs.file("c.mp3")
         lib.queue.add(listOf(lib.p("a.mp3"), lib.p("b.mp3")))
-        viewModel = QueueViewModel(lib.queue, lib.settings, lib.playback, lib.playlists, lib.store, lib.access)
+        viewModel = QueueViewModel(lib.queue, lib.settings, lib.playback)
     }
 
     @After
@@ -87,28 +84,5 @@ class QueueViewModelTest {
         viewModel.confirmClear()
         val state = viewModel.state.first { it is QueueUiState.Ready && it.entries.isEmpty() } as QueueUiState.Ready
         assertThat(state.entries).isEmpty()
-    }
-
-    @Test
-    fun `save is refused at the library root`() = main.runVmTest {
-        lib.settings.setBrowsePath(null)
-        ready()
-        assertThat(viewModel.saveAsPlaylist("Trip")).isEqualTo(SavePlaylistOutcome.NotInFolder)
-    }
-
-    @Test
-    fun `save writes an app playlist in the open folder`() = main.runVmTest {
-        lib.queue.clear()
-        lib.store.setCanWrite(lib.rootId, true)
-        lib.docs.file("Mix/a.mp3")
-        lib.docs.file("Mix/b.mp3")
-        lib.settings.setBrowsePath(lib.p("Mix"))
-        lib.queue.add(listOf(lib.p("Mix/a.mp3"), lib.p("Mix/b.mp3")))
-        ready()
-        val outcome = viewModel.saveAsPlaylist("Road Trip")
-        assertThat(outcome).isEqualTo(SavePlaylistOutcome.Saved(lib.p("Mix/Road Trip.m3u")))
-        viewModel.state.first { it is QueueUiState.Ready }
-        assertThat(lib.docs.text("Mix/Road Trip.m3u")).isEqualTo("#EXTM3U\na.mp3\nb.mp3\n")
-        assertThat(lib.store.isAppPlaylist(lib.p("Mix/Road Trip.m3u"))).isTrue()
     }
 }

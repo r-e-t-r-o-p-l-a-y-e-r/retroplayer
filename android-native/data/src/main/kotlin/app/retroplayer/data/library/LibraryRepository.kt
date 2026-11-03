@@ -67,6 +67,13 @@ class LibraryRepository(
         return albums[id]
     }
 
+    /** Id of the album [track] is grouped into in its folder; null for a track shown on its own. */
+    suspend fun albumOf(track: LibraryPath): String? {
+        val folder = track.parent ?: return null
+        return folder(folder).last().items.filterIsInstance<LibraryItem.Album>()
+            .firstOrNull { album -> album.album.tracks.any { it.id == track.value } }?.id
+    }
+
     /** Artwork file found in [folder] during its last listing. */
     fun folderArt(folder: LibraryPath): String? = folderArt[folder]
 

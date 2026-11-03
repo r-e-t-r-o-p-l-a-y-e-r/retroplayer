@@ -1,5 +1,7 @@
 package app.retroplayer.ui.player
 
+import androidx.compose.ui.test.getBoundsInRoot
+import androidx.activity.BackEventCompat
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
@@ -197,7 +199,7 @@ class BackChainTest {
     fun `back closes settings before the player`() {
         compose.setContent {
             RetroTheme {
-                PlayerHost(state, expanded = true, { expanded = it }, actions, allowExpansion = false) {
+                PlayerHost(state, expanded = true, { expanded = it }, actions, showPlayer = false) {
                     Text("settings page")
                 }
             }
@@ -205,6 +207,44 @@ class BackChainTest {
         compose.waitForIdle()
         compose.onNodeWithText("settings page").assertIsDisplayed()
         compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertDoesNotExist()
-        compose.onNodeWithTag(MINI_PLAYER_TAG).assertIsDisplayed()
+        compose.onNodeWithTag(MINI_PLAYER_TAG).assertDoesNotExist()
+    }
+
+    @Test
+    fun `a back swipe pulls the player down with the finger`() {
+        expanded = true
+        show()
+        compose.waitForIdle()
+        val open = compose.onNodeWithTag(EXPANDED_PLAYER_TAG).getBoundsInRoot().top
+        val dispatcher = compose.activity.onBackPressedDispatcher
+        compose.runOnUiThread {
+            dispatcher.dispatchOnBackStarted(BackEventCompat(0f, 500f, 0f, BackEventCompat.EDGE_LEFT))
+            dispatcher.dispatchOnBackProgressed(BackEventCompat(200f, 500f, 0.4f, BackEventCompat.EDGE_LEFT))
+        }
+        compose.waitForIdle()
+        assertThat(compose.onNodeWithTag(EXPANDED_PLAYER_TAG).getBoundsInRoot().top).isGreaterThan(open)
+        assertThat(expanded).isTrue()
+
+        compose.runOnUiThread { dispatcher.onBackPressed() }
+        compose.waitForIdle()
+        assertThat(expanded).isFalse()
+        compose.onNodeWithTag(EXPANDED_PLAYER_TAG).assertDoesNotExist()
+    }
+
+    @Test
+    fun `a cancelled back swipe leaves the player open`() {
+        expanded = true
+        show()
+        compose.waitForIdle()
+        val open = compose.onNodeWithTag(EXPANDED_PLAYER_TAG).getBoundsInRoot().top
+        val dispatcher = compose.activity.onBackPressedDispatcher
+        compose.runOnUiThread {
+            dispatcher.dispatchOnBackStarted(BackEventCompat(0f, 500f, 0f, BackEventCompat.EDGE_LEFT))
+            dispatcher.dispatchOnBackProgressed(BackEventCompat(200f, 500f, 0.4f, BackEventCompat.EDGE_LEFT))
+            dispatcher.dispatchOnBackCancelled()
+        }
+        compose.waitForIdle()
+        assertThat(expanded).isTrue()
+        assertThat(compose.onNodeWithTag(EXPANDED_PLAYER_TAG).getBoundsInRoot().top).isEqualTo(open)
     }
 }

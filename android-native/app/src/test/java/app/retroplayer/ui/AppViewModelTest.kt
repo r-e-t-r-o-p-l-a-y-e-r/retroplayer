@@ -1,5 +1,7 @@
 package app.retroplayer.ui
 
+import app.retroplayer.domain.model.PlaybackItem
+import kotlinx.coroutines.async
 import app.retroplayer.MainDispatcherRule
 import app.retroplayer.TestLibrary
 import app.retroplayer.domain.AlbumIds
@@ -35,7 +37,7 @@ class AppViewModelTest {
         lib.settings.setBrowsePath(lib.p("A"))
         lib.settings.setOpenAlbum(album)
 
-        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback)
+        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback, lib.repository)
         val routes = viewModel.startRoutes.filterNotNull().first()
         assertThat(routes).containsExactly(FolderRoute(), FolderRoute(root), FolderRoute(lib.p("A").value), AlbumRoute(album)).inOrder()
     }
@@ -45,7 +47,7 @@ class AppViewModelTest {
         lib = TestLibrary(tmp)
         lib.addRoot()
         lib.settings.setBrowsePath(lib.p("A"))
-        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback)
+        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback, lib.repository)
         val routes = viewModel.startRoutes.filterNotNull().first()
 
         lib.settings.setBrowsePath(null)
@@ -59,9 +61,29 @@ class AppViewModelTest {
         val track = lib.p("Rock/Album/01 Song.mp3").value
         val album = AlbumIds.folder(lib.p("Rock/Album"))
         lib.playback.nowPlaying.value = NowPlaying(trackId = track, itemId = album, hasTrack = true)
-        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback)
+        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback, lib.repository)
         viewModel.locate()
         assertThat(viewModel.locatedTrackId.filterNotNull().first()).isEqualTo(track)
+    }
+
+    @Test
+    fun `locate after playing a folder opens the album of the track`() = main.runVmTest {
+        lib = TestLibrary(tmp)
+        val root = lib.addRoot()
+        lib.docs.file("Rock/Album/01 Song.mp3")
+        lib.docs.file("Rock/Album/02 Song.mp3")
+        val track = lib.p("Rock/Album/01 Song.mp3").value
+        lib.playback.nowPlaying.value = NowPlaying(trackId = track, itemId = PlaybackItem.folderId(lib.p("Rock")), hasTrack = true)
+        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback, lib.repository)
+        val routes = async { viewModel.locateRoutes.first() }
+        viewModel.locate()
+        assertThat(routes.await()).containsExactly(
+            FolderRoute(),
+            FolderRoute(root),
+            FolderRoute(lib.p("Rock").value),
+            FolderRoute(lib.p("Rock/Album").value),
+            AlbumRoute(AlbumIds.folder(lib.p("Rock/Album"))),
+        ).inOrder()
     }
 
     @Test
@@ -69,7 +91,7 @@ class AppViewModelTest {
         lib = TestLibrary(tmp)
         lib.addRoot()
         lib.playback.nowPlaying.value = NowPlaying(trackId = lib.p("A/t.mp3").value, hasTrack = true)
-        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback)
+        val viewModel = AppViewModel(lib.settings, lib.store, lib.playback, lib.repository)
         viewModel.locate()
         assertThat(viewModel.locatedTrackId.filterNotNull().first()).isNotNull()
         viewModel.onUserBrowsing()

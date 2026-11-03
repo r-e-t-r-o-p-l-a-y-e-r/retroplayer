@@ -1,5 +1,7 @@
 package app.retroplayer.ui.playlist
 
+import app.retroplayer.ui.components.RetroFab
+import androidx.compose.material.icons.automirrored.outlined.PlaylistAdd
 import app.retroplayer.ui.components.DialogText
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -115,6 +117,11 @@ fun PlaylistContent(state: PlaylistUiState, actions: PlaylistActions) {
                 is PlaylistUiState.Ready -> PlaylistTopBar(state, actions)
             }
         },
+        floatingActionButton = {
+            if (state is PlaylistUiState.Ready && state.editable && !state.selectMode) {
+                RetroFab(stringResource(R.string.add_tracks), Icons.AutoMirrored.Outlined.PlaylistAdd, actions.addTracks)
+            }
+        },
     ) { padding ->
         Box(Modifier.padding(padding).fillMaxSize()) {
             when (state) {
@@ -171,7 +178,6 @@ private fun PlaylistTopBar(state: PlaylistUiState.Ready, actions: PlaylistAction
                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
                     )
                 } else {
-                    TextButton(onClick = actions.addTracks) { Text(stringResource(R.string.add_tracks)) }
                     TextButton(onClick = actions.toggleSelectMode) { Text(stringResource(R.string.playlist_select)) }
                     TextButton(onClick = actions.requestDelete) {
                         Text(stringResource(R.string.delete_playlist_title))

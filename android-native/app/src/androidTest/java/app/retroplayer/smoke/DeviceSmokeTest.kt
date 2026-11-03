@@ -116,7 +116,7 @@ class DeviceSmokeTest {
         playSamplesFromLibrary()
         compose.onNode(hasTestTag(MINI_PLAYER_TAG)).assertIsDisplayed()
         click(hasContentDescription(s(R.string.queue)))
-        waitFor(hasText(s(R.string.clear_queue)))
+        waitFor(hasContentDescription(s(R.string.add_tracks)))
     }
 
     @Test
@@ -125,13 +125,16 @@ class DeviceSmokeTest {
         clickText("Demo Artist")
         clickText("Demo Album")
         click(hasContentDescription(s(R.string.queue)))
-        clickText(s(R.string.add_tracks))
+        click(hasContentDescription(s(R.string.add_tracks)))
         clickText("RetroPlayerSamples")
         clickText("Demo Artist")
         clickText("Demo Album")
         click(isToggleable())
         clickText(s(R.string.add_tracks_confirm, 3))
         clickText(s(R.string.save_as_playlist))
+        clickText("RetroPlayerSamples")
+        clickText("Demo Artist")
+        clickText("Demo Album")
         compose.onNode(hasSetTextAction()).performTextInput(PLAYLIST)
         clickText(s(R.string.save))
         picker.confirm()
@@ -158,13 +161,12 @@ class DeviceSmokeTest {
     }
 
     @Test
-    fun settingsPagesOpenAndThePlayerStaysMini() {
+    fun settingsPagesOpenWithoutThePlayer() {
         addSamples()
         playSamplesFromLibrary()
         click(hasContentDescription(s(R.string.settings)))
         waitFor(hasTestTag(SETTINGS_SCREEN_TAG))
-        compose.onNode(hasTestTag(MINI_PLAYER_TAG)).performClick()
-        compose.waitForIdle()
+        compose.onNode(hasTestTag(MINI_PLAYER_TAG)).assertDoesNotExist()
         compose.onNode(hasTestTag(EXPANDED_PLAYER_TAG)).assertDoesNotExist()
 
         val pages = listOf(

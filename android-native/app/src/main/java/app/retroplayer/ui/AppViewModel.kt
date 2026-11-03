@@ -3,6 +3,10 @@ package app.retroplayer.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.retroplayer.data.db.LibraryStore
+import app.retroplayer.data.library.LibraryRepository
+import app.retroplayer.domain.AlbumIds
+import app.retroplayer.domain.LibraryPath
+import app.retroplayer.domain.model.PlaybackItem
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.domain.settings.ThemePreference
 import app.retroplayer.playback.NowPlaying
@@ -27,6 +31,7 @@ class AppViewModel @Inject constructor(
     private val settings: SettingsStore,
     private val store: LibraryStore,
     private val playback: PlaybackControls,
+    private val library: LibraryRepository,
 ) : ViewModel() {
     val theme: StateFlow<ThemePreference> = settings.settings.map { it.theme }
         .stateIn(viewModelScope, SharingStarted.Eagerly, ThemePreference.SYSTEM)
@@ -54,7 +59,10 @@ class AppViewModel @Inject constructor(
         viewModelScope.launch {
             now.trackId?.let { _locatedTrackId.value = it }
             val roots = store.allRoots().map { it.id }.toSet()
-            _locateRoutes.emit(StartupRoutes.locate(now, roots))
+            val item = now.itemId.orEmpty()
+            val ownAlbumOrPlaylist = AlbumIds.directoryOf(item) != null || PlaybackItem.playlistPathFromId(item) != null
+            val album = now.trackId?.takeUnless { ownAlbumOrPlaylist }?.let { library.albumOf(LibraryPath(it)) }
+            _locateRoutes.emit(StartupRoutes.locate(now, roots, album))
         }
     }
 

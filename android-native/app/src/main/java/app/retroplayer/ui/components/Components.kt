@@ -1,5 +1,9 @@
 package app.retroplayer.ui.components
 
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.ui.platform.LocalDensity
+import app.retroplayer.ui.player.rememberPlayerSheetAnchor
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.SegmentedButtonDefaults
@@ -94,27 +98,26 @@ fun RetroTopBar(
 ) {
     val palette = LocalRetroPalette.current
     val titleStyle = MaterialTheme.typography.titleMedium
-    Column(modifier.background(palette.screenElevated)) {
-        CenterAlignedTopAppBar(
-            title = {
-                Text(
-                    title,
-                    style = titleStyle,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                    autoSize = TextAutoSize.StepBased(minFontSize = MIN_LABEL_SIZE, maxFontSize = titleStyle.fontSize),
-                )
-            },
-            navigationIcon = navigationIcon,
-            actions = actions,
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = palette.screenElevated,
-                scrolledContainerColor = palette.screenElevated,
-                titleContentColor = palette.textPrimary,
-                navigationIconContentColor = palette.textPrimary,
-                actionIconContentColor = palette.textPrimary,
-            ),
+    val fontScale = LocalDensity.current.fontScale.coerceAtLeast(1f)
+    val titleText: @Composable () -> Unit = {
+        Text(
+            title,
+            style = titleStyle,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+            // Large font scales may shrink a long title down to the smallest label at normal scale.
+            autoSize = TextAutoSize.StepBased(minFontSize = MIN_LABEL_SIZE / fontScale, maxFontSize = titleStyle.fontSize),
         )
+    }
+    val colors = TopAppBarDefaults.topAppBarColors(
+        containerColor = palette.screenElevated,
+        scrolledContainerColor = palette.screenElevated,
+        titleContentColor = palette.textPrimary,
+        navigationIconContentColor = palette.textPrimary,
+        actionIconContentColor = palette.textPrimary,
+    )
+    Column(modifier.then(rememberPlayerSheetAnchor()).background(palette.screenElevated)) {
+        CenterAlignedTopAppBar(title = titleText, navigationIcon = navigationIcon, actions = actions, colors = colors)
         // Text buttons wrap below the bar: beside the title they get squeezed to nothing in long translations.
         if (textActions != null) {
             FlowRow(
@@ -156,7 +159,7 @@ fun BreadcrumbStrip(crumbs: List<Crumb>, onCrumb: ((Crumb) -> Unit)?, modifier: 
     val palette = LocalRetroPalette.current
     val scroll = rememberScrollState()
     LaunchedEffect(crumbs) { scroll.scrollTo(scroll.maxValue) }
-    Surface(color = palette.chrome.copy(alpha = 0.55f), modifier = modifier.fillMaxWidth()) {
+    Surface(color = palette.chrome.copy(alpha = 0.55f), modifier = modifier.then(rememberPlayerSheetAnchor()).fillMaxWidth()) {
         Row(
             Modifier.horizontalScroll(scroll).padding(horizontal = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -484,4 +487,20 @@ fun AlbumArt(model: Any?, modifier: Modifier = Modifier, size: Dp = 56.dp, place
             )
         }
     }
+}
+
+/** The accent extended button at the bottom end of a page (Add folder, Add tracks). */
+@Composable
+fun RetroFab(label: String, icon: ImageVector, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    val palette = LocalRetroPalette.current
+    ExtendedFloatingActionButton(
+        onClick = onClick,
+        // The extended FAB does not expose its text label to accessibility.
+        modifier = modifier.semantics { contentDescription = label },
+        icon = { Icon(icon, contentDescription = null) },
+        text = { Text(label) },
+        containerColor = palette.accent,
+        contentColor = if (palette == RetroPalette.Dark) palette.textPrimary else Color.White,
+        shape = RoundedCornerShape(24.dp),
+    )
 }

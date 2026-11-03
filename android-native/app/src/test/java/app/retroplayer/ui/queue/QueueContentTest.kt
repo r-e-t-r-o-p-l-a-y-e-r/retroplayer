@@ -1,5 +1,7 @@
 package app.retroplayer.ui.queue
 
+import com.google.common.truth.Truth.assertThat
+import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
@@ -34,7 +36,7 @@ class QueueContentTest {
     fun `empty queue shows the empty text`() {
         compose.setContent {
             RetroTheme {
-                QueueContent(QueueUiState.Ready(emptyList(), null, false, false), QueueActions())
+                QueueContent(QueueUiState.Ready(emptyList(), null, false), QueueActions())
             }
         }
         compose.onNodeWithTag(QUEUE_EMPTY_TAG).assertIsDisplayed()
@@ -42,7 +44,7 @@ class QueueContentTest {
 
     @Test
     fun `missing entry shows missing track`() {
-        val state = QueueUiState.Ready(listOf(QueueEntry(LibraryPath("1/gone.mp3"), null)), null, false, false)
+        val state = QueueUiState.Ready(listOf(QueueEntry(LibraryPath("1/gone.mp3"), null)), null, false)
         compose.setContent { RetroTheme { QueueContent(state, QueueActions()) } }
         compose.onNodeWithText(context.getString(R.string.missing_track)).assertIsDisplayed()
     }
@@ -53,9 +55,42 @@ class QueueContentTest {
             listOf(QueueEntry(track.path, track)),
             playingTrackId = track.id,
             confirmClear = false,
-            showSaveDialog = false,
         )
         compose.setContent { RetroTheme { QueueContent(state, QueueActions()) } }
         compose.onNodeWithTag(PLAYING_STRIP_TAG).assertIsDisplayed()
+    }
+
+    private val filled = QueueUiState.Ready(listOf(QueueEntry(track.path, track)), playingTrackId = null, confirmClear = false)
+
+    @Test
+    fun `clear queue is an icon in the top bar`() {
+        val calls = mutableListOf<String>()
+        compose.setContent { RetroTheme { QueueContent(filled, QueueActions(requestClear = { calls += "clear" })) } }
+        compose.onNodeWithText(context.getString(R.string.clear_queue)).assertDoesNotExist()
+        compose.onNodeWithContentDescription(context.getString(R.string.clear_queue)).performClick()
+        assertThat(calls).containsExactly("clear")
+    }
+
+    @Test
+    fun `save as playlist opens the folder picker`() {
+        val calls = mutableListOf<String>()
+        compose.setContent { RetroTheme { QueueContent(filled, QueueActions(saveAsPlaylist = { calls += "save" })) } }
+        compose.onNodeWithText(context.getString(R.string.save_as_playlist)).performClick()
+        assertThat(calls).containsExactly("save")
+    }
+
+    @Test
+    fun `an empty queue offers neither clearing nor saving`() {
+        compose.setContent { RetroTheme { QueueContent(QueueUiState.Ready(emptyList(), null, false), QueueActions()) } }
+        compose.onNodeWithContentDescription(context.getString(R.string.clear_queue)).assertDoesNotExist()
+        compose.onNodeWithText(context.getString(R.string.save_as_playlist)).assertDoesNotExist()
+    }
+
+    @Test
+    fun `add tracks is a floating button`() {
+        val calls = mutableListOf<String>()
+        compose.setContent { RetroTheme { QueueContent(filled, QueueActions(addTracks = { calls += "add" })) } }
+        compose.onNodeWithContentDescription(context.getString(R.string.add_tracks)).assertIsDisplayed().performClick()
+        assertThat(calls).containsExactly("add")
     }
 }

@@ -99,6 +99,18 @@ class LibraryRepositoryTest {
     }
 
     @Test
+    fun `album of a track is the album it is listed in`() = runTest(UnconfinedTestDispatcher()) {
+        val repo = repository()
+        val alb = (repo.folder(p("Mix/Alb")).last().items.single() as LibraryItem.Album).id
+        assertThat(repository().albumOf(p("Mix/Alb/a.mp3"))).isEqualTo(alb)
+        assertThat(repository().albumOf(p("Mix/loose 2.mp3"))).isNotNull()
+
+        docs.file("Single/only.mp3")
+        assertThat(repository().albumOf(p("Single/only.mp3"))).isNull()
+        assertThat(repository().albumOf(p("Gone/x.mp3"))).isNull()
+    }
+
+    @Test
     fun `album tracks follow the stored sort choice`() = runTest(UnconfinedTestDispatcher()) {
         val repo = repository()
         val album = (repo.folder(p("Mix/Alb")).last().items.single() as LibraryItem.Album).album
