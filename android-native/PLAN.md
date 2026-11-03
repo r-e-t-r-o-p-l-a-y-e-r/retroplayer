@@ -44,7 +44,7 @@ screenshot comparison described there.
 | T06 | Queue screen + add-tracks picker | any | done |
 | T07 | Playlist detail, save, delete | any | done |
 | T08 | Write-grant upgrade flow | opus | done (engine; UI in T07) |
-| T09 | Library leftovers: A-Z, scroll restore, root removal | any | todo |
+| T09 | Library leftovers: A-Z, scroll restore, root removal | any | done |
 | T10 | Settings screens (theme, language, data, reset, licenses, about) | any | todo |
 | T11 | Equalizer engine | opus | done |
 | T12 | Equalizer settings UI | any | todo |
@@ -464,7 +464,7 @@ available, simply continue top to bottom.
 ## T07 Playlist detail, save, delete
 
 - Owner: any. Status: done. Depends: T06. UC-08.
-- Notes: `PlaylistRoute`, detail editor (add/reorder/remove/select/delete), queue save-as-playlist with write-grant retry; locate opens playlist route; tests `PlaylistViewModelTest`, `QueueViewModelTest` save cases.
+- Notes: `PlaylistRoute`, detail editor (add/reorder/remove/select/delete), queue save-as-playlist with write-grant retry; locate opens playlist route; tests `PlaylistViewModelTest`, `QueueViewModelTest` save cases. Emulator smoke (API 34, `RetroPlayerSamples`): add folder + ALLOW; queue save-as-playlist with write grant (`SmokeTrip.m3u`); playlist detail; extended pass — add tracks to playlist, multi-select remove, swipe remove, play-from-row, delete playlist; **reorder not verified** (Compose long-press drag needs manual/`tapxy`). See AGENTS.md smoke commands + `scripts/ui.sh`.
 - Existing code: `PlaylistFiles.read/save/overwrite/delete`, `M3u`,
   `LibraryStore.registerAppPlaylist/isAppPlaylist`.
 - Files: `PlaylistRoute(path)` in `Routes.kt`, `ui/playlist/PlaylistViewModel.kt`,
@@ -525,7 +525,8 @@ available, simply continue top to bottom.
 
 ## T09 Library leftovers
 
-- Owner: any. Status: todo. Depends: T05b. UC-02, UC-04.
+- Owner: any. Status: done. Depends: T05b. UC-02, UC-04.
+- Notes: `LibraryIndex` + `AlphabetIndexBar` on folder/root lists (>30 rows); list scroll in `FolderViewModel` `SavedStateHandle` via `FolderListScroll`; removing the playing root calls `playback.stop()`; `RetroApp` folder navigation uses `launchSingleTop` + `restoreState`. Tests: `LibraryIndexTest`, `FolderContentTest` (index bar), `FolderViewModelTest` (scroll + stop), `BackChainTest` (scroll restore). Emulator smoke for index/scroll not re-run this session.
 - Spec (each bullet one red/green cycle, tests in `FolderViewModelTest` /
   `FolderContentTest`):
   - Swipes and long-press reordering of roots and favorites: done in T05b.

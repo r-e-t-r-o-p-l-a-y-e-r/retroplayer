@@ -18,6 +18,7 @@ import app.retroplayer.domain.model.PlaybackItem
 import app.retroplayer.domain.model.PlaylistRef
 import app.retroplayer.library.RootAccess
 import app.retroplayer.playback.PlaybackControls
+import kotlinx.coroutines.flow.first
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -50,7 +51,7 @@ sealed interface FolderUiState {
 /** One library page: the virtual root (path null) or a folder below a root. */
 @HiltViewModel
 class FolderViewModel @Inject constructor(
-    savedState: SavedStateHandle,
+    private val savedState: SavedStateHandle,
     private val repository: LibraryRepository,
     private val store: LibraryStore,
     private val settings: SettingsStore,
@@ -60,6 +61,15 @@ class FolderViewModel @Inject constructor(
     private val queue: QueueRepository,
 ) : ViewModel() {
     val path: LibraryPath? = savedState.get<String>(PATH_ARG)?.let(::LibraryPath)
+
+    fun listScrollIndex(): Int = savedState.get<Int>(LIST_SCROLL_INDEX) ?: 0
+
+    fun listScrollOffset(): Int = savedState.get<Int>(LIST_SCROLL_OFFSET) ?: 0
+
+    fun saveListScroll(index: Int, offset: Int) {
+        savedState[LIST_SCROLL_INDEX] = index
+        savedState[LIST_SCROLL_OFFSET] = offset
+    }
 
     val state: StateFlow<FolderUiState> = run {
         val path = path
@@ -132,11 +142,17 @@ class FolderViewModel @Inject constructor(
     }
 
     fun removeRoot(rootId: String) {
-        viewModelScope.launch { access.remove(rootId) }
+        viewModelScope.launch {
+            val trackId = playback.nowPlaying.first().trackId
+            if (trackId != null && LibraryPath(trackId).rootId == rootId) playback.stop()
+            access.remove(rootId)
+        }
     }
 
     companion object {
         const val PATH_ARG = "path"
+        private const val LIST_SCROLL_INDEX = "listScrollIndex"
+        private const val LIST_SCROLL_OFFSET = "listScrollOffset"
         private const val STOP_TIMEOUT_MS = 5_000L
     }
 }

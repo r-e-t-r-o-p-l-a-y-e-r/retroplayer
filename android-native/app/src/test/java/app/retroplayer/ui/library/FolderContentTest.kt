@@ -29,6 +29,7 @@ import app.retroplayer.domain.model.AudioTrack
 import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.domain.model.PlaylistRef
 import app.retroplayer.ui.components.PLAYING_STRIP_TAG
+import app.retroplayer.domain.LibraryIndex
 import app.retroplayer.ui.theme.RetroTheme
 import com.google.common.truth.Truth.assertThat
 import org.junit.Rule
@@ -285,5 +286,41 @@ class FolderContentTest {
     fun `missing folder says so`() {
         show(FolderUiState.Missing)
         compose.onNodeWithText("This folder is no longer available.").assertIsDisplayed()
+    }
+
+    private fun longAudioFolder(): FolderUiState.Folder {
+        val books = LibraryPath("1/Books")
+        val audio = buildList {
+            add(LibraryItem.Track(AudioTrack(books.child("alpha.mp3"), "doc:a")))
+            repeat(LibraryIndex.MIN_ROWS_FOR_BAR - 1) { i ->
+                add(LibraryItem.Track(AudioTrack(books.child("track$i.mp3"), "doc:$i")))
+            }
+            add(LibraryItem.Track(AudioTrack(books.child("zebra.mp3"), "doc:z")))
+        }
+        return FolderUiState.Folder(
+            path = books,
+            crumbs = listOf(Crumb("", null, isLibraryRoot = true), Crumb("Music", LibraryPath("1")), Crumb("Books", books)),
+            folders = listOf(FolderRow(FolderEntry(books.child("Sub"), "doc:sub"), isFavorite = false)),
+            playlists = emptyList(),
+            audio = audio,
+            artUri = null,
+            scanned = audio.size,
+            total = audio.size,
+            complete = true,
+        )
+    }
+
+    @Test
+    fun `index bar appears for long lists`() {
+        show(longAudioFolder())
+        compose.onNodeWithTag(LIBRARY_INDEX_BAR_TAG).assertIsDisplayed()
+    }
+
+    @Test
+    fun `tapping a letter scrolls to it`() {
+        show(longAudioFolder())
+        compose.onNodeWithText("Z", substring = false).performClick()
+        compose.waitForIdle()
+        compose.onNodeWithText("zebra").assertIsDisplayed()
     }
 }

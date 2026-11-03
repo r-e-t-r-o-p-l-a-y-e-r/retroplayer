@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -41,12 +42,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import app.retroplayer.domain.LibraryIndex
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -128,6 +131,11 @@ fun FolderScreen(viewModel: FolderViewModel, navigation: FolderNavigation, playi
         state = state,
         isRoot = viewModel.path == null,
         playingTrackId = playingTrackId,
+        listScroll = FolderListScroll(
+            viewModel.listScrollIndex(),
+            viewModel.listScrollOffset(),
+            viewModel::saveListScroll,
+        ),
         navigation = navigation,
         actions = FolderActions(
             play = viewModel::play,
@@ -149,6 +157,25 @@ private fun LibraryPath.holds(trackId: String?) = trackId != null && trackId.sta
 
 private val LIBRARY_CRUMBS = listOf(Crumb("", null, isLibraryRoot = true))
 
+data class FolderListScroll(
+    val initialIndex: Int,
+    val initialOffset: Int,
+    val onChange: (index: Int, offset: Int) -> Unit,
+)
+
+@Composable
+private fun rememberFolderListScroll(scroll: FolderListScroll?): LazyListState {
+    if (scroll == null) return rememberLazyListState()
+    val listState = remember(scroll.initialIndex, scroll.initialOffset) {
+        LazyListState(scroll.initialIndex, scroll.initialOffset)
+    }
+    LaunchedEffect(listState, scroll.onChange) {
+        snapshotFlow { listState.firstVisibleItemIndex to listState.firstVisibleItemScrollOffset }
+            .collect { (index, offset) -> scroll.onChange(index, offset) }
+    }
+    return listState
+}
+
 @Composable
 fun FolderContent(
     state: FolderUiState,
@@ -157,6 +184,7 @@ fun FolderContent(
     navigation: FolderNavigation,
     actions: FolderActions,
     snackbar: SnackbarHostState = remember { SnackbarHostState() },
+    listScroll: FolderListScroll? = null,
 ) {
     var confirmRemove by rememberSaveable { mutableStateOf<String?>(null) }
     val resources = LocalResources.current
@@ -201,8 +229,8 @@ fun FolderContent(
             when (state) {
                 FolderUiState.Loading -> LinearProgressIndicator(Modifier.fillMaxWidth())
                 FolderUiState.Missing -> Message(stringResource(R.string.folder_missing))
-                is FolderUiState.Root -> RootList(state, playingTrackId, navigation, rowActions, onRemove = { confirmRemove = it.id })
-                is FolderUiState.Folder -> FolderList(state, playingTrackId, navigation, rowActions)
+                is FolderUiState.Root -> RootList(state, playingTrackId, navigation, rowActions, listScroll, onRemove = { confirmRemove = it.id })
+                is FolderUiState.Folder -> FolderList(state, playingTrackId, navigation, rowActions, listScroll)
             }
         }
     }
@@ -323,6 +351,7 @@ private fun RootList(
     playingTrackId: String?,
     navigation: FolderNavigation,
     actions: FolderActions,
+    listScroll: FolderListScroll?,
     onRemove: (LibraryRoot) -> Unit,
 ) {
     if (state.roots.isEmpty()) {
@@ -333,12 +362,20 @@ private fun RootList(
     val haptic = LocalHapticFeedback.current
     val roots = remember { DragOrder(::rootKey) }.apply { stored = state.roots }
     val favorites = remember { DragOrder(::favoriteKey) }.apply { stored = state.favorites }
-    val listState = rememberLazyListState()
+    val listState = rememberFolderListScroll(listScroll)
     val reorder = rememberReorderableLazyListState(listState) { from, to ->
         roots.move(from.key, to.key)
         favorites.move(from.key, to.key)
     }
-    LazyColumn(state = listState, contentPadding = PaddingValues(bottom = 96.dp)) {
+    val titles = remember(state) { rootSelectableTitles(state) }
+    val labels = remember(titles) { LibraryIndex.labelsFor(titles) }
+    val showIndexBar = titles.size > LibraryIndex.MIN_ROWS_FOR_BAR && labels.size > 1
+    val scope = rememberCoroutineScope()
+    Box(Modifier.fillMaxSize()) {
+        LazyColumn(
+            state = listState,
+            contentPadding = PaddingValues(bottom = 96.dp, end = if (showIndexBar) 44.dp else 0.dp),
+        ) {
         item(key = "h:sources") { SectionHeader(stringResource(R.string.library_sources)) }
         val shownRoots = roots.shown
         itemsIndexed(shownRoots, key = { _, root -> rootKey(root) }) { index, root ->
@@ -396,11 +433,36 @@ private fun RootList(
                 }
             }
         }
+        }
+        if (showIndexBar) {
+            AlphabetIndexBar(
+                labels = labels,
+                modifier = Modifier.align(Alignment.CenterEnd),
+                onSelect = { letter ->
+                    scope.launch {
+                        val row = LibraryIndex.firstMatchingIndex(titles, letter) ?: return@launch
+                        val lazyIndex = LibraryIndex.lazyColumnIndexForSelectableRow(
+                            row,
+                            state.roots.size,
+                            state.favorites.size,
+                            audioCount = 0,
+                        )
+                        listState.scrollToItem(lazyIndex)
+                    }
+                },
+            )
+        }
     }
 }
 
 @Composable
-private fun FolderList(state: FolderUiState.Folder, playingTrackId: String?, navigation: FolderNavigation, actions: FolderActions) {
+private fun FolderList(
+    state: FolderUiState.Folder,
+    playingTrackId: String?,
+    navigation: FolderNavigation,
+    actions: FolderActions,
+    listScroll: FolderListScroll?,
+) {
     Column(Modifier.fillMaxSize()) {
         if (!state.complete && state.total > 0) {
             LinearProgressIndicator(
@@ -412,13 +474,49 @@ private fun FolderList(state: FolderUiState.Folder, playingTrackId: String?, nav
             Message(stringResource(R.string.folder_empty))
             return
         }
-        LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) {
-            folderSection(state, playingTrackId, navigation, actions)
-            playlistSection(state.playlists, navigation, actions)
-            audioSection(state, playingTrackId, navigation, actions)
+        val listState = rememberFolderListScroll(listScroll)
+        val titles = remember(state) { folderSelectableTitles(state) }
+        val labels = remember(titles) { LibraryIndex.labelsFor(titles) }
+        val showIndexBar = titles.size > LibraryIndex.MIN_ROWS_FOR_BAR && labels.size > 1
+        val scope = rememberCoroutineScope()
+        Box(Modifier.fillMaxSize()) {
+            LazyColumn(
+                state = listState,
+                contentPadding = PaddingValues(bottom = 96.dp, end = if (showIndexBar) 44.dp else 0.dp),
+            ) {
+                folderSection(state, playingTrackId, navigation, actions)
+                playlistSection(state.playlists, navigation, actions)
+                audioSection(state, playingTrackId, navigation, actions)
+            }
+            if (showIndexBar) {
+                AlphabetIndexBar(
+                    labels = labels,
+                    modifier = Modifier.align(Alignment.CenterEnd),
+                    onSelect = { letter ->
+                        scope.launch {
+                            val row = LibraryIndex.firstMatchingIndex(titles, letter) ?: return@launch
+                            val lazyIndex = LibraryIndex.lazyColumnIndexForSelectableRow(
+                                row,
+                                state.folders.size,
+                                state.playlists.size,
+                                state.audio.size,
+                            )
+                            listState.scrollToItem(lazyIndex)
+                        }
+                    },
+                )
+            }
         }
     }
 }
+
+private fun rootSelectableTitles(state: FolderUiState.Root): List<String> =
+    state.roots.map { it.name } + state.favorites.map { it.label }
+
+private fun folderSelectableTitles(state: FolderUiState.Folder): List<String> =
+    state.folders.map { it.entry.path.name } +
+        state.playlists.map { it.displayName } +
+        state.audio.map { it.title }
 
 private fun LazyListScope.folderSection(
     state: FolderUiState.Folder,

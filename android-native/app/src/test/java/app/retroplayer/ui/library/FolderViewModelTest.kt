@@ -7,6 +7,7 @@ import app.retroplayer.runVmTest
 import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.domain.model.PlaybackItem
 import app.retroplayer.domain.model.TrackMetadata
+import app.retroplayer.playback.NowPlaying
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.first
@@ -147,6 +148,23 @@ class FolderViewModelTest {
     fun `missing folder is reported`() = main.runVmTest {
         val state = viewModel(lib.p("Gone").value).state.first { it !is FolderUiState.Loading }
         assertThat(state).isEqualTo(FolderUiState.Missing)
+    }
+
+    @Test
+    fun `list scroll is kept in saved state`() {
+        val handle = SavedStateHandle(mapOf("path" to lib.p("Books").value))
+        val vm = FolderViewModel(handle, lib.repository, lib.store, lib.settings, lib.playback, lib.access, lib.items, lib.queue)
+        vm.saveListScroll(12, 48)
+        assertThat(vm.listScrollIndex()).isEqualTo(12)
+        assertThat(vm.listScrollOffset()).isEqualTo(48)
+    }
+
+    @Test
+    fun `removing the playing root stops playback`() = main.runVmTest {
+        val track = lib.p("Books/single.mp3")
+        lib.playback.nowPlaying.value = NowPlaying(trackId = track.value, title = "single", hasTrack = true)
+        viewModel(null).removeRoot(track.rootId)
+        assertThat(lib.playback.calls).containsExactly("stop")
     }
 
     @Test

@@ -106,7 +106,10 @@ private fun LibraryNavHost(
     val folderNavigation = FolderNavigation(
         openFolder = {
             onUserBrowsing()
-            nav.navigate(FolderRoute(it.value))
+            nav.navigate(FolderRoute(it.value)) {
+                launchSingleTop = true
+                restoreState = true
+            }
         },
         openCrumb = {
             onUserBrowsing()
@@ -177,7 +180,12 @@ private fun LibraryNavHost(
 fun NavController.showFolder(path: LibraryPath?) {
     if (popBackStack(FolderRoute(path?.value), inclusive = false)) return
     popBackStack(FolderRoute(), inclusive = false)
-    StartupRoutes.folderChain(path).drop(1).forEach { navigate(it) }
+    StartupRoutes.folderChain(path).drop(1).forEach { route ->
+        navigate(route) {
+            launchSingleTop = true
+            restoreState = true
+        }
+    }
 }
 
 private fun NavController.openCrumb(crumb: Crumb) = showFolder(crumb.path)
