@@ -25,6 +25,7 @@ import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performTextInput
 import androidx.compose.ui.test.printToString
 import androidx.core.os.LocaleListCompat
+import androidx.lifecycle.Lifecycle
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
@@ -139,6 +140,9 @@ class DeviceSmokeTest {
         clickText(s(R.string.save))
         picker.confirm()
         compose.waitUntil(TIMEOUT_MS) { playlistFile().isNotEmpty() }
+        compose.waitUntil(TIMEOUT_MS) {
+            compose.runOnUiThread { compose.activity.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) }
+        }
 
         back()
         clickText(PLAYLIST)

@@ -58,7 +58,7 @@ screenshot comparison described there.
 | T16 | Chapters in player, notification and seek bar | any | done |
 | T17 | Headset options UI + resume on reconnect | any | done |
 | T18 | Android Auto browse tree | opus | done |
-| T19 | Glance home-screen widget | any | todo |
+| T19 | Glance home-screen widget | any | done |
 | T20 | Managed devices + Roborazzi screenshots | any | todo |
 | T21 | Docs | any | todo |
 | T22 | Final release check | any | todo |
@@ -932,7 +932,7 @@ available, simply continue top to bottom.
 
 ## T19 Glance home-screen widget
 
-- Owner: any. Status: todo. Depends: T01.
+- Owner: any. Status: done. Depends: T01.
 - New dependency allowed: `androidx.glance:glance-appwidget-testing`
   (testImplementation, same version as glance).
 - Spec: `ui/widget/RetroWidget.kt` (`GlanceAppWidget`) + receiver; layout:
@@ -948,6 +948,27 @@ available, simply continue top to bottom.
   `shows pause button while playing`, `small size shows only title and play pause`.
 - Done when: tests green; smoke: add widget on emulator home screen
   (long-press home, Widgets), controls work.
+- Done (as built):
+  - Buttons send `ACTION_MEDIA_BUTTON` intents straight to `PlaybackService`
+    (`actionStartService`, one category per key so the pending intents stay
+    apart; only play starts it in the foreground) instead of an
+    `ActionCallback` with a `MediaController`. Media3 handles them like
+    headset keys, so jumps follow the same rules as the notification.
+  - State: the service publishes a `NowPlayingSnapshot` through
+    `NowPlayingSink` on `onEvents`; `WidgetUpdater` (singleton, skips equal
+    snapshots) holds it as a `StateFlow` and calls `updateAll`. No Glance
+    state store. Without a session the widget shows the last played
+    bookmark; with nothing played, the app name.
+  - Three sizes: small (title + play/pause), row (adds cover and jumps),
+    wide (cover and titles above previous, back, play, forward, next).
+    Colours follow the system dark mode.
+  - Merged manifest: no network permission; `RECEIVE_BOOT_COMPLETED` comes
+    from WorkManager and stays (T21 documents it).
+  - Tests: `RetroWidgetTest` (6), `WidgetUpdaterTest` (3),
+    `NowPlayingSnapshotTest` (4).
+  - Emulator: widget placed from the launcher, play/pause, ±15 s jumps,
+    tap opens the app, dark mode checked. The picker preview is the
+    initial layout (no `previewLayout` yet).
 
 ## T20 Managed devices + Roborazzi screenshots
 

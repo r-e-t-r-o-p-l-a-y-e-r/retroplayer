@@ -1,6 +1,10 @@
 package app.retroplayer.ui.queue
 
 import com.google.common.truth.Truth.assertThat
+import androidx.compose.ui.semantics.SemanticsActions
+import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.hasAnyDescendant
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -92,5 +96,14 @@ class QueueContentTest {
         compose.setContent { RetroTheme { QueueContent(filled, QueueActions(addTracks = { calls += "add" })) } }
         compose.onNodeWithContentDescription(context.getString(R.string.add_tracks)).assertIsDisplayed().performClick()
         assertThat(calls).containsExactly("add")
+    }
+
+    @Test
+    fun `screen readers hear remove once per row`() {
+        compose.setContent { RetroTheme { QueueContent(filled, QueueActions()) } }
+        val labels = compose
+            .onNode(hasAnyDescendant(hasText("Alpha")) and SemanticsMatcher.keyIsDefined(SemanticsActions.CustomActions))
+            .fetchSemanticsNode().config[SemanticsActions.CustomActions].map { it.label }
+        assertThat(labels.filter { it == context.getString(R.string.remove) }).hasSize(1)
     }
 }

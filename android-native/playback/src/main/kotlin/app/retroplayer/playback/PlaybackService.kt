@@ -57,6 +57,7 @@ class PlaybackService : MediaLibraryService() {
     @Inject lateinit var treeLabels: TreeLabels
     @Inject lateinit var chapterLabels: ChapterLabels
     @Inject lateinit var chapterRepository: ChapterRepository
+    @Inject lateinit var nowPlayingSink: NowPlayingSink
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private var session: MediaLibrarySession? = null
@@ -106,6 +107,11 @@ class PlaybackService : MediaLibraryService() {
                 reconnect.onOutputsAdded(addedDevices.filter { it.isSink }.map { it.type })
         }
         getSystemService(AudioManager::class.java).registerAudioDeviceCallback(outputs, Handler(Looper.getMainLooper()))
+        player.addListener(
+            object : Player.Listener {
+                override fun onEvents(player: Player, events: Player.Events) = nowPlayingSink.update(NowPlayingSnapshot.of(player))
+            },
+        )
         saver = ProgressSaver(player, appScope) { id, state -> store.savePlayback(id, state) }
         saver.start()
         queue = SessionQueue(
@@ -143,6 +149,7 @@ class PlaybackService : MediaLibraryService() {
 
     override fun onDestroy() {
         getSystemService(AudioManager::class.java).unregisterAudioDeviceCallback(outputs)
+        nowPlayingSink.update(NowPlayingSnapshot.of(player).copy(isPlaying = false))
         saver.saveNow()
         saver.stop()
         equalizer.release()

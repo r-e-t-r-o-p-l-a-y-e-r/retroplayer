@@ -70,7 +70,7 @@ fun SwipeActions(
     Box(
         modifier
             .semantics {
-                customActions = listOfNotNull(fromStart, fromEnd).map { action ->
+                customActions = listOfNotNull(fromStart, fromEnd).distinctBy { it.label }.map { action ->
                     CustomAccessibilityAction(action.label) {
                         action.action()
                         true
