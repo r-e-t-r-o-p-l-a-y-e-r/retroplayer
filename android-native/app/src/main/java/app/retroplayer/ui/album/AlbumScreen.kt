@@ -64,6 +64,7 @@ import app.retroplayer.ui.components.RetroTopBar
 import app.retroplayer.ui.player.ShareHeaderWithPlayer
 import app.retroplayer.ui.components.Swipe
 import app.retroplayer.ui.components.SwipeActions
+import app.retroplayer.ui.components.SwipeStyle
 import app.retroplayer.ui.components.TransportButton
 import app.retroplayer.ui.components.addedToQueue
 import app.retroplayer.ui.formatDuration
@@ -216,7 +217,7 @@ private fun AlbumBody(
         LazyColumn(state = listState, contentPadding = PaddingValues(bottom = 96.dp)) {
             itemsIndexed(state.tracks, key = { _, track -> track.id }) { index, track ->
                 val queueLabel = stringResource(R.string.add_to_queue)
-                SwipeActions(fromEnd = Swipe(Icons.AutoMirrored.Filled.PlaylistAdd, queueLabel) { actions.addToQueue(track) {} }) {
+                SwipeActions(fromEnd = Swipe(Icons.AutoMirrored.Filled.PlaylistAdd, queueLabel, SwipeStyle.Queue) { actions.addToQueue(track) {} }) {
                     TrackRow(index, track, track.id == playingTrackId, onClick = { actions.play(track) })
                 }
             }

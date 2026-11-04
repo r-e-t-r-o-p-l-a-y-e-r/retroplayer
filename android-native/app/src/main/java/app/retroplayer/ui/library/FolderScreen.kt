@@ -27,10 +27,8 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Album
 import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material.icons.outlined.Folder
 import androidx.compose.material.icons.outlined.FolderOpen
-import androidx.compose.material.icons.outlined.FolderSpecial
 import androidx.compose.material.icons.outlined.MusicNote
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExtendedFloatingActionButton
@@ -49,6 +47,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -87,11 +86,11 @@ import app.retroplayer.ui.components.RetroTopBar
 import app.retroplayer.ui.components.SectionHeader
 import app.retroplayer.ui.components.Swipe
 import app.retroplayer.ui.components.SwipeActions
+import app.retroplayer.ui.components.SwipeStyle
 import app.retroplayer.ui.components.addedToQueue
 import app.retroplayer.ui.player.PlayerToggleAction
 import app.retroplayer.ui.queue.QueueNavAction
 import app.retroplayer.ui.settings.SettingsNavAction
-import app.retroplayer.ui.theme.LocalRetroPalette
 import app.retroplayer.ui.theme.RetroPalette
 import kotlinx.coroutines.launch
 import sh.calvin.reorderable.ReorderableItem
@@ -173,12 +172,13 @@ data class FolderListScroll(
 @Composable
 private fun rememberFolderListScroll(scroll: FolderListScroll?): LazyListState {
     if (scroll == null) return rememberLazyListState()
-    val listState = remember(scroll.initialIndex, scroll.initialOffset) {
-        LazyListState(scroll.initialIndex, scroll.initialOffset)
-    }
-    LaunchedEffect(listState, scroll.onChange) {
+    // Not keyed on the initial position: saving the scroll changes it, and a new
+    // state would detach everything still holding the old one (the index bar).
+    val listState = remember { LazyListState(scroll.initialIndex, scroll.initialOffset) }
+    val onChange by rememberUpdatedState(scroll.onChange)
+    LaunchedEffect(listState) {
         snapshotFlow { listState.firstVisibleItemIndex to listState.firstVisibleItemScrollOffset }
-            .collect { (index, offset) -> scroll.onChange(index, offset) }
+            .collect { (index, offset) -> onChange(index, offset) }
     }
     return listState
 }
@@ -275,12 +275,15 @@ private fun RowSubtitle(text: String) = Text(text, maxLines = 1, overflow = Text
 
 @Composable
 private fun queueSwipe(itemId: String, actions: FolderActions) =
-    Swipe(Icons.AutoMirrored.Filled.PlaylistAdd, stringResource(R.string.add_to_queue)) { actions.addToQueue(itemId) {} }
+    Swipe(Icons.AutoMirrored.Filled.PlaylistAdd, stringResource(R.string.add_to_queue), SwipeStyle.Queue) {
+        actions.addToQueue(itemId) {}
+    }
 
 @Composable
 private fun favoriteSwipe(path: LibraryPath, favorite: Boolean, actions: FolderActions) = Swipe(
-    if (favorite) Icons.Outlined.StarBorder else Icons.Filled.Star,
+    Icons.Filled.Star,
     stringResource(if (favorite) R.string.remove_favorite else R.string.favorite),
+    SwipeStyle.Favorite,
 ) { actions.toggleFavorite(path) }
 
 private fun Modifier.lifted(dragging: Boolean) = if (dragging) shadow(8.dp) else this
@@ -368,12 +371,12 @@ private fun RootList(
     }
     val titles = remember(state) { rootSelectableTitles(state) }
     val labels = remember(titles) { LibraryIndex.labelsFor(titles) }
-    val showIndexBar = titles.size > LibraryIndex.MIN_ROWS_FOR_BAR && labels.size > 1
+    val showIndexBar = titles.size > LibraryIndex.MIN_ROWS_FOR_BAR
     val scope = rememberCoroutineScope()
     Box(Modifier.fillMaxSize()) {
         LazyColumn(
             state = listState,
-            contentPadding = PaddingValues(bottom = 96.dp, end = if (showIndexBar) 44.dp else 0.dp),
+            contentPadding = PaddingValues(bottom = 96.dp, end = if (showIndexBar) INDEX_BAR_WIDTH else 0.dp),
         ) {
         item(key = "h:sources") { SectionHeader(stringResource(R.string.library_sources)) }
         val shownRoots = roots.shown
@@ -388,7 +391,7 @@ private fun RootList(
                         },
                         onDragStopped = { roots.stop(key, actions.moveRoot) },
                     ),
-                    fromEnd = Swipe(Icons.Outlined.Delete, removeLabel) { onRemove(root) },
+                    fromEnd = Swipe(Icons.Outlined.Delete, removeLabel, SwipeStyle.Remove) { onRemove(root) },
                     moreActions = moveActions(index, shownRoots.size, actions.moveRoot),
                 ) {
                     RetroListRow(
@@ -423,7 +426,7 @@ private fun RootList(
                         RetroListRow(
                             title = { RowTitle(link.label) },
                             subtitle = link.rootName?.let { { RowSubtitle(it) } },
-                            leading = { IconChip(Icons.Outlined.FolderSpecial, contentDescription = stringResource(R.string.favorite)) },
+                            leading = { FolderChip(favorite = true) },
                             trailing = { PlayButton(stringResource(R.string.play_folder)) { actions.playFolder(link.path) } },
                             playing = link.path.holds(playingTrackId),
                             onClick = { favorites.click(key) { navigation.openFolder(link.path) } },
@@ -439,7 +442,7 @@ private fun RootList(
                 modifier = Modifier.align(Alignment.CenterEnd),
                 onSelect = { letter ->
                     scope.launch {
-                        val row = LibraryIndex.firstMatchingIndex(titles, letter) ?: return@launch
+                        val row = LibraryIndex.jumpIndex(titles, letter) ?: return@launch
                         val lazyIndex = LibraryIndex.lazyColumnIndexForSelectableRow(
                             row,
                             state.roots.size,
@@ -476,12 +479,12 @@ private fun FolderList(
         val listState = rememberFolderListScroll(listScroll)
         val titles = remember(state) { folderSelectableTitles(state) }
         val labels = remember(titles) { LibraryIndex.labelsFor(titles) }
-        val showIndexBar = titles.size > LibraryIndex.MIN_ROWS_FOR_BAR && labels.size > 1
+        val showIndexBar = titles.size > LibraryIndex.MIN_ROWS_FOR_BAR
         val scope = rememberCoroutineScope()
         Box(Modifier.fillMaxSize()) {
             LazyColumn(
                 state = listState,
-                contentPadding = PaddingValues(bottom = 96.dp, end = if (showIndexBar) 44.dp else 0.dp),
+                contentPadding = PaddingValues(bottom = 96.dp, end = if (showIndexBar) INDEX_BAR_WIDTH else 0.dp),
             ) {
                 folderSection(state, playingTrackId, navigation, actions)
                 playlistSection(state.playlists, navigation, actions)
@@ -493,7 +496,7 @@ private fun FolderList(
                     modifier = Modifier.align(Alignment.CenterEnd),
                     onSelect = { letter ->
                         scope.launch {
-                            val row = LibraryIndex.firstMatchingIndex(titles, letter) ?: return@launch
+                            val row = LibraryIndex.jumpIndex(titles, letter) ?: return@launch
                             val lazyIndex = LibraryIndex.lazyColumnIndexForSelectableRow(
                                 row,
                                 state.folders.size,
@@ -552,7 +555,7 @@ private fun FolderChip(favorite: Boolean) {
             Icon(
                 Icons.Filled.Star,
                 contentDescription = stringResource(R.string.favorite),
-                tint = LocalRetroPalette.current.accent,
+                tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(16.dp).align(Alignment.TopEnd),
             )
         }

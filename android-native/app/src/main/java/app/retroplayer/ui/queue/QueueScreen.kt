@@ -47,6 +47,7 @@ import app.retroplayer.ui.components.RetroListRow
 import app.retroplayer.ui.components.RetroTopBar
 import app.retroplayer.ui.components.Swipe
 import app.retroplayer.ui.components.SwipeActions
+import app.retroplayer.ui.components.SwipeStyle
 import app.retroplayer.ui.formatDuration
 import app.retroplayer.ui.player.PlayerToggleAction
 import sh.calvin.reorderable.ReorderableItem
@@ -156,7 +157,7 @@ private fun QueueList(state: QueueUiState.Ready, actions: QueueActions) {
             val key = entry.path.value
             val queueIndex = state.entries.indexOfFirst { it.path == entry.path }
             ReorderableItem(reorder, key = key) { dragging ->
-                val swipeRemove = Swipe(Icons.Outlined.Delete, removeLabel) { actions.remove(queueIndex) }
+                val swipeRemove = Swipe(Icons.Outlined.Delete, removeLabel, SwipeStyle.Remove) { actions.remove(queueIndex) }
                 SwipeActions(
                     modifier = Modifier.queueLifted(dragging),
                     fromStart = swipeRemove,

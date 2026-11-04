@@ -17,6 +17,38 @@ class RetroThemeTest {
     fun `dark scheme uses no Material baseline colors`() =
         assertNoBaseline(retroColorScheme(dark = true), darkColorScheme())
 
+    @Test
+    fun `light scheme uses the Flutter slot colors`() {
+        val p = RetroPalette.Light
+        assertFlutterSlots(retroColorScheme(dark = false), p, onAccent = Color.White, primaryContainer = Color(0xFFF5DFD0))
+    }
+
+    @Test
+    fun `dark scheme uses the Flutter slot colors`() {
+        val p = RetroPalette.Dark
+        assertFlutterSlots(retroColorScheme(dark = true), p, onAccent = p.textPrimary, primaryContainer = Color(0xFF3D2A1F))
+    }
+
+    private fun assertFlutterSlots(scheme: ColorScheme, p: RetroPalette, onAccent: Color, primaryContainer: Color) {
+        val expected: List<Triple<String, Color, Color>> = listOf(
+            Triple("primary", scheme.primary, p.accent),
+            Triple("onPrimary", scheme.onPrimary, onAccent),
+            Triple("secondary", scheme.secondary, p.accentSecondary),
+            Triple("onSecondary", scheme.onSecondary, Color.White),
+            Triple("error", scheme.error, p.error),
+            Triple("onError", scheme.onError, onAccent),
+            Triple("errorContainer", scheme.errorContainer, p.error),
+            Triple("onErrorContainer", scheme.onErrorContainer, onAccent),
+            Triple("surfaceContainerHighest", scheme.surfaceContainerHighest, p.chrome),
+            Triple("outline", scheme.outline, p.divider),
+            Triple("primaryContainer", scheme.primaryContainer, primaryContainer),
+            Triple("onPrimaryContainer", scheme.onPrimaryContainer, p.accent),
+        )
+        for ((name, actual, want) in expected) {
+            assertWithMessage(name).that(actual).isEqualTo(want)
+        }
+    }
+
     private fun assertNoBaseline(scheme: ColorScheme, baseline: ColorScheme) {
         val slots: List<Pair<String, (ColorScheme) -> Color>> = listOf(
             "primaryContainer" to { it.primaryContainer },

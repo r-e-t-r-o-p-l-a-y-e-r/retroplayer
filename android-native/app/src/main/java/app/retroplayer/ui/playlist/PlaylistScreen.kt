@@ -47,6 +47,7 @@ import app.retroplayer.ui.components.RetroListRow
 import app.retroplayer.ui.components.RetroTopBar
 import app.retroplayer.ui.components.Swipe
 import app.retroplayer.ui.components.SwipeActions
+import app.retroplayer.ui.components.SwipeStyle
 import app.retroplayer.ui.formatDuration
 import app.retroplayer.ui.player.PlayerToggleAction
 import sh.calvin.reorderable.ReorderableItem
@@ -225,7 +226,7 @@ private fun PlaylistList(state: PlaylistUiState.Ready, actions: PlaylistActions)
                     )
                 }
                 if (state.editable && !state.selectMode) {
-                    val swipeRemove = Swipe(Icons.Outlined.Delete, removeLabel) {
+                    val swipeRemove = Swipe(Icons.Outlined.Delete, removeLabel, SwipeStyle.Remove) {
                         actions.requestRemove(setOf(playlistIndex))
                     }
                     SwipeActions(

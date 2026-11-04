@@ -19,8 +19,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipe
 import androidx.compose.ui.test.swipeLeft
 import androidx.compose.ui.test.swipeRight
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.setValue
 import app.retroplayer.domain.model.AlbumSource
 import app.retroplayer.domain.model.AudioAlbum
 import app.retroplayer.domain.model.PlaybackItem
@@ -323,6 +327,36 @@ class FolderContentTest {
     fun `tapping a letter scrolls to it`() {
         show(longAudioFolder())
         compose.onNodeWithText("Z", substring = false).performClick()
+        compose.waitForIdle()
+        compose.onNodeWithText("zebra").assertIsDisplayed()
+    }
+
+    @Test
+    fun `the index bar still jumps after the scroll position was saved`() {
+        var saved = 0 to 0
+        var saves by mutableIntStateOf(0)
+        compose.setContent {
+            saves
+            val scroll = FolderListScroll(saved.first, saved.second) { index, offset ->
+                saved = index to offset
+                saves++
+            }
+            RetroTheme { FolderContent(longAudioFolder(), false, null, navigation, actions, listScroll = scroll) }
+        }
+        compose.onNodeWithText("Z").performClick()
+        compose.waitForIdle()
+        compose.onNodeWithText("zebra").assertIsDisplayed()
+        compose.onNodeWithText("A").performClick()
+        compose.waitForIdle()
+        compose.onNodeWithText("alpha").assertIsDisplayed()
+    }
+
+    @Test
+    fun `sliding along the index bar jumps to the letter under the finger`() {
+        show(longAudioFolder())
+        compose.onNodeWithTag(LIBRARY_INDEX_BAR_TAG).performTouchInput {
+            swipe(start = topCenter, end = bottomCenter.copy(y = bottomCenter.y - 1f), durationMillis = 300)
+        }
         compose.waitForIdle()
         compose.onNodeWithText("zebra").assertIsDisplayed()
     }

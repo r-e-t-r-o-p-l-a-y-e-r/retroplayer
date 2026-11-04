@@ -6,10 +6,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -17,12 +21,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.customActions
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
@@ -31,8 +38,11 @@ import app.retroplayer.ui.theme.LocalRetroPalette
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
+/** Colors of the bar a swipe reveals, as in the Flutter dismiss backgrounds. */
+enum class SwipeStyle { Favorite, Queue, Remove }
+
 /** What a row does when swiped one way; [label] also names it for accessibility services. */
-class Swipe(val icon: ImageVector, val label: String, val action: () -> Unit)
+class Swipe(val icon: ImageVector, val label: String, val style: SwipeStyle, val action: () -> Unit)
 
 private val SWIPE_THRESHOLD = 72.dp
 
@@ -89,12 +99,38 @@ fun SwipeActions(
     ) {
         val swipe = current()
         if (swipe != null) {
+            val (background, ink) = swipe.style.colors()
+            val atStart = offset * towardEndSign > 0
             Box(
-                Modifier.matchParentSize().background(palette.chrome).padding(horizontal = 24.dp),
-                contentAlignment = if (offset * towardEndSign > 0) Alignment.CenterStart else Alignment.CenterEnd,
-            ) { Icon(swipe.icon, contentDescription = null, tint = palette.accent) }
+                Modifier.matchParentSize().background(background).padding(horizontal = 20.dp),
+                contentAlignment = if (atStart) Alignment.CenterStart else Alignment.CenterEnd,
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Icon(swipe.icon, contentDescription = null, tint = ink)
+                    Text(
+                        swipe.label,
+                        color = ink,
+                        fontWeight = FontWeight.SemiBold,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
         }
         Box(Modifier.offset { IntOffset(offset.roundToInt(), 0) }.background(palette.screen)) { content() }
+    }
+}
+
+@Composable
+private fun SwipeStyle.colors(): Pair<Color, Color> {
+    val scheme = MaterialTheme.colorScheme
+    return when (this) {
+        SwipeStyle.Favorite -> scheme.primary to scheme.onPrimary
+        SwipeStyle.Queue -> scheme.secondary to scheme.onSecondary
+        SwipeStyle.Remove -> scheme.errorContainer to scheme.onErrorContainer
     }
 }
 
