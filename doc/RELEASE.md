@@ -67,15 +67,24 @@ keep the build reproducible:
 - The dependency metadata blob is off (`dependenciesInfo`).
 - Build-config values come from the commit (`GIT_COMMIT`, commit time), never
   from the branch, the clock or the machine.
-- Gradle wrapper, JDK major version and build-tools are pinned.
+- Gradle wrapper (with checksum), JDK major version and build-tools are pinned.
+- Release APKs come from a **clean checkout** (CI, or a fresh clone). An
+  incremental build after earlier builds can rename one R8 class and no longer
+  match F-Droid's clean build.
 
-Check before each release: build the tag in a clean clone (or F-Droid's
-`fdroidserver` image), then compare with the CI artifact:
+Checked on 0.9.0's build setup: a full clone and a shallow clone at different
+paths give byte-identical unsigned APKs, and a clean signed build passes
+F-Droid's comparison against a clean unsigned one. Check again before each
+release (`pip install apksigcopier`; `apksigner` from build-tools on `PATH`):
 
 ```bash
-apksigner verify --print-certs app-foss-release.apk
-diffoscope app-foss-release.apk app-foss-release-unsigned.apk
+git clone --depth 1 --branch v0.9.0 <repo> /tmp/rp && cd /tmp/rp
+./gradlew --no-build-cache :app:assembleFossRelease          # unsigned, like F-Droid
+apksigcopier compare retroplayer-0.9.0.apk --unsigned app/build/outputs/apk/foss/release/app-foss-release-unsigned.apk
+apksigner verify --print-certs retroplayer-0.9.0.apk
 ```
+
+If the comparison fails, `diffoscope` on the two APKs shows the difference.
 
 ## Release steps
 
