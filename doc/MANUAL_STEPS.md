@@ -9,7 +9,8 @@ release process itself is in [RELEASE.md](RELEASE.md).
 
   ```bash
   keytool -genkeypair -v -storetype PKCS12 -keystore retroplayer-release.jks \
-    -alias retroplayer -keyalg RSA -keysize 4096 -validity 36500
+    -alias retroplayer -keyalg RSA -keysize 4096 -validity 36500 \
+    -dname "CN=Retro Player"
   ```
 
 - [ ] Keep two offline backups of the keystore and the passwords in a password
