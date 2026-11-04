@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} skladieb · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} skladba · {artist}} other{{count} skladieb · {artist}}}",
   "resetDatabase": "Obnoviť databázu",
   "resetDatabaseTitle": "Obnoviť databázu?",
   "resetDatabaseBody": "Týmto sa vymažú polohy prehrávania, obľúbené položky, otvorená zložka, motív, jazyk a nastavenia ekvalizéra. Funkcia „Vymazať všetko“ tiež odstráni pridané zložky knižnice. Hudobné súbory a zoznamy skladieb na disku sa nevymažú.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Pre ikonu na paneli úloh a v mriežke aplikácií vyžadujú desktopové prostredia Linuxu samostatné súbory Freedesktop. Retro Player ich pri spustení nainštaluje z balíka aplikácie:\n\n• ~/.local/share/applications/app.retroplayer.desktop — položka spúšťača, ktorá prepojí spustené okno s touto aplikáciou\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — tematické ikony skopírované z balíka\n\nNikdy nevytvára používateľský súbor hicolor/index.theme (ktorý by prekryl systémovú tému a skryl ostatné ikony). Ikony sú tiež vložené do binárneho súboru aplikácie. Vyššie uvedené kópie pomáhajú prostrediam GNOME/KDE zobraziť správnu ikonu spúšťača namiesto generického zástupného symbolu.",
   "dataStorageAndroidPermissionsTitle": "Oprávnenia a úložisko v systéme Android",
   "dataStorageAndroidPermissionsBody": "Aplikácia Retro Player ukladá svoju databázu do súkromnej podporné oblasti aplikácie vo vnútornom úložisku. Vaše hudobné súbory zostávajú v priečinkoch, ktoré si vyberiete pomocou systémového výberu priečinkov.\n\nV systéme Android môže aplikácia požiadať o prístup k zvukovým súborom na čítanie skladieb a o prístup k fotografiám/obrázkom, aby bolo možné zobraziť obaly albumov (napríklad cover.jpg). Zvukové súbory sa nikdy nekopírujú do databázy aplikácie.",
+  "dataStorageAndroidNativeBody": "Aplikácia Retro Player ukladá svoju databázu do súkromnej podporné oblasti aplikácie vo vnútornom úložisku. Vaše hudobné súbory zostávajú v priečinkoch, ktoré si vyberiete pomocou systémového výberu priečinkov.",
   "dataStorageAndroidPlaybackTitle": "Prehrávanie na pozadí v systéme Android",
   "dataStorageAndroidPlaybackBody": "Počas prehrávania zvuku spúšťa Retro Player mediálnu službu v popredí, vďaka čomu prehrávanie pokračuje aj v prípade, že telefón uzamknete alebo prepnete medzi aplikáciami, pričom ovládacie prvky prehrávania sa zobrazujú v systémovej notifikácii. Ak aplikáciu potiahnete preč zo zoznamu nedávno používaných aplikácií, prehrávanie sa zastaví a notifikácia sa skryje.",
   "dataStorageIOSAccessTitle": "Prístup k zložkám v systéme iOS",

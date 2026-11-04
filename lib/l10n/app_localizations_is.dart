@@ -195,7 +195,13 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count lög · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lög · $artist',
+      one: '$count lag · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -309,6 +315,10 @@ class AppLocalizationsIs extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player geymir gagnagrunn sinn á einkasvæði forritsstuðnings á innri geymslu. Tónlistarskrár þínar verða áfram í möppum sem þú velur með kerfisvalsara möppna.\n\nÁ Android getur forritið óskað eftir aðgangi að hljóði til að lesa lög og aðgangi að myndum/myndum svo möppuhönnun (til dæmis cover.jpg) geti verið sýnd. Hljóðskrár eru aldrei afritaðar í gagnagrunn forritsins.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player geymir gagnagrunn sinn á einkasvæði forritsstuðnings á innri geymslu. Tónlistarskrár þínar verða áfram í möppum sem þú velur með kerfisvalsara möppna.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Android bakgrunnsspilun';

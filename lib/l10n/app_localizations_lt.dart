@@ -197,7 +197,13 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count įrašų · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count įrašų · $artist',
+      one: '$count įrašas · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -312,6 +318,10 @@ class AppLocalizationsLt extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       '„Retro Player“ savo duomenų bazę saugo vidinėje atmintyje esančioje programai skirtoje srityje. Jūsų muzikos failai išlieka aplankuose, kuriuos pasirenkate naudodami sistemos aplankų pasirinkimo priemonę.\n\n„Android“ sistemoje programėlė gali prašyti leidimo naudotis garso įrašais, kad galėtų skaityti takelius, bei leidimo naudotis nuotraukomis ir vaizdais, kad būtų galima rodyti aplankų iliustracijas (pavyzdžiui, „cover.jpg“). Garso failai niekada nėra kopijuojami į programėlės duomenų bazę.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      '„Retro Player“ savo duomenų bazę saugo vidinėje atmintyje esančioje programai skirtoje srityje. Jūsų muzikos failai išlieka aplankuose, kuriuos pasirenkate naudodami sistemos aplankų pasirinkimo priemonę.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => '„Android“ grojimas fone';

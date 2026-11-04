@@ -22,7 +22,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get aboutSubtitle =>
-      'Solo audio locale. Nessuna pubblicità, nessuna telemetria, nessun accesso alla rete.&#10; Formati supportati: MP3, M4A, M4B, FLAC, WAV';
+      'Solo audio locale. Nessuna pubblicità, nessuna telemetria, nessun accesso alla rete.\n Formati supportati: MP3, M4A, M4B, FLAC, WAV';
 
   @override
   String get aboutVersion => 'Versione';
@@ -66,7 +66,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get audioPermissionRequired =>
-      'Su Android è necessaria l&#39;autorizzazione audio.';
+      'Su Android è necessaria l\'autorizzazione audio.';
 
   @override
   String get expandPlayer => 'Espandi il lettore';
@@ -198,7 +198,13 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count tracce · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tracce · $artist',
+      one: '$count traccia · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -265,7 +271,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String dataStorageAppDataBody(String dbFileName, String dbPath) {
-    return 'File: $dbFileName&#10; Percorso: $dbPath&#10;&#10; Memorizza le directory principali della libreria, lo stato di navigazione, la ripresa della riproduzione, le impostazioni dell&#39;equalizzatore, del tema e della lingua.';
+    return 'File: $dbFileName\n Percorso: $dbPath\n\n Memorizza le directory principali della libreria, lo stato di navigazione, la ripresa della riproduzione, le impostazioni dell\'equalizzatore, del tema e della lingua.';
   }
 
   @override
@@ -289,7 +295,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get dataStoragePlatformBodyLinux =>
-      'I dati dell&#39;app vengono memorizzati nella directory di supporto dell&#39;app (in genere ~/.local/share/app.retroplayer/).';
+      'I dati dell\'app vengono memorizzati nella directory di supporto dell\'app (in genere ~/.local/share/app.retroplayer/).';
 
   @override
   String get dataStorageLinuxDataTitle => 'Linux';
@@ -304,7 +310,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get dataStorageLinuxTaskbarBody =>
-      'Per l&#39;icona della barra delle applicazioni e della griglia delle app, gli ambienti desktop Linux si aspettano file Freedesktop separati. Retro Player li installa dal pacchetto dell&#39;app all&#39;avvio:\n\n• ~/.local/share/applications/app.retroplayer.desktop — voce di avvio che collega la finestra in esecuzione a questa app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — icone a tema copiate dal bundle\n\nNon scrive mai un tema hicolor/index.theme dell\'utente (che ombreggerebbe il tema del sistema e nasconderebbe altre icone). Anche le icone sono incorporate nel binario dell\'app. Le copie sopra aiutano GNOME/KDE a mostrare l\'icona di avvio corretta invece di un segnaposto generico.';
+      'Per l\'icona della barra delle applicazioni e della griglia delle app, gli ambienti desktop Linux si aspettano file Freedesktop separati. Retro Player li installa dal pacchetto dell\'app all\'avvio:\n\n• ~/.local/share/applications/app.retroplayer.desktop — voce di avvio che collega la finestra in esecuzione a questa app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — icone a tema copiate dal bundle\n\nNon scrive mai un tema hicolor/index.theme dell\'utente (che ombreggerebbe il tema del sistema e nasconderebbe altre icone). Anche le icone sono incorporate nel binario dell\'app. Le copie sopra aiutano GNOME/KDE a mostrare l\'icona di avvio corretta invece di un segnaposto generico.';
 
   @override
   String get dataStorageAndroidPermissionsTitle =>
@@ -312,7 +318,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get dataStorageAndroidPermissionsBody =>
-      'Retro Player memorizza il suo database nell&#39;area di supporto privata dell&#39;app, nella memoria interna. I tuoi file musicali rimangono nelle cartelle che selezioni tramite lo strumento di selezione cartelle del sistema.&#10;&#10; Su Android, l&#39;app potrebbe richiedere l&#39;accesso all&#39;audio per riprodurre le tracce e l&#39;accesso a foto/immagini per visualizzare le copertine delle cartelle (ad esempio cover.jpg). I file audio non vengono mai copiati nel database dell&#39;app.';
+      'Retro Player memorizza il suo database nell\'area di supporto privata dell\'app, nella memoria interna. I tuoi file musicali rimangono nelle cartelle che selezioni tramite lo strumento di selezione cartelle del sistema.\n\n Su Android, l\'app potrebbe richiedere l\'accesso all\'audio per riprodurre le tracce e l\'accesso a foto/immagini per visualizzare le copertine delle cartelle (ad esempio cover.jpg). I file audio non vengono mai copiati nel database dell\'app.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player memorizza il suo database nell\'area di supporto privata dell\'app, nella memoria interna. I tuoi file musicali rimangono nelle cartelle che selezioni tramite lo strumento di selezione cartelle del sistema.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>
@@ -327,7 +337,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get dataStorageIOSAccessBody =>
-      'Retro Player memorizza il suo database nell&#39;area di supporto privata dell&#39;app sulla memoria del dispositivo. I tuoi file musicali rimangono nelle cartelle che scegli tramite il selettore di cartelle di sistema.&#10;&#10; iOS concede l&#39;accesso tramite URL con ambito di sicurezza per le cartelle selezionate. Retro Player legge i file direttamente da tali posizioni; non copia la libreria nella memoria dell&#39;app.';
+      'Retro Player memorizza il suo database nell\'area di supporto privata dell\'app sulla memoria del dispositivo. I tuoi file musicali rimangono nelle cartelle che scegli tramite il selettore di cartelle di sistema.\n\n iOS concede l\'accesso tramite URL con ambito di sicurezza per le cartelle selezionate. Retro Player legge i file direttamente da tali posizioni; non copia la libreria nella memoria dell\'app.';
 
   @override
   String get dataStorageIOSPlaybackTitle => 'audio di sottofondo iOS';
@@ -358,7 +368,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get dataStoragePlatformBodyUnknown =>
-      'I dati dell&#39;app vengono memorizzati nell&#39;area di supporto dell&#39;applicazione della piattaforma.';
+      'I dati dell\'app vengono memorizzati nell\'area di supporto dell\'applicazione della piattaforma.';
 
   @override
   String get loading => 'Caricamento in corso...';

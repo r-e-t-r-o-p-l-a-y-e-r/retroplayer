@@ -343,7 +343,7 @@ fun SettingsDataContent(state: SettingsUiState, back: () -> Unit) {
                     stringResource(R.string.data_storage_platform_body_android),
                 )
             }
-            item { StorageSection(stringResource(R.string.data_storage_android_permissions_title), stringResource(R.string.data_storage_android_permissions_body)) }
+            item { StorageSection(stringResource(R.string.data_storage_android_permissions_title), stringResource(R.string.data_storage_android_native_body)) }
             item { StorageSection(stringResource(R.string.data_storage_android_playback_title), stringResource(R.string.data_storage_android_playback_body)) }
         }
     }

@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Yalnızca kulaklığın 10 dakikadan kısa süre önce çıkarılması nedeniyle oynatma duraklatıldıysa.</string>
     <string name="track_fallback">İzle</string>
     <string name="unknown_artist">Bilinmiyor</string>
-    <string name="tracks_count_artist">%1$d parça · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d parça · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d parça · %2$s</string>
     <string name="reset_database">Veritabanını sıfırla</string>
     <string name="reset_database_title">Veritabanını sıfırla</string>
     <string name="reset_database_body">Bu işlem, oynatma konumlarını, favorileri, açık klasörü, temayı, dili ve ekolayzır ayarlarını temizler. Her şeyi temizle seçeneği ayrıca eklenen kütüphane klasörlerini de unutur. Disk üzerindeki müzik dosyaları ve çalma listeleri silinmez.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Görev çubuğu ve uygulama ızgarası simgesi için Linux masaüstü ortamları ayrı Freedesktop dosyaları bekler. Retro Player, başlangıçta bunları uygulama paketinden yükler:\n\n• ~/.local/share/applications/app.retroplayer.desktop — çalışan pencereyi bu uygulamaya bağlayan başlatıcı girişi\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — paketten kopyalanan temalı simgeler\n\nBu, kullanıcı tarafından oluşturulmuş hicolor/index.theme dosyasını asla yazmaz (bu, sistem temasını gölgede bırakır ve diğer simgeleri gizler). Simgeler ayrıca uygulama ikili dosyasına da gömülüdür. Yukarıdaki kopyalar, GNOME/KDE\'nin genel bir yer tutucu yerine doğru başlatıcı simgesini göstermesine yardımcı olur.</string>
     <string name="data_storage_android_permissions_title">Android izinleri ve depolama</string>
     <string name="data_storage_android_permissions_body">Retro Player veritabanını dahili depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.\n\n Android\'de uygulama, parçaları okumak için ses dosyalarına erişim ve klasör kapak resimlerinin (örneğin cover.jpg) gösterilebilmesi için fotoğraf/görüntü dosyalarına erişim isteyebilir. Ses dosyaları hiçbir zaman uygulama veritabanına kopyalanmaz.</string>
+    <string name="data_storage_android_native_body">Retro Player veritabanını dahili depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.</string>
     <string name="data_storage_android_playback_title">Android arka plan oynatma</string>
     <string name="data_storage_android_playback_body">Ses oynatılırken, Retro Player ön planda bir medya hizmeti çalıştırır, böylece telefonu kilitlediğinizde veya uygulamalar arasında geçiş yaptığınızda oynatma devam eder ve sistem bildiriminde taşıma kontrolleri bulunur. Uygulamayı Son Kullanılanlar\'dan kaydırarak kapatmak oynatmayı durdurur ve bildirimi kaldırır.</string>
     <string name="data_storage_ios_access_title">iOS klasörüne erişim</string>

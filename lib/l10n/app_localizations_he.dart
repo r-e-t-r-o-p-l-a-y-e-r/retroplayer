@@ -194,7 +194,13 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count רצועות · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count רצועות · $artist',
+      one: 'רצועה אחת · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -307,6 +313,10 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player מאחסן את מסד הנתונים שלו באזור התמיכה הפרטי של האפליקציה, הנמצא באחסון הפנימי. קבצי המוזיקה שלך נשמרים בתיקיות שתבחר באמצעות בורר התיקיות של המערכת.\n\nב-Android, האפליקציה עשויה לבקש גישה לאודיו כדי לקרוא רצועות, וכן גישה לתמונות/תמונות כדי שניתן יהיה להציג את עטיפות התיקיות (לדוגמה, cover.jpg). קבצי אודיו לעולם אינם מועתקים למסד הנתונים של האפליקציה.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player מאחסן את מסד הנתונים שלו באזור התמיכה הפרטי של האפליקציה, הנמצא באחסון הפנימי. קבצי המוזיקה שלך נשמרים בתיקיות שתבחר באמצעות בורר התיקיות של המערכת.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'השמעה ברקע באנדרואיד';

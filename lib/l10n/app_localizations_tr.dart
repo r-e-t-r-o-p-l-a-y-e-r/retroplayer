@@ -22,7 +22,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get aboutSubtitle =>
-      'Sadece yerel ses. Reklam yok, telemetri yok, ağ erişimi yok.&#10; Desteklenen formatlar: MP3, M4A, M4B, FLAC, WAV';
+      'Sadece yerel ses. Reklam yok, telemetri yok, ağ erişimi yok.\n Desteklenen formatlar: MP3, M4A, M4B, FLAC, WAV';
 
   @override
   String get aboutVersion => 'Sürüm';
@@ -64,7 +64,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addFolder => 'Klasör Ekle';
 
   @override
-  String get audioPermissionRequired => 'Android&#39;de ses izni gereklidir.';
+  String get audioPermissionRequired => 'Android\'de ses izni gereklidir.';
 
   @override
   String get expandPlayer => 'Oyuncuyu genişlet';
@@ -113,7 +113,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String removeLibraryFolderBody(String name) {
-    return 'Kütüphanenizden &quot;$name&quot; öğesini kaldırmak mı istiyorsunuz?&#10;&#10; Disk üzerindeki ses dosyalarınız silinmedi.';
+    return 'Kütüphanenizden &quot;$name&quot; öğesini kaldırmak mı istiyorsunuz?\n\n Disk üzerindeki ses dosyalarınız silinmedi.';
   }
 
   @override
@@ -195,7 +195,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count parça · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count parça · $artist',
+      one: '$count parça · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -262,7 +268,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String dataStorageAppDataBody(String dbFileName, String dbPath) {
-    return 'Dosya: $dbFileName&#10; Yol: $dbPath&#10;&#10; Kütüphane köklerini, göz atma durumunu, oynatmaya devam etme özelliğini, ekolayzırı, temayı ve dil tercihlerini saklar.';
+    return 'Dosya: $dbFileName\n Yol: $dbPath\n\n Kütüphane köklerini, göz atma durumunu, oynatmaya devam etme özelliğini, ekolayzırı, temayı ve dil tercihlerini saklar.';
   }
 
   @override
@@ -300,7 +306,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get dataStorageLinuxTaskbarBody =>
-      'Görev çubuğu ve uygulama ızgarası simgesi için Linux masaüstü ortamları ayrı Freedesktop dosyaları bekler. Retro Player, başlangıçta bunları uygulama paketinden yükler:\n\n• ~/.local/share/applications/app.retroplayer.desktop — çalışan pencereyi bu uygulamaya bağlayan başlatıcı girişi\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — paketten kopyalanan temalı simgeler\n\nBu, kullanıcı tarafından oluşturulmuş hicolor/index.theme dosyasını asla yazmaz (bu, sistem temasını gölgede bırakır ve diğer simgeleri gizler). Simgeler ayrıca uygulama ikili dosyasına da gömülüdür. Yukarıdaki kopyalar, GNOME/KDE&#39;nin genel bir yer tutucu yerine doğru başlatıcı simgesini göstermesine yardımcı olur.';
+      'Görev çubuğu ve uygulama ızgarası simgesi için Linux masaüstü ortamları ayrı Freedesktop dosyaları bekler. Retro Player, başlangıçta bunları uygulama paketinden yükler:\n\n• ~/.local/share/applications/app.retroplayer.desktop — çalışan pencereyi bu uygulamaya bağlayan başlatıcı girişi\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — paketten kopyalanan temalı simgeler\n\nBu, kullanıcı tarafından oluşturulmuş hicolor/index.theme dosyasını asla yazmaz (bu, sistem temasını gölgede bırakır ve diğer simgeleri gizler). Simgeler ayrıca uygulama ikili dosyasına da gömülüdür. Yukarıdaki kopyalar, GNOME/KDE\'nin genel bir yer tutucu yerine doğru başlatıcı simgesini göstermesine yardımcı olur.';
 
   @override
   String get dataStorageAndroidPermissionsTitle =>
@@ -308,21 +314,25 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get dataStorageAndroidPermissionsBody =>
-      'Retro Player veritabanını dahili depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.&#10;&#10; Android&#39;de uygulama, parçaları okumak için ses dosyalarına erişim ve klasör kapak resimlerinin (örneğin cover.jpg) gösterilebilmesi için fotoğraf/görüntü dosyalarına erişim isteyebilir. Ses dosyaları hiçbir zaman uygulama veritabanına kopyalanmaz.';
+      'Retro Player veritabanını dahili depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.\n\n Android\'de uygulama, parçaları okumak için ses dosyalarına erişim ve klasör kapak resimlerinin (örneğin cover.jpg) gösterilebilmesi için fotoğraf/görüntü dosyalarına erişim isteyebilir. Ses dosyaları hiçbir zaman uygulama veritabanına kopyalanmaz.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player veritabanını dahili depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Android arka plan oynatma';
 
   @override
   String get dataStorageAndroidPlaybackBody =>
-      'Ses oynatılırken, Retro Player ön planda bir medya hizmeti çalıştırır, böylece telefonu kilitlediğinizde veya uygulamalar arasında geçiş yaptığınızda oynatma devam eder ve sistem bildiriminde taşıma kontrolleri bulunur. Uygulamayı Son Kullanılanlar&#39;dan kaydırarak kapatmak oynatmayı durdurur ve bildirimi kaldırır.';
+      'Ses oynatılırken, Retro Player ön planda bir medya hizmeti çalıştırır, böylece telefonu kilitlediğinizde veya uygulamalar arasında geçiş yaptığınızda oynatma devam eder ve sistem bildiriminde taşıma kontrolleri bulunur. Uygulamayı Son Kullanılanlar\'dan kaydırarak kapatmak oynatmayı durdurur ve bildirimi kaldırır.';
 
   @override
   String get dataStorageIOSAccessTitle => 'iOS klasörüne erişim';
 
   @override
   String get dataStorageIOSAccessBody =>
-      'Retro Player veritabanını cihaz depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.&#10;&#10; iOS, seçtiğiniz klasörlere güvenlik kapsamlı URL&#39;ler aracılığıyla erişim izni verir. Retro Player dosyaları doğrudan bu konumlardan okur; kütüphanenizi uygulama depolama alanına kopyalamaz.';
+      'Retro Player veritabanını cihaz depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.\n\n iOS, seçtiğiniz klasörlere güvenlik kapsamlı URL\'ler aracılığıyla erişim izni verir. Retro Player dosyaları doğrudan bu konumlardan okur; kütüphanenizi uygulama depolama alanına kopyalamaz.';
 
   @override
   String get dataStorageIOSPlaybackTitle => 'iOS arka plan sesi';

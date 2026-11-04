@@ -273,6 +273,17 @@ private fun RowTitle(text: String) = Text(text, maxLines = 2, overflow = TextOve
 @Composable
 private fun RowSubtitle(text: String) = Text(text, maxLines = 1, overflow = TextOverflow.Ellipsis)
 
+/** "3 tracks · Artist" under an album row. */
+@Composable
+internal fun albumSummary(album: AudioAlbum): String {
+    val artist = album.artist ?: stringResource(R.string.unknown_artist)
+    val count = album.tracks.size
+    return when (count) {
+        1 -> stringResource(R.string.tracks_count_artist_eq1, count, artist)
+        else -> stringResource(R.string.tracks_count_artist_other, count, artist)
+    }
+}
+
 @Composable
 private fun queueSwipe(itemId: String, actions: FolderActions) =
     Swipe(Icons.AutoMirrored.Filled.PlaylistAdd, stringResource(R.string.add_to_queue), SwipeStyle.Queue) {
@@ -602,7 +613,7 @@ private fun AlbumRow(album: AudioAlbum, folderArt: String?, playingTrackId: Stri
     RetroListRow(
         title = { RowTitle(album.title) },
         subtitle = {
-            RowSubtitle(stringResource(R.string.tracks_count_artist, album.tracks.size, album.artist ?: stringResource(R.string.unknown_artist)))
+            RowSubtitle(albumSummary(album))
         },
         leading = {
             AlbumArt(folderArt ?: album.tracks.firstOrNull()?.let { EmbeddedArt(it.uri) }, size = 40.dp, placeholderIcon = Icons.Outlined.Album)

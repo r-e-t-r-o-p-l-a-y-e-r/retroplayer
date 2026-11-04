@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">فقط إذا توقف التشغيل بسبب فصل السماعات قبل أقل من 10 دقائق.</string>
     <string name="track_fallback">المسار</string>
     <string name="unknown_artist">غير معروف</string>
-    <string name="tracks_count_artist">%1$d مسار · %2$s</string>
+    <string name="tracks_count_artist_eq1">مسار واحد · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d مسار · %2$s</string>
     <string name="reset_database">إعادة تعيين قاعدة البيانات</string>
     <string name="reset_database_title">إعادة تعيين قاعدة البيانات ؟</string>
     <string name="reset_database_body">يؤدي هذا إلى مسح مواضع التشغيل والمفضلة والمجلد المفتوح والقالب واللغة وإعدادات المعادل. مسح كل شيء ينسى أيضًا مجلدات المكتبة المضافة. لا يتم حذف ملفات الموسيقى وقوائم التشغيل على القرص.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">بالنسبة لشريط المهام وأيقونة شبكة التطبيق، تتوقع بيئات سطح مكتب Linux ملفات Freedesktop منفصلة. يقوم Retro Player بتثبيت هذه من حزمة التطبيق عند بدء التشغيل:\n\n•~/ .local/share/applications/app.retroplayer.desktop — إدخال المشغل الذي يربط نافذة التشغيل بهذا التطبيق\n•~/ .local/share/icons/hicolor /*/ apps/app.retroplayer.png - الرموز ذات السمات المنسوخة من الحزمة\n\nلا تكتب أبدًا hicolor/index.theme للمستخدم (من شأنه أن يحجب سمة النظام ويخفي الرموز الأخرى). يتم تضمين الأيقونات أيضًا في ثنائي التطبيق. تساعد النسخ أعلاه GNOME/KDE على إظهار رمز المشغل الصحيح بدلاً من عنصر نائب عام.</string>
     <string name="data_storage_android_permissions_title">أذونات Android والتخزين</string>
     <string name="data_storage_android_permissions_body">يقوم Retro Player بتخزين قاعدة بياناته في منطقة الدعم الخاصة بالتطبيق على وحدة التخزين الداخلية. تبقى ملفات الموسيقى الخاصة بك في المجلدات التي تختارها باستخدام منتقي مجلدات النظام.\n\nعلى Android، قد يطلب التطبيق الوصول إلى الصوت لقراءة المسارات، والوصول إلى الصور/الصور بحيث يمكن عرض العمل الفني للمجلد (على سبيل المثال cover.jpg). لا يتم نسخ الملفات الصوتية أبدًا في قاعدة بيانات التطبيق.</string>
+    <string name="data_storage_android_native_body">يقوم Retro Player بتخزين قاعدة بياناته في منطقة الدعم الخاصة بالتطبيق على وحدة التخزين الداخلية. تبقى ملفات الموسيقى الخاصة بك في المجلدات التي تختارها باستخدام منتقي مجلدات النظام.</string>
     <string name="data_storage_android_playback_title">تشغيل خلفية أندرويد</string>
     <string name="data_storage_android_playback_body">عند تشغيل الصوت، يقوم Retro Player بتشغيل خدمة وسائط أمامية حتى يستمر التشغيل إذا قمت بقفل الهاتف أو تبديل التطبيقات، مع وجود عناصر تحكم النقل في إشعار النظام. يؤدي تمرير التطبيق بعيدًا عن Recents إلى إيقاف التشغيل وإزالة الإشعار.</string>
     <string name="data_storage_ios_access_title">الوصول إلى مجلد iOS</string>

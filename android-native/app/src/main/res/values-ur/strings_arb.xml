@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">صرف اس صورت میں جب پلے بیک اس لیے رکا ہو کہ ہیڈ فون 10 منٹ سے کم پہلے منقطع ہوئے۔</string>
     <string name="track_fallback">ٹریک</string>
     <string name="unknown_artist">نامعلوم</string>
-    <string name="tracks_count_artist">%1$d ٹریکس · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d ٹریک · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d ٹریکس · %2$s</string>
     <string name="reset_database">ڈیٹا بیس کو ری سیٹ کریں</string>
     <string name="reset_database_title">ڈیٹا بیس ری سیٹ کریں؟</string>
     <string name="reset_database_body">یہ پلے بیک پوزیشنز، پسندیدہ، کھلا ہوا فولڈر، تھیم، زبان اور ایکولائزر کی ترتیبات کو صاف کر دیتا ہے۔  سب کچھ صاف کرنے سے شامل کیے گئے لائبریری فولڈرز بھی بھول جاتے ہیں۔  ڈسک پر موجود موسیقی فائلیں اور پلے لسٹس حذف نہیں ہوتیں۔</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">ٹاسک بار اور ایپ گرڈ آئیکن کے لیے، لینکس ڈیسک ٹاپ ماحول الگ الگ Freedesktop فائلوں کی توقع کرتے ہیں۔ Retro Player ان فائلوں کو اسٹارٹ اپ پر ایپ بنڈل سے انسٹال کرتا ہے:\n\n• ~/.local/share/applications/app.retroplayer.desktop — لانچر انٹری جو چلتی ہوئی ونڈو کو اس ایپ سے جوڑتی ہے\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — تھیم والے آئیکنز جو بنڈل سے کاپی کیے گئے ہیں\n\nیہ کبھی بھی صارف کا hicolor/index.theme نہیں لکھتا (جو سسٹم تھیم کو اووررائیٹ کر کے دوسرے آئیکنز کو چھپا دے گا)۔ آئیکنز ایپ بائنری میں بھی شامل ہیں۔ مذکورہ بالا نقول GNOME/KDE کو ایک عام جگہ پُر کرنے والے آئیکن کے بجائے درست لانچر آئیکن دکھانے میں مدد دیتی ہیں۔</string>
     <string name="data_storage_android_permissions_title">اینڈرائیڈ اجازتیں اور اسٹوریج</string>
     <string name="data_storage_android_permissions_body">ریٹرو پلیئر اپنا ڈیٹا بیس اندرونی اسٹوریج کے ایپ-پرائیویٹ سپورٹ ایریا میں محفوظ کرتا ہے۔ آپ کی موسیقی فائلیں ان فولڈرز میں رہتی ہیں جو آپ سسٹم فولڈر پِکر کے ذریعے منتخب کرتے ہیں۔\n\nاینڈرائیڈ پر، ایپ ٹریک پڑھنے کے لیے آڈیو تک رسائی اور فولڈر آرٹ ورک (مثلاً cover.jpg) دکھانے کے لیے تصاویر/فوٹوز تک رسائی کی درخواست کر سکتی ہے۔ آڈیو فائلیں کبھی بھی ایپ کے ڈیٹا بیس میں کاپی نہیں کی جاتیں۔</string>
+    <string name="data_storage_android_native_body">ریٹرو پلیئر اپنا ڈیٹا بیس اندرونی اسٹوریج کے ایپ-پرائیویٹ سپورٹ ایریا میں محفوظ کرتا ہے۔ آپ کی موسیقی فائلیں ان فولڈرز میں رہتی ہیں جو آپ سسٹم فولڈر پِکر کے ذریعے منتخب کرتے ہیں۔</string>
     <string name="data_storage_android_playback_title">اینڈرائیڈ پسِ منظر میں پلے بیک</string>
     <string name="data_storage_android_playback_body">جب آڈیو چل رہا ہوتا ہے، ریٹرو پلیئر ایک فرنٹ گراؤنڈ میڈیا سروس چلاتا ہے تاکہ اگر آپ فون لاک کریں یا ایپس تبدیل کریں تو پلے بیک جاری رہے، اور سسٹم نوٹیفیکیشن میں ٹرانسپورٹ کنٹرولز دکھائی دیں۔ ایپ کو حالیہ ایپس سے سوائپ کر کے ہٹانے سے پلے بیک رک جاتا ہے اور نوٹیفیکیشن بھی ختم ہو جاتی ہے۔</string>
     <string name="data_storage_ios_access_title">iOS فولڈر تک رسائی</string>

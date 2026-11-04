@@ -196,7 +196,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count lagu · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lagu · $artist',
+      one: '$count lagu · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -310,6 +316,10 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player menyimpan basis datanya di area dukungan khusus aplikasi pada penyimpanan internal. File musik Anda tetap tersimpan di folder yang Anda pilih menggunakan pemilih folder bawaan sistem.\n\nDi Android, aplikasi mungkin meminta izin akses audio untuk membaca trek, serta izin akses foto/gambar agar gambar sampul folder (misalnya cover.jpg) dapat ditampilkan. File audio tidak pernah disalin ke basis data aplikasi.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player menyimpan basis datanya di area dukungan khusus aplikasi pada penyimpanan internal. File musik Anda tetap tersimpan di folder yang Anda pilih menggunakan pemilih folder bawaan sistem.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

@@ -196,7 +196,13 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count piese · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count piese · $artist',
+      one: '$count piesă · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -311,6 +317,10 @@ class AppLocalizationsRo extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player își stochează baza de date în zona de suport privată a aplicației, pe spațiul de stocare intern. Fișierele tale muzicale rămân în folderele pe care le alegi cu ajutorul selectorului de foldere al sistemului.\n\nPe Android, aplicația poate solicita acces la fișiere audio pentru a citi piesele, precum și acces la fotografii/imagini, astfel încât să poată fi afișate imaginile de copertă ale folderelor (de exemplu, cover.jpg). Fișierele audio nu sunt niciodată copiate în baza de date a aplicației.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player își stochează baza de date în zona de suport privată a aplicației, pe spațiul de stocare intern. Fișierele tale muzicale rămân în folderele pe care le alegi cu ajutorul selectorului de foldere al sistemului.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Redare în fundal pe Android';

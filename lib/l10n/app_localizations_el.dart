@@ -197,7 +197,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count κομμάτια · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count κομμάτια · $artist',
+      one: '$count κομμάτι · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -313,6 +319,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Το Retro Player αποθηκεύει τη βάση δεδομένων του στον ιδιωτικό χώρο υποστήριξης της εφαρμογής, στον εσωτερικό χώρο αποθήκευσης. Τα αρχεία μουσικής σας παραμένουν σε φακέλους που επιλέγετε μέσω του εργαλείου επιλογής φακέλων του συστήματος.\n\nΣτο Android, η εφαρμογή ενδέχεται να ζητήσει πρόσβαση στον ήχο για να διαβάσει τα κομμάτια, καθώς και πρόσβαση σε φωτογραφίες/εικόνες, ώστε να μπορούν να εμφανίζονται τα εξώφυλλα των φακέλων (για παράδειγμα, το αρχείο cover.jpg). Τα αρχεία ήχου δεν αντιγράφονται ποτέ στη βάση δεδομένων της εφαρμογής.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Το Retro Player αποθηκεύει τη βάση δεδομένων του στον ιδιωτικό χώρο υποστήριξης της εφαρμογής, στον εσωτερικό χώρο αποθήκευσης. Τα αρχεία μουσικής σας παραμένουν σε φακέλους που επιλέγετε μέσω του εργαλείου επιλογής φακέλων του συστήματος.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

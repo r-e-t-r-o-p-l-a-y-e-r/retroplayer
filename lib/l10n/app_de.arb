@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} Titel · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} Titel · {artist}} other{{count} Titel · {artist}}}",
   "resetDatabase": "Datenbank zurücksetzen",
   "resetDatabaseTitle": "Datenbank zurücksetzen?",
   "resetDatabaseBody": "Das löscht Wiedergabepositionen, Favoriten, den geöffneten Ordner, Design, Sprache und Equalizer. Alles löschen vergisst zusätzlich die hinzugefügten Bibliotheksordner. Musikdateien und Playlists auf der Festplatte bleiben erhalten.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Für Taskleisten- und Starter-Symbole erwartet Linux getrennte Freedesktop-Dateien. Retro Player installiert diese beim Start aus dem App-Bundle:\n\n• ~/.local/share/applications/app.retroplayer.desktop — Starter-Eintrag, der das laufende Fenster mit dieser App verknüpft\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — Theme-Icons, kopiert aus dem Bundle\n\nEs schreibt nie eine Benutzer-hicolor/index.theme (das würde das System-Theme überschatten und andere Symbole ausblenden). Symbole sind auch im App-Binary eingebettet. Die Dateien oben helfen GNOME/KDE, das richtige Starter-Symbol statt eines generischen Platzhalters anzuzeigen.",
   "dataStorageAndroidPermissionsTitle": "Android-Berechtigungen und Speicher",
   "dataStorageAndroidPermissionsBody": "Retro Player speichert die Datenbank im app-internen Support-Bereich im Gerätespeicher. Musikdateien bleiben in von dir gewählten Ordnern.\n\nUnter Android kann die App Audiozugriff für Titel und Foto-/Bildzugriff für Ordnercover (z. B. cover.jpg) anfordern. Audiodateien werden nicht in die App-Datenbank kopiert.",
+  "dataStorageAndroidNativeBody": "Retro Player speichert die Datenbank im app-internen Support-Bereich im Gerätespeicher. Musikdateien bleiben in von dir gewählten Ordnern.",
   "dataStorageAndroidPlaybackTitle": "Android-Hintergrundwiedergabe",
   "dataStorageAndroidPlaybackBody": "Während Audio läuft, nutzt Retro Player einen Vordergrund-Mediendienst, damit die Wiedergabe weiterläuft, wenn du das Telefon sperrst oder die App wechselst, mit Steuerung in der Systembenachrichtigung. Wischst du die App aus den letzten Apps weg, stoppt die Wiedergabe und die Benachrichtigung verschwindet.",
   "dataStorageIOSAccessTitle": "iOS-Ordnerzugriff",

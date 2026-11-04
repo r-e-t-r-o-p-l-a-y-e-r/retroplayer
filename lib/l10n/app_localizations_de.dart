@@ -197,7 +197,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count Titel · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Titel · $artist',
+      one: '$count Titel · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -311,6 +317,10 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player speichert die Datenbank im app-internen Support-Bereich im Gerätespeicher. Musikdateien bleiben in von dir gewählten Ordnern.\n\nUnter Android kann die App Audiozugriff für Titel und Foto-/Bildzugriff für Ordnercover (z. B. cover.jpg) anfordern. Audiodateien werden nicht in die App-Datenbank kopiert.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player speichert die Datenbank im app-internen Support-Bereich im Gerätespeicher. Musikdateien bleiben in von dir gewählten Ordnern.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Android-Hintergrundwiedergabe';

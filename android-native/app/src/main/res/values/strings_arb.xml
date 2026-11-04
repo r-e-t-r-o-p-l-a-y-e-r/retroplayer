@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Only if playback paused because the headphones were disconnected less than 10 minutes ago.</string>
     <string name="track_fallback">Track</string>
     <string name="unknown_artist">Unknown</string>
-    <string name="tracks_count_artist">%1$d tracks · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d track · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d tracks · %2$s</string>
     <string name="reset_database">Reset database</string>
     <string name="reset_database_title">Reset database?</string>
     <string name="reset_database_body">This clears playback positions, favorites, the open folder, theme, language, and equalizer settings. Clear everything also forgets the added library folders. Music files and playlists on disk are not deleted.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">For the taskbar and app grid icon, Linux desktop environments expect separate Freedesktop files. Retro Player installs these from the app bundle on startup:\n\n• ~/.local/share/applications/app.retroplayer.desktop — launcher entry that links the running window to this app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — themed icons copied from the bundle\n\nIt never writes a user hicolor/index.theme (that would shadow the system theme and hide other icons). Icons are also embedded in the app binary. The copies above help GNOME/KDE show the correct launcher icon instead of a generic placeholder.</string>
     <string name="data_storage_android_permissions_title">Android permissions and storage</string>
     <string name="data_storage_android_permissions_body">Retro Player stores its database in the app-private support area on internal storage. Your music files stay in folders you pick with the system folder picker.\n\nOn Android, the app may request audio access to read tracks, and photos/images access so folder artwork (for example cover.jpg) can be shown. Audio files are never copied into the app database.</string>
+    <string name="data_storage_android_native_body">Retro Player stores its database in the app-private support area on internal storage. Your music files stay in folders you pick with the system folder picker.</string>
     <string name="data_storage_android_playback_title">Android background playback</string>
     <string name="data_storage_android_playback_body">When audio is playing, Retro Player runs a foreground media service so playback continues if you lock the phone or switch apps, with transport controls in the system notification. Swiping the app away from Recents stops playback and removes the notification.</string>
     <string name="data_storage_ios_access_title">iOS folder access</string>

@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">เฉพาะเมื่อการเล่นหยุดเพราะหูฟังถูกถอดออกไม่ถึง 10 นาทีที่แล้ว</string>
     <string name="track_fallback">ติดตาม</string>
     <string name="unknown_artist">ไม่ทราบ</string>
-    <string name="tracks_count_artist">%1$d เพลง · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d เพลง · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d เพลง · %2$s</string>
     <string name="reset_database">รีเซ็ตฐานข้อมูล</string>
     <string name="reset_database_title">รีเซ็ตฐานข้อมูล?</string>
     <string name="reset_database_body">การนี้จะลบตำแหน่งการเล่น เพลงโปรด โฟลเดอร์ที่เปิดอยู่ ธีม ภาษา และการตั้งค่าอีควอไลเซอร์ การลบทั้งหมดจะลบโฟลเดอร์ไลบรารีที่เพิ่มเข้าไปด้วย แต่ไฟล์เพลงและรายชื่อเพลงบนดิสก์จะไม่ถูกลบ</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">สำหรับไอคอนบนแถบงานและไอคอนในตารางแอป สภาพแวดล้อมเดสก์ท็อปของ Linux ต้องการไฟล์ Freedesktop ที่แยกกัน Retro Player จะติดตั้งไฟล์เหล่านี้จากแพ็กเกจแอปเมื่อเริ่มต้นระบบ:\n\n• ~/.local/share/applications/app.retroplayer.desktop — รายการตัวเปิดที่เชื่อมโยงหน้าต่างที่กำลังทำงานกับแอปนี้\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ไอคอนตามธีมที่คัดลอกจากแพ็กเกจ\n\nโปรแกรมนี้ไม่เคยสร้างไฟล์ hicolor/index.theme ของผู้ใช้ (ซึ่งจะทำให้ธีมระบบถูกทับซ้อนและซ่อนไอคอนอื่น ๆ) ไอคอนยังถูกฝังอยู่ในไฟล์ไบนารีของแอปด้วย การคัดลอกไฟล์ข้างต้นช่วยให้ GNOME/KDE แสดงไอคอนตัวเปิดใช้งานที่ถูกต้อง แทนที่จะเป็นไอคอนตัวแทนทั่วไป</string>
     <string name="data_storage_android_permissions_title">สิทธิ์และการจัดเก็บข้อมูลของ Android</string>
     <string name="data_storage_android_permissions_body">Retro Player เก็บฐานข้อมูลไว้ในพื้นที่สนับสนุนส่วนตัวของแอปบนพื้นที่เก็บข้อมูลภายใน ไฟล์เพลงของคุณจะยังคงอยู่ในโฟลเดอร์ที่คุณเลือกผ่านเครื่องมือเลือกโฟลเดอร์ของระบบ\n\nบน Android แอปอาจขอสิทธิ์เข้าถึงเสียงเพื่ออ่านแทร็ก และขอสิทธิ์เข้าถึงรูปภาพ/ภาพ เพื่อแสดงภาพปกโฟลเดอร์ (เช่น cover.jpg) ไฟล์เสียงจะไม่ถูกคัดลอกเข้าสู่ฐานข้อมูลของแอปเลย</string>
+    <string name="data_storage_android_native_body">Retro Player เก็บฐานข้อมูลไว้ในพื้นที่สนับสนุนส่วนตัวของแอปบนพื้นที่เก็บข้อมูลภายใน ไฟล์เพลงของคุณจะยังคงอยู่ในโฟลเดอร์ที่คุณเลือกผ่านเครื่องมือเลือกโฟลเดอร์ของระบบ</string>
     <string name="data_storage_android_playback_title">การเล่นเพลงในพื้นหลังบน Android</string>
     <string name="data_storage_android_playback_body">เมื่อกำลังเล่นเสียง Retro Player จะเปิดบริการสื่อแบบเบื้องหน้า เพื่อให้การเล่นเสียงยังคงดำเนินต่อไปแม้คุณจะล็อคโทรศัพท์หรือเปลี่ยนแอป โดยปุ่มควบคุมการเล่นจะปรากฏในศูนย์แจ้งเตือนของระบบ การปัดแอปออกจากหน้าประวัติการใช้งานล่าสุดจะหยุดการเล่นเสียงและลบการแจ้งเตือนออกไป</string>
     <string name="data_storage_ios_access_title">การเข้าถึงโฟลเดอร์ใน iOS</string>

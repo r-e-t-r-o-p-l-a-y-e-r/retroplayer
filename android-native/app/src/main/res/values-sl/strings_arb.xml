@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Samo če se je predvajanje ustavilo, ker so bile slušalke odklopljene pred manj kot 10 minutami.</string>
     <string name="track_fallback">Proga</string>
     <string name="unknown_artist">Neznano</string>
-    <string name="tracks_count_artist">%1$d skladb · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d skladba · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d skladb · %2$s</string>
     <string name="reset_database">Ponastavi bazo podatkov</string>
     <string name="reset_database_title">Ponastaviti bazo podatkov?</string>
     <string name="reset_database_body">S tem se izbrišejo nastavitve predvajanja, priljubljene vsebine, odprta mapa, tema, jezik in izenačevalnik. Z izbrišanjem vsega se izbrišejo tudi dodane mape v knjižnici. Glasbene datoteke in seznami predvajanja na disku se ne izbrišejo.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Za ikono na opravilni vrstici in v mreži aplikacij namizna okolja Linuxa zahtevajo ločene datoteke Freedesktop. Retro Player jih ob zagonu namesti iz paketa aplikacije:\n\n• ~/.local/share/applications/app.retroplayer.desktop — vnos v zaganjalniku, ki povezuje odprto okno s to aplikacijo\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikone v skladu s temo, kopirane iz paketa\n\nNikoli ne ustvari uporabniške datoteke hicolor/index.theme (kar bi prekrilo sistemsko temo in skrilo druge ikone). Ikone so vgrajene tudi v izvedljivo datoteko aplikacije. Zgoraj navedene kopije pomagajo okoljem GNOME/KDE prikazati pravo ikono v zaganjalniku namesto splošnega nadomestnega simbola.</string>
     <string name="data_storage_android_permissions_title">Dovoljenja in shranjevanje v sistemu Android</string>
     <string name="data_storage_android_permissions_body">Aplikacija Retro Player svojo bazo podatkov shranjuje v zasebnem podpornem območju aplikacije na notranjem pomnilniku. Vaše glasbene datoteke ostanejo v mapah, ki jih izberete s sistemskim izbirnikom map.\n\nV sistemu Android lahko aplikacija zahteva dostop do avdio datotek za branje skladb ter dostop do fotografij/slik, da se lahko prikažejo naslovnice map (na primer cover.jpg). Avdio datoteke se nikoli ne kopirajo v bazo podatkov aplikacije.</string>
+    <string name="data_storage_android_native_body">Aplikacija Retro Player svojo bazo podatkov shranjuje v zasebnem podpornem območju aplikacije na notranjem pomnilniku. Vaše glasbene datoteke ostanejo v mapah, ki jih izberete s sistemskim izbirnikom map.</string>
     <string name="data_storage_android_playback_title">Predvajanje v ozadju v sistemu Android</string>
     <string name="data_storage_android_playback_body">Med predvajanjem zvoka Retro Player izvaja medijsko storitev v ospredju, tako da se predvajanje nadaljuje, tudi če zaklenete telefon ali preklopite med aplikacijami, pri čemer so gumbi za upravljanje predvajanja na voljo v sistemskem obvestilu. Če aplikacijo s potegom prsta odstranite iz seznama nedavno uporabljenih aplikacij, se predvajanje ustavi in obvestilo izgine.</string>
     <string name="data_storage_ios_access_title">Dostop do map v sistemu iOS</string>

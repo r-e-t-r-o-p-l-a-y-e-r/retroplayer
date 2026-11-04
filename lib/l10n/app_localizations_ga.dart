@@ -198,7 +198,13 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count rian · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count rian · $artist',
+      one: '$count rian · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -312,6 +318,10 @@ class AppLocalizationsGa extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Stórálann Retro Player a bhunachar sonraí sa limistéar tacaíochta príobháideach aipe ar an stóráil inmheánach. Fanann do chuid comhad ceoil sna fillteáin a roghnaíonn tú le roghnóir fillteán an chórais.\n\nAr Android, d\'fhéadfadh an aip rochtain fuaime a iarraidh chun rianta a léamh, agus rochtain ar ghrianghraif/íomhánna ionas gur féidir ealaín fillteáin (mar shampla cover.jpg) a thaispeáint. Ní chóipeáiltear comhaid fuaime isteach i mbunachar sonraí na haipe riamh.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Stórálann Retro Player a bhunachar sonraí sa limistéar tacaíochta príobháideach aipe ar an stóráil inmheánach. Fanann do chuid comhad ceoil sna fillteáin a roghnaíonn tú le roghnóir fillteán an chórais.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Seinm cúlra Android';

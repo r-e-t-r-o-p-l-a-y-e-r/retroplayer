@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Doar dacă redarea s-a oprit pentru că acum mai puțin de 10 minute căștile au fost deconectate.</string>
     <string name="track_fallback">Pistă</string>
     <string name="unknown_artist">Necunoscut</string>
-    <string name="tracks_count_artist">%1$d piese · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d piesă · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d piese · %2$s</string>
     <string name="reset_database">Resetare bază de date</string>
     <string name="reset_database_title">Să resetezi baza de date?</string>
     <string name="reset_database_body">Această acțiune șterge pozițiile de redare, favoritele, folderul deschis, tema, limba și setările egalizatorului. Opțiunea „Șterge tot” elimină, de asemenea, folderele adăugate în bibliotecă. Fișierele muzicale și listele de redare de pe disc nu sunt șterse.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Pentru pictograma din bara de activități și din grila de aplicații, mediile desktop Linux necesită fișiere Freedesktop separate. Retro Player le instalează din pachetul aplicației la pornire:\n\n• ~/.local/share/applications/app.retroplayer.desktop — intrare în lansator care leagă fereastra activă de această aplicație\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — pictograme tematice copiate din pachet\n\nNu scrie niciodată un fișier hicolor/index.theme al utilizatorului (ceea ce ar suprascrie tema sistemului și ar ascunde alte pictograme). Pictogramele sunt, de asemenea, încorporate în fișierul binar al aplicației. Copiile de mai sus ajută GNOME/KDE să afișeze pictograma corectă a lansatorului în locul unui simbol generic.</string>
     <string name="data_storage_android_permissions_title">Permisiunile și spațiul de stocare pe Android</string>
     <string name="data_storage_android_permissions_body">Retro Player își stochează baza de date în zona de suport privată a aplicației, pe spațiul de stocare intern. Fișierele tale muzicale rămân în folderele pe care le alegi cu ajutorul selectorului de foldere al sistemului.\n\nPe Android, aplicația poate solicita acces la fișiere audio pentru a citi piesele, precum și acces la fotografii/imagini, astfel încât să poată fi afișate imaginile de copertă ale folderelor (de exemplu, cover.jpg). Fișierele audio nu sunt niciodată copiate în baza de date a aplicației.</string>
+    <string name="data_storage_android_native_body">Retro Player își stochează baza de date în zona de suport privată a aplicației, pe spațiul de stocare intern. Fișierele tale muzicale rămân în folderele pe care le alegi cu ajutorul selectorului de foldere al sistemului.</string>
     <string name="data_storage_android_playback_title">Redare în fundal pe Android</string>
     <string name="data_storage_android_playback_body">Când se redă un fișier audio, Retro Player rulează un serviciu media în prim-plan, astfel încât redarea să continue chiar dacă blochezi telefonul sau comuți între aplicații, comenzile de redare fiind afișate în bara de notificări a sistemului. Dacă glisezi aplicația în afara listei „Recente”, redarea se oprește și notificarea dispare.</string>
     <string name="data_storage_ios_access_title">Accesul la folderele iOS</string>

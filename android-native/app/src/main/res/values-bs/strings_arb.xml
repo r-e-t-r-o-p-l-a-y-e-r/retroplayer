@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Samo ako je reprodukcija pauzirana jer su slušalice isključene prije manje od 10 minuta.</string>
     <string name="track_fallback">Staza</string>
     <string name="unknown_artist">Neznano</string>
-    <string name="tracks_count_artist">%1$d pjesama · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d pjesma · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d pjesama · %2$s</string>
     <string name="reset_database">Resetiraj bazu podataka</string>
     <string name="reset_database_title">Resetirati bazu podataka?</string>
     <string name="reset_database_body">Ovo briše položaje reprodukcije, omiljene stavke, otvorenu mapu, temu, jezik i postavke ekvalizera. Brisanje svega također zaboravlja dodane mape biblioteke. Muzičke datoteke i playliste na disku se ne brišu.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Za ikonu trake zadataka i mreže aplikacija, Linux desktop okruženja očekuju odvojene Freedesktop datoteke. Retro Player ih instalira iz paketa aplikacije prilikom pokretanja:\n\n• ~/.local/share/applications/app.retroplayer.desktop — unos za pokretač koji povezuje aktivni prozor s ovom aplikacijom\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikone u temi kopirane iz paketa\n\nNikada ne piše korisnički hicolor/index.theme (što bi zasjenilo sistemsku temu i sakrilo druge ikone). Ikone su također ugrađene u binarnu datoteku aplikacije. Gornje kopije pomažu GNOME/KDE-u da prikaže ispravnu ikonu pokretača umjesto generičkog mjesta držača.</string>
     <string name="data_storage_android_permissions_title">Android dozvole i pohrana</string>
     <string name="data_storage_android_permissions_body">Retro Player pohranjuje svoju bazu podataka u privatnom podržanom prostoru aplikacije na internom skladištu. Vaši muzički fajlovi ostaju u mapama koje odaberete pomoću sistemskog odabira mapa.\n\nNa Androidu aplikacija može zatražiti pristup zvuku za čitanje pjesama i pristup fotografijama/slikama kako bi se prikazivale naslovnice mapa (na primjer cover.jpg). Zvučne datoteke nikada se ne kopiraju u bazu podataka aplikacije.</string>
+    <string name="data_storage_android_native_body">Retro Player pohranjuje svoju bazu podataka u privatnom podržanom prostoru aplikacije na internom skladištu. Vaši muzički fajlovi ostaju u mapama koje odaberete pomoću sistemskog odabira mapa.</string>
     <string name="data_storage_android_playback_title">Reprodukcija u pozadini na Androidu</string>
     <string name="data_storage_android_playback_body">Kada se audio reproducira, Retro Player pokreće medijsku uslugu u prvom planu kako bi reprodukcija nastavila i ako zaključate telefon ili prebacite aplikacije, s kontrolama reprodukcije u sistemskoj obavijesti. Pomicanjem aplikacije iz nedavnih aplikacija zaustavlja se reprodukcija i uklanja se obavijest.</string>
     <string name="data_storage_ios_access_title">Pristup iOS folderima</string>

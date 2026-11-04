@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">केवल तब जब प्लेबैक इसलिए रुका हो कि हेडफ़ोन 10 मिनट से कम पहले डिस्कनेक्ट हुए थे।</string>
     <string name="track_fallback">ट्रैक</string>
     <string name="unknown_artist">अज्ञात</string>
-    <string name="tracks_count_artist">%1$d ट्रैक · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d ट्रैक · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d ट्रैक · %2$s</string>
     <string name="reset_database">डेटाबेस रीसेट करें</string>
     <string name="reset_database_title">डेटाबेस रीसेट करें?</string>
     <string name="reset_database_body">यह प्लेबैक पोजिशन, फेवरिट्स, ओपन फ़ोल्डर, थीम, भाषा और इक्वालाइज़र सेटिंग को साफ़ करता है। सब कुछ साफ़ करें जोड़ा गया लाइब्रेरी फ़ोल्डर भी भूल जाता है। डिस्क पर म्यूज़िक फ़ाइलें और प्लेलिस्ट हटाई नहीं जाती हैं।</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">टास्कबार और ऐप ग्रिड आइकन के लिए, लिनक्स डेस्कटॉप वातावरण अलग फ्रीडेस्कटॉप फ़ाइलों की उम्मीद करते हैं। रेट्रो प्लेयर स्टार्टअप पर ऐप बंडल से इन्हें इंस्टॉल करता है:\n\n• ~/.local/share/applications/app.retroplayer.desktop — लॉन्चर एंट्री जो रनिंग विंडो को इस ऐप से लिंक करती है\n• ~/.local/share/icons/hicolor /*/ apps/app.retroplayer.png — थीम वाले आइकन बंडल से कॉपी किए गए\n\nयह कभी भी उपयोगकर्ता hicolor/index.theme नहीं लिखता है (जो सिस्टम थीम को छायांकित करेगा और अन्य आइकन छिपाएगा)। आइकन ऐप बाइनरी में भी एम्बेडेड होते हैं। उपरोक्त प्रतियां GNOME/KDE को जेनेरिक प्लेसहोल्डर के बजाय सही लॉन्चर आइकन दिखाने में मदद करती हैं।</string>
     <string name="data_storage_android_permissions_title">एंड्रॉइड की अनुमतियाँ और स्टोरेज</string>
     <string name="data_storage_android_permissions_body">रेट्रो प्लेयर अपने डेटाबेस को ऐप - प्राइवेट सपोर्ट एरिया में इंटरनल स्टोरेज पर स्टोर करता है। आपकी म्यूज़िक फ़ाइलें उन फ़ोल्डरों में रहती हैं जिन्हें आप सिस्टम फ़ोल्डर पिकर के साथ चुनते हैं।\n\nएंड्रॉइड पर, ऐप ट्रैक पढ़ने के लिए ऑडियो एक्सेस का अनुरोध कर सकता है, और फ़ोटो/इमेज फ़ोल्डर आर्टवर्क (उदाहरण के लिए cover.jpg) को एक्सेस कर सकते हैं। ऑडियो फ़ाइलों को कभी भी ऐप डेटाबेस में कॉपी नहीं किया जाता है।</string>
+    <string name="data_storage_android_native_body">रेट्रो प्लेयर अपने डेटाबेस को ऐप - प्राइवेट सपोर्ट एरिया में इंटरनल स्टोरेज पर स्टोर करता है। आपकी म्यूज़िक फ़ाइलें उन फ़ोल्डरों में रहती हैं जिन्हें आप सिस्टम फ़ोल्डर पिकर के साथ चुनते हैं।</string>
     <string name="data_storage_android_playback_title">एंड्रॉइड बैकग्राउंड प्लेबैक</string>
     <string name="data_storage_android_playback_body">जब ऑडियो चल रहा होता है, तो रेट्रो प्लेयर एक अग्रभूमि मीडिया सेवा चलाता है, इसलिए यदि आप सिस्टम अधिसूचना में परिवहन नियंत्रण के साथ फोन को लॉक करते हैं या ऐप स्विच करते हैं, तो प्लेबैक जारी रहता है। ऐप को Recents से दूर स्वाइप करने से प्लेबैक बंद हो जाता है और नोटिफ़िकेशन हटा दिया जाता है।</string>
     <string name="data_storage_ios_access_title">iOS फ़ोल्डर एक्सेस</string>

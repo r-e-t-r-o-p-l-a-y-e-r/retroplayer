@@ -290,6 +290,29 @@ class FolderContentTest {
     }
 
     @Test
+    fun `album rows count one track in the singular`() {
+        val books = LibraryPath("1/Books")
+        fun album(id: String, title: String, count: Int) = LibraryItem.Album(
+            AudioAlbum(id, title, "Ann", List(count) { AudioTrack(books.child("$title$it.mp3"), "doc:$title$it") }, AlbumSource.TAG, books),
+        )
+        show(
+            FolderUiState.Folder(
+                path = books,
+                crumbs = listOf(Crumb("", null, isLibraryRoot = true), Crumb("Books", books)),
+                folders = emptyList(),
+                playlists = emptyList(),
+                audio = listOf(album("tag:a", "One", 1), album("tag:b", "Two", 2)),
+                artUri = null,
+                scanned = 3,
+                total = 3,
+                complete = true,
+            ),
+        )
+        compose.onNodeWithText("1 track · Ann").assertIsDisplayed()
+        compose.onNodeWithText("2 tracks · Ann").assertIsDisplayed()
+    }
+
+    @Test
     fun `missing folder says so`() {
         show(FolderUiState.Missing)
         compose.onNodeWithText("This folder is no longer available.").assertIsDisplayed()

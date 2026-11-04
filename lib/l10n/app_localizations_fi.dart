@@ -196,7 +196,13 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count kappaletta · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count kappaletta · $artist',
+      one: '$count kappale · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -311,6 +317,10 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player tallentaa tietokantansa sovelluksen yksityiselle tukialueelle sisäiseen tallennustilaan. Musiikkitiedostosi säilyvät kansioissa, jotka valitset järjestelmän kansiovalitsimella.\n\nAndroid-laitteilla sovellus saattaa pyytää äänitiedostojen lukemisoikeutta kappaleiden lukemista varten sekä valokuvien ja kuvien käyttöoikeutta, jotta kansikuvat (esimerkiksi cover.jpg) voidaan näyttää. Äänitiedostoja ei koskaan kopioida sovelluksen tietokantaan.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player tallentaa tietokantansa sovelluksen yksityiselle tukialueelle sisäiseen tallennustilaan. Musiikkitiedostosi säilyvät kansioissa, jotka valitset järjestelmän kansiovalitsimella.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Androidin taustatoisto';

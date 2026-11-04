@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Vetëm nëse luajtja u ndal sepse kufjet u shkëputën më pak se 10 minuta më parë.</string>
     <string name="track_fallback">Këngë</string>
     <string name="unknown_artist">E panjohur</string>
-    <string name="tracks_count_artist">%1$d këngë · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d këngë · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d këngë · %2$s</string>
     <string name="reset_database">Rinis bazën e të dhënave</string>
     <string name="reset_database_title">Rinisni bazën e të dhënave?</string>
     <string name="reset_database_body">Kjo pastron pozicionet e riprodhimit, të preferuarat, dosjen e hapur, temën, gjuhën dhe cilësimet e ekualizatorit. Pastrimi i gjithçkaje gjithashtu harron dosjet e bibliotekës së shtuar. Skedarët muzikorë dhe listat e luajtjes në disk nuk fshihen.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Për ikonën e shiritit të detyrave dhe rrjetën e aplikacioneve, mjediset e desktopit në Linux presin skedarë të veçantë Freedesktop. Retro Player i instalon këta nga paketa e aplikacionit në fillim:\n\n• ~/.local/share/applications/app.retroplayer.desktop — hyrje në launcher që lidh dritaren e hapur me këtë aplikacion\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikona me temë të kopjuara nga paketa\n\nAi nuk krijon kurrë një skedar hicolor/index.theme për përdoruesin (i cili do të mbulonte temën e sistemit dhe do të fshihte ikonat e tjera). Ikonat janë gjithashtu të ngulitura në binarin e aplikacionit. Kopjet e mësipërme ndihmojnë GNOME/KDE të shfaqë ikonën e saktë të lansuesit në vend të një vendmbajtësi të përgjithshëm.</string>
     <string name="data_storage_android_permissions_title">Lejet dhe ruajtja e Android-it</string>
     <string name="data_storage_android_permissions_body">Retro Player ruan bazën e të dhënave në zonën private të mbështetjes së aplikacionit në ruajtjen e brendshme. Skedarët tuaj të muzikës mbeten në dosjet që zgjidhni me zgjedhësin e dosjeve të sistemit.\n\nNë Android, aplikacioni mund të kërkojë akses audio për të lexuar këngët, dhe akses në foto/imazhe që të mund të shfaqë artin e dosjes (për shembull cover.jpg). Skedarët audio kurrë nuk kopjohen në bazën e të dhënave të aplikacionit.</string>
+    <string name="data_storage_android_native_body">Retro Player ruan bazën e të dhënave në zonën private të mbështetjes së aplikacionit në ruajtjen e brendshme. Skedarët tuaj të muzikës mbeten në dosjet që zgjidhni me zgjedhësin e dosjeve të sistemit.</string>
     <string name="data_storage_android_playback_title">Lojtimi në sfond i Android-it</string>
     <string name="data_storage_android_playback_body">Kur audio po luhet, Retro Player përdor një shërbim media në plan të parë që riprodhimi të vazhdojë edhe nëse bllokoni telefonin ose ndryshoni aplikacionet, me kontrolle transporti në njoftimin e sistemit. Tërheqja e aplikacionit nga seksioni \"Të fundit\" ndalon riprodhimin dhe heq njoftimin.</string>
     <string name="data_storage_ios_access_title">Qasja në dosjet e iOS</string>

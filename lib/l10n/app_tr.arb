@@ -3,7 +3,7 @@
   "appTitle": "Retro Player",
   "settings": "Ayarlar",
   "about": "Hakkında",
-  "aboutSubtitle": "Sadece yerel ses. Reklam yok, telemetri yok, ağ erişimi yok.&#10; Desteklenen formatlar: MP3, M4A, M4B, FLAC, WAV",
+  "aboutSubtitle": "Sadece yerel ses. Reklam yok, telemetri yok, ağ erişimi yok.\n Desteklenen formatlar: MP3, M4A, M4B, FLAC, WAV",
   "aboutVersion": "Sürüm",
   "aboutBuildDate": "Yapım süresi",
   "@aboutGitBranch": {
@@ -29,7 +29,7 @@
   "playlist": "Oynatma Listesi",
   "nowPlaying": "Şimdi İzlenen",
   "addFolder": "Klasör Ekle",
-  "audioPermissionRequired": "Android&#39;de ses izni gereklidir.",
+  "audioPermissionRequired": "Android'de ses izni gereklidir.",
   "expandPlayer": "Oyuncuyu genişlet",
   "showLibrary": "& Kitaplığı Göster",
   "@errorMessage": {
@@ -58,7 +58,7 @@
       }
     }
   },
-  "removeLibraryFolderBody": "Kütüphanenizden &quot;{name}&quot; öğesini kaldırmak mı istiyorsunuz?&#10;&#10; Disk üzerindeki ses dosyalarınız silinmedi.",
+  "removeLibraryFolderBody": "Kütüphanenizden &quot;{name}&quot; öğesini kaldırmak mı istiyorsunuz?\n\n Disk üzerindeki ses dosyalarınız silinmedi.",
   "cancel": "İptal",
   "remove": "Kaldır",
   "albumNotFound": "Albüm bulunamadı",
@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} parça · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} parça · {artist}} other{{count} parça · {artist}}}",
   "resetDatabase": "Veritabanını sıfırla",
   "resetDatabaseTitle": "Veritabanını sıfırla",
   "resetDatabaseBody": "Bu işlem, oynatma konumlarını, favorileri, açık klasörü, temayı, dili ve ekolayzır ayarlarını temizler. Her şeyi temizle seçeneği ayrıca eklenen kütüphane klasörlerini de unutur. Disk üzerindeki müzik dosyaları ve çalma listeleri silinmez.",
@@ -148,7 +148,7 @@
       }
     }
   },
-  "dataStorageAppDataBody": "Dosya: {dbFileName}&#10; Yol: {dbPath}&#10;&#10; Kütüphane köklerini, göz atma durumunu, oynatmaya devam etme özelliğini, ekolayzırı, temayı ve dil tercihlerini saklar.",
+  "dataStorageAppDataBody": "Dosya: {dbFileName}\n Yol: {dbPath}\n\n Kütüphane köklerini, göz atma durumunu, oynatmaya devam etme özelliğini, ekolayzırı, temayı ve dil tercihlerini saklar.",
   "dataStorageLibraryTitle": "Tüm müzik dosyaları",
   "dataStorageLibraryBody": "Ses dosyaları hiçbir zaman uygulama veritabanına kopyalanmaz. Kütüphane klasörleri ekleyin ve Retro Player dosyaları doğrudan diskten okusun.",
   "dataStoragePlaylistsTitle": "Çalma listesi dosyaları",
@@ -165,13 +165,14 @@
   "dataStorageLinuxDataTitle": "Linux uygulama verileri",
   "dataStorageLinuxDataBody": "Uygulama verileri ~/.local/share/app.retroplayer/ dizininde kalır. Bu klasör yalnızca veritabanı ve ayarlar içindir.",
   "dataStorageLinuxTaskbarTitle": "Linux görev çubuğu entegrasyonu",
-  "dataStorageLinuxTaskbarBody": "Görev çubuğu ve uygulama ızgarası simgesi için Linux masaüstü ortamları ayrı Freedesktop dosyaları bekler. Retro Player, başlangıçta bunları uygulama paketinden yükler:\n\n• ~/.local/share/applications/app.retroplayer.desktop — çalışan pencereyi bu uygulamaya bağlayan başlatıcı girişi\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — paketten kopyalanan temalı simgeler\n\nBu, kullanıcı tarafından oluşturulmuş hicolor/index.theme dosyasını asla yazmaz (bu, sistem temasını gölgede bırakır ve diğer simgeleri gizler). Simgeler ayrıca uygulama ikili dosyasına da gömülüdür. Yukarıdaki kopyalar, GNOME/KDE&#39;nin genel bir yer tutucu yerine doğru başlatıcı simgesini göstermesine yardımcı olur.",
+  "dataStorageLinuxTaskbarBody": "Görev çubuğu ve uygulama ızgarası simgesi için Linux masaüstü ortamları ayrı Freedesktop dosyaları bekler. Retro Player, başlangıçta bunları uygulama paketinden yükler:\n\n• ~/.local/share/applications/app.retroplayer.desktop — çalışan pencereyi bu uygulamaya bağlayan başlatıcı girişi\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — paketten kopyalanan temalı simgeler\n\nBu, kullanıcı tarafından oluşturulmuş hicolor/index.theme dosyasını asla yazmaz (bu, sistem temasını gölgede bırakır ve diğer simgeleri gizler). Simgeler ayrıca uygulama ikili dosyasına da gömülüdür. Yukarıdaki kopyalar, GNOME/KDE'nin genel bir yer tutucu yerine doğru başlatıcı simgesini göstermesine yardımcı olur.",
   "dataStorageAndroidPermissionsTitle": "Android izinleri ve depolama",
-  "dataStorageAndroidPermissionsBody": "Retro Player veritabanını dahili depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.&#10;&#10; Android&#39;de uygulama, parçaları okumak için ses dosyalarına erişim ve klasör kapak resimlerinin (örneğin cover.jpg) gösterilebilmesi için fotoğraf/görüntü dosyalarına erişim isteyebilir. Ses dosyaları hiçbir zaman uygulama veritabanına kopyalanmaz.",
+  "dataStorageAndroidPermissionsBody": "Retro Player veritabanını dahili depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.\n\n Android'de uygulama, parçaları okumak için ses dosyalarına erişim ve klasör kapak resimlerinin (örneğin cover.jpg) gösterilebilmesi için fotoğraf/görüntü dosyalarına erişim isteyebilir. Ses dosyaları hiçbir zaman uygulama veritabanına kopyalanmaz.",
+  "dataStorageAndroidNativeBody": "Retro Player veritabanını dahili depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.",
   "dataStorageAndroidPlaybackTitle": "Android arka plan oynatma",
-  "dataStorageAndroidPlaybackBody": "Ses oynatılırken, Retro Player ön planda bir medya hizmeti çalıştırır, böylece telefonu kilitlediğinizde veya uygulamalar arasında geçiş yaptığınızda oynatma devam eder ve sistem bildiriminde taşıma kontrolleri bulunur. Uygulamayı Son Kullanılanlar&#39;dan kaydırarak kapatmak oynatmayı durdurur ve bildirimi kaldırır.",
+  "dataStorageAndroidPlaybackBody": "Ses oynatılırken, Retro Player ön planda bir medya hizmeti çalıştırır, böylece telefonu kilitlediğinizde veya uygulamalar arasında geçiş yaptığınızda oynatma devam eder ve sistem bildiriminde taşıma kontrolleri bulunur. Uygulamayı Son Kullanılanlar'dan kaydırarak kapatmak oynatmayı durdurur ve bildirimi kaldırır.",
   "dataStorageIOSAccessTitle": "iOS klasörüne erişim",
-  "dataStorageIOSAccessBody": "Retro Player veritabanını cihaz depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.&#10;&#10; iOS, seçtiğiniz klasörlere güvenlik kapsamlı URL&#39;ler aracılığıyla erişim izni verir. Retro Player dosyaları doğrudan bu konumlardan okur; kütüphanenizi uygulama depolama alanına kopyalamaz.",
+  "dataStorageIOSAccessBody": "Retro Player veritabanını cihaz depolama alanındaki uygulamaya özel destek alanında saklar. Müzik dosyalarınız, sistem klasör seçiciyle seçtiğiniz klasörlerde kalır.\n\n iOS, seçtiğiniz klasörlere güvenlik kapsamlı URL'ler aracılığıyla erişim izni verir. Retro Player dosyaları doğrudan bu konumlardan okur; kütüphanenizi uygulama depolama alanına kopyalamaz.",
   "dataStorageIOSPlaybackTitle": "iOS arka plan sesi",
   "dataStorageIOSPlaybackBody": "Uygulama arka planda çalışırken veya ekran kilitliyken oynatma devam edebilir. Devam edilen konumlar ve sıra durumu yerel uygulama veritabanında saklanır.",
   "dataStoragePlatformBodyAndroid": "Uygulama verileri, dahili depolama alanındaki uygulama özel destek alanında saklanır.",

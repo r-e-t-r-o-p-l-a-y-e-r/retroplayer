@@ -197,7 +197,13 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count spor · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count spor · $artist',
+      one: '$count spor · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -312,6 +318,10 @@ class AppLocalizationsNb extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player lagrer databasen sin i appens private støtteområde på det interne lagringsmediet. Musikkfilene dine forblir i mapper du velger ved hjelp av systemets mappevelger.\n\nPå Android kan appen be om tilgang til lyd for å lese spor, samt tilgang til bilder/grafikk slik at mappeomslag (for eksempel cover.jpg) kan vises. Lydfiler kopieres aldri inn i appens database.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player lagrer databasen sin i appens private støtteområde på det interne lagringsmediet. Musikkfilene dine forblir i mapper du velger ved hjelp av systemets mappevelger.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

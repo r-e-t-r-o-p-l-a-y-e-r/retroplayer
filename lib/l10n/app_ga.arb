@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} rian · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} rian · {artist}} other{{count} rian · {artist}}}",
   "resetDatabase": "Athshocraigh an bunachar sonraí",
   "resetDatabaseTitle": "Athshocraigh an bunachar sonraí?",
   "resetDatabaseBody": "Glanaíonn sé seo suíomhanna athsheinm, na ceanáin, an fillteán oscailte, an téama, an teanga, agus socruithe an chothromaigh. Le 'Glan Gach Rud', déantar dearmad freisin ar na fillteáin leabharlainne a cuireadh leis. Ní scriostar comhaid cheoil ná liostaí seinnte ar an diosca.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "I gcás deilbhín an bharra tasc agus an eangaí feidhmchlár, bíonn comhaid Freedesktop ar leith ag teastáil i dtimpeallachtaí deisce Linux. Suiteálann Retro Player iad seo ón mbeartán feidhmchlár ar thosú:\n\n• ~/.local/share/applications/app.retroplayer.desktop — iontráil seoltóra a nascann an fhuinneog atá ag rith leis an aip seo\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — deilbhíní téamacha atá cóipeáilte ón mbeartán\n\nNí scríobhann sé riamh úsáideoir hicolor/index.theme (a chuirfeadh an téama córais i bhfolach agus a cheilfeadh deilbhíní eile). Tá deilbhíní leabaithe freisin i mbinaire an aip. Cuidíonn na cóipeanna thuas le GNOME/KDE an deilbhín seoltóra ceart a thaispeáint in ionad áit-shealadach ginearálta.",
   "dataStorageAndroidPermissionsTitle": "Ceadanna agus stóráil Android",
   "dataStorageAndroidPermissionsBody": "Stórálann Retro Player a bhunachar sonraí sa limistéar tacaíochta príobháideach aipe ar an stóráil inmheánach. Fanann do chuid comhad ceoil sna fillteáin a roghnaíonn tú le roghnóir fillteán an chórais.\n\nAr Android, d'fhéadfadh an aip rochtain fuaime a iarraidh chun rianta a léamh, agus rochtain ar ghrianghraif/íomhánna ionas gur féidir ealaín fillteáin (mar shampla cover.jpg) a thaispeáint. Ní chóipeáiltear comhaid fuaime isteach i mbunachar sonraí na haipe riamh.",
+  "dataStorageAndroidNativeBody": "Stórálann Retro Player a bhunachar sonraí sa limistéar tacaíochta príobháideach aipe ar an stóráil inmheánach. Fanann do chuid comhad ceoil sna fillteáin a roghnaíonn tú le roghnóir fillteán an chórais.",
   "dataStorageAndroidPlaybackTitle": "Seinm cúlra Android",
   "dataStorageAndroidPlaybackBody": "Nuair a bhíonn fuaim á sheinm, ritheann Retro Player seirbhís meán tosaigh ionas go leanann an t-aisamhrán ar aghaidh má ghlasálann tú an fón nó má aistríonn tú idir aipeanna, le rialtáin iompair san fhógra córais. Má shleamhnaíonn tú an aip amach as 'Le déanaí', stopann an t-aisamhrán agus baintear an fógra.",
   "dataStorageIOSAccessTitle": "Rochtain ar fhillteáin iOS",

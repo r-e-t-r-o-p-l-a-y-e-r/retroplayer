@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} numre · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} nummer · {artist}} other{{count} numre · {artist}}}",
   "resetDatabase": "Nulstil database",
   "resetDatabaseTitle": "Nulstille databasen?",
   "resetDatabaseBody": "Dette sletter afspilningspositioner, favoritter, den åbne mappe, tema, sprog og equalizer-indstillinger. Hvis du vælger »Slet alt«, slettes også de tilføjede biblioteksmapper. Musikfiler og afspilningslister på disken slettes ikke.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Til ikonet i proceslinjen og app-gitteret kræver Linux-skrivebordsmiljøer separate Freedesktop-filer. Retro Player installerer disse fra app-pakken ved opstart:\n\n• ~/.local/share/applications/app.retroplayer.desktop — en genvej, der forbinder det kørende vindue med denne app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — temaikoner kopieret fra pakken\n\nDet skriver aldrig en bruger-hicolor/index.theme-fil (da dette ville overskygge systemtemaet og skjule andre ikoner). Ikoner er også indlejret i appens binærfil. Ovenstående kopier hjælper GNOME/KDE med at vise det korrekte startikon i stedet for en generisk pladsholder.",
   "dataStorageAndroidPermissionsTitle": "Android-tilladelser og lagerplads",
   "dataStorageAndroidPermissionsBody": "Retro Player gemmer sin database i appens private supportområde på det interne lager. Dine musikfiler forbliver i de mapper, du vælger via systemets mappevælger.\n\nPå Android kan appen anmode om adgang til lydfiler for at kunne læse spor samt adgang til fotos/billeder, så mappeomslag (f.eks. cover.jpg) kan vises. Lydfiler kopieres aldrig til appens database.",
+  "dataStorageAndroidNativeBody": "Retro Player gemmer sin database i appens private supportområde på det interne lager. Dine musikfiler forbliver i de mapper, du vælger via systemets mappevælger.",
   "dataStorageAndroidPlaybackTitle": "Afspilning i baggrunden på Android",
   "dataStorageAndroidPlaybackBody": "Når der afspilles lyd, kører Retro Player en medietjeneste i forgrunden, så afspilningen fortsætter, selvom du låser telefonen eller skifter mellem apps, og afspilningsknapperne vises i systemmeddelelsen. Hvis du stryger appen væk fra listen over seneste apps, stopper afspilningen, og meddelelsen fjernes.",
   "dataStorageIOSAccessTitle": "Adgang til mapper på iOS",

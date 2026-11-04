@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} kappaletta · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} kappale · {artist}} other{{count} kappaletta · {artist}}}",
   "resetDatabase": "Nollaa tietokanta",
   "resetDatabaseTitle": "Nollataanko tietokanta?",
   "resetDatabaseBody": "Tämä tyhjentää toistokohdat, suosikit, avoimen kansion, teeman, kielen ja taajuuskorjaimen asetukset. Kaikkien asetusten tyhjentäminen poistaa myös kirjastosta lisätyt kansiot. Levyllä olevia musiikkitiedostoja ja soittolistoja ei poisteta.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Tehtäväpalkin ja sovellusruudukon kuvakkeiden osalta Linux-työpöytäympäristöt edellyttävät erillisiä Freedesktop-tiedostoja. Retro Player asentaa nämä sovelluspaketista käynnistyksen yhteydessä:\n\n• ~/.local/share/applications/app.retroplayer.desktop — käynnistysmerkintä, joka linkittää käynnissä olevan ikkunan tähän sovellukseen\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — paketista kopioidut teemakuvakkeet\n\nSe ei koskaan luo käyttäjän hicolor/index.theme-tiedostoa (joka peittäisi järjestelmän teeman ja piilottaisi muut kuvakkeet). Kuvakkeet on myös upotettu sovelluksen binääritiedostoon. Edellä mainitut kopiot auttavat GNOME:a ja KDE:tä näyttämään oikean käynnistyskuvakkeen yleisen paikkamerkin sijaan.",
   "dataStorageAndroidPermissionsTitle": "Androidin käyttöoikeudet ja tallennustila",
   "dataStorageAndroidPermissionsBody": "Retro Player tallentaa tietokantansa sovelluksen yksityiselle tukialueelle sisäiseen tallennustilaan. Musiikkitiedostosi säilyvät kansioissa, jotka valitset järjestelmän kansiovalitsimella.\n\nAndroid-laitteilla sovellus saattaa pyytää äänitiedostojen lukemisoikeutta kappaleiden lukemista varten sekä valokuvien ja kuvien käyttöoikeutta, jotta kansikuvat (esimerkiksi cover.jpg) voidaan näyttää. Äänitiedostoja ei koskaan kopioida sovelluksen tietokantaan.",
+  "dataStorageAndroidNativeBody": "Retro Player tallentaa tietokantansa sovelluksen yksityiselle tukialueelle sisäiseen tallennustilaan. Musiikkitiedostosi säilyvät kansioissa, jotka valitset järjestelmän kansiovalitsimella.",
   "dataStorageAndroidPlaybackTitle": "Androidin taustatoisto",
   "dataStorageAndroidPlaybackBody": "Kun ääntä toistetaan, Retro Player käyttää etualalla toimivaa mediapalvelua, joten toisto jatkuu, vaikka lukitsisit puhelimen tai vaihtaisit sovellusta. Toiston hallintapainikkeet näkyvät järjestelmän ilmoituspalkissa. Kun pyyhkäiset sovelluksen pois Viimeisimmät-näkymästä, toisto pysähtyy ja ilmoitus katoaa.",
   "dataStorageIOSAccessTitle": "iOS-kansioiden käyttö",

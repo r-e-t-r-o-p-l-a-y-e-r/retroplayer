@@ -195,7 +195,13 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count këngë · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count këngë · $artist',
+      one: '$count këngë · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -310,6 +316,10 @@ class AppLocalizationsSq extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player ruan bazën e të dhënave në zonën private të mbështetjes së aplikacionit në ruajtjen e brendshme. Skedarët tuaj të muzikës mbeten në dosjet që zgjidhni me zgjedhësin e dosjeve të sistemit.\n\nNë Android, aplikacioni mund të kërkojë akses audio për të lexuar këngët, dhe akses në foto/imazhe që të mund të shfaqë artin e dosjes (për shembull cover.jpg). Skedarët audio kurrë nuk kopjohen në bazën e të dhënave të aplikacionit.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player ruan bazën e të dhënave në zonën private të mbështetjes së aplikacionit në ruajtjen e brendshme. Skedarët tuaj të muzikës mbeten në dosjet që zgjidhni me zgjedhësin e dosjeve të sistemit.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Lojtimi në sfond i Android-it';

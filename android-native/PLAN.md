@@ -1086,7 +1086,14 @@ available, simply continue top to bottom.
 | UC-16 | pass | dark theme and EQ preset survive restart; licenses, data storage, about; reset keeping folders clears favorites, playback and theme |
 | UC-17 | pass (after fix) | plays with the screen off; notification and media buttons pause/play and the app mirrors it; Recents swipe-away pauses and keeps the position; root-level tracks showed album "1", fixed |
 
-Follow-ups (shared with Flutter, not changed here): "1 tracks" because
-`tracksCountArtist` has no plural form in the ARB files; the Data storage
-page says Android may ask for audio and photo access, which the native app
-never does.
+Follow-ups, done after T22 (ARB, so both apps): `tracksCountArtist` is an
+ICU plural ("1 track"; the `=1` branch uses `{count}` because Flutter maps it
+to the CLDR "one" category, which also covers 21, 31 ... in several
+languages); broken fa/et/fr counts fixed. The native Data storage page uses
+the new `dataStorageAndroidNativeBody` (the first paragraph of the Flutter
+text, without the audio/photo permission sentence). Literal `&#10;`/`&#39;`
+in vi, tr, ko, it, ja, ru replaced; Flutter showed them raw.
+
+Seen twice: the first `check` after a source change can crash in
+`lintAnalyzeDebugAndroidTest` ("Unexpected failure during lint analysis",
+Kotlin FIR phase error inside lint); the rerun passes.

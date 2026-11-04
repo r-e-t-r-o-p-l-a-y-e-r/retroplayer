@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Només si la reproducció es va aturar perquè els auriculars es van desconnectar fa menys de 10 minuts.</string>
     <string name="track_fallback">Pista</string>
     <string name="unknown_artist">Desconegut</string>
-    <string name="tracks_count_artist">%1$d pistes · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d pista · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d pistes · %2$s</string>
     <string name="reset_database">Restablir la base de dades</string>
     <string name="reset_database_title">Restablir la base de dades?</string>
     <string name="reset_database_body">Això elimina les posicions de reproducció, els favorits, la carpeta oberta, el tema, l\'idioma i la configuració de l\'equalizador. Eliminar-ho tot també oblida les carpetes de biblioteca afegides. Els fitxers de música i les llistes de reproducció al disc no s\'eliminen.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Per a la icona de la barra de tasques i la de la graella d\'aplicacions, els entorns d\'escriptori de Linux esperen fitxers Freedesktop separats. Retro Player els instal·la des del paquet de l\'aplicació en iniciar-se:\n\n• ~/.local/share/applications/app.retroplayer.desktop — entrada d\'iniciador que enllaça la finestra en execució a aquesta aplicació\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — icones temàtiques copiades del paquet\n\nNo escriu mai un fitxer hicolor/index.theme d\'usuari (que eclipsaria el tema del sistema i amagaria altres icones). Les icones també estan incrustades al binari de l\'aplicació. Les còpies anteriors ajuden a GNOME/KDE a mostrar la icona d\'inici correcta en lloc d\'un marcador de posició genèric.</string>
     <string name="data_storage_android_permissions_title">Permisos i emmagatzematge d\'Android</string>
     <string name="data_storage_android_permissions_body">Retro Player emmagatzema la seva base de dades a l\'àrea de suport privada de l\'aplicació a l\'emmagatzematge intern. Els teus fitxers de música romanen a les carpetes que tries amb l\'explorador de carpetes del sistema.\n\nA Android, l\'aplicació pot sol·licitar accés a l\'àudio per llegir pistes i accés a fotos/imatges perquè es pugui mostrar la imatge de la carpeta (per exemple cover.jpg). Els fitxers d\'àudio mai no es copien a la base de dades de l\'aplicació.</string>
+    <string name="data_storage_android_native_body">Retro Player emmagatzema la seva base de dades a l\'àrea de suport privada de l\'aplicació a l\'emmagatzematge intern. Els teus fitxers de música romanen a les carpetes que tries amb l\'explorador de carpetes del sistema.</string>
     <string name="data_storage_android_playback_title">Reproducció en segon pla d\'Android</string>
     <string name="data_storage_android_playback_body">Quan l\'àudio està sonant, Retro Player executa un servei de mitjans en primer pla perquè la reproducció continuï si bloquejes el telèfon o canvies d\'aplicació, amb els controls de transport a la notificació del sistema. Desplaçant l\'aplicació fora de les darreres, s\'atura la reproducció i es elimina la notificació.</string>
     <string name="data_storage_ios_access_title">Accés a les carpetes d\'iOS</string>

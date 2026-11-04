@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Ach amháin má stopadh an seinm toisc gur dícheanglaíodh na cluasáin níos lú ná 10 nóiméad ó shin.</string>
     <string name="track_fallback">Rian</string>
     <string name="unknown_artist">Neamh-aithnid</string>
-    <string name="tracks_count_artist">%1$d rian · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d rian · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d rian · %2$s</string>
     <string name="reset_database">Athshocraigh an bunachar sonraí</string>
     <string name="reset_database_title">Athshocraigh an bunachar sonraí?</string>
     <string name="reset_database_body">Glanaíonn sé seo suíomhanna athsheinm, na ceanáin, an fillteán oscailte, an téama, an teanga, agus socruithe an chothromaigh. Le \'Glan Gach Rud\', déantar dearmad freisin ar na fillteáin leabharlainne a cuireadh leis. Ní scriostar comhaid cheoil ná liostaí seinnte ar an diosca.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">I gcás deilbhín an bharra tasc agus an eangaí feidhmchlár, bíonn comhaid Freedesktop ar leith ag teastáil i dtimpeallachtaí deisce Linux. Suiteálann Retro Player iad seo ón mbeartán feidhmchlár ar thosú:\n\n• ~/.local/share/applications/app.retroplayer.desktop — iontráil seoltóra a nascann an fhuinneog atá ag rith leis an aip seo\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — deilbhíní téamacha atá cóipeáilte ón mbeartán\n\nNí scríobhann sé riamh úsáideoir hicolor/index.theme (a chuirfeadh an téama córais i bhfolach agus a cheilfeadh deilbhíní eile). Tá deilbhíní leabaithe freisin i mbinaire an aip. Cuidíonn na cóipeanna thuas le GNOME/KDE an deilbhín seoltóra ceart a thaispeáint in ionad áit-shealadach ginearálta.</string>
     <string name="data_storage_android_permissions_title">Ceadanna agus stóráil Android</string>
     <string name="data_storage_android_permissions_body">Stórálann Retro Player a bhunachar sonraí sa limistéar tacaíochta príobháideach aipe ar an stóráil inmheánach. Fanann do chuid comhad ceoil sna fillteáin a roghnaíonn tú le roghnóir fillteán an chórais.\n\nAr Android, d\'fhéadfadh an aip rochtain fuaime a iarraidh chun rianta a léamh, agus rochtain ar ghrianghraif/íomhánna ionas gur féidir ealaín fillteáin (mar shampla cover.jpg) a thaispeáint. Ní chóipeáiltear comhaid fuaime isteach i mbunachar sonraí na haipe riamh.</string>
+    <string name="data_storage_android_native_body">Stórálann Retro Player a bhunachar sonraí sa limistéar tacaíochta príobháideach aipe ar an stóráil inmheánach. Fanann do chuid comhad ceoil sna fillteáin a roghnaíonn tú le roghnóir fillteán an chórais.</string>
     <string name="data_storage_android_playback_title">Seinm cúlra Android</string>
     <string name="data_storage_android_playback_body">Nuair a bhíonn fuaim á sheinm, ritheann Retro Player seirbhís meán tosaigh ionas go leanann an t-aisamhrán ar aghaidh má ghlasálann tú an fón nó má aistríonn tú idir aipeanna, le rialtáin iompair san fhógra córais. Má shleamhnaíonn tú an aip amach as \'Le déanaí\', stopann an t-aisamhrán agus baintear an fógra.</string>
     <string name="data_storage_ios_access_title">Rochtain ar fhillteáin iOS</string>

@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Biss jekk id-daqq waqaf għax il-kuffji ġew skonnettjati inqas minn 10 minuti ilu.</string>
     <string name="track_fallback">Traċċa</string>
     <string name="unknown_artist">Mhux magħruf</string>
-    <string name="tracks_count_artist">%1$d trakkijiet · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d trakk · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d trakkijiet · %2$s</string>
     <string name="reset_database">Irrisettja d-database</string>
     <string name="reset_database_title">Irrisettja l-bażi tad-dejta?</string>
     <string name="reset_database_body">Dan jnaddaf il-pożizzjonijiet tal-plejbek, il-favoriti, il-folder miftuħ, it-tema, il-lingwa u l-issettjar tal-eqwalizzatur. Meta tnaddaf kollox, jinsa wkoll il-folderi tal-librerija miżjuda. Il-fajls mużikali u l-playlists fuq id-diska ma jitħassrux.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Għal-ikona tal-bar tal-kompiti u tal-grilja tal-apps, l-ambjenti tad-desktop Linux jistennew fajls Freedesktop separati. Retro Player jinstallahom mill-pakkett tal-app meta tibda:\n\n• ~/.local/share/applications/app.retroplayer.desktop — daħla tal-launcher li tgħaqqad it-tieqa li qed taħdem ma\' din l-app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikoni b\'tema kopjati mill-bundle\n\nMa jikteb qatt fajl tal-utent hicolor/index.theme (li kien jaħbi t-tema tas-sistema u jaħbi ikoni oħra). L-ikoni huma wkoll inkorporati fil-binarju tal-app. Il-kopji hawn fuq jgħinu lil GNOME/KDE juru l-ikona korretta tal-launcher minflok post-holder ġeneriku.</string>
     <string name="data_storage_android_permissions_title">Permessi u ħażna ta\' Android</string>
     <string name="data_storage_android_permissions_body">Retro Player jaħżen il-bażi tad-dejta tiegħu fl-ispazju ta\' appoġġ privat tal-app fuq l-ħażna interna. Il-fajls tal-mużika tiegħek jibqgħu f\'folderi li tagħżel bl-għażla tal-folder tas-sistema.\n\nFuq Android, l-app tista\' titlob aċċess għall-awdjo biex taqra t-trakkijiet, u aċċess għall-fotos/immaġini sabiex l-artwork tal-folder (per eżempju cover.jpg) jista\' jintwera. Il-fajls awdjo qatt ma jiġu kkopjati fid-database tal-app.</string>
+    <string name="data_storage_android_native_body">Retro Player jaħżen il-bażi tad-dejta tiegħu fl-ispazju ta\' appoġġ privat tal-app fuq l-ħażna interna. Il-fajls tal-mużika tiegħek jibqgħu f\'folderi li tagħżel bl-għażla tal-folder tas-sistema.</string>
     <string name="data_storage_android_playback_title">Riproduzzjoni fil-isfond ta\' Android</string>
     <string name="data_storage_android_playback_body">Meta l-awdjo jkun qed jitħaddem, Retro Player jmexxi servizz medjatiku fil-quddiem sabiex il-plejbek ikompli jekk issakkar it-telefon jew tibdel l-apps, b\'kontrolli tat-trasport fin-notifika tas-sistema. Meta tneħħi l-app mill-aħħar użati, il-plejbek jieqaf u n-notifika titneħħa.</string>
     <string name="data_storage_ios_access_title">Aċċess għall-folder tal-iOS</string>

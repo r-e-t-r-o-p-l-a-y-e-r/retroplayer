@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Aðeins ef spilun stöðvaðist vegna þess að heyrnartólin voru aftengd fyrir minna en 10 mínútum.</string>
     <string name="track_fallback">Lag</string>
     <string name="unknown_artist">Óþekkt</string>
-    <string name="tracks_count_artist">%1$d lög · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d lag · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d lög · %2$s</string>
     <string name="reset_database">Endurstilla gagnagrunn</string>
     <string name="reset_database_title">Endurstilla gagnagrunninn?</string>
     <string name="reset_database_body">Þetta hreinsar spilunarstöður, uppáhalds, opna möppu, þema, tungumál og stillingar jöfnunartækis. Að hreinsa allt gleymir einnig viðbættum bókasafnsmöppum. Tónlistarskrár og spilunarlistar á diski eru ekki eytt.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Fyrir verkstikuna og táknið í forritagagnrýni krefjast Linux-skrifborðsumhverfi aðskildra Freedesktop-skráa. Retro Player setur þessar skrár upp úr forritabundlinu við ræsingu:\n\n• ~/.local/share/applications/app.retroplayer.desktop — upphafsskrá sem tengir virka gluggann við þessa forrit\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — þemaskreytta táknin afrituð úr forritabundlinu\n\nÞað skrifar aldrei notendahicolor/index.theme (sem myndi skyggja á kerfisþemað og fela önnur tákn). Táknin eru einnig innbyggð í forritabínið. Ofangreindar afritanir hjálpa GNOME/KDE að sýna rétt upphafstákn í stað almenns staðfyllitákns.</string>
     <string name="data_storage_android_permissions_title">Android heimildir og geymsla</string>
     <string name="data_storage_android_permissions_body">Retro Player geymir gagnagrunn sinn á einkasvæði forritsstuðnings á innri geymslu. Tónlistarskrár þínar verða áfram í möppum sem þú velur með kerfisvalsara möppna.\n\nÁ Android getur forritið óskað eftir aðgangi að hljóði til að lesa lög og aðgangi að myndum/myndum svo möppuhönnun (til dæmis cover.jpg) geti verið sýnd. Hljóðskrár eru aldrei afritaðar í gagnagrunn forritsins.</string>
+    <string name="data_storage_android_native_body">Retro Player geymir gagnagrunn sinn á einkasvæði forritsstuðnings á innri geymslu. Tónlistarskrár þínar verða áfram í möppum sem þú velur með kerfisvalsara möppna.</string>
     <string name="data_storage_android_playback_title">Android bakgrunnsspilun</string>
     <string name="data_storage_android_playback_body">Þegar hljóð er í spilun keyrir Retro Player forgrunnsmiðlunarþjónustu svo spilun haldi áfram þótt þú læsir símanum eða skiptir um forrit, með spilunarstýringum í kerfistilkynningunni. Með því að fletta forritinu út úr nýjustu forritunum stöðvarðu spilun og fjarlægir tilkynninguna.</string>
     <string name="data_storage_ios_access_title">Aðgangur að möppum í iOS</string>

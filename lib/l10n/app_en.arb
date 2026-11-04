@@ -88,7 +88,7 @@
   "resumeOnReconnectHint": "Only if playback paused because the headphones were disconnected less than 10 minutes ago.",
   "trackFallback": "Track",
   "unknownArtist": "Unknown",
-  "tracksCountArtist": "{count} tracks · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} track · {artist}} other{{count} tracks · {artist}}}",
   "@tracksCountArtist": {
     "placeholders": {
       "count": {
@@ -167,6 +167,10 @@
   "dataStorageLinuxTaskbarBody": "For the taskbar and app grid icon, Linux desktop environments expect separate Freedesktop files. Retro Player installs these from the app bundle on startup:\n\n• ~/.local/share/applications/app.retroplayer.desktop — launcher entry that links the running window to this app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — themed icons copied from the bundle\n\nIt never writes a user hicolor/index.theme (that would shadow the system theme and hide other icons). Icons are also embedded in the app binary. The copies above help GNOME/KDE show the correct launcher icon instead of a generic placeholder.",
   "dataStorageAndroidPermissionsTitle": "Android permissions and storage",
   "dataStorageAndroidPermissionsBody": "Retro Player stores its database in the app-private support area on internal storage. Your music files stay in folders you pick with the system folder picker.\n\nOn Android, the app may request audio access to read tracks, and photos/images access so folder artwork (for example cover.jpg) can be shown. Audio files are never copied into the app database.",
+  "dataStorageAndroidNativeBody": "Retro Player stores its database in the app-private support area on internal storage. Your music files stay in folders you pick with the system folder picker.",
+  "@dataStorageAndroidNativeBody": {
+    "description": "Native Android app: no storage or media permission, folders come from the system picker."
+  },
   "dataStorageAndroidPlaybackTitle": "Android background playback",
   "dataStorageAndroidPlaybackBody": "When audio is playing, Retro Player runs a foreground media service so playback continues if you lock the phone or switch apps, with transport controls in the system notification. Swiping the app away from Recents stops playback and removes the notification.",
   "dataStorageIOSAccessTitle": "iOS folder access",

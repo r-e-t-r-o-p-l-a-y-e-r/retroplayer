@@ -196,7 +196,13 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count szám · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count szám · $artist',
+      one: '$count szám · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -310,6 +316,10 @@ class AppLocalizationsHu extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'A Retro Player az adatbázisát a belső tárhelyen található, az alkalmazás számára fenntartott támogatási területen tárolja. A zenefájlok a rendszer mappaválasztójával kiválasztott mappákban maradnak.\n\nAndroid rendszeren az alkalmazás kérhet hangfájlokhoz való hozzáférést a zeneszámok olvasásához, valamint fényképekhez és képekhez való hozzáférést a mappa borítóképének (például cover.jpg) megjelenítéséhez. A hangfájlok soha nem kerülnek átmásolásra az alkalmazás adatbázisába.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'A Retro Player az adatbázisát a belső tárhelyen található, az alkalmazás számára fenntartott támogatási területen tárolja. A zenefájlok a rendszer mappaválasztójával kiválasztott mappákban maradnak.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

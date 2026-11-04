@@ -195,7 +195,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count ट्रैक · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ट्रैक · $artist',
+      one: '$count ट्रैक · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -309,6 +315,10 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'रेट्रो प्लेयर अपने डेटाबेस को ऐप - प्राइवेट सपोर्ट एरिया में इंटरनल स्टोरेज पर स्टोर करता है। आपकी म्यूज़िक फ़ाइलें उन फ़ोल्डरों में रहती हैं जिन्हें आप सिस्टम फ़ोल्डर पिकर के साथ चुनते हैं।\n\nएंड्रॉइड पर, ऐप ट्रैक पढ़ने के लिए ऑडियो एक्सेस का अनुरोध कर सकता है, और फ़ोटो/इमेज फ़ोल्डर आर्टवर्क (उदाहरण के लिए cover.jpg) को एक्सेस कर सकते हैं। ऑडियो फ़ाइलों को कभी भी ऐप डेटाबेस में कॉपी नहीं किया जाता है।';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'रेट्रो प्लेयर अपने डेटाबेस को ऐप - प्राइवेट सपोर्ट एरिया में इंटरनल स्टोरेज पर स्टोर करता है। आपकी म्यूज़िक फ़ाइलें उन फ़ोल्डरों में रहती हैं जिन्हें आप सिस्टम फ़ोल्डर पिकर के साथ चुनते हैं।';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'एंड्रॉइड बैकग्राउंड प्लेबैक';

@@ -196,7 +196,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count pistas · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pistas · $artist',
+      one: '$count pista · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -311,6 +317,10 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player almacena su base de datos en el área de soporte privado de la aplicación en el almacenamiento interno. Tus archivos de música permanecen en las carpetas que elijas con el selector de carpetas del sistema.\n\nEn Android, la aplicación puede solicitar acceso de audio para leer pistas y acceso a fotos/imágenes para que se puedan mostrar ilustraciones de carpetas (por ejemplo, cover.jpg). Los archivos de audio nunca se copian en la base de datos de la aplicación.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player almacena su base de datos en el área de soporte privado de la aplicación en el almacenamiento interno. Tus archivos de música permanecen en las carpetas que elijas con el selector de carpetas del sistema.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

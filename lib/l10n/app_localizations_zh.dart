@@ -191,7 +191,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count首曲目· $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 首曲目 · $artist',
+      one: '$count 首曲目 · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -304,6 +310,10 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player将其数据库存储在内部存储的应用私有支持区域中。 您的音乐文件保留在您使用系统文件夹选取器选取的文件夹中。\n\n在安卓系统上，应用程序可能会请求对读取曲目的音频访问权限，以及对照片/图像的访问权限，以便显示文件夹插图（例如cover.jpg ）。 音频文件永远不会复制到应用程序数据库中。';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player将其数据库存储在内部存储的应用私有支持区域中。 您的音乐文件保留在您使用系统文件夹选取器选取的文件夹中。';
 
   @override
   String get dataStorageAndroidPlaybackTitle => '安卓后台播放';

@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} roomikut · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} lugu · {artist}} other{{count} lugu · {artist}}}",
   "resetDatabase": "Lähtesta andmebaas",
   "resetDatabaseTitle": "Kas lähtestada andmebaas?",
   "resetDatabaseBody": "See kustutab taasesituse asukohad, lemmikud, avatud kausta, teema, keele ja ekvalaiseri seaded. Tühjenda kõik, unustades ka lisatud teegi kaustad. Kettal olevaid muusikafaile ja esitusloendeid ei kustutata.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Tegumiriba ja rakenduse ruudustiku ikooni jaoks ootavad Linuxi töölauakeskkonnad eraldi Freedesktopi faile. Retro Player installib need rakenduste komplektist käivitamisel:\n\n• ~/.local/share/applications/app.retroplayer.desktop — käivitaja kirje, mis ühendab töötava akna selle rakendusega\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — paketist kopeeritud temaatilised ikoonid\n\nSee ei kirjuta kunagi kasutaja hicolor/index.theme (mis varjaks süsteemi teemat ja peidaks teisi ikoone). Ikoonid on manustatud ka rakenduse binaarfaili. Ülaltoodud koopiad aitavad GNOME/kde-l kuvada üldise kohatäite asemel õiget käivitaja ikooni.",
   "dataStorageAndroidPermissionsTitle": "Androidi õigused ja salvestusruum",
   "dataStorageAndroidPermissionsBody": "Retro Player salvestab oma andmebaasi rakenduste privaatsesse tugialasse sisemälus. Teie muusikafailid jäävad kaustadesse, mille valite süsteemikaustade valijaga.\n\nAndroidi puhul võib rakendus taotleda audiojuurdepääsu lugudele ja juurdepääsu fotodele/piltidele, et saaks kuvada kaustade kujundust (nt cover.jpg). Helifaile ei kopeerita kunagi rakenduse andmebaasi.",
+  "dataStorageAndroidNativeBody": "Retro Player salvestab oma andmebaasi rakenduste privaatsesse tugialasse sisemälus. Teie muusikafailid jäävad kaustadesse, mille valite süsteemikaustade valijaga.",
   "dataStorageAndroidPlaybackTitle": "Androidi tausta taasesitus",
   "dataStorageAndroidPlaybackBody": "Kui heli mängib, käivitab Retro Player esiplaanil meediateenuse, nii et taasesitus jätkub, kui lukustate telefoni või lülitate rakendusi, kusjuures süsteemiteatises on transpordi juhtnupud. Rakenduse viimaste hulgast eemaldamine peatab taasesituse ja eemaldab teavituse.",
   "dataStorageIOSAccessTitle": "juurdepääs iOS-i kaustale",

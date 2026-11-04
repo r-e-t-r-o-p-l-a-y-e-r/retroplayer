@@ -195,7 +195,13 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count ট্র্যাক · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ট্র্যাক · $artist',
+      one: '$count ট্র্যাক · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -309,6 +315,10 @@ class AppLocalizationsBn extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'রেট্রো প্লেয়ার অভ্যন্তরীণ স্টোরেজে অ্যাপ-প্রাইভেট সাপোর্ট এরিয়াতে তার ডাটাবেস সংরক্ষণ করে । আপনার মিউজিক ফাইলগুলি সিস্টেম ফোল্ডার পিকারের সাথে আপনার বেছে নেওয়া ফোল্ডারে থাকে ।\n\nঅ্যান্ড্রয়েডে, অ্যাপটি ট্র্যাকগুলি পড়ার জন্য অডিও অ্যাক্সেসের অনুরোধ করতে পারে এবং ফটো/চিত্রগুলি অ্যাক্সেস করতে পারে যাতে ফোল্ডার আর্টওয়ার্ক (উদাহরণস্বরূপ cover.jpg) দেখানো যায় । অডিও ফাইলগুলি কখনই অ্যাপ ডেটাবেসে অনুলিপি করা হয় না ।';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'রেট্রো প্লেয়ার অভ্যন্তরীণ স্টোরেজে অ্যাপ-প্রাইভেট সাপোর্ট এরিয়াতে তার ডাটাবেস সংরক্ষণ করে । আপনার মিউজিক ফাইলগুলি সিস্টেম ফোল্ডার পিকারের সাথে আপনার বেছে নেওয়া ফোল্ডারে থাকে ।';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

@@ -197,7 +197,13 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count trakkijiet · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count trakkijiet · $artist',
+      one: '$count trakk · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -312,6 +318,10 @@ class AppLocalizationsMt extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player jaħżen il-bażi tad-dejta tiegħu fl-ispazju ta\' appoġġ privat tal-app fuq l-ħażna interna. Il-fajls tal-mużika tiegħek jibqgħu f\'folderi li tagħżel bl-għażla tal-folder tas-sistema.\n\nFuq Android, l-app tista\' titlob aċċess għall-awdjo biex taqra t-trakkijiet, u aċċess għall-fotos/immaġini sabiex l-artwork tal-folder (per eżempju cover.jpg) jista\' jintwera. Il-fajls awdjo qatt ma jiġu kkopjati fid-database tal-app.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player jaħżen il-bażi tad-dejta tiegħu fl-ispazju ta\' appoġġ privat tal-app fuq l-ħażna interna. Il-fajls tal-mużika tiegħek jibqgħu f\'folderi li tagħżel bl-għażla tal-folder tas-sistema.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

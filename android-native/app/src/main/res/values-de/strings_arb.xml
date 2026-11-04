@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Nur wenn die Wiedergabe pausiert wurde, weil die Kopfhörer vor weniger als 10 Minuten getrennt wurden.</string>
     <string name="track_fallback">Titel</string>
     <string name="unknown_artist">Unbekannt</string>
-    <string name="tracks_count_artist">%1$d Titel · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d Titel · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d Titel · %2$s</string>
     <string name="reset_database">Datenbank zurücksetzen</string>
     <string name="reset_database_title">Datenbank zurücksetzen?</string>
     <string name="reset_database_body">Das löscht Wiedergabepositionen, Favoriten, den geöffneten Ordner, Design, Sprache und Equalizer. Alles löschen vergisst zusätzlich die hinzugefügten Bibliotheksordner. Musikdateien und Playlists auf der Festplatte bleiben erhalten.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Für Taskleisten- und Starter-Symbole erwartet Linux getrennte Freedesktop-Dateien. Retro Player installiert diese beim Start aus dem App-Bundle:\n\n• ~/.local/share/applications/app.retroplayer.desktop — Starter-Eintrag, der das laufende Fenster mit dieser App verknüpft\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — Theme-Icons, kopiert aus dem Bundle\n\nEs schreibt nie eine Benutzer-hicolor/index.theme (das würde das System-Theme überschatten und andere Symbole ausblenden). Symbole sind auch im App-Binary eingebettet. Die Dateien oben helfen GNOME/KDE, das richtige Starter-Symbol statt eines generischen Platzhalters anzuzeigen.</string>
     <string name="data_storage_android_permissions_title">Android-Berechtigungen und Speicher</string>
     <string name="data_storage_android_permissions_body">Retro Player speichert die Datenbank im app-internen Support-Bereich im Gerätespeicher. Musikdateien bleiben in von dir gewählten Ordnern.\n\nUnter Android kann die App Audiozugriff für Titel und Foto-/Bildzugriff für Ordnercover (z. B. cover.jpg) anfordern. Audiodateien werden nicht in die App-Datenbank kopiert.</string>
+    <string name="data_storage_android_native_body">Retro Player speichert die Datenbank im app-internen Support-Bereich im Gerätespeicher. Musikdateien bleiben in von dir gewählten Ordnern.</string>
     <string name="data_storage_android_playback_title">Android-Hintergrundwiedergabe</string>
     <string name="data_storage_android_playback_body">Während Audio läuft, nutzt Retro Player einen Vordergrund-Mediendienst, damit die Wiedergabe weiterläuft, wenn du das Telefon sperrst oder die App wechselst, mit Steuerung in der Systembenachrichtigung. Wischst du die App aus den letzten Apps weg, stoppt die Wiedergabe und die Benachrichtigung verschwindet.</string>
     <string name="data_storage_ios_access_title">iOS-Ordnerzugriff</string>

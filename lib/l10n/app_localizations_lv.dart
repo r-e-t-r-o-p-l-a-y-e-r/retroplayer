@@ -196,7 +196,13 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count dziesmas · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count dziesmas · $artist',
+      one: '$count dziesma · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -310,6 +316,10 @@ class AppLocalizationsLv extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       '„Retro Player“ savu datu bāzi glabā lietotnes privātajā atbalsta zonā iekšējā atmiņā. Jūsu mūzikas faili paliek mapēs, kuras izvēlaties, izmantojot sistēmas mapju izvēlni.\n\n„Android“ sistēmā lietotne var pieprasīt piekļuvi audio failiem, lai nolasītu dziesmas, kā arī piekļuvi fotogrāfijām/attēliem, lai varētu parādīt mapes vāka attēlu (piemēram, cover.jpg). Audio faili nekad netiek kopēti lietotnes datu bāzē.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      '„Retro Player“ savu datu bāzi glabā lietotnes privātajā atbalsta zonā iekšējā atmiņā. Jūsu mūzikas faili paliek mapēs, kuras izvēlaties, izmantojot sistēmas mapju izvēlni.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} pjesama · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} pjesma · {artist}} other{{count} pjesama · {artist}}}",
   "resetDatabase": "Resetiraj bazu podataka",
   "resetDatabaseTitle": "Resetirati bazu podataka?",
   "resetDatabaseBody": "Ovo briše položaje reprodukcije, omiljene stavke, otvorenu mapu, temu, jezik i postavke ekvalizera. Brisanje svega također zaboravlja dodane mape biblioteke. Muzičke datoteke i playliste na disku se ne brišu.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Za ikonu trake zadataka i mreže aplikacija, Linux desktop okruženja očekuju odvojene Freedesktop datoteke. Retro Player ih instalira iz paketa aplikacije prilikom pokretanja:\n\n• ~/.local/share/applications/app.retroplayer.desktop — unos za pokretač koji povezuje aktivni prozor s ovom aplikacijom\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikone u temi kopirane iz paketa\n\nNikada ne piše korisnički hicolor/index.theme (što bi zasjenilo sistemsku temu i sakrilo druge ikone). Ikone su također ugrađene u binarnu datoteku aplikacije. Gornje kopije pomažu GNOME/KDE-u da prikaže ispravnu ikonu pokretača umjesto generičkog mjesta držača.",
   "dataStorageAndroidPermissionsTitle": "Android dozvole i pohrana",
   "dataStorageAndroidPermissionsBody": "Retro Player pohranjuje svoju bazu podataka u privatnom podržanom prostoru aplikacije na internom skladištu. Vaši muzički fajlovi ostaju u mapama koje odaberete pomoću sistemskog odabira mapa.\n\nNa Androidu aplikacija može zatražiti pristup zvuku za čitanje pjesama i pristup fotografijama/slikama kako bi se prikazivale naslovnice mapa (na primjer cover.jpg). Zvučne datoteke nikada se ne kopiraju u bazu podataka aplikacije.",
+  "dataStorageAndroidNativeBody": "Retro Player pohranjuje svoju bazu podataka u privatnom podržanom prostoru aplikacije na internom skladištu. Vaši muzički fajlovi ostaju u mapama koje odaberete pomoću sistemskog odabira mapa.",
   "dataStorageAndroidPlaybackTitle": "Reprodukcija u pozadini na Androidu",
   "dataStorageAndroidPlaybackBody": "Kada se audio reproducira, Retro Player pokreće medijsku uslugu u prvom planu kako bi reprodukcija nastavila i ako zaključate telefon ili prebacite aplikacije, s kontrolama reprodukcije u sistemskoj obavijesti. Pomicanjem aplikacije iz nedavnih aplikacija zaustavlja se reprodukcija i uklanja se obavijest.",
   "dataStorageIOSAccessTitle": "Pristup iOS folderima",

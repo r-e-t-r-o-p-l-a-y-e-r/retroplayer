@@ -3,7 +3,7 @@
   "appTitle": "Retro Player",
   "settings": "Cài đặt",
   "about": "Giới thiệu",
-  "aboutSubtitle": "Chỉ phát âm thanh cục bộ. Không quảng cáo, không thu thập dữ liệu, không truy cập mạng.&#10; Các định dạng được hỗ trợ: MP3, M4A, M4B, FLAC, WAV",
+  "aboutSubtitle": "Chỉ phát âm thanh cục bộ. Không quảng cáo, không thu thập dữ liệu, không truy cập mạng.\n Các định dạng được hỗ trợ: MP3, M4A, M4B, FLAC, WAV",
   "aboutVersion": "Phiên bản",
   "aboutBuildDate": "xây dựng theo thời gian",
   "@aboutGitBranch": {
@@ -58,7 +58,7 @@
       }
     }
   },
-  "removeLibraryFolderBody": "Xóa &quot;{name}&quot; khỏi thư viện của bạn?&#10;&#10; Các tệp âm thanh của bạn trên ổ đĩa sẽ không bị xóa.",
+  "removeLibraryFolderBody": "Xóa &quot;{name}&quot; khỏi thư viện của bạn?\n\n Các tệp âm thanh của bạn trên ổ đĩa sẽ không bị xóa.",
   "cancel": "Hủy",
   "remove": "Xóa",
   "albumNotFound": "Không tìm thấy album",
@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} bài hát · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} bài hát · {artist}} other{{count} bài hát · {artist}}}",
   "resetDatabase": "Đặt lại cơ sở dữ liệu",
   "resetDatabaseTitle": "Đặt lại cơ sở dữ liệu?",
   "resetDatabaseBody": "Thao tác này sẽ xóa vị trí phát lại, mục yêu thích, thư mục đang mở, chủ đề, ngôn ngữ và cài đặt bộ chỉnh âm. Xóa mọi thứ cũng sẽ xóa các thư mục thư viện đã thêm. Các tệp nhạc và danh sách phát trên ổ đĩa sẽ không bị xóa.",
@@ -148,7 +148,7 @@
       }
     }
   },
-  "dataStorageAppDataBody": "Tệp: {dbFileName}&#10; Đường dẫn: {dbPath}&#10;&#10; Lưu trữ các thư mục gốc của thư viện, trạng thái duyệt, chế độ tiếp tục phát, bộ chỉnh âm, chủ đề và tùy chọn ngôn ngữ.",
+  "dataStorageAppDataBody": "Tệp: {dbFileName}\n Đường dẫn: {dbPath}\n\n Lưu trữ các thư mục gốc của thư viện, trạng thái duyệt, chế độ tiếp tục phát, bộ chỉnh âm, chủ đề và tùy chọn ngôn ngữ.",
   "dataStorageLibraryTitle": "Tệp nhạc",
   "dataStorageLibraryBody": "Các tệp âm thanh không bao giờ được sao chép vào cơ sở dữ liệu ứng dụng. Thêm thư mục thư viện và Trình phát Retro đọc tệp trực tiếp từ đĩa.",
   "dataStoragePlaylistsTitle": "Tệp danh sách phát",
@@ -168,10 +168,11 @@
   "dataStorageLinuxTaskbarBody": "Đối với biểu tượng trên thanh tác vụ và lưới ứng dụng, môi trường máy tính để bàn Linux yêu cầu các tệp Freedesktop riêng biệt. Retro Player cài đặt các tệp này từ gói ứng dụng khi khởi động:\n\n• ~/.local/share/applications/app.retroplayer.desktop — mục khởi chạy liên kết cửa sổ đang chạy với ứng dụng này\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — các biểu tượng theo chủ đề được sao chép từ gói\n\nNó không bao giờ ghi tệp hicolor/index.theme của người dùng (vì điều đó sẽ che khuất chủ đề hệ thống và ẩn các biểu tượng khác). Các biểu tượng cũng được nhúng trong tệp nhị phân của ứng dụng. Các bản sao ở trên giúp GNOME/KDE hiển thị biểu tượng trình khởi chạy chính xác thay vì biểu tượng giữ chỗ chung chung.",
   "dataStorageAndroidPermissionsTitle": "Quyền và bộ nhớ Android",
   "dataStorageAndroidPermissionsBody": "Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng của ứng dụng trên bộ nhớ trong. Các tệp nhạc của bạn nằm trong các thư mục bạn chọn bằng bộ chọn thư mục hệ thống.\n\nTrên Android, ứng dụng có thể yêu cầu truy cập âm thanh để đọc các bản nhạc và truy cập ảnh/hình ảnh để có thể hiển thị tác phẩm nghệ thuật của thư mục (ví dụ: cover.jpg). Các tệp âm thanh không bao giờ được sao chép vào cơ sở dữ liệu ứng dụng.",
+  "dataStorageAndroidNativeBody": "Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng của ứng dụng trên bộ nhớ trong. Các tệp nhạc của bạn nằm trong các thư mục bạn chọn bằng bộ chọn thư mục hệ thống.",
   "dataStorageAndroidPlaybackTitle": "Phát lại trong nền Android",
   "dataStorageAndroidPlaybackBody": "Khi phát âm thanh, Retro Player chạy dịch vụ phương tiện nền trước để tiếp tục phát nếu bạn khóa điện thoại hoặc chuyển đổi ứng dụng, với các điều khiển vận chuyển trong thông báo hệ thống. Vuốt ứng dụng ra khỏi Recents, dừng phát lại và xóa thông báo.",
   "dataStorageIOSAccessTitle": "Truy cập thư mục",
-  "dataStorageIOSAccessBody": "Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng tư của ứng dụng trên bộ nhớ thiết bị. Các tệp nhạc của bạn vẫn nằm trong các thư mục bạn chọn bằng trình chọn thư mục hệ thống.&#10;&#10; iOS cấp quyền truy cập thông qua các URL có phạm vi bảo mật cho các thư mục bạn chọn. Retro Player đọc trực tiếp các tệp từ các vị trí đó; nó không sao chép thư viện của bạn vào bộ nhớ ứng dụng.",
+  "dataStorageIOSAccessBody": "Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng tư của ứng dụng trên bộ nhớ thiết bị. Các tệp nhạc của bạn vẫn nằm trong các thư mục bạn chọn bằng trình chọn thư mục hệ thống.\n\n iOS cấp quyền truy cập thông qua các URL có phạm vi bảo mật cho các thư mục bạn chọn. Retro Player đọc trực tiếp các tệp từ các vị trí đó; nó không sao chép thư viện của bạn vào bộ nhớ ứng dụng.",
   "dataStorageIOSPlaybackTitle": "âm thanh nền",
   "dataStorageIOSPlaybackBody": "Phát lại có thể tiếp tục trong khi ứng dụng ở chế độ nền hoặc màn hình bị khóa. Vị trí sơ yếu lý lịch và trạng thái hàng đợi được lưu trữ trong cơ sở dữ liệu ứng dụng cục bộ.",
   "dataStoragePlatformBodyAndroid": "Dữ liệu ứng dụng được lưu trữ trong khu vực hỗ trợ riêng của ứng dụng trên bộ nhớ trong.",

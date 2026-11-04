@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">רק אם ההשמעה נעצרה כי האוזניות נותקו לפני פחות מ־10 דקות.</string>
     <string name="track_fallback">מסלול</string>
     <string name="unknown_artist">לא ידוע</string>
-    <string name="tracks_count_artist">%1$d רצועות · %2$s</string>
+    <string name="tracks_count_artist_eq1">רצועה אחת · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d רצועות · %2$s</string>
     <string name="reset_database">איפוס מסד הנתונים</string>
     <string name="reset_database_title">לאפס את מסד הנתונים?</string>
     <string name="reset_database_body">פעולה זו מוחקת את מיקומי ההשמעה, את המועדפים, את התיקייה הפתוחה, את ערכת הנושא, את השפה ואת הגדרות האקולייזר. האפשרות \"נקה הכל\" מוחקת גם את תיקיות הספרייה שנוספו. קבצי המוזיקה ורשימות ההשמעה הנמצאים בדיסק אינם נמחקים.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">לגבי סמל שורת המשימות ורשת האפליקציות, סביבות שולחן העבודה של לינוקס מצפות לקבצי Freedesktop נפרדים. Retro Player מתקין אותם מחבילת האפליקציה בעת ההפעלה:\n\n• ~/.local/share/applications/app.retroplayer.desktop — ערך במפעיל שמקשר את החלון הפועל לאפליקציה זו\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — סמלים מעוצבים שהועתקו מהחבילה\n\nהתוכנה לעולם אינה כותבת קובץ hicolor/index.theme של המשתמש (מה שעלול להאפיל על ערכת הנושא של המערכת ולהסתיר סמלים אחרים). הסמלים מוטמעים גם בקובץ הבינארי של האפליקציה. העותקים הנ\"ל עוזרים ל-GNOME/KDE להציג את סמל ההפעלה הנכון במקום סמל מחליף כללי.</string>
     <string name="data_storage_android_permissions_title">הרשאות ואחסון באנדרואיד</string>
     <string name="data_storage_android_permissions_body">Retro Player מאחסן את מסד הנתונים שלו באזור התמיכה הפרטי של האפליקציה, הנמצא באחסון הפנימי. קבצי המוזיקה שלך נשמרים בתיקיות שתבחר באמצעות בורר התיקיות של המערכת.\n\nב-Android, האפליקציה עשויה לבקש גישה לאודיו כדי לקרוא רצועות, וכן גישה לתמונות/תמונות כדי שניתן יהיה להציג את עטיפות התיקיות (לדוגמה, cover.jpg). קבצי אודיו לעולם אינם מועתקים למסד הנתונים של האפליקציה.</string>
+    <string name="data_storage_android_native_body">Retro Player מאחסן את מסד הנתונים שלו באזור התמיכה הפרטי של האפליקציה, הנמצא באחסון הפנימי. קבצי המוזיקה שלך נשמרים בתיקיות שתבחר באמצעות בורר התיקיות של המערכת.</string>
     <string name="data_storage_android_playback_title">השמעה ברקע באנדרואיד</string>
     <string name="data_storage_android_playback_body">כאשר מתנגן אודיו, Retro Player מפעיל שירות מדיה ברקע, כך שההשמעה נמשכת גם אם נועלים את הטלפון או עוברים בין אפליקציות, כאשר פקדי ההשמעה מופיעים בהודעת המערכת. החלקה של האפליקציה מחוץ למסך \'האפליקציות האחרונות\' מפסיקה את ההשמעה ומסירה את ההודעה.</string>
     <string name="data_storage_ios_access_title">גישה לתיקיות ב-iOS</string>

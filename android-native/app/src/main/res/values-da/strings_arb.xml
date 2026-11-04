@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Kun hvis afspilningen blev sat på pause, fordi hovedtelefonerne blev frakoblet for mindre end 10 minutter siden.</string>
     <string name="track_fallback">Spor</string>
     <string name="unknown_artist">Ukendt</string>
-    <string name="tracks_count_artist">%1$d numre · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d nummer · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d numre · %2$s</string>
     <string name="reset_database">Nulstil database</string>
     <string name="reset_database_title">Nulstille databasen?</string>
     <string name="reset_database_body">Dette sletter afspilningspositioner, favoritter, den åbne mappe, tema, sprog og equalizer-indstillinger. Hvis du vælger »Slet alt«, slettes også de tilføjede biblioteksmapper. Musikfiler og afspilningslister på disken slettes ikke.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Til ikonet i proceslinjen og app-gitteret kræver Linux-skrivebordsmiljøer separate Freedesktop-filer. Retro Player installerer disse fra app-pakken ved opstart:\n\n• ~/.local/share/applications/app.retroplayer.desktop — en genvej, der forbinder det kørende vindue med denne app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — temaikoner kopieret fra pakken\n\nDet skriver aldrig en bruger-hicolor/index.theme-fil (da dette ville overskygge systemtemaet og skjule andre ikoner). Ikoner er også indlejret i appens binærfil. Ovenstående kopier hjælper GNOME/KDE med at vise det korrekte startikon i stedet for en generisk pladsholder.</string>
     <string name="data_storage_android_permissions_title">Android-tilladelser og lagerplads</string>
     <string name="data_storage_android_permissions_body">Retro Player gemmer sin database i appens private supportområde på det interne lager. Dine musikfiler forbliver i de mapper, du vælger via systemets mappevælger.\n\nPå Android kan appen anmode om adgang til lydfiler for at kunne læse spor samt adgang til fotos/billeder, så mappeomslag (f.eks. cover.jpg) kan vises. Lydfiler kopieres aldrig til appens database.</string>
+    <string name="data_storage_android_native_body">Retro Player gemmer sin database i appens private supportområde på det interne lager. Dine musikfiler forbliver i de mapper, du vælger via systemets mappevælger.</string>
     <string name="data_storage_android_playback_title">Afspilning i baggrunden på Android</string>
     <string name="data_storage_android_playback_body">Når der afspilles lyd, kører Retro Player en medietjeneste i forgrunden, så afspilningen fortsætter, selvom du låser telefonen eller skifter mellem apps, og afspilningsknapperne vises i systemmeddelelsen. Hvis du stryger appen væk fra listen over seneste apps, stopper afspilningen, og meddelelsen fjernes.</string>
     <string name="data_storage_ios_access_title">Adgang til mapper på iOS</string>

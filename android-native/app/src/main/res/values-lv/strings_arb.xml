@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Tikai tad, ja atskaņošana tika pauzēta, jo austiņas tika atvienotas mazāk nekā pirms 10 minūtēm.</string>
     <string name="track_fallback">Dziesma</string>
     <string name="unknown_artist">Nezināms</string>
-    <string name="tracks_count_artist">%1$d dziesmas · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d dziesma · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d dziesmas · %2$s</string>
     <string name="reset_database">Datu bāzes atjaunošana</string>
     <string name="reset_database_title">Atjaunot datu bāzi?</string>
     <string name="reset_database_body">Tādējādi tiek dzēstas atskaņošanas pozīcijas, izlases, atvērtajā mapē esošie faili, tēma, valoda un ekvalaizera iestatījumi. Izvēloties opciju „Dzēst visu”, tiek dzēstas arī pievienotās bibliotēkas mapes. Mūzikas faili un atskaņošanas saraksti uz diska netiek dzēsti.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Lai izveidotu ikonas uz uzdevumjoslas un lietotņu režģī, Linux darbvirsmu vidēs ir nepieciešami atsevišķi Freedesktop faili. Retro Player tos instalē no lietotnes paketes palaišanas brīdī:\n\n• ~/.local/share/applications/app.retroplayer.desktop — palaišanas ieraksts, kas saista darbojošos logu ar šo lietotni\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — no pakotnes kopētās tematiskās ikonas\n\nTā nekad neraksta lietotāja hicolor/index.theme failu (kas aizēnotu sistēmas tēmu un paslēptu citas ikonas). Ikonas ir arī iegultas lietotnes binārajā failā. Iepriekš minētās kopijas palīdz GNOME/KDE parādīt pareizo palaišanas ikonu, nevis vispārēju aizstājēju.</string>
     <string name="data_storage_android_permissions_title">„Android“ atļaujas un uzglabāšanas vieta</string>
     <string name="data_storage_android_permissions_body">„Retro Player“ savu datu bāzi glabā lietotnes privātajā atbalsta zonā iekšējā atmiņā. Jūsu mūzikas faili paliek mapēs, kuras izvēlaties, izmantojot sistēmas mapju izvēlni.\n\n„Android“ sistēmā lietotne var pieprasīt piekļuvi audio failiem, lai nolasītu dziesmas, kā arī piekļuvi fotogrāfijām/attēliem, lai varētu parādīt mapes vāka attēlu (piemēram, cover.jpg). Audio faili nekad netiek kopēti lietotnes datu bāzē.</string>
+    <string name="data_storage_android_native_body">„Retro Player“ savu datu bāzi glabā lietotnes privātajā atbalsta zonā iekšējā atmiņā. Jūsu mūzikas faili paliek mapēs, kuras izvēlaties, izmantojot sistēmas mapju izvēlni.</string>
     <string name="data_storage_android_playback_title">Atkārtošana fonā sistēmā „Android“</string>
     <string name="data_storage_android_playback_body">Kad tiek atskaņots audio, „Retro Player“ darbojas kā priekšplāna multivides pakalpojums, tādējādi atskaņošana turpinās, pat ja bloķējat tālruni vai pārslēdzaties uz citu lietotni, un atskaņošanas vadības elementi ir redzami sistēmas paziņojumos. Pieskaroties lietotnei un nobīdot to prom no nesen izmantoto saraksta, atskaņošana tiek apturēta un paziņojums pazūd.</string>
     <string name="data_storage_ios_access_title">Piekļuve iOS mapēm</string>

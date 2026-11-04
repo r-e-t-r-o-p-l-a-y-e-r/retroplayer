@@ -3,7 +3,7 @@
   "appTitle": "Retro Player",
   "settings": "설정",
   "about": "소개",
-  "aboutSubtitle": "로컬 오디오만 지원합니다. 광고, 데이터 수집, 네트워크 접근은 일절 없습니다.&#10; 지원되는 형식: MP3, M4A, M4B, FLAC, WAV",
+  "aboutSubtitle": "로컬 오디오만 지원합니다. 광고, 데이터 수집, 네트워크 접근은 일절 없습니다.\n 지원되는 형식: MP3, M4A, M4B, FLAC, WAV",
   "aboutVersion": "개정판 번호",
   "aboutBuildDate": "제작 시간",
   "@aboutGitBranch": {
@@ -93,10 +93,10 @@
       }
     }
   },
-  "tracksCountArtist": "{count} 트랙 · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} 트랙 · {artist}} other{{count} 트랙 · {artist}}}",
   "resetDatabase": "데이터베이스 재설정",
   "resetDatabaseTitle": "데이터베이스 재설정",
-  "resetDatabaseBody": "재생 위치, 즐겨찾기, 열려 있는 폴더, 테마, 언어 및 이퀄라이저 설정을 모두 지웁니다. &#39;모두 지우기&#39;를 선택하면 추가된 라이브러리 폴더도 삭제됩니다. 디스크에 저장된 음악 파일과 재생 목록은 삭제되지 않습니다.",
+  "resetDatabaseBody": "재생 위치, 즐겨찾기, 열려 있는 폴더, 테마, 언어 및 이퀄라이저 설정을 모두 지웁니다. '모두 지우기'를 선택하면 추가된 라이브러리 폴더도 삭제됩니다. 디스크에 저장된 음악 파일과 재생 목록은 삭제되지 않습니다.",
   "resetDatabaseKeepFolders": "라이브러리 폴더를 보관하세요",
   "resetDatabaseClearEverything": "모든 것을 지우세요",
   "@eqManually": {
@@ -148,7 +148,7 @@
       }
     }
   },
-  "dataStorageAppDataBody": "파일: {dbFileName}&#10; 경로: {dbPath}&#10;&#10; 라이브러리 루트, 탐색 상태, 재생 재개, 이퀄라이저, 테마 및 언어 기본 설정을 저장합니다.",
+  "dataStorageAppDataBody": "파일: {dbFileName}\n 경로: {dbPath}\n\n 라이브러리 루트, 탐색 상태, 재생 재개, 이퀄라이저, 테마 및 언어 기본 설정을 저장합니다.",
   "dataStorageLibraryTitle": "모든 음악 파일",
   "dataStorageLibraryBody": "오디오 파일은 앱 데이터베이스에 복사되지 않습니다. 라이브러리 폴더를 추가하고 Retro Player는 디스크에서 직접 파일을 읽습니다.",
   "dataStoragePlaylistsTitle": "재생목록 파일(播放列表檔案)",
@@ -167,11 +167,12 @@
   "dataStorageLinuxTaskbarTitle": "Linux 작업 표시줄 통합",
   "dataStorageLinuxTaskbarBody": "Linux 데스크톱 환경에서는 작업 표시줄 및 앱 그리드 아이콘의 경우 별도의 Freedesktop 파일이 필요합니다. Retro Player는 시작 시 앱 번들에서 이러한 파일을 설치합니다.\n\n• ~/.local/share/applications/app.retroplayer.desktop — 실행 중인 창을 이 앱에 연결하는 런처 항목\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — 번들에서 복사한 테마 아이콘\n\n이 프로그램은 사용자 지정 hicolor/index.theme 파일을 생성하지 않습니다(시스템 테마를 덮어쓰고 다른 아이콘을 가릴 수 있기 때문입니다). 아이콘은 앱 바이너리에 내장되어 있습니다. 위의 복사본은 GNOME/KDE에서 일반적인 자리 표시자 아이콘 대신 올바른 런처 아이콘을 표시하는 데 도움이 됩니다.",
   "dataStorageAndroidPermissionsTitle": "안드로이드 권한 및 저장소",
-  "dataStorageAndroidPermissionsBody": "Retro Player는 데이터베이스를 내부 저장소의 앱 전용 지원 영역에 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 지정한 폴더에 저장됩니다.&#10;&#10; 안드로이드에서 앱은 트랙을 읽기 위해 오디오 접근 권한을 요청할 수 있으며, 폴더 아트워크(예: cover.jpg)를 표시하기 위해 사진/이미지 접근 권한을 요청할 수 있습니다. 오디오 파일은 앱 데이터베이스에 복사되지 않습니다.",
+  "dataStorageAndroidPermissionsBody": "Retro Player는 데이터베이스를 내부 저장소의 앱 전용 지원 영역에 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 지정한 폴더에 저장됩니다.\n\n 안드로이드에서 앱은 트랙을 읽기 위해 오디오 접근 권한을 요청할 수 있으며, 폴더 아트워크(예: cover.jpg)를 표시하기 위해 사진/이미지 접근 권한을 요청할 수 있습니다. 오디오 파일은 앱 데이터베이스에 복사되지 않습니다.",
+  "dataStorageAndroidNativeBody": "Retro Player는 데이터베이스를 내부 저장소의 앱 전용 지원 영역에 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 지정한 폴더에 저장됩니다.",
   "dataStorageAndroidPlaybackTitle": "안드로이드 백그라운드 재생",
   "dataStorageAndroidPlaybackBody": "오디오가 재생될 때 Retro Player는 포그라운드 미디어 서비스를 실행하므로 전화기를 잠그거나 앱을 전환하면 시스템 알림에 전송 컨트롤이 표시되어 재생이 계속됩니다. 앱을 최근에서 밀어내면 재생이 중지되고 알림이 제거됩니다.",
   "dataStorageIOSAccessTitle": "iOS 폴더 접근",
-  "dataStorageIOSAccessBody": "Retro Player는 기기 저장소의 앱 전용 지원 영역에 데이터베이스를 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 선택한 폴더에 저장됩니다.&#10;&#10; iOS는 사용자가 선택한 폴더에 대해 보안 범위가 지정된 URL을 통해 접근 권한을 부여합니다. Retro Player는 해당 위치에서 파일을 직접 읽어오며, 라이브러리를 앱 저장소로 복사하지 않습니다.",
+  "dataStorageIOSAccessBody": "Retro Player는 기기 저장소의 앱 전용 지원 영역에 데이터베이스를 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 선택한 폴더에 저장됩니다.\n\n iOS는 사용자가 선택한 폴더에 대해 보안 범위가 지정된 URL을 통해 접근 권한을 부여합니다. Retro Player는 해당 위치에서 파일을 직접 읽어오며, 라이브러리를 앱 저장소로 복사하지 않습니다.",
   "dataStorageIOSPlaybackTitle": "iOS 백그라운드 오디오",
   "dataStorageIOSPlaybackBody": "앱이 백그라운드에서 실행 중이거나 화면이 잠겨 있는 동안에도 재생이 계속될 수 있습니다. 재생 재개 위치와 대기열 상태는 앱의 로컬 데이터베이스에 저장됩니다.",
   "dataStoragePlatformBodyAndroid": "앱 데이터는 내부 저장소의 앱 전용 지원 영역에 저장됩니다.",

@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Ainult siis, kui esitus peatus, sest kõrvaklapid ühendati lahti vähem kui 10 minutit tagasi.</string>
     <string name="track_fallback">Rada</string>
     <string name="unknown_artist">Teadmata</string>
-    <string name="tracks_count_artist">%1$d roomikut · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d lugu · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d lugu · %2$s</string>
     <string name="reset_database">Lähtesta andmebaas</string>
     <string name="reset_database_title">Kas lähtestada andmebaas?</string>
     <string name="reset_database_body">See kustutab taasesituse asukohad, lemmikud, avatud kausta, teema, keele ja ekvalaiseri seaded. Tühjenda kõik, unustades ka lisatud teegi kaustad. Kettal olevaid muusikafaile ja esitusloendeid ei kustutata.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Tegumiriba ja rakenduse ruudustiku ikooni jaoks ootavad Linuxi töölauakeskkonnad eraldi Freedesktopi faile. Retro Player installib need rakenduste komplektist käivitamisel:\n\n• ~/.local/share/applications/app.retroplayer.desktop — käivitaja kirje, mis ühendab töötava akna selle rakendusega\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — paketist kopeeritud temaatilised ikoonid\n\nSee ei kirjuta kunagi kasutaja hicolor/index.theme (mis varjaks süsteemi teemat ja peidaks teisi ikoone). Ikoonid on manustatud ka rakenduse binaarfaili. Ülaltoodud koopiad aitavad GNOME/kde-l kuvada üldise kohatäite asemel õiget käivitaja ikooni.</string>
     <string name="data_storage_android_permissions_title">Androidi õigused ja salvestusruum</string>
     <string name="data_storage_android_permissions_body">Retro Player salvestab oma andmebaasi rakenduste privaatsesse tugialasse sisemälus. Teie muusikafailid jäävad kaustadesse, mille valite süsteemikaustade valijaga.\n\nAndroidi puhul võib rakendus taotleda audiojuurdepääsu lugudele ja juurdepääsu fotodele/piltidele, et saaks kuvada kaustade kujundust (nt cover.jpg). Helifaile ei kopeerita kunagi rakenduse andmebaasi.</string>
+    <string name="data_storage_android_native_body">Retro Player salvestab oma andmebaasi rakenduste privaatsesse tugialasse sisemälus. Teie muusikafailid jäävad kaustadesse, mille valite süsteemikaustade valijaga.</string>
     <string name="data_storage_android_playback_title">Androidi tausta taasesitus</string>
     <string name="data_storage_android_playback_body">Kui heli mängib, käivitab Retro Player esiplaanil meediateenuse, nii et taasesitus jätkub, kui lukustate telefoni või lülitate rakendusi, kusjuures süsteemiteatises on transpordi juhtnupud. Rakenduse viimaste hulgast eemaldamine peatab taasesituse ja eemaldab teavituse.</string>
     <string name="data_storage_ios_access_title">juurdepääs iOS-i kaustale</string>

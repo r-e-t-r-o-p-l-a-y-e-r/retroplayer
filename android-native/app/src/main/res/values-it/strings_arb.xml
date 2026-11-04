@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Solo se la riproduzione è stata messa in pausa perché le cuffie sono state scollegate meno di 10 minuti fa.</string>
     <string name="track_fallback">Traccia</string>
     <string name="unknown_artist">Sconosciuto</string>
-    <string name="tracks_count_artist">%1$d tracce · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d traccia · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d tracce · %2$s</string>
     <string name="reset_database">Ripristina il database</string>
     <string name="reset_database_title">Reset database</string>
     <string name="reset_database_body">Questo cancella le posizioni di riproduzione, i preferiti, la cartella aperta, il tema, la lingua e le impostazioni dell\'equalizzatore. Cancella tutto dimentica anche le cartelle della libreria aggiunte. I file musicali e le playlist su disco non vengono eliminati.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Per l\'icona della barra delle applicazioni e della griglia delle app, gli ambienti desktop Linux si aspettano file Freedesktop separati. Retro Player li installa dal pacchetto dell\'app all\'avvio:\n\n• ~/.local/share/applications/app.retroplayer.desktop — voce di avvio che collega la finestra in esecuzione a questa app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — icone a tema copiate dal bundle\n\nNon scrive mai un tema hicolor/index.theme dell\'utente (che ombreggerebbe il tema del sistema e nasconderebbe altre icone). Anche le icone sono incorporate nel binario dell\'app. Le copie sopra aiutano GNOME/KDE a mostrare l\'icona di avvio corretta invece di un segnaposto generico.</string>
     <string name="data_storage_android_permissions_title">Autorizzazioni e archiviazione Android</string>
     <string name="data_storage_android_permissions_body">Retro Player memorizza il suo database nell\'area di supporto privata dell\'app, nella memoria interna. I tuoi file musicali rimangono nelle cartelle che selezioni tramite lo strumento di selezione cartelle del sistema.\n\n Su Android, l\'app potrebbe richiedere l\'accesso all\'audio per riprodurre le tracce e l\'accesso a foto/immagini per visualizzare le copertine delle cartelle (ad esempio cover.jpg). I file audio non vengono mai copiati nel database dell\'app.</string>
+    <string name="data_storage_android_native_body">Retro Player memorizza il suo database nell\'area di supporto privata dell\'app, nella memoria interna. I tuoi file musicali rimangono nelle cartelle che selezioni tramite lo strumento di selezione cartelle del sistema.</string>
     <string name="data_storage_android_playback_title">Riproduzione in background Android</string>
     <string name="data_storage_android_playback_body">Durante la riproduzione dell\'audio, Retro Player esegue un servizio multimediale in primo piano, quindi la riproduzione continua se si blocca il telefono o si cambia app, con i controlli di trasporto nella notifica di sistema. La rimozione dell\'app da Recenti interrompe la riproduzione e rimuove la notifica.</string>
     <string name="data_storage_ios_access_title">Accesso alla cartella</string>

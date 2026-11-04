@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">ヘッドホンが外れて一時停止してから 10 分以内の場合のみ。</string>
     <string name="track_fallback">トラック</string>
     <string name="unknown_artist">不明</string>
-    <string name="tracks_count_artist">%1$d トラック · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d トラック · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d トラック · %2$s</string>
     <string name="reset_database">データベースをリセット</string>
     <string name="reset_database_title">データベースをリセット</string>
     <string name="reset_database_body">これにより、再生位置、お気に入り、開いているフォルダー、テーマ、言語、イコライザー設定がクリアされます。「すべてクリア」を選択すると、追加したライブラリフォルダーも削除されます。ディスク上の音楽ファイルとプレイリストは削除されません。</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">タスクバーとアプリグリッドのアイコンについては、Linuxデスクトップ環境ではFreedesktopの別ファイルが必要になります。Retro Playerは起動時にアプリバンドルからこれらのファイルをインストールします。\n\n•~/.local/share/applications/app.retroplayer.desktop —実行中のウィンドウをこのアプリにリンクするランチャーエントリ\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — バンドルからコピーされたテーマアイコン\n\nユーザーのhicolor/index.themeファイルは決して書き込まれません（システムテーマを上書きし、他のアイコンを隠してしまうため）。アイコンはアプリのバイナリにも埋め込まれています。上記のコピーは、GNOME/KDEが汎用プレースホルダーではなく、正しいランチャーアイコンを表示するのに役立ちます。</string>
     <string name="data_storage_android_permissions_title">Androidの権限とストレージ</string>
     <string name="data_storage_android_permissions_body">Retro Playerは、データベースを内部ストレージのアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。\n\n Android版アプリでは、トラックを読み込むために音声へのアクセス権限、フォルダのアートワーク（例：cover.jpg）を表示するために写真／画像へのアクセス権限を要求する場合があります。音声ファイルがアプリのデータベースにコピーされることは一切ありません。</string>
+    <string name="data_storage_android_native_body">Retro Playerは、データベースを内部ストレージのアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。</string>
     <string name="data_storage_android_playback_title">Androidのバックグラウンド再生</string>
     <string name="data_storage_android_playback_body">Retro Playerは音声再生中にフォアグラウンドメディアサービスを実行するため、スマートフォンをロックしたりアプリを切り替えたりしても再生が継続され、システム通知に再生コントロールが表示されます。最近使用したアプリ一覧からアプリをスワイプして消すと、再生が停止し、通知も消えます。</string>
     <string name="data_storage_ios_access_title">フォルダアクセス</string>

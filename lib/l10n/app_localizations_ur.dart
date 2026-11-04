@@ -195,7 +195,13 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count ٹریکس · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ٹریکس · $artist',
+      one: '$count ٹریک · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -309,6 +315,10 @@ class AppLocalizationsUr extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'ریٹرو پلیئر اپنا ڈیٹا بیس اندرونی اسٹوریج کے ایپ-پرائیویٹ سپورٹ ایریا میں محفوظ کرتا ہے۔ آپ کی موسیقی فائلیں ان فولڈرز میں رہتی ہیں جو آپ سسٹم فولڈر پِکر کے ذریعے منتخب کرتے ہیں۔\n\nاینڈرائیڈ پر، ایپ ٹریک پڑھنے کے لیے آڈیو تک رسائی اور فولڈر آرٹ ورک (مثلاً cover.jpg) دکھانے کے لیے تصاویر/فوٹوز تک رسائی کی درخواست کر سکتی ہے۔ آڈیو فائلیں کبھی بھی ایپ کے ڈیٹا بیس میں کاپی نہیں کی جاتیں۔';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'ریٹرو پلیئر اپنا ڈیٹا بیس اندرونی اسٹوریج کے ایپ-پرائیویٹ سپورٹ ایریا میں محفوظ کرتا ہے۔ آپ کی موسیقی فائلیں ان فولڈرز میں رہتی ہیں جو آپ سسٹم فولڈر پِکر کے ذریعے منتخب کرتے ہیں۔';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

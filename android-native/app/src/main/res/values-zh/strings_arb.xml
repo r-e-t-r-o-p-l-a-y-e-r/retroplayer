@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">仅当播放因耳机在不到 10 分钟前断开而暂停时。</string>
     <string name="track_fallback">跟踪</string>
     <string name="unknown_artist">未知</string>
-    <string name="tracks_count_artist">%1$d首曲目· %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d 首曲目 · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d 首曲目 · %2$s</string>
     <string name="reset_database">重置数据库</string>
     <string name="reset_database_title">重置数据库？</string>
     <string name="reset_database_body">这将清除播放位置、收藏夹、打开的文件夹、主题、语言和均衡器设置。 清除所有内容也会忘记添加的库文件夹。 磁盘上的音乐文件和播放列表不会被删除。</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">对于任务栏和应用程序网格图标， Linux桌面环境需要单独的Freedesktop文件。Retro Player在启动时从应用捆绑包安装这些内容：\n\n• ~/.local/share/applications/app.retroplayer.desktop —将运行窗口链接到此应用程序的启动器条目\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png —从捆绑包中复制的主题图标\n\n它永远不会写入用户hicolor/index.theme （这会遮挡系统主题并隐藏其他图标）。图标也嵌入到应用程序二进制文件中。上面的副本帮助GNOME/KDE显示正确的启动器图标，而不是通用的占位符。</string>
     <string name="data_storage_android_permissions_title">Android权限和存储</string>
     <string name="data_storage_android_permissions_body">Retro Player将其数据库存储在内部存储的应用私有支持区域中。 您的音乐文件保留在您使用系统文件夹选取器选取的文件夹中。\n\n在安卓系统上，应用程序可能会请求对读取曲目的音频访问权限，以及对照片/图像的访问权限，以便显示文件夹插图（例如cover.jpg ）。 音频文件永远不会复制到应用程序数据库中。</string>
+    <string name="data_storage_android_native_body">Retro Player将其数据库存储在内部存储的应用私有支持区域中。 您的音乐文件保留在您使用系统文件夹选取器选取的文件夹中。</string>
     <string name="data_storage_android_playback_title">安卓后台播放</string>
     <string name="data_storage_android_playback_body">播放音频时， Retro Player会运行前台媒体服务，因此，如果您锁定手机或切换应用程序，系统通知中会包含传输控件，则播放将继续。 从“近期”中滑动应用可停止播放并删除通知。</string>
     <string name="data_storage_ios_access_title">iOS文件夹访问权限</string>

@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} pistas · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} pista · {artist}} other{{count} pistas · {artist}}}",
   "resetDatabase": "Restablecer base de datos",
   "resetDatabaseTitle": "¿Restablecer base de datos?",
   "resetDatabaseBody": "Esto borra las posiciones de reproducción, los favoritos, la carpeta abierta, el tema, el idioma y la configuración del ecualizador. Borrar todo también olvida las carpetas de biblioteca añadidas. Los archivos de música y las listas de reproducción en el disco no se eliminan.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Para el icono de la barra de tareas y la cuadrícula de aplicaciones, los entornos de escritorio de Linux esperan archivos Freedesktop separados. Retro Player los instala desde el paquete de aplicaciones al iniciar:\n\n• ~/.local/share/applications/app.retroplayer.desktop - entrada de lanzador que vincula la ventana en ejecución a esta aplicación\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — iconos temáticos copiados del paquete\n\nNunca escribe un usuario hicolor/index.theme (que sombrearía el tema del sistema y ocultaría otros iconos). Los iconos también están incrustados en el binario de la aplicación. Las copias anteriores ayudan a GNOME/KDE a mostrar el icono de iniciador correcto en lugar de un marcador de posición genérico.",
   "dataStorageAndroidPermissionsTitle": "Permisos y almacenamiento de Android",
   "dataStorageAndroidPermissionsBody": "Retro Player almacena su base de datos en el área de soporte privado de la aplicación en el almacenamiento interno. Tus archivos de música permanecen en las carpetas que elijas con el selector de carpetas del sistema.\n\nEn Android, la aplicación puede solicitar acceso de audio para leer pistas y acceso a fotos/imágenes para que se puedan mostrar ilustraciones de carpetas (por ejemplo, cover.jpg). Los archivos de audio nunca se copian en la base de datos de la aplicación.",
+  "dataStorageAndroidNativeBody": "Retro Player almacena su base de datos en el área de soporte privado de la aplicación en el almacenamiento interno. Tus archivos de música permanecen en las carpetas que elijas con el selector de carpetas del sistema.",
   "dataStorageAndroidPlaybackTitle": "Reproducción en segundo plano de Android",
   "dataStorageAndroidPlaybackBody": "Cuando se está reproduciendo audio, Retro Player ejecuta un servicio multimedia en primer plano, por lo que la reproducción continúa si bloquea el teléfono o cambia de aplicación, con controles de transporte en la notificación del sistema. Al deslizar la aplicación lejos de Recientes, se detiene la reproducción y se elimina la notificación.",
   "dataStorageIOSAccessTitle": "acceso a la carpeta de iOS",

@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Hanya jika pemutaran berhenti karena headphone diputus kurang dari 10 menit yang lalu.</string>
     <string name="track_fallback">Lintasan</string>
     <string name="unknown_artist">Tidak diketahui</string>
-    <string name="tracks_count_artist">%1$d lagu · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d lagu · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d lagu · %2$s</string>
     <string name="reset_database">Atur ulang basis data</string>
     <string name="reset_database_title">Mereset basis data?</string>
     <string name="reset_database_body">Tindakan ini akan menghapus posisi pemutaran, daftar favorit, folder yang terbuka, tema, bahasa, dan pengaturan equalizer. Opsi \"Hapus Semuanya\" juga akan menghapus folder perpustakaan yang telah ditambahkan. File musik dan daftar putar yang ada di disk tidak akan dihapus.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Untuk ikon pada bilah tugas dan kisi aplikasi, lingkungan desktop Linux memerlukan berkas Freedesktop terpisah. Retro Player menginstal berkas-berkas ini dari paket aplikasi saat dijalankan:\n\n• ~/.local/share/applications/app.retroplayer.desktop — entri peluncur yang menghubungkan jendela yang sedang berjalan ke aplikasi ini\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikon bertema yang disalin dari paket\n\nAplikasi ini tidak pernah menulis berkas hicolor/index.theme milik pengguna (karena hal itu akan menimpa tema sistem dan menyembunyikan ikon lainnya). Ikon juga disematkan dalam berkas biner aplikasi. Salinan di atas membantu GNOME/KDE menampilkan ikon peluncur yang benar, bukan ikon pengganti umum.</string>
     <string name="data_storage_android_permissions_title">Izin dan penyimpanan Android</string>
     <string name="data_storage_android_permissions_body">Retro Player menyimpan basis datanya di area dukungan khusus aplikasi pada penyimpanan internal. File musik Anda tetap tersimpan di folder yang Anda pilih menggunakan pemilih folder bawaan sistem.\n\nDi Android, aplikasi mungkin meminta izin akses audio untuk membaca trek, serta izin akses foto/gambar agar gambar sampul folder (misalnya cover.jpg) dapat ditampilkan. File audio tidak pernah disalin ke basis data aplikasi.</string>
+    <string name="data_storage_android_native_body">Retro Player menyimpan basis datanya di area dukungan khusus aplikasi pada penyimpanan internal. File musik Anda tetap tersimpan di folder yang Anda pilih menggunakan pemilih folder bawaan sistem.</string>
     <string name="data_storage_android_playback_title">Pemutaran latar belakang di Android</string>
     <string name="data_storage_android_playback_body">Saat audio sedang diputar, Retro Player menjalankan layanan media di latar depan sehingga pemutaran tetap berlanjut meskipun Anda mengunci ponsel atau berpindah aplikasi, dengan tombol kontrol pemutaran yang muncul di notifikasi sistem. Menggeser aplikasi keluar dari daftar aplikasi yang baru saja digunakan akan menghentikan pemutaran dan menghapus notifikasi tersebut.</string>
     <string name="data_storage_ios_access_title">Akses folder di iOS</string>

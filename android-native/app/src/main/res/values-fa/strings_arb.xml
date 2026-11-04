@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">فقط اگر پخش به دلیل جدا شدن هدفون کمتر از ۱۰ دقیقه پیش متوقف شده باشد.</string>
     <string name="track_fallback">مسیر</string>
     <string name="unknown_artist">نامشخص</string>
-    <string name="tracks_count_artist">⟦۰⟧ قطعه · ⟦۱⟧</string>
+    <string name="tracks_count_artist_eq1">%1$d قطعه · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d قطعه · %2$s</string>
     <string name="reset_database">بازنشانی پایگاه داده</string>
     <string name="reset_database_title">بازنشانی پایگاه داده؟</string>
     <string name="reset_database_body">این کار موقعیت‌های پخش، موارد دلخواه، پوشهٔ باز، تم، زبان و تنظیمات اکولایزر را پاک می‌کند.  گزینهٔ «پاک کردن همه چیز» همچنین پوشه‌های کتابخانهٔ افزوده‌شده را فراموش می‌کند. فایل‌های موسیقی و فهرست‌های پخش روی دیسک حذف نمی‌شوند.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">برای آیکون نوار وظیفه و شبکه برنامه‌ها، محیط‌های دسکتاپ لینوکس به فایل‌های جداگانه Freedesktop نیاز دارند. Retro Player این فایل‌ها را هنگام راه‌اندازی از بسته برنامه نصب می‌کند:\n\n• ~/.local/share/applications/app.retroplayer.desktop — ورودی لانچر که پنجره در حال اجرا را به این برنامه لینک می‌کند\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — آیکون‌های تم‌دار کپی‌شده از بسته\n\nاین کار هرگز یک فایل hicolor/index.theme کاربری را ایجاد نمی‌کند (که این کار تم سیستم را تحت‌الشعاع قرار داده و آیکون‌های دیگر را پنهان می‌کند). آیکون‌ها همچنین در باینری برنامه تعبیه شده‌اند. نسخه‌های کپی‌شده‌ی بالا به GNOME/KDE کمک می‌کنند تا آیکون لانچر صحیح را به جای یک جای‌گزین کلی نشان دهند.</string>
     <string name="data_storage_android_permissions_title">مجوزها و ذخیره‌سازی اندروید</string>
     <string name="data_storage_android_permissions_body">Retro Player پایگاه‌دادهٔ خود را در ناحیهٔ پشتیبانی خصوصی برنامه روی حافظهٔ داخلی ذخیره می‌کند. فایل‌های موسیقی شما در پوشه‌هایی که با انتخابگر پوشهٔ سیستم انتخاب می‌کنید باقی می‌مانند.\n\nدر اندروید، برنامه ممکن است برای خواندن ترک‌ها درخواست دسترسی به صدا و برای نمایش آثار هنری پوشه (مثلاً cover.jpg) درخواست دسترسی به عکس‌ها/تصاویر کند. فایل‌های صوتی هرگز به پایگاه دادهٔ برنامه کپی نمی‌شوند.</string>
+    <string name="data_storage_android_native_body">Retro Player پایگاه‌دادهٔ خود را در ناحیهٔ پشتیبانی خصوصی برنامه روی حافظهٔ داخلی ذخیره می‌کند. فایل‌های موسیقی شما در پوشه‌هایی که با انتخابگر پوشهٔ سیستم انتخاب می‌کنید باقی می‌مانند.</string>
     <string name="data_storage_android_playback_title">پخش در پس‌زمینه اندروید</string>
     <string name="data_storage_android_playback_body">وقتی صدا در حال پخش است، Retro Player یک سرویس رسانه‌ای پیش‌زمینه را اجرا می‌کند تا پخش حتی اگر گوشی را قفل کنید یا بین برنامه‌ها جابه‌جا شوید ادامه یابد، همراه با کنترل‌های پخش در اعلان سیستم. کشیدن برنامه از فهرست اخیراً باز شده‌ها پخش را متوقف کرده و اعلان را حذف می‌کند.</string>
     <string name="data_storage_ios_access_title">دسترسی به پوشه‌های iOS</string>

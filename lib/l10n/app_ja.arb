@@ -3,7 +3,7 @@
   "appTitle": "Retro Player",
   "settings": "設定",
   "about": "詳細",
-  "aboutSubtitle": "ローカル音声のみ。広告なし、テレメトリなし、ネットワークアクセスなし。&#10;対応フォーマット：MP3、M4A、M4B、FLAC、WAV",
+  "aboutSubtitle": "ローカル音声のみ。広告なし、テレメトリなし、ネットワークアクセスなし。\n対応フォーマット：MP3、M4A、M4B、FLAC、WAV",
   "aboutVersion": "バージョン",
   "aboutBuildDate": "建設時間",
   "@aboutGitBranch": {
@@ -58,7 +58,7 @@
       }
     }
   },
-  "removeLibraryFolderBody": "ライブラリから「{name}」を削除しますか？&#10;&#10;ディスク上の音声ファイルは削除されません。",
+  "removeLibraryFolderBody": "ライブラリから「{name}」を削除しますか？\n\nディスク上の音声ファイルは削除されません。",
   "cancel": "キャンセル",
   "remove": "削除する",
   "albumNotFound": "アルバムが見つかりません",
@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} トラック · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} トラック · {artist}} other{{count} トラック · {artist}}}",
   "resetDatabase": "データベースをリセット",
   "resetDatabaseTitle": "データベースをリセット",
   "resetDatabaseBody": "これにより、再生位置、お気に入り、開いているフォルダー、テーマ、言語、イコライザー設定がクリアされます。「すべてクリア」を選択すると、追加したライブラリフォルダーも削除されます。ディスク上の音楽ファイルとプレイリストは削除されません。",
@@ -148,7 +148,7 @@
       }
     }
   },
-  "dataStorageAppDataBody": "ファイル: {dbFileName}&#10;パス: {dbPath}&#10;&#10;ライブラリのルート、ブラウズ状態、再生再開、イコライザー、テーマ、言語設定を保存します。",
+  "dataStorageAppDataBody": "ファイル: {dbFileName}\nパス: {dbPath}\n\nライブラリのルート、ブラウズ状態、再生再開、イコライザー、テーマ、言語設定を保存します。",
   "dataStorageLibraryTitle": "音楽ファイル",
   "dataStorageLibraryBody": "オーディオファイルがアプリデータベースにコピーされることはありません。ライブラリフォルダを追加すると、Retro Playerはディスクから直接ファイルを読み取ります。",
   "dataStoragePlaylistsTitle": "プレイリストファイル",
@@ -167,11 +167,12 @@
   "dataStorageLinuxTaskbarTitle": "Linuxタスクバーの統合",
   "dataStorageLinuxTaskbarBody": "タスクバーとアプリグリッドのアイコンについては、Linuxデスクトップ環境ではFreedesktopの別ファイルが必要になります。Retro Playerは起動時にアプリバンドルからこれらのファイルをインストールします。\n\n•~/.local/share/applications/app.retroplayer.desktop —実行中のウィンドウをこのアプリにリンクするランチャーエントリ\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — バンドルからコピーされたテーマアイコン\n\nユーザーのhicolor/index.themeファイルは決して書き込まれません（システムテーマを上書きし、他のアイコンを隠してしまうため）。アイコンはアプリのバイナリにも埋め込まれています。上記のコピーは、GNOME/KDEが汎用プレースホルダーではなく、正しいランチャーアイコンを表示するのに役立ちます。",
   "dataStorageAndroidPermissionsTitle": "Androidの権限とストレージ",
-  "dataStorageAndroidPermissionsBody": "Retro Playerは、データベースを内部ストレージのアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。&#10;&#10; Android版アプリでは、トラックを読み込むために音声へのアクセス権限、フォルダのアートワーク（例：cover.jpg）を表示するために写真／画像へのアクセス権限を要求する場合があります。音声ファイルがアプリのデータベースにコピーされることは一切ありません。",
+  "dataStorageAndroidPermissionsBody": "Retro Playerは、データベースを内部ストレージのアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。\n\n Android版アプリでは、トラックを読み込むために音声へのアクセス権限、フォルダのアートワーク（例：cover.jpg）を表示するために写真／画像へのアクセス権限を要求する場合があります。音声ファイルがアプリのデータベースにコピーされることは一切ありません。",
+  "dataStorageAndroidNativeBody": "Retro Playerは、データベースを内部ストレージのアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。",
   "dataStorageAndroidPlaybackTitle": "Androidのバックグラウンド再生",
   "dataStorageAndroidPlaybackBody": "Retro Playerは音声再生中にフォアグラウンドメディアサービスを実行するため、スマートフォンをロックしたりアプリを切り替えたりしても再生が継続され、システム通知に再生コントロールが表示されます。最近使用したアプリ一覧からアプリをスワイプして消すと、再生が停止し、通知も消えます。",
   "dataStorageIOSAccessTitle": "フォルダアクセス",
-  "dataStorageIOSAccessBody": "Retro Playerは、データベースをデバイスストレージ上のアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。&#10;&#10; iOSは、ユーザーが選択したフォルダに対して、セキュリティスコープ付きのURLを通じてアクセスを許可します。Retro Playerは、これらの場所からファイルを直接読み込み、ライブラリをアプリストレージにコピーすることはありません。",
+  "dataStorageIOSAccessBody": "Retro Playerは、データベースをデバイスストレージ上のアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。\n\n iOSは、ユーザーが選択したフォルダに対して、セキュリティスコープ付きのURLを通じてアクセスを許可します。Retro Playerは、これらの場所からファイルを直接読み込み、ライブラリをアプリストレージにコピーすることはありません。",
   "dataStorageIOSPlaybackTitle": "iOSのバックグラウンドオーディオ",
   "dataStorageIOSPlaybackBody": "アプリがバックグラウンドで動作しているときや画面がロックされているときでも、再生は継続できます。再生位置と再生キューの状態は、アプリのローカルデータベースに保存されます。",
   "dataStoragePlatformBodyAndroid": "アプリデータは、内部ストレージのアプリ専用サポート領域に保存されます。",

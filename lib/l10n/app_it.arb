@@ -3,7 +3,7 @@
   "appTitle": "Retro Player",
   "settings": "Impostazioni",
   "about": "Informazioni",
-  "aboutSubtitle": "Solo audio locale. Nessuna pubblicità, nessuna telemetria, nessun accesso alla rete.&#10; Formati supportati: MP3, M4A, M4B, FLAC, WAV",
+  "aboutSubtitle": "Solo audio locale. Nessuna pubblicità, nessuna telemetria, nessun accesso alla rete.\n Formati supportati: MP3, M4A, M4B, FLAC, WAV",
   "aboutVersion": "Versione",
   "aboutBuildDate": "TEMPO DI COSTRUZIONE",
   "@aboutGitBranch": {
@@ -29,7 +29,7 @@
   "playlist": "Playlist",
   "nowPlaying": "In riproduzione",
   "addFolder": "Aggiungi cartella",
-  "audioPermissionRequired": "Su Android è necessaria l&#39;autorizzazione audio.",
+  "audioPermissionRequired": "Su Android è necessaria l'autorizzazione audio.",
   "expandPlayer": "Espandi il lettore",
   "showLibrary": "Mostra libreria",
   "@errorMessage": {
@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} tracce · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} traccia · {artist}} other{{count} tracce · {artist}}}",
   "resetDatabase": "Ripristina il database",
   "resetDatabaseTitle": "Reset database",
   "resetDatabaseBody": "Questo cancella le posizioni di riproduzione, i preferiti, la cartella aperta, il tema, la lingua e le impostazioni dell'equalizzatore. Cancella tutto dimentica anche le cartelle della libreria aggiunte. I file musicali e le playlist su disco non vengono eliminati.",
@@ -148,7 +148,7 @@
       }
     }
   },
-  "dataStorageAppDataBody": "File: {dbFileName}&#10; Percorso: {dbPath}&#10;&#10; Memorizza le directory principali della libreria, lo stato di navigazione, la ripresa della riproduzione, le impostazioni dell&#39;equalizzatore, del tema e della lingua.",
+  "dataStorageAppDataBody": "File: {dbFileName}\n Percorso: {dbPath}\n\n Memorizza le directory principali della libreria, lo stato di navigazione, la ripresa della riproduzione, le impostazioni dell'equalizzatore, del tema e della lingua.",
   "dataStorageLibraryTitle": "File musicali",
   "dataStorageLibraryBody": "I file audio non vengono mai copiati nel database dell'app. Aggiungi cartelle della libreria e Retro Player legge i file direttamente dal disco.",
   "dataStoragePlaylistsTitle": "File della scaletta",
@@ -161,17 +161,18 @@
     }
   },
   "dataStoragePlatformTitle": "Piattaforma: {platform}",
-  "dataStoragePlatformBodyLinux": "I dati dell&#39;app vengono memorizzati nella directory di supporto dell&#39;app (in genere ~/.local/share/app.retroplayer/).",
+  "dataStoragePlatformBodyLinux": "I dati dell'app vengono memorizzati nella directory di supporto dell'app (in genere ~/.local/share/app.retroplayer/).",
   "dataStorageLinuxDataTitle": "Linux",
   "dataStorageLinuxDataBody": "I dati delle app rimangono in ~/.local/share/app.retroplayer/. Quella cartella è solo per il database e le impostazioni.",
   "dataStorageLinuxTaskbarTitle": "Integrazione barra delle applicazioni Linux",
-  "dataStorageLinuxTaskbarBody": "Per l&#39;icona della barra delle applicazioni e della griglia delle app, gli ambienti desktop Linux si aspettano file Freedesktop separati. Retro Player li installa dal pacchetto dell&#39;app all&#39;avvio:\n\n• ~/.local/share/applications/app.retroplayer.desktop — voce di avvio che collega la finestra in esecuzione a questa app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — icone a tema copiate dal bundle\n\nNon scrive mai un tema hicolor/index.theme dell'utente (che ombreggerebbe il tema del sistema e nasconderebbe altre icone). Anche le icone sono incorporate nel binario dell'app. Le copie sopra aiutano GNOME/KDE a mostrare l'icona di avvio corretta invece di un segnaposto generico.",
+  "dataStorageLinuxTaskbarBody": "Per l'icona della barra delle applicazioni e della griglia delle app, gli ambienti desktop Linux si aspettano file Freedesktop separati. Retro Player li installa dal pacchetto dell'app all'avvio:\n\n• ~/.local/share/applications/app.retroplayer.desktop — voce di avvio che collega la finestra in esecuzione a questa app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — icone a tema copiate dal bundle\n\nNon scrive mai un tema hicolor/index.theme dell'utente (che ombreggerebbe il tema del sistema e nasconderebbe altre icone). Anche le icone sono incorporate nel binario dell'app. Le copie sopra aiutano GNOME/KDE a mostrare l'icona di avvio corretta invece di un segnaposto generico.",
   "dataStorageAndroidPermissionsTitle": "Autorizzazioni e archiviazione Android",
-  "dataStorageAndroidPermissionsBody": "Retro Player memorizza il suo database nell&#39;area di supporto privata dell&#39;app, nella memoria interna. I tuoi file musicali rimangono nelle cartelle che selezioni tramite lo strumento di selezione cartelle del sistema.&#10;&#10; Su Android, l&#39;app potrebbe richiedere l&#39;accesso all&#39;audio per riprodurre le tracce e l&#39;accesso a foto/immagini per visualizzare le copertine delle cartelle (ad esempio cover.jpg). I file audio non vengono mai copiati nel database dell&#39;app.",
+  "dataStorageAndroidPermissionsBody": "Retro Player memorizza il suo database nell'area di supporto privata dell'app, nella memoria interna. I tuoi file musicali rimangono nelle cartelle che selezioni tramite lo strumento di selezione cartelle del sistema.\n\n Su Android, l'app potrebbe richiedere l'accesso all'audio per riprodurre le tracce e l'accesso a foto/immagini per visualizzare le copertine delle cartelle (ad esempio cover.jpg). I file audio non vengono mai copiati nel database dell'app.",
+  "dataStorageAndroidNativeBody": "Retro Player memorizza il suo database nell'area di supporto privata dell'app, nella memoria interna. I tuoi file musicali rimangono nelle cartelle che selezioni tramite lo strumento di selezione cartelle del sistema.",
   "dataStorageAndroidPlaybackTitle": "Riproduzione in background Android",
   "dataStorageAndroidPlaybackBody": "Durante la riproduzione dell'audio, Retro Player esegue un servizio multimediale in primo piano, quindi la riproduzione continua se si blocca il telefono o si cambia app, con i controlli di trasporto nella notifica di sistema. La rimozione dell'app da Recenti interrompe la riproduzione e rimuove la notifica.",
   "dataStorageIOSAccessTitle": "Accesso alla cartella",
-  "dataStorageIOSAccessBody": "Retro Player memorizza il suo database nell&#39;area di supporto privata dell&#39;app sulla memoria del dispositivo. I tuoi file musicali rimangono nelle cartelle che scegli tramite il selettore di cartelle di sistema.&#10;&#10; iOS concede l&#39;accesso tramite URL con ambito di sicurezza per le cartelle selezionate. Retro Player legge i file direttamente da tali posizioni; non copia la libreria nella memoria dell&#39;app.",
+  "dataStorageIOSAccessBody": "Retro Player memorizza il suo database nell'area di supporto privata dell'app sulla memoria del dispositivo. I tuoi file musicali rimangono nelle cartelle che scegli tramite il selettore di cartelle di sistema.\n\n iOS concede l'accesso tramite URL con ambito di sicurezza per le cartelle selezionate. Retro Player legge i file direttamente da tali posizioni; non copia la libreria nella memoria dell'app.",
   "dataStorageIOSPlaybackTitle": "audio di sottofondo iOS",
   "dataStorageIOSPlaybackBody": "La riproduzione può continuare mentre l'app è in background o lo schermo è bloccato. Le posizioni di ripresa e lo stato della coda sono memorizzati nel database dell'app locale.",
   "dataStoragePlatformBodyAndroid": "I dati delle app vengono archiviati nell'area di supporto privata dell'app nella memoria interna.",
@@ -179,7 +180,7 @@
   "dataStoragePlatformBodyMacOS": "I dati delle app sono archiviati in ~/Library/Application Support/app.retroplayer/.",
   "dataStoragePlatformBodyWindows": "I dati dell'app vengono archiviati nella directory di supporto dell'applicazione.",
   "dataStoragePlatformBodyWeb": "I dati delle app vengono memorizzati nella memoria locale del browser per questa origine.",
-  "dataStoragePlatformBodyUnknown": "I dati dell&#39;app vengono memorizzati nell&#39;area di supporto dell&#39;applicazione della piattaforma.",
+  "dataStoragePlatformBodyUnknown": "I dati dell'app vengono memorizzati nell'area di supporto dell'applicazione della piattaforma.",
   "loading": "Caricamento in corso...",
   "@libraryIndex": {
     "description": "Accessibility label for the A–Z jump bar in the library list."

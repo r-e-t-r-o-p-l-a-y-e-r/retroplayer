@@ -22,7 +22,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aboutSubtitle =>
-      'ローカル音声のみ。広告なし、テレメトリなし、ネットワークアクセスなし。&#10;対応フォーマット：MP3、M4A、M4B、FLAC、WAV';
+      'ローカル音声のみ。広告なし、テレメトリなし、ネットワークアクセスなし。\n対応フォーマット：MP3、M4A、M4B、FLAC、WAV';
 
   @override
   String get aboutVersion => 'バージョン';
@@ -112,7 +112,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String removeLibraryFolderBody(String name) {
-    return 'ライブラリから「$name」を削除しますか？&#10;&#10;ディスク上の音声ファイルは削除されません。';
+    return 'ライブラリから「$name」を削除しますか？\n\nディスク上の音声ファイルは削除されません。';
   }
 
   @override
@@ -191,7 +191,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count トラック · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count トラック · $artist',
+      one: '$count トラック · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -258,7 +264,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String dataStorageAppDataBody(String dbFileName, String dbPath) {
-    return 'ファイル: $dbFileName&#10;パス: $dbPath&#10;&#10;ライブラリのルート、ブラウズ状態、再生再開、イコライザー、テーマ、言語設定を保存します。';
+    return 'ファイル: $dbFileName\nパス: $dbPath\n\nライブラリのルート、ブラウズ状態、再生再開、イコライザー、テーマ、言語設定を保存します。';
   }
 
   @override
@@ -303,7 +309,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get dataStorageAndroidPermissionsBody =>
-      'Retro Playerは、データベースを内部ストレージのアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。&#10;&#10; Android版アプリでは、トラックを読み込むために音声へのアクセス権限、フォルダのアートワーク（例：cover.jpg）を表示するために写真／画像へのアクセス権限を要求する場合があります。音声ファイルがアプリのデータベースにコピーされることは一切ありません。';
+      'Retro Playerは、データベースを内部ストレージのアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。\n\n Android版アプリでは、トラックを読み込むために音声へのアクセス権限、フォルダのアートワーク（例：cover.jpg）を表示するために写真／画像へのアクセス権限を要求する場合があります。音声ファイルがアプリのデータベースにコピーされることは一切ありません。';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Playerは、データベースを内部ストレージのアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Androidのバックグラウンド再生';
@@ -317,7 +327,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get dataStorageIOSAccessBody =>
-      'Retro Playerは、データベースをデバイスストレージ上のアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。&#10;&#10; iOSは、ユーザーが選択したフォルダに対して、セキュリティスコープ付きのURLを通じてアクセスを許可します。Retro Playerは、これらの場所からファイルを直接読み込み、ライブラリをアプリストレージにコピーすることはありません。';
+      'Retro Playerは、データベースをデバイスストレージ上のアプリ専用サポート領域に保存します。音楽ファイルは、システムフォルダ選択ツールで選択したフォルダに保存されます。\n\n iOSは、ユーザーが選択したフォルダに対して、セキュリティスコープ付きのURLを通じてアクセスを許可します。Retro Playerは、これらの場所からファイルを直接読み込み、ライブラリをアプリストレージにコピーすることはありません。';
 
   @override
   String get dataStorageIOSPlaybackTitle => 'iOSのバックグラウンドオーディオ';

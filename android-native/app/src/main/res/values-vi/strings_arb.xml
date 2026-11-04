@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Chỉ khi phát bị tạm dừng vì tai nghe bị ngắt kết nối cách đây chưa đến 10 phút.</string>
     <string name="track_fallback">Bám</string>
     <string name="unknown_artist">Không xác định</string>
-    <string name="tracks_count_artist">%1$d bài hát · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d bài hát · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d bài hát · %2$s</string>
     <string name="reset_database">Đặt lại cơ sở dữ liệu</string>
     <string name="reset_database_title">Đặt lại cơ sở dữ liệu?</string>
     <string name="reset_database_body">Thao tác này sẽ xóa vị trí phát lại, mục yêu thích, thư mục đang mở, chủ đề, ngôn ngữ và cài đặt bộ chỉnh âm. Xóa mọi thứ cũng sẽ xóa các thư mục thư viện đã thêm. Các tệp nhạc và danh sách phát trên ổ đĩa sẽ không bị xóa.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Đối với biểu tượng trên thanh tác vụ và lưới ứng dụng, môi trường máy tính để bàn Linux yêu cầu các tệp Freedesktop riêng biệt. Retro Player cài đặt các tệp này từ gói ứng dụng khi khởi động:\n\n• ~/.local/share/applications/app.retroplayer.desktop — mục khởi chạy liên kết cửa sổ đang chạy với ứng dụng này\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — các biểu tượng theo chủ đề được sao chép từ gói\n\nNó không bao giờ ghi tệp hicolor/index.theme của người dùng (vì điều đó sẽ che khuất chủ đề hệ thống và ẩn các biểu tượng khác). Các biểu tượng cũng được nhúng trong tệp nhị phân của ứng dụng. Các bản sao ở trên giúp GNOME/KDE hiển thị biểu tượng trình khởi chạy chính xác thay vì biểu tượng giữ chỗ chung chung.</string>
     <string name="data_storage_android_permissions_title">Quyền và bộ nhớ Android</string>
     <string name="data_storage_android_permissions_body">Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng của ứng dụng trên bộ nhớ trong. Các tệp nhạc của bạn nằm trong các thư mục bạn chọn bằng bộ chọn thư mục hệ thống.\n\nTrên Android, ứng dụng có thể yêu cầu truy cập âm thanh để đọc các bản nhạc và truy cập ảnh/hình ảnh để có thể hiển thị tác phẩm nghệ thuật của thư mục (ví dụ: cover.jpg). Các tệp âm thanh không bao giờ được sao chép vào cơ sở dữ liệu ứng dụng.</string>
+    <string name="data_storage_android_native_body">Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng của ứng dụng trên bộ nhớ trong. Các tệp nhạc của bạn nằm trong các thư mục bạn chọn bằng bộ chọn thư mục hệ thống.</string>
     <string name="data_storage_android_playback_title">Phát lại trong nền Android</string>
     <string name="data_storage_android_playback_body">Khi phát âm thanh, Retro Player chạy dịch vụ phương tiện nền trước để tiếp tục phát nếu bạn khóa điện thoại hoặc chuyển đổi ứng dụng, với các điều khiển vận chuyển trong thông báo hệ thống. Vuốt ứng dụng ra khỏi Recents, dừng phát lại và xóa thông báo.</string>
     <string name="data_storage_ios_access_title">Truy cập thư mục</string>

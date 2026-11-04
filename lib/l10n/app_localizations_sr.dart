@@ -197,7 +197,13 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count трака · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count трака · $artist',
+      one: '$count трака · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -312,6 +318,10 @@ class AppLocalizationsSr extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player чува своју базу података у приватном подршном простору апликације на унутрашњој меморији. Ваши музички фајлови остају у фасциклама које изаберете помоћу системског избирача фасцикли.\n\nНа Android-у апликација може затражити приступ звуку за читање трака и приступ фотографијама/сликама како би се приказивала корица албума (на пример cover.jpg). Аудио датотеке никада се не копирају у базу података апликације.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player чува своју базу података у приватном подршном простору апликације на унутрашњој меморији. Ваши музички фајлови остају у фасциклама које изаберете помоћу системског избирача фасцикли.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Плејање у позадини Андроида';

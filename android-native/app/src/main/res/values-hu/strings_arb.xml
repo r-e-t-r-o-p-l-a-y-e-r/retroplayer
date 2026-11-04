@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Csak ha a lejátszás azért állt le, mert a fejhallgatót kevesebb mint 10 perce leválasztották.</string>
     <string name="track_fallback">Pálya</string>
     <string name="unknown_artist">Ismeretlen</string>
-    <string name="tracks_count_artist">%1$d szám · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d szám · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d szám · %2$s</string>
     <string name="reset_database">Adatbázis visszaállítása</string>
     <string name="reset_database_title">Visszaállítani az adatbázist?</string>
     <string name="reset_database_body">Ezzel törlődnek a lejátszási pozíciók, a kedvencek, a megnyitott mappa, a téma, a nyelv és az ekvalizer beállításai. A „Minden törlése” opcióval a hozzáadott könyvtármappák is törlődnek. A lemezen található zenefájlok és lejátszási listák nem kerülnek törlésre.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">A tálca- és az alkalmazásrács-ikonokhoz a Linux asztali környezetek külön Freedesktop-fájlokat várnak el. A Retro Player ezeket az alkalmazáscsomagból telepíti indításkor:\n\n• ~/.local/share/applications/app.retroplayer.desktop — indítóbejegyzés, amely a futó ablakot ehhez az alkalmazáshoz kapcsolja\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — a csomagból másolt, a témához illeszkedő ikonok\n\nSoha nem ír felhasználói hicolor/index.theme fájlt (mivel az felülírná a rendszer témáját és elrejtené a többi ikont). Az ikonok az alkalmazás bináris fájljába is be vannak ágyazva. A fenti másolatok segítenek a GNOME/KDE-nek abban, hogy a helyett, hogy egy általános helyőrzőt jelenítsen meg, a megfelelő indítóikon jelenjen meg.</string>
     <string name="data_storage_android_permissions_title">Android-jogosultságok és tárhely</string>
     <string name="data_storage_android_permissions_body">A Retro Player az adatbázisát a belső tárhelyen található, az alkalmazás számára fenntartott támogatási területen tárolja. A zenefájlok a rendszer mappaválasztójával kiválasztott mappákban maradnak.\n\nAndroid rendszeren az alkalmazás kérhet hangfájlokhoz való hozzáférést a zeneszámok olvasásához, valamint fényképekhez és képekhez való hozzáférést a mappa borítóképének (például cover.jpg) megjelenítéséhez. A hangfájlok soha nem kerülnek átmásolásra az alkalmazás adatbázisába.</string>
+    <string name="data_storage_android_native_body">A Retro Player az adatbázisát a belső tárhelyen található, az alkalmazás számára fenntartott támogatási területen tárolja. A zenefájlok a rendszer mappaválasztójával kiválasztott mappákban maradnak.</string>
     <string name="data_storage_android_playback_title">Hanglejátszás háttérben Androidon</string>
     <string name="data_storage_android_playback_body">Hangfájl lejátszása közben a Retro Player egy előtérbeli médiaszolgáltatást futtat, így a lejátszás folytatódik akkor is, ha lezárja a telefont vagy másik alkalmazásra vált; a lejátszásvezérlők pedig a rendszer értesítési sávjában jelennek meg. Ha az alkalmazást elhúzza a „Legutóbbi alkalmazások” listájából, a lejátszás leáll, és az értesítés is eltűnik.</string>
     <string name="data_storage_ios_access_title">Hozzáférés az iOS-mappákhoz</string>

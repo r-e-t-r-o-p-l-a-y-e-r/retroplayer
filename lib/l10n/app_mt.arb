@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} trakkijiet · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} trakk · {artist}} other{{count} trakkijiet · {artist}}}",
   "resetDatabase": "Irrisettja d-database",
   "resetDatabaseTitle": "Irrisettja l-bażi tad-dejta?",
   "resetDatabaseBody": "Dan jnaddaf il-pożizzjonijiet tal-plejbek, il-favoriti, il-folder miftuħ, it-tema, il-lingwa u l-issettjar tal-eqwalizzatur. Meta tnaddaf kollox, jinsa wkoll il-folderi tal-librerija miżjuda. Il-fajls mużikali u l-playlists fuq id-diska ma jitħassrux.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Għal-ikona tal-bar tal-kompiti u tal-grilja tal-apps, l-ambjenti tad-desktop Linux jistennew fajls Freedesktop separati. Retro Player jinstallahom mill-pakkett tal-app meta tibda:\n\n• ~/.local/share/applications/app.retroplayer.desktop — daħla tal-launcher li tgħaqqad it-tieqa li qed taħdem ma' din l-app\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikoni b'tema kopjati mill-bundle\n\nMa jikteb qatt fajl tal-utent hicolor/index.theme (li kien jaħbi t-tema tas-sistema u jaħbi ikoni oħra). L-ikoni huma wkoll inkorporati fil-binarju tal-app. Il-kopji hawn fuq jgħinu lil GNOME/KDE juru l-ikona korretta tal-launcher minflok post-holder ġeneriku.",
   "dataStorageAndroidPermissionsTitle": "Permessi u ħażna ta' Android",
   "dataStorageAndroidPermissionsBody": "Retro Player jaħżen il-bażi tad-dejta tiegħu fl-ispazju ta' appoġġ privat tal-app fuq l-ħażna interna. Il-fajls tal-mużika tiegħek jibqgħu f'folderi li tagħżel bl-għażla tal-folder tas-sistema.\n\nFuq Android, l-app tista' titlob aċċess għall-awdjo biex taqra t-trakkijiet, u aċċess għall-fotos/immaġini sabiex l-artwork tal-folder (per eżempju cover.jpg) jista' jintwera. Il-fajls awdjo qatt ma jiġu kkopjati fid-database tal-app.",
+  "dataStorageAndroidNativeBody": "Retro Player jaħżen il-bażi tad-dejta tiegħu fl-ispazju ta' appoġġ privat tal-app fuq l-ħażna interna. Il-fajls tal-mużika tiegħek jibqgħu f'folderi li tagħżel bl-għażla tal-folder tas-sistema.",
   "dataStorageAndroidPlaybackTitle": "Riproduzzjoni fil-isfond ta' Android",
   "dataStorageAndroidPlaybackBody": "Meta l-awdjo jkun qed jitħaddem, Retro Player jmexxi servizz medjatiku fil-quddiem sabiex il-plejbek ikompli jekk issakkar it-telefon jew tibdel l-apps, b'kontrolli tat-trasport fin-notifika tas-sistema. Meta tneħħi l-app mill-aħħar użati, il-plejbek jieqaf u n-notifika titneħħa.",
   "dataStorageIOSAccessTitle": "Aċċess għall-folder tal-iOS",

@@ -42,6 +42,7 @@ import app.retroplayer.ui.components.RetroFab
 import app.retroplayer.ui.components.RetroListRow
 import app.retroplayer.ui.components.RetroTopBar
 import app.retroplayer.ui.components.SectionHeader
+import app.retroplayer.ui.library.albumSummary
 import kotlinx.coroutines.launch
 
 data class AddTracksActions(
@@ -189,7 +190,7 @@ private fun AlbumPickRow(album: AudioAlbum, selected: Set<LibraryPath>, actions:
     val checked = paths.isNotEmpty() && paths.all { it in selected }
     RetroListRow(
         title = { Text(album.title, maxLines = 2, overflow = TextOverflow.Ellipsis) },
-        subtitle = { Text(stringResource(R.string.tracks_count_artist, album.tracks.size, album.artist ?: stringResource(R.string.unknown_artist))) },
+        subtitle = { Text(albumSummary(album)) },
         leading = { IconChip(Icons.Outlined.Album) },
         trailing = { Checkbox(checked, onCheckedChange = { actions.toggleAlbum(album) }) },
         onClick = { actions.openAlbum(album) },

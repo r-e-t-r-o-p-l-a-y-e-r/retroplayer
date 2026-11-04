@@ -22,7 +22,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get aboutSubtitle =>
-      'Chỉ phát âm thanh cục bộ. Không quảng cáo, không thu thập dữ liệu, không truy cập mạng.&#10; Các định dạng được hỗ trợ: MP3, M4A, M4B, FLAC, WAV';
+      'Chỉ phát âm thanh cục bộ. Không quảng cáo, không thu thập dữ liệu, không truy cập mạng.\n Các định dạng được hỗ trợ: MP3, M4A, M4B, FLAC, WAV';
 
   @override
   String get aboutVersion => 'Phiên bản';
@@ -115,7 +115,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String removeLibraryFolderBody(String name) {
-    return 'Xóa &quot;$name&quot; khỏi thư viện của bạn?&#10;&#10; Các tệp âm thanh của bạn trên ổ đĩa sẽ không bị xóa.';
+    return 'Xóa &quot;$name&quot; khỏi thư viện của bạn?\n\n Các tệp âm thanh của bạn trên ổ đĩa sẽ không bị xóa.';
   }
 
   @override
@@ -197,7 +197,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count bài hát · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count bài hát · $artist',
+      one: '$count bài hát · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -265,7 +271,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String dataStorageAppDataBody(String dbFileName, String dbPath) {
-    return 'Tệp: $dbFileName&#10; Đường dẫn: $dbPath&#10;&#10; Lưu trữ các thư mục gốc của thư viện, trạng thái duyệt, chế độ tiếp tục phát, bộ chỉnh âm, chủ đề và tùy chọn ngôn ngữ.';
+    return 'Tệp: $dbFileName\n Đường dẫn: $dbPath\n\n Lưu trữ các thư mục gốc của thư viện, trạng thái duyệt, chế độ tiếp tục phát, bộ chỉnh âm, chủ đề và tùy chọn ngôn ngữ.';
   }
 
   @override
@@ -313,6 +319,10 @@ class AppLocalizationsVi extends AppLocalizations {
       'Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng của ứng dụng trên bộ nhớ trong. Các tệp nhạc của bạn nằm trong các thư mục bạn chọn bằng bộ chọn thư mục hệ thống.\n\nTrên Android, ứng dụng có thể yêu cầu truy cập âm thanh để đọc các bản nhạc và truy cập ảnh/hình ảnh để có thể hiển thị tác phẩm nghệ thuật của thư mục (ví dụ: cover.jpg). Các tệp âm thanh không bao giờ được sao chép vào cơ sở dữ liệu ứng dụng.';
 
   @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng của ứng dụng trên bộ nhớ trong. Các tệp nhạc của bạn nằm trong các thư mục bạn chọn bằng bộ chọn thư mục hệ thống.';
+
+  @override
   String get dataStorageAndroidPlaybackTitle => 'Phát lại trong nền Android';
 
   @override
@@ -324,7 +334,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get dataStorageIOSAccessBody =>
-      'Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng tư của ứng dụng trên bộ nhớ thiết bị. Các tệp nhạc của bạn vẫn nằm trong các thư mục bạn chọn bằng trình chọn thư mục hệ thống.&#10;&#10; iOS cấp quyền truy cập thông qua các URL có phạm vi bảo mật cho các thư mục bạn chọn. Retro Player đọc trực tiếp các tệp từ các vị trí đó; nó không sao chép thư viện của bạn vào bộ nhớ ứng dụng.';
+      'Retro Player lưu trữ cơ sở dữ liệu của nó trong khu vực hỗ trợ riêng tư của ứng dụng trên bộ nhớ thiết bị. Các tệp nhạc của bạn vẫn nằm trong các thư mục bạn chọn bằng trình chọn thư mục hệ thống.\n\n iOS cấp quyền truy cập thông qua các URL có phạm vi bảo mật cho các thư mục bạn chọn. Retro Player đọc trực tiếp các tệp từ các vị trí đó; nó không sao chép thư viện của bạn vào bộ nhớ ứng dụng.';
 
   @override
   String get dataStorageIOSPlaybackTitle => 'âm thanh nền';

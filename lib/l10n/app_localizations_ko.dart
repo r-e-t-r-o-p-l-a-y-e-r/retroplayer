@@ -22,7 +22,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get aboutSubtitle =>
-      '로컬 오디오만 지원합니다. 광고, 데이터 수집, 네트워크 접근은 일절 없습니다.&#10; 지원되는 형식: MP3, M4A, M4B, FLAC, WAV';
+      '로컬 오디오만 지원합니다. 광고, 데이터 수집, 네트워크 접근은 일절 없습니다.\n 지원되는 형식: MP3, M4A, M4B, FLAC, WAV';
 
   @override
   String get aboutVersion => '개정판 번호';
@@ -191,7 +191,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count 트랙 · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count 트랙 · $artist',
+      one: '$count 트랙 · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -202,7 +208,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get resetDatabaseBody =>
-      '재생 위치, 즐겨찾기, 열려 있는 폴더, 테마, 언어 및 이퀄라이저 설정을 모두 지웁니다. &#39;모두 지우기&#39;를 선택하면 추가된 라이브러리 폴더도 삭제됩니다. 디스크에 저장된 음악 파일과 재생 목록은 삭제되지 않습니다.';
+      '재생 위치, 즐겨찾기, 열려 있는 폴더, 테마, 언어 및 이퀄라이저 설정을 모두 지웁니다. \'모두 지우기\'를 선택하면 추가된 라이브러리 폴더도 삭제됩니다. 디스크에 저장된 음악 파일과 재생 목록은 삭제되지 않습니다.';
 
   @override
   String get resetDatabaseKeepFolders => '라이브러리 폴더를 보관하세요';
@@ -258,7 +264,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String dataStorageAppDataBody(String dbFileName, String dbPath) {
-    return '파일: $dbFileName&#10; 경로: $dbPath&#10;&#10; 라이브러리 루트, 탐색 상태, 재생 재개, 이퀄라이저, 테마 및 언어 기본 설정을 저장합니다.';
+    return '파일: $dbFileName\n 경로: $dbPath\n\n 라이브러리 루트, 탐색 상태, 재생 재개, 이퀄라이저, 테마 및 언어 기본 설정을 저장합니다.';
   }
 
   @override
@@ -303,7 +309,11 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get dataStorageAndroidPermissionsBody =>
-      'Retro Player는 데이터베이스를 내부 저장소의 앱 전용 지원 영역에 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 지정한 폴더에 저장됩니다.&#10;&#10; 안드로이드에서 앱은 트랙을 읽기 위해 오디오 접근 권한을 요청할 수 있으며, 폴더 아트워크(예: cover.jpg)를 표시하기 위해 사진/이미지 접근 권한을 요청할 수 있습니다. 오디오 파일은 앱 데이터베이스에 복사되지 않습니다.';
+      'Retro Player는 데이터베이스를 내부 저장소의 앱 전용 지원 영역에 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 지정한 폴더에 저장됩니다.\n\n 안드로이드에서 앱은 트랙을 읽기 위해 오디오 접근 권한을 요청할 수 있으며, 폴더 아트워크(예: cover.jpg)를 표시하기 위해 사진/이미지 접근 권한을 요청할 수 있습니다. 오디오 파일은 앱 데이터베이스에 복사되지 않습니다.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player는 데이터베이스를 내부 저장소의 앱 전용 지원 영역에 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 지정한 폴더에 저장됩니다.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => '안드로이드 백그라운드 재생';
@@ -317,7 +327,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get dataStorageIOSAccessBody =>
-      'Retro Player는 기기 저장소의 앱 전용 지원 영역에 데이터베이스를 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 선택한 폴더에 저장됩니다.&#10;&#10; iOS는 사용자가 선택한 폴더에 대해 보안 범위가 지정된 URL을 통해 접근 권한을 부여합니다. Retro Player는 해당 위치에서 파일을 직접 읽어오며, 라이브러리를 앱 저장소로 복사하지 않습니다.';
+      'Retro Player는 기기 저장소의 앱 전용 지원 영역에 데이터베이스를 저장합니다. 음악 파일은 시스템 폴더 선택기를 사용하여 사용자가 선택한 폴더에 저장됩니다.\n\n iOS는 사용자가 선택한 폴더에 대해 보안 범위가 지정된 URL을 통해 접근 권한을 부여합니다. Retro Player는 해당 위치에서 파일을 직접 읽어오며, 라이브러리를 앱 저장소로 복사하지 않습니다.';
 
   @override
   String get dataStorageIOSPlaybackTitle => 'iOS 백그라운드 오디오';

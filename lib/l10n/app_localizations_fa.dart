@@ -195,7 +195,13 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '⟦۰⟧ قطعه · ⟦۱⟧';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count قطعه · $artist',
+      one: '$count قطعه · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -309,6 +315,10 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player پایگاه‌دادهٔ خود را در ناحیهٔ پشتیبانی خصوصی برنامه روی حافظهٔ داخلی ذخیره می‌کند. فایل‌های موسیقی شما در پوشه‌هایی که با انتخابگر پوشهٔ سیستم انتخاب می‌کنید باقی می‌مانند.\n\nدر اندروید، برنامه ممکن است برای خواندن ترک‌ها درخواست دسترسی به صدا و برای نمایش آثار هنری پوشه (مثلاً cover.jpg) درخواست دسترسی به عکس‌ها/تصاویر کند. فایل‌های صوتی هرگز به پایگاه دادهٔ برنامه کپی نمی‌شوند.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player پایگاه‌دادهٔ خود را در ناحیهٔ پشتیبانی خصوصی برنامه روی حافظهٔ داخلی ذخیره می‌کند. فایل‌های موسیقی شما در پوشه‌هایی که با انتخابگر پوشهٔ سیستم انتخاب می‌کنید باقی می‌مانند.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'پخش در پس‌زمینه اندروید';

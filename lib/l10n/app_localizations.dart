@@ -533,7 +533,7 @@ abstract class AppLocalizations {
   /// No description provided for @tracksCountArtist.
   ///
   /// In en, this message translates to:
-  /// **'{count} tracks · {artist}'**
+  /// **'{count,plural, =1{{count} track · {artist}} other{{count} tracks · {artist}}}'**
   String tracksCountArtist(int count, String artist);
 
   /// No description provided for @resetDatabase.
@@ -733,6 +733,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Retro Player stores its database in the app-private support area on internal storage. Your music files stay in folders you pick with the system folder picker.\n\nOn Android, the app may request audio access to read tracks, and photos/images access so folder artwork (for example cover.jpg) can be shown. Audio files are never copied into the app database.'**
   String get dataStorageAndroidPermissionsBody;
+
+  /// Native Android app: no storage or media permission, folders come from the system picker.
+  ///
+  /// In en, this message translates to:
+  /// **'Retro Player stores its database in the app-private support area on internal storage. Your music files stay in folders you pick with the system folder picker.'**
+  String get dataStorageAndroidNativeBody;
 
   /// No description provided for @dataStorageAndroidPlaybackTitle.
   ///

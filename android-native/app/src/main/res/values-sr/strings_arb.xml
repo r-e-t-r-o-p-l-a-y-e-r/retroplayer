@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Само ако је репродукција паузирана јер су слушалице искључене пре мање од 10 минута.</string>
     <string name="track_fallback">Стаза</string>
     <string name="unknown_artist">Непознато</string>
-    <string name="tracks_count_artist">%1$d трака · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d трака · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d трака · %2$s</string>
     <string name="reset_database">Ресетовати базу података</string>
     <string name="reset_database_title">Ресетовати базу података?</string>
     <string name="reset_database_body">Ово брише положаје репродукције, омиљене, отворену фасциклу, тему, језик и подешавања еквилајзера. Брисање свега такође заборавља додате фасцикле библиотеке. Музичке датотеке и плејлисте на диску нису избрисане.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">За икону траке задатака и мреже апликација, Linux десктоп окружења очекују одвојене Freedesktop фајлове. Retro Player инсталира ове фајлове из пакета апликације при покретању:\n\n• ~/.local/share/applications/app.retroplayer.desktop — унос за покретач који повезује активни прозор са овом апликацијом\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — иконе у одговарајућем темату копиране из пакета\n\nНикада не пише кориснички фајл hicolor/index.theme (што би засенило системску тему и сакрило друге иконе). Иконе су такође уграђене у бинарну датотеку апликације. Горе наведене копије помажу GNOME/KDE-у да прикаже исправну икону покретача уместо генеричког заменског места.</string>
     <string name="data_storage_android_permissions_title">Андроид дозволе и складиштење</string>
     <string name="data_storage_android_permissions_body">Retro Player чува своју базу података у приватном подршном простору апликације на унутрашњој меморији. Ваши музички фајлови остају у фасциклама које изаберете помоћу системског избирача фасцикли.\n\nНа Android-у апликација може затражити приступ звуку за читање трака и приступ фотографијама/сликама како би се приказивала корица албума (на пример cover.jpg). Аудио датотеке никада се не копирају у базу података апликације.</string>
+    <string name="data_storage_android_native_body">Retro Player чува своју базу података у приватном подршном простору апликације на унутрашњој меморији. Ваши музички фајлови остају у фасциклама које изаберете помоћу системског избирача фасцикли.</string>
     <string name="data_storage_android_playback_title">Плејање у позадини Андроида</string>
     <string name="data_storage_android_playback_body">Када се аудио репродукује, Retro Player покреће медијску услугу у предњем плану тако да репродукција наставља и ако закључате телефон или пређете у другу апликацију, са контролама транспорта у системској извештајној траци. Повлачењем апликације из листе Недавно коришћених зауставља се репродукција и уклања се извештај.</string>
     <string name="data_storage_ios_access_title">Приступ фасцикли на iOS-у</string>

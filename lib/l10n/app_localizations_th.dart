@@ -195,7 +195,13 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count เพลง · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count เพลง · $artist',
+      one: '$count เพลง · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -309,6 +315,10 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player เก็บฐานข้อมูลไว้ในพื้นที่สนับสนุนส่วนตัวของแอปบนพื้นที่เก็บข้อมูลภายใน ไฟล์เพลงของคุณจะยังคงอยู่ในโฟลเดอร์ที่คุณเลือกผ่านเครื่องมือเลือกโฟลเดอร์ของระบบ\n\nบน Android แอปอาจขอสิทธิ์เข้าถึงเสียงเพื่ออ่านแทร็ก และขอสิทธิ์เข้าถึงรูปภาพ/ภาพ เพื่อแสดงภาพปกโฟลเดอร์ (เช่น cover.jpg) ไฟล์เสียงจะไม่ถูกคัดลอกเข้าสู่ฐานข้อมูลของแอปเลย';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player เก็บฐานข้อมูลไว้ในพื้นที่สนับสนุนส่วนตัวของแอปบนพื้นที่เก็บข้อมูลภายใน ไฟล์เพลงของคุณจะยังคงอยู่ในโฟลเดอร์ที่คุณเลือกผ่านเครื่องมือเลือกโฟลเดอร์ของระบบ';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

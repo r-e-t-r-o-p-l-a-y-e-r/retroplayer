@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} skladb · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} skladba · {artist}} other{{count} skladb · {artist}}}",
   "resetDatabase": "Ponastavi bazo podatkov",
   "resetDatabaseTitle": "Ponastaviti bazo podatkov?",
   "resetDatabaseBody": "S tem se izbrišejo nastavitve predvajanja, priljubljene vsebine, odprta mapa, tema, jezik in izenačevalnik. Z izbrišanjem vsega se izbrišejo tudi dodane mape v knjižnici. Glasbene datoteke in seznami predvajanja na disku se ne izbrišejo.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Za ikono na opravilni vrstici in v mreži aplikacij namizna okolja Linuxa zahtevajo ločene datoteke Freedesktop. Retro Player jih ob zagonu namesti iz paketa aplikacije:\n\n• ~/.local/share/applications/app.retroplayer.desktop — vnos v zaganjalniku, ki povezuje odprto okno s to aplikacijo\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikone v skladu s temo, kopirane iz paketa\n\nNikoli ne ustvari uporabniške datoteke hicolor/index.theme (kar bi prekrilo sistemsko temo in skrilo druge ikone). Ikone so vgrajene tudi v izvedljivo datoteko aplikacije. Zgoraj navedene kopije pomagajo okoljem GNOME/KDE prikazati pravo ikono v zaganjalniku namesto splošnega nadomestnega simbola.",
   "dataStorageAndroidPermissionsTitle": "Dovoljenja in shranjevanje v sistemu Android",
   "dataStorageAndroidPermissionsBody": "Aplikacija Retro Player svojo bazo podatkov shranjuje v zasebnem podpornem območju aplikacije na notranjem pomnilniku. Vaše glasbene datoteke ostanejo v mapah, ki jih izberete s sistemskim izbirnikom map.\n\nV sistemu Android lahko aplikacija zahteva dostop do avdio datotek za branje skladb ter dostop do fotografij/slik, da se lahko prikažejo naslovnice map (na primer cover.jpg). Avdio datoteke se nikoli ne kopirajo v bazo podatkov aplikacije.",
+  "dataStorageAndroidNativeBody": "Aplikacija Retro Player svojo bazo podatkov shranjuje v zasebnem podpornem območju aplikacije na notranjem pomnilniku. Vaše glasbene datoteke ostanejo v mapah, ki jih izberete s sistemskim izbirnikom map.",
   "dataStorageAndroidPlaybackTitle": "Predvajanje v ozadju v sistemu Android",
   "dataStorageAndroidPlaybackBody": "Med predvajanjem zvoka Retro Player izvaja medijsko storitev v ospredju, tako da se predvajanje nadaljuje, tudi če zaklenete telefon ali preklopite med aplikacijami, pri čemer so gumbi za upravljanje predvajanja na voljo v sistemskem obvestilu. Če aplikacijo s potegom prsta odstranite iz seznama nedavno uporabljenih aplikacij, se predvajanje ustavi in obvestilo izgine.",
   "dataStorageIOSAccessTitle": "Dostop do map v sistemu iOS",

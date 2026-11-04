@@ -197,7 +197,13 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count skladb · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count skladb · $artist',
+      one: '$count skladba · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -312,6 +318,10 @@ class AppLocalizationsSl extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Aplikacija Retro Player svojo bazo podatkov shranjuje v zasebnem podpornem območju aplikacije na notranjem pomnilniku. Vaše glasbene datoteke ostanejo v mapah, ki jih izberete s sistemskim izbirnikom map.\n\nV sistemu Android lahko aplikacija zahteva dostop do avdio datotek za branje skladb ter dostop do fotografij/slik, da se lahko prikažejo naslovnice map (na primer cover.jpg). Avdio datoteke se nikoli ne kopirajo v bazo podatkov aplikacije.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Aplikacija Retro Player svojo bazo podatkov shranjuje v zasebnem podpornem območju aplikacije na notranjem pomnilniku. Vaše glasbene datoteke ostanejo v mapah, ki jih izberete s sistemskim izbirnikom map.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

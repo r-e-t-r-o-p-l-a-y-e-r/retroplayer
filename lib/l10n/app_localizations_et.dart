@@ -195,7 +195,13 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count roomikut · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lugu · $artist',
+      one: '$count lugu · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -309,6 +315,10 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player salvestab oma andmebaasi rakenduste privaatsesse tugialasse sisemälus. Teie muusikafailid jäävad kaustadesse, mille valite süsteemikaustade valijaga.\n\nAndroidi puhul võib rakendus taotleda audiojuurdepääsu lugudele ja juurdepääsu fotodele/piltidele, et saaks kuvada kaustade kujundust (nt cover.jpg). Helifaile ei kopeerita kunagi rakenduse andmebaasi.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player salvestab oma andmebaasi rakenduste privaatsesse tugialasse sisemälus. Teie muusikafailid jäävad kaustadesse, mille valite süsteemikaustade valijaga.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'Androidi tausta taasesitus';

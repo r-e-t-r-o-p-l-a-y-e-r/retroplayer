@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} įrašų · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} įrašas · {artist}} other{{count} įrašų · {artist}}}",
   "resetDatabase": "Atkurti duomenų bazę",
   "resetDatabaseTitle": "Atkurti duomenų bazę?",
   "resetDatabaseBody": "Tai ištrina atkūrimo pozicijas, mėgstamus elementus, atidarytą aplanką, temą, kalbą ir ekvalaizerio nustatymus. Pasirinkus „Ištrinti viską“, taip pat bus pamiršti pridėti bibliotekos aplankai. Muzikos failai ir grojaraščiai diske nebus ištrinti.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Dėl užduočių juostos ir programų tinklelio piktogramų „Linux“ darbalaukio aplinkose reikalaujama atskirų „Freedesktop“ failų. „Retro Player“ juos įdiegia iš programos paketo paleidimo metu:\n\n• ~/.local/share/applications/app.retroplayer.desktop — paleidimo įrašas, susiejantis veikiantį langą su šia programa\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — iš programų rinkinio nukopijuotos teminės piktogramos\n\nJi niekada nekuria vartotojo „hicolor/index.theme“ failo (nes tai užgožtų sistemos temą ir paslėptų kitas piktogramas). Piktogramos taip pat yra įterptos į programos vykdomąjį failą. Minėtos kopijos padeda „GNOME“ ir „KDE“ rodyti teisingą paleidimo piktogramą, o ne bendrąją vietos užpildymo piktogramą.",
   "dataStorageAndroidPermissionsTitle": "„Android“ leidimai ir saugykla",
   "dataStorageAndroidPermissionsBody": "„Retro Player“ savo duomenų bazę saugo vidinėje atmintyje esančioje programai skirtoje srityje. Jūsų muzikos failai išlieka aplankuose, kuriuos pasirenkate naudodami sistemos aplankų pasirinkimo priemonę.\n\n„Android“ sistemoje programėlė gali prašyti leidimo naudotis garso įrašais, kad galėtų skaityti takelius, bei leidimo naudotis nuotraukomis ir vaizdais, kad būtų galima rodyti aplankų iliustracijas (pavyzdžiui, „cover.jpg“). Garso failai niekada nėra kopijuojami į programėlės duomenų bazę.",
+  "dataStorageAndroidNativeBody": "„Retro Player“ savo duomenų bazę saugo vidinėje atmintyje esančioje programai skirtoje srityje. Jūsų muzikos failai išlieka aplankuose, kuriuos pasirenkate naudodami sistemos aplankų pasirinkimo priemonę.",
   "dataStorageAndroidPlaybackTitle": "„Android“ grojimas fone",
   "dataStorageAndroidPlaybackBody": "Kai grojamas garso įrašas, „Retro Player“ paleidžia medijos paslaugą pirmame plane, todėl grojimas tęsiasi, net jei užrakinsite telefoną ar pereisite į kitą programėlę, o grojimo valdymo mygtukai rodomi sistemos pranešime. Nušluostydami programėlę iš „Neseniai naudotų“ sąrašo, sustabdysite grojimą ir pašalinsite pranešimą.",
   "dataStorageIOSAccessTitle": "Prieiga prie „iOS“ aplankų",

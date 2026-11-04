@@ -93,7 +93,7 @@
       }
     }
   },
-  "tracksCountArtist": "{count} nummers · {artist}",
+  "tracksCountArtist": "{count,plural, =1{{count} nummer · {artist}} other{{count} nummers · {artist}}}",
   "resetDatabase": "Database resetten",
   "resetDatabaseTitle": "Database resetten?",
   "resetDatabaseBody": "Hiermee worden de afspeelposities, favorieten, de geopende map, het thema, de taal en de equalizer-instellingen gewist. Als je alles wist, worden ook de toegevoegde bibliotheekmappen verwijderd. Muziekbestanden en afspeellijsten op de schijf worden niet verwijderd.",
@@ -168,6 +168,7 @@
   "dataStorageLinuxTaskbarBody": "Voor het pictogram in de taakbalk en het app-raster verwachten Linux-desktopomgevingen afzonderlijke Freedesktop-bestanden. Retro Player installeert deze bij het opstarten vanuit het app-pakket:\n\n• ~/.local/share/applications/app.retroplayer.desktop — startitem dat het actieve venster aan deze app koppelt\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — themapictogrammen die uit de bundel zijn gekopieerd\n\nEr wordt nooit een gebruikersbestand hicolor/index.theme aangemaakt (dat zou het systeemthema overschrijven en andere pictogrammen verbergen). Pictogrammen zijn ook ingebed in het binaire bestand van de app. De bovenstaande kopieën helpen GNOME/KDE om het juiste startpictogram weer te geven in plaats van een generieke plaatshouder.",
   "dataStorageAndroidPermissionsTitle": "Android-machtigingen en opslagruimte",
   "dataStorageAndroidPermissionsBody": "Retro Player slaat zijn database op in het app-specifieke ondersteuningsgebied op het interne geheugen. Je muziekbestanden blijven staan in mappen die je zelf kiest met de mapkiezer van het systeem.\n\nOp Android kan de app toestemming vragen voor toegang tot audio om nummers te lezen, en voor toegang tot foto's/afbeeldingen zodat albumillustraties (bijvoorbeeld cover.jpg) kunnen worden weergegeven. Audiobestanden worden nooit naar de database van de app gekopieerd.",
+  "dataStorageAndroidNativeBody": "Retro Player slaat zijn database op in het app-specifieke ondersteuningsgebied op het interne geheugen. Je muziekbestanden blijven staan in mappen die je zelf kiest met de mapkiezer van het systeem.",
   "dataStorageAndroidPlaybackTitle": "Afspeelfunctie op de achtergrond op Android",
   "dataStorageAndroidPlaybackBody": "Wanneer er audio wordt afgespeeld, draait Retro Player een mediaservice op de voorgrond, zodat het afspelen doorgaat als je de telefoon vergrendelt of van app wisselt. De afspeelknoppen worden dan weergegeven in de systeemmelding. Als je de app uit het venster ‘Recente apps’ wegveegt, wordt het afspelen gestopt en verdwijnt de melding.",
   "dataStorageIOSAccessTitle": "Toegang tot mappen in iOS",

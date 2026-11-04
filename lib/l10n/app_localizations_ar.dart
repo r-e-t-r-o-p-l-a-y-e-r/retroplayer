@@ -194,7 +194,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count مسار · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count مسار · $artist',
+      one: 'مسار واحد · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -307,6 +313,10 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'يقوم Retro Player بتخزين قاعدة بياناته في منطقة الدعم الخاصة بالتطبيق على وحدة التخزين الداخلية. تبقى ملفات الموسيقى الخاصة بك في المجلدات التي تختارها باستخدام منتقي مجلدات النظام.\n\nعلى Android، قد يطلب التطبيق الوصول إلى الصوت لقراءة المسارات، والوصول إلى الصور/الصور بحيث يمكن عرض العمل الفني للمجلد (على سبيل المثال cover.jpg). لا يتم نسخ الملفات الصوتية أبدًا في قاعدة بيانات التطبيق.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'يقوم Retro Player بتخزين قاعدة بياناته في منطقة الدعم الخاصة بالتطبيق على وحدة التخزين الداخلية. تبقى ملفات الموسيقى الخاصة بك في المجلدات التي تختارها باستخدام منتقي مجلدات النظام.';
 
   @override
   String get dataStorageAndroidPlaybackTitle => 'تشغيل خلفية أندرويد';

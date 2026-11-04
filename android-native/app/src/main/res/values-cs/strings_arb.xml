@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Jen pokud se přehrávání pozastavilo kvůli odpojení sluchátek před méně než 10 minutami.</string>
     <string name="track_fallback">Trať</string>
     <string name="unknown_artist">Neznámé</string>
-    <string name="tracks_count_artist">%1$d skladeb · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d skladba · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d skladeb · %2$s</string>
     <string name="reset_database">Obnovit databázi</string>
     <string name="reset_database_title">Obnovit databázi?</string>
     <string name="reset_database_body">Tím se vymažou pozice přehrávání, oblíbené položky, otevřená složka, motiv, jazyk a nastavení ekvalizéru. Funkce „Vymazat vše“ také odstraní přidané složky knihovny. Hudební soubory a seznamy skladeb na disku se nesmažou.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Pro ikonu na hlavním panelu a v mřížce aplikací vyžadují desktopová prostředí Linuxu samostatné soubory Freedesktop. Retro Player je při spuštění nainstaluje z balíčku aplikace:\n\n• ~/.local/share/applications/app.retroplayer.desktop — položka spouštěče, která propojuje spuštěné okno s touto aplikací\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png — ikony v daném motivu zkopírované z balíčku\n\nNikdy nevytváří uživatelský soubor hicolor/index.theme (který by zastínil systémové téma a skryl ostatní ikony). Ikony jsou také zabudovány do binárního souboru aplikace. Výše uvedené kopie pomáhají prostředí GNOME/KDE zobrazit správnou ikonu spouštěče namísto obecného zástupného symbolu.</string>
     <string name="data_storage_android_permissions_title">Oprávnění a úložiště v systému Android</string>
     <string name="data_storage_android_permissions_body">Aplikace Retro Player ukládá svou databázi do soukromé podpůrné oblasti aplikace ve vnitřním úložišti. Vaše hudební soubory zůstávají ve složkách, které vyberete pomocí systémového výběru složek.\n\nV systému Android může aplikace požádat o přístup k audiu za účelem čtení skladeb a o přístup k fotografiím/obrázkům, aby bylo možné zobrazit obaly alb (například cover.jpg). Zvukové soubory se nikdy nekopírují do databáze aplikace.</string>
+    <string name="data_storage_android_native_body">Aplikace Retro Player ukládá svou databázi do soukromé podpůrné oblasti aplikace ve vnitřním úložišti. Vaše hudební soubory zůstávají ve složkách, které vyberete pomocí systémového výběru složek.</string>
     <string name="data_storage_android_playback_title">Přehrávání na pozadí v systému Android</string>
     <string name="data_storage_android_playback_body">Při přehrávání zvuku spouští Retro Player mediální službu v popředí, takže přehrávání pokračuje i po uzamčení telefonu nebo přepnutí mezi aplikacemi, přičemž ovládací prvky přehrávání se zobrazují v systémové notifikaci. Odstraněním aplikace z seznamu nedávno použitých aplikací se přehrávání zastaví a notifikace zmizí.</string>
     <string name="data_storage_ios_access_title">Přístup ke složkám v systému iOS</string>

@@ -58,7 +58,8 @@
     <string name="resume_on_reconnect_hint">Seulement si la lecture s\'est mise en pause parce que les écouteurs ont été déconnectés il y a moins de 10 minutes.</string>
     <string name="track_fallback">Suivre</string>
     <string name="unknown_artist">Inconnu</string>
-    <string name="tracks_count_artist">%1$d piste · %2$s</string>
+    <string name="tracks_count_artist_eq1">%1$d piste · %2$s</string>
+    <string name="tracks_count_artist_other">%1$d pistes · %2$s</string>
     <string name="reset_database">Réinitialiser la base de</string>
     <string name="reset_database_title">Réinitialiser la base de données ?</string>
     <string name="reset_database_body">Cela efface les positions de lecture, les favoris, le dossier ouvert, le thème, la langue et les paramètres de l\'égaliseur. Effacer tout oublie également les dossiers de bibliothèque ajoutés. Les fichiers musicaux et les listes de lecture sur le disque ne sont pas supprimés.</string>
@@ -92,6 +93,7 @@
     <string name="data_storage_linux_taskbar_body">Pour l\'icône de la barre des tâches et de la grille d\'applications, les environnements de bureau Linux s\'attendent à des fichiers Freedesktop distincts. Retro Player les installe à partir de l\'ensemble d\'applications au démarrage :\n\n• ~/.local/share/applications/app.retroplayer.desktop — entrée du lanceur qui relie la fenêtre en cours d\'exécution à cette application\n• ~/.local/share/icons/hicolor/*/apps/app.retroplayer.png - icônes à thème copiées à partir du paquet\n\nIl n\'écrit jamais un hicolor/index.theme utilisateur (qui ombrerait le thème du système et cacherait d\'autres icônes). Les icônes sont également intégrées dans le binaire de l\'application. Les copies ci-dessus aident GNOME/KDE à afficher l\'icône de lancement correcte au lieu d\'un espace réservé générique.</string>
     <string name="data_storage_android_permissions_title">Autorisations et stockage Android</string>
     <string name="data_storage_android_permissions_body">Retro Player stocke sa base de données dans la zone d\'assistance privée de l\'application sur le stockage interne. Vos fichiers musicaux restent dans les dossiers que vous choisissez avec le sélecteur de dossiers système.\n\nSur Android, l\'application peut demander un accès audio pour lire les pistes, et l\'accès aux photos/images afin que les illustrations du dossier (par exemple cover.jpg) puissent être affichées. Les fichiers audio ne sont jamais copiés dans la base de données de l\'application.</string>
+    <string name="data_storage_android_native_body">Retro Player stocke sa base de données dans la zone d\'assistance privée de l\'application sur le stockage interne. Vos fichiers musicaux restent dans les dossiers que vous choisissez avec le sélecteur de dossiers système.</string>
     <string name="data_storage_android_playback_title">Lecture en arrière-plan Android</string>
     <string name="data_storage_android_playback_body">Lorsque l\'audio est en cours de lecture, Retro Player exécute un service multimédia de premier plan afin que la lecture se poursuive si vous verrouillez le téléphone ou changez d\'application, avec des commandes de transport dans la notification du système. En faisant glisser l\'application loin de Récents, vous arrêtez la lecture et supprimez la notification.</string>
     <string name="data_storage_ios_access_title">accès au dossier iOS</string>

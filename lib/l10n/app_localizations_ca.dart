@@ -199,7 +199,13 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count pistes · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count pistes · $artist',
+      one: '$count pista · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -315,6 +321,10 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player emmagatzema la seva base de dades a l\'àrea de suport privada de l\'aplicació a l\'emmagatzematge intern. Els teus fitxers de música romanen a les carpetes que tries amb l\'explorador de carpetes del sistema.\n\nA Android, l\'aplicació pot sol·licitar accés a l\'àudio per llegir pistes i accés a fotos/imatges perquè es pugui mostrar la imatge de la carpeta (per exemple cover.jpg). Els fitxers d\'àudio mai no es copien a la base de dades de l\'aplicació.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player emmagatzema la seva base de dades a l\'àrea de suport privada de l\'aplicació a l\'emmagatzematge intern. Els teus fitxers de música romanen a les carpetes que tries amb l\'explorador de carpetes del sistema.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>

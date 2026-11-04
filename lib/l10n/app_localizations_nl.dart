@@ -197,7 +197,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String tracksCountArtist(int count, String artist) {
-    return '$count nummers · $artist';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count nummers · $artist',
+      one: '$count nummer · $artist',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -311,6 +317,10 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get dataStorageAndroidPermissionsBody =>
       'Retro Player slaat zijn database op in het app-specifieke ondersteuningsgebied op het interne geheugen. Je muziekbestanden blijven staan in mappen die je zelf kiest met de mapkiezer van het systeem.\n\nOp Android kan de app toestemming vragen voor toegang tot audio om nummers te lezen, en voor toegang tot foto\'s/afbeeldingen zodat albumillustraties (bijvoorbeeld cover.jpg) kunnen worden weergegeven. Audiobestanden worden nooit naar de database van de app gekopieerd.';
+
+  @override
+  String get dataStorageAndroidNativeBody =>
+      'Retro Player slaat zijn database op in het app-specifieke ondersteuningsgebied op het interne geheugen. Je muziekbestanden blijven staan in mappen die je zelf kiest met de mapkiezer van het systeem.';
 
   @override
   String get dataStorageAndroidPlaybackTitle =>
