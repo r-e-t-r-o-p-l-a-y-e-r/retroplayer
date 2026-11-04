@@ -176,7 +176,8 @@ and are available to other modules via `testImplementation(testFixtures(project(
 
 Reference screenshots: [doc/images/tutorial/](../doc/images/tutorial/)
 (`01-library`, `02-mini-player`, `03-expanded-player`, `04-album-detail`,
-`05-playlist`, `06-settings`). Flutter sources of truth:
+`05-playlist`, `06-settings`; captured from this app after the T20 comparison
+with the Flutter versions, see git history before T21 for those). Flutter sources of truth:
 `lib/ui/core/theme.dart`, `lib/ui/core/retro/*`, `lib/ui/core/widgets/retro_list_tile.dart`.
 Every UI task ends with a side-by-side check against the matching screenshot
 in light mode AND a dark-mode screenshot (`adb shell cmd uimode night yes`,

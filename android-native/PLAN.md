@@ -1036,9 +1036,10 @@ available, simply continue top to bottom.
   "Native Android app" section, save-playlist and ±15 s rows corrected for
   both apps, two broken `lib/` links in REQUIREMENTS fixed. Relative links
   checked by script (only the planned `MANUAL_TESTING.md` is missing).
-  Not done: re-capturing `doc/images/tutorial/` from the native app; those
-  images are the Flutter look reference in AGENTS.md, so replacing them
-  waits for a user decision.
+  User-guide screenshots `doc/images/tutorial/01..06` re-captured from the
+  native app (user decision; emulator, light, sample audio plus a
+  `Demo Mix.m3u`, system bars cropped); steps in that folder's README. The
+  Flutter captures stay in git history.
 
 ## T22 Final release check
 
