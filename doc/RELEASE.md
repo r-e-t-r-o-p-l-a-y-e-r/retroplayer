@@ -12,7 +12,9 @@ GitHub releases without uninstalling.
   `versionName`. Before 1.0, minor versions (0.10.0, 0.11.0, ...) mark store
   releases.
 - Release notes: `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`
-  (500 characters at most; Play shows them as "What's new").
+  (500 characters at most; Play shows them as "What's new"). Translate them
+  with `python3 scripts/mt_store_listings.py --field changelog`; the listing
+  layout is described in [STORE_LOCALES.md](STORE_LOCALES.md).
 
 ## Store builds
 

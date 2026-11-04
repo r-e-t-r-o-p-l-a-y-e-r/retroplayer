@@ -1,0 +1,28 @@
+Retro Player afspiller musik og lydbøger fra mapper på din telefon. Vælg en mappe, så viser appen den præcis, som den ser ud på disken: mapper, albummer og afspilningslister. Ingen konto, ingen reklamer og ingen netværksadgang.
+
+Udviklet til lydbøger og albummer
+• Fortsætter afspilningen af hvert album, hver bog og hver afspilningsliste der, hvor du stoppede
+• Afspilningshastighed fra 0,5× til 2,0×, gemt for hvert element; spring på 15 sekunder
+• M4B- og M4A-kapitler på søgebjælken, i en kapitelliste og i notifikationen
+• Spoler et par sekunder tilbage, når du fortsætter efter en længere pause
+• Afspilning uden pauser; album med flere diske afspilles i diskorden
+
+Dine mapper, din rækkefølge
+• Gennemse som i en filhåndtering med brødkrummer, favoritter og en A–Z-bjælke
+• Stryg for at tilføje mapper, album eller numre til køen og gem den som en M3U-afspilningsliste
+• Afspiller de afspilningslister, du allerede har
+• Sorter hvert album efter spornummer, filnavn eller titel
+
+Uanset hvor du lytter
+• Betjeningsknapper i notifikationen, på låseskærmen og via Bluetooth- eller bilknapper
+• Android Auto: Gennemse dit bibliotek, dine favoritter og køen i bilen
+• Widget til startskærmen
+• Kan valgfrit fortsætte, når dine hovedtelefoner opretter forbindelse igen
+• Equalizer med forudindstillinger, lyst og mørkt tema, 47 sprog
+
+Formater: MP3, M4A, M4B (ukrypteret AAC), FLAC, WAV, OGG og Opus.
+
+Privat fra starten
+Retro Player har ingen internetadgang, så intet forlader din telefon: ingen annoncer, analyser, sporing eller konti. Den har heller ikke brug for tilladelse til lagerplads. Den læser kun de mapper, du vælger, og ændrer aldrig dine filer; de eneste filer, den skriver, er de afspilningslister, du gemmer.
+
+Gratis og open source-software (GPL-3.0-eller-nyere). Brugervejledning og kildekode: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

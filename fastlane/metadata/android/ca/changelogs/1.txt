@@ -1,0 +1,1 @@
+Primera versió: biblioteca de carpetes amb favorits i barra d'A a Z, continuació i velocitat per àlbum o llibre, capítols M4B, cua i llistes de reproducció M3U, Android Auto, giny de pantalla d'inici, opcions d'auriculars, ecualitzador i 47 idiomes.

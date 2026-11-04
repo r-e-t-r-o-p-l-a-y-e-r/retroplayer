@@ -1,0 +1,1 @@
+Första versionen: mappbibliotek med favoriter och A–Z-fält, återuppspelning och hastighet per album eller bok, M4B-kapitel, kö och M3U-spellistor, Android Auto, widget för startskärmen, inställningar för hörlurar, equalizer och 47 språk.

@@ -1,0 +1,28 @@
+Retro Player plays music and audiobooks from folders on your phone. Pick a folder and the app shows it as it is on disk: folders, albums and playlists. No account, no ads and no network access.
+
+Made for audiobooks and albums
+• Resumes every album, book and playlist where you stopped
+• Playback speed from 0.5× to 2.0×, saved per item; 15-second jumps
+• M4B and M4A chapters on the seek bar, in a chapter list and in the notification
+• Rewinds a few seconds when you continue after a longer break
+• Gapless playback; multi-disc albums play in disc order
+
+Your folders, your order
+• Browse like a file manager, with breadcrumbs, favorites and an A–Z bar
+• Swipe to add folders, albums or tracks to the queue and save it as an M3U playlist
+• Plays the playlists you already have
+• Sort each album by track number, file name or title
+
+Wherever you listen
+• Controls in the notification, on the lock screen and on Bluetooth or car buttons
+• Android Auto: browse your library, favorites and queue in the car
+• Home-screen widget
+• Optionally continues when your headphones reconnect
+• Equalizer with presets, light and dark theme, 47 languages
+
+Formats: MP3, M4A, M4B (unencrypted AAC), FLAC, WAV, OGG and Opus.
+
+Private by design
+Retro Player has no Internet permission, so nothing leaves your phone: no ads, analytics, tracking or accounts. It needs no storage permission either. It reads only the folders you pick and never changes your files; the only files it writes are playlists you save.
+
+Free and open source software (GPL-3.0-or-later). User guide and source code: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

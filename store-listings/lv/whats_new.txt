@@ -1,1 +1,0 @@
-Pirmā publiskā versija: vietējā bibliotēka, atskaņošana bez pārtraukumiem, audio grāmatu atskaņošanas ātruma regulēšana un atskaņošanas turpināšana, ekvalaizers un vairāk nekā 40 saskarnes valodas.

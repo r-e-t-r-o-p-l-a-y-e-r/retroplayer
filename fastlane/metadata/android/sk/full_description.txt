@@ -1,0 +1,28 @@
+Aplikácia Retro Player prehráva hudbu a audioknihy zo zložiek vo vašom telefóne. Vyberte si zložku a aplikácia ju zobrazí tak, ako je uložená na disku: zložky, albumy a zoznamy skladieb. Bez účtu, bez reklám a bez prístupu k sieti.
+
+Určené pre audioknihy a albumy
+• Pokračuje v prehrávaní každého albumu, knihy a zoznamu skladieb tam, kde ste skončili
+• Rýchlosť prehrávania od 0,5× do 2,0×, uložená pre každú položku; 15-sekundové skoky
+• Kapitoly formátov M4B a M4A na lište prehrávania, v zozname kapitol a v oznámení
+• Pri pokračovaní po dlhšej prestávke sa prehrávanie posunie o niekoľko sekúnd späť
+• Prehrávanie bez medzier; viacdiskové albumy sa prehrávajú v poradí diskov
+
+Vaše zložky, vaše poradie
+• Prehliadajte ako v správcovi súborov, s navigáciou, obľúbenými položkami a lištou A–Z
+• Potiahnutím prsta pridajte zložky, albumy alebo skladby do fronty a uložte ju ako zoznam skladieb M3U
+• Prehráva playlisty, ktoré už máte
+• Triedenie jednotlivých albumov podľa čísla skladby, názvu súboru alebo titulu
+
+Kdekoľvek počúvate
+• Ovládacie prvky v oznámení, na uzamknutej obrazovke a pomocou tlačidiel Bluetooth alebo v aute
+• Android Auto: prehliadajte si svoju knižnicu, obľúbené položky a frontu v aute
+• Widget na domovskej obrazovke
+• Voliteľné pokračovanie prehrávania po opätovnom pripojení slúchadiel
+• Ekvalizér s prednastaveniami, svetlý a tmavý motív, 47 jazykov
+
+Formáty: MP3, M4A, M4B (nešifrovaný AAC), FLAC, WAV, OGG a Opus.
+
+Súkromie už v samotnom dizajne
+Retro Player nemá povolenie na prístup k internetu, takže z vášho telefónu neopúšťa nič: žiadne reklamy, analytické údaje, sledovanie ani účty. Nepotrebuje ani povolenie na prístup k úložisku. Číta iba zložky, ktoré si vyberiete, a nikdy nemení vaše súbory; jediné súbory, ktoré zapisuje, sú zoznamy skladieb, ktoré uložíte.
+
+Bezplatný softvér s otvoreným zdrojovým kódom (GPL-3.0-alebo-novšia). Návod na použitie a zdrojový kód: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

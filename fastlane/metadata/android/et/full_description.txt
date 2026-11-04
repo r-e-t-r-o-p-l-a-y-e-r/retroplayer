@@ -1,0 +1,28 @@
+Retro Player mängib muusikat ja audioraamatuid teie telefoni kaustadest. Valige kaust ja rakendus kuvab selle täpselt nii, nagu see on kettal: kaustad, albumid ja esitusloendid. Ei vaja kontot, ei sisalda reklaame ega vaja võrguühendust.
+
+Loodud audioraamatute ja albumite jaoks
+• Jätkab iga albumi, raamatu ja esitusloendi kuulamist sealt, kus te peatuse tegite
+• Taasesituskiirus 0,5× kuni 2,0×, salvestatakse iga elemendi jaoks eraldi; 15-sekundilised hüpped
+• M4B- ja M4A-peatükid otsinguribal, peatükkide loendis ja teates
+• Kerib mõne sekundi tagasi, kui jätkad pärast pikemat pausi
+• Katkematu taasesitus; mitmekettalised albumid mängitakse ketaste järjekorras
+
+Sinu kaustad, sinu järjekord
+• Sirvi nagu failihalduris, koos navigeerimisjälgedega, lemmikutega ja A–Z ribaga
+• Pühkides saad lisada kaustu, albumeid või lugusid järjekorda ja salvestada need M3U-esitusloendina
+• Mängib juba olemasolevaid esitusloendeid
+• Sorteeri iga albumit loo numbri, failinime või pealkirja järgi
+
+Kus iganes sa kuulad
+• Juhtimisfunktsioonid teavituses, lukustusekraanil ning Bluetoothi või auto nuppude kaudu
+• Android Auto: sirvi autos oma muusikakogu, lemmikuid ja järjekorda
+• Avakuva vidin
+• Valikuliselt jätkub taasesitus, kui kõrvaklapid uuesti ühenduvad
+• Ekvalaiser eelseadistustega, heleda ja tumeda teemaga, 47 keeles
+
+Formaadid: MP3, M4A, M4B (krüpteerimata AAC), FLAC, WAV, OGG ja Opus.
+
+Privaatsus on sisse ehitatud
+Retro Playeril puudub internetiõigus, seega ei lahku midagi teie telefonist: ei reklaame, analüütikat, jälgimist ega kontosid. Samuti ei vaja see salvestusõigust. Rakendus loeb ainult teie valitud kaustu ega muuda kunagi teie faile; ainsad failid, mida see salvestab, on teie poolt salvestatud esitusloendid.
+
+Tasuta ja avatud lähtekoodiga tarkvara (GPL-3.0-või-hilisem). Kasutusjuhend ja lähtekood: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

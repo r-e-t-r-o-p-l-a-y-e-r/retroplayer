@@ -1,0 +1,28 @@
+A Retro Player a telefonon található mappákból játszik le zenét és hangoskönyveket. Válassz ki egy mappát, és az alkalmazás úgy jeleníti meg, ahogyan a telefonon szerepel: mappákkal, albumokkal és lejátszási listákkal együtt. Nincs szükség fiókra, nincsenek hirdetések és nincs szükség internetkapcsolatra.
+
+Hangoskönyvekhez és albumokhoz készült
+• Minden albumot, könyvet és lejátszási listát onnan folytatja, ahol abbahagytad
+• 0,5×–2,0× közötti lejátszási sebesség, elemként mentve; 15 másodperces ugrások
+• M4B és M4A fejezetek a keresősávon, a fejezetlistában és az értesítésben
+• Néhány másodperccel visszateker, ha hosszabb szünet után folytatja a lejátszást
+• Szünetmentes lejátszás; a többlemezes albumok lemezsorrendben játszódnak le
+
+A saját mappáid, a saját sorrended
+• Böngészés fájlkezelőhöz hasonlóan, navigációs nyomvonalakkal, kedvencekkel és A–Z sávval
+• Csúsztatással mappákat, albumokat vagy számokat adhatsz a sorba, és M3U lejátszási listaként mentheted
+• Lejátsza a már meglévő lejátszási listáidat
+• Rendezheted az egyes albumokat szám, fájlnév vagy cím szerint
+
+Bárhol is hallgatsz
+• Vezérlők az értesítési sávban, a zárolási képernyőn, valamint a Bluetooth- vagy autóvezérlő gombokon
+• Android Auto: böngészd a könyvtáradat, a kedvenceidet és a sorba állított elemeket az autóban
+• Kezdőképernyős widget
+• Opcionálisan folytatja a lejátszást, amikor a fejhallgató újra csatlakozik
+• Equalizer előre beállított hangszínnel, világos és sötét témával, 47 nyelven
+
+Formátumok: MP3, M4A, M4B (titkosítatlan AAC), FLAC, WAV, OGG és Opus.
+
+Alapvetően magánjellegű
+A Retro Player nem igényel internet-hozzáférést, így semmi sem hagyja el a telefonodat: nincsenek hirdetések, elemzések, nyomon követés vagy fiókok. Tárolási jogosultságra sincs szüksége. Csak az általad kiválasztott mappákat olvassa be, és soha nem módosítja a fájljaidat; az egyetlen fájl, amit ír, az az általad mentett lejátszási lista.
+
+Ingyenes és nyílt forráskódú szoftver (GPL-3.0 vagy újabb). Felhasználói útmutató és forráskód: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

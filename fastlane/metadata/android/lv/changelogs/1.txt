@@ -1,0 +1,1 @@
+Pirmā versija: mapju bibliotēka ar izlases sarakstu un A–Z joslu, atskaņošanas turpināšana un atskaņošanas ātruma regulēšana katram albumam vai grāmatai, M4B nodaļas, rinda un M3U atskaņošanas saraksti, „Android Auto“, sākuma ekrāna logrīks, austiņu iestatījumi, ekvalaizers un 47 valodas.

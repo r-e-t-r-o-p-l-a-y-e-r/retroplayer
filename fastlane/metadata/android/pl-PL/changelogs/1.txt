@@ -1,0 +1,1 @@
+Pierwsza wersja: biblioteka folderów z ulubionymi i paskiem A–Z, wznowienie odtwarzania i prędkość odtwarzania dla poszczególnych albumów lub książek, rozdziały w formacie M4B, kolejka i listy odtwarzania M3U, Android Auto, widżet na ekranie głównym, opcje słuchawek, korektor dźwięku oraz 47 języków.

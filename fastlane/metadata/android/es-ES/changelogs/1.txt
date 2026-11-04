@@ -1,0 +1,1 @@
+Primera versión: biblioteca de carpetas con favoritos y barra A–Z, reanudación y velocidad por álbum o libro, capítulos M4B, cola y listas de reproducción M3U, Android Auto, widget para la pantalla de inicio, opciones de auriculares, ecualizador y 47 idiomas.

@@ -1,0 +1,28 @@
+Retro Player memutar musik dan buku audio dari folder di ponsel Anda. Pilih sebuah folder, dan aplikasi ini akan menampilkannya persis seperti yang ada di penyimpanan: folder, album, dan daftar putar. Tanpa akun, tanpa iklan, dan tanpa akses jaringan.
+
+Dirancang khusus untuk buku audio dan album
+• Melanjutkan pemutaran setiap album, buku, dan daftar putar dari titik di mana Anda menghentikannya
+• Kecepatan pemutaran dari 0,5× hingga 2,0×, disimpan per item; lompatan 15 detik
+• Bab-bab M4B dan M4A ditampilkan di bilah pencarian, dalam daftar bab, dan di notifikasi
+• Memutar ulang beberapa detik saat Anda melanjutkan setelah jeda yang lebih lama
+• Pemutaran tanpa jeda; album multi-disk diputar sesuai urutan disk
+
+Folder Anda, urutan Anda
+• Jelajahi seperti pengelola file, dengan jejak navigasi, favorit, dan bilah A–Z
+• Geser untuk menambahkan folder, album, atau trek ke antrean dan simpan sebagai daftar putar M3U
+• Memutar daftar putar yang sudah Anda miliki
+• Mengurutkan setiap album berdasarkan nomor lagu, nama file, atau judul
+
+Di mana pun Anda mendengarkan
+• Kontrol di notifikasi, layar kunci, serta tombol Bluetooth atau mobil
+• Android Auto: jelajahi perpustakaan, favorit, dan antrean di dalam mobil
+• Widget layar beranda
+• Secara opsional, pemutaran akan dilanjutkan saat headphone Anda terhubung kembali
+• Equalizer dengan preset, tema terang dan gelap, serta dukungan 47 bahasa
+
+Format: MP3, M4A, M4B (AAC tanpa enkripsi), FLAC, WAV, OGG, dan Opus.
+
+Dirancang untuk privasi
+Retro Player tidak memerlukan izin akses internet, sehingga tidak ada data yang keluar dari ponsel Anda: tidak ada iklan, analisis, pelacakan, atau akun. Aplikasi ini juga tidak memerlukan izin penyimpanan. Aplikasi ini hanya membaca folder yang Anda pilih dan tidak pernah mengubah file Anda; satu-satunya file yang ditulis adalah daftar putar yang Anda simpan.
+
+Perangkat lunak gratis dan sumber terbuka (GPL-3.0-atau-yang-lebih-baru). Panduan pengguna dan kode sumber: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,1 +1,0 @@
-İlk halka açık sürüm: yerel kütüphane, kesintisiz çalma, sesli kitap hızı ve devam ettirme, ekolayzer ve 40'tan fazla arayüz dili.

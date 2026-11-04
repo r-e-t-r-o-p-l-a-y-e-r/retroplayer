@@ -1,0 +1,28 @@
+„Retro Player“ atskaņo mūziku un audiogrāmatas no jūsu tālruņa mapēm. Izvēlieties mapi, un lietotne to parādīs tā, kā tā ir uz diska: mapes, albumi un atskaņošanas saraksti. Nav nepieciešams konts, nav reklāmu un nav nepieciešama tīkla piekļuve.
+
+Izstrādāts audiogrāmatām un albumiem
+• Turpina katra albuma, grāmatas un atskaņošanas saraksta atskaņošanu no vietas, kurā pārtraucāt
+• Atskaņošanas ātrums no 0,5× līdz 2,0×, tiek saglabāts katram elementam atsevišķi; 15 sekunžu lēcieni
+• M4B un M4A nodaļas meklēšanas joslā, nodaļu sarakstā un paziņojumā
+• Atgriežas dažas sekundes atpakaļ, ja turpināt pēc ilgākas pārtraukuma
+• Atskaņošana bez pārtraukumiem; vairāku disku albumi tiek atskaņoti disku secībā
+
+Jūsu mapes, jūsu kārtība
+• Pārlūkojiet kā failu pārvaldniekā, izmantojot navigācijas ceļu, izlases un A–Z joslu
+• Pieskarieties un velciet, lai pievienotu mapes, albumus vai dziesmas rindai un saglabātu to kā M3U atskaņošanas sarakstu
+• Atskaņo jau esošās atskaņošanas sarakstus
+• Kārtot katru albumu pēc dziesmas numura, faila nosaukuma vai virsraksta
+
+Kur vien jūs klausāties
+• Vadības elementi paziņojumos, bloķētajā ekrānā, kā arī ar Bluetooth vai automašīnas pogām
+• Android Auto: pārlūkojiet savu bibliotēku, iecienītos ierakstus un rindu automašīnā
+• Sākuma ekrāna logrīks
+• Pēc izvēles atskaņošana turpinās, kad austiņas atkal savienojas
+• Ekvalaizers ar iestatījumiem, gaiša un tumša tēma, 47 valodas
+
+Formāti: MP3, M4A, M4B (nešifrēts AAC), FLAC, WAV, OGG un Opus.
+
+Privātums jau no paša sākuma
+„Retro Player“ nav interneta piekļuves atļaujas, tādēļ nekas neiziet ārpus jūsu tālruņa: nav reklāmu, analītikas, izsekošanas vai kontu. Tam nav nepieciešama arī atļauja piekļūt uzglabāšanas vietai. Tas lasa tikai jūsu izvēlētās mapes un nekad nemaina jūsu failus; vienīgie faili, kurus tas raksta, ir jūsu saglabātās atskaņošanas saraksti.
+
+Bezmaksas un atvērtā koda programmatūra (GPL-3.0 vai jaunāka versija). Lietotāja rokasgrāmata un avota kods: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,0 +1,28 @@
+„Retro Player“ groja muziką ir audioknygas iš jūsų telefone esančių aplankų. Pasirinkite aplanką, ir programa jį parodys taip, kaip jis yra diske: su aplankais, albumais ir grojaraščiais. Nereikia paskyros, nėra reklamų ir nereikia prisijungimo prie interneto.
+
+Sukurta audioknygoms ir albumams
+• Tęsia kiekvieno albumo, knygos ir grojaraščio grojimą nuo tos vietos, kur sustojote
+• Grojimo greitis nuo 0,5× iki 2,0×, išsaugomas kiekvienam elementui atskirai; 15 sekundžių peršokimai
+• M4B ir M4A skyriai rodomi paieškos juostoje, skyrių sąraše ir pranešime
+• Atgaline eiga perkelia keletą sekundžių, kai tęsiate klausymą po ilgesnės pertraukos
+• Atkūrimas be pertraukų; daugiadiskiai albumai grojami pagal diskų tvarką
+
+Jūsų aplankai, jūsų tvarka
+• Naršykite kaip failų tvarkyklėje: su navigacijos takeliu, mėgstamais ir A–Z juosta
+• Braukite, kad pridėtumėte aplankus, albumus ar įrašus į eilę ir išsaugotumėte kaip M3U grojaraštį
+• Groja jau turimus grojaraščius
+• Rūšiuokite kiekvieną albumą pagal kūrinio numerį, failo pavadinimą arba dainos pavadinimą
+
+Klausykitės bet kur
+• Valdymas per pranešimus, užrakintame ekrane ir naudojant „Bluetooth“ arba automobilio mygtukus
+• „Android Auto“: naršykite savo biblioteką, mėgstamiausius ir eilę automobilyje
+• Pagrindinio ekrano valdiklis
+• Pasirinkus, grojimas tęsiasi, kai vėl prijungiate ausines
+• Ekvalaizeris su iš anksto nustatytais parametrais, šviesia ir tamsi tema, 47 kalbos
+
+Formatai: MP3, M4A, M4B (nesuskaitmenintas AAC), FLAC, WAV, OGG ir „Opus“.
+
+Sukurta siekiant privatumo
+„Retro Player“ neturi leidimo prisijungti prie interneto, todėl jūsų telefone niekas neišeina: jokių reklamų, analitikos, sekimo ar paskyrų. Jam taip pat nereikia leidimo naudoti saugyklos. Jis skaito tik jūsų pasirinktus aplankus ir niekada nekeičia jūsų failų; vieninteliai failai, kuriuos jis įrašo, yra jūsų išsaugoti grojaraščiai.
+
+Nemokama ir atviro kodo programinė įranga (GPL-3.0-arba-vėlesnė versija). Vartotojo vadovas ir šaltinio kodas: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,0 +1,28 @@
+Retro Player spilar tónlist og hljóðbækur úr möppum á símanum þínum. Veldu möppu og forritið sýnir hana eins og hún er á disknum: möppur, albúm og spilunarlistar. Enginn aðgangur, engin auglýsingar og enginn netaðgangur.
+
+Hannað fyrir hljóðbækur og albúm
+• Heldur áfram með hvert albúm, bók og spilunarlista þar sem þú hættir
+• Spilunartíhraði frá 0,5× til 2,0×, vistaður fyrir hvern hlut; 15 sekúndna stökk
+• M4B og M4A kaflar á leitarstiku, í kaflalista og í tilkynningu
+• Spolar til baka nokkrar sekúndur þegar þú heldur áfram eftir lengri pásu
+• Spilun án bilunar; plötur með mörgum diskum spila í réttri röð diskanna
+
+Þínar möppur, þín röð
+• Bókaðu eins og í skráarstjóra, með brauðmylsnu, uppáhalds og A–Ö stiku
+• Strjúkaðu til að bæta möppum, plötum eða lögum í biðröðina og vistaðu sem M3U spilunarlista
+• Spilar spilunarlistana sem þú átt nú þegar
+• Raðar hverju albúmi eftir lögunúmeri, skráarnafni eða titli
+
+Hvar sem þú hlustar
+• Stýringar í tilkynningunni, á læsingarskjánum og á Bluetooth- eða bílslyklum
+• Android Auto: skoðaðu safnið þitt, uppáhalds og biðröðina í bílnum
+• Vettvangur á heimaskjánum
+• Hægt er að láta spilun halda áfram þegar heyrnartólin tengjast aftur
+• Jafngildari með forstillingum, ljósu og dökkum þema, 47 tungumál
+
+Formöt: MP3, M4A, M4B (ókryptað AAC), FLAC, WAV, OGG og Opus.
+
+Persónuvernd í hönnun
+Retro Player hefur ekki heimild til að tengjast internetinu, svo ekkert fer frá símanum þínum: engar auglýsingar, engin greining, engin rekjanleiki og engin notendareikningur. Hann þarf heldur ekki geymsluheimild. Hann les aðeins möppurnar sem þú velur og breytir aldrei skrám þínum; einu skrárnar sem hann skrifar eru spilunarlistar sem þú vistað.
+
+Ókeypis og opinn hugbúnaður (GPL-3.0-eða-nýjari). Notendahandbók og uppsprettukóði: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,0 +1,1 @@
+První verze: knihovna složek s oblíbenými položkami a lištou A–Z, obnovení přehrávání a rychlost přehrávání podle alba nebo knihy, kapitoly M4B, fronta a seznamy skladeb M3U, Android Auto, widget na domovské obrazovce, nastavení sluchátek, ekvalizér a 47 jazyků.

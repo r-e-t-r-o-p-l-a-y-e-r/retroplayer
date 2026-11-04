@@ -1,0 +1,28 @@
+Retro Player reprodueix música i audiollibres de les carpetes del telèfon. Tria una carpeta i l'aplicació la mostra tal com és al disc: carpetes, àlbums i llistes de reproducció. Sense compte, sense anuncis i sense accés a la xarxa.
+
+Dissenyat per a audiollibres i àlbums
+• Torna a reproduir cada àlbum, llibre i llista de reproducció per on ho vas deixar
+• Velocitat de reproducció de 0,5× a 2,0×, desada per a cada element; salts de 15 segons
+• Capítols M4B i M4A a la barra de cerca, en una llista de capítols i a la notificació
+• Retrocedeix uns segons quan continues després d'una pausa llarga
+• Reproducció sense interrupcions; els àlbums de diversos discos es reprodueixen per ordre de disc
+
+Les teves carpetes, el teu ordre
+• Navega com amb un gestor d'arxius, amb un historial de navegació, marcadors i una barra de l'A a la Z
+• Desplaça el dit per afegir carpetes, àlbums o pistes a la llista de reproducció i desa la llista com a llista de reproducció M3U
+• Reprodueix les llistes de reproducció que ja tens
+• Ordena cada àlbum per número de pista, nom de fitxer o títol
+
+Allà on escoltes
+• Controls a la notificació, a la pantalla de bloqueig i als botons de Bluetooth o del cotxe
+• Android Auto: navega per la teva biblioteca, els favorits i la llista d'espera al cotxe
+• Giny de la pantalla d'inici
+• Opcionalment, continua la reproducció quan els auriculars es tornen a connectar
+• Ecualitzador amb preajustaments, tema clar i fosc, 47 idiomes
+
+Formats: MP3, M4A, M4B (AAC no xifrat), FLAC, WAV, OGG i Opus.
+
+Privacitat per disseny
+Retro Player no té permisos d'Internet, de manera que res no surt del teu telèfon: sense anuncis, analítiques, seguiment ni comptes. Tampoc necessita permisos d'emmagatzematge. Només llegeix les carpetes que tries i mai no modifica els teus fitxers; els únics fitxers que escriu són les llistes de reproducció que deses.
+
+Programari lliure i de codi obert (GPL-3.0-o-posterior). Guia d'usuari i codi font: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

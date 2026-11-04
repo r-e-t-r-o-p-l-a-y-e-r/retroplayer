@@ -1,0 +1,1 @@
+Erste Version: Ordnerbibliothek mit Favoriten und A–Z-Leiste, Wiedergabe fortsetzen und Wiedergabegeschwindigkeit pro Album oder Buch, M4B-Kapitel, Warteschlange und M3U-Wiedergabelisten, Android Auto, Startbildschirm-Widget, Kopfhöreroptionen, Equalizer und 47 Sprachen.

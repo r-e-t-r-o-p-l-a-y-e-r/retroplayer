@@ -1,0 +1,28 @@
+Retro Player jilgħab mużika u kotba awdjo minn folders fuq it-telefon tiegħek. Agħżel folder u l-app turiha kif inhi fuq id-disk: folders, albums u playlists. Ebda kont, ebda reklami u ebda aċċess għan-netwerk.
+
+Magħmul għall-kotba awdjo u l-albums
+• Jerġa' jibda kull album, ktieb u playlist minn fejn waqaft
+• Velocità tal-plejbek minn 0.5× sa 2.0×, maħżuna għal kull oġġett; salti ta' 15-il sekonda
+• Kapitoli M4B u M4A fuq il-bar tat-tfittxija, f'lista tal-kapitoli u fin-notifika
+• Tirriwindja ftit sekondi meta tkompli wara waqfa twila
+• Riproduzzjoni mingħajr waqfien; albums b'aktar diska jitilgħu fl-ordni tad-diska
+
+Il-folder tiegħek, l-ordni tiegħek
+• Esplora bħal maniġer tal-fajls, b'breadcrumbs, favoriti u bar A–Z
+• Agħmel swipe biex iżżid folder, album jew kanzunetta fil-lista ta' plejlista u ssalvah bħala plejlista M3U
+• Jilgħab il-playlists li diġà għandek
+• Ordna kull album skont in-numru tal-kanzunetta, l-isem tal-fajl jew it-titlu
+
+Kullimkien tisma'
+• Kontrolli fin-notifika, fuq l-iskrin imblukkat u fuq il-buttuni Bluetooth jew tal-karozza
+• Android Auto: ibrawżja l-librerija tiegħek, il-favoriti u l-kju fil-karozza
+• Widget tal-iskrin ewlieni
+• B'mod fakultattiv, jkompli meta l-headphones tiegħek jerġgħu jikkonnettjaw
+• Equalizer b'presets, tema ċara u skura, 47 lingwa
+
+Formati: MP3, M4A, M4B (AAC mhux enkriptjat), FLAC, WAV, OGG u Opus.
+
+Privatezza minn disinn
+Retro Player m'għandux permess tal-Internet, għalhekk xejn ma joħroġ minn fuq it-telefon tiegħek: ebda reklami, analitiċi, traċċar jew kontijiet. M'għandux bżonn permess ta' ħażna wkoll. Jaqra biss il-folderi li tagħżel u qatt ma jibdel il-fajls tiegħek; l-uniku fajls li jikteb huma l-playlists li tissejvja.
+
+Softwer b'xejn u b'sors miftuħ (GPL-3.0-jew-aktar-ġdid). Gwida għall-utent u kodiċi sors: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export the Retro Player PNG master and the 512 px store icon from the SVG master."""
+"""Export the Retro Player PNG master from the SVG master (store images: make_store_images.py)."""
 
 from __future__ import annotations
 
@@ -11,7 +11,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SVG = ROOT / "assets" / "icon" / "app_icon.svg"
 PNG_MASTER = ROOT / "assets" / "icon" / "app_icon.png"
-STORE_ICON = ROOT / "fastlane" / "metadata" / "android" / "en-US" / "images" / "icon.png"
 
 
 def _find_exporter() -> list[str]:
@@ -47,10 +46,8 @@ def main() -> None:
         sys.exit(1)
 
     export_png(exporter, 1024, PNG_MASTER)
-    export_png(exporter, 512, STORE_ICON)
     print(f"Source: {SVG}")
     print(f"Wrote {PNG_MASTER}")
-    print(f"Wrote {STORE_ICON}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1 @@
+First release: folder library with favorites and A–Z bar, resume and speed per album or book, M4B chapters, queue and M3U playlists, Android Auto, home-screen widget, headphone options, equalizer and 47 languages.

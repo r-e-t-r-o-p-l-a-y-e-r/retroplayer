@@ -1,1 +1,0 @@
-Prvá verejná verzia: miestna knižnica, prehrávanie bez prestávok, nastavenie rýchlosti a obnovenie prehrávania audiokníh, ekvalizér a viac ako 40 jazykov rozhrania.

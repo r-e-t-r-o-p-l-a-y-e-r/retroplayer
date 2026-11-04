@@ -1,1 +1,0 @@
-First public release: local library, gapless playback, audiobook speed and resume, equalizer, and 40+ interface languages.

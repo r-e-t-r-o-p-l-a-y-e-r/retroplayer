@@ -1,10 +1,8 @@
 # Machine translation (DeepL / Google Cloud / Azure)
 
-The store listings are machine-translated from English with
-`python3 scripts/mt_store_listings.py` (`pip install requests`; MyMemory and
-scraper paths also need `deep-translator`). The backends, rate limits and
-locale code mapping live in `scripts/mt_l10n_arbs.py`, which the listing script
-imports.
+Two scripts translate from English (`pip install requests`). The backends, rate
+limits and API locale codes live in `scripts/mt_l10n_arbs.py`, which both
+import.
 
 In-app strings: after adding an English value to
 `app/src/main/res/values/strings_arb.xml`, run
@@ -12,6 +10,10 @@ In-app strings: after adding an English value to
 every `values-*/strings_arb.xml` (`--locale`, `--key ... --force` to redo one
 string, `--dry-run` to list). `TranslationsTest` fails while a locale misses a
 key.
+
+Store listing: `python3 scripts/mt_store_listings.py` translates
+`fastlane/metadata/android/en-US/` into every locale folder (see
+[STORE_LOCALES.md](STORE_LOCALES.md)).
 
 ## Credentials (`.env`)
 
@@ -21,24 +23,27 @@ in the environment win.
 
 | Variable | Backend |
 |----------|---------|
-| `DEEPL_AUTH_KEY` | DeepL (preferred when `--backend deepl`) |
+| `DEEPL_AUTH_KEY` | DeepL (preferred) |
 | `GOOGLE_CLOUD_TRANSLATE_API_KEY` | Google Cloud Translation API v2 |
 | `AZURE_TRANSLATOR_KEY` + `AZURE_TRANSLATOR_REGION` | Azure AI Translator |
-| `MYMEMORY_EMAIL` | MyMemory (free, slow) |
 
-With `--backend deepl`, each locale uses **DeepL when supported**, then
-**Google Cloud**, then **Azure** (`pick_mt_backend`). Add Google or Azure keys
-to `.env` so locales DeepL does not cover are not skipped.
+Each locale uses **DeepL when supported**, then **Google Cloud**, then
+**Azure** (`pick_mt_backend`). Add Google or Azure keys to `.env` so locales
+DeepL does not cover are not skipped.
 
-## Runbook (store listings)
+## Runbook (store listing)
 
 From the repo root:
 
 ```bash
-python3 scripts/mt_store_listings.py --write-en                     # English files from source.en.json
-python3 scripts/mt_store_listings.py --backend auto                 # all locales
-python3 scripts/mt_store_listings.py --backend deepl --locale de --locale sl
+python3 scripts/mt_store_listings.py                              # all locales, all fields
+python3 scripts/mt_store_listings.py --locale de --locale sl      # app locale codes
+python3 scripts/mt_store_listings.py --field changelog            # newest changelog only
+python3 scripts/mt_store_listings.py --check                      # length limits only
 ```
+
+A run overwrites hand-made fixes in the locales and fields it translates;
+redo them afterwards (German is written in the "du" form like the app).
 
 ## Google Cloud Translation
 
@@ -57,7 +62,7 @@ Pricing: the first **500,000 characters/month** are free for standard NMT
 
 DeepL's language list changes over time; the script queries live targets at
 run time. When a locale is not on DeepL, **Google Cloud or Azure** in `.env` is
-used automatically with `--backend deepl`.
+used automatically.
 
 ## Azure AI Translator
 
@@ -71,12 +76,3 @@ Optional: `AZURE_TRANSLATOR_ENDPOINT=https://api.cognitive.microsofttranslator.c
 App codes map to API targets where needed (e.g. `zh` → `zh-CN` / `zh-Hans`,
 `nb` → `no` / `nb`, `sr` → `sr-Latn`). See `GOOGLE_CLOUD_TARGET`,
 `AZURE_TARGET` and `DEEPL_TARGET` in `scripts/mt_l10n_arbs.py`.
-
-## MyMemory (slow, free)
-
-```bash
-# MYMEMORY_EMAIL=you@example.com in .env
-python3 scripts/mt_store_listings.py --backend mymemory
-```
-
-Daily character cap (~50k with email). Not suitable for all locales in one day.
