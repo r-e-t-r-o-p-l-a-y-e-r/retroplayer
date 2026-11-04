@@ -7,7 +7,6 @@
     <string name="about_subtitle">Awdjo lokali biss. L-ebda reklami, l-ebda telemetrija, l-ebda aċċess tan-netwerk.\nFormati appoġġjati: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Verżjoni</string>
     <string name="about_build_date">Ħin tal-bini</string>
-    <string name="about_git_branch">Fergħa</string>
     <string name="about_git_commit">Bini</string>
     <string name="equalizer">Ekwalizzatur</string>
     <string name="equalizer_unavailable">L-Equalizer mhuwiex disponibbli fuq din il-pjattaforma.</string>

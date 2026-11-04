@@ -7,7 +7,6 @@
     <string name="about_subtitle">Тільки локальні аудіофайли. Без реклами, без телеметрії, без доступу до мережі.\nПідтримувані формати: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Версія</string>
     <string name="about_build_date">Час компіляції</string>
-    <string name="about_git_branch">Гілка</string>
     <string name="about_git_commit">Збірка</string>
     <string name="equalizer">Еквалайзер</string>
     <string name="equalizer_unavailable">На цій платформі функція еквалайзера недоступна.</string>

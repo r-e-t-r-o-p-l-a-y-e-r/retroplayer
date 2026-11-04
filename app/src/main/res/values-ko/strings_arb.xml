@@ -7,7 +7,6 @@
     <string name="about_subtitle">로컬 오디오만 지원합니다. 광고, 데이터 수집, 네트워크 접근은 일절 없습니다.\n 지원되는 형식: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">개정판 번호</string>
     <string name="about_build_date">제작 시간</string>
-    <string name="about_git_branch">브랜치</string>
     <string name="about_git_commit">빌드</string>
     <string name="equalizer">이퀄라이저</string>
     <string name="equalizer_unavailable">이 플랫폼에서는 이퀄라이저를 사용할 수 없습니다.</string>

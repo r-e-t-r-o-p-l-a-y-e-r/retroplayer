@@ -7,7 +7,6 @@
     <string name="about_subtitle">صرف مقامی آڈیو۔ کوئی اشتہارات نہیں، کوئی ٹیلی میٹری نہیں، کوئی نیٹ ورک تک رسائی نہیں۔\nمدد شدہ فارمیٹس: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">نسخہ</string>
     <string name="about_build_date">تعمیر کا وقت</string>
-    <string name="about_git_branch">برانچ</string>
     <string name="about_git_commit">بلڈ</string>
     <string name="equalizer">برابر کرنے والا</string>
     <string name="equalizer_unavailable">اس پلیٹ فارم پر ایکیولائزر دستیاب نہیں ہے۔</string>

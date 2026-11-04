@@ -7,7 +7,6 @@
     <string name="about_subtitle">Audio lokale vetëm. Pa reklama, pa telemetri, pa akses në rrjet.\nFormate të mbështetura: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Versioni</string>
     <string name="about_build_date">Koha e ndërtimit</string>
-    <string name="about_git_branch">Degë</string>
     <string name="about_git_commit">Ndërtim</string>
     <string name="equalizer">Equalizues</string>
     <string name="equalizer_unavailable">Equalizer nuk është i disponueshëm në këtë platformë.</string>

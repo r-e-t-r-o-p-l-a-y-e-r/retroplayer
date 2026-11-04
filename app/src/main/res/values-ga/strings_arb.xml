@@ -7,7 +7,6 @@
     <string name="about_subtitle">Fuaim áitiúil amháin. Gan fógraí, gan teileiméadracht, gan rochtain líonra.\nFormáidí tacaíochta: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Leagan</string>
     <string name="about_build_date">Am tógála</string>
-    <string name="about_git_branch">Brainse</string>
     <string name="about_git_commit">Tógáil</string>
     <string name="equalizer">Comhionannán</string>
     <string name="equalizer_unavailable">Níl an t-ionannaitheoir ar fáil ar an ardán seo.</string>

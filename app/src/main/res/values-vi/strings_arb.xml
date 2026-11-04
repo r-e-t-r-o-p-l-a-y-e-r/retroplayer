@@ -7,7 +7,6 @@
     <string name="about_subtitle">Chỉ phát âm thanh cục bộ. Không quảng cáo, không thu thập dữ liệu, không truy cập mạng.\n Các định dạng được hỗ trợ: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Phiên bản</string>
     <string name="about_build_date">xây dựng theo thời gian</string>
-    <string name="about_git_branch">Chi nhánh</string>
     <string name="about_git_commit">Bản dựng</string>
     <string name="equalizer">Bộ chỉnh âm</string>
     <string name="equalizer_unavailable">Tính năng Equalizer hiện không có trên nền tảng này.</string>

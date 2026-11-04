@@ -7,7 +7,6 @@
     <string name="about_subtitle">Kizárólag helyi hangfájlok. Nincs reklám, nincs telemetria, nincs hálózati hozzáférés.\nTámogatott formátumok: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Verzió</string>
     <string name="about_build_date">Készítési idő</string>
-    <string name="about_git_branch">Ág</string>
     <string name="about_git_commit">Összeállítás</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">Az Equalizer ezen a platformon nem érhető el.</string>

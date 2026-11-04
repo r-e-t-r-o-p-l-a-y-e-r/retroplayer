@@ -7,7 +7,6 @@
     <string name="about_subtitle">Samo lokalni zvuk. Bez oglasa, bez telemetrije, bez pristupa mreži.\nPodržani formati: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Verzija</string>
     <string name="about_build_date">Vrijeme izgradnje</string>
-    <string name="about_git_branch">Ogranak</string>
     <string name="about_git_commit">Izrada</string>
     <string name="equalizer">Equalizator</string>
     <string name="equalizer_unavailable">Equalizer nije dostupan na ovoj platformi.</string>

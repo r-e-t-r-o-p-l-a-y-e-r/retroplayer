@@ -7,7 +7,6 @@
     <string name="about_subtitle">Aðeins staðbundinn hljómur. Engin auglýsingar, engin fjarkönnun, enginn netaðgangur.\nStuðaðar sniður: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Útgáfa</string>
     <string name="about_build_date">Uppbyggingartími</string>
-    <string name="about_git_branch">Deild</string>
     <string name="about_git_commit">Uppbygging</string>
     <string name="equalizer">Jafngildari</string>
     <string name="equalizer_unavailable">Jafnari er ekki í boði á þessum vettvangi.</string>

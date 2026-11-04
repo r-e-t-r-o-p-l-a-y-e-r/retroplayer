@@ -7,7 +7,6 @@
     <string name="about_subtitle">Hanya audio lokal. Tanpa iklan, tanpa telemetri, tanpa akses jaringan.\nFormat yang didukung: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Versi</string>
     <string name="about_build_date">Waktu pembuatan</string>
-    <string name="about_git_branch">Cabang</string>
     <string name="about_git_commit">Build</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">Fitur Equalizer tidak tersedia di platform ini.</string>

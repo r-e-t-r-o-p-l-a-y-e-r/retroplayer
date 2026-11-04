@@ -7,7 +7,6 @@
     <string name="about_subtitle">אודיו מקומי בלבד. ללא פרסומות, ללא טלמטריה, ללא גישה לרשת.\nפורמטים נתמכים: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">גרסה</string>
     <string name="about_build_date">זמן בנייה</string>
-    <string name="about_git_branch">ענף</string>
     <string name="about_git_commit">בנייה</string>
     <string name="equalizer">אקולייזר</string>
     <string name="equalizer_unavailable">ה-Equalizer אינו זמין בפלטפורמה זו.</string>

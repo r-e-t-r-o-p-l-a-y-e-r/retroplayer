@@ -7,7 +7,6 @@
     <string name="about_subtitle">Sadece yerel ses. Reklam yok, telemetri yok, ağ erişimi yok.\n Desteklenen formatlar: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Sürüm</string>
     <string name="about_build_date">Yapım süresi</string>
-    <string name="about_git_branch">Dal</string>
     <string name="about_git_commit">Derleme</string>
     <string name="equalizer">Ekolayzer</string>
     <string name="equalizer_unavailable">Equalizer bu platformda mevcut değil.</string>

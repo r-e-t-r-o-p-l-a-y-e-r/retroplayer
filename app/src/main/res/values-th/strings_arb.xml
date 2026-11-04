@@ -7,7 +7,6 @@
     <string name="about_subtitle">เล่นเสียงในเครื่องเท่านั้น ไม่มีโฆษณา ไม่มีข้อมูลติดตามการใช้งาน และไม่มีการเข้าถึงเครือข่าย\nรูปแบบไฟล์ที่รองรับ: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">เวอร์ชัน</string>
     <string name="about_build_date">เวลาการสร้าง</string>
-    <string name="about_git_branch">Branch</string>
     <string name="about_git_commit">Build</string>
     <string name="equalizer">อีควอไลเซอร์</string>
     <string name="equalizer_unavailable">Equalizer ไม่มีให้บริการบนแพลตฟอร์มนี้</string>

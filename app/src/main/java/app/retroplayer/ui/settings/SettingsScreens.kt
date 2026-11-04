@@ -259,11 +259,11 @@ private fun LanguageItem(label: String, selected: Boolean, onClick: () -> Unit) 
 
 private val FIELD_SHAPE = RoundedCornerShape(50)
 
-internal data class BuildInfo(val version: String, val buildTime: String, val branch: String, val commit: String)
+internal data class BuildInfo(val version: String, val buildTime: String, val commit: String)
 
 /** Screenshot tests pin this; the real values change with every build. */
 internal val LocalBuildInfo = staticCompositionLocalOf {
-    BuildInfo(BuildConfig.VERSION_NAME, buildTimeLabel(BuildConfig.BUILD_TIME), BuildConfig.GIT_BRANCH, BuildConfig.GIT_COMMIT)
+    BuildInfo(BuildConfig.VERSION_NAME, buildTimeLabel(BuildConfig.BUILD_TIME), BuildConfig.GIT_COMMIT)
 }
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -278,7 +278,6 @@ private fun AboutSection() {
         listOf(
             R.string.about_version to build.version,
             R.string.about_build_date to build.buildTime,
-            R.string.about_git_branch to build.branch,
             R.string.about_git_commit to build.commit,
         ).forEach { (label, value) ->
             FlowRow(Modifier.fillMaxWidth().padding(vertical = 2.dp)) {

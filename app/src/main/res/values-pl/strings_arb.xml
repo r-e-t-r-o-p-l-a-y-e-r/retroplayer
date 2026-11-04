@@ -7,7 +7,6 @@
     <string name="about_subtitle">Tylko lokalne pliki audio. Bez reklam, bez danych telemetrycznych, bez dostępu do sieci.\nObsługiwane formaty: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Wersja</string>
     <string name="about_build_date">Czas kompilacji</string>
-    <string name="about_git_branch">Gałąź</string>
     <string name="about_git_commit">Kompilacja</string>
     <string name="equalizer">Korektor</string>
     <string name="equalizer_unavailable">Na tej platformie funkcja korektora dźwięku nie jest dostępna.</string>

@@ -7,7 +7,6 @@
     <string name="about_subtitle">Ainult kohalik heli. Ei mingeid reklaame, telemeetriat ega juurdepääsu võrgule.\nToetatud vormingud: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Versioon</string>
     <string name="about_build_date">Ehitusaeg</string>
-    <string name="about_git_branch">Haru</string>
     <string name="about_git_commit">Koostamine</string>
     <string name="equalizer">Ekvalaiser</string>
     <string name="equalizer_unavailable">Ekvalaiser pole sellel platvormil saadaval.</string>

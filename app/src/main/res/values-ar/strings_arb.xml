@@ -7,7 +7,6 @@
     <string name="about_subtitle">الصوت المحلي فقط. لا إعلانات، لا قياس عن بعد، لا وصول إلى الشبكة.\nالتنسيقات المدعومة: MP3 و M4A و M4B و FLAC و WAV</string>
     <string name="about_version">الإصدار</string>
     <string name="about_build_date">وقت البناء</string>
-    <string name="about_git_branch">فرع</string>
     <string name="about_git_commit">البناء</string>
     <string name="equalizer">المعادل</string>
     <string name="equalizer_unavailable">المعادل غير متوفر على هذه المنصة.</string>

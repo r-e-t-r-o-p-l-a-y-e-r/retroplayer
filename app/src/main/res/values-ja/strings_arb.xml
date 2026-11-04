@@ -7,7 +7,6 @@
     <string name="about_subtitle">ローカル音声のみ。広告なし、テレメトリなし、ネットワークアクセスなし。\n対応フォーマット：MP3、M4A、M4B、FLAC、WAV</string>
     <string name="about_version">バージョン</string>
     <string name="about_build_date">建設時間</string>
-    <string name="about_git_branch">ブランチ</string>
     <string name="about_git_commit">ビルド</string>
     <string name="equalizer">イコライザー</string>
     <string name="equalizer_unavailable">このプラットフォームではイコライザーは利用できません。</string>

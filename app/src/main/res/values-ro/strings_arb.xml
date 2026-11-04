@@ -7,7 +7,6 @@
     <string name="about_subtitle">Doar audio local. Fără reclame, fără telemetrie, fără acces la rețea.\nFormate acceptate: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Versiune</string>
     <string name="about_build_date">Timpul de compilare</string>
-    <string name="about_git_branch">Ramură</string>
     <string name="about_git_commit">Compilare</string>
     <string name="equalizer">Egalizator</string>
     <string name="equalizer_unavailable">Equalizer nu este disponibil pe această platformă.</string>

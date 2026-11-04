@@ -7,7 +7,6 @@
     <string name="about_subtitle">Apenas áudio local. Sem anúncios, sem telemetria, sem acesso à rede.\nFormatos suportados: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Versão</string>
     <string name="about_build_date">Tempo de construção</string>
-    <string name="about_git_branch">Ramo</string>
     <string name="about_git_commit">Compilação</string>
     <string name="equalizer">Equalizador</string>
     <string name="equalizer_unavailable">O equalizador não está disponível nesta plataforma.</string>

@@ -5,7 +5,10 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
+import android.content.Context
+import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.BuildConfig
+import app.retroplayer.R
 import androidx.compose.ui.test.assertIsNotSelected
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasScrollToIndexAction
@@ -125,6 +128,15 @@ class SettingsContentTest {
         compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText("Version"))
         compose.onNodeWithText("Version").assertIsDisplayed()
         compose.onNodeWithText(BuildConfig.VERSION_NAME).assertIsDisplayed()
+    }
+
+    @Test
+    fun `about shows the commit but not the branch, which differs between clones of one tag`() {
+        compose.setContent { RetroTheme { SettingsContent(SettingsUiState(), SettingsActions()) } }
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(context.getString(R.string.about_git_commit)))
+        compose.onNodeWithText(BuildConfig.GIT_COMMIT).assertIsDisplayed()
+        compose.onNodeWithText("Branch").assertDoesNotExist()
     }
 
     @Test

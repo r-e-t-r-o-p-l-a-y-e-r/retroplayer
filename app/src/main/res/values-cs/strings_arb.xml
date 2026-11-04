@@ -7,7 +7,6 @@
     <string name="about_subtitle">Pouze místní zvuk. Žádné reklamy, žádná telemetrie, žádný přístup k síti.\nPodporované formáty: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Verze</string>
     <string name="about_build_date">Doba sestavení</string>
-    <string name="about_git_branch">Větev</string>
     <string name="about_git_commit">Sestavení</string>
     <string name="equalizer">Ekvalizér</string>
     <string name="equalizer_unavailable">Na této platformě není ekvalizér k dispozici.</string>

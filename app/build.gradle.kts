@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -25,13 +27,37 @@ android {
             commandLine("git", *args)
             isIgnoreExitValue = true
         }.standardOutput.asText.get().trim().ifEmpty { "unknown" }
-        val gitBranch = git("rev-parse", "--abbrev-ref", "HEAD")
-        val gitCommit = git("rev-parse", "--short", "HEAD")
-        // Commit time, not the clock: the same commit builds the same APK.
+        // Only values fixed by the commit: F-Droid rebuilds a tag in a detached, possibly shallow
+        // clone and must get the same APK (no branch, clock or describe output; fixed hash length).
+        val gitCommit = git("rev-parse", "--short=12", "HEAD")
         val buildTime = git("log", "-1", "--format=%ct").toLongOrNull() ?: 0L
-        buildConfigField("String", "GIT_BRANCH", "\"$gitBranch\"")
         buildConfigField("String", "GIT_COMMIT", "\"$gitCommit\"")
         buildConfigField("long", "BUILD_TIME", "${buildTime}L")
+    }
+
+    // keystore.properties (local) or RELEASE_* variables (CI). Without them release builds stay
+    // unsigned, which is how F-Droid builds them before it checks and copies our signature.
+    val releaseKey = rootProject.file("keystore.properties").takeIf { it.isFile }
+        ?.let { file -> Properties().apply { file.inputStream().use(::load) } }
+        ?.let { p -> listOf("storeFile", "storePassword", "keyAlias", "keyPassword").map { p.getProperty(it) } }
+        ?: listOf("RELEASE_KEYSTORE", "RELEASE_KEYSTORE_PASSWORD", "RELEASE_KEY_ALIAS", "RELEASE_KEY_PASSWORD")
+            .map { providers.environmentVariable(it).orNull }
+    val releaseSigning = releaseKey.takeIf { values -> values.all { !it.isNullOrBlank() } }?.let { (store, storePass, alias, keyPass) ->
+        signingConfigs.create("release") {
+            storeFile = rootProject.file(store!!)
+            storePassword = storePass
+            keyAlias = alias
+            keyPassword = keyPass
+            enableV1Signing = false
+            enableV2Signing = true
+            enableV3Signing = true
+        }
+    }
+
+    dependenciesInfo {
+        // F-Droid rejects the encrypted dependency blob Google Play reads.
+        includeInApk = false
+        includeInBundle = false
     }
 
     buildTypes {
@@ -47,6 +73,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = releaseSigning
         }
     }
 

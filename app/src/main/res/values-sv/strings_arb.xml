@@ -7,7 +7,6 @@
     <string name="about_subtitle">Endast lokalt ljud. Inga annonser, ingen telemetri, ingen nätverksåtkomst.\nFormat som stöds: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Version</string>
     <string name="about_build_date">Byggtid</string>
-    <string name="about_git_branch">Git-gren</string>
     <string name="about_git_commit">Bygg</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">Equalizer finns inte tillgängligt på den här plattformen.</string>

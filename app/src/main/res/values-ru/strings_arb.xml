@@ -7,7 +7,6 @@
     <string name="about_subtitle">Только локальное аудио. Без рекламы, без телеметрии, без доступа к сети.\nПоддерживаемые форматы: MP3, M4A, M4B, FLAC, WAV</string>
     <string name="about_version">Версия</string>
     <string name="about_build_date">Время сборки</string>
-    <string name="about_git_branch">Ветка</string>
     <string name="about_git_commit">Сборка</string>
     <string name="equalizer">Эквалайзер</string>
     <string name="equalizer_unavailable">Эквалайзер недоступен на этой платформе.</string>
