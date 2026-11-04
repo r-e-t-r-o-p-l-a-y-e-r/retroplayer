@@ -1,24 +1,38 @@
-# Retro Player for Android (native)
+# Retro Player
 
-A native Kotlin and Jetpack Compose version of Retro Player for Android only.
-It has the same app id (`app.retroplayer`), look and behaviour as the Flutter
-app in the repository root, which stays the reference
-([doc/REQUIREMENTS.md](../doc/REQUIREMENTS.md), use cases UC-01 to UC-18).
-Where the native app behaves differently, the requirements say so in
-"Android native" notes.
+Local audio player for Android, for music and audiobooks. Native Kotlin and
+Jetpack Compose; app id `app.retroplayer`. Your files stay on your device: the
+app has no network access, no ads and no tracking.
 
-On top of the Flutter features it has Android Auto browsing, a home-screen
-widget, M4B chapters (player, seek bar, notification), headphone options and
-a sort order per album.
+[![Liberapay](https://img.shields.io/liberapay/receives/retroplayer.svg?logo=liberapay)](https://liberapay.com/retroplayer)
 
-Working on this code with an agent? Read [AGENTS.md](AGENTS.md) first;
-[PLAN.md](PLAN.md) has the task history.
+## Features
+
+- Plays local audio from folders you pick with the system folder picker
+- Folders become albums and audiobooks (chapters in one folder are one book);
+  tag albums with disc numbers
+- Resume position per album or book, playback speed, ±15 s skip
+- M4B and M4A chapters in the player, the seek bar and the notification
+- Queue and M3U playlists; the app only writes playlists it created
+- Favorites, A–Z index, sort order per album
+- Background playback with system media controls, Android Auto browsing,
+  home-screen widget
+- Headphone options (pause on disconnect, resume on reconnect)
+- Equalizer presets and bands; light and dark theme; 47 languages
+
+Formats: MP3, M4A, M4B, FLAC, WAV, OGG and Opus.
+
+User guide: [doc/USAGE.md](doc/USAGE.md). Requirements and use cases:
+[doc/REQUIREMENTS.md](doc/REQUIREMENTS.md).
 
 ## Privacy and storage
 
+See also [PRIVACY.md](PRIVACY.md).
+
 - No network: the release manifest has no `INTERNET` or
   `ACCESS_NETWORK_STATE`; `./gradlew check` fails if one comes back
-  (`verifyReleasePrivacy`). No Google Play services, Firebase or analytics.
+  (`verifyReleasePrivacy`). No Google Play services, Firebase, analytics or
+  crash reporting.
 - Folders are opened only through the system folder picker (Storage Access
   Framework); the app asks for no storage or media permission.
 - Your folders and files are read-only. The only files the app writes are
@@ -33,26 +47,25 @@ Working on this code with an agent? Read [AGENTS.md](AGENTS.md) first;
 
 ## Build and run
 
-Requirements: JDK 17 and the Android SDK (`ANDROID_HOME`). No Android Studio
-needed; everything runs through Gradle from this folder.
+Requirements: JDK 17 and the Android SDK (`ANDROID_HOME` or `sdk.dir` in
+`local.properties`). No Android Studio needed; everything runs through Gradle.
 
 ```bash
-cd android-native
 ./gradlew :app:assembleDebug          # app/build/outputs/apk/debug/app-debug.apk
 scripts/install-test-build.sh         # build and install on a device (-d SERIAL)
 ./gradlew assembleRelease             # release APK
 ```
 
 Debug builds use the app id `app.retroplayer.debug` and the name "Retro Player
-test", so they install next to the Flutter app or a release build, with their
-own data.
+test", so they install next to a release build, with their own data.
 
-Translated strings come from the Flutter ARB files
-(`lib/l10n/app_*.arb`). After changing them, regenerate the Android resources:
+Translations live in `app/src/main/res/values*/strings_arb.xml` (one file per
+locale, same keys as `values/strings_arb.xml`). Android-only English strings are
+in `values/strings.xml`.
 
-```bash
-python3 ../scripts/arb_to_android.py           # --check in CI
-```
+Working on this code with an agent? Read [AGENTS.md](AGENTS.md) first;
+[doc/IMPLEMENTATION_PLAN.md](doc/IMPLEMENTATION_PLAN.md) has the task history.
+Releases: [doc/RELEASE.md](doc/RELEASE.md).
 
 ## Tests
 
@@ -75,8 +88,7 @@ pseudo-locale and at font scale 2. The recorded images live in
 `app/src/test/screenshots/`. When a UI change is intended, record again and
 commit the new images with the change. Robolectric draws all font weights the
 same and leaves out some outlines, so compare layout and colours, not text
-weight, with the user guide images in
-[doc/images/tutorial/](../doc/images/tutorial/).
+weight, with the user guide images in [doc/images/tutorial/](doc/images/tutorial/).
 
 ### Device tests
 
@@ -119,9 +131,8 @@ The first run downloads the system images.
 
 ## CI
 
-`.github/workflows/android-native.yml` runs `check assembleRelease`, the ARB
-sync check and `verifyRoborazziDebug`, then the `phones` group on a runner with
-KVM enabled.
+`.github/workflows/android.yml` runs `check assembleRelease` and
+`verifyRoborazziDebug`, then the `phones` group on a runner with KVM enabled.
 
 ## Modules
 
@@ -133,3 +144,13 @@ KVM enabled.
 | `:app` | application | Compose UI, view models, Hilt modules, widget, media controller connection |
 
 Details, conventions and pitfalls: [AGENTS.md](AGENTS.md).
+
+## Support
+
+Retro Player is free software without ads or in-app purchases. If you want to
+support development: [liberapay.com/retroplayer](https://liberapay.com/retroplayer).
+
+## License
+
+**GPL-3.0-or-later**, see [LICENSE](LICENSE). Dependency licenses are listed in
+Settings → Open source licenses.

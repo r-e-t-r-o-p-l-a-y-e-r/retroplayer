@@ -1,8 +1,7 @@
 # Tutorial screenshots
 
 PNG files referenced from [`doc/USAGE.md`](../../USAGE.md), captured from the
-native Android app ([`android-native/`](../../../android-native/README.md)) on
-an emulator in light mode, with the system bars cropped off:
+app on an emulator in light mode, with the system bars cropped off:
 
 | File | Scene |
 |------|--------|
@@ -25,15 +24,11 @@ an emulator in light mode, with the system bars cropped off:
    ```
 
 2. `adb shell cmd uimode night no`, install a fresh build
-   (`android-native/scripts/install-test-build.sh`), add `Music/RetroPlayerSamples`
+   (`scripts/install-test-build.sh`), add `Music/RetroPlayerSamples`
    through **Add folder**.
-3. Take each screen with `android-native/scripts/ui.sh shot <file>` and crop the
+3. Take each screen with `scripts/ui.sh shot <file>` and crop the
    status and navigation bars (on a 1080 × 2400 emulator: rows 128 to 2337).
    For 02 and 03, play Demo Album, pause, and press previous so the time shows
    00:00.
 
-The Flutter app has its own capture scripts
-([`scripts/capture-tutorial-screenshots-adb.sh`](../../../scripts/capture-tutorial-screenshots-adb.sh),
-[`scripts/capture-tutorial-screenshots.sh`](../../../scripts/capture-tutorial-screenshots.sh));
-both apps look the same on these screens. Commit PNGs after review for stable
-GitHub rendering in USAGE.md.
+Commit PNGs after review for stable GitHub rendering in USAGE.md.

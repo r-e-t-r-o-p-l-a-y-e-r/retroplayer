@@ -1,6 +1,6 @@
 # Store listing copy
 
-Localized text for **Google Play**, **F-Droid**, and **Aptoide**. Not used at runtime — separate from [`lib/l10n/`](../lib/l10n/).
+Localized text for **Google Play**, **F-Droid** and **Accrescent**. Not used at runtime; the in-app strings live in `app/src/main/res/values*/strings_arb.xml`.
 
 - **English source of truth:** [`source.en.json`](source.en.json) → refresh with `python3 scripts/mt_store_listings.py --write-en`
 - **English (required):** [`en/`](en/)

@@ -1,16 +1,18 @@
 # Agent guide: native Android Retro Player
 
-Read this file completely before changing anything under `android-native/`.
-Then open [PLAN.md](PLAN.md), take the first task whose status is `todo` and
-whose dependencies are `done`, and follow its steps in order.
+Read this file completely before changing anything in this repository.
+[doc/IMPLEMENTATION_PLAN.md](doc/IMPLEMENTATION_PLAN.md) holds the task
+history (T01 to T22); when it has a task whose status is `todo` and whose
+dependencies are `done`, take the first one and follow its steps in order.
 
 ## What this is
 
-A native Kotlin/Compose rewrite of the Flutter Retro Player for Android only
-(app id `app.retroplayer`). The Flutter app in the repo root (`lib/`, `test/`)
-is the behaviour spec, together with [doc/REQUIREMENTS.md](../doc/REQUIREMENTS.md)
-(use cases UC-01 to UC-18). When a task says "as in Flutter", read the named
-Flutter file and copy its behaviour, not its structure.
+Retro Player, a native Kotlin/Compose audio player for Android only (app id
+`app.retroplayer`). The behaviour spec is
+[doc/REQUIREMENTS.md](doc/REQUIREMENTS.md) (use cases UC-01 to UC-18) plus the
+existing tests. It started as a rewrite of a Flutter app that has since been
+removed; older tasks that say "as in Flutter" refer to the git history before
+the commit "repo: native Android app only".
 
 Hard rules (never break these):
 
@@ -28,7 +30,8 @@ Hard rules (never break these):
 - Store only non-default settings: writing a value equal to its default removes
   the key or row (see `SettingsStore.put`). Every new setting needs a test
   "set to default leaves no entry".
-- No new translations. Translated strings come from the Flutter ARB files.
+- Every new translated string gets a value in every `values-*/strings_arb.xml`
+  in the same commit (see "Strings").
 - No Android Studio. Everything runs through `./gradlew`.
 - Do not add a dependency that is not already in `gradle/libs.versions.toml`
   unless the task explicitly names it.
@@ -56,7 +59,7 @@ Where new code goes:
 
 ## Commands
 
-Run from `android-native/`.
+Run from the repository root.
 
 | Purpose | Command |
 | --- | --- |
@@ -67,8 +70,6 @@ Run from `android-native/`.
 | everything (tests, lint, privacy) | `./gradlew check` |
 | release build check | `./gradlew check assembleRelease` |
 | debug APK | `./gradlew :app:assembleDebug` (output `app/build/outputs/apk/debug/app-debug.apk`) |
-| ARB to strings | `python3 ../scripts/arb_to_android.py` (`--check` in CI) |
-
 Agent sandbox notes (Cursor):
 
 - Robolectric tests (`:data`, `:playback`, `:app`) fail inside the sandbox with
@@ -82,7 +83,7 @@ Agent sandbox notes (Cursor):
 ## TDD loop (mandatory, every behaviour)
 
 1. Write ONE test for the next behaviour from the task's test list. Use the
-   exact test name given in PLAN.md.
+   exact test name given in the task.
 2. Run only that test. It must fail on an assertion (red). A compile error
    counts as red only for a brand-new class or function; add an empty stub,
    rerun, and see the assertion fail before implementing.
@@ -96,7 +97,7 @@ Agent sandbox notes (Cursor):
 Never weaken or delete an existing test to get green. If an existing test
 breaks, your change is wrong or the test documents a rule you must keep.
 If you are stuck on the same failure three times, stop, write what you tried
-into the task's "Notes" in PLAN.md, set the task to `blocked`, and move on to
+into the task's "Notes" in doc/IMPLEMENTATION_PLAN.md, set the task to `blocked`, and move on to
 the next independent task.
 
 ## Test recipes (copy these, do not invent new harnesses)
@@ -145,14 +146,16 @@ and are available to other modules via `testImplementation(testFixtures(project(
 
 ## Strings
 
-- `app/src/main/res/values*/strings_arb.xml` are GENERATED from
-  `lib/l10n/app_*.arb`. Never edit them by hand. Names are the ARB keys in
-  snake_case (`playPlaylist` becomes `play_playlist`). ICU plurals become
-  `name_eq0`, `name_eq1`, `name_other`; pick the variant in Kotlin
+- `app/src/main/res/values*/strings_arb.xml` are the translations, one file
+  per locale with the same keys as `values/strings_arb.xml` (English). Names
+  are snake_case. Plurals are separate keys `name_eq0`, `name_eq1`,
+  `name_other`; pick the variant in Kotlin
   (`when (n) { 1 -> R.string.x_eq1; else -> R.string.x_other }`).
-- Native-only strings go to `app/src/main/res/values/strings.xml` (English
-  only, file has `tools:ignore="MissingTranslation"`). Before adding one,
-  search `strings_arb.xml` for an existing string that fits.
+- A new user-visible string goes into every `strings_arb.xml` (English plus a
+  translation per locale). Before adding one, search `values/strings_arb.xml`
+  for an existing string that fits.
+- `app/src/main/res/values/strings.xml` holds older English-only strings
+  (`tools:ignore="MissingTranslation"`); do not add new ones there.
 - Never put English literals in composables, except test tags and
   `contentDescription = null` for decorative icons.
 
@@ -174,14 +177,12 @@ and are available to other modules via `testImplementation(testFixtures(project(
 
 ## Look and feel (must match the user guide)
 
-Reference screenshots: [doc/images/tutorial/](../doc/images/tutorial/)
+Reference screenshots: [doc/images/tutorial/](doc/images/tutorial/)
 (`01-library`, `02-mini-player`, `03-expanded-player`, `04-album-detail`,
-`05-playlist`, `06-settings`; captured from this app after the T20 comparison
-with the Flutter versions, see git history before T21 for those). Flutter sources of truth:
-`lib/ui/core/theme.dart`, `lib/ui/core/retro/*`, `lib/ui/core/widgets/retro_list_tile.dart`.
-Every UI task ends with a side-by-side check against the matching screenshot
-in light mode AND a dark-mode screenshot (`adb shell cmd uimode night yes`,
-back with `night no`). Differences are bugs unless PLAN.md says otherwise.
+`05-playlist`, `06-settings`; captured from this app). Every UI task ends with
+a side-by-side check against the matching screenshot in light mode AND a
+dark-mode screenshot (`adb shell cmd uimode night yes`, back with `night no`).
+Differences are bugs unless the task says otherwise.
 
 Tokens (already in `RetroPalette` / `RetroTheme`; never hard-code):
 
@@ -202,7 +203,7 @@ centered; section header = `titleSmall` 12 sp w600 letter-spacing 0.8
 `textMuted`; row title w500 (w600 + accent when playing); row subtitle 13 sp
 `textMuted`; track title in the player 20 sp w600; times 12 sp (11 sp
 compact) in the default font with tabular figures (`fontFeatureSettings =
-"tnum"`; Flutter's `monospace` falls back to Roboto on Android). Durations
+"tnum"`). Durations
 are `mm:ss` / `hh:mm:ss` (`formatDuration`).
 
 Shared components (`ui/components/`), use them instead of raw Material ones:
@@ -288,7 +289,7 @@ body lists the tests added.
 2. `scripts/device-smoke.sh` on a booted emulator or device (see below).
 
 If either fails, fix the issue and re-run both before committing. Update the
-task status in PLAN.md in the same commit.
+task status in doc/IMPLEMENTATION_PLAN.md in the same commit.
 
 ## After each completed PLAN todo
 
@@ -303,8 +304,8 @@ run smoke when the task’s “Done when” mentions smoke or when UI/playback c
 
 `scripts/install-test-build.sh` (`-d SERIAL`, `--no-launch`) builds the debug
 APK and installs it. Debug builds use the app id `app.retroplayer.debug`
-and the label "Retro Player test", so they sit next to the Flutter app
-(same id `app.retroplayer`) and a release build with separate data.
+and the label "Retro Player test", so they sit next to a release build
+(`app.retroplayer`) with separate data.
 `scripts/device-smoke.sh` defaults to the emulator, so the device tests never
 clear data on an attached phone.
 
@@ -319,7 +320,6 @@ $ANDROID_HOME/emulator/emulator -avd routePlannerApi34 -no-window -no-audio \
   -no-boot-anim -no-snapshot-save -gpu host &
 adb shell getprop sys.boot_completed   # wait until it prints 1
 
-cd android-native
 scripts/device-smoke.sh                # fixtures if missing, then all tests
 scripts/device-smoke.sh <testMethod>   # one test while debugging
 ```

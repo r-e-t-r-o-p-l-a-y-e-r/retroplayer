@@ -1,7 +1,13 @@
 # Native Android Retro Player: work plan
 
-Read [AGENTS.md](AGENTS.md) first. It has the commands, test recipes,
+Read [AGENTS.md](../AGENTS.md) first. It has the commands, test recipes,
 conventions and pitfalls this plan relies on.
+
+This plan was written while the app lived in `android-native/` next to the
+Flutter app. Since the commit "repo: native Android app only" the app is at the
+repository root and the Flutter app is gone: read `android-native/X` as `X`,
+and Flutter references (`lib/...`, ARB files, `arb_to_android.py`) as pointers
+into the git history before that commit.
 
 ## How to use this plan
 
