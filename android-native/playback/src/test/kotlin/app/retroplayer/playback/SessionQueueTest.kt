@@ -40,6 +40,16 @@ class SessionQueueTest {
     }
 
     @Test
+    fun `untagged tracks in a library root show the root's name as album`() = runTest {
+        val loose = PlaybackItem.Single(AudioTrack(LibraryPath("1/loose.wav"), "doc:root/loose.wav"))
+        val named = SessionQueue({ loose }, { null }, { null }, {}, { null }, rootNames = { mapOf("1" to "Samples") })
+
+        val prepared = named.prepare(PlaybackRequest(loose.id, null))!!
+        assertThat(prepared.mediaItems.single().mediaMetadata.albumTitle.toString()).isEqualTo("Samples")
+        assertThat(named.expand(listOf(loose.id)).single().mediaMetadata.albumTitle.toString()).isEqualTo("Samples")
+    }
+
+    @Test
     fun `unknown and empty items are not prepared and do not replace the last item`() = runTest {
         lastItem = "before"
         assertThat(queue.prepare(PlaybackRequest("folder:1/Nope", null))).isNull()

@@ -4,6 +4,7 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
+import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.PlaybackResume
 import app.retroplayer.domain.model.AudioTrack
 import app.retroplayer.domain.model.PlaybackItem
@@ -92,6 +93,7 @@ object QueueBuilder {
         item: PlaybackItem,
         saved: SavedPlaybackState?,
         startTrackId: String?,
+        folderName: (LibraryPath) -> String = { it.name },
         artwork: (AudioTrack) -> Uri?,
     ): PreparedQueue? {
         val tracks = item.tracks
@@ -105,21 +107,22 @@ object QueueBuilder {
         }
         return PreparedQueue(
             itemId = item.id,
-            mediaItems = tracks.map { it.toMediaItem(item.id, artwork(it)) },
+            mediaItems = tracks.map { it.toMediaItem(item.id, artwork(it), folderName(it.directory)) },
             startIndex = index,
             startPositionMs = position,
             speed = saved?.speed ?: item.defaultSpeed,
         )
     }
 
-    fun AudioTrack.toMediaItem(itemId: String, artworkUri: Uri?): MediaItem = MediaItem.Builder()
+    /** [folderTitle] is the album title for untagged tracks; a library root needs its picked folder's name. */
+    fun AudioTrack.toMediaItem(itemId: String, artworkUri: Uri?, folderTitle: String = directory.name): MediaItem = MediaItem.Builder()
         .setMediaId(id)
         .setUri(uri)
         .setMediaMetadata(
             MediaMetadata.Builder()
                 .setTitle(displayTitle)
                 .setArtist(displayArtist)
-                .setAlbumTitle(albumTag ?: directory.name)
+                .setAlbumTitle(albumTag ?: folderTitle)
                 .setAlbumArtist(metadata.albumArtist)
                 .setTrackNumber(displayTrackNumber)
                 .setDiscNumber(displayDiscNumber)

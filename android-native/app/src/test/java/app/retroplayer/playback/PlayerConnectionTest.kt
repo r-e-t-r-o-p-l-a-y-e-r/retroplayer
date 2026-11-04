@@ -110,6 +110,19 @@ class PlayerConnectionTest {
     }
 
     @Test
+    fun `toggle after the queue ended plays the last track again`() {
+        val connection = connected("a", "b")
+        exo.seekTo(1, minuteUs / 1_000 - 10)
+        exo.play()
+        advance(exo).untilState(Player.STATE_ENDED)
+        waitUntil { !connection.nowPlaying.value.isPlaying }
+
+        connection.togglePlayPause()
+        waitUntil { connection.nowPlaying.value.isPlaying }
+        assertThat(exo.currentMediaItemIndex).isEqualTo(1)
+    }
+
+    @Test
     fun `seekTo moves the position and publishes it`() {
         val connection = connected()
         connection.seekTo(30_000)

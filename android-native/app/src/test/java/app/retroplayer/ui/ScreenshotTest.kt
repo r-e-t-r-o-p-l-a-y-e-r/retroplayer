@@ -1,7 +1,10 @@
 package app.retroplayer.ui
 
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.junit4.createComposeRule
 import app.retroplayer.ui.TextFitTest.Screen
+import app.retroplayer.ui.settings.BuildInfo
+import app.retroplayer.ui.settings.LocalBuildInfo
 import app.retroplayer.ui.theme.RetroTheme
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RoborazziOptions
@@ -28,7 +31,9 @@ class ScreenshotTest(private val screen: Screen, private val variant: Variant) {
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     fun screenshot() {
-        compose.setContent { RetroTheme { screen.content() } }
+        compose.setContent {
+            CompositionLocalProvider(LocalBuildInfo provides FIXED_BUILD) { RetroTheme { screen.content() } }
+        }
         compose.waitForIdle()
         screen.open(compose)
         compose.waitForIdle()
@@ -77,6 +82,8 @@ class ScreenshotTest(private val screen: Screen, private val variant: Variant) {
         private val OPTIONS get() = RoborazziOptions(
             compareOptions = RoborazziOptions.CompareOptions(changeThreshold = 0.001f),
         )
+
+        private val FIXED_BUILD = BuildInfo(version = "2.0.0", buildTime = "2026-01-01 12:00:00", branch = "main", commit = "0000000")
 
         @JvmStatic
         @ParameterizedRobolectricTestRunner.Parameters(name = "{0} {1}")

@@ -120,6 +120,7 @@ class PlaybackService : MediaLibraryService() {
             lastItemId = { settings.session.first().lastItemId },
             rememberLastItem = settings::setLastItem,
             artwork = ::artworkFor,
+            rootNames = { store.allRoots().associate { it.id to it.name } },
         )
         tree = LibraryTree(
             roots = { store.allRoots().map { it.path to it.name } },

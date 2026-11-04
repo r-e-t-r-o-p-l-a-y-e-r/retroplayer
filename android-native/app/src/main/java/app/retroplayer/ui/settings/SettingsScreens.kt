@@ -42,6 +42,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -258,19 +259,27 @@ private fun LanguageItem(label: String, selected: Boolean, onClick: () -> Unit) 
 
 private val FIELD_SHAPE = RoundedCornerShape(50)
 
+internal data class BuildInfo(val version: String, val buildTime: String, val branch: String, val commit: String)
+
+/** Screenshot tests pin this; the real values change with every build. */
+internal val LocalBuildInfo = staticCompositionLocalOf {
+    BuildInfo(BuildConfig.VERSION_NAME, buildTimeLabel(BuildConfig.BUILD_TIME), BuildConfig.GIT_BRANCH, BuildConfig.GIT_COMMIT)
+}
+
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun AboutSection() {
     val palette = LocalRetroPalette.current
+    val build = LocalBuildInfo.current
     SettingsTitle(stringResource(R.string.about))
     Column(Modifier.padding(horizontal = 16.dp)) {
         Text(stringResource(R.string.app_name), style = MaterialTheme.typography.titleLarge)
         Text(stringResource(R.string.about_subtitle), color = palette.textMuted, modifier = Modifier.padding(top = 4.dp, bottom = 12.dp))
         listOf(
-            R.string.about_version to BuildConfig.VERSION_NAME,
-            R.string.about_build_date to buildTimeLabel(BuildConfig.BUILD_TIME),
-            R.string.about_git_branch to BuildConfig.GIT_BRANCH,
-            R.string.about_git_commit to BuildConfig.GIT_COMMIT,
+            R.string.about_version to build.version,
+            R.string.about_build_date to build.buildTime,
+            R.string.about_git_branch to build.branch,
+            R.string.about_git_commit to build.commit,
         ).forEach { (label, value) ->
             FlowRow(Modifier.fillMaxWidth().padding(vertical = 2.dp)) {
                 Text(

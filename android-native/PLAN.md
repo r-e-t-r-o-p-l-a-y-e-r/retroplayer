@@ -61,7 +61,7 @@ screenshot comparison described there.
 | T19 | Glance home-screen widget | any | done |
 | T20 | Managed devices + Roborazzi screenshots | any | done |
 | T21 | Docs | any | done |
-| T22 | Final release check | any | todo |
+| T22 | Final release check | any | done |
 
 Recommended order for a single agent is the table order. Opus will try to do
 T01, T02, T05, T08, T11, T15, T18 first (in that order); when Opus is not
@@ -1043,14 +1043,50 @@ available, simply continue top to bottom.
 
 ## T22 Final release check
 
-- Owner: any. Status: todo. Depends: T01-T21.
+- Owner: any. Status: done. Depends: T01-T21.
 - `./gradlew check assembleRelease` green; merged release manifest has no
   `INTERNET`/`ACCESS_NETWORK_STATE`; full smoke test of UC-01 to UC-17 on
   the emulator (list each UC with pass/fail in Notes); APK size noted;
   `git log` clean; update the status table.
+- Done (as built): `check assembleRelease verifyRoborazziDebug` green, device
+  smoke green on the API 34 emulator. Release permissions: FOREGROUND_SERVICE
+  (+ MEDIA_PLAYBACK), WAKE_LOCK, POST_NOTIFICATIONS, RECEIVE_BOOT_COMPLETED
+  (Glance/WorkManager) and the AndroidX dynamic-receiver permission; no
+  network. Release APK (unsigned, R8): 4,680,514 bytes (4.5 MiB). Per-UC
+  results in Notes. Fixed on the way: play after the queue ended needed two
+  taps; untagged tracks in a library root showed the root id ("1") as album
+  in the player and notification; the reset-dialog screenshots contained the
+  live build time and commit, so `verifyRoborazziDebug` failed after every
+  commit (About values now come from `LocalBuildInfo`, pinned in the test).
 
 ---
 
 ## Notes
 
 (Agents: add dated notes per task here when the task section is not enough.)
+
+### 2026-11-04 T22 manual smoke (emulator API 34, debug build, sample audio)
+
+| UC | Result | Checked |
+|----|--------|---------|
+| UC-01 | pass | fresh start shows the empty library; cold start reopens the album detail with the mini player paused at the saved position |
+| UC-02 | pass | add via system picker (read-only grant); end-edge swipe on the root asks, removes it and clears playback; files stay |
+| UC-03 | pass | folders, playlists and audio sections; untagged WAV falls back to the file name |
+| UC-04 | pass | browse in, breadcrumbs, back goes up; swipe right favorites a folder, starred link at the root (A-Z bar in device smoke) |
+| UC-05/06 | n/a | not in REQUIREMENTS |
+| UC-07 | pass | album row opens the detail, track tap plays from it |
+| UC-08 | pass | file `.m3u` opens read-only, remote entry dropped, row tap plays; queue save/delete in device smoke |
+| UC-09 | pass | track tap and row play button start playback, sheet expands |
+| UC-10 | pass (after fix) | pause/play, previous/next, ±15 s, chapter skip on the M4B; play after the queue ended needed two taps, fixed |
+| UC-11 | pass | process restart rebuilds the queue paused; finished queue restarts at the first track |
+| UC-12 | pass | playback expands the sheet, back collapses it |
+| UC-13 | pass | mini player title opens the album and highlights the playing track |
+| UC-14 | pass | back: player, then detail, then folders up one level each |
+| UC-15 | n/a | desktop only |
+| UC-16 | pass | dark theme and EQ preset survive restart; licenses, data storage, about; reset keeping folders clears favorites, playback and theme |
+| UC-17 | pass (after fix) | plays with the screen off; notification and media buttons pause/play and the app mirrors it; Recents swipe-away pauses and keeps the position; root-level tracks showed album "1", fixed |
+
+Follow-ups (shared with Flutter, not changed here): "1 tracks" because
+`tracksCountArtist` has no plural form in the ARB files; the Data storage
+page says Android may ask for audio and photo access, which the native app
+never does.

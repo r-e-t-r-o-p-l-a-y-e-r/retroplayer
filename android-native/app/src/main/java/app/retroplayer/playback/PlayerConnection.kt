@@ -1,7 +1,10 @@
 package app.retroplayer.playback
 
+import androidx.annotation.OptIn
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
+import androidx.media3.common.util.UnstableApi
+import androidx.media3.common.util.Util
 import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.domain.LibraryPath
@@ -132,7 +135,8 @@ class PlayerConnection @Inject constructor(
         }
     }
 
-    override fun togglePlayPause() = withController { if (playWhenReady) pause() else play() }
+    @OptIn(UnstableApi::class)
+    override fun togglePlayPause() = withController { Util.handlePlayPauseButtonAction(this) }
 
     override fun seekTo(positionMs: Long) = withController { seekTo(positionMs.coerceAtLeast(0)) }
 

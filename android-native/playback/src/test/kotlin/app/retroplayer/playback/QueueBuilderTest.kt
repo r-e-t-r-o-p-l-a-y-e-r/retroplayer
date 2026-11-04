@@ -74,6 +74,13 @@ class QueueBuilderTest {
     }
 
     @Test
+    fun `an untagged track in a library root takes the root's name as album`() {
+        val loose = AudioTrack(LibraryPath("1/loose.wav"), "doc:root/loose.wav", TrackMetadata())
+        val queue = QueueBuilder.build(PlaybackItem.Single(loose), null, null, { if (it.isRoot) "Samples" else it.name }) { null }!!
+        assertThat(queue.mediaItems.single().mediaMetadata.albumTitle.toString()).isEqualTo("Samples")
+    }
+
+    @Test
     fun `fresh item starts at the beginning at default speed`() {
         val album = AudioAlbum("dir:1/Book", "Book", null, tracks, AlbumSource.DIRECTORY, LibraryPath("1/Book"))
         val queue = build(PlaybackItem.Album(album, tracks))!!
