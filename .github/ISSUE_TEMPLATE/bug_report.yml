@@ -3,22 +3,28 @@ description: Something broken or wrong in Retro Player
 labels: ["bug"]
 body:
   - type: dropdown
-    id: platform
+    id: source
     attributes:
-      label: Platform
+      label: Installed from
       options:
-        - Android
-        - Linux
-        - iOS
-        - Other
+        - Google Play
+        - F-Droid
+        - Accrescent
+        - GitHub release
+        - Built from source
     validations:
       required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and Android version
+      placeholder: "Pixel 8, Android 16"
   - type: input
     id: version
     attributes:
       label: App version
       description: Settings → About, or release tag
-      placeholder: "1.0.0+1"
+      placeholder: "0.9.0"
   - type: textarea
     id: steps
     attributes:

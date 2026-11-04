@@ -1,100 +1,135 @@
-# Retro Player
+# Retro Player for Android (native)
 
-Local audio player for music and audiobooks. Cross-platform (Android, iOS, Linux).
+A native Kotlin and Jetpack Compose version of Retro Player for Android only.
+It has the same app id (`app.retroplayer`), look and behaviour as the Flutter
+app in the repository root, which stays the reference
+([doc/REQUIREMENTS.md](../doc/REQUIREMENTS.md), use cases UC-01 to UC-18).
+Where the native app behaves differently, the requirements say so in
+"Android native" notes.
 
-**Status:** v1.0.0 — local files only, no analytics in release builds.
+On top of the Flutter features it has Android Auto browsing, a home-screen
+widget, M4B chapters (player, seek bar, notification), headphone options and
+a sort order per album.
 
-## Features
+Working on this code with an agent? Read [AGENTS.md](AGENTS.md) first;
+[PLAN.md](PLAN.md) has the task history.
 
-- Play local audio files from user-selected folders
-- Directory-aware audiobook grouping (chapters in folders become one book)
-- Metadata-based sorting (title, artist, album, date added, track number, duration)
-- Read-only view of your folders: the app never moves, renames or rewrites your files (only playlists you create in the app are written)
-- Gapless album playback with resume position
-- Playback speed control for audiobooks
-- Background playback with system media controls (continues when locked or in another app; stops when you fully close the app)
+## Privacy and storage
 
-## Supported formats (P0)
+- No network: the release manifest has no `INTERNET` or
+  `ACCESS_NETWORK_STATE`; `./gradlew check` fails if one comes back
+  (`verifyReleasePrivacy`). No Google Play services, Firebase or analytics.
+- Folders are opened only through the system folder picker (Storage Access
+  Framework); the app asks for no storage or media permission.
+- Your folders and files are read-only. The only files the app writes are
+  M3U playlists it created itself; for those it asks once for write access
+  to the library folder. `DiskWriteGuardTest` fails the build if any other
+  code can write documents.
+- Permissions in the release build: foreground media playback service, wake
+  lock, notifications, and `RECEIVE_BOOT_COMPLETED`. The last one comes from
+  WorkManager, which the Glance widget library uses for widget updates;
+  WorkManager reschedules pending work after a reboot. The app does no work of
+  its own at boot.
 
-| Format | Android | iOS | Linux |
-|--------|---------|-----|-------|
-| MP3    | Yes     | Yes | Yes   |
-| M4A    | Yes     | Yes | Yes   |
-| M4B    | Yes     | Yes | Yes   |
-| FLAC   | Yes     | Yes | Yes   |
-| WAV    | Yes     | Yes | Yes   |
+## Build and run
 
-OGG/Opus is supported on Android and Linux only (not iOS).
-
-## Privacy
-
-- **No network access** — the app is designed for local files only (no streaming URLs, MPV `file` protocol only)
-- **No ads** — no advertising SDKs
-- **No telemetry** — no analytics or crash reporting in v1
-- **No in-app monetization** — no in-app purchases (optional support via GitHub Sponsors on the repository page only)
-
-Your audio files stay on your device. Library folders are accessed only when you explicitly add them.
-
-**Enforcement:** Release Android builds omit the `INTERNET` permission; CI tests under `test/privacy/` guard the manifest, dependency denylist, MPV whitelist, and remote playlist rejection. Android **debug/profile** builds still declare `INTERNET` so Flutter hot reload / DevTools can reach the Dart VM Service — that is tooling only, not app telemetry. Linux desktop has no OS-level network jail in this repo (use Flatpak/firejail yourself if you need a process sandbox). Optional on your machine: `flutter config --disable-analytics` (Flutter CLI stats; unrelated to the shipped app).
-
-## Development
-
-Use Flutter **3.47.8** stable ([FVM](https://fvm.app) recommended — see [`doc/FLUTTER_VERSION.md`](doc/FLUTTER_VERSION.md)).
+Requirements: JDK 17 and the Android SDK (`ANDROID_HOME`). No Android Studio
+needed; everything runs through Gradle from this folder.
 
 ```bash
-flutter pub get
-dart run build_runner build --delete-conflicting-outputs
-dart run scripts/stamp_build_info.dart   # writes gitignored lib/build_info.dart for Settings → About
-flutter test
-dart analyze
+cd android-native
+./gradlew :app:assembleDebug          # app/build/outputs/apk/debug/app-debug.apk
+scripts/install-test-build.sh         # build and install on a device (-d SERIAL)
+./gradlew assembleRelease             # release APK
 ```
 
-`lib/build_info.dart` is generated and gitignored (build time / git hash change every stamp). Always run the stamp script after a fresh clone before `flutter test` or a device build.
+Debug builds use the app id `app.retroplayer.debug` and the name "Retro Player
+test", so they install next to the Flutter app or a release build, with their
+own data.
 
-Test-driven development: domain logic is covered by unit tests; UI by widget tests.
-
-See [`doc/README.md`](doc/README.md) for documentation index, [`doc/ARCHITECTURE.md`](doc/ARCHITECTURE.md) for system design, and [`doc/AUTOMATED_TESTING.md`](doc/AUTOMATED_TESTING.md) for test coverage. [`doc/DEVELOPMENT_PLAN.md`](doc/DEVELOPMENT_PLAN.md) holds the full roadmap. To put a build on a physical Android phone, see [`doc/ANDROID_DEVICE_SETUP.md`](doc/ANDROID_DEVICE_SETUP.md).
-
-### Verifying playback persistence (Linux)
-
-**Automated harness (real SQLite file, no UI):**
+Translated strings come from the Flutter ARB files
+(`lib/l10n/app_*.arb`). After changing them, regenerate the Android resources:
 
 ```bash
-# One-shot smoke test (save → close DB → reopen → verify resume)
-dart run bin/persistence_harness.dart demo
-
-# Or compile a standalone binary:
-dart build cli -o build/persistence_harness
-./build/persistence_harness/bundle/bin/persistence_harness demo
-
-# Two separate runs (simulates quitting and relaunching the app):
-dart run bin/persistence_harness.dart save --db /tmp/rpc-persist.db
-dart run bin/persistence_harness.dart verify --db /tmp/rpc-persist.db
+python3 ../scripts/arb_to_android.py           # --check in CI
 ```
 
-**Full app (manual):**
+## Tests
 
-1. Play an album or folder for ~30 seconds, then pause (or wait 10s for auto-save).
-2. Quit the app fully (`q` in `flutter run`) — hot restart does not test persistence.
-3. Relaunch and play the same item; playback should resume mid-track.
-4. Optional: inspect `retroplayer.db` under application support (often `~/.local/share/app.retroplayer/` on Linux):
+| What | Command |
+| --- | --- |
+| everything: unit, Robolectric, lint, privacy | `./gradlew check` |
+| one module | `./gradlew :domain:test`, `./gradlew :app:testDebugUnitTest` (same for `:data`, `:playback`) |
+| one test class | `./gradlew :app:testDebugUnitTest --tests '*AlbumViewModelTest*'` |
+| screenshots: check | `./gradlew verifyRoborazziDebug` |
+| screenshots: record after a UI change | `./gradlew recordRoborazziDebug` |
+| device tests on a running emulator | `scripts/device-smoke.sh` |
+| device tests on managed emulators | `./gradlew :app:phonesGroupDebugAndroidTest` |
+
+### Screenshot tests
+
+`ScreenshotTest` renders every screen with Robolectric and
+[Roborazzi](https://github.com/takahirom/roborazzi): light and dark on a phone,
+and the main screens also on a tablet, in German, in the right-to-left
+pseudo-locale and at font scale 2. The recorded images live in
+`app/src/test/screenshots/`. When a UI change is intended, record again and
+commit the new images with the change. Robolectric draws all font weights the
+same and leaves out some outlines, so compare layout and colours, not text
+weight, with the user guide images in
+[doc/images/tutorial/](../doc/images/tutorial/).
+
+### Device tests
+
+`app/src/androidTest/.../smoke/DeviceSmokeTest.kt` drives the real app: add a
+folder through the system picker, play, queue, save and delete a playlist, the
+A–Z bar, rotation, settings and language. The tests create their sample folder
+(`/sdcard/Music/RetroPlayerSamples`) on the device when it is missing.
+
+On an emulator you started yourself:
 
 ```bash
-sqlite3 ~/.local/share/app.retroplayer/retroplayer.db "SELECT * FROM playback_states;"
+$ANDROID_HOME/emulator/emulator -avd <avd> -no-window -no-audio -no-boot-anim -gpu host &
+scripts/device-smoke.sh                # all tests
+scripts/device-smoke.sh <testMethod>   # one test
 ```
 
-**Linux taskbar icon:** On GNOME/KDE (Wayland), the shell uses `~/.local/share/applications/app.retroplayer.desktop` and hicolor PNGs. The app installs launcher and icons from the bundle on startup. If the taskbar icon looks wrong after a rebuild, run `./scripts/install-linux-desktop.sh` (prefers a release bundle), then fully quit and relaunch.
+`device-smoke.sh` uses the emulator, never an attached phone, because the test
+runner clears the app's data.
 
-## Native Android app
+### Managed devices
 
-[`android-native/`](android-native/) holds a native Kotlin/Compose version of
-the app for Android only: same app id, look and behaviour, built with Gradle
-instead of Flutter. It adds Android Auto browsing, a home-screen widget, M4B
-chapters, headphone options and a sort order per album. Build, tests,
-screenshot tests and managed devices: [`android-native/README.md`](android-native/README.md).
-Where it behaves differently from the Flutter app, [`doc/REQUIREMENTS.md`](doc/REQUIREMENTS.md)
-has "Android native" notes.
+Gradle can create and start the emulators itself (`testOptions.managedDevices`
+in `app/build.gradle.kts`):
 
-## License
+| Group | Devices |
+| --- | --- |
+| `phones` | Pixel 2 (API 27), Pixel 7 (API 33), Pixel 9 (API 35) |
+| `fullMatrix` | the phones plus Pixel 4 (API 30), Pixel Tablet (API 35), Pixel Fold (API 35) |
 
-**GPL-3.0-or-later** — see [LICENSE](LICENSE). Dependency licenses are listed in Settings → Open source licenses.
+```bash
+./gradlew :app:phonesGroupDebugAndroidTest
+./gradlew :app:fullMatrixGroupDebugAndroidTest
+```
+
+They use full AOSP images because the smaller ATD images have no system folder
+picker. The emulator needs KVM. Locally the GPU mode is `host`; on machines
+without a GPU (CI) pass
+`-Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect`.
+The first run downloads the system images.
+
+## CI
+
+`.github/workflows/android-native.yml` runs `check assembleRelease`, the ARB
+sync check and `verifyRoborazziDebug`, then the `phones` group on a runner with
+KVM enabled.
+
+## Modules
+
+| Module | Kind | Contents |
+| --- | --- | --- |
+| `:domain` | Kotlin/JVM | models, sorting, album grouping, M3U, chapters, resume and transport rules, settings model |
+| `:data` | Android library | folder scanner (SAF), tag reader, Room database, DataStore settings, library repository, playlist files |
+| `:playback` | Android library | `PlaybackService` (Media3 `MediaLibraryService`, Android Auto tree), queue building, progress saving |
+| `:app` | application | Compose UI, view models, Hilt modules, widget, media controller connection |
+
+Details, conventions and pitfalls: [AGENTS.md](AGENTS.md).

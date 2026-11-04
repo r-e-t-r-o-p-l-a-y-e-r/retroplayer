@@ -4,9 +4,9 @@
 
 ## Testing
 
-- [ ] `flutter test` (or targeted tests: …)
-- [ ] `dart analyze`
-- [ ] Manual check (platform / scenario): …
+- [ ] `./gradlew check` (or targeted tests: …)
+- [ ] `scripts/device-smoke.sh` on an emulator (UI or playback changes)
+- [ ] Manual check (device / scenario): …
 
 ## Docs
 
