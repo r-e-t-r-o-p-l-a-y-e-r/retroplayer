@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.roborazzi)
 }
 
 android {
@@ -66,11 +67,42 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
         execution = "ANDROIDX_TEST_ORCHESTRATOR"
+        managedDevices {
+            val matrix = listOf(
+                Triple("pixel2Api27", "Pixel 2", 27),
+                Triple("pixel4Api30", "Pixel 4", 30),
+                Triple("pixel7Api33", "Pixel 7", 33),
+                Triple("pixel9Api35", "Pixel 9", 35),
+                Triple("pixelTabletApi35", "Pixel Tablet", 35),
+                Triple("pixelFoldApi35", "Pixel Fold", 35),
+            )
+            matrix.forEach { (name, model, api) ->
+                localDevices.create(name) {
+                    device = model
+                    apiLevel = api
+                    // ATD images lack DocumentsUI, the folder picker the smoke tests drive.
+                    systemImageSource = "aosp"
+                    testedAbi = if (api < 30) "x86" else "x86_64"
+                }
+            }
+            groups {
+                create("phones") {
+                    listOf("pixel2Api27", "pixel7Api33", "pixel9Api35").forEach { targetDevices.add(localDevices[it]) }
+                }
+                create("fullMatrix") {
+                    matrix.forEach { targetDevices.add(localDevices[it.first]) }
+                }
+            }
+        }
     }
 
     packaging {
         resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
     }
+}
+
+roborazzi {
+    outputDir.set(file("src/test/screenshots"))
 }
 
 abstract class PrivacyCheckTask : DefaultTask() {
@@ -199,6 +231,9 @@ dependencies {
     testImplementation(libs.media3.test.utils.robolectric)
     testImplementation(platform(libs.compose.bom))
     testImplementation(libs.compose.ui.test.junit4)
+    testImplementation(libs.roborazzi)
+    testImplementation(libs.roborazzi.compose)
+    testImplementation(libs.roborazzi.junit.rule)
 
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.test.runner)

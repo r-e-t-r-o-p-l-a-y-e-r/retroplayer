@@ -2,8 +2,10 @@ package app.retroplayer.ui.playlist
 
 import android.content.Context
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.getBoundsInRoot
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.R
@@ -37,6 +39,14 @@ class PlaylistContentTest {
         compose.setContent { RetroTheme { PlaylistContent(playlist, PlaylistActions(addTracks = { calls += "add" })) } }
         compose.onNodeWithContentDescription(context.getString(R.string.add_tracks)).assertIsDisplayed().performClick()
         assertThat(calls).containsExactly("add")
+    }
+
+    @Test
+    fun `the top bar says playlist and the name heads the list`() {
+        compose.setContent { RetroTheme { PlaylistContent(playlist.copy(editable = false), PlaylistActions()) } }
+        val bar = compose.onNodeWithText(context.getString(R.string.playlist)).assertIsDisplayed().getBoundsInRoot()
+        val header = compose.onNodeWithText("Road trip").assertIsDisplayed().getBoundsInRoot()
+        assertThat(header.top).isGreaterThan(bar.bottom)
     }
 
     @Test

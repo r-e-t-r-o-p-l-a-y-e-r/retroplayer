@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import app.retroplayer.R
 import app.retroplayer.domain.settings.HeadsetSettings
 import app.retroplayer.ui.components.RetroSegmentedRow
-import app.retroplayer.ui.components.SectionHeader
 import app.retroplayer.ui.theme.LocalRetroPalette
 
 data class HeadsetActions(
@@ -31,7 +30,7 @@ data class HeadsetActions(
 fun HeadsetSection(settings: HeadsetSettings, actions: HeadsetActions) {
     val palette = LocalRetroPalette.current
     Column {
-        SectionHeader(stringResource(R.string.headphones))
+        SettingsTitle(stringResource(R.string.headphones))
         SwitchRow(stringResource(R.string.auto_rewind), stringResource(R.string.auto_rewind_hint), settings.autoRewind, actions.setAutoRewind)
         Text(
             stringResource(R.string.rewind_by),

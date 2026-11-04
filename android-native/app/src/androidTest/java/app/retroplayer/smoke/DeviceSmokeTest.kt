@@ -25,7 +25,6 @@ import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performTextInput
 import androidx.compose.ui.test.printToString
 import androidx.core.os.LocaleListCompat
-import androidx.lifecycle.Lifecycle
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
@@ -34,7 +33,6 @@ import app.retroplayer.R
 import app.retroplayer.ui.player.EXPANDED_PLAYER_TAG
 import app.retroplayer.ui.player.MINI_PLAYER_TAG
 import app.retroplayer.ui.settings.SETTINGS_SCREEN_TAG
-import com.google.common.truth.Truth.assertWithMessage
 import java.util.Locale
 import org.junit.Before
 import org.junit.Rule
@@ -42,8 +40,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * End-to-end checks on a device, against the real app. Needs the sample audio from
- * `scripts/push-smoke-fixtures.sh`; run through `scripts/device-smoke.sh`.
+ * End-to-end checks on a device, against the real app. The sample folder is created when
+ * missing ([SampleLibrary]); run through `scripts/device-smoke.sh` or a managed device group.
  */
 @RunWith(AndroidJUnit4::class)
 class DeviceSmokeTest {
@@ -89,8 +87,7 @@ class DeviceSmokeTest {
 
     @Before
     fun fixtures() {
-        assertWithMessage("sample audio missing; run scripts/push-smoke-fixtures.sh")
-            .that(shell("ls $SAMPLES/LongList")).contains("zebra")
+        SampleLibrary(compose.activity, ::shell).ensure()
         shell("find $SAMPLES -name $PLAYLIST.m3u -delete")
     }
 
@@ -109,6 +106,29 @@ class DeviceSmokeTest {
         waitFor(hasContentDescription(s(R.string.pause)))
         back()
         waitFor(hasTestTag(MINI_PLAYER_TAG))
+    }
+
+    @Test
+    fun aFreshStartShowsTheEmptyLibrary() {
+        waitFor(hasText(s(R.string.no_folders_added)))
+        compose.onNode(hasContentDescription(s(R.string.add_folder))).assertIsDisplayed()
+    }
+
+    @Test
+    fun rotatingKeepsThePageAndThePlayer() {
+        addSamples()
+        playSamplesFromLibrary()
+        val root = hasContentDescription(s(R.string.play_folder))
+        waitFor(root)
+        try {
+            device.setOrientationLeft()
+            waitFor(root)
+            waitFor(hasTestTag(MINI_PLAYER_TAG))
+            waitFor(hasContentDescription(s(R.string.pause)))
+        } finally {
+            device.setOrientationNatural()
+            device.unfreezeRotation()
+        }
     }
 
     @Test
@@ -140,9 +160,8 @@ class DeviceSmokeTest {
         clickText(s(R.string.save))
         picker.confirm()
         compose.waitUntil(TIMEOUT_MS) { playlistFile().isNotEmpty() }
-        compose.waitUntil(TIMEOUT_MS) {
-            compose.runOnUiThread { compose.activity.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) }
-        }
+        // The save page closes itself once the file is written; a back press before that would close it instead.
+        waitFor(hasContentDescription(s(R.string.add_tracks)))
 
         back()
         clickText(PLAYLIST)
@@ -212,7 +231,7 @@ class DeviceSmokeTest {
     }
 
     private companion object {
-        const val SAMPLES = "/sdcard/Music/RetroPlayerSamples"
+        const val SAMPLES = SampleLibrary.ROOT
         const val PLAYLIST = "SmokeTrip"
         const val TIMEOUT_MS = 15_000L
     }

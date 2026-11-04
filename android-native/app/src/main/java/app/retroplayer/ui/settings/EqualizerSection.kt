@@ -27,7 +27,6 @@ import app.retroplayer.domain.settings.EqualizerPreset
 import app.retroplayer.domain.settings.EqualizerSettings
 import app.retroplayer.ui.components.RetroSegmentedRow
 import app.retroplayer.ui.components.RetroSlider
-import app.retroplayer.ui.components.SectionHeader
 import app.retroplayer.ui.theme.LocalRetroPalette
 import kotlin.math.roundToInt
 
@@ -44,7 +43,7 @@ fun EqualizerSection(state: EqualizerUiState, actions: EqualizerActions) {
     val palette = LocalRetroPalette.current
     val enabled = state.available
     Column {
-        SectionHeader(stringResource(R.string.equalizer))
+        SettingsTitle(stringResource(R.string.equalizer))
         if (!state.available) {
             Text(
                 stringResource(R.string.equalizer_unavailable),

@@ -59,7 +59,7 @@ screenshot comparison described there.
 | T17 | Headset options UI + resume on reconnect | any | done |
 | T18 | Android Auto browse tree | opus | done |
 | T19 | Glance home-screen widget | any | done |
-| T20 | Managed devices + Roborazzi screenshots | any | todo |
+| T20 | Managed devices + Roborazzi screenshots | any | done |
 | T21 | Docs | any | todo |
 | T22 | Final release check | any | todo |
 
@@ -972,7 +972,7 @@ available, simply continue top to bottom.
 
 ## T20 Managed devices + Roborazzi screenshots
 
-- Owner: any. Status: todo. Depends: T02.
+- Owner: any. Status: done. Depends: T02.
 - Spec:
   - Gradle Managed Devices in `app/build.gradle.kts` (`testOptions.managedDevices`),
     AOSP ATD images (`systemImageSource = "aosp-atd"`): `pixel2Api26`
@@ -1003,6 +1003,19 @@ available, simply continue top to bottom.
     `phonesGroupDebugAndroidTest` only if the runner has KVM (document).
 - Done when: `./gradlew phonesGroupDebugAndroidTest` passes locally (needs
   `["all"]`), screenshots recorded and committed.
+- Notes:
+  - Devices use `systemImageSource = "aosp"` (ATD images have no DocumentsUI,
+    which the picker tests need). The Pixel 2 runs API 27, not 26 (only the
+    API 27 image is set up here), so `minSdk` 26 itself has no managed device.
+  - The smoke tests create the sample folder themselves (`SampleLibrary`), so
+    managed devices need no adb push. New tests: fresh start shows the empty
+    library; rotating keeps the page and the player.
+  - `ScreenshotTest` (94 images in `app/src/test/screenshots/`) reuses the
+    `TextFitTest` screens. Comparing with `doc/images/tutorial/` found two
+    deviations, fixed before recording: settings block titles use Flutter's
+    `trackTitle` (20 sp), and the playlist page says "Playlist" in the top bar
+    with the name as a 17 sp header (`PlaylistContentTest`). Robolectric draws
+    all font weights alike and no slider thumb outline; that is not a bug.
 
 ## T21 Docs
 

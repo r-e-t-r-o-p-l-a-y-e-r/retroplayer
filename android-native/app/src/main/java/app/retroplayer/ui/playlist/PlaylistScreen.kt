@@ -4,6 +4,7 @@ import app.retroplayer.ui.components.RetroFab
 import androidx.compose.material.icons.automirrored.outlined.PlaylistAdd
 import app.retroplayer.ui.components.DialogText
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +17,7 @@ import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.MusicNote
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -36,6 +38,7 @@ import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -128,10 +131,22 @@ fun PlaylistContent(state: PlaylistUiState, actions: PlaylistActions) {
             when (state) {
                 PlaylistUiState.Loading -> LinearProgressIndicator(Modifier.fillMaxWidth())
                 is PlaylistUiState.Ready -> {
-                    if (state.entries.isEmpty()) {
-                        PlaylistMessage(stringResource(R.string.playlist_empty))
-                    } else {
-                        PlaylistList(state, actions)
+                    Column(Modifier.fillMaxSize()) {
+                        Text(
+                            state.title,
+                            style = MaterialTheme.typography.headlineSmall.copy(fontSize = 17.sp, lineHeight = 22.sp),
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 8.dp),
+                        )
+                        HorizontalDivider()
+                        Box(Modifier.weight(1f)) {
+                            if (state.entries.isEmpty()) {
+                                PlaylistMessage(stringResource(R.string.playlist_empty))
+                            } else {
+                                PlaylistList(state, actions)
+                            }
+                        }
                     }
                     state.confirmRemove?.let { indices ->
                         RemoveTracksDialog(indices, actions)
@@ -168,7 +183,7 @@ private fun PlaylistTopBar(state: PlaylistUiState.Ready, actions: PlaylistAction
         )
     } else {
         RetroTopBar(
-            state.title,
+            stringResource(R.string.playlist),
             navigationIcon = { BackButton(actions.back) },
             actions = { PlayerToggleAction() },
             textActions = {

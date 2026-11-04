@@ -29,6 +29,9 @@ jobs:
       - name: Unit, Robolectric and screenshot tests, lint, privacy
         run: ./gradlew check assembleRelease
 
+      - name: Screenshots match the recordings (record with recordRoborazziDebug)
+        run: ./gradlew verifyRoborazziDebug
+
       - uses: actions/upload-artifact@v5
         if: failure()
         with:

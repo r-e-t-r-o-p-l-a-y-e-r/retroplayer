@@ -47,8 +47,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.retroplayer.BuildConfig
@@ -59,7 +61,6 @@ import app.retroplayer.ui.components.BackButton
 import app.retroplayer.ui.components.DialogText
 import app.retroplayer.ui.components.RetroSegmentedRow
 import app.retroplayer.ui.components.RetroTopBar
-import app.retroplayer.ui.components.SectionHeader
 import app.retroplayer.ui.theme.LocalRetroPalette
 
 const val SETTINGS_SCREEN_TAG = "settingsScreen"
@@ -135,9 +136,9 @@ fun SettingsContent(
             Modifier.padding(padding).fillMaxSize(),
             contentPadding = PaddingValues(bottom = 96.dp),
         ) {
-            item { SectionHeader(stringResource(R.string.appearance)) }
+            item { SettingsTitle(stringResource(R.string.appearance)) }
             item { ThemeSection(state.theme, actions.setTheme) }
-            item { SectionHeader(stringResource(R.string.language)) }
+            item { SettingsTitle(stringResource(R.string.language)) }
             item { LanguageDropdown(state, actions.setLanguage) }
             item { HorizontalDivider(Modifier.padding(vertical = 8.dp)) }
             item { EqualizerSection(equalizer, equalizerActions) }
@@ -261,7 +262,7 @@ private val FIELD_SHAPE = RoundedCornerShape(50)
 @Composable
 private fun AboutSection() {
     val palette = LocalRetroPalette.current
-    SectionHeader(stringResource(R.string.about))
+    SettingsTitle(stringResource(R.string.about))
     Column(Modifier.padding(horizontal = 16.dp)) {
         Text(stringResource(R.string.app_name), style = MaterialTheme.typography.titleLarge)
         Text(stringResource(R.string.about_subtitle), color = palette.textMuted, modifier = Modifier.padding(top = 4.dp, bottom = 12.dp))
@@ -282,6 +283,19 @@ private fun AboutSection() {
             }
         }
     }
+}
+
+/** Title of a settings block: Flutter `RetroTypography.trackTitle`, larger than the library section header. */
+@Composable
+internal fun SettingsTitle(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp, lineHeight = 24.sp),
+        color = LocalRetroPalette.current.textPrimary,
+        modifier = Modifier
+            .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp)
+            .semantics { heading() },
+    )
 }
 
 @Composable
