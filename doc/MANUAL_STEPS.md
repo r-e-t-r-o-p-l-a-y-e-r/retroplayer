@@ -23,12 +23,54 @@ release process itself is in [RELEASE.md](RELEASE.md).
 
 ## 2. GitHub secrets
 
-Settings → Secrets and variables → Actions, for `.github/workflows/release.yml`:
+The release workflow (`.github/workflows/release.yml`) signs the builds on
+GitHub's servers, so it needs the keystore and its passwords. GitHub stores
+secrets encrypted, never shows them again after saving, hides them in logs,
+and does not give them to workflows started from pull requests by forks.
 
-- [ ] `RELEASE_KEYSTORE_BASE64`: output of `base64 -w0 retroplayer-release.jks`
+| Secret | Value |
+|--------|-------|
+| `RELEASE_KEYSTORE_BASE64` | The keystore file as one line of text (base64), because secrets can only hold text |
+| `RELEASE_KEYSTORE_PASSWORD` | The password you typed for the keystore in step 1 |
+| `RELEASE_KEY_ALIAS` | `retroplayer` (the `-alias` from step 1) |
+| `RELEASE_KEY_PASSWORD` | The same password as `RELEASE_KEYSTORE_PASSWORD`: a PKCS12 keystore made with keytool uses one password for the store and the key |
+
+In the browser (needs admin rights on the repository):
+
+1. Open the repository on GitHub → **Settings** → **Secrets and variables** →
+   **Actions** → **New repository secret**.
+2. Name `RELEASE_KEYSTORE_BASE64`; value: the output of
+
+   ```bash
+   base64 -w0 retroplayer-release.jks     # Linux; on macOS: base64 -i retroplayer-release.jks
+   ```
+
+   Copy the whole line (several thousand characters, no line breaks).
+3. Add the other three secrets the same way.
+
+Or with the GitHub CLI (`gh auth login` first); `gh` asks for the values, so
+the passwords do not end up in the shell history:
+
+```bash
+base64 -w0 retroplayer-release.jks | gh secret set RELEASE_KEYSTORE_BASE64
+gh secret set RELEASE_KEYSTORE_PASSWORD
+gh secret set RELEASE_KEY_ALIAS          # type: retroplayer
+gh secret set RELEASE_KEY_PASSWORD
+gh secret list                           # shows the four names, not the values
+```
+
+- [ ] `RELEASE_KEYSTORE_BASE64`
 - [ ] `RELEASE_KEYSTORE_PASSWORD`
 - [ ] `RELEASE_KEY_ALIAS`
 - [ ] `RELEASE_KEY_PASSWORD`
+- [ ] Optional: protect `v*` tags (Settings → Rules → Rulesets → New tag
+  ruleset, target `v*`, restrict creations) so only you can start a signed
+  release. Anyone with write access can push a tag otherwise.
+
+If a secret is wrong or missing, the workflow fails at "Signed APK and AAB"
+and publishes nothing. Set the secret again under the same name to overwrite
+it, delete the tag (`git push origin :refs/tags/v0.9.0`, `git tag -d v0.9.0`),
+and tag again.
 
 ## 3. Remove the old 1.0.0
 
