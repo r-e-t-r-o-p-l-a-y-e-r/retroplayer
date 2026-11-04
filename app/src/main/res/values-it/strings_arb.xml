@@ -8,6 +8,7 @@
     <string name="about_version">Versione</string>
     <string name="about_build_date">TEMPO DI COSTRUZIONE</string>
     <string name="about_git_commit">Build</string>
+    <string name="about_support">Sostieni questa app</string>
     <string name="equalizer">Equalizzatore</string>
     <string name="equalizer_unavailable">Equalizzatore non è disponibile su questa piattaforma.</string>
     <string name="bands">Bande</string>

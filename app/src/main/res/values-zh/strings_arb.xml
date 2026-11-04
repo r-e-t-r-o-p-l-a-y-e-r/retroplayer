@@ -8,6 +8,7 @@
     <string name="about_version">版本</string>
     <string name="about_build_date">构建时间</string>
     <string name="about_git_commit">构建</string>
+    <string name="about_support">支持这款应用</string>
     <string name="equalizer">均衡器</string>
     <string name="equalizer_unavailable">此平台上不提供均衡器。</string>
     <string name="bands">波段</string>

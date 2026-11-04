@@ -8,6 +8,7 @@
     <string name="about_version">Έκδοση</string>
     <string name="about_build_date">Χρόνος κατασκευής</string>
     <string name="about_git_commit">Σύνθεση</string>
+    <string name="about_support">Υποστηρίξτε αυτήν την εφαρμογή</string>
     <string name="equalizer">Εξισωτής</string>
     <string name="equalizer_unavailable">Το Equalizer δεν είναι διαθέσιμο σε αυτήν την πλατφόρμα.</string>
     <string name="bands">Μουσικά συγκροτήματα</string>

@@ -8,6 +8,7 @@
     <string name="about_version">Verzija</string>
     <string name="about_build_date">Vrijeme izgradnje</string>
     <string name="about_git_commit">Izgradnja</string>
+    <string name="about_support">Podržite ovu aplikaciju</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">Equalizer nije dostupan na ovoj platformi.</string>
     <string name="bands">Bendovi</string>

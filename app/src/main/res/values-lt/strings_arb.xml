@@ -8,6 +8,7 @@
     <string name="about_version">Versija</string>
     <string name="about_build_date">Kūrimo trukmė</string>
     <string name="about_git_commit">Kompiliacija</string>
+    <string name="about_support">Remkite šią programėlę</string>
     <string name="equalizer">Ekvivalizatorius</string>
     <string name="equalizer_unavailable">Šioje platformoje ekvalaizeris nėra prieinamas.</string>
     <string name="bands">Grupės</string>

@@ -8,6 +8,7 @@
     <string name="about_version">الإصدار</string>
     <string name="about_build_date">وقت البناء</string>
     <string name="about_git_commit">البناء</string>
+    <string name="about_support">ادعم هذا التطبيق</string>
     <string name="equalizer">المعادل</string>
     <string name="equalizer_unavailable">المعادل غير متوفر على هذه المنصة.</string>
     <string name="bands">العصابات</string>

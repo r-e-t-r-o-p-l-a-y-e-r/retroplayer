@@ -1,6 +1,9 @@
 package app.retroplayer.ui.settings
 
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -259,12 +262,17 @@ private fun LanguageItem(label: String, selected: Boolean, onClick: () -> Unit) 
 
 private val FIELD_SHAPE = RoundedCornerShape(50)
 
-internal data class BuildInfo(val version: String, val buildTime: String, val commit: String)
+/** [donationLink] is false in the Google Play build, which may not link to payments outside Play. */
+internal data class BuildInfo(val version: String, val buildTime: String, val commit: String, val donationLink: Boolean)
 
 /** Screenshot tests pin this; the real values change with every build. */
 internal val LocalBuildInfo = staticCompositionLocalOf {
-    BuildInfo(BuildConfig.VERSION_NAME, buildTimeLabel(BuildConfig.BUILD_TIME), BuildConfig.GIT_COMMIT)
+    BuildInfo(BuildConfig.VERSION_NAME, buildTimeLabel(BuildConfig.BUILD_TIME), BuildConfig.GIT_COMMIT, BuildConfig.DONATION_LINK)
 }
+
+internal const val DONATION_URL = "https://liberapay.com/retroplayer"
+internal const val DONATION_LABEL = "liberapay.com/retroplayer"
+internal const val DONATION_PLAIN = "Liberapay: retroplayer"
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -280,16 +288,35 @@ private fun AboutSection() {
             R.string.about_build_date to build.buildTime,
             R.string.about_git_commit to build.commit,
         ).forEach { (label, value) ->
-            FlowRow(Modifier.fillMaxWidth().padding(vertical = 2.dp)) {
+            AboutRow(stringResource(label)) { Text(value, style = MaterialTheme.typography.bodyMedium) }
+        }
+        AboutRow(stringResource(R.string.about_support), Modifier.padding(top = 8.dp)) {
+            if (build.donationLink) {
+                val uriHandler = LocalUriHandler.current
                 Text(
-                    stringResource(label),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = palette.textMuted,
-                    modifier = Modifier.widthIn(min = 120.dp),
+                    DONATION_LABEL,
+                    style = MaterialTheme.typography.bodyMedium.copy(textDecoration = TextDecoration.Underline),
+                    color = palette.accent,
+                    modifier = Modifier.clickable(role = Role.Button) { uriHandler.openUri(DONATION_URL) },
                 )
-                Text(value, style = MaterialTheme.typography.bodyMedium)
+            } else {
+                Text(DONATION_PLAIN, style = MaterialTheme.typography.bodyMedium)
             }
         }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun AboutRow(label: String, modifier: Modifier = Modifier, value: @Composable () -> Unit) {
+    FlowRow(modifier.fillMaxWidth().padding(vertical = 2.dp)) {
+        Text(
+            label,
+            style = MaterialTheme.typography.labelMedium,
+            color = LocalRetroPalette.current.textMuted,
+            modifier = Modifier.widthIn(min = 120.dp),
+        )
+        value()
     }
 }
 

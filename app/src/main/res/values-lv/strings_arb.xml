@@ -8,6 +8,7 @@
     <string name="about_version">Versija</string>
     <string name="about_build_date">Izstrādes laiks</string>
     <string name="about_git_commit">Kompilācija</string>
+    <string name="about_support">Atbalstiet šo lietotni</string>
     <string name="equalizer">Ekvivalizers</string>
     <string name="equalizer_unavailable">Šajā platformā ekvalaizers nav pieejams.</string>
     <string name="bands">Grupas</string>

@@ -6,6 +6,9 @@ import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import android.content.Context
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.platform.UriHandler
 import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.BuildConfig
 import app.retroplayer.R
@@ -137,6 +140,41 @@ class SettingsContentTest {
         compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(context.getString(R.string.about_git_commit)))
         compose.onNodeWithText(BuildConfig.GIT_COMMIT).assertIsDisplayed()
         compose.onNodeWithText("Branch").assertDoesNotExist()
+    }
+
+    @Test
+    fun `about links to Liberapay when the build may show donation links`() {
+        val opened = mutableListOf<String>()
+        val uriHandler = object : UriHandler {
+            override fun openUri(uri: String) { opened += uri }
+        }
+        compose.setContent {
+            CompositionLocalProvider(LocalBuildInfo provides BUILD.copy(donationLink = true), LocalUriHandler provides uriHandler) {
+                RetroTheme { SettingsContent(SettingsUiState(), SettingsActions()) }
+            }
+        }
+        compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(string(R.string.about_support)))
+        compose.onNode(hasText(DONATION_LABEL) and hasClickAction()).performClick()
+        assertThat(opened).containsExactly(DONATION_URL)
+    }
+
+    @Test
+    fun `about names Liberapay without a link in the Google Play build`() {
+        compose.setContent {
+            CompositionLocalProvider(LocalBuildInfo provides BUILD.copy(donationLink = false)) {
+                RetroTheme { SettingsContent(SettingsUiState(), SettingsActions()) }
+            }
+        }
+        compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(string(R.string.about_support)))
+        compose.onNodeWithText(DONATION_PLAIN).assertIsDisplayed()
+        compose.onNode(hasText(DONATION_PLAIN) and hasClickAction()).assertDoesNotExist()
+        compose.onNodeWithText(DONATION_LABEL).assertDoesNotExist()
+    }
+
+    private fun string(id: Int) = ApplicationProvider.getApplicationContext<Context>().getString(id)
+
+    private companion object {
+        val BUILD = BuildInfo(version = "0.9.0", buildTime = "2026-01-01 12:00:00", commit = "000000000000", donationLink = true)
     }
 
     @Test

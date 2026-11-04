@@ -8,6 +8,7 @@
     <string name="about_version">संस्करण</string>
     <string name="about_build_date">निर्माण का समय</string>
     <string name="about_git_commit">बिल्ड</string>
+    <string name="about_support">इस ऐप का समर्थन करें</string>
     <string name="equalizer">तुल्यकारक</string>
     <string name="equalizer_unavailable">इस प्लैटफ़ॉर्म पर इक्वलाइज़र उपलब्ध नहीं है।</string>
     <string name="bands">बैंड</string>

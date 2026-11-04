@@ -8,6 +8,7 @@
     <string name="about_version">Wersja</string>
     <string name="about_build_date">Czas kompilacji</string>
     <string name="about_git_commit">Kompilacja</string>
+    <string name="about_support">Wesprzyj tę aplikację</string>
     <string name="equalizer">Korektor</string>
     <string name="equalizer_unavailable">Na tej platformie funkcja korektora dźwięku nie jest dostępna.</string>
     <string name="bands">Zespoły</string>

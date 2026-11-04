@@ -8,6 +8,7 @@
     <string name="about_version">Versie</string>
     <string name="about_build_date">Bouwtijd</string>
     <string name="about_git_commit">Build</string>
+    <string name="about_support">Steun deze app</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">De equalizer is op dit platform niet beschikbaar.</string>
     <string name="bands">Bands</string>

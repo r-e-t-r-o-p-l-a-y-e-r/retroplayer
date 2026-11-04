@@ -8,6 +8,7 @@
     <string name="about_version">Útgáfa</string>
     <string name="about_build_date">Uppbyggingartími</string>
     <string name="about_git_commit">Uppbygging</string>
+    <string name="about_support">Styðjið þetta forrit</string>
     <string name="equalizer">Jafngildari</string>
     <string name="equalizer_unavailable">Jafnari er ekki í boði á þessum vettvangi.</string>
     <string name="bands">Hljómsveitir</string>

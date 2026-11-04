@@ -14,16 +14,17 @@ GitHub releases without uninstalling.
 - Release notes: `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`
   (500 characters at most; Play shows them as "What's new").
 
-## Build variants
+## Store builds
 
-| Flavor | Goes to | Donation row in About |
+| Build | Goes to | "Support this app" in About |
 | --- | --- | --- |
-| `foss` | F-Droid, Accrescent, GitHub Releases | link to [liberapay.com/retroplayer](https://liberapay.com/retroplayer) |
-| `play` | Google Play | the Liberapay username as plain text, no link |
+| default | F-Droid, Accrescent, GitHub Releases | link to [liberapay.com/retroplayer](https://liberapay.com/retroplayer) |
+| `-Pretroplayer.store=play` | Google Play | "Liberapay: retroplayer" as plain text, no link |
 
-Both flavors have the same app id `app.retroplayer`, key and versions. Google
-Play only allows in-app donation links for validated tax-exempt organisations;
-if Play review still objects to the plain text, remove it from `play`.
+The property only switches `BuildConfig.DONATION_LINK`; app id, key and
+versions are the same. Google Play only allows in-app donation links for
+validated tax-exempt organisations; if Play review still objects to the plain
+text, hide the row when `DONATION_LINK` is false.
 
 ## Signing key
 
@@ -79,8 +80,8 @@ release (`pip install apksigcopier`; `apksigner` from build-tools on `PATH`):
 
 ```bash
 git clone --depth 1 --branch v0.9.0 <repo> /tmp/rp && cd /tmp/rp
-./gradlew --no-build-cache :app:assembleFossRelease          # unsigned, like F-Droid
-apksigcopier compare retroplayer-0.9.0.apk --unsigned app/build/outputs/apk/foss/release/app-foss-release-unsigned.apk
+./gradlew --no-build-cache :app:assembleRelease              # unsigned, like F-Droid
+apksigcopier compare retroplayer-0.9.0.apk --unsigned app/build/outputs/apk/release/app-release-unsigned.apk
 apksigner verify --print-certs retroplayer-0.9.0.apk
 ```
 
@@ -94,8 +95,8 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
    emulator; install the release build on a phone and try the main flows.
 3. Merge to `main`, then tag: `git tag v0.9.0 && git push origin v0.9.0`.
 4. `.github/workflows/release.yml` builds and attaches to a GitHub Release:
-   the signed `foss` APK, the `play` AAB, the `foss` APK set for Accrescent,
-   and SHA-256 sums.
+   the signed APK, the APK set for Accrescent (from the default AAB), the
+   Play AAB (`-Pretroplayer.store=play`), and SHA-256 sums.
 5. Stores:
    - **Google Play:** upload the AAB to the closed test track (first release:
      12 testers for 14 days), then promote to production.
@@ -111,7 +112,7 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
   foreground service declaration for `mediaPlayback`; Android Auto opt-in in
   Advanced settings.
 - **F-Droid:** merge request with `metadata/app.retroplayer.yml`: `Builds`
-  with `commit: v0.9.0`, `subdir: app`, `gradle: [foss]`; `Binaries:` pointing
+  with `commit: v0.9.0`, `subdir: app`, `gradle: [yes]`; `Binaries:` pointing
   at the GitHub Release APK; `AllowedAPKSigningKeys:` with the certificate
   SHA-256; `Liberapay: retroplayer`; `AutoUpdateMode: Version`,
   `UpdateCheckMode: Tags`. Test with `fdroid build` first.

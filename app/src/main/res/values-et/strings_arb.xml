@@ -8,6 +8,7 @@
     <string name="about_version">Versioon</string>
     <string name="about_build_date">Ehitusaeg</string>
     <string name="about_git_commit">Koostamine</string>
+    <string name="about_support">Toeta seda rakendust</string>
     <string name="equalizer">Ekvalaiser</string>
     <string name="equalizer_unavailable">Ekvalaiser pole sellel platvormil saadaval.</string>
     <string name="bands">Bändid</string>

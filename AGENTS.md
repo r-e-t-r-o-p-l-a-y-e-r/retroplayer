@@ -152,8 +152,12 @@ and are available to other modules via `testImplementation(testFixtures(project(
   `name_other`; pick the variant in Kotlin
   (`when (n) { 1 -> R.string.x_eq1; else -> R.string.x_other }`).
 - A new user-visible string goes into every `strings_arb.xml` (English plus a
-  translation per locale). Before adding one, search `values/strings_arb.xml`
-  for an existing string that fits.
+  translation per locale; `TranslationsTest` fails otherwise). Before adding
+  one, search `values/strings_arb.xml` for an existing string that fits. Add
+  the English value, then run `python3 scripts/mt_android_strings.py`
+  (needs `full_network` and the keys in `.env`) and review the output;
+  prefer English that cannot be misread out of context ("Support this app",
+  not "Support development"). Match the tone of each locale (German uses "du").
 - `app/src/main/res/values/strings.xml` holds older English-only strings
   (`tools:ignore="MissingTranslation"`); do not add new ones there.
 - Never put English literals in composables, except test tags and

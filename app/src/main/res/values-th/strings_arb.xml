@@ -8,6 +8,7 @@
     <string name="about_version">เวอร์ชัน</string>
     <string name="about_build_date">เวลาการสร้าง</string>
     <string name="about_git_commit">Build</string>
+    <string name="about_support">สนับสนุนแอปนี้</string>
     <string name="equalizer">อีควอไลเซอร์</string>
     <string name="equalizer_unavailable">Equalizer ไม่มีให้บริการบนแพลตฟอร์มนี้</string>
     <string name="bands">วงดนตรี</string>

@@ -8,6 +8,7 @@
     <string name="about_version">Verzia</string>
     <string name="about_build_date">Doba zostavenia</string>
     <string name="about_git_commit">Zostavenie</string>
+    <string name="about_support">Podporte túto aplikáciu</string>
     <string name="equalizer">Ekvalizér</string>
     <string name="equalizer_unavailable">Na tejto platforme nie je k dispozícii ekvalizér.</string>
     <string name="bands">Kapely</string>

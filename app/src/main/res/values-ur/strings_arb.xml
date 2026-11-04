@@ -8,6 +8,7 @@
     <string name="about_version">نسخہ</string>
     <string name="about_build_date">تعمیر کا وقت</string>
     <string name="about_git_commit">بلڈ</string>
+    <string name="about_support">اس ایپ کی حمایت کریں</string>
     <string name="equalizer">برابر کرنے والا</string>
     <string name="equalizer_unavailable">اس پلیٹ فارم پر ایکیولائزر دستیاب نہیں ہے۔</string>
     <string name="bands">بینڈز</string>

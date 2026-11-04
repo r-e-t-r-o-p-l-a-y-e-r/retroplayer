@@ -8,6 +8,7 @@
     <string name="about_version">Versiune</string>
     <string name="about_build_date">Timpul de compilare</string>
     <string name="about_git_commit">Compilare</string>
+    <string name="about_support">Susține această aplicație</string>
     <string name="equalizer">Egalizator</string>
     <string name="equalizer_unavailable">Equalizer nu este disponibil pe această platformă.</string>
     <string name="bands">Trupe</string>

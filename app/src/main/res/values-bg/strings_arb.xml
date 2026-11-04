@@ -8,6 +8,7 @@
     <string name="about_version">Версия</string>
     <string name="about_build_date">Време за изграждане</string>
     <string name="about_git_commit">Сборка</string>
+    <string name="about_support">Подкрепете това приложение</string>
     <string name="equalizer">Еквалайзер</string>
     <string name="equalizer_unavailable">Функцията „Equalizer“ не е достъпна на тази платформа.</string>
     <string name="bands">Музикални групи</string>

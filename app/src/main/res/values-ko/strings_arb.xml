@@ -8,6 +8,7 @@
     <string name="about_version">개정판 번호</string>
     <string name="about_build_date">제작 시간</string>
     <string name="about_git_commit">빌드</string>
+    <string name="about_support">이 앱을 후원해 주세요</string>
     <string name="equalizer">이퀄라이저</string>
     <string name="equalizer_unavailable">이 플랫폼에서는 이퀄라이저를 사용할 수 없습니다.</string>
     <string name="bands">밴드</string>

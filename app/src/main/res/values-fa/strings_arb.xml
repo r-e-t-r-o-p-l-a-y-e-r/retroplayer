@@ -8,6 +8,7 @@
     <string name="about_version">نسخه</string>
     <string name="about_build_date">زمان ساخت</string>
     <string name="about_git_commit">ساخت</string>
+    <string name="about_support">از این برنامه حمایت کنید</string>
     <string name="equalizer">اکولایزر</string>
     <string name="equalizer_unavailable">اکولایزر در این پلتفرم موجود نیست.</string>
     <string name="bands">گروه‌ها</string>

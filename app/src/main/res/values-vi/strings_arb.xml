@@ -8,6 +8,7 @@
     <string name="about_version">Phiên bản</string>
     <string name="about_build_date">xây dựng theo thời gian</string>
     <string name="about_git_commit">Bản dựng</string>
+    <string name="about_support">Hãy ủng hộ ứng dụng này</string>
     <string name="equalizer">Bộ chỉnh âm</string>
     <string name="equalizer_unavailable">Tính năng Equalizer hiện không có trên nền tảng này.</string>
     <string name="bands">Thương hiệu</string>

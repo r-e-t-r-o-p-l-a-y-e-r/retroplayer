@@ -8,6 +8,7 @@
     <string name="about_version">Versio</string>
     <string name="about_build_date">Rakennusaika</string>
     <string name="about_git_commit">Rakennus</string>
+    <string name="about_support">Tue tätä sovellusta</string>
     <string name="equalizer">Taajuuskorjain</string>
     <string name="equalizer_unavailable">Equalizer-toimintoa ei ole saatavilla tällä alustalla.</string>
     <string name="bands">Yhtyeet</string>

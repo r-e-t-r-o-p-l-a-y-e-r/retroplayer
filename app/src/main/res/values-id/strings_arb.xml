@@ -8,6 +8,7 @@
     <string name="about_version">Versi</string>
     <string name="about_build_date">Waktu pembuatan</string>
     <string name="about_git_commit">Build</string>
+    <string name="about_support">Dukung aplikasi ini</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">Fitur Equalizer tidak tersedia di platform ini.</string>
     <string name="bands">Grup musik</string>

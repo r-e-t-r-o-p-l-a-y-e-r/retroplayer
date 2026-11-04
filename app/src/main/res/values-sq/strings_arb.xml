@@ -8,6 +8,7 @@
     <string name="about_version">Versioni</string>
     <string name="about_build_date">Koha e ndërtimit</string>
     <string name="about_git_commit">Ndërtim</string>
+    <string name="about_support">Mbështetni këtë aplikacion</string>
     <string name="equalizer">Equalizues</string>
     <string name="equalizer_unavailable">Equalizer nuk është i disponueshëm në këtë platformë.</string>
     <string name="bands">Grupet</string>

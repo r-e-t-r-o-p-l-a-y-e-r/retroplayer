@@ -8,6 +8,7 @@
     <string name="about_version">Версія</string>
     <string name="about_build_date">Час компіляції</string>
     <string name="about_git_commit">Збірка</string>
+    <string name="about_support">Підтримайте цей додаток</string>
     <string name="equalizer">Еквалайзер</string>
     <string name="equalizer_unavailable">На цій платформі функція еквалайзера недоступна.</string>
     <string name="bands">Гурти</string>

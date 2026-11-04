@@ -8,6 +8,7 @@
     <string name="about_version">Verzió</string>
     <string name="about_build_date">Készítési idő</string>
     <string name="about_git_commit">Összeállítás</string>
+    <string name="about_support">Támogasd ezt az alkalmazást</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">Az Equalizer ezen a platformon nem érhető el.</string>
     <string name="bands">Zenekarok</string>

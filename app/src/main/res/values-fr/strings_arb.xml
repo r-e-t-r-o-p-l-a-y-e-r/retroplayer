@@ -8,6 +8,7 @@
     <string name="about_version">Version</string>
     <string name="about_build_date">Temps de construction</string>
     <string name="about_git_commit">Compilation</string>
+    <string name="about_support">Soutenez cette application</string>
     <string name="equalizer">Égaliseur</string>
     <string name="equalizer_unavailable">L\'égaliseur n\'est pas disponible sur cette plateforme.</string>
     <string name="bands">Bandes</string>

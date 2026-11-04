@@ -8,6 +8,7 @@
     <string name="about_version">সংস্করণ</string>
     <string name="about_build_date">সময় তৈরি করুন</string>
     <string name="about_git_commit">বিল্ড</string>
+    <string name="about_support">এই অ্যাপটিকে সমর্থন করুন</string>
     <string name="equalizer">ইকুয়ালাইজার</string>
     <string name="equalizer_unavailable">এই প্ল্যাটফর্মে ইকুয়ালাইজার পাওয়া যায় না ।</string>
     <string name="bands">ব্যান্ড</string>

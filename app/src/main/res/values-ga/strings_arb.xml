@@ -8,6 +8,7 @@
     <string name="about_version">Leagan</string>
     <string name="about_build_date">Am tógála</string>
     <string name="about_git_commit">Tógáil</string>
+    <string name="about_support">Tacaigh leis an aip seo</string>
     <string name="equalizer">Comhionannán</string>
     <string name="equalizer_unavailable">Níl an t-ionannaitheoir ar fáil ar an ardán seo.</string>
     <string name="bands">Bannaí</string>

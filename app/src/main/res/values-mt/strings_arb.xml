@@ -8,6 +8,7 @@
     <string name="about_version">Verżjoni</string>
     <string name="about_build_date">Ħin tal-bini</string>
     <string name="about_git_commit">Bini</string>
+    <string name="about_support">Appoġġja din l-app</string>
     <string name="equalizer">Ekwalizzatur</string>
     <string name="equalizer_unavailable">L-Equalizer mhuwiex disponibbli fuq din il-pjattaforma.</string>
     <string name="bands">Bands</string>

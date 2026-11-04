@@ -8,6 +8,7 @@
     <string name="about_version">Različica</string>
     <string name="about_build_date">Čas izdelave</string>
     <string name="about_git_commit">Zgradba</string>
+    <string name="about_support">Podprite to aplikacijo</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">Na tej platformi izenačevalnik ni na voljo.</string>
     <string name="bands">Glasbene skupine</string>

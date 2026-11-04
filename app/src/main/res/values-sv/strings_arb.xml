@@ -8,6 +8,7 @@
     <string name="about_version">Version</string>
     <string name="about_build_date">Byggtid</string>
     <string name="about_git_commit">Bygg</string>
+    <string name="about_support">Stöd den här appen</string>
     <string name="equalizer">Equalizer</string>
     <string name="equalizer_unavailable">Equalizer finns inte tillgängligt på den här plattformen.</string>
     <string name="bands">Band</string>

@@ -8,6 +8,7 @@
     <string name="about_version">Sürüm</string>
     <string name="about_build_date">Yapım süresi</string>
     <string name="about_git_commit">Derleme</string>
+    <string name="about_support">Bu uygulamayı destekleyin</string>
     <string name="equalizer">Ekolayzer</string>
     <string name="equalizer_unavailable">Equalizer bu platformda mevcut değil.</string>
     <string name="bands">Bantlar</string>

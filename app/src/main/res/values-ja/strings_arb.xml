@@ -8,6 +8,7 @@
     <string name="about_version">バージョン</string>
     <string name="about_build_date">建設時間</string>
     <string name="about_git_commit">ビルド</string>
+    <string name="about_support">このアプリを応援してください</string>
     <string name="equalizer">イコライザー</string>
     <string name="equalizer_unavailable">このプラットフォームではイコライザーは利用できません。</string>
     <string name="bands">-</string>

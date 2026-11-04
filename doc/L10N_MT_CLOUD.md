@@ -6,9 +6,12 @@ scraper paths also need `deep-translator`). The backends, rate limits and
 locale code mapping live in `scripts/mt_l10n_arbs.py`, which the listing script
 imports.
 
-In-app strings (`app/src/main/res/values-*/strings_arb.xml`) are the
-translation source themselves; a new key needs a translation in every locale
-file.
+In-app strings: after adding an English value to
+`app/src/main/res/values/strings_arb.xml`, run
+`python3 scripts/mt_android_strings.py` to translate the missing keys into
+every `values-*/strings_arb.xml` (`--locale`, `--key ... --force` to redo one
+string, `--dry-run` to list). `TranslationsTest` fails while a locale misses a
+key.
 
 ## Credentials (`.env`)
 
