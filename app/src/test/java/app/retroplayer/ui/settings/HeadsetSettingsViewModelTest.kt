@@ -5,6 +5,7 @@ import app.retroplayer.TestLibrary
 import app.retroplayer.domain.settings.HeadsetSettings
 import app.retroplayer.runVmTest
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.After
@@ -15,6 +16,7 @@ import org.junit.rules.TemporaryFolder
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 class HeadsetSettingsViewModelTest {
     @get:Rule val main = MainDispatcherRule()

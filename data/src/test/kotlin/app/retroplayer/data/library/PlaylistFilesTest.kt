@@ -6,6 +6,7 @@ import app.retroplayer.data.db.LibraryStore
 import app.retroplayer.data.db.RetroDatabase
 import app.retroplayer.domain.LibraryPath
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -14,6 +15,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 class PlaylistFilesTest {
     private lateinit var db: RetroDatabase

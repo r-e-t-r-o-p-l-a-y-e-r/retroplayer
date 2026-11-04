@@ -90,7 +90,7 @@ class PlaylistViewModelTest {
         val folder = lib.p("Mix")
         val saved = lib.playlists.save(folder, "Mine", listOf(lib.p("Mix/a.mp3"), lib.p("Mix/b.mp3"))) as SaveResult.Saved
         viewModel = vm(saved.path.value)
-        val state = viewModel.state.first { it is PlaylistUiState.Ready && (it as PlaylistUiState.Ready).entries.size == 2 } as PlaylistUiState.Ready
+        val state = viewModel.state.first { it is PlaylistUiState.Ready && it.entries.size == 2 } as PlaylistUiState.Ready
         viewModel.play(state.entries[1])
         assertThat(lib.playback.played).containsExactly(
             PlaybackItem.playlistId(saved.path) to lib.p("Mix/b.mp3").value,

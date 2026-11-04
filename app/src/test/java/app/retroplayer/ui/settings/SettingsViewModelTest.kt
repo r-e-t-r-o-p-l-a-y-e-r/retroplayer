@@ -3,6 +3,7 @@ package app.retroplayer.ui.settings
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.MainDispatcherRule
@@ -20,6 +21,7 @@ import org.junit.rules.TemporaryFolder
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 class SettingsViewModelTest {
     @get:Rule val main = MainDispatcherRule()

@@ -16,6 +16,7 @@ import app.retroplayer.domain.model.SavedPlaybackState
 import app.retroplayer.domain.model.TrackMetadata
 import app.retroplayer.playback.QueueBuilder.toMediaItem
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceTimeBy
@@ -27,6 +28,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.Shadows.shadowOf
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 class ProgressSaverTest {
     private lateinit var player: ExoPlayer

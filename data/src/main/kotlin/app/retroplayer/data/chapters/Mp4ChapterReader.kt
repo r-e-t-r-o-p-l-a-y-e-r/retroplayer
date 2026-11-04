@@ -23,7 +23,9 @@ interface ByteSource {
             override val size = channel.size()
             override fun read(position: Long, length: Int): ByteArray {
                 val buffer = ByteBuffer.allocate(length)
-                while (buffer.hasRemaining() && channel.read(buffer, position + buffer.position()) > 0) Unit
+                while (buffer.hasRemaining()) {
+                    if (channel.read(buffer, position + buffer.position()) <= 0) break
+                }
                 return buffer.array().copyOf(buffer.position())
             }
         }

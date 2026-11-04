@@ -8,6 +8,7 @@ import app.retroplayer.data.db.RetroDatabase
 import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.domain.LibraryPath
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -20,6 +21,7 @@ import org.junit.rules.TemporaryFolder
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 class QueueRepositoryTest {
     @get:Rule val tmp = TemporaryFolder()

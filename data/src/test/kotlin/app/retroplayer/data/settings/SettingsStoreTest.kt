@@ -9,6 +9,7 @@ import app.retroplayer.domain.settings.EqualizerSettings
 import app.retroplayer.domain.settings.HeadsetSettings
 import app.retroplayer.domain.settings.ThemePreference
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -17,6 +18,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class SettingsStoreTest {
     @get:Rule
     val tmp = TemporaryFolder()

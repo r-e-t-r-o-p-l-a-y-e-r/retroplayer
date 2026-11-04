@@ -9,6 +9,7 @@ import app.retroplayer.domain.model.AlbumSortChoice
 import app.retroplayer.domain.model.LibraryItem
 import app.retroplayer.domain.model.TrackMetadata
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
@@ -23,6 +24,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import java.util.Locale
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 class LibraryRepositoryTest {
     private lateinit var db: RetroDatabase

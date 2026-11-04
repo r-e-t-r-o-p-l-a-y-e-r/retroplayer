@@ -57,7 +57,7 @@ class AddTracksViewModelTest {
         val browse = viewModel.state.first { it is AddTracksUiState.Browse } as AddTracksUiState.Browse
         val album = browse.audio.filterIsInstance<LibraryItem.Album>().single().album
         viewModel.toggleAlbum(album)
-        viewModel.state.first { it is AddTracksUiState.Browse && (it as AddTracksUiState.Browse).selected.isNotEmpty() }
+        viewModel.state.first { it is AddTracksUiState.Browse && it.selected.isNotEmpty() }
         val expected = lib.repository.albumOrdering().order(album.tracks, lib.store.albumSort(album.id)).map { it.fileName }
         assertThat(viewModel.selectedAlbumTrackPaths(album).map { it.name }).isEqualTo(expected)
     }

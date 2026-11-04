@@ -49,6 +49,7 @@ class MainDispatcherRule(val dispatcher: TestDispatcher = UnconfinedTestDispatch
 fun MainDispatcherRule.runVmTest(block: suspend TestScope.() -> Unit) = runTest(dispatcher, timeout = 10.seconds, testBody = block)
 
 /** A library over in-memory documents, Room and DataStore, rooted at one folder named "Music". */
+@OptIn(ExperimentalCoroutinesApi::class)
 class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = emptyMap()) {
     private val scope = CoroutineScope(SupervisorJob() + UnconfinedTestDispatcher())
     val docs = FakeDocumentSource()

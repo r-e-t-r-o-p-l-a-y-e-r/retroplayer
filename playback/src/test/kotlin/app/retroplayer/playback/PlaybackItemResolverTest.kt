@@ -13,6 +13,7 @@ import app.retroplayer.domain.AlbumIds
 import app.retroplayer.domain.LibraryPath
 import app.retroplayer.domain.model.PlaybackItem
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -22,6 +23,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import java.util.Locale
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(RobolectricTestRunner::class)
 class PlaybackItemResolverTest {
     private lateinit var db: RetroDatabase

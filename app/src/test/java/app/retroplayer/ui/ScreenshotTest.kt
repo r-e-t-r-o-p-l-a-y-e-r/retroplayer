@@ -1,7 +1,7 @@
 package app.retroplayer.ui
 
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.v2.createComposeRule
 import app.retroplayer.ui.TextFitTest.Screen
 import app.retroplayer.ui.settings.BuildInfo
 import app.retroplayer.ui.settings.LocalBuildInfo

@@ -1,7 +1,9 @@
 package app.retroplayer.library
 
 import android.content.Intent
+import android.net.Uri
 import android.provider.DocumentsContract
+import androidx.core.content.IntentCompat
 import androidx.core.net.toUri
 import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.MainDispatcherRule
@@ -64,7 +66,7 @@ class SafRootAccessTest {
     fun `the write request opens the picker at the root and asks for write access`() {
         val intent = writeAccessIntent(music)
         assertThat(intent.action).isEqualTo(Intent.ACTION_OPEN_DOCUMENT_TREE)
-        assertThat(intent.getParcelableExtra<android.net.Uri>(DocumentsContract.EXTRA_INITIAL_URI)).isEqualTo(music.toUri())
+        assertThat(IntentCompat.getParcelableExtra(intent, DocumentsContract.EXTRA_INITIAL_URI, Uri::class.java)).isEqualTo(music.toUri())
         assertThat(intent.flags and Intent.FLAG_GRANT_WRITE_URI_PERMISSION).isNotEqualTo(0)
         assertThat(intent.flags and Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION).isNotEqualTo(0)
     }
