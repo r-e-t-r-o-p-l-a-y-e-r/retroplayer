@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="about">Σχετικά με</string>
-    <string name="about_subtitle">Μόνο τοπικά αρχεία ήχου. Χωρίς διαφημίσεις, χωρίς τηλεμετρία, χωρίς πρόσβαση στο δίκτυο.\nΥποστηριζόμενες μορφές: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Μόνο τοπικά αρχεία ήχου. Χωρίς διαφημίσεις, χωρίς τηλεμετρία, χωρίς πρόσβαση στο δίκτυο.\nΥποστηριζόμενες μορφές: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Έκδοση</string>
     <string name="about_build_date">Χρόνος κατασκευής</string>
     <string name="about_git_commit">Σύνθεση</string>

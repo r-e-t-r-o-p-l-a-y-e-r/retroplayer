@@ -9,6 +9,7 @@
 | [../AGENTS.md](../AGENTS.md) | Developers, agents | Conventions, test recipes, UI rules, known pitfalls |
 | [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) | Developers | Task history of the native app (T01 … T22) |
 | [RELEASE.md](RELEASE.md) | Maintainers | Versioning, signing, release workflow, Google Play, F-Droid, Accrescent |
+| [MANUAL_STEPS.md](MANUAL_STEPS.md) | Maintainers | Checklist for the first store release: key, secrets, Play, F-Droid, Accrescent |
 | [STORE_LOCALES.md](STORE_LOCALES.md) | Maintainers | Store listing in `fastlane/metadata/android/`: files, limits, locale folders |
 | [L10N_MT_CLOUD.md](L10N_MT_CLOUD.md) | Maintainers | Machine translation for in-app strings and the store listing |
 | [images/tutorial/README.md](images/tutorial/README.md) | Maintainers | How the user guide screenshots are captured |

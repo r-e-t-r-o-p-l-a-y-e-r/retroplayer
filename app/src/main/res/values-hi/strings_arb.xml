@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">सेटिंग</string>
     <string name="about">परिचय</string>
-    <string name="about_subtitle">सिर्फ़ स्थानीय ऑडियो। कोई विज्ञापन नहीं, कोई टेलीमेट्री नहीं, कोई नेटवर्क एक्सेस नहीं।\nसमर्थित प्रारूप: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">सिर्फ़ स्थानीय ऑडियो। कोई विज्ञापन नहीं, कोई टेलीमेट्री नहीं, कोई नेटवर्क एक्सेस नहीं।\nसमर्थित प्रारूप: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">संस्करण</string>
     <string name="about_build_date">निर्माण का समय</string>
     <string name="about_git_commit">बिल्ड</string>

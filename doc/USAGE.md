@@ -152,9 +152,8 @@ Open **Settings** from the gear in the app bar.
 
 | Format | Typical use |
 |--------|-------------|
-| MP3, FLAC, WAV | Music and audiobooks |
+| MP3, FLAC, WAV, OGG, Opus | Music and audiobooks |
 | M4A, M4B | AAC / audiobooks (unencrypted) |
-| OGG, Opus | Music and audiobooks |
 
 The app plays **local files only**. Remote URLs in playlist files are ignored.
 

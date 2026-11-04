@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Einstellungen</string>
     <string name="about">Über</string>
-    <string name="about_subtitle">Nur lokale Audiodateien. Keine Werbung, kein Tracking, kein Netzwerk.\nFormate: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Nur lokale Audiodateien. Keine Werbung, kein Tracking, kein Netzwerk.\nFormate: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Version</string>
     <string name="about_build_date">Build-Zeit</string>
     <string name="about_git_commit">Build</string>

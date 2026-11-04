@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Настройки</string>
     <string name="about">За</string>
-    <string name="about_subtitle">Само локално възпроизвеждане на аудио. Без реклами, без телеметрия, без достъп до мрежата.\nПоддържани формати: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Само локално възпроизвеждане на аудио. Без реклами, без телеметрия, без достъп до мрежата.\nПоддържани формати: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Версия</string>
     <string name="about_build_date">Време за изграждане</string>
     <string name="about_git_commit">Сборка</string>

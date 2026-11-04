@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Nustatymai</string>
     <string name="about">Apie</string>
-    <string name="about_subtitle">Tik vietinis garso įrašas. Be reklamų, be telemetrijos, be prieigos prie tinklo.\nPalaikomi formatai: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Tik vietinis garso įrašas. Be reklamų, be telemetrijos, be prieigos prie tinklo.\nPalaikomi formatai: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Versija</string>
     <string name="about_build_date">Kūrimo trukmė</string>
     <string name="about_git_commit">Kompiliacija</string>

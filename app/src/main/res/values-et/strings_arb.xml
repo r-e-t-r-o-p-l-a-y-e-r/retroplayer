@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Seaded</string>
     <string name="about">Info</string>
-    <string name="about_subtitle">Ainult kohalik heli. Ei mingeid reklaame, telemeetriat ega juurdepääsu võrgule.\nToetatud vormingud: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Ainult kohalik heli. Ei mingeid reklaame, telemeetriat ega juurdepääsu võrgule.\nToetatud vormingud: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Versioon</string>
     <string name="about_build_date">Ehitusaeg</string>
     <string name="about_git_commit">Koostamine</string>

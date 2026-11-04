@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Socruithe</string>
     <string name="about">Maidir le</string>
-    <string name="about_subtitle">Fuaim áitiúil amháin. Gan fógraí, gan teileiméadracht, gan rochtain líonra.\nFormáidí tacaíochta: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Fuaim áitiúil amháin. Gan fógraí, gan teileiméadracht, gan rochtain líonra.\nFormáidí tacaíochta: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Leagan</string>
     <string name="about_build_date">Am tógála</string>
     <string name="about_git_commit">Tógáil</string>

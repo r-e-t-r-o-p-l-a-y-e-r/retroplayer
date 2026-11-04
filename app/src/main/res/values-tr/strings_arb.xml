@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Ayarlar</string>
     <string name="about">Hakkında</string>
-    <string name="about_subtitle">Sadece yerel ses. Reklam yok, telemetri yok, ağ erişimi yok.\n Desteklenen formatlar: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Sadece yerel ses. Reklam yok, telemetri yok, ağ erişimi yok.\n Desteklenen formatlar: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Sürüm</string>
     <string name="about_build_date">Yapım süresi</string>
     <string name="about_git_commit">Derleme</string>

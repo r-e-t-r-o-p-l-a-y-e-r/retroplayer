@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Innstillinger</string>
     <string name="about">Om</string>
-    <string name="about_subtitle">Kun lokal lyd. Ingen annonser, ingen telemetri, ingen nettverkstilgang.\nStøttede formater: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Kun lokal lyd. Ingen annonser, ingen telemetri, ingen nettverkstilgang.\nStøttede formater: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Versjon</string>
     <string name="about_build_date">Byggetid</string>
     <string name="about_git_commit">Bygg</string>

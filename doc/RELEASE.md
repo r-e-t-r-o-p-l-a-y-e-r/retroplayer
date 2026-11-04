@@ -116,6 +116,8 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
 
 ## First-time store setup
 
+Step-by-step checklist: [MANUAL_STEPS.md](MANUAL_STEPS.md).
+
 - **Google Play:** developer account; Play App Signing with your own key
   (PEPK export); Data safety "no data collected"; privacy policy URL
   (`PRIVACY.md` on GitHub); no ads; content rating; target audience;

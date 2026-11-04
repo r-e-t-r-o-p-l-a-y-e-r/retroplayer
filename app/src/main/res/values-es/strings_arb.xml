@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Ajustes</string>
     <string name="about">Acerca de</string>
-    <string name="about_subtitle">Solo audio local. Sin anuncios, sin telemetría, sin acceso a la red.\nFormatos compatibles: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Solo audio local. Sin anuncios, sin telemetría, sin acceso a la red.\nFormatos compatibles: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Versión</string>
     <string name="about_build_date">Tiempo de construcción</string>
     <string name="about_git_commit">Compilación</string>

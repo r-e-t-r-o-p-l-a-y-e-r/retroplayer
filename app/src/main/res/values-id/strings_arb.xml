@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Pengaturan</string>
     <string name="about">Tentang</string>
-    <string name="about_subtitle">Hanya audio lokal. Tanpa iklan, tanpa telemetri, tanpa akses jaringan.\nFormat yang didukung: MP3, M4A, M4B, FLAC, WAV</string>
+    <string name="about_subtitle">Hanya audio lokal. Tanpa iklan, tanpa telemetri, tanpa akses jaringan.\nFormat yang didukung: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
     <string name="about_version">Versi</string>
     <string name="about_build_date">Waktu pembuatan</string>
     <string name="about_git_commit">Build</string>
