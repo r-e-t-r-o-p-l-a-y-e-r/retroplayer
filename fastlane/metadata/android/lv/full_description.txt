@@ -20,7 +20,7 @@ Kur vien jūs klausāties
 • Pēc izvēles atskaņošana turpinās, kad austiņas atkal savienojas
 • Ekvalaizers ar iestatījumiem, gaiša un tumša tēma, 47 valodas
 
-Formāti: MP3, M4A, M4B (nešifrēts AAC), FLAC, WAV, OGG un Opus.
+Formāti: FLAC, M4A, M4B (nešifrēts AAC), MP3, OGG, Opus un WAV.
 
 Privātums jau no paša sākuma
 „Retro Player“ nav interneta piekļuves atļaujas, tādēļ nekas neiziet ārpus jūsu tālruņa: nav reklāmu, analītikas, izsekošanas vai kontu. Tam nav nepieciešama arī atļauja piekļūt uzglabāšanas vietai. Tas lasa tikai jūsu izvēlētās mapes un nekad nemaina jūsu failus; vienīgie faili, kurus tas raksta, ir jūsu saglabātās atskaņošanas saraksti.

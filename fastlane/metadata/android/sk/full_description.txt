@@ -20,7 +20,7 @@ Kdekoľvek počúvate
 • Voliteľné pokračovanie prehrávania po opätovnom pripojení slúchadiel
 • Ekvalizér s prednastaveniami, svetlý a tmavý motív, 47 jazykov
 
-Formáty: MP3, M4A, M4B (nešifrovaný AAC), FLAC, WAV, OGG a Opus.
+Formáty: FLAC, M4A, M4B (nešifrovaný AAC), MP3, OGG, Opus a WAV.
 
 Súkromie už v samotnom dizajne
 Retro Player nemá povolenie na prístup k internetu, takže z vášho telefónu neopúšťa nič: žiadne reklamy, analytické údaje, sledovanie ani účty. Nepotrebuje ani povolenie na prístup k úložisku. Číta iba zložky, ktoré si vyberiete, a nikdy nemení vaše súbory; jediné súbory, ktoré zapisuje, sú zoznamy skladieb, ktoré uložíte.

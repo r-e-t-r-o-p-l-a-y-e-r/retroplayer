@@ -20,7 +20,7 @@ Kullimkien tisma'
 • B'mod fakultattiv, jkompli meta l-headphones tiegħek jerġgħu jikkonnettjaw
 • Equalizer b'presets, tema ċara u skura, 47 lingwa
 
-Formati: MP3, M4A, M4B (AAC mhux enkriptjat), FLAC, WAV, OGG u Opus.
+Formati: FLAC, M4A, M4B (AAC mhux enkriptjat), MP3, OGG, Opus u WAV.
 
 Privatezza minn disinn
 Retro Player m'għandux permess tal-Internet, għalhekk xejn ma joħroġ minn fuq it-telefon tiegħek: ebda reklami, analitiċi, traċċar jew kontijiet. M'għandux bżonn permess ta' ħażna wkoll. Jaqra biss il-folderi li tagħżel u qatt ma jibdel il-fajls tiegħek; l-uniku fajls li jikteb huma l-playlists li tissejvja.

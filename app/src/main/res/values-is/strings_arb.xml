@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Stillingar</string>
     <string name="about">Um</string>
-    <string name="about_subtitle">Aðeins staðbundinn hljómur. Engin auglýsingar, engin fjarkönnun, enginn netaðgangur.\nStuðaðar sniður: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
+    <string name="about_subtitle">Aðeins staðbundinn hljómur. Engin auglýsingar, engin fjarkönnun, enginn netaðgangur.\nStuðaðar sniður: FLAC, M4A, M4B, MP3, OGG, Opus, WAV</string>
     <string name="about_version">Útgáfa</string>
     <string name="about_build_date">Uppbyggingartími</string>
     <string name="about_git_commit">Uppbygging</string>

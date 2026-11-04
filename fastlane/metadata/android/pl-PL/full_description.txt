@@ -20,7 +20,7 @@ Gdziekolwiek słuchasz
 • Opcjonalnie kontynuuje odtwarzanie po ponownym podłączeniu słuchawek
 • Korektor z ustawieniami wstępnymi, jasny i ciemny motyw, 47 języków
 
-Formaty: MP3, M4A, M4B (niezaszyfrowany AAC), FLAC, WAV, OGG i Opus.
+Formaty: FLAC, M4A, M4B (niezaszyfrowany AAC), MP3, OGG, Opus i WAV.
 
 Prywatność od samego początku
 Retro Player nie ma uprawnień do dostępu do Internetu, więc żadne dane nie opuszczają Twojego telefonu: żadnych reklam, analiz, śledzenia ani kont. Nie potrzebuje też uprawnień do dostępu do pamięci. Odczytuje tylko wybrane przez Ciebie foldery i nigdy nie zmienia Twoich plików; jedyne pliki, które zapisuje, to zapasane przez Ciebie listy odtwarzania.

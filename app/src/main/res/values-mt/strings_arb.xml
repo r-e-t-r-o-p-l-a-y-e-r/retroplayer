@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Is-settings</string>
     <string name="about">Dwar</string>
-    <string name="about_subtitle">Awdjo lokali biss. L-ebda reklami, l-ebda telemetrija, l-ebda aċċess tan-netwerk.\nFormati appoġġjati: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
+    <string name="about_subtitle">Awdjo lokali biss. L-ebda reklami, l-ebda telemetrija, l-ebda aċċess tan-netwerk.\nFormati appoġġjati: FLAC, M4A, M4B, MP3, OGG, Opus, WAV</string>
     <string name="about_version">Verżjoni</string>
     <string name="about_build_date">Ħin tal-bini</string>
     <string name="about_git_commit">Bini</string>

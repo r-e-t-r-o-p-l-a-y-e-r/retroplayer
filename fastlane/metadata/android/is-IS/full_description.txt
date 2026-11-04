@@ -20,7 +20,7 @@ Hvar sem þú hlustar
 • Hægt er að láta spilun halda áfram þegar heyrnartólin tengjast aftur
 • Jafngildari með forstillingum, ljósu og dökkum þema, 47 tungumál
 
-Formöt: MP3, M4A, M4B (ókryptað AAC), FLAC, WAV, OGG og Opus.
+Formöt: FLAC, M4A, M4B (ókryptað AAC), MP3, OGG, Opus og WAV.
 
 Persónuvernd í hönnun
 Retro Player hefur ekki heimild til að tengjast internetinu, svo ekkert fer frá símanum þínum: engar auglýsingar, engin greining, engin rekjanleiki og engin notendareikningur. Hann þarf heldur ekki geymsluheimild. Hann les aðeins möppurnar sem þú velur og breytir aldrei skrám þínum; einu skrárnar sem hann skrifar eru spilunarlistar sem þú vistað.

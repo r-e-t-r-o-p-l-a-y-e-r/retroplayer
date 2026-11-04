@@ -20,7 +20,7 @@ Wherever you listen
 • Optionally continues when your headphones reconnect
 • Equalizer with presets, light and dark theme, 47 languages
 
-Formats: MP3, M4A, M4B (unencrypted AAC), FLAC, WAV, OGG and Opus.
+Formats: FLAC, M4A, M4B (unencrypted AAC), MP3, OGG, Opus and WAV.
 
 Private by design
 Retro Player has no Internet permission, so nothing leaves your phone: no ads, analytics, tracking or accounts. It needs no storage permission either. It reads only the folders you pick and never changes your files; the only files it writes are playlists you save.

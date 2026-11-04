@@ -20,7 +20,7 @@ Kus iganes sa kuulad
 • Valikuliselt jätkub taasesitus, kui kõrvaklapid uuesti ühenduvad
 • Ekvalaiser eelseadistustega, heleda ja tumeda teemaga, 47 keeles
 
-Formaadid: MP3, M4A, M4B (krüpteerimata AAC), FLAC, WAV, OGG ja Opus.
+Formaadid: FLAC, M4A, M4B (krüpteerimata AAC), MP3, OGG, Opus ja WAV.
 
 Privaatsus on sisse ehitatud
 Retro Playeril puudub internetiõigus, seega ei lahku midagi teie telefonist: ei reklaame, analüütikat, jälgimist ega kontosid. Samuti ei vaja see salvestusõigust. Rakendus loeb ainult teie valitud kaustu ega muuda kunagi teie faile; ainsad failid, mida see salvestab, on teie poolt salvestatud esitusloendid.

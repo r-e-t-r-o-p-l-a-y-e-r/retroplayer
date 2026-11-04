@@ -20,7 +20,7 @@ Uanset hvor du lytter
 • Kan valgfrit fortsætte, når dine hovedtelefoner opretter forbindelse igen
 • Equalizer med forudindstillinger, lyst og mørkt tema, 47 sprog
 
-Formater: MP3, M4A, M4B (ukrypteret AAC), FLAC, WAV, OGG og Opus.
+Formater: FLAC, M4A, M4B (ukrypteret AAC), MP3, OGG, Opus og WAV.
 
 Privat fra starten
 Retro Player har ingen internetadgang, så intet forlader din telefon: ingen annoncer, analyser, sporing eller konti. Den har heller ikke brug for tilladelse til lagerplads. Den læser kun de mapper, du vælger, og ændrer aldrig dine filer; de eneste filer, den skriver, er de afspilningslister, du gemmer.

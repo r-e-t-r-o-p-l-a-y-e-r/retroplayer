@@ -20,7 +20,7 @@ Bárhol is hallgatsz
 • Opcionálisan folytatja a lejátszást, amikor a fejhallgató újra csatlakozik
 • Equalizer előre beállított hangszínnel, világos és sötét témával, 47 nyelven
 
-Formátumok: MP3, M4A, M4B (titkosítatlan AAC), FLAC, WAV, OGG és Opus.
+Formátumok: FLAC, M4A, M4B (titkosítatlan AAC), MP3, OGG, Opus és WAV.
 
 Alapvetően magánjellegű
 A Retro Player nem igényel internet-hozzáférést, így semmi sem hagyja el a telefonodat: nincsenek hirdetések, elemzések, nyomon követés vagy fiókok. Tárolási jogosultságra sincs szüksége. Csak az általad kiválasztott mappákat olvassa be, és soha nem módosítja a fájljaidat; az egyetlen fájl, amit ír, az az általad mentett lejátszási lista.

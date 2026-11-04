@@ -20,7 +20,7 @@ Missä tahansa kuunteletkin
 • Voit valita, jatkuuko toisto, kun kuulokkeet yhdistyvät uudelleen
 • Taajuuskorjain esiasetuksilla, vaalea ja tumma teema, 47 kieltä
 
-Tiedostomuodot: MP3, M4A, M4B (salausmaton AAC), FLAC, WAV, OGG ja Opus.
+Tiedostomuodot: FLAC, M4A, M4B (salausmaton AAC), MP3, OGG, Opus ja WAV.
 
 Suunniteltu yksityisyyttä kunnioittaen
 Retro Playerilla ei ole Internet-käyttöoikeutta, joten mitään tietoja ei lähetetä puhelimestasi: ei mainoksia, analytiikkaa, seurantaa tai tilejä. Se ei myöskään tarvitse tallennustilan käyttöoikeutta. Se lukee vain valitsemasi kansiot eikä koskaan muuta tiedostojasi; ainoat tiedostot, joihin se kirjoittaa, ovat tallentamasi soittolistat.

@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">Cài đặt</string>
     <string name="about">Giới thiệu</string>
-    <string name="about_subtitle">Chỉ phát âm thanh cục bộ. Không quảng cáo, không thu thập dữ liệu, không truy cập mạng.\n Các định dạng được hỗ trợ: MP3, M4A, M4B, FLAC, WAV, OGG, Opus</string>
+    <string name="about_subtitle">Chỉ phát âm thanh cục bộ. Không quảng cáo, không thu thập dữ liệu, không truy cập mạng.\n Các định dạng được hỗ trợ: FLAC, M4A, M4B, MP3, OGG, Opus, WAV</string>
     <string name="about_version">Phiên bản</string>
     <string name="about_build_date">xây dựng theo thời gian</string>
     <string name="about_git_commit">Bản dựng</string>

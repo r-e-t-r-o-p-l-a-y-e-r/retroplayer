@@ -20,7 +20,7 @@ Klausykitės bet kur
 • Pasirinkus, grojimas tęsiasi, kai vėl prijungiate ausines
 • Ekvalaizeris su iš anksto nustatytais parametrais, šviesia ir tamsi tema, 47 kalbos
 
-Formatai: MP3, M4A, M4B (nesuskaitmenintas AAC), FLAC, WAV, OGG ir „Opus“.
+Formatai: FLAC, M4A, M4B (nesuskaitmenintas AAC), MP3, OGG, Opus ir WAV.
 
 Sukurta siekiant privatumo
 „Retro Player“ neturi leidimo prisijungti prie interneto, todėl jūsų telefone niekas neišeina: jokių reklamų, analitikos, sekimo ar paskyrų. Jam taip pat nereikia leidimo naudoti saugyklos. Jis skaito tik jūsų pasirinktus aplankus ir niekada nekeičia jūsų failų; vieninteliai failai, kuriuos jis įrašo, yra jūsų išsaugoti grojaraščiai.

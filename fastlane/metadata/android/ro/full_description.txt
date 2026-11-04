@@ -20,7 +20,7 @@ Oriunde ai asculta
 • Opțional, redarea continuă atunci când căștile se reconectează
 • Egalizator cu presetări, temă deschisă și întunecată, 47 de limbi
 
-Formate: MP3, M4A, M4B (AAC necriptat), FLAC, WAV, OGG și Opus.
+Formate: FLAC, M4A, M4B (AAC necriptat), MP3, OGG, Opus și WAV.
 
 Conceput pentru confidențialitate
 Retro Player nu solicită permisiunea de acces la internet, așa că nimic nu părăsește telefonul tău: fără reclame, analize, urmărire sau conturi. De asemenea, nu are nevoie de permisiunea de stocare. Citește doar folderele pe care le alegi și nu îți modifică niciodată fișierele; singurele fișiere pe care le scrie sunt listele de redare pe care le salvezi.

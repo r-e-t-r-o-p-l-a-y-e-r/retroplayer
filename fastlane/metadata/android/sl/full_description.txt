@@ -20,7 +20,7 @@ Kjerkoli poslušate
 • Po želji nadaljuje predvajanje, ko se slušalke ponovno povežejo
 • Ekvalizer s prednastavitvami, svetla in temna tema, 47 jezikov
 
-Formati: MP3, M4A, M4B (nešifriran AAC), FLAC, WAV, OGG in Opus.
+Formati: FLAC, M4A, M4B (nešifriran AAC), MP3, OGG, Opus in WAV.
 
 Zasnovan za zasebnost
 Retro Player nima dovoljenja za dostop do interneta, zato nič ne zapusti vašega telefona: nobenih oglasov, analitike, sledenja ali računov. Prav tako ne potrebuje dovoljenja za dostop do pomnilnika. Bere le mape, ki jih izberete, in nikoli ne spreminja vaših datotek; edine datoteke, ki jih zapiše, so seznami predvajanja, ki jih shranite.

@@ -20,7 +20,7 @@ Di mana pun Anda mendengarkan
 • Secara opsional, pemutaran akan dilanjutkan saat headphone Anda terhubung kembali
 • Equalizer dengan preset, tema terang dan gelap, serta dukungan 47 bahasa
 
-Format: MP3, M4A, M4B (AAC tanpa enkripsi), FLAC, WAV, OGG, dan Opus.
+Format: FLAC, M4A, M4B (AAC tanpa enkripsi), MP3, OGG, Opus, dan WAV.
 
 Dirancang untuk privasi
 Retro Player tidak memerlukan izin akses internet, sehingga tidak ada data yang keluar dari ponsel Anda: tidak ada iklan, analisis, pelacakan, atau akun. Aplikasi ini juga tidak memerlukan izin penyimpanan. Aplikasi ini hanya membaca folder yang Anda pilih dan tidak pernah mengubah file Anda; satu-satunya file yang ditulis adalah daftar putar yang Anda simpan.

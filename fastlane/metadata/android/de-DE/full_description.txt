@@ -20,7 +20,7 @@ Wo immer du hörst
 • Optional wird die Wiedergabe fortgesetzt, wenn deine Kopfhörer wieder verbunden werden
 • Equalizer mit Voreinstellungen, helles und dunkles Design, 47 Sprachen
 
-Formate: MP3, M4A, M4B (unverschlüsseltes AAC), FLAC, WAV, OGG und Opus.
+Formate: FLAC, M4A, M4B (unverschlüsseltes AAC), MP3, OGG, Opus und WAV.
 
 Von Grund auf privat
 Retro Player hat keine Internetberechtigung, daher verlassen keine Daten dein Smartphone: keine Werbung, keine Analysen, kein Tracking und keine Konten. Auch eine Speicherberechtigung ist nicht nötig. Die App liest nur die Ordner, die du auswählst, und verändert deine Dateien nie; die einzigen Dateien, die sie schreibt, sind Wiedergabelisten, die du speicherst.

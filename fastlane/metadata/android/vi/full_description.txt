@@ -20,7 +20,7 @@ Dù bạn nghe ở đâu
 • Tùy chọn tiếp tục phát khi tai nghe kết nối lại
 • Bộ cân bằng âm thanh với các cài đặt sẵn, chủ đề sáng và tối, hỗ trợ 47 ngôn ngữ
 
-Định dạng: MP3, M4A, M4B (AAC không mã hóa), FLAC, WAV, OGG và Opus.
+Định dạng: FLAC, M4A, M4B (AAC không mã hóa), MP3, OGG, Opus và WAV.
 
 Được thiết kế để bảo mật
 Retro Player không yêu cầu quyền truy cập Internet, do đó không có dữ liệu nào rời khỏi điện thoại của bạn: không có quảng cáo, phân tích, theo dõi hay tài khoản. Ứng dụng cũng không cần quyền truy cập bộ nhớ. Ứng dụng chỉ đọc các thư mục bạn chọn và không bao giờ thay đổi tệp tin của bạn; các tệp tin duy nhất mà ứng dụng ghi là danh sách phát mà bạn lưu lại.

@@ -20,7 +20,7 @@ Allà on escoltes
 • Opcionalment, continua la reproducció quan els auriculars es tornen a connectar
 • Ecualitzador amb preajustaments, tema clar i fosc, 47 idiomes
 
-Formats: MP3, M4A, M4B (AAC no xifrat), FLAC, WAV, OGG i Opus.
+Formats: FLAC, M4A, M4B (AAC no xifrat), MP3, OGG, Opus i WAV.
 
 Privacitat per disseny
 Retro Player no té permisos d'Internet, de manera que res no surt del teu telèfon: sense anuncis, analítiques, seguiment ni comptes. Tampoc necessita permisos d'emmagatzematge. Només llegeix les carpetes que tries i mai no modifica els teus fitxers; els únics fitxers que escriu són les llistes de reproducció que deses.

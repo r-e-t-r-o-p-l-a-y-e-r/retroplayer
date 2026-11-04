@@ -4,7 +4,7 @@
     <string name="app_title">Retro Player</string>
     <string name="settings">الإعدادات</string>
     <string name="about">حول</string>
-    <string name="about_subtitle">الصوت المحلي فقط. لا إعلانات، لا قياس عن بعد، لا وصول إلى الشبكة.\nالتنسيقات المدعومة: MP3 و M4A و M4B و FLAC و WAV و OGG و Opus</string>
+    <string name="about_subtitle">الصوت المحلي فقط. لا إعلانات، لا قياس عن بعد، لا وصول إلى الشبكة.\nالتنسيقات المدعومة: FLAC و M4A و M4B و MP3 و OGG و Opus و WAV</string>
     <string name="about_version">الإصدار</string>
     <string name="about_build_date">وقت البناء</string>
     <string name="about_git_commit">البناء</string>

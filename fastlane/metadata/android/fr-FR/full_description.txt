@@ -20,7 +20,7 @@ Où que vous écoutiez
 • Poursuite de la lecture en option lorsque vos écouteurs se reconnectent
 • Égaliseur avec préréglages, thèmes clair et sombre, 47 langues
 
-Formats : MP3, M4A, M4B (AAC non crypté), FLAC, WAV, OGG et Opus.
+Formats : FLAC, M4A, M4B (AAC non crypté), MP3, OGG, Opus et WAV.
 
 Conçu pour le respect de la vie privée
 Retro Player ne demande aucune autorisation d’accès à Internet : aucune donnée ne quitte votre téléphone, qu’il s’agisse de publicités, d’analyses, de suivi ou de comptes. Il ne nécessite pas non plus d’autorisation d’accès au stockage. Il lit uniquement les dossiers que vous sélectionnez et ne modifie jamais vos fichiers ; les seuls fichiers qu’il crée sont les playlists que vous enregistrez.

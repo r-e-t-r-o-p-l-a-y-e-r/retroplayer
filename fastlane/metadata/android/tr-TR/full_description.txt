@@ -20,7 +20,7 @@ Nerede dinlerseniz dinleyin
 • İsteğe bağlı olarak kulaklıklarınız yeniden bağlandığında çalmaya devam eder
 • Ön ayarlı ekolayzer, açık ve koyu tema, 47 dil desteği
 
-Desteklenen formatlar: MP3, M4A, M4B (şifrelenmemiş AAC), FLAC, WAV, OGG ve Opus.
+Desteklenen formatlar: FLAC, M4A, M4B (şifrelenmemiş AAC), MP3, OGG, Opus ve WAV.
 
 Tasarımından itibaren gizlilik odaklı
 Retro Player’ın İnternet izni yoktur, bu nedenle telefonunuzdan hiçbir bilgi dışarı çıkmaz: reklam, analiz, izleme veya hesap bilgisi yoktur. Depolama iznine de ihtiyaç duymaz. Yalnızca seçtiğiniz klasörleri okur ve dosyalarınızı asla değiştirmez; yazdığı tek dosyalar, kaydettiğiniz çalma listeleridir.

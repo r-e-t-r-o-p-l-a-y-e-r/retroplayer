@@ -20,7 +20,7 @@ Ovunque tu ascolti
 • Opzionalmente, riprende la riproduzione quando le cuffie si riconnettono
 • Equalizzatore con preset, tema chiaro e scuro, 47 lingue
 
-Formati: MP3, M4A, M4B (AAC non crittografato), FLAC, WAV, OGG e Opus.
+Formati: FLAC, M4A, M4B (AAC non crittografato), MP3, OGG, Opus e WAV.
 
 Progettato per la privacy
 Retro Player non richiede autorizzazioni per Internet, quindi nulla esce dal tuo telefono: niente pubblicità, analisi, tracciamento o account. Non richiede nemmeno autorizzazioni di archiviazione. Legge solo le cartelle che scegli e non modifica mai i tuoi file; gli unici file che scrive sono le playlist che salvi.

@@ -20,7 +20,7 @@ app has no network access, no ads and no tracking.
 - Headphone options (pause on disconnect, resume on reconnect)
 - Equalizer presets and bands; light and dark theme; 47 languages
 
-Formats: MP3, M4A, M4B, FLAC, WAV, OGG and Opus.
+Formats: FLAC, M4A, M4B, MP3, OGG, Opus and WAV.
 
 User guide: [doc/USAGE.md](doc/USAGE.md). Requirements and use cases:
 [doc/REQUIREMENTS.md](doc/REQUIREMENTS.md).

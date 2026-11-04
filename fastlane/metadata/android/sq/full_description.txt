@@ -20,7 +20,7 @@ Kudo që dëgjoni
 • Opsionalisht vazhdon kur kufjet tuaja lidhen përsëri
 • Ekualizator me paracaktime, temë e lehtë dhe e errët, 47 gjuhë
 
-Formate: MP3, M4A, M4B (AAC i pa-kriptuar), FLAC, WAV, OGG dhe Opus.
+Formate: FLAC, M4A, M4B (AAC i pa-kriptuar), MP3, OGG, Opus dhe WAV.
 
 Privatësi e garantuar
 Retro Player nuk ka leje për Internet, kështu që asgjë nuk del nga telefoni juaj: pa reklama, analitikë, ndjekje ose llogari. As nuk i nevojitet leja për ruajtje. Ai lexon vetëm dosjet që zgjidhni dhe kurrë nuk ndryshon skedarët tuaj; të vetmit skedarë që krijon janë listat e luajtjes që i ruani.
