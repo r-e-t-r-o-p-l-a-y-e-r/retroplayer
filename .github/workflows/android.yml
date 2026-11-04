@@ -53,4 +53,4 @@ jobs:
       - uses: gradle/actions/setup-gradle@v5
 
       - name: Instrumented tests on managed phones
-        run: ./gradlew phonesGroupDebugAndroidTest -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+        run: ./gradlew phonesGroupDebugAndroidTest --stacktrace -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
