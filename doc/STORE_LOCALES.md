@@ -32,22 +32,62 @@ one folder per locale. F-Droid reads it from the repository; Google Play's
 The privacy policy URL is entered once in the Play Console:
 `https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer/blob/main/PRIVACY.md`.
 
-## App locale → store folder
+## Languages and store folders
 
 In-app locales are the `app/src/main/res/values-<code>/strings_arb.xml`
-folders. Folder names follow Google Play's language codes; `LOCALES` in
-`scripts/mt_store_listings.py` is the full mapping. The ones that differ from
-the app code:
+folders (`values/` is English). Store folders follow Google Play's language
+codes, which add a region for many languages and use `iw` for Hebrew and `no`
+for Norwegian. `LOCALES` in `scripts/mt_store_listings.py` is the same mapping
+in code.
 
-| App code | Store folder | Notes |
-|----------|--------------|-------|
-| `en` | `en-US` | Source |
-| `de`, `fr`, `es`, `it`, … | `de-DE`, `fr-FR`, `es-ES`, `it-IT`, … | Play requires the region |
-| `he` | `iw-IL` | Play still uses the old code |
-| `nb` | `no-NO` | Norwegian Bokmål |
-| `pt` | `pt-PT` | |
-| `zh` | `zh-CN` | Simplified Chinese |
-| `bn` | `bn-BD` | |
-| `bs`, `ga`, `mt` | same | Not a Play listing language; F-Droid only |
+| Language | App code | Store folder | On Google Play |
+|----------|----------|--------------|----------------|
+| Albanian | `sq` | `sq` | yes |
+| Arabic | `ar` | `ar` | yes |
+| Bengali | `bn` | `bn-BD` | yes |
+| Bosnian | `bs` | `bs` | no, F-Droid only |
+| Bulgarian | `bg` | `bg` | yes |
+| Catalan | `ca` | `ca` | yes |
+| Chinese (Simplified) | `zh` | `zh-CN` | yes |
+| Croatian | `hr` | `hr` | yes |
+| Czech | `cs` | `cs-CZ` | yes |
+| Danish | `da` | `da-DK` | yes |
+| Dutch | `nl` | `nl-NL` | yes |
+| English (US) | `en` | `en-US` | yes (source) |
+| Estonian | `et` | `et` | yes |
+| Finnish | `fi` | `fi-FI` | yes |
+| French | `fr` | `fr-FR` | yes |
+| German | `de` | `de-DE` | yes |
+| Greek | `el` | `el-GR` | yes |
+| Hebrew | `he` | `iw-IL` | yes |
+| Hindi | `hi` | `hi-IN` | yes |
+| Hungarian | `hu` | `hu-HU` | yes |
+| Icelandic | `is` | `is-IS` | yes |
+| Indonesian | `id` | `id` | yes |
+| Irish | `ga` | `ga` | no, F-Droid only |
+| Italian | `it` | `it-IT` | yes |
+| Japanese | `ja` | `ja-JP` | yes |
+| Korean | `ko` | `ko-KR` | yes |
+| Latvian | `lv` | `lv` | yes |
+| Lithuanian | `lt` | `lt` | yes |
+| Macedonian | `mk` | `mk-MK` | yes |
+| Maltese | `mt` | `mt` | no, F-Droid only |
+| Norwegian Bokmål | `nb` | `no-NO` | yes |
+| Persian | `fa` | `fa` | yes |
+| Polish | `pl` | `pl-PL` | yes |
+| Portuguese (Portugal) | `pt` | `pt-PT` | yes |
+| Romanian | `ro` | `ro` | yes |
+| Russian | `ru` | `ru-RU` | yes |
+| Serbian | `sr` | `sr` | yes |
+| Slovak | `sk` | `sk` | yes |
+| Slovenian | `sl` | `sl` | yes |
+| Spanish | `es` | `es-ES` | yes |
+| Swedish | `sv` | `sv-SE` | yes |
+| Thai | `th` | `th` | yes |
+| Turkish | `tr` | `tr-TR` | yes |
+| Ukrainian | `uk` | `uk` | yes |
+| Urdu | `ur` | `ur` | yes |
+| Vietnamese | `vi` | `vi` | yes |
 
-When adding an app locale, add it to `LOCALES` and run the script for it.
+When adding an app locale, add it to `LOCALES` and to this table, then run the
+script for it.
