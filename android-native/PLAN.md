@@ -60,7 +60,7 @@ screenshot comparison described there.
 | T18 | Android Auto browse tree | opus | done |
 | T19 | Glance home-screen widget | any | done |
 | T20 | Managed devices + Roborazzi screenshots | any | done |
-| T21 | Docs | any | todo |
+| T21 | Docs | any | done |
 | T22 | Final release check | any | todo |
 
 Recommended order for a single agent is the table order. Opus will try to do
@@ -1019,7 +1019,7 @@ available, simply continue top to bottom.
 
 ## T21 Docs
 
-- Owner: any. Status: todo. Depends: all feature tasks.
+- Owner: any. Status: done. Depends: all feature tasks.
 - `android-native/README.md`: what it is, build, test, emulator smoke test,
   managed devices, screenshot tests, module map (link AGENTS.md).
 - Root `README.md`: section "Native Android app".
@@ -1030,6 +1030,15 @@ available, simply continue top to bottom.
 - `doc/USAGE.md`: Android section (adding folders, write access for
   playlists, Android Auto, widget, headset options, chapters).
 - Done when: links checked, no stale Flutter-only statements for Android.
+- Done (as built): `android-native/README.md` (new), root README section,
+  docs index entry, REQUIREMENTS "Android native" notes (UC-02, 04, 07, 08,
+  10, 15, 16, 17; non-goal on ordering corrected; UC-16 languages), USAGE
+  "Native Android app" section, save-playlist and ±15 s rows corrected for
+  both apps, two broken `lib/` links in REQUIREMENTS fixed. Relative links
+  checked by script (only the planned `MANUAL_TESTING.md` is missing).
+  Not done: re-capturing `doc/images/tutorial/` from the native app; those
+  images are the Flutter look reference in AGENTS.md, so replacing them
+  waits for a user decision.
 
 ## T22 Final release check
 

@@ -335,7 +335,10 @@ scripts/device-smoke.sh <testMethod>   # one test while debugging
   the whole semantics tree: read it before guessing.
 - Fixtures: `scripts/push-smoke-fixtures.sh` (wraps the repo's
   `scripts/push-sample-audio-to-emulator.sh` and adds `LongList/`, 31
-  one-track folders). `FIXTURES=1` forces a re-push.
+  one-track folders). `FIXTURES=1` forces a re-push. Without them (managed
+  devices) the tests create the same layout as untagged WAV tones
+  (`SampleLibrary`).
+- Managed devices and screenshot tests: see [README.md](README.md).
 - Add a test here for every new end-to-end flow; prefer Robolectric for
   anything a single screen can show.
 - Not automated: long-press drag reorder (covered by Robolectric tests).

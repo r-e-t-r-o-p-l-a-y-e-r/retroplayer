@@ -71,7 +71,7 @@ The library works like a **file browser**:
 | Play / pause | Button or notification | **Ctrl+P** or button |
 | Previous / next track | Buttons or lock screen | **Ctrl+←** / **Ctrl+→** |
 | Seek | Progress bar | Drag progress bar |
-| Skip ~15 s | Double-tap left/right on art (expanded) | **Ctrl+Shift+←** / **Ctrl+Shift+→** |
+| Skip ~15 s | **−15** / **+15** beside the art, or double-tap left/right on the art (expanded) | **Ctrl+Shift+←** / **Ctrl+Shift+→** |
 | Playback speed | Speed control (audiobooks) | Same (0.5×–2.0×; saved per item) |
 
 Background playback continues with the screen off. Use the **notification** (Android) or **system media keys / MPRIS** (Linux) to control playback. Fully closing the app from recents stops playback and saves position.
@@ -94,7 +94,7 @@ Open an album from the library to see its track list in tag order.
 - Open the **queue** from the library app bar (**Ctrl+N** on desktop) to build a temporary play order.
 - Add tracks, reorder with long-press drag, swipe to remove rows, or clear the queue (with confirmation).
 - Tap a row in the queue to start playback from that track.
-- **Save playlist** writes a new playlist file in the **current folder** (not at library root). Only playlists the app created can be edited or deleted; playlist files you copied in yourself stay read-only in the app.
+- **Save playlist** asks for a name and a folder inside one of your library folders, then writes a new playlist file there. Only playlists the app created can be edited or deleted; playlist files you copied in yourself stay read-only in the app.
 
 ![Playlist](images/tutorial/05-playlist.png)
 
@@ -125,6 +125,78 @@ Open **Settings** from the app bar (**Ctrl+,** on desktop).
 ![Settings](images/tutorial/06-settings.png)
 
 **Reset database** clears playback state, favorites, browse position, theme, language, and equalizer settings. You can keep listed library folders or remove everything and start with an empty library. **Your audio files on disk are never deleted.**
+
+---
+
+## Native Android app
+
+The native Android app ([`android-native/`](../android-native/README.md))
+works as described above, with no keyboard shortcuts. This section covers
+what it does differently or in addition.
+
+### Adding folders
+
+Retro Player asks for no storage permission. **Add folder** opens the system
+folder picker; tap **Use this folder** and **Allow**. The app can then read
+that folder and everything below it, and nothing else. It cannot change your
+files.
+
+Long-press a library source or a favorite and drag it to change the order.
+Swipe a library source to the left to remove it from the app (with a
+confirmation; nothing is deleted on disk).
+
+### Swipes and the A–Z bar
+
+- **Swipe right** on a folder: add or remove it as a favorite.
+- **Swipe left** on a folder, favorite, playlist, album or track: add it to
+  the queue. The app says how many tracks were added.
+- The **A–Z bar** on long lists covers the whole alphabet, plus **#** for
+  names starting with a digit and **•** for other characters. Tap a letter or
+  slide along the bar; a letter without entries jumps to the next one.
+
+### Saving playlists (write access)
+
+Folders are added read-only. The first time you save a playlist into a library
+folder, the system folder picker opens at that folder: confirm it to give
+Retro Player write access there. If you pick a different folder or cancel,
+nothing is saved and everything else keeps working. Retro Player only ever
+writes playlist files it created itself.
+
+### Album track order
+
+In an album, the sort button switches between **tag order**, **file name**
+and **title**. The choice is kept per album. When some tracks have no track
+number, the album uses file name order; choosing tag order then asks first.
+
+### Chapters
+
+M4B and M4A audiobooks with chapters show chapter marks on the progress bar
+and the current chapter under the title. Tap it for the chapter list. Previous
+and next chapter buttons appear in the player and in the notification.
+
+### Headphones
+
+**Settings → Headphones**:
+
+- **Rewind on resume** (on by default): after a pause of at least a minute,
+  tracks longer than 20 minutes start a few seconds earlier (5, 10, 15 or
+  30 s), so you do not lose the thread.
+- **Resume when headphones reconnect** (off by default): when playback paused
+  because headphones were disconnected, it continues once they are connected
+  again within 10 minutes. This works for wired, USB and Bluetooth devices,
+  including car audio over Bluetooth.
+
+### Android Auto
+
+In the car, Retro Player shows your library sources (with their folders,
+albums, playlists and tracks), your favorites and the queue. Playing something
+there works as on the phone, including resume.
+
+### Home-screen widget
+
+Long-press the home screen, open **Widgets** and add **Retro Player**. The
+small widget shows the title and play/pause; larger sizes add the cover,
+±15 s jumps and previous/next. Tap the widget to open the app.
 
 ---
 

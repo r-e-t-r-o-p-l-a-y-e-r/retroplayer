@@ -85,6 +85,16 @@ sqlite3 ~/.local/share/app.retroplayer/retroplayer.db "SELECT * FROM playback_st
 
 **Linux taskbar icon:** On GNOME/KDE (Wayland), the shell uses `~/.local/share/applications/app.retroplayer.desktop` and hicolor PNGs. The app installs launcher and icons from the bundle on startup. If the taskbar icon looks wrong after a rebuild, run `./scripts/install-linux-desktop.sh` (prefers a release bundle), then fully quit and relaunch.
 
+## Native Android app
+
+[`android-native/`](android-native/) holds a native Kotlin/Compose version of
+the app for Android only: same app id, look and behaviour, built with Gradle
+instead of Flutter. It adds Android Auto browsing, a home-screen widget, M4B
+chapters, headphone options and a sort order per album. Build, tests,
+screenshot tests and managed devices: [`android-native/README.md`](android-native/README.md).
+Where it behaves differently from the Flutter app, [`doc/REQUIREMENTS.md`](doc/REQUIREMENTS.md)
+has "Android native" notes.
+
 ## License
 
 **GPL-3.0-or-later** — see [LICENSE](LICENSE). Dependency licenses are listed in Settings → Open source licenses.

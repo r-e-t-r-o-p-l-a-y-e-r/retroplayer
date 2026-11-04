@@ -5,13 +5,17 @@ It browses, plays and resumes; it never changes the user's files. The only
 disk writes are playlists the app itself creates (and edits or deletes later).
 
 Each use case lists actor and goal, preconditions, main flow, alternative flows,
-persisted state and acceptance criteria (AC). Test coverage per use case lives in
+persisted state and acceptance criteria (AC). **Android native** notes describe
+where the native Kotlin app in [`android-native/`](../android-native/README.md)
+differs from the Flutter app. Test coverage per use case lives in
 [TEST_PLAN.md](TEST_PLAN.md). Items marked *(target)* are agreed behavior that
 the refactor introduces; everything else describes the app as it ships.
 
 ## Non-goals
 
-- Manual ordering of any list (library, album tracks). Lists are sorted by metadata only.
+- Manual ordering of folder contents and album tracks. Folder contents are
+  sorted by metadata. Library roots, favorites, the queue and app-created
+  playlists keep the order the user drags them into.
 - Renaming, moving, tagging or deleting audio files or folders.
 - Writing to playlists found on disk (they are read-only).
 - Sleep timer, in-app volume, tag-based Artist/Album/Songs views.
@@ -58,6 +62,10 @@ the refactor introduces; everything else describes the app as it ships.
 - **Alternatives:** permission denied → snackbar; picker cancelled → no change.
 - **Persisted:** `library_roots`.
 - **AC:** files are never copied or modified; removing a root only forgets it.
+- **Android native:** no storage or media permission; folders come only from
+  the system folder picker, as read-only grants. Write access is asked for
+  later, only when a playlist is saved (UC-08). Library roots reorder by
+  long-press drag.
 
 ## UC-03 Lazy folder scan and metadata
 
@@ -86,6 +94,13 @@ the refactor introduces; everything else describes the app as it ships.
 - **Persisted:** browse path; scroll offset per path (memory); favorite folder paths in display order.
 - **AC:** going up restores the parent's scroll position; the root shows
   library roots and favorite links. A favorite is not removed by the root swipe.
+- **Android native:** names sort naturally: case and accent insensitive, and
+  numbers by value (`Track 2` before `Track 10`). Swiping a row from the end
+  edge adds it to the queue (folders, favorites, playlists, albums, tracks);
+  on a library root that swipe removes the root. The A–Z bar always shows the
+  whole alphabet, plus `#` and `•` when names start with digits or other
+  characters; tapping or sliding jumps to the first row of that letter, or of
+  the next letter that has rows. Accented letters count as their base letter.
 
 ## UC-07 Album detail
 
@@ -94,7 +109,12 @@ the refactor introduces; everything else describes the app as it ships.
   → queue starts at it.
 - **Alternatives:** restored on cold start; "locate now playing" highlights the track.
 - **Persisted:** `library_album_detail_id` while open.
-- **AC:** tracks are in tag order; no reordering.
+- **AC:** tracks are in tag order; no manual reordering.
+- **Android native:** selectable sort order (tag order, file name, title),
+  stored per album. By default an album uses tag order when every track has a
+  distinct track number, and file name order otherwise; forcing tag order on
+  such an album asks first and lists the unnumbered tracks after the
+  numbered ones.
 
 ## UC-08 Playlists
 
@@ -122,6 +142,10 @@ the refactor introduces; everything else describes the app as it ships.
   the queue when it was last active. Saving from the virtual root is refused.
   Only app-created playlists can be edited, saved or deleted. Playlists found
   on disk open read-only (no save, add, reorder or remove).
+- **Android native:** write access is optional. The first save into a library
+  root opens the system folder picker at that root to grant write access;
+  choosing another folder or cancelling saves nothing, and the library keeps
+  working read-only.
 
 ## UC-09 Play album, folder, playlist or track
 
@@ -137,6 +161,10 @@ the refactor introduces; everything else describes the app as it ships.
 - **Main flow:** play/pause, previous/next, seek bar, speed 0.5×–2.0×. The maximized player jumps 15 seconds from buttons on each side of the album art, from a double tap on the left or right half of the art, and from Ctrl+Shift+←/→.
 - **Persisted:** position (every 10 s while playing and on pause/seek/skip/speed/background), speed. A jump seeks, so the bookmark moves with it.
 - **AC:** progress bar moves while playing; speed persists per item; a jump stops at the start of the chapter and at the end when the length is known.
+- **Android native:** M4B/M4A chapters show as ticks on the seek bar and as
+  the current chapter title under the track; a chapter list seeks, and
+  previous/next chapter buttons appear in the player and the notification
+  when a track has chapters.
 
 ## UC-11 Resume across restart
 
@@ -163,9 +191,9 @@ the refactor introduces; everything else describes the app as it ships.
 
 - **Desktop:** on Linux, Windows, and macOS, an AppBar ← control appears when
   back would not be absorbed (same order as below), via
-  [`AppBarBackLeading`](lib/ui/core/navigation/app_bar_back_leading.dart).
+  [`AppBarBackLeading`](../lib/ui/core/navigation/app_bar_back_leading.dart).
   Main Settings keeps Material’s implicit back; pushed Settings subpages use
-  [`DesktopSubpageBackLeading`](lib/ui/core/navigation/app_bar_back_leading.dart).
+  [`DesktopSubpageBackLeading`](../lib/ui/core/navigation/app_bar_back_leading.dart).
 - **Rules, in order:**
   1. Settings or a Settings subpage open → close it.
   2. Player expanded → collapse it (also over album or playlist detail).
@@ -181,10 +209,11 @@ the refactor introduces; everything else describes the app as it ships.
 - **Main flow:** shortcuts for library, player, playlist and settings (see
   DEVELOPMENT_PLAN key table); arrow-key list navigation; Escape mirrors back.
 - **AC:** shortcuts are disabled while a text field has focus.
+- **Android native:** not part of the native app (desktop only).
 
 ## UC-16 Settings
 
-- **Main flow:** theme (light/dark/system), language (en/de/system), equalizer
+- **Main flow:** theme (light/dark/system), language (system or any bundled translation), equalizer
   (presets and 5 bands where supported), data storage info, licenses, reset
   database, about.
 - **Persisted:** `theme_preference`, `locale_preference`, `equalizer_*`.
@@ -193,6 +222,12 @@ the refactor introduces; everything else describes the app as it ships.
   library folders leaves those paths listed. Clear everything also forgets the
   added folders and empties the library. Audio files and playlist files on
   disk stay either way.
+- **Android native:** a Headphones section. "Rewind on resume" (on by
+  default, 5 s): after a pause of at least a minute, tracks longer than
+  20 minutes resume 5, 10, 15 or 30 seconds earlier. "Resume when headphones
+  reconnect" (off by default): playback continues when wired, USB or
+  Bluetooth headphones (including car audio) come back within 10 minutes of
+  the disconnect that paused it.
 
 ## UC-17 Background playback and media session
 
@@ -200,6 +235,11 @@ the refactor introduces; everything else describes the app as it ships.
   shows title, artist, and album (file name and folder name when those tags
   are missing) plus transport; Recents swipe-away stops audio and saves position.
 - **AC:** transport from the notification mirrors the in-app state.
+- **Android native:** Android Auto shows a browse tree (library sources with
+  their folders, albums, playlists and tracks; favorites; queue) and plays any
+  playable node like the phone does. A home-screen widget shows the current
+  item with play/pause, and on larger sizes cover, ±15 s jumps and
+  previous/next; tapping it opens the app.
 
 ## UC-18 Privacy
 
