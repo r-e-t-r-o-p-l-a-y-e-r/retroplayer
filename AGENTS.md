@@ -162,6 +162,10 @@ and are available to other modules via `testImplementation(testFixtures(project(
   (`tools:ignore="MissingTranslation"`); do not add new ones there.
 - Never put English literals in composables, except test tags and
   `contentDescription = null` for decorative icons.
+- A new app locale also needs a store listing folder: add it to `LOCALES` in
+  `scripts/mt_store_listings.py` AND to the table in
+  [doc/STORE_LOCALES.md](doc/STORE_LOCALES.md) (Play folder names differ, e.g.
+  `he` → `iw-IL`, `nb` → `no-NO`), then run the script for that locale.
 
 ## UI conventions
 
