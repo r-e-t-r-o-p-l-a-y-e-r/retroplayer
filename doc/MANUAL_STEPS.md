@@ -112,7 +112,10 @@ the old commits onto `main`, and the rewrite would have to be redone.
 
 ## 5. Google Play
 
-- [ ] Developer account (identity verification).
+- [ ] Developer account (identity verification). The device check needs the
+  Play Console app on an Android phone with Google Play services. On
+  GrapheneOS that works with "sandboxed Google Play" from the GrapheneOS App
+  Store, best in a separate user profile; otherwise use another phone.
 - [ ] Create the app `app.retroplayer`; Play App Signing with your own key
   (PEPK export of `retroplayer-release.jks`).
 - [ ] Store listing from `fastlane/metadata/android/` (text per language,
@@ -130,8 +133,40 @@ the old commits onto `main`, and the rewrite would have to be redone.
 
 ## 6. F-Droid
 
-- [ ] Fork [fdroiddata](https://gitlab.com/fdroid/fdroiddata) and add
-  `metadata/app.retroplayer.yml`:
+F-Droid builds the app itself from the public source at the tag, compares its
+build with `retroplayer-X.Y.Z.apk` from the GitHub Release and, if they match
+(see "Reproducible builds" in [RELEASE.md](RELEASE.md)), ships **your** signed
+APK. Listing text, images and changelogs come straight from
+`fastlane/metadata/android/` in the repository; nothing is entered on a
+website. Inclusion goes through a merge request to the
+[fdroiddata](https://gitlab.com/fdroid/fdroiddata) repository on GitLab.
+
+Before you start:
+
+- [ ] The GitHub repository is public, `v0.9.0` is tagged and its GitHub
+  Release has `retroplayer-0.9.0.apk` (step 4).
+- [ ] A [GitLab](https://gitlab.com/users/sign_up) account. The username is
+  public; the email is not. In GitLab → Preferences → Emails, set the commit
+  email to the private `…@users.noreply.gitlab.com` address and use it in the
+  fdroiddata clone (`git config user.email`), so your private address does
+  not appear in fdroiddata's public history.
+
+Prepare the merge request:
+
+- [ ] On GitLab, open [fdroid/fdroiddata](https://gitlab.com/fdroid/fdroiddata)
+  → **Fork**. Clone your fork (it is large; `--depth 1` is enough) and create
+  a branch:
+
+  ```bash
+  git clone --depth 1 https://gitlab.com/<gitlab-user>/fdroiddata.git
+  cd fdroiddata
+  git config user.name freier-fall
+  git config user.email <id>-<gitlab-user>@users.noreply.gitlab.com
+  git checkout -b app.retroplayer
+  ```
+
+- [ ] Create `metadata/app.retroplayer.yml`:
+
   ```yaml
   Categories:
     - Multimedia
@@ -160,11 +195,109 @@ the old commits onto `main`, and the rewrite would have to be redone.
   CurrentVersionCode: 1
   ```
 
-- [ ] Test with `fdroid build app.retroplayer:1` (fdroidserver), then open the
-  merge request. Later releases are picked up from the tags.
+  What the fields do:
+
+  | Field | Meaning |
+  |-------|---------|
+  | `Categories`, `License`, `SourceCode`, `IssueTracker` | Shown in the F-Droid client; the license must match `LICENSE` |
+  | `Liberapay` | Adds a donate button pointing at liberapay.com/retroplayer |
+  | `Repo`, `RepoType` | Where F-Droid clones the source |
+  | `Binaries` | Your signed APK; `%v` becomes the versionName. F-Droid only publishes it if its own build matches |
+  | `Builds` | One entry per release: the tag to build, the module folder (`subdir: app`), `gradle: [yes]` = the default build (no flavors) |
+  | `AllowedAPKSigningKeys` | SHA-256 of your certificate (step 1), lowercase, no colons; F-Droid refuses APKs signed with another key |
+  | `AutoUpdateMode`, `UpdateCheckMode` | F-Droid's bot watches for new `v*` tags and adds the next `Builds` entry by itself |
+  | `CurrentVersion`, `CurrentVersionCode` | The version F-Droid recommends; the bot updates them |
+
+  No summary or description fields: F-Droid takes them from
+  `fastlane/metadata/android/` in the app repository.
+
+Test locally (optional but saves review rounds; needs the Android SDK, which
+is already set up here, and Python):
+
+- [ ] Install fdroidserver: `pip install --user fdroidserver`
+- [ ] In the fdroiddata folder:
+
+  ```bash
+  fdroid readmeta                              # the YAML parses
+  fdroid rewritemeta app.retroplayer           # formats the file the way reviewers expect
+  fdroid lint app.retroplayer                  # field and style checks
+  fdroid build --verbose --latest app.retroplayer   # clones the tag, builds it, compares with Binaries
+  ```
+
+  `fdroid build` takes several minutes. It ends with a line saying the
+  unsigned build matches the APK from `Binaries`. If it reports a mismatch,
+  the build is not reproducible; compare the two APKs with `diffoscope` (see
+  [RELEASE.md](RELEASE.md)).
+
+Open the merge request:
+
+- [ ] `git add metadata/app.retroplayer.yml && git commit -m "New app: Retro Player"`,
+  then `git push -u origin app.retroplayer`.
+- [ ] GitLab prints a link to open a merge request; target
+  `fdroid/fdroiddata` branch `master`. Pick the template **"App inclusion"**
+  and tick its checklist: the app is free software, has no tracking or ads,
+  and you are the developer.
+- [ ] GitLab CI runs lint and a test build on the merge request. Fix what it
+  reports by pushing to the same branch.
+- [ ] A volunteer reviews it; that can take days to a few weeks. Answer
+  questions in the merge request.
+- [ ] After the merge, F-Droid's build server builds the app. It shows up in
+  the F-Droid client usually one to three days later.
+
+Later releases: tag `vX.Y.Z` with a higher `versionCode` and let the release
+workflow publish the APK. F-Droid's bot notices the tag and builds it; nothing
+to do on GitLab unless a build fails. Failed builds are listed on
+[monitor.f-droid.org](https://monitor.f-droid.org/builds); check there if a
+new version does not appear within a few days.
+
+Optional, instead of all of the above: open a "Request for Packaging" issue at
+[fdroid/rfp](https://gitlab.com/fdroid/rfp/-/issues) and wait for a volunteer
+to write the metadata. Slower and less predictable than your own merge request.
 
 ## 7. Accrescent
 
-- [ ] Register as a developer and check their current submission rules.
-- [ ] Upload `retroplayer-0.9.0.apks` from the GitHub Release with the listing
-  and images.
+[Accrescent](https://accrescent.app) is a privacy- and security-focused store
+(recommended on GrapheneOS). Unlike F-Droid it does not build from source:
+you upload the APK set that the release workflow makes
+(`retroplayer-X.Y.Z.apks`, signed with your key), and its client installs only
+the splits each phone needs. Its developer console and rules have been
+changing; read the current publishing guide on
+[accrescent.app](https://accrescent.app) (Docs → Developers) before you start,
+and treat the steps below as the outline.
+
+Before you start:
+
+- [ ] `v0.9.0` is released on GitHub with `retroplayer-0.9.0.apks` (step 4).
+- [ ] Check in the guide whether new developers can register or need an
+  invitation, and which requirements apply (for example a minimum
+  `targetSdk`, which permissions are allowed, and that the upload is a
+  bundletool APK set, which the release workflow already produces).
+
+Register and submit:
+
+- [ ] Open the Accrescent developer console (linked from the guide) and sign
+  in. It has used GitHub sign-in; use the freier-fall account, so no new
+  identity is needed.
+- [ ] Register as a developer: developer name (public; "Retro Player" or
+  "freier-fall") and a contact address you are fine with publishing.
+- [ ] Create a new app: package `app.retroplayer`; upload
+  `retroplayer-0.9.0.apks` from the GitHub Release. The console reads app id,
+  version and signing certificate from it; the certificate must be the one
+  from step 1, and it cannot change later.
+- [ ] Listing: name "Retro Player", short description from
+  `fastlane/metadata/android/en-US/short_description.txt`, icon
+  `fastlane/metadata/android/en-US/images/icon.png` (512×512). Add the
+  screenshots and the full description if the console asks for them.
+- [ ] Submit for review. Accrescent reviews the first version and changes to
+  permissions by hand.
+
+Later releases:
+
+- [ ] Upload the new `retroplayer-X.Y.Z.apks` from the GitHub Release as an
+  update (higher `versionCode`, same key). Updates that add permissions go
+  through review again.
+
+To try it on the Pixel (GrapheneOS): install Accrescent from the GrapheneOS
+App Store, then Retro Player from Accrescent. It uses the same app id and key
+as the GitHub APK and F-Droid, so these builds update each other; the
+`app.retroplayer.debug` test build stays separate.
