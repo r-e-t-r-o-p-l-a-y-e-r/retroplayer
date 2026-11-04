@@ -52,5 +52,9 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v5
 
+      # The runner's SDK has no emulator package, and managed devices do not download it.
+      - name: Android emulator package
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install emulator > /dev/null
+
       - name: Instrumented tests on managed phones
         run: ./gradlew phonesGroupDebugAndroidTest --stacktrace -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
