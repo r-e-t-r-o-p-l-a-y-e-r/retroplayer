@@ -61,6 +61,11 @@ text, hide the row when `DONATION_LINK` is false.
   Without either, release builds are unsigned (that is how F-Droid builds
   them before copying your signature on).
 
+- GitHub repository secrets for `release.yml` (Settings → Secrets and
+  variables → Actions): `RELEASE_KEYSTORE_BASE64` (output of
+  `base64 -w0 retroplayer-release.jks`), `RELEASE_KEYSTORE_PASSWORD`,
+  `RELEASE_KEY_ALIAS`, `RELEASE_KEY_PASSWORD`.
+
 ## Reproducible builds
 
 F-Droid rebuilds the tag and ships the developer-signed APK only when its
@@ -96,9 +101,12 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
 2. `./gradlew check assembleRelease` and `scripts/device-smoke.sh` on an
    emulator; install the release build on a phone and try the main flows.
 3. Merge to `main`, then tag: `git tag v0.9.0 && git push origin v0.9.0`.
-4. `.github/workflows/release.yml` builds and attaches to a GitHub Release:
-   the signed APK, the APK set for Accrescent (from the default AAB), the
-   Play AAB (`-Pretroplayer.store=play`), and SHA-256 sums.
+4. `.github/workflows/release.yml` checks that the tag matches `versionName`,
+   builds the signed APK first in the clean checkout, runs `check`, and
+   attaches to a GitHub Release (notes from the changelog):
+   `retroplayer-X.Y.Z.apk`, `retroplayer-X.Y.Z.apks` (APK set for Accrescent,
+   from the default AAB), `retroplayer-X.Y.Z-play.aab`
+   (`-Pretroplayer.store=play`) and `SHA256SUMS`.
 5. Stores:
    - **Google Play:** upload the AAB to the closed test track (first release:
      12 testers for 14 days), then promote to production.
