@@ -67,6 +67,24 @@ jobs:
           mkdir dist
           cp app/build/outputs/apk/release/app-release.apk "dist/retroplayer-$VERSION.apk"
 
+      # Inputs that decide whether a local or F-Droid build matches this APK byte for byte.
+      - name: Build environment
+        run: |
+          mkdir build-env
+          cp app/build/outputs/mapping/release/mapping.txt build-env/
+          {
+            java -version 2>&1
+            grep -h Pkg.Revision "$ANDROID_HOME"/platforms/android-37*/source.properties
+            sha256sum "$ANDROID_HOME"/platforms/android-37*/android.jar
+            ls "$ANDROID_HOME"/ndk 2>/dev/null || echo "no NDK"
+          } | tee build-env/environment.txt
+
+      - name: Build environment output
+        uses: actions/upload-artifact@v5
+        with:
+          name: build-environment
+          path: build-env/
+
       # After the APK build, so the cache cannot influence the published APK.
       - name: Robolectric Android jars
         uses: actions/cache@v4

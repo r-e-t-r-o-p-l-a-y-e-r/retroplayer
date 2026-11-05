@@ -125,6 +125,9 @@ android {
 
     packaging {
         resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        // AGP strips native libraries only when an NDK is installed, so the APK would depend on
+        // the build machine. Keeping the symbols makes F-Droid's build match ours.
+        jniLibs.keepDebugSymbols += "**/*.so"
     }
 }
 

@@ -41,10 +41,10 @@ In the browser (needs admin rights on the repository):
    **Actions** → **New repository secret**.
 2. Name `RELEASE_KEYSTORE_BASE64`; value: the output of
    ```bash
-    base64 -w0 retroplayer-release.jks     # Linux; on macOS: base64 -i retroplayer-release.jks
+     base64 -w0 retroplayer-release.jks     # Linux; on macOS: base64 -i retroplayer-release.jks
    ```
 
-    Copy the whole line (several thousand characters, no line breaks).
+     Copy the whole line (several thousand characters, no line breaks).
 3. Add the other three secrets the same way.
 
 Or with the GitHub CLI (`gh auth login` first); `gh` asks for the values, so
@@ -86,35 +86,33 @@ real name and private addresses. GitHub still has the old commits until the
 branches are force-pushed. Push **before** merging: merging first would put
 the old commits onto `main`, and the rewrite would have to be redone.
 
-- [ ] Replace all branches on GitHub (the open pull request updates itself):
-
+- [x] Replace all branches on GitHub (the open pull request updates itself):
   ```bash
   git push --force --all origin
   ```
 
-- [ ] Check that only the new identity is left (plus `GitHub` for web merges
+- [x] Check that only the new identity is left (plus `GitHub` for web merges
   and `dependabot[bot]`):
-
   ```bash
   git fetch origin --prune
   git log --all --format='%an <%ae>%n%cn <%ce>' | sort | uniq -c
   ```
 
-- [ ] Merge the pull request from `feat/native-android` into `main`.
-- [ ] Delete the local backup with the old history:
+- [x] Merge the pull request from `feat/native-android` into `main`.
+- [x] Delete the local backup with the old history:
   `rm -rf /data/develop/apps/retroplayer-backup-2026-11-04.git`
-- [ ] Optional: the pull request's timeline keeps links to the commits from
+- [x] Optional: the pull request's timeline keeps links to the commits from
   before the force-push. To remove them, ask GitHub Support
   ([support.github.com](https://support.github.com)) to "remove cached views
   and unreachable commits" for the repository.
-- [ ] Dry run of the release (tests the secrets and signing without
+- [x] Dry run of the release (tests the secrets and signing without
   publishing anything): GitHub → **Actions** → **Release** → **Run workflow**
   on `main`, or `gh workflow run release.yml --ref main`. The run must be
   green; its artifact `release-dry-run` holds the signed APK and
   `SHA256SUMS`, and the "Signature and checksums" log shows your
   certificate's SHA-256 (it must match step 1).
-- [ ] `git tag v0.1.0 && git push origin v0.1.0`
-- [ ] Check that the Release workflow publishes `retroplayer-0.1.0.apk` and
+- [x] `git tag v0.1.0 && git push origin v0.1.0`
+- [x] Check that the Release workflow publishes `retroplayer-0.1.0.apk` and
   `SHA256SUMS`.
 
 ## 5. F-Droid
@@ -130,7 +128,23 @@ website. Inclusion goes through a merge request to the
 Before you start:
 
 - [ ] The GitHub repository is public, `v0.1.0` is tagged and its GitHub
-  Release has `retroplayer-0.1.0.apk` (step 4).
+  Release has `retroplayer-0.1.0.apk` (step 4). F-Droid only builds from
+  source it can clone without an account.
+- [ ] The release APK is reproducible: an unsigned build of the tag from a
+  fresh clone, like F-Droid makes, must match it apart from the signature.
+  Works with a private repository too (clones the local one). Download
+  `retroplayer-0.1.0.apk` from the GitHub Release first, then:
+  ```bash
+  pip install --user apksigcopier
+  git clone --branch v0.1.0 /data/develop/apps/retroplayer /tmp/rp-check
+  cd /tmp/rp-check && ./gradlew --no-build-cache :app:assembleRelease
+  apksigcopier compare ~/Downloads/retroplayer-0.1.0.apk \
+    --unsigned app/build/outputs/apk/release/app-release-unsigned.apk && echo reproducible
+  ```
+  The clone has no `keystore.properties`, so its build is unsigned, as on
+  F-Droid. On a mismatch, `diffoscope` on the two APKs shows the difference
+  (see "Reproducible builds" in [RELEASE.md](RELEASE.md)); do not open the
+  merge request until it matches.
 - [ ] A [GitLab](https://gitlab.com/users/sign_up) account. The username is
   public; the email is not. In GitLab → Preferences → Emails, set the commit
   email to the private `…@users.noreply.gitlab.com` address and use it in the
@@ -142,7 +156,6 @@ Prepare the merge request:
 - [ ] On GitLab, open [fdroid/fdroiddata](https://gitlab.com/fdroid/fdroiddata)
   → **Fork**. Clone your fork (it is large; `--depth 1` is enough) and create
   a branch:
-
   ```bash
   git clone --depth 1 https://gitlab.com/<gitlab-user>/fdroiddata.git
   cd fdroiddata
@@ -152,7 +165,6 @@ Prepare the merge request:
   ```
 
 - [ ] Create `metadata/app.retroplayer.yml`:
-
   ```yaml
   Categories:
     - Multimedia
@@ -180,9 +192,7 @@ Prepare the merge request:
   CurrentVersion: 0.1.0
   CurrentVersionCode: 1
   ```
-
   What the fields do:
-
   | Field | Meaning |
   |-------|---------|
   | `Categories`, `License`, `SourceCode`, `IssueTracker` | Shown in the F-Droid client; the license must match `LICENSE` |
@@ -193,7 +203,6 @@ Prepare the merge request:
   | `AllowedAPKSigningKeys` | SHA-256 of your certificate (step 1), lowercase, no colons; F-Droid refuses APKs signed with another key |
   | `AutoUpdateMode`, `UpdateCheckMode` | F-Droid's bot watches for new `v*` tags and adds the next `Builds` entry by itself |
   | `CurrentVersion`, `CurrentVersionCode` | The version F-Droid recommends; the bot updates them |
-
   No summary or description fields: F-Droid takes them from
   `fastlane/metadata/android/` in the app repository.
 
@@ -202,14 +211,12 @@ is already set up here, and Python):
 
 - [ ] Install fdroidserver: `pip install --user fdroidserver`
 - [ ] In the fdroiddata folder:
-
   ```bash
   fdroid readmeta                              # the YAML parses
   fdroid rewritemeta app.retroplayer           # formats the file the way reviewers expect
   fdroid lint app.retroplayer                  # field and style checks
   fdroid build --verbose --latest app.retroplayer   # clones the tag, builds it, compares with Binaries
   ```
-
   `fdroid build` takes several minutes. It ends with a line saying the
   unsigned build matches the APK from `Binaries`. If it reports a mismatch,
   the build is not reproducible; compare the two APKs with `diffoscope` (see
