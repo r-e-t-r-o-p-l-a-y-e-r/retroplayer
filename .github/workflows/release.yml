@@ -87,7 +87,7 @@ jobs:
 
       # After the APK build, so the cache cannot influence the published APK.
       - name: Robolectric Android jars
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.m2/repository/org/robolectric
           key: robolectric-${{ hashFiles('gradle/libs.versions.toml', '**/src/test/resources/robolectric.properties') }}

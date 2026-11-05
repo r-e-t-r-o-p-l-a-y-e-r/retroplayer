@@ -24,7 +24,7 @@ jobs:
 
       # Robolectric downloads its Android jars (about 200 MB) itself, outside the Gradle cache.
       - name: Robolectric Android jars
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.m2/repository/org/robolectric
           key: robolectric-${{ hashFiles('gradle/libs.versions.toml', '**/src/test/resources/robolectric.properties') }}
