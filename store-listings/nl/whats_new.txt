@@ -1,1 +1,0 @@
-Eerste openbare release: lokale bibliotheek, afspelen zonder pauzes, snelheid en hervatten van audioboeken, equalizer en meer dan 40 interfacetalen.

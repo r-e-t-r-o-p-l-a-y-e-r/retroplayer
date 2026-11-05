@@ -1,0 +1,28 @@
+O Retro Player reproduz música e audiolivros a partir de pastas no seu telemóvel. Escolha uma pasta e a aplicação mostra-a tal como está no disco: pastas, álbuns e listas de reprodução. Sem conta, sem anúncios e sem acesso à rede.
+
+Concebido para audiolivros e álbuns
+• Retoma a reprodução de cada álbum, livro e lista de reprodução exatamente onde parou
+• Velocidade de reprodução de 0,5× a 2,0×, guardada por item; saltos de 15 segundos
+• Capítulos M4B e M4A na barra de navegação, numa lista de capítulos e na notificação
+• Rebobina alguns segundos quando retoma a reprodução após uma pausa mais longa
+• Reprodução sem intervalos; os álbuns com vários discos são reproduzidos pela ordem dos discos
+
+As suas pastas, a sua ordem
+• Navegue como num gestor de ficheiros, com trilha de navegação, favoritos e uma barra de A a Z
+• Deslize para adicionar pastas, álbuns ou faixas à fila e guarde-a como uma lista de reprodução M3U
+• Reproduz as listas de reprodução que já tem
+• Ordene cada álbum por número de faixa, nome do ficheiro ou título
+
+Onde quer que ouça
+• Controlos na notificação, no ecrã de bloqueio e nos botões Bluetooth ou do carro
+• Android Auto: navegue pela sua biblioteca, favoritos e fila de reprodução no carro
+• Widget do ecrã inicial
+• Opcionalmente, continua a reproduzir quando os auscultadores se reconectam
+• Equalizador com predefinições, tema claro e escuro, 47 idiomas
+
+Formatos: FLAC, M4A, M4B (AAC não encriptado), MP3, OGG, Opus e WAV.
+
+Privacidade incorporada
+O Retro Player não tem permissão de acesso à Internet, pelo que nada sai do seu telemóvel: sem anúncios, análises, rastreamento ou contas. Também não necessita de permissão de armazenamento. Apenas lê as pastas que selecionar e nunca altera os seus ficheiros; os únicos ficheiros que grava são as listas de reprodução que guardar.
+
+Software livre e de código aberto (GPL-3.0 ou posterior). Guia do utilizador e código-fonte: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

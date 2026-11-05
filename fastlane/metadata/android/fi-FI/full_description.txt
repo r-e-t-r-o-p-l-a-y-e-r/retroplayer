@@ -1,0 +1,28 @@
+Retro Player toistaa musiikkia ja äänikirjoja puhelimesi kansioista. Valitse kansio, niin sovellus näyttää sen sellaisena kuin se on levyllä: kansiot, albumit ja soittolistat. Ei käyttäjätiliä, ei mainoksia eikä verkkoyhteyttä.
+
+Suunniteltu äänikirjoille ja albumeille
+• Jatkaa jokaisen albumin, kirjan ja soittolistan toistamista siitä kohdasta, mihin jäit
+• Toistonopeus 0,5×–2,0×, tallennetaan kunkin kohteen kohdalla; 15 sekunnin harppaukset
+• M4B- ja M4A-luvut hakupalkissa, luku-luettelossa ja ilmoituksessa
+• Kelautuu muutaman sekunnin taaksepäin, kun jatkat toistoa pidemmän tauon jälkeen
+• Katkeamaton toisto; monilevyiset albumit toistetaan levyjen järjestyksessä
+
+Omat kansiot, oma järjestys
+• Selaa kuin tiedostonhallintaohjelmassa: navigointipolku, suosikit ja A–Z-palkki
+• Lisää kansioita, albumeita tai kappaleita jonotuslistaan pyyhkäisemällä ja tallenna se M3U-soittolistana
+• Toistaa jo olemassa olevat soittolistasi
+• Lajittele kukin albumi kappaleen numeron, tiedostonimen tai otsikon mukaan
+
+Missä tahansa kuunteletkin
+• Ohjauspainikkeet ilmoituksessa, lukitusnäytöllä sekä Bluetooth- tai auton painikkeilla
+• Android Auto: selaa kirjastoasi, suosikkejasi ja jonotustasi autossa
+• Aloitusnäytön widget
+• Voit valita, jatkuuko toisto, kun kuulokkeet yhdistyvät uudelleen
+• Taajuuskorjain esiasetuksilla, vaalea ja tumma teema, 47 kieltä
+
+Tiedostomuodot: FLAC, M4A, M4B (salausmaton AAC), MP3, OGG, Opus ja WAV.
+
+Suunniteltu yksityisyyttä kunnioittaen
+Retro Playerilla ei ole Internet-käyttöoikeutta, joten mitään tietoja ei lähetetä puhelimestasi: ei mainoksia, analytiikkaa, seurantaa tai tilejä. Se ei myöskään tarvitse tallennustilan käyttöoikeutta. Se lukee vain valitsemasi kansiot eikä koskaan muuta tiedostojasi; ainoat tiedostot, joihin se kirjoittaa, ovat tallentamasi soittolistat.
+
+Ilmainen ja avoimen lähdekoodin ohjelmisto (GPL-3.0-tai-uudempi). Käyttöopas ja lähdekoodi: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,0 +1,28 @@
+Retro Player riproduce musica e audiolibri dalle cartelle presenti sul tuo telefono. Scegli una cartella e l’app la visualizza così come appare sul disco: cartelle, album e playlist. Nessun account, nessuna pubblicità e nessun accesso alla rete.
+
+Progettato per audiolibri e album
+• Riprende la riproduzione di ogni album, libro e playlist dal punto in cui ti eri fermato
+• Velocità di riproduzione da 0,5× a 2,0×, salvata per ogni elemento; salti di 15 secondi
+• Capitoli M4B e M4A sulla barra di ricerca, nell’elenco dei capitoli e nella notifica
+• Riavvolge di qualche secondo quando riprendi la riproduzione dopo una pausa prolungata
+• Riproduzione senza pause; gli album con più dischi vengono riprodotti nell’ordine dei dischi
+
+Le tue cartelle, il tuo ordine
+• Naviga come in un gestore di file, con percorso di navigazione, preferiti e barra A–Z
+• Scorri per aggiungere cartelle, album o brani alla coda e salvali come playlist M3U
+• Riproduce le playlist che hai già creato
+• Ordina ogni album per numero di traccia, nome del file o titolo
+
+Ovunque tu ascolti
+• Comandi nella notifica, sulla schermata di blocco e tramite i pulsanti Bluetooth o dell’auto
+• Android Auto: sfoglia la tua libreria, i preferiti e la coda in auto
+• Widget per la schermata iniziale
+• Opzionalmente, riprende la riproduzione quando le cuffie si riconnettono
+• Equalizzatore con preset, tema chiaro e scuro, 47 lingue
+
+Formati: FLAC, M4A, M4B (AAC non crittografato), MP3, OGG, Opus e WAV.
+
+Progettato per la privacy
+Retro Player non richiede autorizzazioni per Internet, quindi nulla esce dal tuo telefono: niente pubblicità, analisi, tracciamento o account. Non richiede nemmeno autorizzazioni di archiviazione. Legge solo le cartelle che scegli e non modifica mai i tuoi file; gli unici file che scrive sono le playlist che salvi.
+
+Software gratuito e open source (GPL-3.0 o successive). Guida utente e codice sorgente: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

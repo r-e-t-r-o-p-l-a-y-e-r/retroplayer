@@ -1,18 +1,23 @@
 # Security
 
-Retro Player is a **local audio player**. It reads folders you choose and does not implement streaming, accounts, or cloud sync.
+Retro Player is a **local audio player** for Android. It reads folders you
+choose and has no network access, accounts or cloud sync.
 
-## Threat model (v1)
+## Threat model
 
-- **In scope:** malicious or malformed **local files** (audio, playlists), path handling, and privacy of library data on device.
-- **Out of scope for the app:** server-side attacks (release builds do not use the network for app features).
+- **In scope:** malicious or malformed **local files** (audio, tags, chapters,
+  playlists), path handling in playlists, and privacy of library data on the
+  device.
+- **Out of scope:** server-side attacks; the app has no `INTERNET` permission.
 
 ## Reporting
 
-Until the public issue tracker is linked from the README, report sensitive issues privately to the maintainers via your usual contact channel. Once hosted on GitHub, use **Security advisories** or issues on [r-e-t-r-o-p-l-a-y-e-r/retroplayer](https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer).
-
-Please include platform (Android / Linux), version, and steps to reproduce.
+Use a private **security advisory** on
+[r-e-t-r-o-p-l-a-y-e-r/retroplayer](https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer)
+(Security → Report a vulnerability). Please include the app version, where you
+installed it from, the Android version and steps to reproduce.
 
 ## What we do not ship
 
-No analytics, crash reporting, ads, or in-app purchases in v1. See [README — Privacy](README.md#privacy).
+No analytics, crash reporting, ads or in-app purchases. See
+[PRIVACY.md](PRIVACY.md).

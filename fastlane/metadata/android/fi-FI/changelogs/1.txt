@@ -1,0 +1,1 @@
+Ensimmäinen versio: kansiokirjasto, jossa on suosikit ja A–Z-palkki, toiston jatkaminen ja toistonopeuden säätö albumi- tai kirjakohdittain, M4B-luvut, jonotuslista ja M3U-soittolistat, Android Auto, aloitusnäytön widget, kuulokkeiden asetukset, taajuuskorjain ja 47 kieltä.

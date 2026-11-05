@@ -1,0 +1,28 @@
+Retro Player reproducira glazbu i audioknjige iz mapa na vašem telefonu. Odaberite mapu i aplikacija je prikazuje onakvom kakva je na disku: mape, albumi i popise za reprodukciju. Bez računa, bez oglasa i bez pristupa mreži.
+
+Stvoreno za audioknjige i albume
+• Nastavlja svaki album, knjigu i popis za reprodukciju tamo gdje ste stali
+• Brzina reprodukcije od 0,5× do 2,0×, spremljena za svaki element; preskakanje od 15 sekundi
+• Poglavlja u M4B i M4A formatima na traci za traženje, u popisu poglavlja i u obavijesti
+• Vraća se nekoliko sekundi unatrag kada nastavite nakon duže pauze
+• Reprodukcija bez pauzi; albumi s više diskova reproduciraju se po redoslijedu diskova
+
+Vaše mape, vaš redoslijed
+• Pregledajte kao upravitelj datoteka, s tragom navigacije, omiljenima i traku od A do Ž
+• Povucite prstom kako biste dodali mape, albume ili pjesme u red za reprodukciju i spremili ih kao M3U playlistu
+• Reproducira playliste koje već imate
+• Sortirajte svaki album po broju pjesme, nazivu datoteke ili naslovu
+
+Gdje god slušali
+• Kontrole u obavijesti, na zaključanom zaslonu i na tipkama Bluetootha ili automobila
+• Android Auto: pregledajte svoju biblioteku, favorite i redoslijed u automobilu
+• Widget za početni zaslon
+• Po želji nastavlja reprodukciju kada se slušalice ponovno povežu
+• Ekvilajzer s unaprijed postavljenim profilima, svijetlom i tamnom temom, 47 jezika
+
+Formati: FLAC, M4A, M4B (nešifrirani AAC), MP3, OGG, Opus i WAV.
+
+Privatnost u dizajnu
+Retro Player nema dopuštenja za pristup internetu, tako da ništa ne napušta vaš telefon: nema oglasa, analitike, praćenja niti računa. Također mu nije potrebno dopuštenje za pohranu. Čita samo mape koje odaberete i nikada ne mijenja vaše datoteke; jedine datoteke koje zapisuje su playliste koje spremite.
+
+Besplatan softver otvorenog koda (GPL-3.0 ili noviji). Korisnički priručnik i izvorni kod: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

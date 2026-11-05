@@ -1,0 +1,28 @@
+Retro Player phát nhạc và sách nói từ các thư mục trên điện thoại của bạn. Chọn một thư mục và ứng dụng sẽ hiển thị nội dung của nó y như trên đĩa: các thư mục, album và danh sách phát. Không cần tài khoản, không quảng cáo và không cần kết nối mạng.
+
+Được thiết kế dành riêng cho sách nói và album
+• Tiếp tục phát từ điểm dừng của mọi album, sách và danh sách phát
+• Tốc độ phát từ 0,5× đến 2,0×, được lưu riêng cho từng mục; nhảy 15 giây
+• Các chương M4B và M4A hiển thị trên thanh tìm kiếm, trong danh sách chương và trong thông báo
+• Quay lại vài giây khi bạn tiếp tục phát sau một khoảng thời gian nghỉ dài
+• Phát liên tục không gián đoạn; các album nhiều đĩa được phát theo thứ tự đĩa
+
+Thư mục của bạn, thứ tự của bạn
+• Duyệt như trình quản lý tệp, với đường dẫn điều hướng, mục yêu thích và thanh tìm kiếm A–Z
+• Vuốt để thêm thư mục, album hoặc bài hát vào hàng đợi và lưu dưới dạng danh sách phát M3U
+• Phát các danh sách phát bạn đã có sẵn
+• Sắp xếp từng album theo số bài hát, tên tệp hoặc tiêu đề
+
+Dù bạn nghe ở đâu
+• Các phím điều khiển trong thông báo, trên màn hình khóa và trên các nút Bluetooth hoặc trong xe
+• Android Auto: duyệt thư viện, mục yêu thích và danh sách chờ khi lái xe
+• Widget trên màn hình chính
+• Tùy chọn tiếp tục phát khi tai nghe kết nối lại
+• Bộ cân bằng âm thanh với các cài đặt sẵn, chủ đề sáng và tối, hỗ trợ 47 ngôn ngữ
+
+Định dạng: FLAC, M4A, M4B (AAC không mã hóa), MP3, OGG, Opus và WAV.
+
+Được thiết kế để bảo mật
+Retro Player không yêu cầu quyền truy cập Internet, do đó không có dữ liệu nào rời khỏi điện thoại của bạn: không có quảng cáo, phân tích, theo dõi hay tài khoản. Ứng dụng cũng không cần quyền truy cập bộ nhớ. Ứng dụng chỉ đọc các thư mục bạn chọn và không bao giờ thay đổi tệp tin của bạn; các tệp tin duy nhất mà ứng dụng ghi là danh sách phát mà bạn lưu lại.
+
+Phần mềm miễn phí và mã nguồn mở (GPL-3.0-hoặc-mới hơn). Hướng dẫn sử dụng và mã nguồn: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

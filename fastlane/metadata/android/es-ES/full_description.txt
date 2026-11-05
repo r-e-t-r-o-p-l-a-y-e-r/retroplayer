@@ -1,0 +1,28 @@
+Retro Player reproduce música y audiolibros desde las carpetas de tu móvil. Elige una carpeta y la aplicación la muestra tal y como está en el disco: carpetas, álbumes y listas de reproducción. Sin cuenta, sin anuncios y sin acceso a la red.
+
+Diseñado para audiolibros y álbumes
+• Reanuda cada álbum, libro y lista de reproducción justo donde lo dejaste
+• Velocidad de reproducción de 0,5× a 2,0×, guardada por elemento; saltos de 15 segundos
+• Capítulos M4B y M4A en la barra de búsqueda, en una lista de capítulos y en la notificación
+• Rebobina unos segundos cuando continúas tras una pausa prolongada
+• Reproducción sin pausas; los álbumes de varios discos se reproducen en el orden de los discos
+
+Tus carpetas, tu orden
+• Navega como en un gestor de archivos, con ruta de navegación, favoritos y una barra de A a Z
+• Desliza el dedo para añadir carpetas, álbumes o pistas a la cola y guárdala como una lista de reproducción M3U
+• Reproduce las listas de reproducción que ya tienes
+• Ordena cada álbum por número de pista, nombre de archivo o título
+
+Dondequiera que escuches
+• Controles en la notificación, en la pantalla de bloqueo y mediante los botones de Bluetooth o del coche
+• Android Auto: navega por tu biblioteca, favoritos y cola de reproducción en el coche
+• Widget de la pantalla de inicio
+• Opcionalmente, continúa la reproducción cuando los auriculares se vuelven a conectar
+• Ecualizador con preajustes, tema claro y oscuro, 47 idiomas
+
+Formatos: FLAC, M4A, M4B (AAC sin cifrar), MP3, OGG, Opus y WAV.
+
+Privacidad por diseño
+Retro Player no tiene permiso de Internet, por lo que nada sale de tu teléfono: ni anuncios, ni análisis, ni seguimiento, ni cuentas. Tampoco necesita permiso de almacenamiento. Solo lee las carpetas que elijas y nunca modifica tus archivos; los únicos archivos que crea son las listas de reproducción que guardes.
+
+Software libre y de código abierto (GPL-3.0 o posterior). Guía de usuario y código fuente: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,0 +1,28 @@
+Retro Player, telefonunuzdaki klasörlerden müzik ve sesli kitapları çalar. Bir klasör seçtiğinizde uygulama, klasörleri, albümleri ve çalma listelerini diskteki haliyle gösterir. Hesap gerektirmez, reklam içermez ve ağ erişimi gerektirmez.
+
+Sesli kitaplar ve albümler için tasarlandı
+• Her albümü, kitabı ve çalma listesini kaldığınız yerden devam ettirir
+• 0,5× ile 2,0× arası çalma hızı, her öğe için ayrı ayrı kaydedilir; 15 saniyelik atlamalar
+• Arama çubuğunda, bölüm listesinde ve bildirimde M4B ve M4A bölümleri
+• Uzun bir aradan sonra devam ettiğinizde birkaç saniye geri sarar
+• Kesintisiz çalma; çok diskli albümler disk sırasına göre çalınır
+
+Klasörleriniz, sıralamanız
+• Dosya yöneticisi gibi gezinin; yol gösterici, favoriler ve A–Z çubuğu ile
+• Kaydırarak klasörleri, albümleri veya parçaları kuyruğa ekleyin ve M3U çalma listesi olarak kaydedin
+• Mevcut çalma listelerinizi çalar
+• Her albümü parça numarasına, dosya adına veya başlığa göre sıralayın
+
+Nerede dinlerseniz dinleyin
+• Bildirimde, kilit ekranında ve Bluetooth veya araç düğmelerinde kontrol seçenekleri
+• Android Auto: Araçta kitaplığınızı, favorilerinizi ve kuyruğunuzu tarayın
+• Ana ekran widget’ı
+• İsteğe bağlı olarak kulaklıklarınız yeniden bağlandığında çalmaya devam eder
+• Ön ayarlı ekolayzer, açık ve koyu tema, 47 dil desteği
+
+Desteklenen formatlar: FLAC, M4A, M4B (şifrelenmemiş AAC), MP3, OGG, Opus ve WAV.
+
+Tasarımından itibaren gizlilik odaklı
+Retro Player’ın İnternet izni yoktur, bu nedenle telefonunuzdan hiçbir bilgi dışarı çıkmaz: reklam, analiz, izleme veya hesap bilgisi yoktur. Depolama iznine de ihtiyaç duymaz. Yalnızca seçtiğiniz klasörleri okur ve dosyalarınızı asla değiştirmez; yazdığı tek dosyalar, kaydettiğiniz çalma listeleridir.
+
+Ücretsiz ve açık kaynaklı yazılım (GPL-3.0 veya üstü). Kullanım kılavuzu ve kaynak kodu: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,0 +1,1 @@
+Rilis pertama: perpustakaan folder dengan daftar favorit dan bilah A–Z, fitur lanjutkan pemutaran dan kecepatan pemutaran per album atau buku, bab-bab M4B, antrian dan daftar putar M3U, Android Auto, widget layar beranda, opsi headphone, equalizer, serta 47 bahasa.

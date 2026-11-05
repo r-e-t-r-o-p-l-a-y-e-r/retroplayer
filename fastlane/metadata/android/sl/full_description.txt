@@ -1,0 +1,28 @@
+Retro Player predvaja glasbo in zvočne knjige iz map na vašem telefonu. Izberite mapo in aplikacija jo prikaže tako, kot je shranjena na disku: mape, albume in sezname predvajanja. Brez računa, brez oglasov in brez dostopa do omrežja.
+
+Narejen za zvočne knjige in albume
+• Nadaljuje predvajanje vsakega albuma, knjige in seznama predvajanja tam, kjer ste se ustavili
+• Hitrost predvajanja od 0,5× do 2,0×, shranjena za vsak element posebej; 15-sekundni preskoki
+• Poglavja v formatih M4B in M4A so prikazana na drsniku za iskanje, v seznamu poglavij in v obvestilu
+• Ko nadaljujete po daljšem premoru, se predvajanje vrne za nekaj sekund nazaj
+• Predvajanje brez premorov; večdiskovni albumi se predvajajo v vrstnem redu diskov
+
+Vaše mape, vaš vrstni red
+• Brskanje kot v upravitelju datotek, s potjo, priljubljenimi in vrstico A–Z
+• S potegom prsta dodajte mape, albume ali skladbe v čakalno vrsto in jo shranite kot seznam predvajanja M3U
+• Predvaja sezname predvajanja, ki jih že imate
+• Razvrstite vsak album po številki skladbe, imenu datoteke ali naslovu
+
+Kjerkoli poslušate
+• Upravljalniki v obvestilu, na zaklenjenem zaslonu ter prek gumbov Bluetooth ali avtomobilskih gumbov
+• Android Auto: brskajte po svoji knjižnici, priljubljenih in čakalni vrsti v avtomobilu
+• Widget na začetnem zaslonu
+• Po želji nadaljuje predvajanje, ko se slušalke ponovno povežejo
+• Ekvalizer s prednastavitvami, svetla in temna tema, 47 jezikov
+
+Formati: FLAC, M4A, M4B (nešifriran AAC), MP3, OGG, Opus in WAV.
+
+Zasnovan za zasebnost
+Retro Player nima dovoljenja za dostop do interneta, zato nič ne zapusti vašega telefona: nobenih oglasov, analitike, sledenja ali računov. Prav tako ne potrebuje dovoljenja za dostop do pomnilnika. Bere le mape, ki jih izberete, in nikoli ne spreminja vaših datotek; edine datoteke, ki jih zapiše, so seznami predvajanja, ki jih shranite.
+
+Brezplačna in odprtokodna programska oprema (GPL-3.0-ali-novejša). Uporabniški priročnik in izvorna koda: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

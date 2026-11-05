@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Start the Android emulator and wait until it is ready for adb/flutter.
+# Start the Android emulator and wait until it is ready for adb.
 #
 # Usage:
 #   ./scripts/start-android-emulator.sh [AVD_ID]
 #
 # Environment:
 #   ANDROID_AVD_ID   Default AVD when no argument is given
-#   ANDROID_HOME     Android SDK root (auto-detected from android/local.properties)
+#   ANDROID_HOME     Android SDK root (auto-detected from local.properties)
 
 set -euo pipefail
 
@@ -58,17 +58,12 @@ if adb devices 2>/dev/null | awk 'NR>1 && $2=="device" {found=1} END {exit !foun
   exit 0
 fi
 
-if command -v flutter >/dev/null 2>&1; then
-  echo "Launching emulator '${AVD_ID}' via flutter..."
-  flutter emulators --launch "${AVD_ID}" &
-else
-  if ! command -v emulator >/dev/null 2>&1; then
-    echo "error: neither flutter nor emulator found on PATH" >&2
-    exit 1
-  fi
-  echo "Launching emulator '${AVD_ID}'..."
-  emulator -avd "${AVD_ID}" -no-snapshot-load &
+if ! command -v emulator >/dev/null 2>&1; then
+  echo "error: emulator not found on PATH. ANDROID_HOME=${ANDROID_HOME}" >&2
+  exit 1
 fi
+echo "Launching emulator '${AVD_ID}'..."
+emulator -avd "${AVD_ID}" -no-snapshot-load -no-snapshot-save -gpu host &
 
 echo "Waiting for adb device..."
 adb wait-for-device
@@ -90,6 +85,3 @@ else
 fi
 
 adb devices -l
-if command -v flutter >/dev/null 2>&1; then
-  flutter devices
-fi

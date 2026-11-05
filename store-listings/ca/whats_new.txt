@@ -1,1 +1,0 @@
-Primera versió pública: biblioteca local, reproducció sense interrupcions, velocitat i reanudació d'audiollibres, equalitzador i més de 40 idiomes d'interfície.

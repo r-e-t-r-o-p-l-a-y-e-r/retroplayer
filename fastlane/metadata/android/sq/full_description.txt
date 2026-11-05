@@ -1,0 +1,28 @@
+Retro Player luan muzikë dhe libra audio nga dosjet në telefonin tuaj. Zgjidhni një dosje dhe aplikacioni e tregon ashtu siç është në disk: dosje, albume dhe lista të luajtjes. Pa llogari, pa reklama dhe pa akses në rrjet.
+
+Krijuar për libra audio dhe albume
+• Riafton çdo album, libër dhe listë luajtjeje aty ku e keni ndërprerë
+• Shpejtësia e luajtjes nga 0.5× në 2.0×, ruhet për secilin artikull; kalime 15-sekondëshe
+• Kapitujt M4B dhe M4A në shiritin kërkues, në listën e kapitujve dhe në njoftim
+• Kthen mbrapsht disa sekonda kur vazhdoni pas një pushimi të gjatë
+• Lojë pa ndërprerje; albumet me shumë disqe luajnë në rendin e disqeve
+
+Dosjet tuaja, rendi juaj
+• Shfletoni si me një menaxher skedarësh, me navigim hapi-për-hapi, të preferuarat dhe një shirit A–Z
+• Lëvizni me gisht për të shtuar dosje, albume ose këngë në radhë dhe ruajeni si listë luajtjeje M3U
+• Luan listat e luajtjes që tashmë i keni
+• Renditni çdo album sipas numrit të këngës, emrit të skedarit ose titullit
+
+Kudo që dëgjoni
+• Kontrolli në njoftim, në ekranin e kyçur dhe me butonat Bluetooth ose të makinës
+• Android Auto: shfletoni bibliotekën, të preferuarat dhe radhën në makinë
+• Widget në ekranin kryesor
+• Opsionalisht vazhdon kur kufjet tuaja lidhen përsëri
+• Ekualizator me paracaktime, temë e lehtë dhe e errët, 47 gjuhë
+
+Formate: FLAC, M4A, M4B (AAC i pa-kriptuar), MP3, OGG, Opus dhe WAV.
+
+Privatësi e garantuar
+Retro Player nuk ka leje për Internet, kështu që asgjë nuk del nga telefoni juaj: pa reklama, analitikë, ndjekje ose llogari. As nuk i nevojitet leja për ruajtje. Ai lexon vetëm dosjet që zgjidhni dhe kurrë nuk ndryshon skedarët tuaj; të vetmit skedarë që krijon janë listat e luajtjes që i ruani.
+
+Softuer i lirë dhe me burim të hapur (GPL-3.0-ose-më-vonë). Udhëzuesi i përdoruesit dhe kodi burimor: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

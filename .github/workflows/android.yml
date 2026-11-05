@@ -1,0 +1,110 @@
+name: Android
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Store listing within the store length limits
+        run: python3 scripts/mt_store_listings.py --check
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v5
+
+      # Robolectric downloads its Android jars (about 200 MB) itself, outside the Gradle cache.
+      - name: Robolectric Android jars
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository/org/robolectric
+          key: robolectric-${{ hashFiles('gradle/libs.versions.toml', '**/src/test/resources/robolectric.properties') }}
+
+      # roborazzi.test.verify compares the screenshots in the same test run (record with
+      # recordRoborazziDebug); verifyRoborazziDebug would run all :app tests a second time.
+      # A test run still going after 20 minutes prints the test JVMs' threads.
+      # The runner has 16 GB: a 4 GB daemon that also compiles Kotlin (no separate Kotlin
+      # daemon), next to three parallel test JVMs, R8 and lint.
+      - name: Unit, Robolectric and screenshot tests, lint, privacy
+        run: |
+          ( sleep 1200; for p in $(pgrep -f GradleWorkerMain); do jstack "$p"; done ) &
+          trap 'kill $! 2>/dev/null || true' EXIT
+          ./gradlew check assembleRelease -Proborazzi.test.verify=true \
+            -Pkotlin.compiler.execution.strategy=in-process \
+            "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8"
+
+      - name: Memory and out-of-memory kills
+        if: failure()
+        run: |
+          free -h
+          sudo dmesg | grep -iE 'out of memory|killed process' || true
+
+      - uses: actions/upload-artifact@v5
+        if: failure()
+        with:
+          name: test-reports
+          path: |
+            **/build/reports/
+            **/build/test-results/
+          if-no-files-found: warn
+
+  devices:
+    runs-on: ubuntu-latest
+    needs: check
+    # One emulator per runner: two at once (the phones group) do not boot on a hosted runner.
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [pixel2Api27, pixel7Api33, pixel9Api35]
+    name: devices (${{ matrix.device }})
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v5
+
+      # The runner's SDK has no emulator package, and managed devices do not download it.
+      - name: Android emulator package
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install emulator > /dev/null
+
+      # Compiling while the emulator boots runs the runner out of memory (exit 143), so build
+      # first, in process (no Kotlin daemon), and stop Gradle before the emulator starts.
+      - name: Build the app and test APKs
+        run: |
+          ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest -Pkotlin.compiler.execution.strategy=in-process
+          ./gradlew --stop
+
+      - name: Instrumented tests on the managed device
+        run: ./gradlew ${{ matrix.device }}DebugAndroidTest --stacktrace -Pkotlin.compiler.execution.strategy=in-process -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+
+      - name: Memory and out-of-memory kills
+        if: failure()
+        run: |
+          free -h
+          sudo dmesg | grep -iE 'out of memory|killed process' || true
+
+      - uses: actions/upload-artifact@v5
+        if: failure()
+        with:
+          name: device-reports-${{ matrix.device }}
+          path: app/build/reports/androidTests/
+          if-no-files-found: warn

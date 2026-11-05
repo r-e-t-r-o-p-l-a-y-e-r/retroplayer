@@ -1,0 +1,1 @@
+Première version : bibliothèque de dossiers avec favoris et barre de recherche A-Z, reprise de la lecture et vitesse de lecture par album ou livre, chapitres M4B, file d'attente et listes de lecture M3U, Android Auto, widget d'écran d'accueil, options pour les écouteurs, égaliseur et 47 langues.

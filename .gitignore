@@ -1,30 +1,23 @@
-# FVM: commit .fvm/fvm_config.json only; SDK cache is local.
-.fvm/flutter_sdk
-.fvm/versions
-.fvm/version_cache
-.fvm/release
+# Gradle / Android Studio
+.gradle/
+.kotlin/
+build/
+local.properties
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
 
+# Release signing: never commit
+keystore.properties
+*.jks
+*.keystore
+
+# Local tooling
 .env
 .mt_l10n_retry.log
 __pycache__/
-
 .cursor/
 .cursor-chat-restore-backup-*/
 scripts/restore-cursor-agent-history.sh
-.idea/
-*.iml
-.dart_tool/
-.packages
-build/
-.flutter-plugins
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
-coverage/
-*.g.dart
-*.freezed.dart
-*.mocks.dart
-
-# Per-build stamp (version/time/git); regenerate with scripts/stamp_build_info.dart
-lib/build_info.dart
-

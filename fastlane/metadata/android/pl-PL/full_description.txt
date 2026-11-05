@@ -1,0 +1,28 @@
+Aplikacja Retro Player odtwarza muzykę i audiobooki z folderów znajdujących się w telefonie. Wybierz folder, a aplikacja wyświetli jego zawartość tak, jak wygląda na dysku: foldery, albumy i listy odtwarzania. Bez konta, bez reklam i bez dostępu do sieci.
+
+Stworzona z myślą o audiobookach i albumach
+• Wznowi odtwarzanie każdego albumu, książki i listy odtwarzania od miejsca, w którym zostało przerwane
+• Prędkość odtwarzania od 0,5× do 2,0×, zapisywana dla każdego elementu; 15-sekundowe skoki
+• Rozdziały plików M4B i M4A widoczne na pasku nawigacyjnym, na liście rozdziałów oraz w powiadomieniu
+• Cofanie o kilka sekund po wznowieniu odtwarzania po dłuższej przerwie
+• Odtwarzanie bez przerw; albumy wielopłytowe odtwarzane są w kolejności płyt
+
+Twoje foldery, twoja kolejność
+• Przeglądaj jak w menedżerze plików, z nawigacją, ulubionymi i paskiem A–Z
+• Przesuń palcem, aby dodać foldery, albumy lub utwory do kolejki i zapisać ją jako playlistę M3U
+• Odtwarza istniejące listy odtwarzania
+• Sortuj każdy album według numeru utworu, nazwy pliku lub tytułu
+
+Gdziekolwiek słuchasz
+• Elementy sterujące w powiadomieniu, na ekranie blokady oraz za pomocą przycisków Bluetooth lub samochodowych
+• Android Auto: przeglądaj swoją bibliotekę, ulubione i kolejkę w samochodzie
+• Widżet na ekranie głównym
+• Opcjonalnie kontynuuje odtwarzanie po ponownym podłączeniu słuchawek
+• Korektor z ustawieniami wstępnymi, jasny i ciemny motyw, 47 języków
+
+Formaty: FLAC, M4A, M4B (niezaszyfrowany AAC), MP3, OGG, Opus i WAV.
+
+Prywatność od samego początku
+Retro Player nie ma uprawnień do dostępu do Internetu, więc żadne dane nie opuszczają Twojego telefonu: żadnych reklam, analiz, śledzenia ani kont. Nie potrzebuje też uprawnień do dostępu do pamięci. Odczytuje tylko wybrane przez Ciebie foldery i nigdy nie zmienia Twoich plików; jedyne pliki, które zapisuje, to zapasane przez Ciebie listy odtwarzania.
+
+Bezpłatne oprogramowanie typu open source (licencja GPL-3.0 lub nowsza). Instrukcja obsługi i kod źródłowy: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

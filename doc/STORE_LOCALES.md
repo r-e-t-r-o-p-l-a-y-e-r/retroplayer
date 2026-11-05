@@ -1,54 +1,91 @@
 # Store listing locales
 
-How [`store-listings/`](../store-listings/) relates to in-app languages and store consoles.
+The store listing lives in [`fastlane/metadata/android/`](../fastlane/metadata/android/),
+one folder per locale (fastlane layout). F-Droid reads it from the repository.
 
 ## Policy
 
-- **Canonical language:** English — directory [`store-listings/en/`](../store-listings/en/).
-- **Other locales:** Optional subdirectories `store-listings/<code>/` with the same filenames.
-- **Fallback:** Google Play, F-Droid, and Aptoide show the default listing (English) when a store locale has no translation. Missing directories in the repo are expected until translated.
+- **Source language:** English in `en-US/`. Edit only these files by hand.
+- **Other locales:** machine-translated from `en-US/` with
+  `python3 scripts/mt_store_listings.py` ([L10N_MT_CLOUD.md](L10N_MT_CLOUD.md)).
+  The title is a name and is copied unchanged. Review the main languages.
+- **Images:** only in `en-US/images/` (`python3 scripts/make_store_images.py`
+  from `assets/icon/` and `doc/images/tutorial/`). Stores fall back to them in
+  every locale.
+- **Fallback:** F-Droid shows the English listing when a locale has no
+  translation.
 
 ## Files per locale
 
-| File | Play Console | F-Droid (`metadata/`) | Limits (typical) |
-|------|--------------|------------------------|------------------|
-| `title.txt` | App name | (often from manifest) | Short |
-| `short_description.txt` | Short description | `summary.txt` | ~80 chars |
-| `full_description.txt` | Full description | `full_description.txt` | ~4000 chars |
-| `privacy_policy_url.txt` | Privacy policy URL | — | HTTPS URL |
-| `whats_new.txt` | What's new (Play) | — | Release notes |
+| File | Shown as | Limit |
+|------|----------|-------|
+| `title.txt` | App name | 30 chars |
+| `short_description.txt` | Short description | 80 chars |
+| `full_description.txt` | Full description | 4000 chars |
+| `changelogs/<versionCode>.txt` | What's new | 500 chars |
+| `images/icon.png` | App icon | 512×512, 32-bit PNG |
+| `images/featureGraphic.png` | Feature graphic | 1024×500 |
+| `images/phoneScreenshots/*.png` | Phone screenshots | long side ≤ 2× short side |
 
-F-Droid may use `en-US/` instead of `en/` in fdroiddata; copy content from `store-listings/en/` when submitting.
+`python3 scripts/mt_store_listings.py --check` reports text over a limit (the
+common fastlane limits, which F-Droid also applies).
 
-## App locale → store locale mapping
+## Languages and store folders
 
-In-app codes come from [`AppLocaleCatalog`](../lib/l10n/app_locale_catalog.dart) / `app_<code>.arb`. Store consoles use their own BCP 47 tags. Use this table when creating `store-listings/<code>/`:
+In-app locales are the `app/src/main/res/values-<code>/strings_arb.xml`
+folders (`values/` is English). Store folders use fastlane's language codes,
+which add a region for many languages and use `iw` for Hebrew and `no` for
+Norwegian. `LOCALES` in `scripts/mt_store_listings.py` is the same mapping
+in code.
 
-| App / ARB code | Play Console (example) | F-Droid folder (example) | Notes |
-|----------------|------------------------|---------------------------|--------|
-| `en` | `en-US` | `en-US` | Default |
-| `de` | `de-DE` | `de-DE` | |
-| `sl` | `sl` | — | |
-| `nb` | `no-NO` | — | Norwegian Bokmål |
-| `zh` | `zh-CN` | — | Decide CN vs TW if you split |
-| `pt` | `pt-BR` or `pt-PT` | — | Pick one primary |
-| `sr` | `sr` | — | Script may need store-specific variant |
-| `ca`, `ga`, `mt`, … | match Play’s list | optional | |
+| Language | App code | Store folder |
+|----------|----------|--------------|
+| Albanian | `sq` | `sq` |
+| Arabic | `ar` | `ar` |
+| Bengali | `bn` | `bn-BD` |
+| Bosnian | `bs` | `bs` |
+| Bulgarian | `bg` | `bg` |
+| Catalan | `ca` | `ca` |
+| Chinese (Simplified) | `zh` | `zh-CN` |
+| Croatian | `hr` | `hr` |
+| Czech | `cs` | `cs-CZ` |
+| Danish | `da` | `da-DK` |
+| Dutch | `nl` | `nl-NL` |
+| English (US, source) | `en` | `en-US` |
+| Estonian | `et` | `et` |
+| Finnish | `fi` | `fi-FI` |
+| French | `fr` | `fr-FR` |
+| German | `de` | `de-DE` |
+| Greek | `el` | `el-GR` |
+| Hebrew | `he` | `iw-IL` |
+| Hindi | `hi` | `hi-IN` |
+| Hungarian | `hu` | `hu-HU` |
+| Icelandic | `is` | `is-IS` |
+| Indonesian | `id` | `id` |
+| Irish | `ga` | `ga` |
+| Italian | `it` | `it-IT` |
+| Japanese | `ja` | `ja-JP` |
+| Korean | `ko` | `ko-KR` |
+| Latvian | `lv` | `lv` |
+| Lithuanian | `lt` | `lt` |
+| Macedonian | `mk` | `mk-MK` |
+| Maltese | `mt` | `mt` |
+| Norwegian Bokmål | `nb` | `no-NO` |
+| Persian | `fa` | `fa` |
+| Polish | `pl` | `pl-PL` |
+| Portuguese (Portugal) | `pt` | `pt-PT` |
+| Romanian | `ro` | `ro` |
+| Russian | `ru` | `ru-RU` |
+| Serbian | `sr` | `sr` |
+| Slovak | `sk` | `sk` |
+| Slovenian | `sl` | `sl` |
+| Spanish | `es` | `es-ES` |
+| Swedish | `sv` | `sv-SE` |
+| Thai | `th` | `th` |
+| Turkish | `tr` | `tr-TR` |
+| Ukrainian | `uk` | `uk` |
+| Urdu | `ur` | `ur` |
+| Vietnamese | `vi` | `vi` |
 
-When unsure, use Play Console’s locale picker codes as directory names under `store-listings/`.
-
-## Authoring workflow
-
-1. Edit English files in `store-listings/en/`.
-2. Translate (human review recommended for DE, SL, etc.):
-   - Manual copy, or
-   - Extend MT scripts ([`scripts/mt_l10n_arbs.py`](../scripts/mt_l10n_arbs.py)) for store text in a follow-up.
-3. Link full description to the user guide: [`USAGE.md`](USAGE.md) on your public repo (replace `<org>` when host exists).
-
-## CI gate (future)
-
-Optional test: assert `store-listings/en/*.txt` exist and non-empty; warn if [`SupportedLocaleCodes`](../lib/domain/supported_locale_codes.dart) has no matching store folder.
-
-## Checklist IDs
-
-`store-listings-en`, `store-listings-l10n` in [`PUBLIC_RELEASE_PLAN.md`](PUBLIC_RELEASE_PLAN.md).
+When adding an app locale, add it to `LOCALES` and to this table, then run the
+script for it.
