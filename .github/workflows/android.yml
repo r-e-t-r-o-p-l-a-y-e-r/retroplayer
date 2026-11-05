@@ -65,8 +65,21 @@ jobs:
       - name: Android emulator package
         run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install emulator > /dev/null
 
+      # Compiling while the emulator boots runs the runner out of memory (exit 143), so build
+      # first, in process (no Kotlin daemon), and stop Gradle before the emulator starts.
+      - name: Build the app and test APKs
+        run: |
+          ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest -Pkotlin.compiler.execution.strategy=in-process
+          ./gradlew --stop
+
       - name: Instrumented tests on the managed device
-        run: ./gradlew ${{ matrix.device }}DebugAndroidTest --stacktrace -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+        run: ./gradlew ${{ matrix.device }}DebugAndroidTest --stacktrace -Pkotlin.compiler.execution.strategy=in-process -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+
+      - name: Memory and out-of-memory kills
+        if: failure()
+        run: |
+          free -h
+          sudo dmesg | grep -iE 'out of memory|killed process' || true
 
       - uses: actions/upload-artifact@v5
         if: failure()
