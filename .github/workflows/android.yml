@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Store listing within the store length limits
         run: python3 scripts/mt_store_listings.py --check
@@ -67,7 +67,7 @@ jobs:
         device: [pixel2Api27, pixel7Api33, pixel9Api35]
     name: devices (${{ matrix.device }})
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Enable KVM
         run: |
