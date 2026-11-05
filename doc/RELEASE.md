@@ -7,9 +7,9 @@ without uninstalling. The app is not published on Google Play.
 ## Versions
 
 - `versionCode` and `versionName` live in `app/build.gradle.kts`. The first
-  store version is `0.9.0` (versionCode 1).
+  store version is `0.1.0` (versionCode 1).
 - Every release raises `versionCode` by one and gets the tag `vX.Y.Z` matching
-  `versionName`. Before 1.0, minor versions (0.10.0, 0.11.0, ...) mark store
+  `versionName`. Before 1.0, minor versions (0.2.0, 0.3.0, ...) mark store
   releases.
 - Release notes: `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`
   (500 characters at most; F-Droid shows them as "What's new"). Translate them
@@ -71,16 +71,16 @@ keep the build reproducible:
   incremental build after earlier builds can rename one R8 class and no longer
   match F-Droid's clean build.
 
-Checked on 0.9.0's build setup: a full clone and a shallow clone at different
+Checked on 0.1.0's build setup: a full clone and a shallow clone at different
 paths give byte-identical unsigned APKs, and a clean signed build passes
 F-Droid's comparison against a clean unsigned one. Check again before each
 release (`pip install apksigcopier`; `apksigner` from build-tools on `PATH`):
 
 ```bash
-git clone --depth 1 --branch v0.9.0 <repo> /tmp/rp && cd /tmp/rp
+git clone --depth 1 --branch v0.1.0 <repo> /tmp/rp && cd /tmp/rp
 ./gradlew --no-build-cache :app:assembleRelease              # unsigned, like F-Droid
-apksigcopier compare retroplayer-0.9.0.apk --unsigned app/build/outputs/apk/release/app-release-unsigned.apk
-apksigner verify --print-certs retroplayer-0.9.0.apk
+apksigcopier compare retroplayer-0.1.0.apk --unsigned app/build/outputs/apk/release/app-release-unsigned.apk
+apksigner verify --print-certs retroplayer-0.1.0.apk
 ```
 
 If the comparison fails, `diffoscope` on the two APKs shows the difference.
@@ -91,7 +91,7 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
    `doc/USAGE.md` and the store text if features changed.
 2. `./gradlew check assembleRelease` and `scripts/device-smoke.sh` on an
    emulator; install the release build on a phone and try the main flows.
-3. Merge to `main`, then tag: `git tag v0.9.0 && git push origin v0.9.0`.
+3. Merge to `main`, then tag: `git tag v0.1.0 && git push origin v0.1.0`.
 4. `.github/workflows/release.yml` checks that the tag matches `versionName`,
    builds the signed APK first in the clean checkout, runs `check`, and
    attaches to a GitHub Release (notes from the changelog):
@@ -104,7 +104,7 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
 Step-by-step checklist: [MANUAL_STEPS.md](MANUAL_STEPS.md).
 
 - **F-Droid:** merge request with `metadata/app.retroplayer.yml`: `Builds`
-  with `commit: v0.9.0`, `subdir: app`, `gradle: [yes]`; `Binaries:` pointing
+  with `commit: v0.1.0`, `subdir: app`, `gradle: [yes]`; `Binaries:` pointing
   at the GitHub Release APK; `AllowedAPKSigningKeys:` with the certificate
   SHA-256; `Liberapay: retroplayer`; `AutoUpdateMode: Version`,
   `UpdateCheckMode: Tags`. Test with `fdroid build` first.
