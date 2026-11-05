@@ -145,6 +145,34 @@ Before you start:
   F-Droid. On a mismatch, `diffoscope` on the two APKs shows the difference
   (see "Reproducible builds" in [RELEASE.md](RELEASE.md)); do not open the
   merge request until it matches.
+- [ ] If only `classes.dex` and `assets/dexopt/baseline.prof` differ, R8 (the
+  code shrinker) optimised something differently on the runner. This
+  happened once, in the first 0.1.0 release run; the next runs matched.
+  Native libraries (`lib/*/*.so`) no longer differ: `keepDebugSymbols` in
+  `app/build.gradle.kts` stops stripping them, which depended on whether
+  the build machine has an NDK. Compare the R8 map IDs:
+  ```bash
+  for apk in ~/Downloads/retroplayer-0.1.0.apk \
+      /tmp/rp-check/app/build/outputs/apk/release/app-release-unsigned.apk; do
+    unzip -p "$apk" classes.dex | strings | grep -o 'pg-map-id":"[0-9a-f]*'
+  done
+  ```
+  Different IDs mean R8's output differs. Download the `build-environment`
+  artifact from the release run in the Actions tab; it contains the
+  runner's `mapping.txt` and `environment.txt` (JDK, `android-37` platform
+  revisions and jar hashes, installed NDKs). Then:
+  ```bash
+  diff ~/Downloads/build-environment/mapping.txt \
+    /tmp/rp-check/app/build/outputs/mapping/release/mapping.txt | head -50
+  java -version
+  sha256sum "$ANDROID_HOME"/platforms/android-37*/android.jar
+  ```
+  The mapping diff names the original classes and methods R8 treated
+  differently; the version lines show whether the JDK or the platform jar
+  differs from `environment.txt`. If the environments match, delete the
+  GitHub Release (keep the tag), re-run the release workflow for the tag
+  (Actions → the run → **Re-run all jobs**; it creates the release again)
+  and check the new APK before changing any code.
 - [ ] A [GitLab](https://gitlab.com/users/sign_up) account. The username is
   public; the email is not. In GitLab → Preferences → Emails, set the commit
   email to the private `…@users.noreply.gitlab.com` address and use it in the
