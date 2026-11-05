@@ -7,10 +7,6 @@ on:
 permissions:
   contents: write
 
-env:
-  BUNDLETOOL_VERSION: 1.18.3
-  BUNDLETOOL_SHA256: a099cfa1543f55593bc2ed16a70a7c67fe54b1747bb7301f37fdfd6d91028e29
-
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -52,34 +48,18 @@ jobs:
           echo "RELEASE_KEYSTORE=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
 
       # First build in the fresh checkout: F-Droid compares this APK with its own clean build.
-      - name: Signed APK and AAB
+      - name: Signed APK
         env:
           RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
           RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
           RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
         run: |
-          ./gradlew --no-build-cache :app:assembleRelease :app:bundleRelease
+          ./gradlew --no-build-cache :app:assembleRelease
           mkdir dist
           cp app/build/outputs/apk/release/app-release.apk "dist/retroplayer-$VERSION.apk"
-          cp app/build/outputs/bundle/release/app-release.aab "$RUNNER_TEMP/default.aab"
 
       - name: Tests, lint, privacy
         run: ./gradlew check
-
-      - name: APK set for Accrescent
-        env:
-          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
-          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
-          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
-        run: |
-          curl -sSLo "$RUNNER_TEMP/bundletool.jar" \
-            "https://github.com/google/bundletool/releases/download/$BUNDLETOOL_VERSION/bundletool-all-$BUNDLETOOL_VERSION.jar"
-          echo "$BUNDLETOOL_SHA256  $RUNNER_TEMP/bundletool.jar" | sha256sum -c -
-          java -jar "$RUNNER_TEMP/bundletool.jar" build-apks \
-            --bundle="$RUNNER_TEMP/default.aab" \
-            --output="dist/retroplayer-$VERSION.apks" \
-            --ks="$RELEASE_KEYSTORE" --ks-pass="pass:$RELEASE_KEYSTORE_PASSWORD" \
-            --ks-key-alias="$RELEASE_KEY_ALIAS" --key-pass="pass:$RELEASE_KEY_PASSWORD"
 
       - name: Signature and checksums
         run: |

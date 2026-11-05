@@ -14,7 +14,7 @@ on F-Droid and as GitHub Releases; it is not published on Google Play.
   ```
 
 - [x] Keep two offline backups of the keystore and the passwords in a password
-  manager. Losing the key means no more updates on F-Droid and Accrescent.
+  manager. Losing the key means no more updates on F-Droid.
 - [x] Note the certificate SHA-256 for F-Droid (lowercase hex, no colons):
   ```bash
   keytool -list -v -keystore retroplayer-release.jks -alias retroplayer | grep SHA256
@@ -66,8 +66,7 @@ gh secret list                           # shows the four names, not the values
   ruleset, target `v*`, restrict creations) so only you can start a signed
   release. Anyone with write access can push a tag otherwise.
 
-If a value is wrong, the workflow fails at "Signed APK and AAB" or "APK set
-for Accrescent" (wrong
+If a value is wrong, the workflow fails at "Signed APK" (wrong
 password or alias) or prints an empty certificate; set the secret again with
 the same name to overwrite it. Wrong secrets never produce a build signed with
 another key.
@@ -109,8 +108,8 @@ the old commits onto `main`, and the rewrite would have to be redone.
   ([support.github.com](https://support.github.com)) to "remove cached views
   and unreachable commits" for the repository.
 - [ ] `git tag v0.9.0 && git push origin v0.9.0`
-- [ ] Check that the Release workflow publishes `retroplayer-0.9.0.apk`,
-  `retroplayer-0.9.0.apks` and `SHA256SUMS`.
+- [ ] Check that the Release workflow publishes `retroplayer-0.9.0.apk` and
+  `SHA256SUMS`.
 
 ## 5. F-Droid
 
@@ -234,55 +233,3 @@ new version does not appear within a few days.
 Optional, instead of all of the above: open a "Request for Packaging" issue at
 [fdroid/rfp](https://gitlab.com/fdroid/rfp/-/issues) and wait for a volunteer
 to write the metadata. Slower and less predictable than your own merge request.
-
-## 6. Accrescent (on hold)
-
-On hold: Accrescent does not accept new developers at the moment (November
-2026). The release workflow still builds `retroplayer-X.Y.Z.apks`, so the
-steps below can start as soon as registration opens again.
-
-[Accrescent](https://accrescent.app) is a privacy- and security-focused store
-(recommended on GrapheneOS). Unlike F-Droid it does not build from source:
-you upload the APK set that the release workflow makes
-(`retroplayer-X.Y.Z.apks`, signed with your key), and its client installs only
-the splits each phone needs. Its developer console and rules have been
-changing; read the current publishing guide on
-[accrescent.app](https://accrescent.app) (Docs → Developers) before you start,
-and treat the steps below as the outline.
-
-Before you start:
-
-- [ ] `v0.9.0` is released on GitHub with `retroplayer-0.9.0.apks` (step 4).
-- [ ] Check in the guide whether new developers can register or need an
-  invitation, and which requirements apply (for example a minimum
-  `targetSdk`, which permissions are allowed, and that the upload is a
-  bundletool APK set, which the release workflow already produces).
-
-Register and submit:
-
-- [ ] Open the Accrescent developer console (linked from the guide) and sign
-  in. It has used GitHub sign-in; use the freier-fall account, so no new
-  identity is needed.
-- [ ] Register as a developer: developer name (public; "Retro Player" or
-  "freier-fall") and a contact address you are fine with publishing.
-- [ ] Create a new app: package `app.retroplayer`; upload
-  `retroplayer-0.9.0.apks` from the GitHub Release. The console reads app id,
-  version and signing certificate from it; the certificate must be the one
-  from step 1, and it cannot change later.
-- [ ] Listing: name "Retro Player", short description from
-  `fastlane/metadata/android/en-US/short_description.txt`, icon
-  `fastlane/metadata/android/en-US/images/icon.png` (512×512). Add the
-  screenshots and the full description if the console asks for them.
-- [ ] Submit for review. Accrescent reviews the first version and changes to
-  permissions by hand.
-
-Later releases:
-
-- [ ] Upload the new `retroplayer-X.Y.Z.apks` from the GitHub Release as an
-  update (higher `versionCode`, same key). Updates that add permissions go
-  through review again.
-
-To try it on the Pixel (GrapheneOS): install Accrescent from the GrapheneOS
-App Store, then Retro Player from Accrescent. It uses the same app id and key
-as the GitHub APK and F-Droid, so these builds update each other; the
-`app.retroplayer.debug` test build stays separate.

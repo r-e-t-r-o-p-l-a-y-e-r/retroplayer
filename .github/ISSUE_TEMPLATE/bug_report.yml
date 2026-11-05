@@ -7,9 +7,7 @@ body:
     attributes:
       label: Installed from
       options:
-        - Google Play
         - F-Droid
-        - Accrescent
         - GitHub release
         - Built from source
     validations:

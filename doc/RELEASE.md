@@ -1,9 +1,8 @@
 # Releasing Retro Player
 
 One git tag produces every release build. All builds are signed with the same
-developer key, so users can switch between F-Droid and GitHub releases (and
-Accrescent, once it accepts new developers again) without uninstalling. The
-app is not published on Google Play.
+developer key, so users can switch between F-Droid and GitHub releases
+without uninstalling. The app is not published on Google Play.
 
 ## Versions
 
@@ -30,7 +29,7 @@ app is not published on Google Play.
   ```
 
 - Keep two offline backups of the keystore and the passwords in a password
-  manager. Losing the key means no more updates on F-Droid and Accrescent.
+  manager. Losing the key means no more updates on F-Droid.
 - Certificate fingerprint for F-Droid (`AllowedAPKSigningKeys`, lowercase hex
   without colons):
 
@@ -96,13 +95,9 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
 4. `.github/workflows/release.yml` checks that the tag matches `versionName`,
    builds the signed APK first in the clean checkout, runs `check`, and
    attaches to a GitHub Release (notes from the changelog):
-   `retroplayer-X.Y.Z.apk`, `retroplayer-X.Y.Z.apks` (APK set for Accrescent,
-   from the AAB) and `SHA256SUMS`.
-5. Stores:
-   - **F-Droid:** picks the tag up automatically after the first merge request
-     to [fdroiddata](https://gitlab.com/fdroid/fdroiddata) (`UpdateCheckMode: Tags`).
-   - **Accrescent** (on hold, no new developers at the moment): upload the APK
-     set in the developer console.
+   `retroplayer-X.Y.Z.apk` and `SHA256SUMS`.
+5. F-Droid picks the tag up automatically after the first merge request to
+   [fdroiddata](https://gitlab.com/fdroid/fdroiddata) (`UpdateCheckMode: Tags`).
 
 ## First-time store setup
 
@@ -113,5 +108,3 @@ Step-by-step checklist: [MANUAL_STEPS.md](MANUAL_STEPS.md).
   at the GitHub Release APK; `AllowedAPKSigningKeys:` with the certificate
   SHA-256; `Liberapay: retroplayer`; `AutoUpdateMode: Version`,
   `UpdateCheckMode: Tags`. Test with `fdroid build` first.
-- **Accrescent** (on hold): developer console access; upload the APK set with the
-  listing and images. Check their current requirements before submitting.
