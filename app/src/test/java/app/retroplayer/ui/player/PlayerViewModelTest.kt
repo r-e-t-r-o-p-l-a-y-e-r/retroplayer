@@ -29,7 +29,7 @@ class PlayerViewModelTest {
     fun setUp() = main.runVmTest {
         lib = TestLibrary(tmp)
         lib.addRoot()
-        viewModel = lib.owned { PlayerViewModel(lib.playback, lib.store, ChapterRepository { uri -> if (uri == "doc:book") book else emptyList() }) }
+        viewModel = PlayerViewModel(lib.playback, lib.store, ChapterRepository { uri -> if (uri == "doc:book") book else emptyList() })
     }
 
     private val book = listOf(Chapter(0, "Intro"), Chapter(600_000, "Middle"), Chapter(1_200_000, "End"))

@@ -36,13 +36,13 @@ class PlaylistViewModelTest {
     @After
     fun tearDown() = lib.close()
 
-    private fun vm(path: String) = lib.owned { PlaylistViewModel(
+    private fun vm(path: String) = PlaylistViewModel(
         SavedStateHandle(mapOf(PlaylistViewModel.PATH_ARG to path)),
         lib.playlists,
         lib.scanner,
         lib.store,
         lib.playback,
-    ) }
+    )
 
     private suspend fun ready() = viewModel.state.first { it is PlaylistUiState.Ready } as PlaylistUiState.Ready
 

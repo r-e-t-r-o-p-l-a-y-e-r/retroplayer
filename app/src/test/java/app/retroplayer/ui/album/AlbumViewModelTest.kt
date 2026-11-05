@@ -53,7 +53,7 @@ class AlbumViewModelTest {
     fun tearDown() = lib.close()
 
     private fun viewModel(id: String) =
-        lib.owned { AlbumViewModel(SavedStateHandle(mapOf("albumId" to id)), lib.repository, lib.store, lib.settings, lib.playback, lib.queue) }
+        AlbumViewModel(SavedStateHandle(mapOf("albumId" to id)), lib.repository, lib.store, lib.settings, lib.playback, lib.queue)
 
     private suspend fun AlbumViewModel.ready(predicate: (AlbumUiState.Ready) -> Boolean = { true }) =
         state.first { it is AlbumUiState.Ready && predicate(it) } as AlbumUiState.Ready

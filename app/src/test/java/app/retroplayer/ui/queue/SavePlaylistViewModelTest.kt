@@ -30,7 +30,7 @@ class SavePlaylistViewModelTest {
         lib.docs.file("Mix/b.mp3")
         lib.docs.file("Talk/c.mp3")
         lib.queue.add(listOf(lib.p("Mix/a.mp3"), lib.p("Mix/b.mp3")))
-        viewModel = lib.owned { SavePlaylistViewModel(SavedStateHandle(), lib.repository, lib.store, lib.settings, lib.playlists, lib.access) }
+        viewModel = SavePlaylistViewModel(SavedStateHandle(), lib.repository, lib.store, lib.settings, lib.playlists, lib.access)
     }
 
     @After

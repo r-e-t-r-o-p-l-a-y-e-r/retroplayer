@@ -42,7 +42,7 @@ class FolderViewModelTest {
     @After
     fun tearDown() = lib.close()
 
-    private fun viewModel(path: String?) = lib.owned { FolderViewModel(
+    private fun viewModel(path: String?) = FolderViewModel(
         SavedStateHandle(mapOf("path" to path)),
         lib.repository,
         lib.store,
@@ -51,7 +51,7 @@ class FolderViewModelTest {
         lib.access,
         lib.items,
         lib.queue,
-    ) }
+    )
 
     private suspend fun FolderViewModel.folder() = state.first { it is FolderUiState.Folder && it.complete } as FolderUiState.Folder
 
@@ -153,7 +153,7 @@ class FolderViewModelTest {
     @Test
     fun `list scroll is kept in saved state`() {
         val handle = SavedStateHandle(mapOf("path" to lib.p("Books").value))
-        val vm = lib.owned { FolderViewModel(handle, lib.repository, lib.store, lib.settings, lib.playback, lib.access, lib.items, lib.queue) }
+        val vm = FolderViewModel(handle, lib.repository, lib.store, lib.settings, lib.playback, lib.access, lib.items, lib.queue)
         vm.saveListScroll(12, 48)
         assertThat(vm.listScrollIndex()).isEqualTo(12)
         assertThat(vm.listScrollOffset()).isEqualTo(48)
