@@ -37,7 +37,7 @@ class EqualizerViewModelTest {
     @After
     fun tearDown() = lib.close()
 
-    private fun viewModel() = EqualizerViewModel(lib.settings, availability)
+    private fun viewModel() = lib.owned { EqualizerViewModel(lib.settings, availability) }
 
     private suspend fun stored() = lib.settings.settings.first().equalizer
 

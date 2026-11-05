@@ -32,7 +32,7 @@ class HeadsetSettingsViewModelTest {
     @After
     fun tearDown() = lib.close()
 
-    private fun viewModel() = HeadsetSettingsViewModel(lib.settings)
+    private fun viewModel() = lib.owned { HeadsetSettingsViewModel(lib.settings) }
 
     private suspend fun storedKeys() = lib.settingsData.data.first().asMap().keys.map { it.name }
 

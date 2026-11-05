@@ -111,6 +111,9 @@ ViewModel test: copy the structure of
 - `TestLibrary(tmp, metadata)` gives a real Room DB, DataStore, scanner and
   repository over `FakeDocumentSource`. Call `lib.addRoot()`, use `lib.p("A/B")`
   for paths, `lib.close()` in `@After`.
+- Create ViewModels with `lib.owned { FooViewModel(...) }`, never bare: `close()`
+ clears them before closing Room, otherwise a leftover query fails a later
+ test with `UncaughtExceptionsBeforeTest`.
 - `FakePlayback` (in `TestLibrary.kt`) records calls. When `PlaybackControls`
   gains a method, add it to `FakePlayback` in the same commit.
 - Wrap the body in `main.runVmTest { ... }` (10 s timeout) instead of `runTest`.

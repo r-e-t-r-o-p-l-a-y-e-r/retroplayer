@@ -39,14 +39,14 @@ class AddTracksViewModelTest {
         lib.docs.file("Albums/Alb/t1.mp3")
         lib.docs.file("Albums/Alb/t2.mp3")
         lib.docs.file("Loose/x.mp3")
-        viewModel = AddTracksViewModel(
+        viewModel = lib.owned { AddTracksViewModel(
             SavedStateHandle(mapOf(AddTracksViewModel.PATH_ARG to lib.p("Albums/Alb").value)),
             lib.repository,
             lib.store,
             lib.queue,
             lib.settings,
             lib.playlists,
-        )
+        ) }
     }
 
     @After

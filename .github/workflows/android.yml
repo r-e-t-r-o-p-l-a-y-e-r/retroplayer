@@ -31,7 +31,10 @@ jobs:
         if: failure()
         with:
           name: test-reports
-          path: "**/build/reports/"
+          path: |
+            **/build/reports/
+            **/build/test-results/
+          if-no-files-found: warn
 
   devices:
     runs-on: ubuntu-latest

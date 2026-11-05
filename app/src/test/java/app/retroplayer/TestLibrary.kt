@@ -1,6 +1,10 @@
 package app.retroplayer
 
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import app.retroplayer.data.db.LibraryStore
@@ -37,6 +41,7 @@ import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 import java.io.File
 import java.util.Locale
+import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.seconds
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -76,9 +81,25 @@ class TestLibrary(tmp: TemporaryFolder, metadata: Map<String, TrackMetadata> = e
 
     fun p(relative: String) = LibraryPath("$rootId/$relative")
 
+    @PublishedApi internal val viewModels = ViewModelStore()
+    @PublishedApi internal var viewModelCount = 0
+
+    /**
+     * Creates a ViewModel that [close] clears. Its flows would otherwise keep querying Room after the
+     * test, and a query on the closed database fails the next test with `UncaughtExceptionsBeforeTest`.
+     */
+    inline fun <reified T : ViewModel> owned(noinline create: () -> T): T {
+        val factory = object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <V : ViewModel> create(modelClass: KClass<V>, extras: CreationExtras): V = create() as V
+        }
+        return ViewModelProvider.create(viewModels, factory)["vm${viewModelCount++}", T::class]
+    }
+
     fun close() {
-        db.close()
+        viewModels.clear()
         scope.cancel()
+        db.close()
     }
 
     inner class FakeRootAccess : RootAccess {

@@ -30,7 +30,7 @@ class QueueViewModelTest {
         lib.docs.file("b.mp3")
         lib.docs.file("c.mp3")
         lib.queue.add(listOf(lib.p("a.mp3"), lib.p("b.mp3")))
-        viewModel = QueueViewModel(lib.queue, lib.settings, lib.playback)
+        viewModel = lib.owned { QueueViewModel(lib.queue, lib.settings, lib.playback) }
     }
 
     @After

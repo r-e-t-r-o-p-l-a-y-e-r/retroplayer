@@ -43,7 +43,7 @@ class SettingsViewModelTest {
 
     private fun viewModel(): SettingsViewModel {
         val app = ApplicationProvider.getApplicationContext<Application>()
-        return SettingsViewModel(app, lib.settings, lib.store, lib.playback, lib.access)
+        return lib.owned { SettingsViewModel(app, lib.settings, lib.store, lib.playback, lib.access) }
     }
 
     @Test
