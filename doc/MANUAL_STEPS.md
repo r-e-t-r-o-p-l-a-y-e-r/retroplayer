@@ -1,7 +1,8 @@
 # Manual steps for the first store release
 
 Steps that need the maintainer's accounts or signing key, in order. The
-release process itself is in [RELEASE.md](RELEASE.md).
+release process itself is in [RELEASE.md](RELEASE.md). The app is published
+on F-Droid and as GitHub Releases; it is not published on Google Play.
 
 ## 1. Signing key
 
@@ -65,7 +66,8 @@ gh secret list                           # shows the four names, not the values
   ruleset, target `v*`, restrict creations) so only you can start a signed
   release. Anyone with write access can push a tag otherwise.
 
-If a value is wrong, the workflow fails at "Signed APK and AAB" (wrong
+If a value is wrong, the workflow fails at "Signed APK and AAB" or "APK set
+for Accrescent" (wrong
 password or alias) or prints an empty certificate; set the secret again with
 the same name to overwrite it. Wrong secrets never produce a build signed with
 another key.
@@ -108,30 +110,9 @@ the old commits onto `main`, and the rewrite would have to be redone.
   and unreachable commits" for the repository.
 - [ ] `git tag v0.9.0 && git push origin v0.9.0`
 - [ ] Check that the Release workflow publishes `retroplayer-0.9.0.apk`,
-  `retroplayer-0.9.0.apks`, `retroplayer-0.9.0-play.aab` and `SHA256SUMS`.
+  `retroplayer-0.9.0.apks` and `SHA256SUMS`.
 
-## 5. Google Play
-
-- [ ] Developer account (identity verification). The device check needs the
-  Play Console app on an Android phone with Google Play services. On
-  GrapheneOS that works with "sandboxed Google Play" from the GrapheneOS App
-  Store, best in a separate user profile; otherwise use another phone.
-- [ ] Create the app `app.retroplayer`; Play App Signing with your own key
-  (PEPK export of `retroplayer-release.jks`).
-- [ ] Store listing from `fastlane/metadata/android/` (text per language,
-  images from `en-US/images/`).
-- [ ] Data safety: no data collected or shared.
-- [ ] Privacy policy URL:
-  `https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer/blob/main/PRIVACY.md`
-- [ ] Ads: none. Content rating questionnaire. Target audience.
-- [ ] Foreground service declaration: `mediaPlayback` (audio playback the user
-  starts).
-- [ ] Advanced settings → Form factors: opt in to Android Auto.
-- [ ] Upload `retroplayer-0.9.0-play.aab` to a closed test. New personal
-  accounts need 12 testers for 14 days before production access.
-- [ ] Promote to production.
-
-## 6. F-Droid
+## 5. F-Droid
 
 F-Droid builds the app itself from the public source at the tag, compares its
 build with `retroplayer-X.Y.Z.apk` from the GitHub Release and, if they match
@@ -254,7 +235,11 @@ Optional, instead of all of the above: open a "Request for Packaging" issue at
 [fdroid/rfp](https://gitlab.com/fdroid/rfp/-/issues) and wait for a volunteer
 to write the metadata. Slower and less predictable than your own merge request.
 
-## 7. Accrescent
+## 6. Accrescent (on hold)
+
+On hold: Accrescent does not accept new developers at the moment (November
+2026). The release workflow still builds `retroplayer-X.Y.Z.apks`, so the
+steps below can start as soon as registration opens again.
 
 [Accrescent](https://accrescent.app) is a privacy- and security-focused store
 (recommended on GrapheneOS). Unlike F-Droid it does not build from source:

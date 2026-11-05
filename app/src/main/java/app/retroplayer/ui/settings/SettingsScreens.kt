@@ -262,17 +262,15 @@ private fun LanguageItem(label: String, selected: Boolean, onClick: () -> Unit) 
 
 private val FIELD_SHAPE = RoundedCornerShape(50)
 
-/** [donationLink] is false in the Google Play build, which may not link to payments outside Play. */
-internal data class BuildInfo(val version: String, val buildTime: String, val commit: String, val donationLink: Boolean)
+internal data class BuildInfo(val version: String, val buildTime: String, val commit: String)
 
 /** Screenshot tests pin this; the real values change with every build. */
 internal val LocalBuildInfo = staticCompositionLocalOf {
-    BuildInfo(BuildConfig.VERSION_NAME, buildTimeLabel(BuildConfig.BUILD_TIME), BuildConfig.GIT_COMMIT, BuildConfig.DONATION_LINK)
+    BuildInfo(BuildConfig.VERSION_NAME, buildTimeLabel(BuildConfig.BUILD_TIME), BuildConfig.GIT_COMMIT)
 }
 
 internal const val DONATION_URL = "https://liberapay.com/retroplayer"
 internal const val DONATION_LABEL = "liberapay.com/retroplayer"
-internal const val DONATION_PLAIN = "Liberapay: retroplayer"
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -291,17 +289,13 @@ private fun AboutSection() {
             AboutRow(stringResource(label)) { Text(value, style = MaterialTheme.typography.bodyMedium) }
         }
         AboutRow(stringResource(R.string.about_support), Modifier.padding(top = 8.dp)) {
-            if (build.donationLink) {
-                val uriHandler = LocalUriHandler.current
-                Text(
-                    DONATION_LABEL,
-                    style = MaterialTheme.typography.bodyMedium.copy(textDecoration = TextDecoration.Underline),
-                    color = palette.accent,
-                    modifier = Modifier.clickable(role = Role.Button) { uriHandler.openUri(DONATION_URL) },
-                )
-            } else {
-                Text(DONATION_PLAIN, style = MaterialTheme.typography.bodyMedium)
-            }
+            val uriHandler = LocalUriHandler.current
+            Text(
+                DONATION_LABEL,
+                style = MaterialTheme.typography.bodyMedium.copy(textDecoration = TextDecoration.Underline),
+                color = palette.accent,
+                modifier = Modifier.clickable(role = Role.Button) { uriHandler.openUri(DONATION_URL) },
+            )
         }
     }
 }

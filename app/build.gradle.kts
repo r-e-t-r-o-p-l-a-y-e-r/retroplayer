@@ -32,9 +32,6 @@ android {
         val gitCommit = git("rev-parse", "--short=12", "HEAD")
         val buildTime = git("log", "-1", "--format=%ct").toLongOrNull() ?: 0L
         buildConfigField("String", "GIT_COMMIT", "\"$gitCommit\"")
-        // -Pretroplayer.store=play: Google Play only allows donation links for tax-exempt charities.
-        val playStore = providers.gradleProperty("retroplayer.store").orNull == "play"
-        buildConfigField("boolean", "DONATION_LINK", "${!playStore}")
         buildConfigField("long", "BUILD_TIME", "${buildTime}L")
     }
 

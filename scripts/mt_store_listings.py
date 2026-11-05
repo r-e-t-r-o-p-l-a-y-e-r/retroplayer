@@ -3,7 +3,7 @@
 
 English is the source: title.txt, short_description.txt, full_description.txt and
 changelogs/<versionCode>.txt in en-US/. The title is a name and is copied as is.
-Locale folders use Google Play's language codes (see LOCALES); F-Droid reads the same tree.
+Locale folders use fastlane's language codes (see LOCALES); F-Droid reads the tree.
 
 Usage:
   python3 scripts/mt_store_listings.py                          # all locales, all fields
@@ -23,8 +23,7 @@ ROOT = SCRIPT_DIR.parent
 METADATA = ROOT / "fastlane" / "metadata" / "android"
 ENGLISH = METADATA / "en-US"
 
-# App locale (values-<code>) to store folder. Google Play has no listing language for
-# bs, ga and mt; their folders are for F-Droid and are skipped when uploading to Play.
+# App locale (values-<code>) to store folder.
 LOCALES = {
     "ar": "ar", "bg": "bg", "bn": "bn-BD", "bs": "bs", "ca": "ca", "cs": "cs-CZ",
     "da": "da-DK", "de": "de-DE", "el": "el-GR", "es": "es-ES", "et": "et", "fa": "fa",

@@ -28,6 +28,16 @@ jobs:
         with:
           cache-disabled: true
 
+      # Same memory limits as the check job in android.yml (16 GB runner); the user
+      # gradle.properties wins over the project's, so every Gradle call shares one daemon.
+      - name: Gradle memory
+        run: |
+          mkdir -p "${GRADLE_USER_HOME:-$HOME/.gradle}"
+          printf '%s\n' \
+            'org.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8' \
+            'kotlin.compiler.execution.strategy=in-process' \
+            >> "${GRADLE_USER_HOME:-$HOME/.gradle}/gradle.properties"
+
       - name: Tag matches versionName
         run: |
           version=$(sed -n 's/^ *versionName = "\(.*\)"/\1/p' app/build.gradle.kts)
@@ -55,15 +65,6 @@ jobs:
 
       - name: Tests, lint, privacy
         run: ./gradlew check
-
-      - name: Play AAB (no donation link)
-        env:
-          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
-          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
-          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
-        run: |
-          ./gradlew --no-build-cache :app:bundleRelease -Pretroplayer.store=play
-          cp app/build/outputs/bundle/release/app-release.aab "dist/retroplayer-$VERSION-play.aab"
 
       - name: APK set for Accrescent
         env:

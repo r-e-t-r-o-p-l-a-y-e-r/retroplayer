@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Build the store images in fastlane/metadata/android/en-US/images/.
 
-- icon.png (512 x 512, 32-bit as Play requires): the launcher glyph on the launcher background colour
+- icon.png (512 x 512, 32-bit): the launcher glyph on the launcher background colour
 - featureGraphic.png (1024 x 500): icon, name, tagline and the player screenshot
 - phoneScreenshots/N.png: doc/images/tutorial/*.png, widened by repeating the edge
-  pixels so the long side is at most twice the short side (Google Play's limit)
+  pixels so the long side is at most twice the short side (the usual store limit)
 
 Needs Pillow and inkscape (or rsvg-convert) for the SVG master.
 Usage: python3 scripts/make_store_images.py

@@ -1,8 +1,9 @@
 # Releasing Retro Player
 
-One git tag produces every store build. All builds are signed with the same
-developer key, so users can switch between Google Play, F-Droid, Accrescent and
-GitHub releases without uninstalling.
+One git tag produces every release build. All builds are signed with the same
+developer key, so users can switch between F-Droid and GitHub releases (and
+Accrescent, once it accepts new developers again) without uninstalling. The
+app is not published on Google Play.
 
 ## Versions
 
@@ -12,21 +13,11 @@ GitHub releases without uninstalling.
   `versionName`. Before 1.0, minor versions (0.10.0, 0.11.0, ...) mark store
   releases.
 - Release notes: `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`
-  (500 characters at most; Play shows them as "What's new"). Translate them
+  (500 characters at most; F-Droid shows them as "What's new"). Translate them
   with `python3 scripts/mt_store_listings.py --field changelog`; the listing
   layout is described in [STORE_LOCALES.md](STORE_LOCALES.md).
-
-## Store builds
-
-| Build | Goes to | "Support this app" in About |
-| --- | --- | --- |
-| default | F-Droid, Accrescent, GitHub Releases | link to [liberapay.com/retroplayer](https://liberapay.com/retroplayer) |
-| `-Pretroplayer.store=play` | Google Play | "Liberapay: retroplayer" as plain text, no link |
-
-The property only switches `BuildConfig.DONATION_LINK`; app id, key and
-versions are the same. Google Play only allows in-app donation links for
-validated tax-exempt organisations; if Play review still objects to the plain
-text, hide the row when `DONATION_LINK` is false.
+- "Support this app" in About links to
+  [liberapay.com/retroplayer](https://liberapay.com/retroplayer) in every build.
 
 ## Signing key
 
@@ -106,28 +97,21 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
    builds the signed APK first in the clean checkout, runs `check`, and
    attaches to a GitHub Release (notes from the changelog):
    `retroplayer-X.Y.Z.apk`, `retroplayer-X.Y.Z.apks` (APK set for Accrescent,
-   from the default AAB), `retroplayer-X.Y.Z-play.aab`
-   (`-Pretroplayer.store=play`) and `SHA256SUMS`.
+   from the AAB) and `SHA256SUMS`.
 5. Stores:
-   - **Google Play:** upload the AAB to the closed test track (first release:
-     12 testers for 14 days), then promote to production.
    - **F-Droid:** picks the tag up automatically after the first merge request
      to [fdroiddata](https://gitlab.com/fdroid/fdroiddata) (`UpdateCheckMode: Tags`).
-   - **Accrescent:** upload the APK set in the developer console.
+   - **Accrescent** (on hold, no new developers at the moment): upload the APK
+     set in the developer console.
 
 ## First-time store setup
 
 Step-by-step checklist: [MANUAL_STEPS.md](MANUAL_STEPS.md).
 
-- **Google Play:** developer account; Play App Signing with your own key
-  (PEPK export); Data safety "no data collected"; privacy policy URL
-  (`PRIVACY.md` on GitHub); no ads; content rating; target audience;
-  foreground service declaration for `mediaPlayback`; Android Auto opt-in in
-  Advanced settings.
 - **F-Droid:** merge request with `metadata/app.retroplayer.yml`: `Builds`
   with `commit: v0.9.0`, `subdir: app`, `gradle: [yes]`; `Binaries:` pointing
   at the GitHub Release APK; `AllowedAPKSigningKeys:` with the certificate
   SHA-256; `Liberapay: retroplayer`; `AutoUpdateMode: Version`,
   `UpdateCheckMode: Tags`. Test with `fdroid build` first.
-- **Accrescent:** developer console access; upload the APK set with the
+- **Accrescent** (on hold): developer console access; upload the APK set with the
   listing and images. Check their current requirements before submitting.

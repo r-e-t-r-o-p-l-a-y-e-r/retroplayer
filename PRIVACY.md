@@ -1,7 +1,7 @@
 # Privacy policy
 
 Retro Player is a local audio player for Android. This policy applies to every
-build of the app (Google Play, F-Droid, Accrescent and GitHub releases).
+build of the app (F-Droid and GitHub releases).
 
 ## Data the app collects
 

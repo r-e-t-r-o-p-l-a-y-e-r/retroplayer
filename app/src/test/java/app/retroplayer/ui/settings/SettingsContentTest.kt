@@ -143,13 +143,13 @@ class SettingsContentTest {
     }
 
     @Test
-    fun `about links to Liberapay when the build may show donation links`() {
+    fun `about links to Liberapay`() {
         val opened = mutableListOf<String>()
         val uriHandler = object : UriHandler {
             override fun openUri(uri: String) { opened += uri }
         }
         compose.setContent {
-            CompositionLocalProvider(LocalBuildInfo provides BUILD.copy(donationLink = true), LocalUriHandler provides uriHandler) {
+            CompositionLocalProvider(LocalBuildInfo provides BUILD, LocalUriHandler provides uriHandler) {
                 RetroTheme { SettingsContent(SettingsUiState(), SettingsActions()) }
             }
         }
@@ -158,23 +158,10 @@ class SettingsContentTest {
         assertThat(opened).containsExactly(DONATION_URL)
     }
 
-    @Test
-    fun `about names Liberapay without a link in the Google Play build`() {
-        compose.setContent {
-            CompositionLocalProvider(LocalBuildInfo provides BUILD.copy(donationLink = false)) {
-                RetroTheme { SettingsContent(SettingsUiState(), SettingsActions()) }
-            }
-        }
-        compose.onNode(hasScrollToIndexAction()).performScrollToNode(hasText(string(R.string.about_support)))
-        compose.onNodeWithText(DONATION_PLAIN).assertIsDisplayed()
-        compose.onNode(hasText(DONATION_PLAIN) and hasClickAction()).assertDoesNotExist()
-        compose.onNodeWithText(DONATION_LABEL).assertDoesNotExist()
-    }
-
     private fun string(id: Int) = ApplicationProvider.getApplicationContext<Context>().getString(id)
 
     private companion object {
-        val BUILD = BuildInfo(version = "0.9.0", buildTime = "2026-01-01 12:00:00", commit = "000000000000", donationLink = true)
+        val BUILD = BuildInfo(version = "0.9.0", buildTime = "2026-01-01 12:00:00", commit = "000000000000")
     }
 
     @Test

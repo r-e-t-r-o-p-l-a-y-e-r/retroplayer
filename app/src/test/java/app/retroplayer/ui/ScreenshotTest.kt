@@ -83,7 +83,7 @@ class ScreenshotTest(private val screen: Screen, private val variant: Variant) {
             compareOptions = RoborazziOptions.CompareOptions(changeThreshold = 0.001f),
         )
 
-        private val FIXED_BUILD = BuildInfo(version = "0.9.0", buildTime = "2026-01-01 12:00:00", commit = "000000000000", donationLink = true)
+        private val FIXED_BUILD = BuildInfo(version = "0.9.0", buildTime = "2026-01-01 12:00:00", commit = "000000000000")
 
         @JvmStatic
         @ParameterizedRobolectricTestRunner.Parameters(name = "{0} {1}")
