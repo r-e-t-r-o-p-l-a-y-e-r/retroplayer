@@ -76,9 +76,9 @@ another key.
 - [x] Delete the remote tag: `git push origin :refs/tags/v1.0.0`, and delete
   any GitHub Release on that tag.
 - [x] On phones with the old build: `adb uninstall app.retroplayer`. It has
-  versionCode 2, so Android refuses to install 0.9.0 (versionCode 1) over it.
+  versionCode 2, so Android refuses to install 0.1.0 (versionCode 1) over it.
 
-## 4. Publish the rewritten history, merge, tag 0.9.0
+## 4. Publish the rewritten history, merge, tag 0.1.0
 
 The local history was rewritten so every commit shows
 `freier-fall <273219319+freier-fall@users.noreply.github.com>` instead of a
@@ -113,8 +113,8 @@ the old commits onto `main`, and the rewrite would have to be redone.
   green; its artifact `release-dry-run` holds the signed APK and
   `SHA256SUMS`, and the "Signature and checksums" log shows your
   certificate's SHA-256 (it must match step 1).
-- [ ] `git tag v0.9.0 && git push origin v0.9.0`
-- [ ] Check that the Release workflow publishes `retroplayer-0.9.0.apk` and
+- [ ] `git tag v0.1.0 && git push origin v0.1.0`
+- [ ] Check that the Release workflow publishes `retroplayer-0.1.0.apk` and
   `SHA256SUMS`.
 
 ## 5. F-Droid
@@ -129,8 +129,8 @@ website. Inclusion goes through a merge request to the
 
 Before you start:
 
-- [ ] The GitHub repository is public, `v0.9.0` is tagged and its GitHub
-  Release has `retroplayer-0.9.0.apk` (step 4).
+- [ ] The GitHub repository is public, `v0.1.0` is tagged and its GitHub
+  Release has `retroplayer-0.1.0.apk` (step 4).
 - [ ] A [GitLab](https://gitlab.com/users/sign_up) account. The username is
   public; the email is not. In GitLab → Preferences → Emails, set the commit
   email to the private `…@users.noreply.gitlab.com` address and use it in the
@@ -166,9 +166,9 @@ Prepare the merge request:
   Binaries: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer/releases/download/v%v/retroplayer-%v.apk
 
   Builds:
-    - versionName: 0.9.0
+    - versionName: 0.1.0
       versionCode: 1
-      commit: v0.9.0
+      commit: v0.1.0
       subdir: app
       gradle:
         - yes
@@ -177,7 +177,7 @@ Prepare the merge request:
 
   AutoUpdateMode: Version
   UpdateCheckMode: Tags
-  CurrentVersion: 0.9.0
+  CurrentVersion: 0.1.0
   CurrentVersionCode: 1
   ```
 
