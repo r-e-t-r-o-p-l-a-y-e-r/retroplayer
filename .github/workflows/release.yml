@@ -3,6 +3,9 @@ name: Release
 on:
   push:
     tags: ["v*"]
+  # Dry run from the Actions tab: every step except the GitHub Release; the signed APK
+  # and SHA256SUMS are attached to the run instead.
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -34,11 +37,17 @@ jobs:
             'kotlin.compiler.execution.strategy=in-process' \
             >> "${GRADLE_USER_HOME:-$HOME/.gradle}/gradle.properties"
 
-      - name: Tag matches versionName
+      - name: Tag matches versionName, changelog exists
         run: |
           version=$(sed -n 's/^ *versionName = "\(.*\)"/\1/p' app/build.gradle.kts)
-          test "v$version" = "$GITHUB_REF_NAME" || { echo "tag $GITHUB_REF_NAME, versionName $version"; exit 1; }
+          code=$(sed -n 's/^ *versionCode = \([0-9]*\)/\1/p' app/build.gradle.kts)
+          if [ "$GITHUB_REF_TYPE" = tag ]; then
+            test "v$version" = "$GITHUB_REF_NAME" || { echo "tag $GITHUB_REF_NAME, versionName $version"; exit 1; }
+          fi
+          notes="fastlane/metadata/android/en-US/changelogs/$code.txt"
+          test -s "$notes" || { echo "missing $notes"; exit 1; }
           echo "VERSION=$version" >> "$GITHUB_ENV"
+          echo "NOTES=$notes" >> "$GITHUB_ENV"
 
       - name: Keystore
         env:
@@ -58,6 +67,13 @@ jobs:
           mkdir dist
           cp app/build/outputs/apk/release/app-release.apk "dist/retroplayer-$VERSION.apk"
 
+      # After the APK build, so the cache cannot influence the published APK.
+      - name: Robolectric Android jars
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository/org/robolectric
+          key: robolectric-${{ hashFiles('gradle/libs.versions.toml', '**/src/test/resources/robolectric.properties') }}
+
       - name: Tests, lint, privacy
         run: ./gradlew check
 
@@ -69,12 +85,17 @@ jobs:
           cat dist/SHA256SUMS
 
       - name: GitHub Release
+        if: github.ref_type == 'tag'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release create "$GITHUB_REF_NAME" dist/* \
-            --title "Retro Player $VERSION" \
-            --notes-file fastlane/metadata/android/en-US/changelogs/$(sed -n 's/^ *versionCode = \([0-9]*\)/\1/p' app/build.gradle.kts).txt
+        run: gh release create "$GITHUB_REF_NAME" dist/* --title "Retro Player $VERSION" --notes-file "$NOTES"
+
+      - name: Dry run output
+        if: github.ref_type != 'tag'
+        uses: actions/upload-artifact@v5
+        with:
+          name: release-dry-run
+          path: dist/
 
       - name: Remove keystore
         if: always()

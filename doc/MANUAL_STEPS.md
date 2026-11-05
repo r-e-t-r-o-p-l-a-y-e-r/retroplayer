@@ -107,6 +107,12 @@ the old commits onto `main`, and the rewrite would have to be redone.
   before the force-push. To remove them, ask GitHub Support
   ([support.github.com](https://support.github.com)) to "remove cached views
   and unreachable commits" for the repository.
+- [ ] Dry run of the release (tests the secrets and signing without
+  publishing anything): GitHub → **Actions** → **Release** → **Run workflow**
+  on `main`, or `gh workflow run release.yml --ref main`. The run must be
+  green; its artifact `release-dry-run` holds the signed APK and
+  `SHA256SUMS`, and the "Signature and checksums" log shows your
+  certificate's SHA-256 (it must match step 1).
 - [ ] `git tag v0.9.0 && git push origin v0.9.0`
 - [ ] Check that the Release workflow publishes `retroplayer-0.9.0.apk` and
   `SHA256SUMS`.
