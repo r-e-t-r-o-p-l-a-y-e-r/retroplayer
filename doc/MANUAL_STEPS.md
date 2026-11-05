@@ -238,6 +238,14 @@ Test locally (optional but saves review rounds; needs the Android SDK, which
 is already set up here, and Python):
 
 - [ ] Install fdroidserver: `pip install --user fdroidserver`
+- [ ] The pip package lacks the Gradle wrapper `fdroid build` runs
+  (`OSError … site-packages/gradlew-fdroid`). It is now a separate project;
+  put its script where fdroidserver looks for it:
+  ```bash
+  site=$(python3 -c 'import fdroidserver, os; print(os.path.dirname(os.path.dirname(fdroidserver.__file__)))')
+  curl -fsSL -o "$site/gradlew-fdroid" https://gitlab.com/fdroid/gradlew-fdroid/-/raw/main/gradlew.py
+  chmod 755 "$site/gradlew-fdroid"
+  ```
 - [ ] In the fdroiddata folder:
   ```bash
   fdroid readmeta                              # the YAML parses
