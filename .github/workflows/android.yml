@@ -39,6 +39,12 @@ jobs:
   devices:
     runs-on: ubuntu-latest
     needs: check
+    # One emulator per runner: two at once (the phones group) do not boot on a hosted runner.
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [pixel2Api27, pixel7Api33, pixel9Api35]
+    name: devices (${{ matrix.device }})
     steps:
       - uses: actions/checkout@v5
 
@@ -59,5 +65,12 @@ jobs:
       - name: Android emulator package
         run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --install emulator > /dev/null
 
-      - name: Instrumented tests on managed phones
-        run: ./gradlew phonesGroupDebugAndroidTest --stacktrace -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+      - name: Instrumented tests on the managed device
+        run: ./gradlew ${{ matrix.device }}DebugAndroidTest --stacktrace -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+
+      - uses: actions/upload-artifact@v5
+        if: failure()
+        with:
+          name: device-reports-${{ matrix.device }}
+          path: app/build/reports/androidTests/
+          if-no-files-found: warn
