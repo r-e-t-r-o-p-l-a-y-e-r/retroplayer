@@ -74,7 +74,7 @@ Releases: [doc/RELEASE.md](doc/RELEASE.md).
 | everything: unit, Robolectric, lint, privacy | `./gradlew check` |
 | one module | `./gradlew :domain:test`, `./gradlew :app:testDebugUnitTest` (same for `:data`, `:playback`) |
 | one test class | `./gradlew :app:testDebugUnitTest --tests '*AlbumViewModelTest*'` |
-| screenshots: check | `./gradlew verifyRoborazziDebug` |
+| screenshots: check | `./gradlew verifyRoborazziDebug` (or `-Proborazzi.test.verify=true` on any test run) |
 | screenshots: record after a UI change | `./gradlew recordRoborazziDebug` |
 | device tests on a running emulator | `scripts/device-smoke.sh` |
 | device tests on managed emulators | `./gradlew :app:phonesGroupDebugAndroidTest` |
@@ -131,8 +131,9 @@ The first run downloads the system images.
 
 ## CI
 
-`.github/workflows/android.yml` runs `check assembleRelease` and
-`verifyRoborazziDebug`, then the `phones` group on a runner with KVM enabled.
+`.github/workflows/android.yml` runs `check assembleRelease` with
+`-Proborazzi.test.verify=true` (tests and screenshots in one run), then each
+device of the `phones` group on its own runner with KVM enabled.
 
 ## Modules
 

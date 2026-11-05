@@ -22,11 +22,14 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v5
 
+      # roborazzi.test.verify compares the screenshots in the same test run (record with
+      # recordRoborazziDebug); verifyRoborazziDebug would run all :app tests a second time.
+      # A test run still going after 20 minutes prints the test JVMs' threads.
       - name: Unit, Robolectric and screenshot tests, lint, privacy
-        run: ./gradlew check assembleRelease
-
-      - name: Screenshots match the recordings (record with recordRoborazziDebug)
-        run: ./gradlew verifyRoborazziDebug
+        run: |
+          ( sleep 1200; for p in $(pgrep -f GradleWorkerMain); do jstack "$p"; done ) &
+          trap 'kill $! 2>/dev/null || true' EXIT
+          ./gradlew check assembleRelease -Proborazzi.test.verify=true
 
       - uses: actions/upload-artifact@v5
         if: failure()
