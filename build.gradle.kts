@@ -12,7 +12,7 @@ plugins {
 // Robolectric keeps about 400 MB live in :app; the default 512 MB test heap spends CI runs in GC.
 subprojects {
     tasks.withType<Test>().configureEach {
-        maxHeapSize = "2g"
+        maxHeapSize = "1536m"
         testLogging {
             events("failed")
             exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL

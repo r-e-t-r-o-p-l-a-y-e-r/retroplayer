@@ -32,11 +32,21 @@ jobs:
       # roborazzi.test.verify compares the screenshots in the same test run (record with
       # recordRoborazziDebug); verifyRoborazziDebug would run all :app tests a second time.
       # A test run still going after 20 minutes prints the test JVMs' threads.
+      # The runner has 16 GB: a 4 GB daemon that also compiles Kotlin (no separate Kotlin
+      # daemon), next to three parallel test JVMs, R8 and lint.
       - name: Unit, Robolectric and screenshot tests, lint, privacy
         run: |
           ( sleep 1200; for p in $(pgrep -f GradleWorkerMain); do jstack "$p"; done ) &
           trap 'kill $! 2>/dev/null || true' EXIT
-          ./gradlew check assembleRelease -Proborazzi.test.verify=true
+          ./gradlew check assembleRelease -Proborazzi.test.verify=true \
+            -Pkotlin.compiler.execution.strategy=in-process \
+            "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8"
+
+      - name: Memory and out-of-memory kills
+        if: failure()
+        run: |
+          free -h
+          sudo dmesg | grep -iE 'out of memory|killed process' || true
 
       - uses: actions/upload-artifact@v5
         if: failure()
