@@ -80,7 +80,7 @@ jobs:
           } | tee build-env/environment.txt
 
       - name: Build environment output
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: build-environment
           path: build-env/
@@ -110,7 +110,7 @@ jobs:
 
       - name: Dry run output
         if: github.ref_type != 'tag'
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: release-dry-run
           path: dist/
