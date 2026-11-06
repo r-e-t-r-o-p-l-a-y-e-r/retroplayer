@@ -145,6 +145,39 @@ Before you start:
   F-Droid. On a mismatch, `diffoscope` on the two APKs shows the difference
   (see "Reproducible builds" in [RELEASE.md](RELEASE.md)); do not open the
   merge request until it matches.
+- [ ] If only `classes.dex` and `assets/dexopt/baseline.prof` differ, R8 (the
+  code shrinker) optimised something differently. R8 9.5 is not fully
+  deterministic: with identical inputs it typed one coroutines parameter
+  differently in about a third of the builds. The rule at the end of
+  `app/proguard-rules.pro` stops that case; a new mismatch after an R8,
+  AGP or coroutines update is most likely a similar one. Native libraries
+  (`lib/*/*.so`) no longer differ: `keepDebugSymbols` in
+  `app/build.gradle.kts` stops stripping them, which depended on whether
+  the build machine has an NDK. Compare the R8 map IDs:
+  ```bash
+  for apk in ~/Downloads/retroplayer-0.1.0.apk \
+      /tmp/rp-check/app/build/outputs/apk/release/app-release-unsigned.apk; do
+    unzip -p "$apk" classes.dex | strings | grep -o 'pg-map-id":"[0-9a-f]*'
+  done
+  ```
+  Different IDs mean R8's output differs. Download the `build-environment`
+  artifact from the release run in the Actions tab; it contains the
+  runner's `mapping.txt` and `environment.txt` (JDK, `android-37` platform
+  revisions and jar hashes, installed NDKs). Then:
+  ```bash
+  diff ~/Downloads/build-environment/mapping.txt \
+    /tmp/rp-check/app/build/outputs/mapping/release/mapping.txt | head -50
+  java -version
+  sha256sum "$ANDROID_HOME"/platforms/android-37*/android.jar
+  ```
+  The mapping diff names the original classes and methods R8 treated
+  differently; the version lines show whether the JDK or the platform jar
+  differs from `environment.txt`. If the environments match, build the
+  clone a few more times (`./gradlew --no-build-cache clean
+  :app:assembleRelease`) and compare the map IDs: if they vary, R8 is
+  flipping again. Add the class named in the mapping diff to the keep rule
+  in `app/proguard-rules.pro`, check that ten builds in a row give the same
+  map ID, then release a new version (F-Droid builds each tag only once).
 - [ ] A [GitLab](https://gitlab.com/users/sign_up) account. The username is
   public; the email is not. In GitLab → Preferences → Emails, set the commit
   email to the private `…@users.noreply.gitlab.com` address and use it in the
@@ -210,6 +243,14 @@ Test locally (optional but saves review rounds; needs the Android SDK, which
 is already set up here, and Python):
 
 - [ ] Install fdroidserver: `pip install --user fdroidserver`
+- [ ] The pip package lacks the Gradle wrapper `fdroid build` runs
+  (`OSError … site-packages/gradlew-fdroid`). It is now a separate project;
+  put its script where fdroidserver looks for it:
+  ```bash
+  site=$(python3 -c 'import fdroidserver, os; print(os.path.dirname(os.path.dirname(fdroidserver.__file__)))')
+  curl -fsSL -o "$site/gradlew-fdroid" https://gitlab.com/fdroid/gradlew-fdroid/-/raw/main/gradlew.py
+  chmod 755 "$site/gradlew-fdroid"
+  ```
 - [ ] In the fdroiddata folder:
   ```bash
   fdroid readmeta                              # the YAML parses
