@@ -693,17 +693,15 @@ private fun JumpButton(forward: Boolean, onClick: () -> Unit) {
 
 /**
  * Like the system's skip icons: from 3 o'clock (back: 9 o'clock) around the bottom up to 12 o'clock,
- * where the arrowhead's tip points towards the jump; the seconds sit inside.
+ * where the arrowhead points straight towards the jump; the seconds sit inside.
  */
 private fun DrawScope.drawJumpArc(forward: Boolean, color: Color) {
     val radius = size.minDimension * 0.36f
     val stroke = size.minDimension * 0.065f
     val head = size.minDimension * 0.16f
-    // Degrees clockwise from 3 o'clock, as drawArc measures them. The arc stops short of
-    // 12 o'clock by the arrowhead's length, so the tip lands on 12.
-    val headDegrees = Math.toDegrees((head / radius).toDouble()).toFloat()
+    // Degrees clockwise from 3 o'clock, as drawArc measures them.
     val start = if (forward) 0f else 180f
-    val sweep = if (forward) 270f - headDegrees else -(270f - headDegrees)
+    val sweep = if (forward) 270f else -270f
     drawArc(
         color = color,
         startAngle = start,
@@ -711,7 +709,8 @@ private fun DrawScope.drawJumpArc(forward: Boolean, color: Color) {
         useCenter = false,
         topLeft = center - Offset(radius, radius),
         size = Size(radius * 2, radius * 2),
-        style = Stroke(width = stroke, cap = StrokeCap.Butt),
+        // Square centres the free end on 3/9 o'clock; at 12 the arrowhead covers it.
+        style = Stroke(width = stroke, cap = StrokeCap.Square),
     )
     val end = Math.toRadians((start + sweep).toDouble())
     val base = center + Offset(cos(end).toFloat(), sin(end).toFloat()) * radius
