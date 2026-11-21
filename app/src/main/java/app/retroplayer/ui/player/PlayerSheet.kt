@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.Constraints
 import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalViewConfiguration
+import androidx.compose.ui.platform.ViewConfiguration
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.animation.core.spring
@@ -512,7 +514,9 @@ private fun ExpandedBody(state: PlayerUiState, actions: PlayerActions, drag: Mod
     }
 }
 
-/** Cover between the jump buttons; tap locates, double tap on a half jumps. */
+private const val COVER_DOUBLE_TAP_MS = 500L
+
+/** Cover between the jump buttons; double tap on a half jumps. */
 @Composable
 private fun ArtWithJumps(state: PlayerUiState, actions: PlayerActions, modifier: Modifier) {
     BoxWithConstraints(modifier, contentAlignment = Alignment.Center) {
@@ -525,24 +529,31 @@ private fun ArtWithJumps(state: PlayerUiState, actions: PlayerActions, modifier:
             verticalAlignment = Alignment.CenterVertically,
         ) {
             JumpButton(forward = false, onClick = actions.jumpBack)
-            val locateLabel = stringResource(R.string.show_library)
             Box(Modifier.weight(1f).testTag(EXPANDED_ART_TAG), contentAlignment = Alignment.Center) {
                 AlbumArt(state.artModel, size = artSize)
-                // Clickables, unlike a tap detector, leave drags to the sheet.
-                Row(Modifier.matchParentSize()) {
-                    listOf(actions.jumpBack, actions.jumpForward).forEach { jump ->
-                        Box(
-                            Modifier
-                                .weight(1f)
-                                .fillMaxHeight()
-                                .combinedClickable(
-                                    interactionSource = null,
-                                    indication = null,
-                                    onClickLabel = locateLabel,
-                                    onClick = actions.locate,
-                                    onDoubleClick = jump,
-                                ),
-                        )
+                val base = LocalViewConfiguration.current
+                val relaxed = remember(base) {
+                    object : ViewConfiguration by base {
+                        override val doubleTapTimeoutMillis = COVER_DOUBLE_TAP_MS
+                    }
+                }
+                // Clickables, unlike a tap detector, leave drags to the sheet. A single tap does
+                // nothing so that a slow double tap never leaves the player.
+                CompositionLocalProvider(LocalViewConfiguration provides relaxed) {
+                    Row(Modifier.matchParentSize()) {
+                        listOf(actions.jumpBack, actions.jumpForward).forEach { jump ->
+                            Box(
+                                Modifier
+                                    .weight(1f)
+                                    .fillMaxHeight()
+                                    .combinedClickable(
+                                        interactionSource = null,
+                                        indication = null,
+                                        onClick = {},
+                                        onDoubleClick = jump,
+                                    ),
+                            )
+                        }
                     }
                 }
             }

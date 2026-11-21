@@ -3,6 +3,7 @@ package app.retroplayer.ui.player
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.click
 import androidx.compose.ui.test.doubleClick
 import androidx.compose.ui.test.junit4.v2.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
@@ -99,6 +100,41 @@ class ExpandedPlayerTest {
             doubleClick(Offset(width * 0.75f, height / 2f))
         }
         assertThat(calls).containsExactly("jumpForward")
+    }
+
+    @Test
+    fun `a single tap on the cover does nothing`() {
+        show()
+        val art = compose.onNodeWithTag(EXPANDED_ART_TAG)
+        art.performTouchInput { click(Offset(width * 0.25f, height / 2f)) }
+        compose.mainClock.advanceTimeBy(1_000)
+        art.performTouchInput { click(Offset(width * 0.75f, height / 2f)) }
+        compose.mainClock.advanceTimeBy(1_000)
+        assertThat(calls).isEmpty()
+    }
+
+    @Test
+    fun `a slow double tap on the cover still jumps`() {
+        show()
+        compose.onNodeWithTag(EXPANDED_ART_TAG).performTouchInput {
+            click(Offset(width * 0.25f, height / 2f))
+            advanceEventTime(400)
+            click(Offset(width * 0.25f, height / 2f))
+        }
+        compose.mainClock.advanceTimeBy(1_000)
+        assertThat(calls).containsExactly("jumpBack")
+    }
+
+    @Test
+    fun `taps more than 500 ms apart do not jump`() {
+        show()
+        compose.onNodeWithTag(EXPANDED_ART_TAG).performTouchInput {
+            click(Offset(width * 0.75f, height / 2f))
+            advanceEventTime(600)
+            click(Offset(width * 0.75f, height / 2f))
+        }
+        compose.mainClock.advanceTimeBy(1_000)
+        assertThat(calls).isEmpty()
     }
 
     @Test
