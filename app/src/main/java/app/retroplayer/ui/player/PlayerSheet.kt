@@ -682,21 +682,28 @@ private fun JumpButton(forward: Boolean, onClick: () -> Unit) {
     ) {
         Box(Modifier.drawBehind { drawJumpArc(forward, ink) }, contentAlignment = Alignment.Center) {
             Text(
-                if (forward) "+15" else "-15",
-                style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.W700, color = ink, letterSpacing = (-0.2).sp),
+                "15",
+                // Part of the icon: sized in dp so large font scales cannot push it out of the arc.
+                style = TextStyle(fontSize = with(LocalDensity.current) { 12.dp.toSp() }, fontWeight = FontWeight.W700, color = ink),
                 modifier = Modifier.clearAndSetSemantics {},
             )
         }
     }
 }
 
-/** Three-quarter circle open towards the jump, arrowhead on its upper end; the seconds sit inside. */
+/**
+ * Like the system's skip icons: from 3 o'clock (back: 9 o'clock) around the bottom up to 12 o'clock,
+ * where the arrowhead's tip points towards the jump; the seconds sit inside.
+ */
 private fun DrawScope.drawJumpArc(forward: Boolean, color: Color) {
     val radius = size.minDimension * 0.36f
     val stroke = size.minDimension * 0.065f
-    // Degrees clockwise from 3 o'clock, as drawArc measures them.
-    val start = if (forward) 45f else 135f
-    val sweep = if (forward) 270f else -270f
+    val head = size.minDimension * 0.16f
+    // Degrees clockwise from 3 o'clock, as drawArc measures them. The arc stops short of
+    // 12 o'clock by the arrowhead's length, so the tip lands on 12.
+    val headDegrees = Math.toDegrees((head / radius).toDouble()).toFloat()
+    val start = if (forward) 0f else 180f
+    val sweep = if (forward) 270f - headDegrees else -(270f - headDegrees)
     drawArc(
         color = color,
         startAngle = start,
@@ -710,7 +717,7 @@ private fun DrawScope.drawJumpArc(forward: Boolean, color: Color) {
     val base = center + Offset(cos(end).toFloat(), sin(end).toFloat()) * radius
     val tangent = if (forward) Offset(-sin(end).toFloat(), cos(end).toFloat()) else Offset(sin(end).toFloat(), -cos(end).toFloat())
     val normal = Offset(-tangent.y, tangent.x)
-    val tip = base + tangent * (size.minDimension * 0.16f)
+    val tip = base + tangent * head
     val half = stroke * 1.35f
     drawPath(
         Path().apply {
