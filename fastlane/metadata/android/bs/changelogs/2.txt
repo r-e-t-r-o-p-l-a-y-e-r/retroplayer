@@ -1,0 +1,1 @@
+Prvo izdanje na F-Droidu: biblioteka mapa s omiljenim i traka A–Z, nastavak i brzina po albumu ili knjizi, M4B poglavlja, redoslijed i M3U playliste, Android Auto, widget na početnom ekranu, opcije slušalica, ekvalajzer i 47 jezika. Funkcionalnosti aplikacije nisu se mijenjale od verzije 0.1.0; promijenjen je samo način na koji se kompajlira, kako bi je F-Droid mogao provjeriti.
