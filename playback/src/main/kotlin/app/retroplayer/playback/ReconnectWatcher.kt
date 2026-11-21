@@ -2,31 +2,32 @@ package app.retroplayer.playback
 
 import android.annotation.SuppressLint
 import android.media.AudioDeviceInfo
-import androidx.media3.common.Player
-import app.retroplayer.domain.ReconnectPolicy
 
-/** Resumes playback when headphones come back shortly after their unplugging paused it. Main thread. */
+/** An audio output: `AudioDeviceInfo.id` and `AudioDeviceInfo.TYPE_*`. */
+data class Output(val id: Int, val type: Int)
+
+/** Starts playback whenever headphones connect while the option is on. Main thread. */
 class ReconnectWatcher(
-    private val clock: () -> Long,
     private val enabled: () -> Boolean,
+    private val isPlaying: () -> Boolean,
     private val play: () -> Unit,
 ) {
-    private var pausedByNoisyAtMs: Long? = null
+    private val known = mutableSetOf<Output>()
 
-    fun onPlayWhenReadyChanged(playWhenReady: Boolean, reason: Int) {
-        if (playWhenReady) {
-            pausedByNoisyAtMs = null
-        } else if (reason == Player.PLAY_WHEN_READY_CHANGE_REASON_AUDIO_BECOMING_NOISY) {
-            pausedByNoisyAtMs = clock()
-        }
+    /** [current] are the outputs present at registration; they never start playback. */
+    fun start(current: List<Output>) {
+        known.clear()
+        known += current
     }
 
-    /** [types] are `AudioDeviceInfo.TYPE_*` of newly added outputs. */
-    fun onOutputsAdded(types: List<Int>) {
-        if (types.none { it in HEADPHONES }) return
-        if (!ReconnectPolicy.shouldResume(pausedByNoisyAtMs, clock(), enabled())) return
-        pausedByNoisyAtMs = null
-        play()
+    fun onOutputsAdded(added: List<Output>) {
+        val connected = added.filter { it.type in HEADPHONES && it !in known }
+        known += added
+        if (connected.isNotEmpty() && enabled() && !isPlaying()) play()
+    }
+
+    fun onOutputsRemoved(removed: List<Output>) {
+        known -= removed.toSet()
     }
 
     private companion object {

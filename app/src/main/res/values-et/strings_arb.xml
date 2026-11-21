@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Vähemalt minutilise pausi järel jätkuvad üle 20 minuti pikkused lood mõni sekund varasemast kohast.</string>
     <string name="rewind_by">Keri tagasi</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Jätka, kui kõrvaklapid uuesti ühenduvad</string>
-    <string name="resume_on_reconnect_hint">Ainult siis, kui esitus peatus, sest kõrvaklapid ühendati lahti vähem kui 10 minutit tagasi.</string>
+    <string name="play_on_connect">Mängi alati, kui on ühendatud kõrvaklapid või autosüsteem</string>
+    <string name="play_on_connect_hint">Iga kord, kui ühendatakse Bluetooth-heli (näiteks auto), juhtmevaba või USB-kõrvaklapid, algab taasesitus. See toimib nii Retro Playeri avatud olekus kui ka siis, kui rakendus on teavituste aknas pausil.</string>
     <string name="track_fallback">Rada</string>
     <string name="unknown_artist">Teadmata</string>
     <string name="tracks_count_artist_eq1">%1$d lugu · %2$s</string>

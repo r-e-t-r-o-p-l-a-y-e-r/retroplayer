@@ -153,7 +153,9 @@ DataStore keys (`SettingsStore`).
 
 - **Main flow:** play/pause, previous/next, seek bar, speed 0.5×–2.0×. The
   expanded player jumps 15 seconds from buttons on each side of the album art
-  and from a double tap on the left or right half of the art.
+  and from a double tap (two taps within 500 ms) on the left or right half of
+  the art. A single tap on the art does nothing, so a missed double tap never
+  leaves the player.
 - **Persisted:** position (every 10 s while playing and on pause/seek/skip/speed/background), speed. A jump seeks, so the bookmark moves with it.
 - **AC:** progress bar moves while playing; speed persists per item; a jump
   stops at the start of the chapter and at the end when the length is known.
@@ -177,7 +179,7 @@ DataStore keys (`SettingsStore`).
 
 ## UC-13 Locate now playing and playback breadcrumbs
 
-- **Main flow:** tap title/art → collapse player → navigate to the folder (or
+- **Main flow:** tap the title → collapse player → navigate to the folder (or
   playlist) of the current track and highlight it; breadcrumbs of the playing
   item jump to their folder.
 - **AC:** the highlight clears on manual browsing.
@@ -213,17 +215,24 @@ Desktop keyboard shortcuts belonged to the former desktop version.
   added folders and empties the library. Audio files and playlist files on
   disk stay either way. Headphones: "Rewind on resume" (on by default, 5 s):
   after a pause of at least a minute, tracks longer than 20 minutes resume 5,
-  10, 15 or 30 seconds earlier. "Resume when headphones reconnect" (off by
-  default): playback continues when wired, USB or Bluetooth headphones
-  (including car audio) come back within 10 minutes of the disconnect that
-  paused it.
+  10, 15 or 30 seconds earlier. "Always play when headphones or car audio
+  connect" (off by default): every time Bluetooth audio (for example the car),
+  wired or USB headphones connect, playback starts, with no time limit and no
+  earlier disconnect needed. Outputs already connected when the player starts
+  do not count; one connect plays once even when it reports several outputs;
+  a connect while playing changes nothing (Android moves the audio). Works
+  while the player runs (open or paused in the notification), not when the app
+  is closed.
 
 ## UC-17 Background playback and media session
 
 - **Main flow:** playback continues with the screen off; the notification
   shows title, artist, and album (file name and folder name when those tags
   are missing) plus transport; Recents swipe-away stops audio and saves position.
-- **AC:** transport from the notification mirrors the in-app state. Android
+- **AC:** transport from the notification mirrors the in-app state. The
+  notification and lock screen keep previous/next (previous/next chapter for
+  tracks with chapters) and also offer "Back 15 seconds" and "Forward 15
+  seconds" as extra buttons; where they sit is up to the phone. Android
   Auto shows a browse tree (library sources with their folders, albums,
   playlists and tracks; favorites; queue) and plays any playable node like the
   phone does. A home-screen widget shows the current item with play/pause, and

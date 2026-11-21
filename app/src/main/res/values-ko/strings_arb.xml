@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">1분 이상 일시정지한 후 20분보다 긴 트랙은 몇 초 앞에서 다시 재생됩니다.</string>
     <string name="rewind_by">되감기</string>
     <string name="seconds_short">%1$d초</string>
-    <string name="resume_on_reconnect">헤드폰이 다시 연결되면 재생</string>
-    <string name="resume_on_reconnect_hint">10분 이내에 헤드폰 연결이 끊겨 일시정지된 경우에만 해당합니다.</string>
+    <string name="play_on_connect">헤드폰이나 차량 오디오가 연결되면 항상 재생하기</string>
+    <string name="play_on_connect_hint">블루투스 오디오(예: 차량), 유선 또는 USB 헤드폰이 연결될 때마다 재생이 시작됩니다. Retro Player가 실행 중이거나 알림 창에서 일시 정지 상태일 때도 작동합니다.</string>
     <string name="track_fallback">추적</string>
     <string name="unknown_artist">미상</string>
     <string name="tracks_count_artist_eq1">%1$d 트랙 · %2$s</string>

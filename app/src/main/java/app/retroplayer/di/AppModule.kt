@@ -23,6 +23,7 @@ import app.retroplayer.data.settings.SettingsStore
 import app.retroplayer.playback.ApplicationScope
 import app.retroplayer.playback.PlaybackItemResolver
 import app.retroplayer.playback.ChapterLabels
+import app.retroplayer.playback.SeekLabels
 import app.retroplayer.playback.TreeLabels
 import app.retroplayer.playback.AudioFxEqualizer
 import app.retroplayer.playback.EqualizerProbe
@@ -132,6 +133,12 @@ object AppModule {
     fun chapterLabels(@ApplicationContext context: Context) = ChapterLabels(
         previous = context.getString(R.string.previous_chapter),
         next = context.getString(R.string.next_chapter),
+    )
+
+    @Provides
+    fun seekLabels(@ApplicationContext context: Context) = SeekLabels(
+        back = context.getString(R.string.jump_back),
+        forward = context.getString(R.string.jump_forward),
     )
 
     @Provides

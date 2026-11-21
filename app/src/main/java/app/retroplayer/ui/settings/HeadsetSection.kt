@@ -25,7 +25,7 @@ data class HeadsetActions(
     val setResumeOnReconnect: (Boolean) -> Unit = {},
 )
 
-/** The headphones block of the settings page: rewind on resume (and by how much), resume on reconnect. */
+/** The headphones block of the settings page: rewind on resume (and by how much), play on connect. */
 @Composable
 fun HeadsetSection(settings: HeadsetSettings, actions: HeadsetActions) {
     val palette = LocalRetroPalette.current
@@ -47,8 +47,8 @@ fun HeadsetSection(settings: HeadsetSettings, actions: HeadsetActions) {
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
         )
         SwitchRow(
-            stringResource(R.string.resume_on_reconnect),
-            stringResource(R.string.resume_on_reconnect_hint),
+            stringResource(R.string.play_on_connect),
+            stringResource(R.string.play_on_connect_hint),
             settings.resumeOnReconnect,
             actions.setResumeOnReconnect,
         )

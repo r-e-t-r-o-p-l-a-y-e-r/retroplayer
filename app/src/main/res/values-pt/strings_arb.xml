@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Após uma pausa de pelo menos um minuto, as faixas com mais de 20 minutos retomam alguns segundos antes.</string>
     <string name="rewind_by">Recuar</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Retomar quando os auscultadores voltarem a ligar-se</string>
-    <string name="resume_on_reconnect_hint">Só se a reprodução tiver parado porque os auscultadores foram desligados há menos de 10 minutos.</string>
+    <string name="play_on_connect">Reproduzir sempre quando se ligarem auscultadores ou o sistema de áudio do carro</string>
+    <string name="play_on_connect_hint">Sempre que se ligarem auscultadores Bluetooth (por exemplo, os do carro), com fio ou USB, a reprodução inicia-se. Funciona enquanto o Retro Player estiver aberto ou em pausa na barra de notificações.</string>
     <string name="track_fallback">Faixa</string>
     <string name="unknown_artist">Desconhecido</string>
     <string name="tracks_count_artist_eq1">%1$d faixa · %2$s</string>

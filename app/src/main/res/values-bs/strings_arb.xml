@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Nakon pauze od najmanje minutu numere duže od 20 minuta nastavljaju se nekoliko sekundi ranije.</string>
     <string name="rewind_by">Premotaj unazad za</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Nastavi kada se slušalice ponovo povežu</string>
-    <string name="resume_on_reconnect_hint">Samo ako je reprodukcija pauzirana jer su slušalice isključene prije manje od 10 minuta.</string>
+    <string name="play_on_connect">Uvijek reproduciraj kada su slušalice ili automobilski audio povezani.</string>
+    <string name="play_on_connect_hint">Svaki put kad se povežu Bluetooth slušalice (na primjer u automobilu), žičane ili USB slušalice, reprodukcija počinje. Radi dok je Retro Player otvoren ili pauziran u obavijesti.</string>
     <string name="track_fallback">Staza</string>
     <string name="unknown_artist">Neznano</string>
     <string name="tracks_count_artist_eq1">%1$d pjesma · %2$s</string>

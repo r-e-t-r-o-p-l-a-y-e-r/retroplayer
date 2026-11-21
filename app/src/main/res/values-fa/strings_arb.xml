@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">پس از توقف دست‌کم یک دقیقه‌ای، ترک‌های طولانی‌تر از ۲۰ دقیقه چند ثانیه زودتر ادامه می‌یابند.</string>
     <string name="rewind_by">عقب بردن به اندازه</string>
     <string name="seconds_short">%1$d ث</string>
-    <string name="resume_on_reconnect">ادامه پس از اتصال دوباره هدفون</string>
-    <string name="resume_on_reconnect_hint">فقط اگر پخش به دلیل جدا شدن هدفون کمتر از ۱۰ دقیقه پیش متوقف شده باشد.</string>
+    <string name="play_on_connect">همیشه هنگام اتصال هدفون یا سیستم صوتی خودرو پخش شود</string>
+    <string name="play_on_connect_hint">هر بار که هدفون بلوتوثی (مثلاً خودرو)، سیمی یا USB متصل می‌شود، پخش شروع می‌شود. این قابلیت هنگام باز بودن Retro Player یا توقف آن در اعلان کار می‌کند.</string>
     <string name="track_fallback">مسیر</string>
     <string name="unknown_artist">نامشخص</string>
     <string name="tracks_count_artist_eq1">%1$d قطعه · %2$s</string>

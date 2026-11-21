@@ -68,6 +68,7 @@ screenshot comparison described there.
 | T20 | Managed devices + Roborazzi screenshots | any | done |
 | T21 | Docs | any | done |
 | T22 | Final release check | any | done |
+| T23 | Cover tap, play on connect, lock screen ±15 s | any | done |
 
 Recommended order for a single agent is the table order. Opus will try to do
 T01, T02, T05, T08, T11, T15, T18 first (in that order); when Opus is not
@@ -1064,6 +1065,33 @@ available, simply continue top to bottom.
   in the player and notification; the reset-dialog screenshots contained the
   live build time and commit, so `verifyRoborazziDebug` failed after every
   commit (About values now come from `LocalBuildInfo`, pinned in the test).
+
+## T23 Cover tap, play on connect, lock screen ±15 s
+
+- Owner: any. Status: done. Depends: T03, T16, T17. User feedback after 0.1.1.
+- Cover in the expanded player: a single tap does nothing (it used to
+  locate, and a slow double tap then left the player and the second tap
+  started another song); double tap within 500 ms jumps ±15 s. The title
+  still locates. Tests (`ExpandedPlayerTest`): `a single tap on the cover
+  does nothing`, `a slow double tap on the cover still jumps`, `taps more
+  than 500 ms apart do not jump`.
+- Headphones: "Resume when headphones reconnect" (10-minute window,
+  `ReconnectPolicy`, removed) becomes "Always play when headphones or car
+  audio connect" (`play_on_connect`, same setting key). `ReconnectWatcher`
+  tracks known outputs; `HeadphoneOutputs` feeds it from
+  `AudioDeviceCallback`. Tests: `ReconnectWatcherTest` (connect, present at
+  start, several outputs once, reconnect each time, long after the pause,
+  while playing, not headphones, option off); `HeadphoneOutputsTest`
+  (Robolectric `ShadowAudioManager`: `bluetooth disconnect pauses and
+  reconnect resumes`, `headphones present when registering do not start
+  playback`, `unregister stops reacting to new devices`). Robolectric's
+  `AudioDeviceInfoBuilder` has no role, so outputs are "not `isSource`"
+  rather than `isSink`. The emulator cannot attach audio devices, so there
+  is no smoke test.
+- Notification and lock screen: `SeekButtons` adds ±15 s
+  (`COMMAND_SEEK_BACK/FORWARD`, `SLOT_OVERFLOW`) after the chapter buttons;
+  previous/next keep their slots. Tests: `SeekButtonsTest`. Placement is up
+  to System UI: check on a phone.
 
 ---
 

@@ -17,7 +17,7 @@ app has no network access, no ads and no tracking.
 - Favorites, A–Z index, sort order per album
 - Background playback with system media controls, Android Auto browsing,
   home-screen widget
-- Headphone options (pause on disconnect, resume on reconnect)
+- Headphone options (pause on disconnect, always play on connect, e.g. car audio)
 - Equalizer presets and bands; light and dark theme; 47 languages
 
 Formats: FLAC, M4A, M4B, MP3, OGG, Opus and WAV.

@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Після паузи щонайменше в хвилину треки, довші за 20 хвилин, продовжуються на кілька секунд раніше.</string>
     <string name="rewind_by">Перемотати назад на</string>
     <string name="seconds_short">%1$d с</string>
-    <string name="resume_on_reconnect">Відновлювати після повторного підключення навушників</string>
-    <string name="resume_on_reconnect_hint">Лише якщо відтворення зупинилося через від’єднання навушників менше ніж 10 хвилин тому.</string>
+    <string name="play_on_connect">Завжди відтворювати музику, коли підключені навушники або автомобільна аудіосистема</string>
+    <string name="play_on_connect_hint">Щоразу, коли підключаються аудіопристрої через Bluetooth (наприклад, в автомобілі), дротові або USB-навушники, починається відтворення. Ця функція працює, коли Retro Player відкритий або перебуває в режимі паузи у панелі сповіщень.</string>
     <string name="track_fallback">Доріжка</string>
     <string name="unknown_artist">Невідомо</string>
     <string name="tracks_count_artist_eq1">%1$d трек · %2$s</string>

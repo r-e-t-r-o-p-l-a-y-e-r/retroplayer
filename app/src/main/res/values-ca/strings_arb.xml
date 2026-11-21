@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Després d\'una pausa d\'almenys un minut, les pistes de més de 20 minuts es reprenen uns segons abans.</string>
     <string name="rewind_by">Retrocedeix</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Reprèn quan es tornin a connectar els auriculars</string>
-    <string name="resume_on_reconnect_hint">Només si la reproducció es va aturar perquè els auriculars es van desconnectar fa menys de 10 minuts.</string>
+    <string name="play_on_connect">Reprodueix sempre quan els auriculars o l\'equip de so del cotxe estiguin connectats.</string>
+    <string name="play_on_connect_hint">Cada vegada que s\'hi connecten auriculars Bluetooth (per exemple del cotxe), amb cable o USB, la reproducció comença. Funciona mentre Retro Player està obert o en pausa a la notificació.</string>
     <string name="track_fallback">Pista</string>
     <string name="unknown_artist">Desconegut</string>
     <string name="tracks_count_artist_eq1">%1$d pista · %2$s</string>

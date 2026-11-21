@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">En az bir dakikalık duraklatmadan sonra 20 dakikadan uzun parçalar birkaç saniye önceden devam eder.</string>
     <string name="rewind_by">Geri sarma süresi</string>
     <string name="seconds_short">%1$d sn</string>
-    <string name="resume_on_reconnect">Kulaklık yeniden bağlanınca devam et</string>
-    <string name="resume_on_reconnect_hint">Yalnızca kulaklığın 10 dakikadan kısa süre önce çıkarılması nedeniyle oynatma duraklatıldıysa.</string>
+    <string name="play_on_connect">Kulaklık veya araç ses sistemi bağlandığında her zaman çalın</string>
+    <string name="play_on_connect_hint">Bluetooth ses cihazı (örneğin araba), kablolu veya USB kulaklık her bağlandığında oynatma başlar. Retro Player açıkken veya bildirim alanında duraklatılmış durumdayken de çalışır.</string>
     <string name="track_fallback">İzle</string>
     <string name="unknown_artist">Bilinmiyor</string>
     <string name="tracks_count_artist_eq1">%1$d parça · %2$s</string>

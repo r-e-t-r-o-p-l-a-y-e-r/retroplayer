@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Dopo una pausa di almeno un minuto, le tracce più lunghe di 20 minuti riprendono qualche secondo prima.</string>
     <string name="rewind_by">Riavvolgi di</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Riprendi quando le cuffie si riconnettono</string>
-    <string name="resume_on_reconnect_hint">Solo se la riproduzione è stata messa in pausa perché le cuffie sono state scollegate meno di 10 minuti fa.</string>
+    <string name="play_on_connect">Riproduci sempre quando si collegano le cuffie o l\'impianto audio dell\'auto</string>
+    <string name="play_on_connect_hint">Ogni volta che si collegano cuffie Bluetooth (ad esempio quelle dell\'auto), cuffie con cavo o cuffie USB, la riproduzione ha inizio. Funziona sia quando Retro Player è aperto sia quando è in pausa nella barra delle notifiche.</string>
     <string name="track_fallback">Traccia</string>
     <string name="unknown_artist">Sconosciuto</string>
     <string name="tracks_count_artist_eq1">%1$d traccia · %2$s</string>

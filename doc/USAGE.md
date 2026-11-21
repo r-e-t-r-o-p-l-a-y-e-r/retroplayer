@@ -75,10 +75,10 @@ The library works like a **file browser**:
 | Play / pause | Button, notification, lock screen or widget |
 | Previous / next track | Buttons, notification or lock screen |
 | Seek | Progress bar |
-| Skip 15 s | **−15** / **+15** beside the art, or double-tap left/right on the art (expanded) |
+| Skip 15 s | **−15** / **+15** beside the art, double-tap left/right on the art (expanded; two taps within half a second), or the ±15 s buttons in the notification and on the lock screen |
 | Playback speed | Speed control, 0.5×–2.0×, saved per item |
 
-Background playback continues with the screen off. Use the **notification** to control playback. Fully closing the app from recents stops playback and saves position.
+Background playback continues with the screen off. Use the **notification** or the **lock screen** to control playback: besides play/pause and previous/next they offer **Back 15 seconds** and **Forward 15 seconds**; where those two sit depends on your phone. Fully closing the app from recents stops playback and saves position.
 
 ### Chapters
 
@@ -92,7 +92,7 @@ Open an album from the library to see its track list.
 
 - Tap a track to play from that track.
 - The sort button switches between **tag order**, **file name** and **title**. The choice is kept per album. When some tracks have no track number, the album uses file name order; choosing tag order then asks first.
-- Tap **album art or title** in the player to **find the current track** in the library: the player collapses, the app opens the right folder or album, and highlights the playing row.
+- Tap the **title** in the player to **find the current track** in the library: the player collapses, the app opens the right folder or album, and highlights the playing row.
 
 ![Album detail](images/tutorial/04-album-detail.png)
 
@@ -130,7 +130,7 @@ Open **Settings** from the gear in the app bar.
 - **Equalizer** — presets and bands where supported on your device.
 - **Headphones**:
   - **Rewind on resume** (on by default): after a pause of at least a minute, tracks longer than 20 minutes start a few seconds earlier (5, 10, 15 or 30 s), so you do not lose the thread.
-  - **Resume when headphones reconnect** (off by default): when playback paused because headphones were disconnected, it continues once they are connected again within 10 minutes. This works for wired, USB and Bluetooth devices, including car audio over Bluetooth.
+  - **Always play when headphones or car audio connect** (off by default): every time Bluetooth audio (for example the car), wired or USB headphones connect, playback starts, however long ago it paused. Headphones that are already connected when the player starts do not count. This works while Retro Player is open or paused in the notification, not when the app is fully closed. If music is already playing, Android simply moves it to the new device.
 - **Data & storage** — what the app stores; library roots; reset options.
 - **About** — version and open-source licenses.
 

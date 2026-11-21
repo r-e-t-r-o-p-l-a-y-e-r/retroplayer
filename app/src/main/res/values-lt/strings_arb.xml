@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Po bent minutės pauzės ilgesni nei 20 minučių takeliai tęsiami keliomis sekundėmis anksčiau.</string>
     <string name="rewind_by">Atsukti atgal</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Tęsti, kai ausinės vėl prijungiamos</string>
-    <string name="resume_on_reconnect_hint">Tik jei atkūrimas sustojo, nes ausinės buvo atjungtos mažiau nei prieš 10 minučių.</string>
+    <string name="play_on_connect">Visada paleiskite grojimą, kai prijungiate ausines arba automobilio garso sistemą</string>
+    <string name="play_on_connect_hint">Kiekvieną kartą, kai prijungiamos „Bluetooth“ ausinės (pavyzdžiui, automobilio), laidinės arba USB ausinės, pradedamas atkūrimas. Veikia, kai „Retro Player“ yra atidarytas arba sustabdytas pranešimų juostoje.</string>
     <string name="track_fallback">Takelis</string>
     <string name="unknown_artist">Nežinoma</string>
     <string name="tracks_count_artist_eq1">%1$d įrašas · %2$s</string>

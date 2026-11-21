@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Après une pause d\'au moins une minute, les pistes de plus de 20 minutes reprennent quelques secondes plus tôt.</string>
     <string name="rewind_by">Reculer de</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Reprendre à la reconnexion des écouteurs</string>
-    <string name="resume_on_reconnect_hint">Seulement si la lecture s\'est mise en pause parce que les écouteurs ont été déconnectés il y a moins de 10 minutes.</string>
+    <string name="play_on_connect">Lancer toujours la lecture lorsque des écouteurs ou le système audio de la voiture sont connectés</string>
+    <string name="play_on_connect_hint">Dès qu\'un périphérique audio Bluetooth (par exemple, celui de la voiture), un casque filaire ou un casque USB se connecte, la lecture démarre. Cette fonctionnalité fonctionne que Retro Player soit ouvert ou en pause dans la barre de notifications.</string>
     <string name="track_fallback">Suivre</string>
     <string name="unknown_artist">Inconnu</string>
     <string name="tracks_count_artist_eq1">%1$d piste · %2$s</string>

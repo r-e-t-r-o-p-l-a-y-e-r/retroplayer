@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Po pauze alespoň jedné minuty budou skladby delší než 20 minut pokračovat o několik sekund dříve.</string>
     <string name="rewind_by">Přetočit zpět o</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Pokračovat po opětovném připojení sluchátek</string>
-    <string name="resume_on_reconnect_hint">Jen pokud se přehrávání pozastavilo kvůli odpojení sluchátek před méně než 10 minutami.</string>
+    <string name="play_on_connect">Vždy přehrávejte, když jsou připojena sluchátka nebo autorádio</string>
+    <string name="play_on_connect_hint">Přehrávání se spustí pokaždé, když se připojí sluchátka přes Bluetooth (například v autě), kabelová sluchátka nebo sluchátka připojená přes USB. Funguje to, když je aplikace Retro Player spuštěná nebo pozastavená v oznamovací liště.</string>
     <string name="track_fallback">Trať</string>
     <string name="unknown_artist">Neznámé</string>
     <string name="tracks_count_artist_eq1">%1$d skladba · %2$s</string>
