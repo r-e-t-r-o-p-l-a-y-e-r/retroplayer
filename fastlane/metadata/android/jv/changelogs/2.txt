@@ -1,0 +1,1 @@
+Rilis pisanan ing F-Droid: perpustakaan folder nganggo favorit lan bilah A–Z, ngelingi posisi lan kecepatan puter maneh kanggo saben album utawa buku, bab M4B, antrian lan dhaptar lagu M3U, Android Auto, widget layar ngarep, opsi headphone, equalizer lan 47 basa. Fitur aplikasi ora owah wiwit 0.1.0; mung cara kompilasi sing diganti, supaya F-Droid bisa verifikasi.

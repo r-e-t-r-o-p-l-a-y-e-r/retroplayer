@@ -55,17 +55,21 @@ def newest_changelog(folder: Path) -> Path | None:
     return logs[-1] if logs else None
 
 
-NAME_MARKER = "⟦0⟧"
+PRODUCT_NAMES = ("Android Auto", "F-Droid")
 
 
-def protect_name(text: str, name: str) -> str:
-    return text.replace(name, NAME_MARKER)
+def protect_names(text: str, names: list[str]) -> str:
+    for i, name in enumerate(names):
+        text = text.replace(name, f"⟦{i}⟧")
+    return text
 
 
-def restore_name(text: str, name: str) -> str:
-    """Some languages return the marker with native digits (⟦০⟧) or spaces inside."""
+def restore_names(text: str, names: list[str]) -> str:
+    """Some languages return the markers with native digits (⟦০⟧) or spaces inside."""
     text = re.sub(r"⟦\s*([^⟧\s]{1,3})\s*⟧", lambda m: f"⟦{ascii_digit(m.group(1))}⟧", text)
-    return text.replace(NAME_MARKER, name)
+    for i, name in enumerate(names):
+        text = text.replace(f"⟦{i}⟧", name)
+    return text
 
 
 def ascii_digit(s: str) -> str:
@@ -76,13 +80,15 @@ def check_lengths() -> list[str]:
     problems = []
     title = (ENGLISH / "title.txt").read_text(encoding="utf-8").strip()
     for folder in sorted(p for p in METADATA.iterdir() if p.is_dir()):
-        for name in ("short_description.txt", "full_description.txt"):
+        logs = [f"changelogs/{p.name}" for p in (ENGLISH / "changelogs").glob("*.txt")]
+        for name in ["short_description.txt", "full_description.txt", *logs]:
             source, path = ENGLISH / name, folder / name
             if path.is_file():
-                want = source.read_text(encoding="utf-8").count(title)
-                got = path.read_text(encoding="utf-8").count(title)
-                if got != want:
-                    problems.append(f"{folder.name}/{name}: app name {got}x, expected {want}x")
+                for product in (title, *PRODUCT_NAMES):
+                    want = source.read_text(encoding="utf-8").count(product)
+                    got = path.read_text(encoding="utf-8").count(product)
+                    if got != want:
+                        problems.append(f"{folder.name}/{name}: {product} {got}x, expected {want}x")
         for name in ("title.txt", "short_description.txt", "full_description.txt"):
             path = folder / name
             if path.is_file() and len(path.read_text(encoding="utf-8").strip()) > LIMITS[name]:
@@ -162,8 +168,9 @@ def main() -> int:
                 text = source[field]
                 if not text:
                     continue
-                translated = mt.translate_with_retry(translator, protect_name(text, title), pacer)
-                translated = restore_name(translated, title).strip()
+                names = [title, *PRODUCT_NAMES]
+                translated = mt.translate_with_retry(translator, protect_names(text, names), pacer)
+                translated = restore_names(translated, names).strip()
                 if field == "changelog":
                     out = dest / "changelogs" / log.name
                     out.parent.mkdir(exist_ok=True)

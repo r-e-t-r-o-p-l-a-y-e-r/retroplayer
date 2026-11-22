@@ -1,0 +1,1 @@
+Premye vèsyon sou F-Droid: bibliyotèk dosye ak favori ak ba A-Z, sonje pozisyon ak vitès lekti a pou chak albòm oswa liv, chapit M4B, lis mizik an fil ak lis mizik M3U, Android Auto, widjèt ekran lakay, opsyon kas ekoutè, egalizatè ak 47 lang. Karakteristik aplikasyon an pa chanje depi 0.1.0; se sèlman fason yo konpile l la ki chanje, pou F-Droid ka verifye li.

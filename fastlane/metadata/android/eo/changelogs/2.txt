@@ -1,0 +1,1 @@
+Unua eldono je F-Droid: dosierbiblioteko kun ŝatataĵoj kaj A-Z-breto, memoras la reludigpozicion kaj rapidon por ĉiu albumo aŭ libro, M4B-ĉapitroj, atendovico kaj M3U-kantlistoj, Android Auto, ĉefekrana fenestraĵo, aŭdilaj opcioj, egaligilo kaj 47 lingvoj. La funkcioj de la aplikaĵo estas senŝanĝaj ekde 0.1.0; nur la kompilmaniero ŝanĝiĝis, por ke F-Droid povu kontroli ĝin.
