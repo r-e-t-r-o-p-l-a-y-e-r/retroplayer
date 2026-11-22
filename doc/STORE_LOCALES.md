@@ -40,114 +40,131 @@ Norwegian. Regional variants use Android's resource qualifiers (`pt-rBR`,
 (`pt-BR`, `es-419`, `zh-Hant`), which `TranslationsTest` checks. `LOCALES` in `scripts/mt_store_listings.py` is the same mapping
 in code.
 
-| Language | App code | Store folder |
-|----------|----------|--------------|
-| Afrikaans | `af` | `af` |
-| Albanian | `sq` | `sq` |
-| Amharic | `am` | `am` |
-| Arabic | `ar` | `ar` |
-| Aragonese | `an` | `an` |
-| Armenian | `hy` | `hy-AM` |
-| Assamese | `as` | `as` |
-| Aymara | `ay` | `ay` |
-| Azerbaijani | `az` | `az-AZ` |
-| Bashkir | `ba` | `ba` |
-| Basque | `eu` | `eu-ES` |
-| Belarusian | `be` | `be` |
-| Bengali | `bn` | `bn-BD` |
-| Bosnian | `bs` | `bs` |
-| Breton | `br` | `br` |
-| Bulgarian | `bg` | `bg` |
-| Burmese | `my` | `my-MM` |
-| Catalan | `ca` | `ca` |
-| Chinese (Simplified) | `zh` | `zh-CN` |
-| Chinese (Traditional) | `b+zh+Hant` | `zh-TW` |
-| Croatian | `hr` | `hr` |
-| Czech | `cs` | `cs-CZ` |
-| Danish | `da` | `da-DK` |
-| Dutch | `nl` | `nl-NL` |
-| English (US, source) | `en` | `en-US` |
-| Esperanto | `eo` | `eo` |
-| Estonian | `et` | `et` |
-| Filipino (Tagalog) | `fil` | `fil` |
-| Finnish | `fi` | `fi-FI` |
-| French | `fr` | `fr-FR` |
-| Galician | `gl` | `gl-ES` |
-| Georgian | `ka` | `ka-GE` |
-| German | `de` | `de-DE` |
-| Greek | `el` | `el-GR` |
-| Guarani | `gn` | `gn` |
-| Gujarati | `gu` | `gu` |
-| Haitian Creole | `ht` | `ht` |
-| Hausa | `ha` | `ha` |
-| Hebrew | `he` | `iw-IL` |
-| Hindi | `hi` | `hi-IN` |
-| Hungarian | `hu` | `hu-HU` |
-| Icelandic | `is` | `is-IS` |
-| Igbo | `ig` | `ig` |
-| Indonesian | `id` | `id` |
-| Irish | `ga` | `ga` |
-| Italian | `it` | `it-IT` |
-| Japanese | `ja` | `ja-JP` |
-| Javanese | `jv` | `jv` |
-| Kannada | `kn` | `kn-IN` |
-| Kazakh | `kk` | `kk` |
-| Korean | `ko` | `ko-KR` |
-| Kyrgyz | `ky` | `ky-KG` |
-| Latin | `la` | `la` |
-| Latvian | `lv` | `lv` |
-| Lingala | `ln` | `ln` |
-| Lithuanian | `lt` | `lt` |
-| Luxembourgish | `lb` | `lb` |
-| Macedonian | `mk` | `mk-MK` |
-| Malagasy | `mg` | `mg` |
-| Malay | `ms` | `ms` |
-| Malayalam | `ml` | `ml-IN` |
-| Maltese | `mt` | `mt` |
-| Maori | `mi` | `mi` |
-| Marathi | `mr` | `mr-IN` |
-| Mongolian | `mn` | `mn-MN` |
-| Nepali | `ne` | `ne-NP` |
-| Norwegian Bokmål | `nb` | `no-NO` |
-| Occitan | `oc` | `oc` |
-| Oromo | `om` | `om` |
-| Pashto | `ps` | `ps` |
-| Persian | `fa` | `fa` |
-| Polish | `pl` | `pl-PL` |
-| Portuguese (Brazil) | `pt-rBR` | `pt-BR` |
-| Portuguese (Portugal) | `pt` | `pt-PT` |
-| Punjabi | `pa` | `pa` |
-| Quechua | `qu` | `qu` |
-| Romanian | `ro` | `ro` |
-| Russian | `ru` | `ru-RU` |
-| Sanskrit | `sa` | `sa` |
-| Serbian | `sr` | `sr` |
-| Sesotho | `st` | `st` |
-| Slovak | `sk` | `sk` |
-| Slovenian | `sl` | `sl` |
-| Spanish | `es` | `es-ES` |
-| Spanish (Latin America) | `b+es+419` | `es-419` |
-| Sundanese | `su` | `su` |
-| Swahili | `sw` | `sw` |
-| Swedish | `sv` | `sv-SE` |
-| Tajik | `tg` | `tg` |
-| Tamil | `ta` | `ta-IN` |
-| Tatar | `tt` | `tt` |
-| Telugu | `te` | `te-IN` |
-| Thai | `th` | `th` |
-| Tsonga | `ts` | `ts` |
-| Tswana | `tn` | `tn` |
-| Turkish | `tr` | `tr-TR` |
-| Turkmen | `tk` | `tk` |
-| Ukrainian | `uk` | `uk` |
-| Urdu | `ur` | `ur` |
-| Uzbek | `uz` | `uz` |
-| Vietnamese | `vi` | `vi` |
-| Welsh | `cy` | `cy` |
-| Wolof | `wo` | `wo` |
-| Xhosa | `xh` | `xh` |
-| Yiddish | `yi` | `yi` |
-| Zulu | `zu` | `zu` |
+The last two columns say where the current texts came from:
+
+- **App strings** (`strings_arb.xml`): "Flutter, DeepL" means the strings were
+  taken over from the Flutter app (the service used there is not recorded) and
+  keys added since then went through DeepL. The other languages were
+  translated completely with `scripts/mt_android_strings.py`, which picks
+  DeepL when it supports the language and Google Cloud otherwise.
+- **Store texts** (title, descriptions, changelog): the languages that existed
+  before the 0.1.1 store rewrite went through DeepL; the 60 added with it went
+  through Google Cloud to save DeepL's monthly quota (Aragonese through DeepL,
+  because Google has no Aragonese). German is written by hand, and the
+  Slovenian DeepL output was reviewed and corrected.
+
+`mt_store_listings.py` uses DeepL whenever `DEEPL_AUTH_KEY` is set; run it with
+`DEEPL_AUTH_KEY=` (empty) to force Google Cloud and keep this split. Exclude
+`--locale de` when retranslating, or the hand-written German is overwritten.
+
+| Language | App code | Store folder | App strings | Store texts |
+|----------|----------|--------------|-------------|-------------|
+| Afrikaans | `af` | `af` | DeepL | Google |
+| Albanian | `sq` | `sq` | Flutter, DeepL | DeepL |
+| Amharic | `am` | `am` | Google | Google |
+| Arabic | `ar` | `ar` | Flutter, DeepL | DeepL |
+| Aragonese | `an` | `an` | DeepL | DeepL |
+| Armenian | `hy` | `hy-AM` | DeepL | Google |
+| Assamese | `as` | `as` | DeepL | Google |
+| Aymara | `ay` | `ay` | DeepL | Google |
+| Azerbaijani | `az` | `az-AZ` | DeepL | Google |
+| Bashkir | `ba` | `ba` | DeepL | Google |
+| Basque | `eu` | `eu-ES` | DeepL | Google |
+| Belarusian | `be` | `be` | DeepL | Google |
+| Bengali | `bn` | `bn-BD` | Flutter, DeepL | DeepL |
+| Bosnian | `bs` | `bs` | Flutter, DeepL | DeepL |
+| Breton | `br` | `br` | DeepL | Google |
+| Bulgarian | `bg` | `bg` | Flutter, DeepL | DeepL |
+| Burmese | `my` | `my-MM` | DeepL | Google |
+| Catalan | `ca` | `ca` | Flutter, DeepL | DeepL |
+| Chinese (Simplified) | `zh` | `zh-CN` | Flutter, DeepL | DeepL |
+| Chinese (Traditional) | `b+zh+Hant` | `zh-TW` | DeepL | Google |
+| Croatian | `hr` | `hr` | Flutter, DeepL | DeepL |
+| Czech | `cs` | `cs-CZ` | Flutter, DeepL | DeepL |
+| Danish | `da` | `da-DK` | Flutter, DeepL | DeepL |
+| Dutch | `nl` | `nl-NL` | Flutter, DeepL | DeepL |
+| English (US, source) | `en` | `en-US` | source | source |
+| Esperanto | `eo` | `eo` | DeepL | Google |
+| Estonian | `et` | `et` | Flutter, DeepL | DeepL |
+| Filipino (Tagalog) | `fil` | `fil` | DeepL | Google |
+| Finnish | `fi` | `fi-FI` | Flutter, DeepL | DeepL |
+| French | `fr` | `fr-FR` | Flutter, DeepL | DeepL |
+| Galician | `gl` | `gl-ES` | DeepL | Google |
+| Georgian | `ka` | `ka-GE` | DeepL | Google |
+| German | `de` | `de-DE` | Flutter, DeepL | by hand |
+| Greek | `el` | `el-GR` | Flutter, DeepL | DeepL |
+| Guarani | `gn` | `gn` | DeepL | Google |
+| Gujarati | `gu` | `gu` | DeepL | Google |
+| Haitian Creole | `ht` | `ht` | DeepL | Google |
+| Hausa | `ha` | `ha` | DeepL | Google |
+| Hebrew | `he` | `iw-IL` | Flutter, DeepL | DeepL |
+| Hindi | `hi` | `hi-IN` | Flutter, DeepL | DeepL |
+| Hungarian | `hu` | `hu-HU` | Flutter, DeepL | DeepL |
+| Icelandic | `is` | `is-IS` | Flutter, DeepL | DeepL |
+| Igbo | `ig` | `ig` | DeepL | Google |
+| Indonesian | `id` | `id` | Flutter, DeepL | DeepL |
+| Irish | `ga` | `ga` | Flutter, DeepL | DeepL |
+| Italian | `it` | `it-IT` | Flutter, DeepL | DeepL |
+| Japanese | `ja` | `ja-JP` | Flutter, DeepL | DeepL |
+| Javanese | `jv` | `jv` | DeepL | Google |
+| Kannada | `kn` | `kn-IN` | Google | Google |
+| Kazakh | `kk` | `kk` | DeepL | Google |
+| Korean | `ko` | `ko-KR` | Flutter, DeepL | DeepL |
+| Kyrgyz | `ky` | `ky-KG` | DeepL | Google |
+| Latin | `la` | `la` | DeepL | Google |
+| Latvian | `lv` | `lv` | Flutter, DeepL | DeepL |
+| Lingala | `ln` | `ln` | DeepL | Google |
+| Lithuanian | `lt` | `lt` | Flutter, DeepL | DeepL |
+| Luxembourgish | `lb` | `lb` | DeepL | Google |
+| Macedonian | `mk` | `mk-MK` | Flutter, DeepL | DeepL |
+| Malagasy | `mg` | `mg` | DeepL | Google |
+| Malay | `ms` | `ms` | DeepL | Google |
+| Malayalam | `ml` | `ml-IN` | DeepL | Google |
+| Maltese | `mt` | `mt` | Flutter, DeepL | DeepL |
+| Maori | `mi` | `mi` | DeepL | Google |
+| Marathi | `mr` | `mr-IN` | DeepL | Google |
+| Mongolian | `mn` | `mn-MN` | DeepL | Google |
+| Nepali | `ne` | `ne-NP` | DeepL | Google |
+| Norwegian Bokmål | `nb` | `no-NO` | Flutter, DeepL | DeepL |
+| Occitan | `oc` | `oc` | DeepL | Google |
+| Oromo | `om` | `om` | DeepL | Google |
+| Pashto | `ps` | `ps` | DeepL | Google |
+| Persian | `fa` | `fa` | Flutter, DeepL | DeepL |
+| Polish | `pl` | `pl-PL` | Flutter, DeepL | DeepL |
+| Portuguese (Brazil) | `pt-rBR` | `pt-BR` | DeepL | Google |
+| Portuguese (Portugal) | `pt` | `pt-PT` | Flutter, DeepL | DeepL |
+| Punjabi | `pa` | `pa` | DeepL | Google |
+| Quechua | `qu` | `qu` | DeepL | Google |
+| Romanian | `ro` | `ro` | Flutter, DeepL | DeepL |
+| Russian | `ru` | `ru-RU` | Flutter, DeepL | DeepL |
+| Sanskrit | `sa` | `sa` | DeepL | Google |
+| Serbian | `sr` | `sr` | Flutter, DeepL | DeepL |
+| Sesotho | `st` | `st` | DeepL | Google |
+| Slovak | `sk` | `sk` | Flutter, DeepL | DeepL |
+| Slovenian | `sl` | `sl` | Flutter, DeepL | DeepL, reviewed |
+| Spanish | `es` | `es-ES` | Flutter, DeepL | DeepL |
+| Spanish (Latin America) | `b+es+419` | `es-419` | DeepL | Google |
+| Sundanese | `su` | `su` | DeepL | Google |
+| Swahili | `sw` | `sw` | DeepL | Google |
+| Swedish | `sv` | `sv-SE` | Flutter, DeepL | DeepL |
+| Tajik | `tg` | `tg` | DeepL | Google |
+| Tamil | `ta` | `ta-IN` | DeepL | Google |
+| Tatar | `tt` | `tt` | DeepL | Google |
+| Telugu | `te` | `te-IN` | DeepL | Google |
+| Thai | `th` | `th` | Flutter, DeepL | DeepL |
+| Tsonga | `ts` | `ts` | DeepL | Google |
+| Tswana | `tn` | `tn` | DeepL | Google |
+| Turkish | `tr` | `tr-TR` | Flutter, DeepL | DeepL |
+| Turkmen | `tk` | `tk` | DeepL | Google |
+| Ukrainian | `uk` | `uk` | Flutter, DeepL | DeepL |
+| Urdu | `ur` | `ur` | Flutter, DeepL | DeepL |
+| Uzbek | `uz` | `uz` | DeepL | Google |
+| Vietnamese | `vi` | `vi` | Flutter, DeepL | DeepL |
+| Welsh | `cy` | `cy` | DeepL | Google |
+| Wolof | `wo` | `wo` | DeepL | Google |
+| Xhosa | `xh` | `xh` | DeepL | Google |
+| Yiddish | `yi` | `yi` | DeepL | Google |
+| Zulu | `zu` | `zu` | DeepL | Google |
 
 When adding an app locale, add it to `LOCALES` and to this table, then run the
 script for it.
