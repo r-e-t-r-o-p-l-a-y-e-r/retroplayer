@@ -69,7 +69,7 @@ See also [PRIVACY.md](PRIVACY.md).
 
 ## Build and run
 
-Requirements: JDK 17 and the Android SDK (`ANDROID_HOME` or `sdk.dir` in
+Requirements: JDK 21 (as in CI and on F-Droid; 17 also works) and the Android SDK (`ANDROID_HOME` or `sdk.dir` in
 `local.properties`). No Android Studio needed; everything runs through Gradle.
 
 ```bash

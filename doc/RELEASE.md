@@ -67,9 +67,9 @@ keep the build reproducible:
 - Build-config values come from the commit (`GIT_COMMIT`, commit time), never
   from the branch, the clock or the machine.
 - Gradle wrapper (with checksum) and build-tools are pinned. No module asks
-  for a JDK toolchain: F-Droid's build server only has a newer JDK than CI
-  (21 vs 17). `:domain` compiles with `-Xjdk-release=17`, so release builds on
-  JDK 17 and 21 are byte-identical.
+  for a JDK toolchain: CI uses JDK 21 like F-Droid's build server, and the
+  bytecode targets Java 17 (`:domain` compiles with `-Xjdk-release=17`), so
+  release builds on JDK 17 and 21 are byte-identical.
 - R8 is not fully deterministic; `app/proguard-rules.pro` keeps the one
   method it typed differently from build to build.
 - Release APKs come from a **clean checkout** (CI, or a fresh clone). An
