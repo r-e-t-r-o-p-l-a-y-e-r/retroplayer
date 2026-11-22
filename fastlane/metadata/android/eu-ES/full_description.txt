@@ -1,0 +1,34 @@
+Retro Player-ek musika eta audioliburuak zuzenean erreproduzitzen ditu zure telefonoko karpetetatik. Lineaz kanpo funtzionatzen du, ez du iragarkirik eta ez du konturik behar.
+
+Zergatik Retro Player?
+
+• Utzi zenuen tokitik jarraitzen du: album, audioliburu eta erreprodukzio-zerrenda bakoitzak bere posizioa eta abiadura mantentzen ditu, berrabiarazi ondoren ere.
+• Ez dago liburutegirik eskaneatu: ez dago eraikitzeko indizerik eta ez dago itxaron beharrik. Gehitu karpeta bat eta hasi entzuten; aplikazioak karpeta irakurtzen du irekitzen duzunean bakarrik.
+• Zure fitxategiak ukitu gabe mantentzen dira: aplikazioak aukeratzen dituzun karpetak bakarrik ikusten ditu eta ez du inoiz ezer aldatzen, mugitzen edo ezabatzen. Idazten dituen fitxategi bakarrak gordetzen dituzun erreprodukzio-zerrendak dira.
+• Zure hizkuntzan hitz egiten du: 100 hizkuntza baino gehiago, arabieratik, hinditik eta swahilitik hasi eta indonesierara, vietnamerara eta zuluera arte.
+
+Audioliburu eta albumetarako egina
+• Erreprodukzio-abiadura 0,5×-tik 2,0×-ra, elementu bakoitzeko gordeta; 15 segundoko jauziak
+• M4B eta M4A kapituluak bilaketa-barran, kapitulu-zerrendan eta jakinarazpenean
+• Segundo batzuk atzera egiten du etenaldi luzeago baten ondoren jarraitzen duzunean
+• Etenaldirik gabeko erreprodukzioa; disko anitzeko albumak diskoen ordenan erreproduzitzen dira
+
+Zure karpetak, zure ordena
+• Arakatu fitxategi kudeatzaile bat bezala, ogi-apurrekin, gogokoekin eta A-tik Z-rako barra batekin
+• Irristatu karpetak, albumak edo abestiak ilaran gehitzeko eta M3U erreprodukzio-zerrenda gisa gordetzeko
+• Dagoeneko dituzun erreprodukzio-zerrendak erreproduzitzen ditu
+• Ordenatu album bakoitza abesti-zenbakiaren, fitxategi-izenaren edo izenburuaren arabera
+
+Entzuten duzun lekuan
+• Kontrolak jakinarazpenean, blokeatutako pantailan (15 segundoko jauziekin) eta Bluetooth edo autoko botoietan
+• Android Auto: arakatu zure liburutegia, gogokoak eta ilara autoan
+• Hasierako pantailako widgeta
+• Aukeran erreproduzitzen hasten da entzungailuak edo autoa konektatzen direnean
+• Berdinketa aurrezarpenekin, gai argi eta ilunarekin
+
+Formatuak: FLAC, M4A, M4B (AAC enkriptatu gabe), MP3, OGG, Opus eta WAV.
+
+Pribatua diseinuz
+Retro Player-ek ez du Interneteko baimenik, beraz, ezer ez da zure telefonotik irteten: ez iragarkirik, ez analisirik, ez jarraipenik edo konturik. Ez du biltegiratze baimenik behar ere.
+
+Software librea eta kode irekikoa (GPL-3.0 edo berriagoa). Erabiltzailearen gida eta iturburu-kodea: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

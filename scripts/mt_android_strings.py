@@ -17,6 +17,8 @@ import argparse
 import os
 import re
 import sys
+import time
+import unicodedata
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -91,6 +93,51 @@ def insert_string(xml: str, key: str, raw: str, english_order: list[str]) -> str
         return xml[: first.start()] + line_for(first.group(1)) + xml[first.start():]
     end = xml.rindex("</resources>")
     return xml[:end] + line_for("    ") + xml[end:]
+
+
+UNTRANSLATED = {"app_title"}
+
+
+def keeps_tokens(text: str, tokens: list[str]) -> bool:
+    return all(text.count(f"⟦{i}⟧") == 1 for i in range(len(tokens)))
+
+
+def ascii_digits(text: str) -> str:
+    return "".join(str(unicodedata.digit(c)) if c.isdigit() else c for c in text)
+
+
+def ascii_tokens(text: str) -> str:
+    """Some languages return the markers with native digits (⟦০⟧)."""
+    return re.sub(r"⟦([^⟧]{1,3})⟧", lambda m: f"⟦{ascii_digits(m.group(1))}⟧", text)
+
+
+SAMPLE = "37"
+
+
+def with_sample_numbers(translate, source: str, tokens: list[str]) -> str:
+    """Numbers survive where markers do not: send %d as 37 and put the marker back."""
+    numeric = [i for i, t in enumerate(tokens) if t.endswith("d")]
+    if len(numeric) != 1:
+        return source
+    marker = f"⟦{numeric[0]}⟧"
+    out = translate(source.replace(marker, SAMPLE))
+    out = re.sub(r"\d+", lambda m: ascii_digits(m.group(0)), out)
+    return out.replace(SAMPLE, marker, 1) if out.count(SAMPLE) == 1 else out
+
+
+def translate_all(mt, translator, texts: list[str], pacer, max_retries: int = 10) -> list[str]:
+    """One batch request where the backend supports it; backs off on rate limits."""
+    if not hasattr(translator, "translate_many"):
+        return [mt.translate_with_retry(translator, t, pacer) for t in texts]
+    for attempt in range(max_retries):
+        try:
+            pacer.wait_turn()
+            return translator.translate_many(texts)
+        except Exception as exc:  # noqa: BLE001
+            if not mt.is_rate_limit_error(exc) or attempt == max_retries - 1:
+                raise
+            time.sleep(min(120.0, 2.0**attempt))
+    raise AssertionError("unreachable")
 
 
 def locale_files() -> dict[str, Path]:
@@ -168,14 +215,47 @@ def main() -> int:
             azure_endpoint=os.environ.get("AZURE_TRANSLATOR_ENDPOINT"),
             deepl_auth_key=deepl_key,
         )
-        for key in wanted:
-            source, tokens = protect(android_unescape(english[key]))
-            try:
-                translated = restore(mt.translate_with_retry(translator, source, pacer), tokens).strip()
-            except Exception as exc:  # noqa: BLE001
-                print(f"{code}/{key}: {exc}", file=sys.stderr)
-                failed += 1
+        copied = [k for k in wanted if k in UNTRANSLATED or not re.search(r"\w", FORMAT_ARG.sub("", english[k]))]
+        for key in copied:
+            xml = insert_string(xml, key, english[key], order)
+        wanted = [k for k in wanted if k not in copied]
+        # Line by line: machine translation drops line-break markers.
+        lines = {key: android_unescape(english[key]).split("\n") for key in wanted}
+        segments = [(key, protect(line)) for key in wanted for line in lines[key] if line.strip()]
+        try:
+            outputs = translate_all(mt, translator, [s for _, (s, _) in segments], pacer)
+        except Exception as exc:  # noqa: BLE001
+            print(f"{code}: {exc}", file=sys.stderr)
+            failed += 1
+            continue
+        done: dict[str, list[str]] = {key: [] for key in wanted}
+        lost = set()
+        for (key, (source, tokens)), out in zip(segments, outputs):
+            out = ascii_tokens(out)
+            if not keeps_tokens(out, tokens):
+                out = ascii_tokens(mt.translate_with_retry(translator, source, pacer))
+            if not keeps_tokens(out, tokens):
+                out = with_sample_numbers(lambda s: mt.translate_with_retry(translator, s, pacer), source, tokens)
+            if not keeps_tokens(out, tokens) and google_key and backend != "google-cloud":
+                fallback = mt.make_translator(
+                    "google-cloud", code, mymemory_email=None, google_api_key=google_key,
+                    azure_key=None, azure_region=None, azure_endpoint=None, deepl_auth_key=None,
+                )
+                try:
+                    out = ascii_tokens(mt.translate_with_retry(fallback, source, pacer))
+                except Exception:  # noqa: BLE001
+                    pass
+            if not keeps_tokens(out, tokens):
+                print(f"{code}/{key}: placeholders lost in {out!r}", file=sys.stderr)
+                lost.add(key)
                 continue
+            done[key].append(restore(out, tokens).strip())
+        failed += len(lost)
+        for key in wanted:
+            if key in lost:
+                continue
+            parts = iter(done[key])
+            translated = "\n".join(next(parts) if line.strip() else "" for line in lines[key])
             xml = insert_string(xml, key, android_escape(translated), order)
             print(f"{code}/{key} ({backend}): {translated}")
         path.write_text(xml, encoding="utf-8")

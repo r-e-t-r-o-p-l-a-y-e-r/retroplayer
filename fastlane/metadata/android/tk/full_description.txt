@@ -1,0 +1,70 @@
+Retro Player aýdym-sazlary we audiokitaplary göni telefonyňyzdaky papkalardan oýnadýar. Ol oflaýn işleýär, reklama ýok we hasap gerek däl.
+
+
+Näme üçin Retro Player?
+
+
+• Galan ýeriňizden dowam edýär: her albom, audiokitap we pleýlist täzeden başlandan soň hem öz ornuny we tizligini saklaýar.
+
+
+• Kitaphana skanirleme ýok: gurmaly indeks ýok we garaşmaly zat ýok. Papka goşuň we diňlemäge başlaň; programma papkany diňe siz ony açanyňyzda okaýar.
+
+
+• Faýllaryňyz el degmez galýar: programma diňe saýlan papkalaryňyzy görýär we hiç zady üýtgetmeýär, süýşürmeýär ýa-da pozmaýar. Ol ýazýan ýeke-täk faýllar - bu siz saklaýan pleýlistler.
+
+
+• Siziň diliňizde gepleýär: arap, hindi we suahili dillerinden indonez, wýetnam we zulu dillerine çenli 100-den gowrak dil.
+
+
+Audiokitaplar we albomlar üçin döredildi
+
+
+• Oýnatma tizligi 0,5×-den 2,0×-e çenli, her element üçin saklanýar; 15 sekuntlyk böküşler
+• Gözleg panelinde, bap sanawynda we bildirişde M4B we M4A baplary
+• Uzak arakesmeden soň dowam edeniňizde birnäçe sekunt yza saralýar
+• Boşluksyz oýnatma; köp diskli albomlar disk tertibinde oýnadylýar
+
+
+Siziň papkalaryňyz, siziň tertibiňiz
+
+
+• Faýl dolandyryjysy ýaly, çörek ownuklary, halaýanlar we A–Z çyzgysy bilen göz aýlaň
+
+
+• Nobata papkalary, albomlary ýa-da aýdymlary goşmak we ony M3U aýdym sanawy hökmünde saklamak üçin süýşüriň
+
+
+• Öňden bar bolan aýdym sanawlaryňyzy oýnadýar
+
+
+• Her albomy aýdym belgisi, faýl ady ýa-da ady boýunça tertipleýär
+
+
+Nirede diňleseňiz-de
+
+
+• Bildirişde, gulp ekranynda (15 sekuntlyk böküşler bilen) we Bluetooth ýa-da awtoulag düwmelerinde dolandyryş elementleri
+
+
+• Android Auto: awtoulagda kitaphanaňyza, halaýanlaryňyza we nobatyňyza göz aýlaň
+
+
+• Baş sahypa widjeti
+
+
+• Isleg boýunça, gulaklyk ýa-da awtoulagyňyz birikýän badyna oýnadylýar
+
+
+• Öňünden sazlanan, ýagty we garaňky temaly ekwalaýzer
+
+
+Formatlar: FLAC, M4A, M4B (şifrlenmedik AAC), MP3, OGG, Opus we WAV.
+
+
+Dizaýn boýunça hususy
+
+
+Retro oýnadyjynyň internet rugsady ýok, şonuň üçin telefonyňyzdan hiç zat çykmaýar: reklamalar, analitika, yzarlaýyş ýa-da hasaplar ýok. Saklama rugsady hem gerek däl.
+
+
+Erkin we açyk kodly programma üpjünçiligi (GPL-3.0 ýa-da soňraky wersiýalar). Ulanyjy gollanmasy we çeşme kody: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

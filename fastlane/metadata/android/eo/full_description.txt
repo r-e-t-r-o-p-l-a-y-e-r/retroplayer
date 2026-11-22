@@ -1,0 +1,34 @@
+Retro Player ludas muzikon kaj aŭdlibrojn rekte el la dosierujoj en via telefono. Ĝi funkcias senkonekte, ne havas reklamojn kaj ne bezonas konton.
+
+Kial Retro Player?
+
+• Daŭrigas precize kie vi ĉesis: ĉiu albumo, aŭdlibro kaj kantlisto konservas sian propran pozicion kaj rapidon, eĉ post rekomenco.
+• Neniu biblioteka skanado: ne estas indekso por konstrui kaj nenio por atendi. Aldonu dosierujon kaj komencu aŭskulti; la aplikaĵo legas dosierujon nur kiam vi malfermas ĝin.
+• Viaj dosieroj restas netuŝitaj: la aplikaĵo vidas nur la dosierujojn, kiujn vi elektas, kaj neniam ŝanĝas, movas aŭ forigas ion ajn. La solaj dosieroj, kiujn ĝi skribas, estas kantlistoj, kiujn vi konservas.
+• Parolas vian lingvon: pli ol 100 lingvoj, de la araba, hinda kaj svahila ĝis la indonezia, vjetnama kaj zulua.
+
+Farita por aŭdlibroj kaj albumoj
+• Reprodukta rapido de 0,5× ĝis 2,0×, konservita por ero; 15-sekundaj saltoj
+• M4B kaj M4A ĉapitroj en la serĉobreto, en ĉapitrolisto kaj en la sciigo
+• Rebobenas kelkajn sekundojn kiam vi daŭrigas post pli longa paŭzo
+• Seninterspaco-reludigo; plurdiskaj albumoj ludas laŭ diska ordo
+
+Viaj dosierujoj, via ordo
+• Foliumu kiel dosieradministrilo, kun paneroj, ŝatataj kaj A-Z-strio
+• Ŝovu por aldoni dosierujojn, albumojn aŭ trakojn al la atendovico kaj konservi ĝin kiel M3U-kantliston
+• Ludas la jam ekzistantajn kantlistojn
+• Ordigu ĉiun albumon laŭ traknumero, dosiernomo aŭ titolo
+
+Kie ajn vi aŭskultas
+• Kontroliloj en la sciigo, sur la ŝlosita ekrano (kun 15-sekundaj saltoj) kaj per Bluetooth aŭ aŭtobutonoj
+• Android Auto: foliumu vian bibliotekon, ŝatatajn kaj atendovicon en la aŭto
+• Fenestraĵo sur la hejma ekrano
+• Laŭvole komenciĝas la ludadon tuj kiam aŭdiloj aŭ via aŭto konektiĝas
+• Egaligilo kun antaŭagordoj, hela kaj malhela temo
+
+Formatoj: FLAC, M4A, M4B (neĉifrita AAC), MP3, OGG, Opus kaj WAV.
+
+Privata laŭ dezajno
+Retro Player ne havas interretan permeson, do nenio forlasas vian telefonon: neniuj reklamoj, analizoj, spurado aŭ kontoj. Ĝi ankaŭ ne bezonas stokan permeson.
+
+Libera kaj malfermitkoda programaro (GPL-3.0-aŭ-pli posta). Uzantogvidilo kaj fontkodo: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

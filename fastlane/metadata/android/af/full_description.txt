@@ -1,0 +1,33 @@
+Retro Player speel musiek en oudioboeke direk vanaf die vouers op jou foon. Dit werk vanlyn, het geen advertensies nie en benodig geen rekening nie.
+
+Hoekom Retro Player?
+• Gaan voort presies waar jy opgehou het: elke album, oudioboek en snitlys behou sy eie posisie en spoed, selfs na 'n herbegin.
+• Geen biblioteekskandering nie: daar is geen indeks om te bou nie en niks om voor te wag nie. Voeg 'n vouer by en begin luister; die toepassing lees 'n vouer slegs wanneer jy dit oopmaak.
+• Jou lêers bly onaangeraak: die toepassing sien slegs die vouers wat jy kies en verander, skuif of verwyder nooit enigiets nie. Die enigste lêers wat dit skryf, is snitlyste wat jy stoor.
+• Praat jou taal: meer as 100 tale, van Arabies, Hindi en Swahili tot Indonesies, Viëtnamees en Zoeloe.
+
+Gemaak vir oudioboeke en albums
+• Terugspeelspoed van 0.5× tot 2.0×, gestoor per item; 15-sekonde spronge
+• M4B- en M4A-hoofstukke op die soekbalk, in 'n hoofstuklys en in die kennisgewing
+• Spoel 'n paar sekondes terug wanneer jy voortgaan na 'n langer pouse
+• Gapinglose terugspeel; Multi-skyf albums speel in skyfvolgorde
+
+Jou vouers, jou volgorde
+• Blaai soos 'n lêerbestuurder, met broodkrummels, gunstelinge en 'n A-Z-balk
+• Veeg om vouers, albums of snitte by die tou te voeg en dit as 'n M3U-speellys te stoor
+• Speel die snitlyste wat jy reeds het
+• Sorteer elke album volgens snitnommer, lêernaam of titel
+
+Waar jy ook al luister
+• Kontroles in die kennisgewing, op die sluitskerm (met 15-sekonde spronge) en op Bluetooth- of motorknoppies
+• Android Auto: blaai deur jou biblioteek, gunstelinge en tou in die motor
+• Tuisskerm-widget
+• Begin opsioneel speel sodra koptelefoon of jou motor koppel
+• Gelykmaker met voorinstellings, ligte en donker tema
+
+Formate: FLAC, M4A, M4B (ongeënkripteerde AAC), MP3, OGG, Opus en WAV.
+
+Privaat volgens ontwerp
+Retro Player het geen internettoestemming nie, so niks verlaat jou foon nie: geen advertensies, analise, dophou of rekeninge nie. Dit benodig ook geen bergingstoestemming nie.
+
+Gratis en oopbron sagteware (GPL-3.0 of later). Gebruikersgids en bronkode: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

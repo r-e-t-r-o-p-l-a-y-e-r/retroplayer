@@ -1,0 +1,34 @@
+Chwaraewr Retro yn chwarae cerddoriaeth a llyfrau sain yn syth o'r ffolderi ar eich ffôn. Mae'n gweithio all-lein, nid oes ganddo hysbysebion ac nid oes angen cyfrif.
+
+Pam Chwaraewr Retro?
+• Yn parhau'n union lle gwnaethoch chi adael: mae pob albwm, llyfr sain a rhestr chwarae yn cadw ei safle a'i gyflymder ei hun, hyd yn oed ar ôl ailgychwyn.
+• Dim sgan llyfrgell: nid oes mynegai i'w adeiladu a dim byd i aros amdano. Ychwanegwch ffolder a dechreuwch wrando; mae'r ap yn darllen ffolder dim ond pan fyddwch chi'n ei agor.
+
+• Mae eich ffeiliau'n aros heb eu cyffwrdd: dim ond y ffolderi rydych chi'n eu dewis y mae'r ap yn eu gweld ac nid yw byth yn newid, symud na dileu unrhyw beth. Yr unig ffeiliau y mae'n eu hysgrifennu yw rhestrau chwarae rydych chi'n eu cadw.
+• Yn siarad eich iaith: mwy na 100 o ieithoedd, o Arabeg, Hindi a Swahili i Indoneseg, Fietnameg a Zulu.
+
+Wedi'i wneud ar gyfer llyfrau sain ac albymau
+• Cyflymder chwarae o 0.5× i 2.0×, wedi'i gadw fesul eitem; Neidiau 15 eiliad
+• Penodau M4B ac M4A ar y bar chwilio, mewn rhestr benodau ac yn yr hysbysiad
+• Yn dirwyn yn ôl ychydig eiliadau pan fyddwch chi'n parhau ar ôl seibiant hirach
+• Chwarae heb fylchau; albymau aml-ddisg yn chwarae yn nhrefn y ddisg
+
+Eich ffolderi, eich trefn
+• Pori fel rheolwr ffeiliau, gyda briwsion bara, ffefrynnau a bar A–Z
+• Swipe i ychwanegu ffolderi, albymau neu draciau at y ciw a'i gadw fel rhestr chwarae M3U
+• Yn chwarae'r rhestrau chwarae sydd gennych eisoes
+• Trefnu pob albwm yn ôl rhif y trac, enw ffeil neu deitl
+
+Lle bynnag y byddwch yn gwrando
+• Rheolyddion yn yr hysbysiad, ar y sgrin gloi (gyda neidiau 15 eiliad) ac ar fotymau Bluetooth neu gar
+• Android Auto: porwch eich llyfrgell, ffefrynnau a'ch ciw yn y car
+• Teclyn sgrin gartref
+• Yn ddewisol yn dechrau chwarae cyn gynted ag y bydd clustffonau neu'ch car yn cysylltu
+• Cyfartalwr gyda rhagosodiadau, thema golau a thywyll
+
+Fformatau: FLAC, M4A, M4B (AAC heb ei amgryptio), MP3, OGG, Opus a WAV.
+
+Preifat trwy ddyluniad
+Nid oes gan Retro Player ganiatâd Rhyngrwyd, felly nid oes dim yn gadael eich ffôn: dim hysbysebion, dadansoddeg, olrhain na chyfrifon. Nid oes angen caniatâd storio arno chwaith.
+
+Meddalwedd ffynhonnell agored a rhydd (GPL-3.0 neu ddiweddarach). Canllaw defnyddiwr a chod ffynhonnell: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

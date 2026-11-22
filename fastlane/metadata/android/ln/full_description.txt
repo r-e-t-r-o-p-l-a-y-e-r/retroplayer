@@ -1,0 +1,33 @@
+Retro Player ebetaka miziki mpe ba audiobooks mbala moko na ba dossiers oyo ezali na téléphone na yo. Esalaka hors ligne, eza na ba publicités te pe eza na besoin ya compte te.
+
+Pourquoi Joueur Rétro?
+• Ezali kokoba mpenza esika otikaki : album nyonso, audiobook mpe playlist ebatelaka position mpe vitesse na yango moko, ata nsima ya kobanda lisusu.
+• Scan ya bibliothèque te : index ya kotonga ezali te mpe eloko ya kozela te. Bakisa dossier moko mpe banda koyoka; programɛ yango etángi dossier moko kaka ntango ofungoli yango.
+• Ba fichiers na yo etikalaka intouché : appli emonaka kaka ba dossiers oyo oponi mpe e changeaka, e déplacer to e supprimaka eloko ata moke te. Ba fichiers kaka moko oyo ekomaka ezali ba playlists oyo obombaka.
+• Alobaka monoko na yo : minoko koleka 100, kobanda na Arabe, Hindi mpe Swahili kino na Indonésie, Vietnamien mpe Zulu.
+
+Esalemi mpo na ba audiobooks mpe ba albums
+• Vitesse ya lecture kobanda 0,5× kino 2,0×, ebombami na eloko moko; Kopumbwa ya segɔnde 15
+• Mikapo M4B mpe M4A na barre ya koluka, na liste ya mikapo mpe na liyebisi
+• Ezongisaka nsima mwa basegɔnde ntango ozali kokoba nsima ya kopema ntango molai
+• Kobɛta oyo ezali na esika oyo ezali na bisika te; ba albums ya ba disques ebele ebetaka na ordre ya ba disques
+
+Ba dossiers na yo, commande na yo
+• Naviguer lokola gestionnaire ya fichier, na ba breadcrumbs, ba préférés na barre A–Z
+• Swipe mpo na kobakisa ba dossiers, ba albums to ba titres na molongo mpe kobomba yango lokola playlist ya M3U
+• Ezali kobɛta ba liste ya kobɛta oyo ozali na yango deja
+• Bobongisa album moko na moko na nimero ya nzembo, nkombo ya fisyé to motó ya likambo
+
+Bipayi nionso oyoki
+• Ba contrôles na notification, na écran ya blocage (na ba sauts ya 15 secondes) mpe na ba boutons Bluetooth to ya voiture
+• Android Auto: tala bibliothèque na yo, ba préférés na yo pe sala molongo na motuka
+• Widget ya écran ya ndako
+• Na bolingi na yo, ebandi kobeta ntango kaka ba écouteurs to motuka na yo ekangami
+• Equalizer na ba pré-réglages, thème ya pole na ya molili
+
+Ba formats : FLAC, M4A, M4B (AAC non chiffré), MP3, OGG, Opus na WAV.
+
+Privé na design
+Retro Player ezali na ndingisa ya Internet te, yango wana eloko moko te ebimaka na telefone na yo: ba piblisite, analytiques, suivi to ba comptes te. Ezali mpe na mposa ya ndingisa ya kobomba biloko te.
+
+Logiciel ya ofele mpe ya source ouverte (GPL-3.0-to-ya sima). Buku ya mosaleli mpe code source: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

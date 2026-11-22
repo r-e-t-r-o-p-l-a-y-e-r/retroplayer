@@ -1,0 +1,33 @@
+Retro Player musiqi və audiokitabları birbaşa telefonunuzdakı qovluqlardan oxudur. Oflayn işləyir, reklam yoxdur və hesab tələb etmir.
+
+Niyə Retro Player?
+• Tam olaraq qaldığınız yerdən davam edir: hər albom, audiokitab və pleylist yenidən başladıqdan sonra belə öz mövqeyini və sürətini saxlayır.
+• Kitabxana skaneri yoxdur: qurmaq üçün heç bir indeks və gözləmək üçün heç bir şey yoxdur. Qovluq əlavə edin və dinləməyə başlayın; tətbiq qovluğu yalnız açdığınız zaman oxuyur.
+• Fayllarınız toxunulmaz qalır: tətbiq yalnız seçdiyiniz qovluqları görür və heç nəyi dəyişdirmir, köçürmür və ya silmir. Yazdığı yeganə fayllar saxladığınız pleylistlərdir.
+• Sizin dilinizdə danışır: ərəb, hind və suahili dillərindən İndoneziya, Vyetnam və Zulu dillərinə qədər 100-dən çox dildə.
+
+Audiokitablar və albomlar üçün hazırlanmışdır
+• Oxutma sürəti 0,5×-dən 2,0×-ə qədər, hər element üçün saxlanılır; 15 saniyəlik sıçrayışlar
+• Axtarış panelində, fəsil siyahısında və bildirişdə M4B və M4A fəsilləri
+• Daha uzun fasilədən sonra davam etdikdə bir neçə saniyə geri çəkilir
+• Boşluqsuz oxutma; Çoxdiskli albomlar disk sırası ilə oxudulur
+
+Qovluqlarınız, sizin sifarişiniz
+• Çörək qırıntıları, sevimlilər və A–Z çubuğu ilə fayl meneceri kimi baxın
+• Növbəyə qovluqlar, albomlar və ya treklər əlavə etmək və M3U pleylist kimi saxlamaq üçün sürüşdürün
+• Artıq sahib olduğunuz pleylistləri oxudur
+• Hər albomu trek nömrəsinə, fayl adına və ya başlığına görə sıralayın
+
+Harada dinləsəniz də
+• Bildirişdə, kilid ekranında (15 saniyəlik sıçrayışlarla) və Bluetooth və ya avtomobil düymələrində idarəetmə elementləri
+• Android Auto: kitabxananıza, sevimlilərinizə və avtomobildə növbəyə baxın
+• Əsas ekran vidjeti
+• Qulaqlıqlar və ya avtomobiliniz qoşulduqdan sonra istəyə bağlı olaraq oxudulmağa başlayır
+• Əvvəlcədən ayarlanmış, işıqlı və qaranlıq mövzulu ekvalayzer
+
+Formatlar: FLAC, M4A, M4B (şifrlənməmiş AAC), MP3, OGG, Opus və WAV.
+
+Dizaynla gizli
+Retro Player-in İnternet icazəsi yoxdur, buna görə də telefonunuzdan heç nə çıxmır: reklam, analitika, izləmə və ya hesablar yoxdur. Yaddaş icazəsinə də ehtiyac yoxdur.
+
+Pulsuz və açıq mənbəli proqram təminatı (GPL-3.0 və ya daha sonra). İstifadəçi təlimatı və mənbə kodu: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

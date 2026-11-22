@@ -1,0 +1,35 @@
+I-Retro Player idlala umculo kunye neencwadi zeaudio ngqo kwiifolda ezikwifowuni yakho. Isebenza ngaphandle kweintanethi, ayinazo iintengiso kwaye ayidingi akhawunti.
+
+Kutheni i-Retro Player?
+• Iqhubeka kanye apho ubuyeke khona: yonke i-albhamu, incwadi yeaudio kunye noluhlu lokudlala lugcina indawo kunye nesantya salo, nokuba emva kokuqalisa kwakhona.
+
+• Akukho scan yelayibrari: akukho index yokwakha kwaye akukho nto yokulinda. Yongeza ifolda kwaye uqale ukumamela; usetyenziso lufunda ifolda kuphela xa uyivula.
+
+• Iifayile zakho azichukunyiswa: usetyenziso lubona kuphela iifolda ozikhethayo kwaye alutshintshi, alushukumisi okanye lucime nantoni na. Iifayile ezibhalayo kuphela ziluhlu lokudlala olugcinayo.
+• Ithetha ulwimi lwakho: iilwimi ezingaphezu kwe-100, ukusuka kwisiArabhu, isiHindi nesiSwahili ukuya kwisi-Indonesia, isiVietnam kunye nesiZulu.
+
+Yenzelwe iincwadi zeaudio kunye nee-albhamu
+• Isantya sokudlala ukusuka kwi-0.5× ukuya kwi-2.0×, sigcinwe ngento nganye; Ukutsiba kwemizuzwana eli-15
+• Izahluko ze-M4B kunye ne-M4A kwibha yokufuna, kuluhlu lwezahluko nakwisaziso
+• Ibuyela umva imizuzwana embalwa xa uqhubeka emva kwekhefu elide
+• Ukudlala okungenazikhewu; ii-albhamu zediski ezininzi zidlala ngokulandelelana kwediski
+
+Iifolda zakho, iodolo yakho
+• Khangela njengomphathi wefayile, ngee-breadcrumbs, ii-favorites kunye ne-A–Z bar
+• Swayipha ukuze wongeze iifolda, ii-albhamu okanye iingoma kumgca kwaye uyigcine njengoluhlu lokudlala lwe-M3U
+• Idlala uluhlu lokudlala olusele unalo
+• Hlela i-albhamu nganye ngenombolo yengoma, igama lefayile okanye isihloko
+
+Naphi na apho umamela khona
+• Ilawula kwisaziso, kwisikrini sokutshixa (ngotsiba lwemizuzwana eli-15) nakwi-Bluetooth okanye amaqhosha emoto
+• I-Android Auto: khangela ilayibrari yakho, ii-favorites kunye nomgca emotweni
+• Iwijethi yesikrini sasekhaya
+• Iqala ukudlala ngokukhawuleza xa ii-headphones okanye imoto yakho iqhagamshele
+• Isilinganisi esine-presets, umxholo okhanyayo nomnyama
+
+Iifomathi: I-FLAC, i-M4A, i-M4B (i-AAC engabhaliswanga), i-MP3, i-OGG, i-Opus kunye ne-WAV.
+
+Yabucala ngokoyilo
+I-Retro Player ayinayo imvume ye-intanethi, ngoko akukho nto iphuma kwifowuni yakho: akukho ntengiso, uhlalutyo, ukulandelela okanye iiakhawunti. Ayidingi mvume yokugcina.
+
+Isoftware yasimahla nevulelekileyo (GPL-3.0-okanye-kamva). Isikhokelo somsebenzisi kunye nekhowudi yomthombo: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

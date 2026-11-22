@@ -60,6 +60,10 @@ CODES = [
 ]
 
 GOOGLE_CLOUD_TARGET = {
+    "b+es+419": "es",
+    "pt-rBR": "pt",
+    "fil": "tl",
+    "b+zh+Hant": "zh-TW",
     "nb": "no",
     "zh": "zh-CN",
 }
@@ -73,6 +77,10 @@ AZURE_TARGET = {
 
 # DeepL target_lang codes (see developers.deepl.com supported languages)
 DEEPL_TARGET = {
+    "b+es+419": "ES-419",
+    "pt-rBR": "PT-BR",
+    "fil": "TL",
+    "b+zh+Hant": "ZH-HANT",
     "zh": "ZH-HANS",
     "nb": "NB",
     "pt": "PT-PT",

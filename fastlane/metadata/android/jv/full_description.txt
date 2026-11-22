@@ -1,0 +1,33 @@
+Retro Player bisa muter musik lan buku audio langsung saka folder ing telpon sampeyan. Bisa digunakake offline, ora ana iklan lan ora butuh akun.
+
+Kenapa Retro Player?
+• Terus persis ing ngendi sampeyan mandheg: saben album, buku audio, lan dhaptar lagu tetep ana ing posisi lan kecepatane dhewe, sanajan sawise diwiwiti maneh.
+• Ora ana pindai perpustakaan: ora ana indeks sing kudu digawe lan ora ana sing kudu ditunggu. Tambah folder lan wiwiti ngrungokake; aplikasi mung maca folder nalika sampeyan mbukak.
+• File sampeyan tetep ora disentuh: aplikasi mung ndeleng folder sing sampeyan pilih lan ora tau ngganti, mindhah, utawa mbusak apa-apa. File sing ditulis mung dhaptar lagu sing sampeyan simpen.
+• Bisa ngomong nganggo basa sampeyan: luwih saka 100 basa, saka Arab, Hindi lan Swahili nganti Indonesia, Vietnam lan Zulu.
+
+Digawe kanggo buku audio lan album
+• Kacepetan puter maneh saka 0,5× nganti 2,0×, disimpen saben item; Lompatan 15 detik
+• Bab M4B lan M4A ing bilah telusuran, ing dhaptar bab lan ing kabar
+• Muter maneh sawetara detik nalika sampeyan nerusake sawise istirahat sing luwih suwe
+• Puter maneh tanpa celah; album multi-disk diputer miturut urutan disk
+
+Folder sampeyan, urutan sampeyan
+• Telusuri kaya manajer file, nganggo breadcrumbs, favorit lan bilah A–Z
+• Gesek kanggo nambah folder, album utawa trek menyang antrian lan nyimpen minangka dhaptar lagu M3U
+• Muter dhaptar lagu sing wis sampeyan duwe
+• Urut saben album miturut nomer trek, jeneng file utawa judhul
+
+Ngendi wae sampeyan ngrungokake
+• Kontrol ing kabar, ing layar kunci (kanthi lompatan 15 detik) lan ing tombol Bluetooth utawa mobil
+• Android Auto: telusuri perpustakaan, favorit lan antrian sampeyan ing mobil
+• Widget layar Ngarep
+• Opsional miwiti muter sanalika headphone utawa mobil sampeyan nyambung
+• Equalizer nganggo preset, tema padhang lan peteng
+
+Format: FLAC, M4A, M4B (AAC sing ora dienkripsi), MP3, OGG, Opus lan WAV.
+
+Pribadi miturut desain
+Retro Player ora duwe ijin Internet, mula ora ana sing metu saka telpon sampeyan: ora ana iklan, analitik, pelacakan utawa akun. Uga ora butuh ijin panyimpenan.
+
+Piranti lunak gratis lan sumber terbuka (GPL-3.0 utawa sing luwih anyar). Pandhuan pangguna lan kode sumber: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

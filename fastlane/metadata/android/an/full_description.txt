@@ -1,0 +1,33 @@
+Retro Player reproduce musica y audiolibros dreitament dende as carpetas d'o tuyo mobil. Funciona sin connexión, no tiene publicidat y no precisa de cuenta.
+
+Per qué Retro Player?
+• Contina exactament an lo deixés: cada album, audiolibro y lista de reproducción mantiene a suya propia posición y velocidat, mesmo dimpués de reiniciar.
+• Sin escaneyo de biblioteca: no cal creyar garra indiz ni asperar a cosa. Adhibe una carpeta y prencipia a escuitar; l'aplicación leye una carpeta nomás quan l'ubres.
+• Os tuyos fichers no se tocan: l'aplicación nomás vei as carpetas que trías y nunca no cambia, mueve ni elimina cosa. Os solos fichers en os que escribe son as listas de reproducción que alzas.
+• Charra a tuya luenga: mas de 100 luengas, dende l'arabe, l'hindi y o swahili dica l'indonesio, o vietnamita y o zulú.
+
+Feito pa audiolibros y albums
+• Velocidat de reproducción dende 0,5× dica 2,0×, alzada por cada elemento; blincos de 15 segundos
+• Capitols M4B y M4A en a barra de busca, en una lista de capitols y en a notificación
+• Retrocede bels segundos quan continas dimpués d'una pausa larga
+• Reproducción sin pausas; os albums de cuantos discos s'escuitan por orden de disco
+
+As tuyas carpetas, o tuyo orden
+• Navega como un chestor de fichers, con rastro de navegación, favoritos y una barra d'A a Z
+• Esliza pa adhibir carpetas, albums u pistas a la ringlera d'espera y alzar-lo como una lista de reproducción M3U
+• Reproduce as listas de reproducción que ya tiens
+• Ordena cada album por numero de pista, nombre de ficher u títol
+
+An que sías ascuitando
+• Controles en a notificación, en a pantalla de bloqueyo (con blincos de 15 segundos) y en os botons de Bluetooth u de l'auto
+• Android Auto: navega por a tuya biblioteca, favoritos y cola en l'auto
+• Widget pa la pantalla d'inicio
+• Opcionalment, prencipia a reproducir tan luego como se connectan os auriculars u o tuyo auto
+• Ecualizador con preajustes, tema claro y escuro
+
+Formatos: FLAC, M4A, M4B (AAC no encriptato), MP3, OGG, Opus y WAV.
+
+Privacidat por disenyo
+Retro Player no tiene premiso d'Internet, asinas que cosa no sale d'o tuyo telefono: sin publicidat, analiticas, seguimiento ni cuentas. Tampoco no necesita premiso d'almagazenache.
+
+Software libre y de codigo ubierto (GPL-3.0-u-posterior). Guía de l'usuario y codigo fuent: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

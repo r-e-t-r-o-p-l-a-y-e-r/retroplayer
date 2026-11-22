@@ -1,0 +1,33 @@
+Retro Player ukax musica ukat audiolibronak chiqak teléfono ukan carpetas ukanakat phust’i. Ukax jan internetan irnaqaski, janiw anuncios ukax utjkiti ukatx janiw cuenta ukax munaskiti.
+
+¿Kunatsa Retro Jugador ukax?
+• Kawkhantï jaytawaykta uka chiqanwa sarantaskakïna: sapa álbum, audiolibro ukat lista de reproducción ukanakax posición ukat jank’akïñapatakiw utji, wasitat qalltañat qhipatsa.
+• Janiw biblioteca escaneo: janiw índice lurañatakix utjkiti ukat janiw kunas suyt’añatakis utjkiti. Mä carpeta yapxatañamawa ukatxa ist’añ qalltañamawa; app ukax mä carpeta jist’arat ukhakiw uñakipi.
+• Archivonakax jan llamkt’ataw qhiparapxi: app ukax carpetas ukanakak uñji ukat janipuniw kuns mayjt’aykiti, kuynt’aykiti jan ukax chhaqtaykiti. Uka qillqatanakax qillqt’atawa, ukax lista de reproducción ukanakaw imatäski.
+• Juman arumat arsu: 100 jila arunaka, árabe, hindi ukat suajili arut qalltasa, indonesia, vietnamita ukat zulu arukama.
+
+Audiolibronakataki ukat álbumanakatakiw lurata
+• Anatañ jank’a 0,5× 2,0×, sapa yäru imañataki; 15 segundos ukja saltos
+• M4B ukatxa M4A jaljanaka thaqhaña barra tuqina, mä jalja lista tuqina ukhamaraki yatiyawi tuqina
+• Mä qawqha segundonaka qhipäxaru kutt’ayaña kunapachatixa juk’ampi samart’aña tukuyatatxa sarantaskakiwa
+• Jani ch’amampi anatt’aña; walja disco álbumanakax disco ordenanwa phust’asi
+
+Uka carpetanaka, jumanakan ordenapa
+• Mä archivo apnaqirirjama uñakipaña, t’ant’a ch’uqimpi, munatanakampi ukhamaraki mä barra A–Z ukampi
+• Carpetas, álbumes jan ukax pistas ukanakax fila ukar yapxatañatakix swipe ukampiw M3U ukan lista de reproducción ukarjam imaña
+• Nayraqata utjki uka lista de reproducción ukanaka anataña
+• Sapa álbum ukarux pista jakhuparjama, archivo sutiparjama jan ukax título ukarjam uñakipt’añamawa
+
+Kawkhantï istʼapkta uka cheqanjja
+• Controles ukaxa yatiyawinxa, pantalla de bloqueo ukanxa (15 segundos saltos ukanakampi) ukhamaraki Bluetooth jan ukaxa auto botones ukanakampi
+• Android Auto: biblioteca, favoritos ukat auto ukan fila uñakipaña
+• Pantalla qalltawi widget
+• Opcionalmente qalltaña anataña kunjamatixa auriculares jan ukaxa auto ukaxa conectatäki ukhama
+• Ecualizador ukaxa presets ukanakampi, qhana ukhamaraki ch’amaka tema ukanakampi
+
+Formatos: FLAC, M4A, M4B (AAC jan cifrado), MP3, OGG, Opus ukat WAV.
+
+Privado ukhamawa diseño tuqita
+Retro Player ukax janiw Internet ukan permisopax utjkiti, ukhamax janiw kunas teléfono ukar mistkiti: janiw anuncios, análisis, seguimiento jan ukax cuentas ukanakax utjkiti. Ukatxa janiw kuna permiso imañatakis munaskiti.
+
+Software libre ukat abierto de código fuente (GPL-3.0-jan ukax-qhipa). Usuario guia ukat código fuente: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,28 +1,33 @@
-Retro Player spielt Musik und Hörbücher aus Ordnern auf deinem Smartphone ab. Wähle einen Ordner aus, und die App zeigt ihn so an, wie er auf dem Speicher liegt: Ordner, Alben und Wiedergabelisten. Kein Konto, keine Werbung und kein Netzwerkzugriff.
+Retro Player spielt Musik und Hörbücher direkt aus den Ordnern auf deinem Smartphone ab. Offline, ohne Werbung und ohne Konto.
+
+Warum Retro Player?
+• Macht genau dort weiter, wo du aufgehört hast: Jedes Album, jedes Hörbuch und jede Wiedergabeliste merkt sich die eigene Position und Geschwindigkeit, auch nach einem Neustart.
+• Kein Scannen der Bibliothek: Es wird kein Index aufgebaut, und du musst auf nichts warten. Ordner hinzufügen und loshören; die App liest einen Ordner erst, wenn du ihn öffnest.
+• Deine Dateien bleiben unangetastet: Die App sieht nur die Ordner, die du auswählst, und ändert, verschiebt oder löscht nie etwas. Die einzigen Dateien, die sie schreibt, sind Wiedergabelisten, die du speicherst.
+• Spricht deine Sprache: mehr als 100 Sprachen, von Arabisch, Hindi und Suaheli bis Indonesisch, Vietnamesisch und Zulu.
 
 Gemacht für Hörbücher und Alben
-• Setzt jedes Album, jedes Buch und jede Wiedergabeliste dort fort, wo du aufgehört hast
 • Wiedergabegeschwindigkeit von 0,5× bis 2,0×, pro Titel gespeichert; 15-Sekunden-Sprünge
 • M4B- und M4A-Kapitel auf der Suchleiste, in einer Kapitelübersicht und in der Benachrichtigung
-• Spult ein paar Sekunden zurück, wenn du nach einer längeren Pause weitermachst
+• Spult ein paar Sekunden zurück, wenn du nach einer längeren Pause weiterhörst
 • Lückenlose Wiedergabe; Alben mit mehreren CDs werden in der Reihenfolge der CDs abgespielt
 
 Deine Ordner, deine Reihenfolge
 • Durchsuchen wie in einem Dateimanager, mit Navigationspfad, Favoriten und einer A–Z-Leiste
-• Durch Wischen Ordner, Alben oder Titel zur Warteschlange hinzufügen und als M3U-Playlist speichern
+• Durch Wischen Ordner, Alben oder Titel zur Warteschlange hinzufügen und als M3U-Wiedergabeliste speichern
 • Spielt deine vorhandenen Wiedergabelisten ab
 • Sortiere jedes Album nach Titelnummer, Dateiname oder Titel
 
 Wo immer du hörst
-• Steuerung in der Benachrichtigung, auf dem Sperrbildschirm sowie über Bluetooth- oder Autotasten
+• Steuerung in der Benachrichtigung, auf dem Sperrbildschirm (mit 15-Sekunden-Sprüngen) sowie über Bluetooth- oder Autotasten
 • Android Auto: Durchsuche Bibliothek, Favoriten und Warteschlange im Auto
 • Widget für den Startbildschirm
-• Optional wird die Wiedergabe fortgesetzt, wenn deine Kopfhörer wieder verbunden werden
-• Equalizer mit Voreinstellungen, helles und dunkles Design, 47 Sprachen
+• Startet auf Wunsch die Wiedergabe, sobald sich Kopfhörer oder dein Auto verbinden
+• Equalizer mit Voreinstellungen, helles und dunkles Design
 
 Formate: FLAC, M4A, M4B (unverschlüsseltes AAC), MP3, OGG, Opus und WAV.
 
 Von Grund auf privat
-Retro Player hat keine Internetberechtigung, daher verlassen keine Daten dein Smartphone: keine Werbung, keine Analysen, kein Tracking und keine Konten. Auch eine Speicherberechtigung ist nicht nötig. Die App liest nur die Ordner, die du auswählst, und verändert deine Dateien nie; die einzigen Dateien, die sie schreibt, sind Wiedergabelisten, die du speicherst.
+Retro Player hat keine Internetberechtigung, daher verlassen keine Daten dein Smartphone: keine Werbung, keine Analysen, kein Tracking und keine Konten. Auch eine Speicherberechtigung ist nicht nötig.
 
 Freie Open-Source-Software (GPL-3.0-oder-später). Benutzerhandbuch und Quellcode: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

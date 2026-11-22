@@ -1,0 +1,33 @@
+Retro Player memainkan muzik dan buku audio terus dari folder pada telefon anda. Ia berfungsi di luar talian, tiada iklan dan tidak memerlukan akaun.
+
+Mengapa Retro Player?
+• Teruskan tepat di tempat anda berhenti: setiap album, buku audio dan senarai main mengekalkan kedudukan dan kelajuannya sendiri, walaupun selepas dimulakan semula.
+• Tiada imbasan pustaka: tiada indeks untuk dibina dan tiada apa yang perlu ditunggu. Tambah folder dan mula mendengar; aplikasi membaca folder hanya apabila anda membukanya.
+• Fail anda kekal tidak disentuh: aplikasi hanya melihat folder yang anda pilih dan tidak pernah mengubah, mengalihkan atau memadam apa-apa. Satu-satunya fail yang ditulisnya ialah senarai main yang anda simpan.
+• Bercakap dalam bahasa anda: lebih daripada 100 bahasa, dari bahasa Arab, Hindi dan Swahili hingga bahasa Indonesia, Vietnam dan Zulu.
+
+Dibuat untuk buku audio dan album
+• Kelajuan main balik dari 0.5× hingga 2.0×, disimpan setiap item; Lompatan 15 saat
+• Bab M4B dan M4A pada bar carian, dalam senarai bab dan dalam pemberitahuan
+• Mengundur beberapa saat apabila anda meneruskan selepas rehat yang lebih lama
+• Main balik tanpa jurang; album berbilang cakera dimainkan mengikut susunan cakera
+
+Folder anda, susunan anda
+• Layari seperti pengurus fail, dengan serbuk roti, kegemaran dan bar A–Z
+• Leret untuk menambah folder, album atau trek pada baris gilir dan simpannya sebagai senarai main M3U
+• Memainkan senarai main yang sudah anda miliki
+• Isih setiap album mengikut nombor trek, nama fail atau tajuk
+
+Di mana sahaja anda mendengar
+• Kawalan dalam pemberitahuan, pada skrin kunci (dengan lompatan 15 saat) dan pada butang Bluetooth atau kereta
+• Android Auto: layari pustaka, kegemaran dan baris gilir anda di dalam kereta
+• Widget skrin utama
+• Secara pilihan mula dimainkan sebaik sahaja fon kepala atau kereta anda disambungkan
+• Penyama dengan pratetap, tema terang dan gelap
+
+Format: FLAC, M4A, M4B (AAC tidak disulitkan), MP3, OGG, Opus dan WAV.
+
+Persendirian mengikut reka bentuk
+Retro Player tidak mempunyai kebenaran Internet, jadi tiada apa yang keluar dari telefon anda: tiada iklan, analitik, penjejakan atau akaun. Ia juga tidak memerlukan kebenaran storan.
+
+Perisian sumber terbuka dan percuma (GPL-3.0 atau lebih baharu). Panduan pengguna dan kod sumber: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

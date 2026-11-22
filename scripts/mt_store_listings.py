@@ -25,14 +25,23 @@ ENGLISH = METADATA / "en-US"
 
 # App locale (values-<code>) to store folder.
 LOCALES = {
-    "ar": "ar", "bg": "bg", "bn": "bn-BD", "bs": "bs", "ca": "ca", "cs": "cs-CZ",
-    "da": "da-DK", "de": "de-DE", "el": "el-GR", "es": "es-ES", "et": "et", "fa": "fa",
-    "fi": "fi-FI", "fr": "fr-FR", "ga": "ga", "he": "iw-IL", "hi": "hi-IN", "hr": "hr",
-    "hu": "hu-HU", "id": "id", "is": "is-IS", "it": "it-IT", "ja": "ja-JP", "ko": "ko-KR",
-    "lt": "lt", "lv": "lv", "mk": "mk-MK", "mt": "mt", "nb": "no-NO", "nl": "nl-NL",
-    "pl": "pl-PL", "pt": "pt-PT", "ro": "ro", "ru": "ru-RU", "sk": "sk", "sl": "sl",
-    "sq": "sq", "sr": "sr", "sv": "sv-SE", "th": "th", "tr": "tr-TR", "uk": "uk",
-    "ur": "ur", "vi": "vi", "zh": "zh-CN",
+    "af": "af", "am": "am", "an": "an", "ar": "ar", "as": "as", "ay": "ay", "az": "az-AZ",
+    "b+es+419": "es-419", "b+zh+Hant": "zh-TW", "ba": "ba", "be": "be", "bg": "bg",
+    "bn": "bn-BD", "br": "br", "bs": "bs", "ca": "ca", "cs": "cs-CZ", "cy": "cy",
+    "da": "da-DK", "de": "de-DE", "el": "el-GR", "eo": "eo", "es": "es-ES", "et": "et",
+    "eu": "eu-ES", "fa": "fa", "fi": "fi-FI", "fil": "fil", "fr": "fr-FR", "ga": "ga",
+    "gl": "gl-ES", "gn": "gn", "gu": "gu", "ha": "ha", "he": "iw-IL", "hi": "hi-IN",
+    "hr": "hr", "ht": "ht", "hu": "hu-HU", "hy": "hy-AM", "id": "id", "ig": "ig",
+    "is": "is-IS", "it": "it-IT", "ja": "ja-JP", "jv": "jv", "ka": "ka-GE", "kk": "kk",
+    "kn": "kn-IN", "ko": "ko-KR", "ky": "ky-KG", "la": "la", "lb": "lb", "ln": "ln",
+    "lt": "lt", "lv": "lv", "mg": "mg", "mi": "mi", "mk": "mk-MK", "ml": "ml-IN",
+    "mn": "mn-MN", "mr": "mr-IN", "ms": "ms", "mt": "mt", "my": "my-MM", "nb": "no-NO",
+    "ne": "ne-NP", "nl": "nl-NL", "oc": "oc", "om": "om", "pa": "pa", "pl": "pl-PL",
+    "ps": "ps", "pt": "pt-PT", "pt-rBR": "pt-BR", "qu": "qu", "ro": "ro", "ru": "ru-RU",
+    "sa": "sa", "sk": "sk", "sl": "sl", "sq": "sq", "sr": "sr", "st": "st", "su": "su",
+    "sv": "sv-SE", "sw": "sw", "ta": "ta-IN", "te": "te-IN", "tg": "tg", "th": "th",
+    "tk": "tk", "tn": "tn", "tr": "tr-TR", "ts": "ts", "tt": "tt", "uk": "uk", "ur": "ur",
+    "uz": "uz", "vi": "vi", "wo": "wo", "xh": "xh", "yi": "yi", "zh": "zh-CN", "zu": "zu",
 }
 
 LIMITS = {"title.txt": 30, "short_description.txt": 80, "full_description.txt": 4000, "changelogs": 500}

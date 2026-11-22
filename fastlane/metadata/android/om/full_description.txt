@@ -1,0 +1,33 @@
+Retro Player muuziqaa fi kitaabota sagalee kallattiin galmee bilbila keessan keessa jiru irraa taphachiisa. Offline hojjeta, beeksisa hin qabu akkasumas account hin barbaadu.
+
+Maaliif Taphataan Retro?
+• Bakka itti dhiifte sirriitti itti fufa: albamii, kitaabni sagalee fi tarreen tapha hunduu bakka fi saffisa mataa isaa eega, erga irra deebi'amee jalqabee boodas.
+• Iskaaniin mana kitaabaa hin jiru: indeeksii ijaaramuu fi wanti eegamu hin jiru. Galmee itti dabalitii dhaggeeffachuu jalqabi; appichi galmee tokko yeroo banattan qofa dubbisa.
+• Faayiloonni keessan osoo hin tuqamin hafu: appichi galmee ati fudhattan qofa kan argu yoo ta'u gonkumaa waan tokkollee hin jijjiiru, hin sochoosu ykn hin haqu. Faayiloonni inni barreessu playlists ati save goote qofa.
+• Afaan kee ni dubbata: afaanota 100 ol, Afaan Arabaa, Hindii fi Swahili irraa kaasee hanga Indooneezhiyaa, Veetnaam fi Zulu.
+
+Kitaabota sagalee fi albamootaaf kan hojjetame
+• Saffisa taphachuu 0.5× hanga 2.0×, meeshaa tokkoof qusata; Utaalcha sekondii 15
+• Boqonnaawwan M4B fi M4A barruu barbaaduu irratti, tarree boqonnaa keessatti fi beeksisa keessatti
+• Boqonnaa dheeraa booda yeroo itti fuftu sekondii muraasa duubatti deebi'a
+• Tapha qaawwa hin qabne; albamoonni diskiin baay’ee qaban tartiiba diskiin taphatamu
+
+Galmeewwan keessan, ajaja keessan
+• Akka bulchaa faayilii, daabboo, jaallatamtoota fi barruu A–Z waliin daawwadhu
+• Galmeewwan, albamoota ykn sirboota tarree irratti dabaluu fi akka tarree tapha M3Utti saaguuf swipe gochuu
+• Tarreewwan tapha duraan qabdan ni taphachiisa
+• Tokkoon tokkoon albamii lakkoofsa sirbaa, maqaa faayilii ykn mata dureedhaan saagi
+
+Bakka dhaggeeffattan hundatti
+• Beeksisa keessatti, iskiriinii qulfii irratti (utaalcha sekondii 15) fi buttooni Biltuutii ykn konkolaataa irratti to'ata
+• Android Auto: mana kitaabaa keessan, kanneen jaallattan fi tarree konkolaataa keessa jiran daawwadhaa
+• Wiijetii iskiriinii manaa
+• Filannoodhaan akkuma headphone ykn konkolaataan keessan wal qunnameen taphachuu jalqaba
+• Equalizer dursee saagi, mata duree ifaafi dukkanaa’aa wajjin
+
+Akkaataa: FLAC, M4A, M4B (AAC hin icciitii), MP3, OGG, Opus fi WAV.
+
+Dizaayiniin dhuunfaa
+Retro Player hayyama interneetii hin qabu, kanaaf wanti bilbila keessan keessaa bahu hin jiru: beeksisa, xiinxala, hordoffii ykn herrega hin qabu. Hayyama kuusaas hin barbaadu.
+
+Software madda bilisaa fi banaa (GPL-3.0-ykn-yeroo booda). Qajeelfama fayyadamaa fi koodii madda: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

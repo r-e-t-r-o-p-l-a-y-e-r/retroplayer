@@ -1,7 +1,12 @@
-Retro Player plays music and audiobooks from folders on your phone. Pick a folder and the app shows it as it is on disk: folders, albums and playlists. No account, no ads and no network access.
+Retro Player plays music and audiobooks straight from the folders on your phone. It works offline, has no ads and needs no account.
+
+Why Retro Player?
+• Continues exactly where you left off: every album, audiobook and playlist keeps its own position and speed, even after a restart.
+• No library scan: there is no index to build and nothing to wait for. Add a folder and start listening; the app reads a folder only when you open it.
+• Your files stay untouched: the app sees only the folders you pick and never changes, moves or deletes anything. The only files it writes are playlists you save.
+• Speaks your language: more than 100 languages, from Arabic, Hindi and Swahili to Indonesian, Vietnamese and Zulu.
 
 Made for audiobooks and albums
-• Resumes every album, book and playlist where you stopped
 • Playback speed from 0.5× to 2.0×, saved per item; 15-second jumps
 • M4B and M4A chapters on the seek bar, in a chapter list and in the notification
 • Rewinds a few seconds when you continue after a longer break
@@ -14,15 +19,15 @@ Your folders, your order
 • Sort each album by track number, file name or title
 
 Wherever you listen
-• Controls in the notification, on the lock screen and on Bluetooth or car buttons
+• Controls in the notification, on the lock screen (with 15-second jumps) and on Bluetooth or car buttons
 • Android Auto: browse your library, favorites and queue in the car
 • Home-screen widget
-• Optionally continues when your headphones reconnect
-• Equalizer with presets, light and dark theme, 47 languages
+• Optionally starts playing as soon as headphones or your car connect
+• Equalizer with presets, light and dark theme
 
 Formats: FLAC, M4A, M4B (unencrypted AAC), MP3, OGG, Opus and WAV.
 
 Private by design
-Retro Player has no Internet permission, so nothing leaves your phone: no ads, analytics, tracking or accounts. It needs no storage permission either. It reads only the folders you pick and never changes your files; the only files it writes are playlists you save.
+Retro Player has no Internet permission, so nothing leaves your phone: no ads, analytics, tracking or accounts. It needs no storage permission either.
 
 Free and open source software (GPL-3.0-or-later). User guide and source code: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

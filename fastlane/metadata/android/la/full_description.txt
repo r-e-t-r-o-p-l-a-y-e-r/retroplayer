@@ -1,0 +1,34 @@
+Retro Player musicam et libros audio directe ex fasciculis in telephono tuo ludit. Sine interrete operatur, nullas habet inscriptiones et nullam rationem requirit.
+
+Cur Retro Player?
+
+• Ubi destitisti, pergit: omnis album, liber audio et index suum locum et celeritatem retinet, etiam post iterum incipiendum.
+• Nulla bibliothecae perscrutatio: nullus index est construendus et nihil exspectandum. Fasciculum adde et audire incipe; applicatio fasciculum legit tantum cum eum aperis.
+• Tua documenta intacta manent: applicatio tantum fasciculos quos eligis videt et numquam quicquam mutat, movet aut delet. Sola documenta quae scribit sunt indices quos servas.
+• Linguam tuam loquitur: plus quam 100 linguas, ab Arabica, Hindi et Swahili ad Indonesianam, Vietnamiensem et Zulu.
+
+Factum pro libris audio et albis
+• Celeritas ludi ab 0.5× ad 2.0×, servata per rem; Saltus quindecim secundorum
+• Capitula M4B et M4A in vecte quaerendi, in indice capitulorum et in notificatione
+• Repetitur paucis secundis cum pergis post longiorem pausam
+• Reproductio sine intervallis; Albuma multi-discorum ordine discorum luduntur
+
+Fasciculi tui, ordo tuus
+• Percurre sicut administrator fasciculorum, cum micis panis, dilectis et linea A-Z
+• Trahe ut fasciculos, alba vel carmina ad ordinem addas et serves ut indicem M3U
+• Indices quos iam habes ludit
+• Ordina unumquodque album secundum numerum carminis, nomen fasciculi vel titulum
+
+Ubicumque audis
+• Moderationes in notificatione, in velo clauso (cum saltibus 15 secundorum) et in Bluetooth vel bullis currus
+• Android Auto: percurre bibliothecam tuam, diletta et ordinem in curru
+• Instrumentum in velo domestico
+• Optione incipit ludere simulac auricularia vel currus tuus coniungitur
+• Aequalis cum praeconfigurationibus, themate claro et obscuro
+
+Formata: FLAC, M4A, M4B (AAC non encryptatum), MP3, OGG, Opus et WAV.
+
+Privatum ex consilio
+Retro Player nullam permissionem interretialem habet, ergo nihil telephonum tuum relinquit: nullae inscriptiones, analytica, vestigatio vel rationes. Nullam permissionem repositionis etiam requirit.
+
+Programma gratuitum et apertum (GPL-3.0 vel recentius). Index usoris et fons codicis: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

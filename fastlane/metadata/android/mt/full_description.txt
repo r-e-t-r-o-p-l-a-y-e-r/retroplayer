@@ -1,28 +1,33 @@
-Retro Player jilgħab mużika u kotba awdjo minn folders fuq it-telefon tiegħek. Agħżel folder u l-app turiha kif inhi fuq id-disk: folders, albums u playlists. Ebda kont, ebda reklami u ebda aċċess għan-netwerk.
+Retro Player jilgħab mużika u kotba awdjo direttament mill-folderi fuq it-telefon tiegħek. Jaħdem offline, m'għandux reklami u ma jeħtieġx kont.
 
-Magħmul għall-kotba awdjo u l-albums
-• Jerġa' jibda kull album, ktieb u playlist minn fejn waqaft
+Għaliex Retro Player?
+• Jkompli eżatt fejn waqaf: kull album, ktieb awdjo u playlist iżomm il-pożizzjoni u l-veloċità tiegħu stess, anke wara riavvi.
+• L-ebda skannjar tal-librerija: m'hemmx indiċi li għandu jinbena u xejn li għandek tistenna. Żid folder u ibda tisma'; l-app taqra folder biss meta tiftaħha.
+• Il-fajls tiegħek jibqgħu intatti: l-app tara biss il-folders li tagħżel u qatt ma tbiddel, tmexxi jew tħassar xejn. L-uniku fajls li tikteb huma l-playlists li tiffranka.
+• Tkellem il-lingwa tiegħek: aktar minn 100 lingwa, mill-Għarbi, l-Hindi u s-Swahili sa l-Indoneżjan, il-Vjetnamiż u l-Zulu.
+
+Magħmul għall-ktieb-awdjo u l-albums
 • Velocità tal-plejbek minn 0.5× sa 2.0×, maħżuna għal kull oġġett; salti ta' 15-il sekonda
-• Kapitoli M4B u M4A fuq il-bar tat-tfittxija, f'lista tal-kapitoli u fin-notifika
-• Tirriwindja ftit sekondi meta tkompli wara waqfa twila
-• Riproduzzjoni mingħajr waqfien; albums b'aktar diska jitilgħu fl-ordni tad-diska
+• Kapitli M4B u M4A fuq il-bar tal-pożizzjoni, f'lista tal-kapitli u fin-notifika
+• Jerġa' lura ftit sekondi meta tkompli wara waqfa twila
+• Riproduzzjoni mingħajr waqfiet; albums b'aktar diski jilagħbu fl-ordni tad-diski
 
 Il-folder tiegħek, l-ordni tiegħek
 • Esplora bħal maniġer tal-fajls, b'breadcrumbs, favoriti u bar A–Z
-• Agħmel swipe biex iżżid folder, album jew kanzunetta fil-lista ta' plejlista u ssalvah bħala plejlista M3U
-• Jilgħab il-playlists li diġà għandek
+• Swipe biex iżżid folders, albums jew kanzunetti fil-lista ta' plejback u ssalvahom bħala playlist M3U
+• Tilgħab il-playlists li diġà għandek
 • Ordna kull album skont in-numru tal-kanzunetta, l-isem tal-fajl jew it-titlu
 
 Kullimkien tisma'
-• Kontrolli fin-notifika, fuq l-iskrin imblukkat u fuq il-buttuni Bluetooth jew tal-karozza
+• Kontrolli fin-notifika, fuq l-iskrin tal-blokka (bi salti ta' 15-il sekonda) u fuq buttuni Bluetooth jew tal-karozza
 • Android Auto: ibrawżja l-librerija tiegħek, il-favoriti u l-kju fil-karozza
 • Widget tal-iskrin ewlieni
-• B'mod fakultattiv, jkompli meta l-headphones tiegħek jerġgħu jikkonnettjaw
-• Equalizer b'presets, tema ċara u skura, 47 lingwa
+• B'mod fakultattiv, jibda jilgħab hekk kif il-headphones jew il-karozza tiegħek jikkonnettjaw
+• Equalizer b'presets, tema ċara u skura
 
 Formati: FLAC, M4A, M4B (AAC mhux enkriptjat), MP3, OGG, Opus u WAV.
 
 Privatezza minn disinn
-Retro Player m'għandux permess tal-Internet, għalhekk xejn ma joħroġ minn fuq it-telefon tiegħek: ebda reklami, analitiċi, traċċar jew kontijiet. M'għandux bżonn permess ta' ħażna wkoll. Jaqra biss il-folderi li tagħżel u qatt ma jibdel il-fajls tiegħek; l-uniku fajls li jikteb huma l-playlists li tissejvja.
+Retro Player m'għandux permess tal-Internet, għalhekk xejn ma joħroġ minn fuq it-telefon tiegħek: ebda reklami, analitiċi, traċċar jew kontijiet. M'għandux bżonn permess għall-ħażna wkoll.
 
-Softwer b'xejn u b'sors miftuħ (GPL-3.0-jew-aktar-ġdid). Gwida għall-utent u kodiċi sors: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer
+Softwer b'xejn u sors miftuħ (GPL-3.0-jew-aktar-ġdid). Gwida għall-utent u kodiċi sors: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer
