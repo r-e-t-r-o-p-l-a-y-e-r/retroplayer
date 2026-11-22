@@ -1,1 +1,11 @@
-Rilis pertama di F-Droid: perpustakaan folder dengan daftar favorit dan bilah A–Z, menyimpan posisi dan kecepatan pemutaran untuk setiap album atau buku, bab-bab M4B, antrian, dan daftar putar M3U, Android Auto, widget layar beranda, opsi headphone, equalizer, serta 47 bahasa. Fitur-fitur aplikasi ini tidak berubah sejak versi 0.1.0; hanya cara kompilasi yang diubah, sehingga F-Droid dapat memverifikasinya.
+Rilis pertama di F-Droid:
+• Perpustakaan folder dengan favorit
+• Menyimpan informasi mengenai posisi dan kecepatan pemutaran untuk setiap album atau buku audio
+• Bab-bab M4B dan daftar putar M3U
+• Android Auto, widget, dan equalizer
+• 106 bahasa
+
+Fitur baru sejak versi 0.1.0:
+• Lompatan selama 15 detik di layar kunci
+• Ketuk dua kali sampulnya untuk melompat 15 detik ke depan
+• Pemutaran dapat dimulai saat headphone atau mobil terhubung

@@ -1,1 +1,11 @@
-Pirmā versija F-Droid: mapju bibliotēka ar izlases sarakstu un A–Z joslu, atmiņa par atskaņošanas pozīciju un ātrumu katram albumam vai grāmatai, M4B nodaļas, rinda un M3U atskaņošanas saraksti, Android Auto, sākuma ekrāna logrīks, austiņu iestatījumi, ekvalaizers un 47 valodas. Lietotnes funkcijas nav mainījušās kopš versijas 0.1.0; mainījies ir tikai kompilēšanas veids, lai F-Droid varētu to pārbaudīt.
+Pirmais izdevums F-Droid:
+• Mapes bibliotēka ar izlases elementiem
+• Atceras katra albuma vai audio grāmatas atrašanās vietu un atskaņošanas ātrumu
+• M4B nodaļas un M3U atskaņošanas saraksti
+• Android Auto, logrīks un ekvalaizers
+• 106 valodas
+
+Jaunums, sākot ar versiju 0.1.0:
+• 15 sekunžu lēcieni uz bloķēšanas ekrāna
+• Divreiz pieskarieties vākam, lai pārietu uz priekšu par 15 sekundēm
+• Atskaņošana var sākties, kad tiek pievienotas austiņas vai automašīna

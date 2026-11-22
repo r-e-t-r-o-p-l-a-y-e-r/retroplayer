@@ -1,1 +1,11 @@
-Lëshimi i parë në F-Droid: bibliotekë me dosje dhe shirit me të preferuarat dhe A–Z, mban mend pozicionin e riprodhimit dhe shpejtësinë për çdo album ose libër, kapituj M4B, radhë dhe lista të luajtjes M3U, Android Auto, widget në ekranin kryesor, opsione për kufje, ekualizues dhe 47 gjuhë. Karakteristikat e aplikacionit nuk janë ndryshuar që nga versioni 0.1.0; vetëm mënyra e kompilimit ka ndryshuar, në mënyrë që F-Droid ta verifikojë.
+Lëshimi i parë në F-Droid:
+• Biblioteka e dosjeve me të preferuarat
+• Mban mend pozicionin dhe shpejtësinë për çdo album ose libër audio.
+• Kapituj M4B dhe lista të luajtjes M3U
+• Android Auto, widget dhe ekualizues
+• 106 gjuhë
+
+Të reja që nga 0.1.0:
+• Kërcime 15-sekondëshe në ekranin e kyçjes
+• Shtypni dy herë mbulesën për të kaluar 15 sekonda përpara.
+• Riprodhimi mund të fillojë kur lidhen kufjet ose makina.

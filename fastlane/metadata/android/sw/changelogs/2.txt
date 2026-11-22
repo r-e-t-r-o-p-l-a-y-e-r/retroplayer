@@ -1,1 +1,11 @@
-Toleo la kwanza kwenye F-Droid: maktaba ya folda yenye vipendwa na upau wa A–Z, inakumbuka nafasi ya uchezaji na kasi ya kila albamu au kitabu, sura za M4B, foleni na orodha za kucheza za M3U, Android Auto, wijeti ya skrini ya nyumbani, chaguo za vipokea sauti vya masikioni, kisawazishaji na lugha 47. Vipengele vya programu havijabadilika tangu 0.1.0; ni jinsi tu ilivyokusanywa iliyobadilishwa, ili F-Droid iweze kuithibitisha.
+Toleo la kwanza kwenye F-Droid:
+• Maktaba ya folda yenye vipendwa
+• Anakumbuka nafasi na kasi ya kila albamu au kitabu cha sauti
+• Sura za M4B na orodha za kucheza za M3U
+• Android Auto, wijeti na kisawazishi
+• Lugha 106
+
+Mpya tangu 0.1.0:
+• Kuruka kwa sekunde 15 kwenye skrini iliyofungwa
+• Gusa kifuniko mara mbili ili kuruka kwa sekunde 15
+• Uchezaji unaweza kuanza wakati vipokea sauti vya masikioni au gari vinapounganishwa

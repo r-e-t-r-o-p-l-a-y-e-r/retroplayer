@@ -1,1 +1,11 @@
-Bobimisi ya liboso na F-Droid: bibliothèque ya ba dossiers na ba préférés na barre A–Z, ezo rappeler position ya lecture na vitesse pona album to livre moko na moko, ba chapitres M4B, ba listes ya jeu ya molongo na M3U, Android Auto, widget ya écran d’accueil, ba options ya écouteurs, égalisation na 47 langues. Makambo ya app yango ebongwanaki te banda 0.1.0; kaka lolenge ya kosangisa yango nde ebongwanaki, mpo ete F-Droid akoki ko vérifier yango.
+Bobimisi ya liboso na mokolo ya F-Droid:
+• Bibliothèque ya ba dossiers na ba préférés
+• Amikundoli position mpe vitesse mpo na album to audiobook moko na moko
+• Ba chapitres M4B na ba playlists ya M3U
+• Android Auto, widget mpe égalisation
+• Minɔkɔ 106
+
+Ya sika banda 0.1.0:
+• 15-secondes sauts na écran ya blocage
+• Finá mbala mibale na ezipeli mpo na kopumbwa na boumeli ya segɔnde 15
+• Kobɛta ekoki kobanda ntango écouteurs to motuka ekangami

@@ -1,1 +1,11 @@
-An chéad eisiúint ar F-Droid: leabharlann fillteán le barra is fearr leat agus A–Z, cuimhníonn sé ar shuíomh agus ar luas an athsheinm do gach albam nó leabhar, caibidlí M4B, scuaine agus liostaí seinnte M3U, Android Auto, giuirléid an scáileáin baile, roghanna cluasán, comhionannán agus 47 teanga. Níl aon athrú tagtha ar ghnéithe an aip ó leagan 0.1.0; níl ach an bealach a thiomsaítear é athraithe, ionas gur féidir le F-Droid é a fhíorú.
+An chéad eisiúint ar F-Droid:
+• Leabharlann fillteán le ceanáin
+• Cuimhníonn sé ar an suíomh agus ar an luas do gach albam nó leabhar gutha.
+• Caibidlí M4B agus liostaí seinnte M3U
+• Android Auto, giuirléid agus comhionannán
+• 106 teanga
+
+Nua ó 0.1.0:
+• Léimeanna 15 soicind ar an scáileán glasála
+• Dé-tapáil an clúdach chun léim 15 soicind chun tosaigh.
+• Is féidir leis an athsheinm tosú nuair a nascann cluasáin nó an carr.

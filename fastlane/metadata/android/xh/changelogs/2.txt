@@ -1,1 +1,11 @@
-Ukukhululwa kokuqala kwi-F-Droid: ilayibrari yefolda enezintandokazi kunye ne-A–Z bar, ikhumbula indawo yokudlala kunye nesantya se-albhamu nganye okanye incwadi, izahluko ze-M4B, umqolo kunye noluhlu lwadlalwayo lwe-M3U, i-Android Auto, iwijethi yesikrini sasekhaya, ukhetho lwee-headphone, i-equalizer kunye neelwimi ezingama-47. Iimpawu ze-app azitshintshanga ukusukela kwi-0.1.0; yindlela kuphela ehlanganiswe ngayo etshintshileyo, ukuze i-F-Droid ikwazi ukuyiqinisekisa.
+Ukukhululwa kokuqala kwi-F-Droid:
+• Ilayibrari yeefolda eneentandokazi
+• Ukhumbula indawo kunye nesantya se-albhamu nganye okanye incwadi yeaudio
+• Izahluko ze-M4B kunye noluhlu lwadlalwayo lwe-M3U
+• Android Auto, iwijethi kunye nesilinganisi
+• Iilwimi ezili-106
+
+Intsha ukusukela ngo-0.1.0:
+• Ukutsiba kwemizuzwana eli-15 kwisikrini sokutshixa
+• Cofa kabini isigqubuthelo ukuze utsibe imizuzwana eli-15
+• Ukudlala kwakhona kunokuqala xa ii-headphones okanye imoto ziqhagamshelwe

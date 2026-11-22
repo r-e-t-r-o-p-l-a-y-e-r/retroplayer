@@ -1,1 +1,11 @@
-Nayrïr mistuwi F-Droid: biblioteca de carpetas favoritos ukampi barra A–Z ukampi, sapa álbum jan ukax librotakix posición de reproducción ukat velocidad ukanak amtasi, M4B jaljanaka, fila ukat M3U lista de reproducción, Android Auto, widget pantalla de inicio, auriculares ukan amtawinakapa, ecualizador ukat 47 arunaka. App ukax 0.1.0 ukhatpachx janiw mayjt’kiti; kunjams apthapita ukakiw mayjt’ayata, ukhamat F-Droid ukax chiqapar uñjañapataki.
+Nayrïr uñstawi F-Droid:
+• Carpeta biblioteca ukaxa munatanakampiwa
+• Sapa álbum jan ukax audiolibro ukan kawkhans jikxatasi ukat jank’akïtap amtasi
+• M4B jaljanaka ukat M3U ukan listanakapa
+• Android Auto, widget ukat ecualizador ukanakampi
+• 106 arunaka
+
+Machaq 0.1.0 ukhatpacha:
+• 15 segundos ukja salto pantalla bloqueo ukanxa
+• Taparu pä kuti ch’allt’aña 15 segundos saltañataki
+• Kunapachatï auriculares jan ukax autox conectatäki ukhaxa, anatañax qalltaspawa

@@ -1,1 +1,11 @@
-Jalqaba F-Droid irratti gadhiifame: mana kitaabaa galmee jaallatamtootaa fi barruu A–Z qabu, bakka taphachuu fi saffisa tokkoon tokkoon albama ykn kitaaba, boqonnaawwan M4B, tarree fi tarreewwan tapha M3U, Android Auto, wiijetii iskiriinii manaa, filannoowwan headphone, walqixxeessaa fi afaanota 47 yaadata. Amalli appii kanaa erga 0.1.0 as hin jijjiiramne; akkaataan itti qindaa’u qofatu jijjiirame, akka F-Droid mirkaneessuu danda’uuf.
+Jalqaba gaafa F-Droid gadhiifame:
+• Mana kitaabaa galmee jaallatamtoota waliin
+• Tokkoon tokkoon albama ykn kitaaba sagaleedhaaf bakka fi saffisa ni yaadata
+• Boqonnaawwan M4B fi tarreewwan tapha M3U
+• Android Auto, wiijetii fi walqixxeessaa
+• afaanota 106
+
+Erga 0.1.0 as haaraa:
+• Utaalcha sekondii 15 iskiriinii qulfii irratti
+• Sekondii 15 utaaluuf haguuggii dachaa lama tuqi
+• Taphachuun yeroo headphone ykn konkolaataan wal qunnamu jalqabuu danda'a

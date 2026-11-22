@@ -1,1 +1,11 @@
-Primera versión en F-Droid: biblioteca de carpetas con favoritos y barra A–Z, recuerda la posición y la velocidad de reproducción de cada álbum o libro, capítulos M4B, cola y listas de reproducción M3U, Android Auto, widget para la pantalla de inicio, opciones de auriculares, ecualizador y 47 idiomas. Las funciones de la aplicación no han cambiado desde la versión 0.1.0; solo ha cambiado la forma en que se compila, para que F-Droid pueda verificarla.
+Primer lanzamiento en F-Droid:
+• Biblioteca de carpetas con favoritos
+• Guarda la posición y la velocidad de reproducción de cada álbum o audiolibro
+• Capítulos M4B y listas de reproducción M3U
+• Android Auto, widget y ecualizador
+• 106 idiomas
+
+Novedades a partir de la versión 0.1.0:
+• Saltos de 15 segundos en la pantalla de bloqueo
+• Toca dos veces la portada para avanzar 15 segundos
+• La reproducción puede comenzar cuando se conectan los auriculares o el coche

@@ -1,1 +1,11 @@
-Rhyddhad cyntaf ar F-Droid: llyfrgell ffolderi gyda ffefrynnau a bar A–Z, yn cofio'r safle chwarae a'r cyflymder ar gyfer pob albwm neu lyfr, penodau M4B, rhestrau chwarae ciw ac M3U, Android Auto, teclyn sgrin gartref, opsiynau clustffonau, cyfartalwr a 47 iaith. Nid yw nodweddion yr ap wedi newid ers 0.1.0; dim ond y ffordd y mae wedi'i lunio sydd wedi newid, fel y gall F-Droid ei wirio.
+Rhyddhad cyntaf ar F-Droid:
+• Llyfrgell ffolderi gyda ffefrynnau
+• Yn cofio'r safle a'r cyflymder ar gyfer pob albwm neu sain sain
+• Penodau M4B a rhestrau chwarae M3U
+• Android Auto, teclyn a chydraddolwr
+• 106 iaith
+
+Newydd ers 0.1.0:
+• Neidiau 15 eiliad ar y sgrin gloi
+• Tapiwch y clawr ddwywaith i neidio 15 eiliad
+• Gall chwarae ddechrau pan fydd clustffonau neu'r car yn cysylltu

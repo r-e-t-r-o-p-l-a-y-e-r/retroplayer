@@ -1,1 +1,11 @@
-První vydání na F-Droid: knihovna složek s oblíbenými položkami a lištou A–Z, zapamatování pozice a rychlosti přehrávání pro každé album nebo knihu, kapitoly M4B, fronta a seznamy skladeb M3U, Android Auto, widget na domovské obrazovce, nastavení sluchátek, ekvalizér a 47 jazyků. Funkce aplikace se od verze 0.1.0 nezměnily; změnil se pouze způsob kompilace, aby ji F-Droid mohl ověřit.
+První vydání na F-Droid:
+• Knihovna složek s oblíbenými položkami
+• Ukládá si polohu a rychlost přehrávání pro každé album nebo audioknihu
+• Kapitoly M4B a seznamy skladeb M3U
+• Android Auto, widget a ekvalizér
+• 106 jazyků
+
+Novinky od verze 0.1.0:
+• 15sekundové skoky na uzamčené obrazovce
+• Dvojitým klepnutím na obálku přeskočíte o 15 sekund
+• Přehrávání se může spustit, jakmile se připojí sluchátka nebo auto

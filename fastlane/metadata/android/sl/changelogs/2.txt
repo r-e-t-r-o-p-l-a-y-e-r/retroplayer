@@ -1,1 +1,11 @@
-Prva izdaja na F-Droid: knjižnica map z izbranimi in vrstico A–Z, shranjevanje položaja predvajanja in hitrosti za vsak album ali knjigo, poglavja M4B, čakalna vrsta in seznami predvajanja M3U, Android Auto, widget na začetnem zaslonu, nastavitve za slušalke, ekvalizer in 47 jezikov. Funkcije aplikacije so ostale nespremenjene od različice 0.1.0; spremenil se je le način kompiliranja, da jo lahko F-Droid preveri.
+Prva izdaja na F-Droid:
+• Knjižnica map z izbranimi
+• Si zapomni položaj in hitrost predvajanja za vsak album ali zvočno knjigo
+• Poglavja M4B in seznami predvajanja M3U
+• Android Auto, widget in ekvalizer
+• 106 jezikov
+
+Novosti od različice 0.1.0:
+• 15-sekundni preskoki na zaklenjenem zaslonu
+• Dvakrat tapnite na naslovnico, da preskočite 15 sekund
+• Predvajanje se lahko začne, ko se priključijo slušalke ali avtomobil

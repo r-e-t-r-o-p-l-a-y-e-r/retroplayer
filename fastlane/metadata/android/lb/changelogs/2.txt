@@ -1,1 +1,11 @@
-Éischt Verëffentlechung op F-Droid: Ordnerbibliothéik mat Favoritten an enger A-Z-Leescht, späichert d'Wiedergabepositioun a Geschwindegkeet fir all Album oder Buch, M4B-Kapitelen, Warteschlang an M3U-Playlëschten, Android Auto, Widget um Startbildschierm, Kopfhöreroptiounen, Equalizer a 47 Sproochen. D'Funktioune vun der App sinn zënter 0.1.0 onverännert; nëmmen d'Aart a Weis wéi se kompiliéiert gëtt, huet sech geännert, sou datt F-Droid et verifizéiere kann.
+Éischt Verëffentlechung den F-Droid:
+• Dossierbibliothéik mat Favoritten
+• Erënnerung un d'Positioun an d'Geschwindegkeet fir all Album oder Audiobuch
+• M4B Kapitelen an M3U Playlists
+• Android Auto, Widget an Equalizer
+• 106 Sproochen
+
+Nei zënter 0.1.0:
+• 15-Sekonnen-Sprong um Sperrbildschierm
+• Duebeltippt op de Cover fir 15 Sekonnen ze sprangen
+• D'Wiedergabe kann ufänken, wann d'Kopfhörer oder den Auto verbonne sinn

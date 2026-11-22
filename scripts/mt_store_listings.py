@@ -17,6 +17,7 @@ import argparse
 import os
 import re
 import sys
+import time
 import unicodedata
 from pathlib import Path
 
@@ -72,6 +73,26 @@ def restore_names(text: str, names: list[str]) -> str:
     return text
 
 
+def translate_lines(mt, translator, pacer, text: str, names: list[str]) -> str:
+    """Translators merge and split lines; each line goes alone so headings, bullets and blank lines stay."""
+    lines = text.splitlines()
+    bodies = [protect_names(line.removeprefix("• "), names) for line in lines]
+    for attempt in range(10):
+        try:
+            pacer.wait_turn()
+            out = translator.translate_many(bodies)
+            break
+        except Exception as exc:  # noqa: BLE001
+            if attempt == 9 or not (mt.is_rate_limit_error(exc) or "HTTP 503" in str(exc)):
+                raise
+            time.sleep(min(120.0, 2.0**attempt))
+    result = []
+    for line, body in zip(lines, out):
+        body = restore_names(body.strip(), names) if line.strip() else ""
+        result.append(f"• {body}" if line.startswith("• ") else body)
+    return "\n".join(result).strip()
+
+
 def ascii_digit(s: str) -> str:
     return "".join(str(unicodedata.digit(c)) if unicodedata.digit(c, None) is not None else c for c in s)
 
@@ -84,6 +105,10 @@ def check_lengths() -> list[str]:
         for name in ["short_description.txt", "full_description.txt", *logs]:
             source, path = ENGLISH / name, folder / name
             if path.is_file():
+                bullets = [line.startswith("•") for line in source.read_text(encoding="utf-8").strip().splitlines()]
+                got_bullets = [line.startswith("•") for line in path.read_text(encoding="utf-8").strip().splitlines()]
+                if got_bullets != bullets:
+                    problems.append(f"{folder.name}/{name}: lines or bullets differ from English")
                 for product in (title, *PRODUCT_NAMES):
                     want = source.read_text(encoding="utf-8").count(product)
                     got = path.read_text(encoding="utf-8").count(product)
@@ -168,9 +193,7 @@ def main() -> int:
                 text = source[field]
                 if not text:
                     continue
-                names = [title, *PRODUCT_NAMES]
-                translated = mt.translate_with_retry(translator, protect_names(text, names), pacer)
-                translated = restore_names(translated, names).strip()
+                translated = translate_lines(mt, translator, pacer, text, [title, *PRODUCT_NAMES])
                 if field == "changelog":
                     out = dest / "changelogs" / log.name
                     out.parent.mkdir(exist_ok=True)

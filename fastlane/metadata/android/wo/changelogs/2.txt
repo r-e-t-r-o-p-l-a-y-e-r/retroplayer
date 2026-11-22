@@ -1,1 +1,11 @@
-Li ñu njëkka génne ci F-Droid: bibliothèque dossier ak favoris ak bar A–Z, dafay fàttaliku barab bi ñuy jouer ak gaawaayu albom wala téere bu nekk, chapitre M4B, rang ak limu jouer M3U, Android Auto, widget ekraŋu dalal, tànneefi écouteur, equaliser ak 47. Man-mani app bi soppikuwul liko dalee 0.1.0; anam wi ñu ko dajalee kese lañu soppi, suko defee F-Droid mëna ko firnde.
+Li ñu njëkka génne ci F-Droid:
+• Bibliothèque de dossier avec les favorites
+• Dafay fàttaliku barab bi ak gaawaayu albom bu nekk wala téere déglu bu nekk
+• Chapitre M4B ak limu lees M3U
+• Android Auto, widget ak égaliseur
+• 106 làkk
+
+Bees ci 0.1.0:
+• 15-segond di tëb ci ekraŋu tëjug
+• Bësal ñaari yoon ci muur bi ngir tëb 15 seconde
+• Leeral bi mën na tàmbali su kaski yi wala oto bi boolee

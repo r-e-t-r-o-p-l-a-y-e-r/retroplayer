@@ -1,1 +1,11 @@
-Ilkinji reliz F-Droid-de: halaýanlary we A–Z setiri bolan papka kitaphanasy, her albom ýa-da kitap üçin oýnatma ornuny we tizligini, M4B baplaryny, nobaty we M3U oýnatma sanawlaryny, Android Auto-ni, baş ekran widgetini, nauşnik opsiýalaryny, ekwalaýzeri we 47 dili ýatda saklaýar. Programmanyň aýratynlyklary 0.1.0-dan bäri üýtgewsiz; diňe kompilaýasiýa usuly üýtgedi, şonuň üçin F-Droid ony barlap biler.
+Ilkinji neşir F-Droid-de:
+• Halanlary bolan papka kitaphanasy
+• Her albomyň ýa-da audiokitapyň ornuny we tizligini ýatda saklaýar
+• M4B baplary we M3U pleýlistleri
+• Android Auto, widget we ekwalaýzer
+• 106 dil
+
+0.1.0-dan bäri täze:
+• Gulp ekranynda 15 sekuntlyk böküşler
+• 15 sekunt bökmek üçin gapagy iki gezek basyň
+• Nauşnikler ýa-da awtoulag birikdirilende oýnatmagy başlap bolýar

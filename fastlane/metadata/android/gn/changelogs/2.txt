@@ -1,1 +1,11 @@
-Peteĩha ñeguenohẽ F-Droid-pe: biblioteca carpeta rehegua oguerekóva favorito ha barra A–Z, imanduꞌa ñembopu ñemohenda ha pyaꞌe rehe peteĩteĩva álbum térã aranduka rehegua, M4B capítulo, fila ha M3U lista de reproducción, Android Auto, widget pantalla inicio rehegua, auricular opción, ecualizador ha 47 ñeꞌe. Ko app mba’ekuaarã noñemoambuéi 0.1.0 guive; oñemoambue mbaꞌeichaitépa oñembosakoꞌi, ikatu hag̃uáicha F-Droid omoañete.
+Peteĩha osẽva F-Droid-pe:
+• Carpeta biblioteca orekóva favorito
+• Imandu’a posición ha velocidad rehe peteĩteĩva álbum térã audiolibro-pe g̃uarã
+• M4B capítulo ha M3U lista de reproducción
+• Android Auto, widget ha ecualizador
+• 106 ñe’ẽ
+
+Ipyahúva 0.1.0 guive:
+• 15 segundos ojesalta pantalla de bloqueo-pe
+• Epoko mokõi jey pe tapa rehe rejupívo 15 segundo
+• Ikatu oñepyrũ oñembopu oñembojoaju jave umi auricular térã auto

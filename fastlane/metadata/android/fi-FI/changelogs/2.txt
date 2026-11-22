@@ -1,1 +1,11 @@
-Ensimmäinen julkaisu versiossa F-Droid: kansiokirjasto, jossa on suosikit ja A–Z-palkki, tallentaa kunkin albumin tai kirjan toistokohdan ja -nopeuden, M4B-luvut, jonon ja M3U-soittolistat, Android Auto, aloitusnäytön widget, kuulokeasetukset, taajuuskorjain ja 47 kieltä. Sovelluksen ominaisuudet ovat pysyneet muuttumattomina versiosta 0.1.0 lähtien; ainoastaan sen kääntamistapa on muuttunut, jotta F-Droid voi tarkistaa sen.
+Ensimmäinen julkaisu F-Droid:
+• Kansiokirjasto ja suosikit
+• Tallentaa kunkin albumin tai äänikirjan toistokohdan ja toistonopeuden
+• M4B-jaksot ja M3U-soittolistat
+• Android Auto, widget ja taajuuskorjain
+• 106 kieltä
+
+Uutta versiosta 0.1.0 lähtien:
+• 15 sekunnin hyppyjä lukitusnäytöllä
+• Napauta kansikuvaa kahdesti siirtyäksesi 15 sekuntia eteenpäin
+• Toisto voi alkaa, kun kuulokkeet tai auto muodostavat yhteyden

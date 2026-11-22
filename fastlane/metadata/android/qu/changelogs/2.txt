@@ -1,1 +1,11 @@
-Ñawpaq lluqsichiy F-Droid kaqpi: carpeta biblioteca munasqakunawan chaymanta A–Z barra kaqwan, sapa álbum utaq libropaq pukllay posición chaymanta utqaylla, M4B capitulokuna, fila chaymanta M3U takiy listakuna, Android Auto, pantalla wasi widget, auricular akllanakuna, ecualizador chaymanta 47 simikuna yuyarin. Apppa ruwayninkuna mana tikrasqachu 0.1.0 kaqmanta; imayna huñusqa kasqanllam tikrasqa, chaynapi F-Droid chayta chiqapchananpaq.
+Ñawpaq kuti lluqsichisqa F-Droid p'unchawpi:
+• Munasqakunawan carpeta biblioteca
+• Yuyarin sapa álbum utaq audiolibropaq maypi kasqanmanta hinaspa utqaylla purisqanmanta
+• M4B capitulokuna hinaspa M3U takiy listakuna
+• Android Auto, widget y ecualizador nisqa
+• 106 simikuna
+
+Musuq 0.1.0 watamanta pacha:
+• 15 segundos saltakuna pantalla wichq’anapi
+• Iskay kutita tapata ñit’iy 15 segundota saltanaykipaq
+• Pukllayqa qallarinmanmi auricularkuna otaq carrokuna tinkinku

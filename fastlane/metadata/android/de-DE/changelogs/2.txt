@@ -1,1 +1,11 @@
-Erste Veröffentlichung auf F-Droid: Ordnerbibliothek mit Favoriten und A–Z-Leiste, merkt sich Wiedergabeposition und Geschwindigkeit für jedes Album und Buch, M4B-Kapitel, Warteschlange und M3U-Wiedergabelisten, Android Auto, Startbildschirm-Widget, Kopfhöreroptionen, Equalizer und 47 Sprachen. Die Funktionen der App sind seit Version 0.1.0 unverändert; lediglich die Art und Weise, wie sie kompiliert wird, hat sich geändert, damit F-Droid sie überprüfen kann.
+Erste Veröffentlichung auf F-Droid:
+• Ordnerbibliothek mit Favoriten
+• Merkt sich Position und Geschwindigkeit für jedes Album und Hörbuch
+• M4B-Kapitel und M3U-Wiedergabelisten
+• Android Auto, Widget und Equalizer
+• 106 Sprachen
+
+Neu seit 0.1.0:
+• 15-Sekunden-Sprünge auf dem Sperrbildschirm
+• Doppeltippen aufs Cover springt 15 Sekunden
+• Die Wiedergabe kann starten, sobald Kopfhörer oder das Auto verbunden werden

@@ -1,1 +1,11 @@
-Første utgivelse på F-Droid: mappebibliotek med favoritter og A–Z-linje, lagrer avspillingsposisjon og hastighet for hvert album eller hver bok, M4B-kapitler, kø og M3U-spillelister, Android Auto, widget på startskjermen, hodetelefoninnstillinger, equalizer og 47 språk. Appens funksjoner er uendret siden versjon 0.1.0; det er kun måten den kompileres på som er endret, slik at F-Droid kan verifisere den.
+Første utgivelse på F-Droid:
+• Mappebibliotek med favoritter
+• Lagrer posisjon og avspillingshastighet for hvert album eller hver lydbok
+• M4B-kapitler og M3U-spillelister
+• Android Auto, widget og equalizer
+• 106 språk
+
+Nytt siden versjon 0.1.0:
+• 15-sekunders hopp på låseskjermen
+• Dobbelttrykk på omslaget for å hoppe 15 sekunder frem
+• Avspillingen kan starte når hodetelefonene eller bilen kobles til

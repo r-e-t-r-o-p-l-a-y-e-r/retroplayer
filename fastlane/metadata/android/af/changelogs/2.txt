@@ -1,1 +1,11 @@
-Eerste vrystelling op F-Droid: vouerbiblioteek met gunstelinge en A-Z-balk, onthou die terugspeelposisie en -spoed vir elke album of boek, M4B-hoofstukke, tou- en M3U-snitlyste, Android Auto, tuisskerm-widget, koptelefoonopsies, gelykmaker en 47 tale. Die toepassing se kenmerke is onveranderd sedert 0.1.0; slegs die manier waarop dit saamgestel is, het verander, sodat F-Droid dit kan verifieer.
+Eerste vrystelling op F-Droid:
+• Lêerbiblioteek met gunstelinge
+• Onthou die posisie en spoed vir elke album of oudioboek
+• M4B-hoofstukke en M3U-snitlyste
+• Android Auto, widget en gelykmaker
+• 106 tale
+
+Nuut sedert 0.1.0:
+• 15-sekonde spronge op die sluitskerm
+• Dubbeltik op die omslag om 15 sekondes te spring
+• Terugspeel kan begin wanneer oorfone of die motor koppel

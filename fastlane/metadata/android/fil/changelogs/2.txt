@@ -1,1 +1,11 @@
-Unang paglabas sa F-Droid: library ng folder na may mga paborito at A–Z bar, tinatandaan ang posisyon at bilis ng pag-playback para sa bawat album o libro, mga kabanata ng M4B, pila at mga playlist ng M3U, Android Auto, widget sa home screen, mga opsyon sa headphone, equalizer at 47 na wika. Hindi nagbago ang mga feature ng app simula noong 0.1.0; tanging ang paraan ng pag-compile nito ang nagbago, para mapatunayan ito ng F-Droid.
+Unang paglabas sa F-Droid:
+• Library ng folder na may mga paborito
+• Naaalala ang posisyon at bilis para sa bawat album o audiobook
+• Mga kabanata ng M4B at mga playlist ng M3U
+• Android Auto, widget at equalizer
+• 106 na wika
+
+Bago simula noong 0.1.0:
+• 15 segundong pagtalon sa lock screen
+• I-double tap ang takip para tumalon nang 15 segundo
+• Maaaring magsimula ang playback kapag nakakonekta ang headphones o ang kotse

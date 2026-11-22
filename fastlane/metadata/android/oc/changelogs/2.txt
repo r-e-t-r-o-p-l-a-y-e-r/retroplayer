@@ -1,1 +1,11 @@
-Primièra version sus F-Droid: bibliotèca de dorsièrs amb los favorits e la barra A–Z, se soven de la posicion e de la velocitat de lectura per cada album o libre, los capítols M4B, las listas de lectura de còla e M3U, Android Auto, widget d'ecran d'inici, opcions d'auriòlas, egalizator e 47 lengas. Las foncionalitats de l'aplicacion son pas cambiadas dempuèi 0.1.0; solament lo biais d'èsser compilat cambiat, per que F-Droid lo pòsca verificar.
+Primièra sortida lo F-Droid:
+• Bibliotèca de dorsièrs amb los favorits
+• Remembra la posicion e la velocitat per cada album o libre àudio
+• Capítols M4B e listas de reproduccion M3U
+• Android Auto, widget e egalizator
+• 106 lengas
+
+Novèl dempuèi 0.1.0 :
+• Sauts de 15 segondas sus l'ecran de verrolhatge
+• Picatz dos còps sus la cobèrta per sautar 15 segondas
+• La lectura pòt començar quand los auriòls o la veitura se connectan

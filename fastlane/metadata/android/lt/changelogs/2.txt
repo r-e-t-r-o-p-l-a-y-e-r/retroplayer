@@ -1,1 +1,11 @@
-Pirmoji versija F-Droid: aplankų biblioteka su mėgstamais ir A–Z juosta, kiekvieno albumo ar knygos atkūrimo pozicijos ir greičio įsimenimas, M4B skyriai, eilė ir M3U grojaraščiai, Android Auto, pagrindinio ekrano valdiklis, ausinių nustatymai, ekvalaizeris ir 47 kalbos. Programėlės funkcijos nuo versijos 0.1.0 nepakito; pasikeitė tik jos kompiliavimo būdas, kad F-Droid galėtų ją patikrinti.
+Pirmasis leidimas serijoje „F-Droid“:
+• Aplankų biblioteka su mėgstamaisiais
+• Įsimena kiekvieno albumo ar audioknygos poziciją ir greitį
+• M4B skyriai ir M3U grojaraščiai
+• Android Auto, valdiklis ir ekvalaizeris
+• 106 kalbos
+
+Nauja nuo versijos 0.1.0:
+• 15 sekundžių trukmės perėjimai užrakintame ekrane
+• Du kartus bakstelėkite viršelį, kad peršoktumėte 15 sekundžių į priekį
+• Atkūrimas gali prasidėti, kai prijungiamos ausinės arba automobilis

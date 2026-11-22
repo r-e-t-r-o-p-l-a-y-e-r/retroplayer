@@ -1,1 +1,11 @@
-İlk buraxılış F-Droid tarixində: sevimlilər və A–Z çubuğu olan qovluq kitabxanası, hər albom və ya kitab üçün oxutma mövqeyini və sürətini, M4B fəsillərini, növbə və M3U pleylistlərini, Android Auto-ni, ana ekran vidjetini, qulaqlıq seçimlərini, ekvalayzeri və 47 dili xatırlayır. Tətbiqin xüsusiyyətləri 0.1.0 versiyasından bəri dəyişməzdir; yalnız kompilyasiya üsulu dəyişdi ki, F-Droid onu yoxlaya bilsin.
+İlk buraxılış F-Droid tarixində:
+• Sevimlilər olan qovluq kitabxanası
+• Hər albom və ya audiokitabın mövqeyini və sürətini xatırlayır
+• M4B fəsilləri və M3U pleylistləri
+• Android Auto, vidjet və ekvalayzer
+• 106 dil
+
+0.1.0-dan bəri yeni:
+• Kilid ekranında 15 saniyəlik sıçrayışlar
+• 15 saniyə keçmək üçün qapağa iki dəfə vurun
+• Qulaqlıqlar və ya avtomobil qoşulduqda oxutma başlaya bilər

@@ -1,1 +1,11 @@
-Tokollo ea pele ho F-Droid: laeborari ea lifoldara e nang le lintho tseo u li ratang le bareng ea A–Z, e hopola boemo ba ho bapala le lebelo la alebamo kapa buka ka 'ngoe, likhaolo tsa M4B, lethathamo la lipina tsa M3U, Android Auto, widget ea skrine sa lapeng, likhetho tsa li-headphone, equalizer le lipuo tse 47. Likarolo tsa sesebelisoa ha lia fetoha ho tloha ka 0.1.0; ke tsela feela eo se hlophisitsoeng ka eona e fetotsoeng, e le hore F-Droid e ka e netefatsa.
+Tokollo ea pele ho F-Droid:
+• Laeborari ea lifoldara tse nang le tseo u li ratang
+• E hopola boemo le lebelo la alebamo kapa buka e 'ngoe le e 'ngoe ea molumo
+• Likhaolo tsa M4B le manane a M3U
+• Android Auto, widget le equator
+• Lipuo tse 106
+
+E ncha ho tloha ka 0.1.0:
+• Ho tlola ka metsotsoana e 15 skrineng se notleloang
+• Tobetsa sekoahelo habeli ho tlola metsotsoana e 15
+• Papali e ka qala ha li-headphone kapa koloi li hokahane

@@ -1,1 +1,11 @@
-Eerste release op F-Droid: mapbibliotheek met favorieten en A–Z-balk, onthoudt de afspeelpositie en -snelheid voor elk album of boek, M4B-hoofdstukken, wachtrij en M3U-afspeellijsten, Android Auto, widget voor het startscherm, hoofdtelefoonopties, equalizer en 47 talen. De functies van de app zijn ongewijzigd sinds versie 0.1.0; alleen de manier waarop deze wordt gecompileerd is veranderd, zodat F-Droid deze kan verifiëren.
+Eerste uitgave op F-Droid:
+• Mappenbibliotheek met favorieten
+• Onthoudt de afspeelpositie en afspeelsnelheid voor elk album of audioboek
+• M4B-hoofdstukken en M3U-afspeellijsten
+• Android Auto, widget en equalizer
+• 106 talen
+
+Nieuw sinds versie 0.1.0:
+• Sprongen van 15 seconden op het vergrendelingsscherm
+• Tik twee keer op de omslag om 15 seconden vooruit te spoelen
+• Het afspelen kan beginnen zodra de koptelefoon of de auto verbinding maakt

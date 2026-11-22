@@ -1,29 +1,29 @@
 Retro Player ukax teléfono ukat audiolibronak chiqak teléfono ukan carpetas ukanakat phust’i. Ukax jan internetan irnaqaski, janiw anuncios ukax utjkiti ukatx janiw cuenta ukax munaskiti.
 
 ¿Kunatsa Retro Player?
-• Kawkhantï jaytawaykta uka chiqanwa sarantaskakïna: sapa álbum, audiolibro ukat lista de reproducción ukanakax posición ukat jank’akïñapatakiw utji, wasitat qalltañat qhipatsa.
-• Janiw biblioteca escaneo: janiw índice lurañatakix utjkiti ukat janiw kunas suyt’añatakis utjkiti. Mä carpeta yapxatañamawa ukatxa ist’añ qalltañamawa; app ukax mä carpeta jist’arat ukhakiw uñakipi.
-• Archivonakax jan llamkt’ataw qhiparapxi: app ukax carpetas ukanakak uñji ukat janipuniw kuns mayjt’aykiti, kuynt’aykiti jan ukax chhaqtaykiti. Uka qillqatanakax qillqt’atawa, ukax lista de reproducción ukanakaw imatäski.
-• Juman arumat arsu: 100 jila arunaka, árabe, hindi ukat suajili arut qalltasa, indonesia, vietnamita ukat zulu arukama.
+• Kawkhantix jaytawaykta ukx chiqpachapuniw sarantaski: sapa álbum, audiolibro ukat lista de reproducción ukax posición ukat jank’akïñapawa, wasitat qalltañ tukuyatatpacha.
+• Janiw biblioteca escaneo: janiw índice lurañatakis utjkiti ukat janiw kunas suyt’añatakis utjkiti. Mä carpeta yapxatañamawa ukatxa ist’añ qalltañamawa; app ukax mä carpeta jist’arat ukhakiw uñakipi.
+• Archivonakamax jan llamkt’ataw qhiparapxi: app ukax carpetas ukanakak uñji ukat janipuniw kuns mayjt’aykiti, mayjt’aykiti jan ukax chhaqtaykiti. Uka qillqatanakax qillqt’atawa, ukax lista de reproducción ukanakaw imatäski.
+• Juman arumat arsu: 100 jila arunaka, árabe, hindi ukat suajili arunakat indonesia, vietnamita ukat zulu arukama.
 
 Audiolibronakataki ukat álbumanakatakiw lurata
-• Anatañ jank’a 0,5× 2,0×, sapa yäru imañataki; 15 segundos ukja saltos
-• M4B ukatxa M4A jaljanaka thaqhaña barra tuqina, mä jalja lista tuqina ukhamaraki yatiyawi tuqina
-• Mä qawqha segundonaka qhipäxaru kutt’ayaña kunapachatixa juk’ampi samart’aña tukuyatatxa sarantaskakiwa
+• Anatañ velocidad 0,5× ukat 2,0×, sapa yän qhispiyata; 15 segundos ukja salto
+• M4B ukat M4A jaljanakax barra de búsqueda ukankiwa, mä jaljan listapan ukhamarak yatiyawinxa
+• Mä qawqha segundonak qhipäxar kutt’ayaña kunawsatix juk’amp jaya samart’añ tukuyatat sarantaskakïn ukhaxa
 • Jani ch’amampi anatt’aña; walja disco álbumanakax disco ordenanwa phust’asi
 
 Uka carpetanaka, jumanakan ordenapa
-• Mä archivo apnaqirirjama uñakipaña, t’ant’a ch’uqimpi, munatanakampi ukhamaraki mä barra A–Z ukampi
-• Carpetas, álbumes jan ukax pistas ukanakax fila ukar yapxatañatakix swipe ukampiw M3U ukan lista de reproducción ukarjam imaña
-• Nayraqata utjki uka lista de reproducción ukanaka anataña
-• Sapa álbum ukarux pista jakhuparjama, archivo sutiparjama jan ukax título ukarjam uñakipt’añamawa
+• Mä archivo apnaqirirjama uñakipt’aña, t’ant’a ch’uqimpi, munatanakampi ukhamaraki mä barra A–Z ukampi
+• Carpetas, álbumes jan ukax pistas ukanakax fila ukar yapxatañatakix swipe ukampiw M3U ukan lista de reproducción ukarjam imañama
+• Uka lista de reproducción ukanakax nayratpach utjki ukanak anatañapawa
+• Sapa álbum ukax pista jakhuparjama, archivo sutiparjama jan ukax sutiparjam uñakipt’añamawa
 
 Kawkhantï istʼapkta uka cheqanjja
-• Controles ukaxa yatiyawinxa, pantalla de bloqueo ukanxa (15 segundos saltos ukanakampi) ukhamaraki Bluetooth jan ukaxa auto botones ukanakampi
-• Android Auto: biblioteca, favoritos ukat auto ukan fila uñakipt’aña
-• Pantalla qalltawi widget
-• Opcionalmente qalltaña anataña kunjamatixa auriculares jan ukaxa auto ukaxa conectatäki ukhama
-• Ecualizador ukaxa presets ukanakampi, qhana ukhamaraki ch’amaka tema ukanakampi
+• Controles ukax notificación ukankiwa, pantalla de bloqueo ukan (15 segundos saltos ukanakampi) ukat Bluetooth jan ukax auton botones ukanakan
+• Android Auto: biblioteca, favoritos ukat auton fila uñakipt’aña
+• Pantalla utar uñtat widget
+• Opcionalmente qalltañaw anatañ kunjamatix auriculares jan ukax autom conectatäki ukhama
+• Ecualizador ukax presets, qhana ukat ch’amaka tema
 
 Formatos: FLAC, M4A, M4B (AAC jan cifrado), MP3, OGG, Opus ukat WAV.
 

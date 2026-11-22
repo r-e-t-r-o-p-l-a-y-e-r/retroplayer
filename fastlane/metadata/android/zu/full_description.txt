@@ -1,35 +1,33 @@
-I-Retro Player idlala umculo nama-audiobook ngqo kusuka kumafolda efonini yakho. Isebenza ungaxhunyiwe ku-inthanethi, ayinazikhangiso futhi ayidingi i-akhawunti.
+Retro Player idlala umculo nezincwadi ezilalelwayo ngqo kusuka kumafolda efonini yakho. Isebenza ungaxhunyiwe ku-inthanethi, ayinazikhangiso futhi ayidingi i-akhawunti.
 
-Kungani i-Retro Player?
-• Iqhubeka lapho ugcine khona: yonke i-albhamu, i-audiobook kanye nohlu lwadlalwayo lugcina indawo yalo kanye nesivinini, ngisho nangemva kokuqala kabusha.
+Kungani Retro Player?
+• Iqhubeka lapho ushiye khona: yonke i-albhamu, i-audiobook kanye nohlu lwadlalwayo lugcina indawo yalo kanye nesivinini, ngisho nangemva kokuqala kabusha.
+• Akukho ukuskena komtapo wolwazi: akukho nkomba okufanele yakhiwe futhi akukho okumele kulindelwe. Engeza ifolda bese uqala ukulalela; uhlelo lokusebenza lufunda ifolda kuphela uma ulivula.
+• Amafayela akho ahlala engathintekile: uhlelo lokusebenza lubona amafolda owakhethayo kuphela futhi alushintshi, alususi noma lususe noma yini. Amafayela oluwabhalayo kuphela uhlu lwadlalwayo olulondolozayo.
+• Ukhuluma ulimi lwakho: izilimi ezingaphezu kwe-100, kusukela ku-Arabhu, isiHindi nesiSwahili kuya ku-Indonesian, isiVietnamese nesiZulu.
 
-• Akukho ukuskena komtapo wolwazi: akukho index yokwakha futhi akukho okumele ulinde. Engeza ifolda bese uqala ukulalela; uhlelo lokusebenza lufunda ifolda kuphela uma ulivula.
-
-• Amafayela akho ahlala engathintekile: uhlelo lokusebenza lubona amafolda owakhethayo kuphela futhi alushintshi, luhambisa noma lususe noma yini. Amafayela kuphela eliwabhalayo uhlu lwadlalwayo olugcinayo.
-• Ikhuluma ulimi lwakho: izilimi ezingaphezu kwe-100, kusukela ku-Arabhu, isiHindi nesiSwahili kuya ku-Indonesian, isiVietnam nesiZulu.
-
-Yenzelwe ama-audiobook nama-albhamu
-• Isivinini sokudlala kusukela ku-0.5× kuya ku-2.0×, silondolozwe ngento ngayinye; Ukugxuma kwemizuzwana eyi-15
-• Izahluko ze-M4B kanye ne-M4A kubha yokufuna, ohlwini lwezahluko kanye nesaziso
-• Ibuyela emuva imizuzwana embalwa uma uqhubeka ngemuva kwekhefu elide
-• Ukudlala okungenazikhala; ama-albhamu ama-multi-disc adlala ngokulandelana kwediski
+Kwenzelwe ama-audiobook nama-albhamu
+• Isivinini sokudlala kusukela ku-0.5× kuya ku-2.0×, silondolozwe ngento ngayinye; ukugxuma kwemizuzwana eyi-15
+• Izahluko ze-M4B kanye ne-M4A kubha yokufuna, ohlwini lwezahluko kanye nasesazisweni
+• Ibuyela emuva imizuzwana embalwa uma uqhubeka ngemva kwekhefu elide
+• Ukudlala okungenazikhala; ama-albhamu anama-disc amaningi adlala ngokulandelana kwama-disc
 
 Amafolda akho, i-oda lakho
 • Phequlula njengomphathi wefayela, ngezinkwa zesinkwa, izintandokazi kanye nebha ye-A–Z
-• Swayipha ukuze ungeze amafolda, ama-albhamu noma amathrekhi kulayini bese uwugcina njengohlu lokudlala lwe-M3U
-• Idlala uhlu lokudlalayo osuvele unalo
+• Swayipha ukuze ungeze amafolda, ama-albhamu noma amathrekhi kulayini bese uwugcina njengohlu lwadlalwayo lwe-M3U
+• Idlala uhlu lwadlalwayo osuvele unalo
 • Hlela i-albhamu ngayinye ngenombolo yethrekhi, igama lefayela noma isihloko
 
-Noma yikuphi lapho ulalela khona
-• Ilawula isaziso, esikrinini sokukhiya (ngokugxuma kwemizuzwana eyi-15) kanye nezinkinobho ze-Bluetooth noma zemoto
-• I-Android Auto: phequlula umtapo wakho wezincwadi, izintandokazi kanye nomugqa emotweni
+Nomaphi lapho ulalela khona
+• Izilawuli kwisaziso, esikrinini sokukhiya (ngokugxuma kwemizuzwana eyi-15) kanye nezinkinobho ze-Bluetooth noma zemoto
+• Android Auto: phequlula ilabhulali yakho, izintandokazi kanye nomugqa emotweni
 • Iwijethi yesikrini sasekhaya
-• Iqala ukudlala ngokuzithandela ngokushesha nje lapho ama-headphone noma imoto yakho ixhuma
-• Isilinganisi esinama-preset, itimu ekhanyayo nemnyama
+• Uma uthanda, uqala ukudlala ngokushesha nje lapho ama-headphone noma imoto yakho ixhuma
+• Isilinganisi esinamasethingi ahleliwe, itimu ekhanyayo nemnyama
 
 Amafomethi: I-FLAC, i-M4A, i-M4B (i-AAC engabethelwe), i-MP3, i-OGG, i-Opus kanye ne-WAV.
 
-Iyimfihlo ngomklamo
-I-Retro Player ayinayo imvume ye-inthanethi, ngakho-ke akukho lutho oluphuma efonini yakho: akukho zikhangiso, ukuhlaziya, ukulandelela noma ama-akhawunti. Ayidingi imvume yokugcina futhi.
+Kuyimfihlo ngomklamo
+I-Retro Player ayinayo imvume ye-inthanethi, ngakho akukho lutho oluphuma efonini yakho: akukho zikhangiso, ukuhlaziya, ukulandelela noma ama-akhawunti. Ayidingi imvume yokugcina futhi.
 
 Isofthiwe yamahhala nevulekile (GPL-3.0-noma-kamuva). Umhlahlandlela womsebenzisi kanye nekhodi yomthombo: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

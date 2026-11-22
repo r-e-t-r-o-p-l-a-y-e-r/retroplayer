@@ -1,1 +1,11 @@
-Première version sur F-Droid : bibliothèque de dossiers avec favoris et barre de navigation A-Z, mémorisation de la position et de la vitesse de lecture pour chaque album ou livre, chapitres M4B, file d'attente et listes de lecture M3U, Android Auto, widget pour l'écran d'accueil, options pour les écouteurs, égaliseur et 47 langues. Les fonctionnalités de l'application sont inchangées depuis la version 0.1.0 ; seule la méthode de compilation a été modifiée, afin que F-Droid puisse la vérifier.
+Première sortie sur F-Droid :
+• Bibliothèque de dossiers avec favoris
+• Mémorise la position et la vitesse de lecture pour chaque album ou livre audio
+• Chapitres M4B et listes de lecture M3U
+• Android Auto, widget et égaliseur
+• 106 langues
+
+Nouveautés depuis la version 0.1.0 :
+• Sauts de 15 secondes sur l'écran de verrouillage
+• Appuyez deux fois sur la couverture pour avancer de 15 secondes
+• La lecture peut démarrer dès que le casque ou la voiture est connecté(e)

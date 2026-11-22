@@ -1,1 +1,11 @@
-Ukukhishwa kokuqala ku-F-Droid: umtapo wefolda onezintandokazi kanye nebha ye-A–Z, ukhumbula indawo yokudlala kanye nesivinini se-albhamu noma incwadi ngayinye, izahluko ze-M4B, umugqa kanye nohlu lwadlalwayo lwe-M3U, i-Android Auto, iwijethi yesikrini sasekhaya, izinketho zamahedfoni, isilinganisi kanye nezilimi ezingu-47. Izici zohlelo lokusebenza azikashintshi kusukela ku-0.1.0; indlela ehlanganiswe ngayo kuphela eshintshile, ukuze i-F-Droid ikwazi ukuyiqinisekisa.
+Ukukhishwa kokuqala ku-F-Droid:
+• Ilabhulali yamafolda enezintandokazi
+• Ikhumbula isikhundla kanye nesivinini se-albhamu ngayinye noma incwadi yomsindo
+• Izahluko ze-M4B kanye nohlu lwadlalwayo lwe-M3U
+• Android Auto, iwijethi kanye nesilinganisi
+• Izilimi ezingu-106
+
+Kusha kusukela ngo-0.1.0:
+• Ukugxuma kwemizuzwana eyi-15 esikrinini sokukhiya
+• Thepha kabili isembozo ukuze ugxume imizuzwana eyi-15
+• Ukudlala kungaqala uma ama-headphone noma imoto kuxhuma

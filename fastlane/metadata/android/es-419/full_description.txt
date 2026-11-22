@@ -1,37 +1,33 @@
 Retro Player reproduce música y audiolibros directamente desde las carpetas de tu teléfono. Funciona sin conexión, no tiene anuncios y no requiere cuenta.
 
 ¿Por qué Retro Player?
-
 • Continúa exactamente donde lo dejaste: cada álbum, audiolibro y lista de reproducción conserva su posición y velocidad, incluso después de reiniciar.
-
-• Sin escaneo de biblioteca: no hay que crear un índice ni esperar. Agrega una carpeta y empieza a escuchar; la aplicación solo lee una carpeta cuando la abres.
-
-• Tus archivos permanecen intactos: la aplicación solo ve las carpetas que seleccionas y nunca modifica, mueve ni elimina nada. Los únicos archivos que escribe son las listas de reproducción que guardas.
-
+• Sin escaneo de biblioteca: no hay índice que crear ni nada que esperar. Añade una carpeta y empieza a escuchar; la aplicación solo lee una carpeta cuando la abres.
+• Tus archivos permanecen intactos: la aplicación solo ve las carpetas que seleccionas y nunca modifica, mueve ni elimina nada. Los únicos archivos que crea son las listas de reproducción que guardas.
 • Habla tu idioma: más de 100 idiomas, desde árabe, hindi y suajili hasta indonesio, vietnamita y zulú.
 
-Diseñado para audiolibros y álbumes
-• Velocidad de reproducción de 0.5× a 2.0×, guardada por elemento; Saltos de 15 segundos
-• Capítulos M4B y M4A en la barra de búsqueda, en la lista de capítulos y en la notificación
-• Retrocede unos segundos al reanudar la reproducción tras una pausa prolongada
-• Reproducción sin interrupciones; Álbumes multidisco se reproducen en orden de disco
+Diseñado para audiolibros y álbumes.
+• Velocidad de reproducción de 0,5× a 2,0×, guardada por elemento; saltos de 15 segundos.
+• Los capítulos M4B y M4A aparecen en la barra de búsqueda, en una lista de capítulos y en la notificación.
+• Retrocede unos segundos cuando continúas después de una pausa más larga.
+• Reproducción sin interrupciones; los álbumes de varios discos se reproducen en el orden en que se reproducen.
 
-Tus carpetas, tu orden
-• Navega como un administrador de archivos, con ruta de navegación, favoritos y una barra alfabética
-• Desliza para añadir carpetas, álbumes o pistas a la cola y guárdala como una lista de reproducción M3U
+Sus carpetas, su pedido
+• Navega como un gestor de archivos, con migas de pan, favoritos y una barra de la A a la Z.
+• Desliza para añadir carpetas, álbumes o pistas a la cola y guárdala como una lista de reproducción M3U.
 • Reproduce las listas de reproducción que ya tienes
-• Ordena cada álbum por número de pista, nombre de archivo o título
+• Ordena cada álbum por número de pista, nombre de archivo o título.
 
-Escucha donde quieras
-• Controles en la notificación, en la pantalla de bloqueo (con saltos de 15 segundos) y en los botones de Bluetooth o del coche
-• Android Auto: explora tu biblioteca, favoritos y cola en el coche
-• Widget en la pantalla de inicio
-• Opcionalmente, comienza a reproducir en cuanto conectas los auriculares o el coche
+Dondequiera que escuches
+• Controles en la notificación, en la pantalla de bloqueo (con saltos de 15 segundos) y en los botones de Bluetooth o del coche.
+• Android Auto: explore su biblioteca, favoritos y cola en el coche
+• Widget de la pantalla de inicio
+• Opcionalmente, comienza a reproducirse tan pronto como se conectan los auriculares o el coche.
 • Ecualizador con preajustes, tema claro y oscuro
 
 Formatos: FLAC, M4A, M4B (AAC sin cifrar), MP3, OGG, Opus y WAV.
 
-Diseñado para la privacidad
-Retro Player no tiene permisos de internet, por lo que nada sale de tu teléfono: sin anuncios, análisis, seguimiento ni cuentas. Tampoco requiere permisos de almacenamiento.
+Diseño privado
+Retro Player no tiene permisos de Internet, por lo que nada sale de tu teléfono: ni anuncios, ni análisis, ni seguimiento, ni cuentas. Tampoco necesita permisos de almacenamiento.
 
-Software libre y de código abierto (GPL 3.0 o posterior). Guía de usuario y código fuente: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer
+Software libre y de código abierto (GPL-3.0 o posterior). Guía del usuario y código fuente: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

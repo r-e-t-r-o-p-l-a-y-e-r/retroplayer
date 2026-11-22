@@ -1,34 +1,33 @@
 Retro Player e bapala 'mino le libuka tsa molumo ka ho toba ho tsoa lifoldareng tse fonong ea hau. E sebetsa ntle le inthanete, ha e na lipapatso ebile ha e hloke ak'haonte.
 
 Hobaneng Retro Player?
-• E tsoela pele hantle moo u tlohetseng teng: alebamo e 'ngoe le e 'ngoe, buka ea molumo le lenane la lipina li boloka boemo ba tsona le lebelo, esita le kamora ho qala bocha.
-
+• E tsoela pele hantle moo u siileng teng: alebamo e 'ngoe le e 'ngoe, buka ea molumo le lenane la lipina li boloka boemo le lebelo la tsona, esita le kamora ho qala bocha.
 • Ha ho na ho skena laeborari: ha ho na index eo u ka e hahang 'me ha ho letho leo u ka le emelang. Kenya foldara 'me u qale ho mamela; sesebelisoa se bala foldara feela ha u e bula.
-• Lifaele tsa hau li lula li sa angoa: sesebelisoa se bona lifoldara tseo u li khethang feela 'me ha se fetole, se sisinye kapa se hlakola letho. Lifaele feela tseo se li ngolang ke lipina tseo u li bolokang.
-• E bua puo ea hau: lipuo tse fetang 100, ho tloha ho Searabia, Sehindi le Seswahili ho ea ho Seindonesia, Sevietnam le Sezulu.
+• Lifaele tsa hau ha li angoe: sesebelisoa se bona lifoldara tseo u li khethang feela 'me ha se fetole, se suthise kapa se hlakola letho. Lifaele feela tseo se li ngolang ke lipina tseo u li bolokang.
+• O bua puo ea hau: lipuo tse fetang 100, ho tloha ho Searabia, Sehindi le Seswahili ho isa ho Seindonesia, Sevietnam le Sezulu.
 
 E etselitsoe libuka tsa molumo le lialbamo
-• Lebelo la ho bapala ho tloha ho 0.5× ho isa ho 2.0×, le bolokiloe ka ntho e 'ngoe le e 'ngoe; Ho tlola ha metsotswana e 15
+• Lebelo la ho bapala ho tloha ho 0.5× ho isa ho 2.0×, le bolokiloe ka ntho ka 'ngoe; ho tlola metsotsoana e 15
 • Likhaolo tsa M4B le M4A bareng ea ho batla, lenaneng la likhaolo le tsebisong
-• E khutlela morao metsotsoana e seng mekae ha u tsoela pele ka mor'a khefu e telele
-• Ho bapala ntle le sekheo; lialbamo tsa li-disc tse ngata li bapala ka tatellano ea disc
+• E khutlela morao metsotsoana e seng mekae ha o ntse o tswela pele kamora khefu e telele
+• Ho bapala ho se nang sekheo; lialbamo tsa li-disc tse ngata li bapala ka tatellano ea li-disc
 
 Lifoldara tsa hau, odara ea hau
 • Batla joaloka molaoli oa lifaele, ka li-breadcrumbs, lintho tseo u li ratang le bareng ea A–Z
-• Suthela ho eketsa lifoldara, lialbamo kapa lipina moleng 'me u li boloke e le lenane la lipina la M3U
-• E bapala manane a lipina ao u seng u ntse u e-na le 'ona
+• Swaepa ho eketsa difoldara, dialbamo kapa dipina moleng mme o di boloke e le lenane la dipina la M3U
+• E bapala manane a dipina ao o seng o ntse o na le ona
 • Hlopha alebamo ka 'ngoe ka nomoro ea pina, lebitso la faele kapa sehlooho
 
-Kae kapa kae moo u mamelang
-• E laola tsebiso, skrineng sa ho notlela (ka ho tlola ha metsotswana e 15) le ho likonopo tsa Bluetooth kapa koloi
-• Android Auto: sheba laeborari ea hau, lintho tseo u li ratang le moleng ka koloing
-• Sesebelisoa sa skrine sa lapeng
-• Ka boikhethelo se qala ho bapala hang ha li-headphone kapa koloi ea hau li hokahane
+Hohle moo o mamelang teng
+• Litaolo tsebisong, skrineng se notleloang (ka ho tlola metsotsoana e 15) le ho likonopo tsa Bluetooth kapa koloi
+• Android Auto: sheba laeborari ea hau, lintho tseo u li ratang le ho beha mola ka koloing
+• Sesebelisoa sa skrineng sa lapeng
+• Ka boikhethelo e qala ho bapala hang ha li-headphone kapa koloi ea hau e hokahane
 • Equalizer e nang le li-presets, sehlooho se bobebe le se lefifi
 
-Lifomate: FLAC, M4A, M4B (e sa ngolisoang AAC), MP3, OGG, Opus le WAV.
+Mefuta: FLAC, M4A, M4B (AAC e sa ngolwang ka mokhoa o patehileng), MP3, OGG, Opus le WAV.
 
-E ikemetse ka moralo
-Retro Player ha e na tumello ea Inthanete, kahoo ha ho letho le tlohang fonong ea hau: ha ho lipapatso, tlhahlobo, ho latela kapa liakhaonto. Ha e hloke tumello ea polokelo hape.
+E le ea poraefete ka moralo
+Retro Player ha e na tumello ea Inthanete, kahoo ha ho letho le tlohang fonong ea hau: ha ho lipapatso, tlhahlobo, ho latela kapa liakhaonto. Ha e hloke tumello ea polokelo le eona.
 
 Software ea mahala le e bulehileng (GPL-3.0-kapa-morao). Tataiso ea mosebelisi le khoutu ea mohloli: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer
