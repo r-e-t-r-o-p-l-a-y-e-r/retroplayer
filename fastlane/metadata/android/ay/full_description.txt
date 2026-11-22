@@ -1,6 +1,6 @@
-Retro Player ukax musica ukat audiolibronak chiqak teléfono ukan carpetas ukanakat phust’i. Ukax jan internetan irnaqaski, janiw anuncios ukax utjkiti ukatx janiw cuenta ukax munaskiti.
+Retro Player ukax teléfono ukat audiolibronak chiqak teléfono ukan carpetas ukanakat phust’i. Ukax jan internetan irnaqaski, janiw anuncios ukax utjkiti ukatx janiw cuenta ukax munaskiti.
 
-¿Kunatsa Retro Jugador ukax?
+¿Kunatsa Retro Player?
 • Kawkhantï jaytawaykta uka chiqanwa sarantaskakïna: sapa álbum, audiolibro ukat lista de reproducción ukanakax posición ukat jank’akïñapatakiw utji, wasitat qalltañat qhipatsa.
 • Janiw biblioteca escaneo: janiw índice lurañatakix utjkiti ukat janiw kunas suyt’añatakis utjkiti. Mä carpeta yapxatañamawa ukatxa ist’añ qalltañamawa; app ukax mä carpeta jist’arat ukhakiw uñakipi.
 • Archivonakax jan llamkt’ataw qhiparapxi: app ukax carpetas ukanakak uñji ukat janipuniw kuns mayjt’aykiti, kuynt’aykiti jan ukax chhaqtaykiti. Uka qillqatanakax qillqt’atawa, ukax lista de reproducción ukanakaw imatäski.
@@ -20,7 +20,7 @@ Uka carpetanaka, jumanakan ordenapa
 
 Kawkhantï istʼapkta uka cheqanjja
 • Controles ukaxa yatiyawinxa, pantalla de bloqueo ukanxa (15 segundos saltos ukanakampi) ukhamaraki Bluetooth jan ukaxa auto botones ukanakampi
-• Android Auto: biblioteca, favoritos ukat auto ukan fila uñakipaña
+• Android Auto: biblioteca, favoritos ukat auto ukan fila uñakipt’aña
 • Pantalla qalltawi widget
 • Opcionalmente qalltaña anataña kunjamatixa auriculares jan ukaxa auto ukaxa conectatäki ukhama
 • Ecualizador ukaxa presets ukanakampi, qhana ukhamaraki ch’amaka tema ukanakampi
@@ -28,6 +28,6 @@ Kawkhantï istʼapkta uka cheqanjja
 Formatos: FLAC, M4A, M4B (AAC jan cifrado), MP3, OGG, Opus ukat WAV.
 
 Privado ukhamawa diseño tuqita
-Retro Player ukax janiw Internet ukan permisopax utjkiti, ukhamax janiw kunas teléfono ukar mistkiti: janiw anuncios, análisis, seguimiento jan ukax cuentas ukanakax utjkiti. Ukatxa janiw kuna permiso imañatakis munaskiti.
+Retro Player janiw Internetan permisopax utjkiti, ukhamax janiw kunas teléfonomat mistkiti: janiw anuncios, análisis, seguimiento jan ukax cuentas ukanakax utjkiti. Ukatxa janiw kuna permiso imañatakis munaskiti.
 
 Software libre ukat abierto de código fuente (GPL-3.0-jan ukax-qhipa). Usuario guia ukat código fuente: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

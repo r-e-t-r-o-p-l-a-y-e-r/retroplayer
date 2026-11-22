@@ -1,6 +1,6 @@
 Retro Player e bapala 'mino le libuka tsa molumo ka ho toba ho tsoa lifoldareng tse fonong ea hau. E sebetsa ntle le inthanete, ha e na lipapatso ebile ha e hloke ak'haonte.
 
-Ke hobane'ng ha Retro Player?
+Hobaneng Retro Player?
 • E tsoela pele hantle moo u tlohetseng teng: alebamo e 'ngoe le e 'ngoe, buka ea molumo le lenane la lipina li boloka boemo ba tsona le lebelo, esita le kamora ho qala bocha.
 
 • Ha ho na ho skena laeborari: ha ho na index eo u ka e hahang 'me ha ho letho leo u ka le emelang. Kenya foldara 'me u qale ho mamela; sesebelisoa se bala foldara feela ha u e bula.
@@ -28,6 +28,7 @@ Kae kapa kae moo u mamelang
 
 Lifomate: FLAC, M4A, M4B (e sa ngolisoang AAC), MP3, OGG, Opus le WAV.
 
-Sebapali sa Retro ha se na tumello ea Inthanete, kahoo ha ho letho le tlohang fonong ea hau: ha ho lipapatso, tlhahlobo, ho latela kapa liakhaonto. Ha e hloke tumello ea polokelo hape.
+E ikemetse ka moralo
+Retro Player ha e na tumello ea Inthanete, kahoo ha ho letho le tlohang fonong ea hau: ha ho lipapatso, tlhahlobo, ho latela kapa liakhaonto. Ha e hloke tumello ea polokelo hape.
 
 Software ea mahala le e bulehileng (GPL-3.0-kapa-morao). Tataiso ea mosebelisi le khoutu ea mohloli: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

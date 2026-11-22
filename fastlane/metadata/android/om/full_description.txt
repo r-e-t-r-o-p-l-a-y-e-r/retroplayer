@@ -1,6 +1,6 @@
 Retro Player muuziqaa fi kitaabota sagalee kallattiin galmee bilbila keessan keessa jiru irraa taphachiisa. Offline hojjeta, beeksisa hin qabu akkasumas account hin barbaadu.
 
-Maaliif Taphataan Retro?
+Maaliif Retro Player?
 • Bakka itti dhiifte sirriitti itti fufa: albamii, kitaabni sagalee fi tarreen tapha hunduu bakka fi saffisa mataa isaa eega, erga irra deebi'amee jalqabee boodas.
 • Iskaaniin mana kitaabaa hin jiru: indeeksii ijaaramuu fi wanti eegamu hin jiru. Galmee itti dabalitii dhaggeeffachuu jalqabi; appichi galmee tokko yeroo banattan qofa dubbisa.
 • Faayiloonni keessan osoo hin tuqamin hafu: appichi galmee ati fudhattan qofa kan argu yoo ta'u gonkumaa waan tokkollee hin jijjiiru, hin sochoosu ykn hin haqu. Faayiloonni inni barreessu playlists ati save goote qofa.
@@ -28,6 +28,6 @@ Bakka dhaggeeffattan hundatti
 Akkaataa: FLAC, M4A, M4B (AAC hin icciitii), MP3, OGG, Opus fi WAV.
 
 Dizaayiniin dhuunfaa
-Retro Player hayyama interneetii hin qabu, kanaaf wanti bilbila keessan keessaa bahu hin jiru: beeksisa, xiinxala, hordoffii ykn herrega hin qabu. Hayyama kuusaas hin barbaadu.
+Retro Player hayyama interneetii waan hin qabneef, wanti bilbila keessan keessaa bahu hin jiru: beeksisa, xiinxala, hordoffii ykn herrega hin qabu. Hayyama kuusaas hin barbaadu.
 
 Software madda bilisaa fi banaa (GPL-3.0-ykn-yeroo booda). Qajeelfama fayyadamaa fi koodii madda: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

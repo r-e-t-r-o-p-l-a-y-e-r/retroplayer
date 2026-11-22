@@ -23,11 +23,11 @@ Qayerda tinglasangiz ham
 • Android Auto: kutubxonangizni, sevimlilaringizni va navbatingizni mashinada ko'rib chiqing
 • Bosh ekran vidjeti
 • Ixtiyoriy ravishda minigarnituralar yoki avtomobilingiz ulanishi bilanoq ijro etila boshlaydi
-• Oldindan o'rnatilgan, yorug' va qorong'u mavzuli ekvalayzer
+• Oldindan o'rnatilgan ekvalayzer, yorug'lik va qorong'u mavzu
 
 Formatlar: FLAC, M4A, M4B (shifrlanmagan AAC), MP3, OGG, Opus va WAV.
 
 Dizayn bo'yicha shaxsiy
-Retro pleyerda internetga ruxsat yo'q, shuning uchun telefoningizdan hech narsa chiqmaydi: reklamalar, tahlillar, kuzatuv yoki hisoblar yo'q. Unga saqlash ruxsati ham kerak emas.
+Retro Player Internetga ruxsat bermaydi, shuning uchun telefoningizdan hech narsa chiqmaydi: reklamalar, tahlillar, kuzatuv yoki hisoblar yo'q. Unga saqlash ruxsati ham kerak emas.
 
 Bepul va ochiq kodli dasturiy ta'minot (GPL-3.0 yoki undan keyingi versiyalari). Foydalanuvchi qo'llanmasi va manba kodi: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

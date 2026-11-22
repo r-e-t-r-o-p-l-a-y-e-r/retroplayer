@@ -15,7 +15,9 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import sys
+import unicodedata
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -53,17 +55,42 @@ def newest_changelog(folder: Path) -> Path | None:
     return logs[-1] if logs else None
 
 
+NAME_MARKER = "⟦0⟧"
+
+
+def protect_name(text: str, name: str) -> str:
+    return text.replace(name, NAME_MARKER)
+
+
+def restore_name(text: str, name: str) -> str:
+    """Some languages return the marker with native digits (⟦০⟧) or spaces inside."""
+    text = re.sub(r"⟦\s*([^⟧\s]{1,3})\s*⟧", lambda m: f"⟦{ascii_digit(m.group(1))}⟧", text)
+    return text.replace(NAME_MARKER, name)
+
+
+def ascii_digit(s: str) -> str:
+    return "".join(str(unicodedata.digit(c)) if unicodedata.digit(c, None) is not None else c for c in s)
+
+
 def check_lengths() -> list[str]:
     problems = []
+    title = (ENGLISH / "title.txt").read_text(encoding="utf-8").strip()
     for folder in sorted(p for p in METADATA.iterdir() if p.is_dir()):
+        for name in ("short_description.txt", "full_description.txt"):
+            source, path = ENGLISH / name, folder / name
+            if path.is_file():
+                want = source.read_text(encoding="utf-8").count(title)
+                got = path.read_text(encoding="utf-8").count(title)
+                if got != want:
+                    problems.append(f"{folder.name}/{name}: app name {got}x, expected {want}x")
         for name in ("title.txt", "short_description.txt", "full_description.txt"):
             path = folder / name
             if path.is_file() and len(path.read_text(encoding="utf-8").strip()) > LIMITS[name]:
-                problems.append(f"{folder.name}/{name}: {len(path.read_text(encoding='utf-8').strip())} > {LIMITS[name]}")
+                problems.append(f"{folder.name}/{name}: too long, {len(path.read_text(encoding='utf-8').strip())} > {LIMITS[name]}")
         for log in (folder / "changelogs").glob("*.txt"):
             n = len(log.read_text(encoding="utf-8").strip())
             if n > LIMITS["changelogs"]:
-                problems.append(f"{folder.name}/changelogs/{log.name}: {n} > {LIMITS['changelogs']}")
+                problems.append(f"{folder.name}/changelogs/{log.name}: too long, {n} > {LIMITS['changelogs']}")
     return problems
 
 
@@ -135,7 +162,8 @@ def main() -> int:
                 text = source[field]
                 if not text:
                     continue
-                translated = mt.translate_with_retry(translator, text, pacer).strip()
+                translated = mt.translate_with_retry(translator, protect_name(text, title), pacer)
+                translated = restore_name(translated, title).strip()
                 if field == "changelog":
                     out = dest / "changelogs" / log.name
                     out.parent.mkdir(exist_ok=True)
@@ -146,7 +174,7 @@ def main() -> int:
 
     problems = check_lengths()
     for problem in problems:
-        print(f"too long: {problem}", file=sys.stderr)
+        print(problem, file=sys.stderr)
     return 1 if problems else 0
 
 

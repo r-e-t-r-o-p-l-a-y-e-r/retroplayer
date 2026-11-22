@@ -1,6 +1,6 @@
 Retro Player ebetaka miziki mpe ba audiobooks mbala moko na ba dossiers oyo ezali na téléphone na yo. Esalaka hors ligne, eza na ba publicités te pe eza na besoin ya compte te.
 
-Pourquoi Joueur Rétro?
+Mpo na nini Retro Player?
 • Ezali kokoba mpenza esika otikaki : album nyonso, audiobook mpe playlist ebatelaka position mpe vitesse na yango moko, ata nsima ya kobanda lisusu.
 • Scan ya bibliothèque te : index ya kotonga ezali te mpe eloko ya kozela te. Bakisa dossier moko mpe banda koyoka; programɛ yango etángi dossier moko kaka ntango ofungoli yango.
 • Ba fichiers na yo etikalaka intouché : appli emonaka kaka ba dossiers oyo oponi mpe e changeaka, e déplacer to e supprimaka eloko ata moke te. Ba fichiers kaka moko oyo ekomaka ezali ba playlists oyo obombaka.
@@ -25,9 +25,9 @@ Bipayi nionso oyoki
 • Na bolingi na yo, ebandi kobeta ntango kaka ba écouteurs to motuka na yo ekangami
 • Equalizer na ba pré-réglages, thème ya pole na ya molili
 
-Ba formats : FLAC, M4A, M4B (AAC non chiffré), MP3, OGG, Opus na WAV.
+Ba formats : FLAC, M4A, M4B (AAC sans chiffré), MP3, OGG, Opus na WAV.
 
 Privé na design
-Retro Player ezali na ndingisa ya Internet te, yango wana eloko moko te ebimaka na telefone na yo: ba piblisite, analytiques, suivi to ba comptes te. Ezali mpe na mposa ya ndingisa ya kobomba biloko te.
+Retro Player azali na ndingisa ya Internet te, yango wana eloko moko te ebimaka na telefone na yo: ba piblisite, analytiques, suivi to ba comptes te. Ezali mpe na mposa ya ndingisa ya kobomba biloko te.
 
 Logiciel ya ofele mpe ya source ouverte (GPL-3.0-to-ya sima). Buku ya mosaleli mpe code source: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

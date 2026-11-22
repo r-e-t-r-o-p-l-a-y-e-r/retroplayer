@@ -1,6 +1,6 @@
 Retro Player yi tlanga vuyimbeleri na tibuku to yingiseriwa hi ku kongoma ku suka eka tifolda ta foni ya wena. Yi tirha offline, a yi na swinavetiso naswona a yi lavi account.
 
-Ha Yini Mutlangi wa Retro?
+Ha yini ku ri Retro Player?
 • Yi ya emahlweni kahle laha u nga yima kona: alibamu yin’wana na yin’wana, audiobook na playlist swi hlayisa xiyimo xa swona na rivilo, hambi endzhaku ko sungula nakambe.
 • Ku hava xikeni xa layiburari: a ku na index yo aka naswona a ku na nchumu wo rindza. Engetelani folda ivi u sungula ku yingisela; app yi hlaya folda ntsena loko u yi pfula.
 • Tifayili ta wena ti tshama ti nga khumbiwanga: app yi vona ntsena tifolda leti u ti hlawulaka naswona a yi si tshama yi cinca, yi rhurhela kumbe ku susa nchumu. Tifayili leti yi ti tsalaka ntsena i ti playlist leti u ti hlayisaka.
@@ -20,7 +20,7 @@ Tifolda ta wena, oda ya wena
 
 Kun’wana ni kun’wana laha u yingisaka kona
 • Swilawuri eka xitiviso, eka xikirini xo pfala (hi ku tlula ka 15 wa tisekoni) na le ka swikomba-nkarhi swa Bluetooth kumbe swa movha
-• Android Auto: languta layiburari ya wena, leswi u swi tsakelaka na ku fola layini emovheni
+• Android Auto: pfula layiburari ya wena, leswi u swi tsakelaka na ku fola layini emovheni
 • Xitirhisiwa xa xikirini xa le kaya
 • Hi ku hlawula yi sungula ku tlanga hi ku hatlisa loko ti- headphone kumbe movha wa wena wu hlanganisiwa
 • Equalizer leyi nga na ti presets, theme yo voninga na ya munyama
@@ -28,6 +28,6 @@ Kun’wana ni kun’wana laha u yingisaka kona
 Tifomati: FLAC, M4A, M4B (AAC leyi nga pfaleriwangiki), MP3, OGG, Opus na WAV.
 
 Private hi ku endliwa ka yona
-Retro Player a yi na mpfumelelo wa Internet, hikwalaho a ku na nchumu lowu humaka eka riqingho ra wena: a ku na swinavetiso, vuxopaxopi, ku landzelerisa kumbe tiakhawunti. Na yona a yi lavi mpfumelelo wo hlayisa.
+Retro Player a yi na mpfumelelo wa Inthanete, hikwalaho a ku na nchumu lowu humaka eka riqingho ra wena: a ku na swinavetiso, vuxopaxopi, ku landzelerisa kumbe tiakhawunti. Na yona a yi lavi mpfumelelo wo hlayisa.
 
 Software ya mahala na ya xihlovo lexi pfulekeke (GPL-3.0-kumbe-endzhaku). Nkongomiso wa mutirhisi na khodi ya xihlovo: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

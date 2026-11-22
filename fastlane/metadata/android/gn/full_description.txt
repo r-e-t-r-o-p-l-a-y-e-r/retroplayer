@@ -1,6 +1,6 @@
 Retro Player ombopu purahéi ha audiolibro derecho umi carpeta nde teléfono-pe. Omba’apo offline, ndorekói anuncio ha noikotevẽi cuenta.
 
-Mba'érepa Retro Jugador?
+Mba'érepa Retro Player?
 • Oñemotenonde exactamente pe repyta haguépe: opaite álbum, audiolibro ha lista de reproducción oguereko iñemohenda ha ipyaꞌe, oñepyrũ jey rire jepe.
 • Ndaipóri escaneo biblioteca rehegua: ndaipóri índice oñemopu’ãva’erã ha ndaipóri mba’eve oñeha’arõva. Emoĩ peteĩ kundaha ha eñepyrũ ehendu; pe app omoñe’ẽ peteĩ carpeta reipe’ávo añoite.
 • Ne rembiapokue opyta ndojepokói hese: pe app ohecha umi kundaha reiporavóva añoite ha araka’eve nomoambuéi, nomomýi térã ombogue mba’eve. Umi vore añoite ohaíva haꞌehína umi lista de reproducción reñongatúva.
@@ -10,7 +10,7 @@ Ojejapo audiolibro ha álbum-pe g̃uarã
 • Ñembopu pyaꞌe 0,5× guive 2,0× peve, oñeñongatu peteĩ mbaꞌe rehe; 15 segundo-pegua salto-kuéra
 • M4B ha M4A kapítulo oĩva barra de búsqueda-pe, peteĩ kapítulo lista-pe ha momaranduhápe
 • Ojere jey mbovymi segúndo resegui jave ojepytu’u pukuve rire
-• Ñembopu brecha’ỹre; umi álbum heta disco rehegua ipu disco orden-pe
+• Ñembopu’ỹre; umi álbum heta disco rehegua ipu disco orden-pe
 
 Nde carpetakuéra, nde pedido
 • Eheka peteĩ archivo mohendahaicha, mbujape ryru, favorito ha peteĩ barra A–Z reheve
@@ -28,6 +28,6 @@ Oimehápe pehendu
 Umi formato: FLAC, M4A, M4B (AAC no cifrado), MP3, OGG, Opus ha WAV.
 
 Privado por diseño
-Retro Player ndorekói permiso Internet rehegua, upévare mba’eve ndohejái ne teléfono: ndaipóri marandu, análisis, seguimiento térã cuenta. Noikotevẽi avei permiso de almacenamiento.
+Retro Player ndorekói permiso Internet rehegua, upévare mba’eve ndohejái ne teléfono: ndorekói marandu, análisis, seguimiento térã cuenta. Noikotevẽi avei permiso de almacenamiento.
 
 Software sãso ha código abierto (GPL-3.0-térã ipyahuvéva). Pojoapy puruhára ha código fuente: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

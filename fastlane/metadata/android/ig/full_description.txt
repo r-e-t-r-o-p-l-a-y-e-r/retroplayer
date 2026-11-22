@@ -1,6 +1,6 @@
 Retro Player na-akpọ egwu na akwụkwọ ọdịyo ozugbo site na folda dị na ekwentị gị. Ọ na-arụ ọrụ na-anọghị n'ịntanetị, enweghị mgbasa ozi ma ọ chọghị akaụntụ.
 
-Gịnị kpatara Retro Player?
+Gịnị mere Retro Player?
 • Na-aga n'ihu kpọmkwem ebe ị kwụsịrị: abọm ọ bụla, akwụkwọ ọdịyo na ndepụta egwu na-edobe ọnọdụ na ọsọ nke ya, ọbụlagodi mgbe ịmalitegharịrị.
 • Enweghị nyocha ọbá akwụkwọ: enweghị ndeksi ị ga-ewu na ihe ọ bụla ị ga-eche. Tinye folda ma malite ige ntị; ngwa ahụ na-agụ folda naanị mgbe ị meghere ya.
 • Faịlụ gị anaghị emetụ aka: ngwa ahụ na-ahụ naanị folda ị họọrọ ma ọ naghị agbanwe, na-akwagharị ma ọ bụ na-ehichapụ ihe ọ bụla. Naanị faịlụ ọ na-ede bụ ndepụta egwu ị na-echekwa.
@@ -28,6 +28,6 @@ Ebe ọ bụla ị na-ege ntị
 Ụdị: FLAC, M4A, M4B (AAC na-ezochighị), MP3, OGG, Opus na WAV.
 
 Nhazi nkeonwe
-Onye ọkpụkpọ Retro enweghị ikike ịntanetị, yabụ ọ dịghị ihe na-apụ na ekwentị gị: enweghị mgbasa ozi, nyocha, nsochi ma ọ bụ akaụntụ. Ọ chọghịkwa ikike nchekwa.
+Retro Player enweghị ikike ịntanetị, yabụ ọ dịghị ihe na-apụ na ekwentị gị: enweghị mgbasa ozi, nyocha, nsochi ma ọ bụ akaụntụ. Ọ chọghịkwa ikike nchekwa.
 
 Ngwanrọ efu na nke mepere emepe (GPL-3.0-ma ọ bụ mgbe e mesịrị). Ntuziaka onye ọrụ na koodu isi mmalite: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer
