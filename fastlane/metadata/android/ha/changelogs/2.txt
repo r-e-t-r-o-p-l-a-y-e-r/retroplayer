@@ -1,0 +1,11 @@
+Fitowa ta farko a ranar F-Droid:
+• Laburaren fayiloli tare da abubuwan da aka fi so
+• Yana tuna matsayi da saurin kowane kundin waƙoƙi ko littafin sauti
+• surori na M4B da jerin waƙoƙin M3U
+• Android Auto, widget da daidaitawa
+• Harsuna 106
+
+Sabo tun daga 0.1.0:
+• Tsalle na daƙiƙa 15 akan allon kullewa
+• Danna murfin sau biyu don tsalle daƙiƙa 15
+• Sake kunnawa zai iya farawa lokacin da belun kunne ko mota suka haɗu

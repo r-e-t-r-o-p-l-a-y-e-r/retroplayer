@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Nach einer Pause von mindestens einer Minute setzen Titel, die länger als 20 Minuten sind, ein paar Sekunden früher fort.</string>
     <string name="rewind_by">Zurückspulen um</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Fortsetzen, wenn Kopfhörer wieder verbunden werden</string>
-    <string name="resume_on_reconnect_hint">Nur wenn die Wiedergabe pausiert wurde, weil die Kopfhörer vor weniger als 10 Minuten getrennt wurden.</string>
+    <string name="play_on_connect">Immer abspielen, wenn sich Kopfhörer oder das Auto verbinden</string>
+    <string name="play_on_connect_hint">Jedes Mal, wenn ein Bluetooth-Audiogerät (z. B. das Auto), kabelgebundene Kopfhörer oder USB-Kopfhörer verbunden werden, startet die Wiedergabe. Funktioniert, solange Retro Player geöffnet oder in der Benachrichtigung pausiert ist.</string>
     <string name="track_fallback">Titel</string>
     <string name="unknown_artist">Unbekannt</string>
     <string name="tracks_count_artist_eq1">%1$d Titel · %2$s</string>

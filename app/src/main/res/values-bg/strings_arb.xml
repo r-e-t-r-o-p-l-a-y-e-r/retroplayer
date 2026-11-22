@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">След пауза от поне минута песните, по-дълги от 20 минути, продължават няколко секунди по-рано.</string>
     <string name="rewind_by">Превъртане назад с</string>
     <string name="seconds_short">%1$d с</string>
-    <string name="resume_on_reconnect">Продължаване при повторно свързване на слушалките</string>
-    <string name="resume_on_reconnect_hint">Само ако възпроизвеждането е спряло, защото слушалките са изключени преди по-малко от 10 минути.</string>
+    <string name="play_on_connect">Винаги пускайте музика, когато са свързани слушалки или аудиосистемата в колата</string>
+    <string name="play_on_connect_hint">Всеки път, когато се свържат Bluetooth аудиоустройства (например от колата), кабелни или USB слушалки, възпроизвеждането започва. Функцията работи, докато Retro Player е отворен или в режим на пауза в панела с известия.</string>
     <string name="track_fallback">Писта</string>
     <string name="unknown_artist">Неизвестно</string>
     <string name="tracks_count_artist_eq1">%1$d песен · %2$s</string>

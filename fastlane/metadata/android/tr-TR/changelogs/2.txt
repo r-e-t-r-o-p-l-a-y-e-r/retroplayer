@@ -1,0 +1,11 @@
+F-Droid’de ilk yayın:
+• Sık kullanılanların bulunduğu klasör kütüphanesi
+• Her albüm veya sesli kitap için konumu ve hızı hatırlar
+• M4B bölümleri ve M3U çalma listeleri
+• Android Auto, widget ve ekolayzer
+• 106 dil
+
+0.1.0 sürümünden itibaren eklenen yenilikler:
+• Kilit ekranında 15 saniyelik atlamalar
+• Kapak kısmına iki kez dokunarak 15 saniye ileri atlayın
+• Kulaklık veya araç bağlandığında oynatma başlayabilir

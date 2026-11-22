@@ -1,0 +1,33 @@
+Retro Player spillt Musek an Audiobicher direkt aus den Dossieren op Ärem Telefon. E funktionéiert offline, huet keng Reklammen a brauch kee Kont.
+
+Firwat Retro Player?
+• Fuert genau do weider, wou Dir opgehalen hutt: all Album, Audiobuch a Playlist behält seng eege Positioun a Geschwindegkeet, och no engem Restart.
+• Kee Bibliothéiksscannen: et gëtt keen Index ze bauen an näischt ze waarden. Füügt en Dossier derbäi a fänkt un ze lauschteren; d'App liest en Dossier nëmmen wann Dir en opmaacht.
+• Är Dateien bleiwen onberéiert: d'App gesäit nëmmen d'Dossieren, déi Dir auswielt, an ännert, réckelt oder läscht näischt. Déi eenzeg Dateien, déi se schreift, sinn Playlists, déi Dir späichert.
+• Schwätzt Är Sprooch: méi wéi 100 Sproochen, vun Arabesch, Hindi a Swahili bis Indonesesch, Vietnamesesch an Zulu.
+
+Geriicht fir Audiobicher an Albumen
+• Ofspillgeschwindegkeet vun 0,5× bis 2,0×, pro Element gespäichert; 15-Sekonnen-Spréng
+• M4B- an M4A-Kapitelen op der Sichbar, an enger Kapitellëscht an an der Notifikatioun
+• Spullt e puer Sekonnen zréck, wann Dir no enger méi laanger Paus weiderfuert
+• Ofspillen ouni Paus; Multi-Disc Albumen spillen an der Disc-Reiefolleg of
+
+Är Classeuren, Är Reiefolleg
+• Surft wéi e Fichiermanager, mat Broutkrummelen, Favoritten an enger A-Z-Leescht
+• Swipt fir Classeuren, Albumen oder Lidder an d'Warteschlaang ze setzen an als M3U-Playlist ze späicheren
+• Spillt d'Playlisten of, déi Dir scho hutt
+• Sortéiert all Album no Tracknummer, Dateinumm oder Titel
+
+Iwwerall wou Dir lauschtert
+• Kontrollen an der Notifikatioun, um Sperrbildschierm (mat 15-Sekonnen-Spréng) an op Bluetooth- oder Autoknäppercher
+• Android Auto: sicht Är Bibliothéik, Favoritten a Warteschlaang am Auto
+• Homescreen-Widget
+• Optional fänkt un ze spillen soubal Kopfhörer oder Ären Auto sech verbannen
+• Equalizer mat Presets, hellen an donkelen Thema
+
+Formater: FLAC, M4A, M4B (onverschlësselten AAC), MP3, OGG, Opus a WAV.
+
+Privat vum Design
+Retro Player huet keng Internet-Erlaabnisser, sou datt näischt Ären Telefon verléisst: keng Reklammen, Analysen, Tracking oder Konten. Et brauch och keng Späichererlaabnisser.
+
+Gratis an Open-Source Software (GPL-3.0 oder méi spéit). Benotzerhandbuch a Quellcode: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

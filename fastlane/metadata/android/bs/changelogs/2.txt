@@ -1,0 +1,11 @@
+Prvo izdanje na F-Droid:
+• Biblioteka mapa s omiljenim
+• Pamti poziciju i brzinu za svaki album ili audioknjigu.
+• M4B poglavlja i M3U playliste
+• Android Auto, vidžet i ekvilajzer
+• 106 jezika
+
+Novo od verzije 0.1.0:
+• 15-sekundni skokovi na zaključanom ekranu
+• Dvostruko tapnite po naslovnici da preskočite 15 sekundi
+• Reprodukcija može početi kada se povežu slušalice ili automobil.

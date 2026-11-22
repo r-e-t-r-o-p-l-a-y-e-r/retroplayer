@@ -1,0 +1,33 @@
+Retro Player yana kunna kiɗa da littattafan sauti kai tsaye daga manyan fayilolin wayarka. Yana aiki a layi, ba shi da talla kuma baya buƙatar asusu.
+
+Me yasa Retro Player?
+• Yana ci gaba daidai inda kuka tsaya: kowane kundin waƙoƙi, littafin sauti da jerin waƙoƙi yana kiyaye matsayinsa da saurinsa, koda bayan sake kunnawa.
+• Babu duba ɗakin karatu: babu wani fihirisa da za a gina kuma babu abin da za a jira. Ƙara babban fayil kuma fara sauraro; app ɗin yana karanta babban fayil ne kawai lokacin da kuka buɗe shi.
+• Fayilolinku ba sa taɓawa: app ɗin yana ganin manyan fayilolin da kuka zaɓa kawai kuma ba ya canzawa, motsa ko goge komai. Fayilolin da yake rubutawa sune jerin waƙoƙin da kuka adana.
+• Yana jin yarenku: sama da harsuna 100, daga Larabci, Hindi da Swahili zuwa Indonesian, Vietnamese da Zulu.
+
+An yi shi don littattafan sauti da kundin waƙoƙi
+• Saurin sake kunnawa daga 0.5× zuwa 2.0×, an adana kowane abu; Tsalle-tsalle na daƙiƙa 15
+• Surorin M4B da M4A akan sandar nema, a cikin jerin babi da kuma a cikin sanarwar
+• Yana sake dawowa daƙiƙa kaɗan lokacin da ka ci gaba bayan hutu mai tsawo
+• Kunnawa mara iyaka; kundin faifai da yawa suna kunnawa cikin tsari na diski
+
+Foldulolinka, odar ka
+• Yi bincike kamar mai sarrafa fayil, tare da gurasar burodi, abubuwan da aka fi so da sandar A–Z
+• Danna don ƙara manyan fayiloli, kundin waƙoƙi ko waƙoƙi zuwa layi kuma adana su azaman jerin waƙoƙin M3U
+• Yana kunna jerin waƙoƙin da ka riga ka mallaka
+• Rarraba kowane kundin waƙoƙi ta lambar waƙa, sunan fayil ko take
+
+Duk inda ka saurara
+• Sarrafa a cikin sanarwar, akan allon kulle (tare da tsalle na daƙiƙa 15) da kuma akan maɓallan Bluetooth ko mota
+• Android Auto: bincika ɗakin karatu, abubuwan da aka fi so da layi a cikin mota
+• Na'urar widget ta allo ta gida
+• Zaɓin zai fara kunnawa da zarar belun kunne ko motarka sun haɗu
+• Mai daidaitawa tare da saitattun saiti, jigo mai haske da duhu
+
+Tsarin: FLAC, M4A, M4B (AAC mara ɓoyewa), MP3, OGG, Opus da WAV.
+
+Na sirri ta hanyar ƙira
+Retro Player ba shi da izinin Intanet, don haka babu abin da zai fita daga wayarka: babu talla, nazari, bin diddigi ko asusu. Ba ya buƙatar izinin ajiya.
+
+Manhajar kyauta da buɗewa (GPL-3.0-ko-bayan haka). Jagorar mai amfani da lambar tushe: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

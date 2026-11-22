@@ -17,10 +17,32 @@ app has no network access, no ads and no tracking.
 - Favorites, A–Z index, sort order per album
 - Background playback with system media controls, Android Auto browsing,
   home-screen widget
-- Headphone options (pause on disconnect, resume on reconnect)
-- Equalizer presets and bands; light and dark theme; 47 languages
+- Headphone options (pause on disconnect, always play on connect, e.g. car audio)
+- Equalizer presets and bands; light and dark theme; 106 languages
 
 Formats: FLAC, M4A, M4B, MP3, OGG, Opus and WAV.
+
+## Languages
+
+English and 105 translations (machine-translated; corrections are welcome):
+Afrikaans, Albanian, Amharic, Arabic, Aragonese, Armenian, Assamese, Aymara,
+Azerbaijani, Bashkir, Basque, Belarusian, Bengali, Bosnian, Breton, Bulgarian,
+Burmese, Catalan, Chinese (Simplified), Chinese (Traditional), Croatian, Czech,
+Danish, Dutch, Esperanto, Estonian, Filipino (Tagalog), Finnish, French,
+Galician, Georgian, German, Greek, Guarani, Gujarati, Haitian Creole, Hausa,
+Hebrew, Hindi, Hungarian, Icelandic, Igbo, Indonesian, Irish, Italian, Japanese,
+Javanese, Kannada, Kazakh, Korean, Kyrgyz, Latin, Latvian, Lingala, Lithuanian,
+Luxembourgish, Macedonian, Malagasy, Malay, Malayalam, Maltese, Maori, Marathi,
+Mongolian, Nepali, Norwegian Bokmål, Occitan, Oromo, Pashto, Persian, Polish,
+Portuguese (Brazil), Portuguese (Portugal), Punjabi, Quechua, Romanian, Russian,
+Sanskrit, Serbian, Sesotho, Slovak, Slovenian, Spanish, Spanish (Latin America),
+Sundanese, Swahili, Swedish, Tajik, Tamil, Tatar, Telugu, Thai, Tsonga, Tswana,
+Turkish, Turkmen, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Wolof, Xhosa,
+Yiddish, Zulu.
+
+The app follows the phone's language or the one picked in Settings (Android's
+per-app language). Codes and store folders:
+[doc/STORE_LOCALES.md](doc/STORE_LOCALES.md).
 
 User guide: [doc/USAGE.md](doc/USAGE.md). Requirements and use cases:
 [doc/REQUIREMENTS.md](doc/REQUIREMENTS.md).
@@ -47,7 +69,7 @@ See also [PRIVACY.md](PRIVACY.md).
 
 ## Build and run
 
-Requirements: JDK 17 and the Android SDK (`ANDROID_HOME` or `sdk.dir` in
+Requirements: JDK 21 (as in CI and on F-Droid; 17 also works) and the Android SDK (`ANDROID_HOME` or `sdk.dir` in
 `local.properties`). No Android Studio needed; everything runs through Gradle.
 
 ```bash

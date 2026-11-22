@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Legalább egyperces szünet után a 20 percnél hosszabb sávok néhány másodperccel korábbról folytatódnak.</string>
     <string name="rewind_by">Visszatekerés mértéke</string>
     <string name="seconds_short">%1$d mp</string>
-    <string name="resume_on_reconnect">Folytatás a fejhallgató újracsatlakozásakor</string>
-    <string name="resume_on_reconnect_hint">Csak ha a lejátszás azért állt le, mert a fejhallgatót kevesebb mint 10 perce leválasztották.</string>
+    <string name="play_on_connect">Mindig indítsd el a lejátszást, amikor fejhallgató vagy autórádió csatlakozik</string>
+    <string name="play_on_connect_hint">Valahányszor Bluetooth-hangforrás (például az autó), vezetékes vagy USB-fejhallgató csatlakozik, elindul a lejátszás. Ez akkor is működik, ha a Retro Player megnyitva van, vagy szüneteltetve van az értesítési sávban.</string>
     <string name="track_fallback">Pálya</string>
     <string name="unknown_artist">Ismeretlen</string>
     <string name="tracks_count_artist_eq1">%1$d szám · %2$s</string>

@@ -1,0 +1,11 @@
+Tokollo ea pele ho F-Droid:
+• Laeborari ea lifoldara tse nang le tseo u li ratang
+• E hopola boemo le lebelo la alebamo kapa buka e 'ngoe le e 'ngoe ea molumo
+• Likhaolo tsa M4B le manane a M3U
+• Android Auto, widget le equator
+• Lipuo tse 106
+
+E ncha ho tloha ka 0.1.0:
+• Ho tlola ka metsotsoana e 15 skrineng se notleloang
+• Tobetsa sekoahelo habeli ho tlola metsotsoana e 15
+• Papali e ka qala ha li-headphone kapa koloi li hokahane

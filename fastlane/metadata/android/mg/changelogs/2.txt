@@ -1,0 +1,11 @@
+Navoaka voalohany tamin'ny F-Droid:
+• Tranomboky lahatahiry misy ny ankafizinao
+• Mahatsiaro ny toerana sy ny hafainganam-pandehan'ny rakikira na boky audio tsirairay
+• Toko M4B sy lisitry ny hira M3U
+• Android Auto, widget sy equalizer
+• Fiteny 106
+
+Vaovao hatramin'ny 0.1.0:
+• Fitsambikinana 15 segondra eo amin'ny efijery hidin-trano
+• Tsindrio indroa ny fonony mba hitsambikinana mandritra ny 15 segondra
+• Afaka manomboka ny famerenana rehefa mifandray ny écouteur na ny fiara

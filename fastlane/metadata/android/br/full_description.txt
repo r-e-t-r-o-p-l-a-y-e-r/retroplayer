@@ -1,0 +1,33 @@
+Retro Player a c'hoari sonerezh ha levrioù kleweled diouzh an teuliadoù war ho pellgomzer. Labourat a ra ezlinenn, n'eus bruderezh ebet ha n'eus ket ezhomm eus ur gont.
+
+Perak Retro Player ?
+• Kenderc'hel a ra e-lec'h ma'z oc'h paouezet : pep albom, levr kleweled ha roll-c'hoari a vir he lec'h hag he tizh, zoken goude un adloc'hañ.
+• Skan ebet eus al levraoueg : n'eus indezadur ebet da sevel ha n'eus netra da c'hortoz. Ouzhpennit ur renkell ha krogit da selaou ; ne lenn an arload un teuliad nemet pa vez digoret.
+• Chom a ra ho restroù dic'hortoz : ne wel an arload nemet an teuliadoù a zibabfec'h ha ne cheñch, ne zilec'h ne ziverk netra. Ar restroù nemeto a skriv eo ar rolloù-c'hoari a enrollit.
+• Komz a ra ho yezh : ouzhpenn 100 yezh, eus an arabeg, an hindeg hag ar swahili betek an indonezeg, ar vietnameg hag ar zouloueg.
+
+Savet evit al levrioù kleweled hag albomoù
+• Tizh ar c'hoari eus 0,5× da 2,0×, enrollet dre elfenn ; lammoù 15 eilenn
+• Pennadoù M4B ha M4A war ar varrenn glask, en ur roll pennadoù hag er c'hemennadenn
+• Adkavout a ra un nebeud eilennoù pa gendalc'hit goude un ehan hiroc'h
+• C'hoari hep troc'h ; albomoù liespladenn a c'hoari en urzh pladennoù
+
+Ho teuliadoù, ho koulenn
+• Merdeiñ evel ur merour restroù, gant tammoù bara, ar re wellañ hag ur varrenn A–Z
+• Riklañ evit ouzhpennañ teuliadoù, albomoù pe tonioù d'ar renk hag enrollañ anezhañ evel ur roll-c'hoari M3U
+• C'hoari a ra ar rolloù-c'hoari hoc'h eus dija
+• Renkañ pep albom dre niverenn an ton, anv ar restr pe an titl
+
+E pelec'h bennak ma selaouit
+• Kontrolloù er c'hemennadenn, war ar skramm prennañ (gant lammoù 15 eilenn) ha war Bluetooth pe boutonoù ar c'hirri
+• Android Auto : merdeiñ en ho levraoueg, ho re wellañ ha chom en ur c'harr
+• Widget skramm degemer
+• Kregiñ a ra da seniñ diouzhtu kerkent ha ma vez kevreet ar c'hefluskerioù pe ho karr
+• Equalizer gant presetoù, tem sklaer ha teñval
+
+Furmadoù : FLAC, M4A, M4B (AAC hep enrineget), MP3, OGG, Opus ha WAV.
+
+Prevez dre ijin
+Retro Player n'en deus aotre Internet ebet, setu ne ya netra kuit eus ho pellgomzer : bruderezh, analizañ, heuliañ pe kont ebet. N'eus ket ezhomm eus aotre stokañ kennebeut.
+
+Meziantoù digoust ha digor (GPL-3.0-pe nevesoc'h). Titouroù implijer ha kod orin : https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,0 +1,11 @@
+Ukukhululwa kokuqala kwi-F-Droid:
+• Ilayibrari yeefolda eneentandokazi
+• Ukhumbula indawo kunye nesantya se-albhamu nganye okanye incwadi yeaudio
+• Izahluko ze-M4B kunye noluhlu lwadlalwayo lwe-M3U
+• Android Auto, iwijethi kunye nesilinganisi
+• Iilwimi ezili-106
+
+Intsha ukusukela ngo-0.1.0:
+• Ukutsiba kwemizuzwana eli-15 kwisikrini sokutshixa
+• Cofa kabini isigqubuthelo ukuze utsibe imizuzwana eli-15
+• Ukudlala kwakhona kunokuqala xa ii-headphones okanye imoto ziqhagamshelwe

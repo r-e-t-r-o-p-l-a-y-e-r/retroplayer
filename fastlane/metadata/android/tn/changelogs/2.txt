@@ -1,0 +1,11 @@
+Kgololo ya ntlha ka F-Droid:
+• Laeborari ya ditsholadifaele e e nang le ditlhopho
+• O gakologelwa boemo le lobelo lwa alebamo nngwe le nngwe kgotsa buka ya modumo
+• Dikgaolo tsa M4B le manaanetshameko a M3U
+• Android Auto, sediriswa le sediriswa sa go lekalekanya
+• Dipuo di le 106
+
+E ntšhwa fa e sale ka 0.1.0:
+• Ditlolo tsa metsotswana e le 15 mo sekirining sa go lotlela
+• Tobetsa khabara gabedi go tlola metsotswana e le 15
+• Go tshameka go ka simolola fa di-headphone kgotsa koloi e golagana

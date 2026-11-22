@@ -1,0 +1,33 @@
+Retro Player hucheza muziki na vitabu vya sauti moja kwa moja kutoka kwenye folda kwenye simu yako. Inafanya kazi nje ya mtandao, haina matangazo na haihitaji akaunti.
+
+Kwa nini Retro Player?
+• Inaendelea pale ulipoishia: kila albamu, kitabu cha sauti na orodha ya nyimbo huweka nafasi na kasi yake, hata baada ya kuanza upya.
+• Hakuna uchanganuzi wa maktaba: hakuna faharasa ya kujenga na hakuna cha kusubiri. Ongeza folda na uanze kusikiliza; programu husoma folda tu unapoifungua.
+• Faili zako haziguswi: programu huona folda unazochagua pekee na haibadilishi, haisongi au kufuta chochote. Faili pekee zinazoandika ni orodha za nyimbo unazohifadhi.
+• Anazungumza lugha yako: zaidi ya lugha 100, kuanzia Kiarabu, Kihindi na Kiswahili hadi Kiindonesia, Kivietnam na Kizulu.
+
+Imetengenezwa kwa ajili ya vitabu vya sauti na albamu
+• Kasi ya uchezaji kuanzia 0.5× hadi 2.0×, imehifadhiwa kwa kila kipengee; miruko ya sekunde 15
+• Sura za M4B na M4A kwenye upau wa utafutaji, katika orodha ya sura na kwenye arifa
+• Hurudi nyuma kwa sekunde chache unapoendelea baada ya mapumziko marefu
+• Uchezaji usio na nafasi; albamu za diski nyingi hucheza kwa mpangilio wa diski
+
+Folda zako, agizo lako
+• Vinjari kama kidhibiti faili, ukiwa na mikate ya mkate, vipendwa na upau wa A–Z
+• Telezesha kidole ili kuongeza folda, albamu au nyimbo kwenye foleni na uihifadhi kama orodha ya kucheza ya M3U
+• Hucheza orodha za kucheza ambazo tayari unazo
+• Panga kila albamu kwa nambari ya wimbo, jina la faili au kichwa
+
+Popote unaposikiliza
+• Vidhibiti katika arifa, kwenye skrini iliyofungwa (na miruko ya sekunde 15) na kwenye vifungo vya Bluetooth au gari
+• Android Auto: vinjari maktaba yako, vipendwa na foleni ndani ya gari
+• Wijeti ya skrini ya nyumbani
+• Hiari huanza kucheza mara tu vipokea sauti vya masikioni au gari lako linapounganishwa
+• Kisawazishi chenye mipangilio iliyowekwa awali, mandhari nyepesi na nyeusi
+
+Miundo: FLAC, M4A, M4B (AAC isiyosimbwa kwa njia fiche), MP3, OGG, Opus na WAV.
+
+Binafsi kwa muundo
+Retro Player haina ruhusa ya Intaneti, kwa hivyo hakuna kinachoondoka kwenye simu yako: hakuna matangazo, uchanganuzi, ufuatiliaji au akaunti. Haihitaji ruhusa ya kuhifadhi pia.
+
+Programu ya bure na huria (GPL-3.0-au-baadaye). Mwongozo wa mtumiaji na msimbo chanzo: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

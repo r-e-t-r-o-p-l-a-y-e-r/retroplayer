@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">1 分以上一時停止した後、20 分を超えるトラックは数秒前から再開します。</string>
     <string name="rewind_by">巻き戻す秒数</string>
     <string name="seconds_short">%1$d 秒</string>
-    <string name="resume_on_reconnect">ヘッドホン再接続時に再開</string>
-    <string name="resume_on_reconnect_hint">ヘッドホンが外れて一時停止してから 10 分以内の場合のみ。</string>
+    <string name="play_on_connect">ヘッドフォンやカーオーディオが接続されたときは、常に再生する</string>
+    <string name="play_on_connect_hint">Bluetoothオーディオ（車など）、有線ヘッドフォン、またはUSBヘッドフォンが接続されるたびに、再生が開始されます。Retro Playerが起動しているときや、通知画面で一時停止しているときでも動作します。</string>
     <string name="track_fallback">トラック</string>
     <string name="unknown_artist">不明</string>
     <string name="tracks_count_artist_eq1">%1$d トラック · %2$s</string>

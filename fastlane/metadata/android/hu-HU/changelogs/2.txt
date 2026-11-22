@@ -1,0 +1,11 @@
+Első kiadás a F-Droid-n:
+• Mappa-könyvtár a kedvencekkel
+• Minden album vagy hangoskönyv esetében megjegyzi a lejátszás helyét és sebességét
+• M4B-fejezetek és M3U-lejátszási listák
+• Android Auto, widget és hangszínszabályzó
+• 106 nyelv
+
+Újdonságok a 0.1.0-s verziótól kezdve:
+• 15 másodperces ugrások a zárolási képernyőn
+• Kattints kétszer a borítóra, hogy 15 másodperccel előreugorj
+• A lejátszás akkor kezdődhet el, amikor a fejhallgató vagy az autó csatlakozik

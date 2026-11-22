@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">After a pause of at least a minute, tracks longer than 20 minutes resume a few seconds earlier.</string>
     <string name="rewind_by">Rewind by</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Resume when headphones reconnect</string>
-    <string name="resume_on_reconnect_hint">Only if playback paused because the headphones were disconnected less than 10 minutes ago.</string>
+    <string name="play_on_connect">Always play when headphones or car audio connect</string>
+    <string name="play_on_connect_hint">Every time Bluetooth audio (for example the car), wired or USB headphones connect, playback starts. Works while Retro Player is open or paused in the notification.</string>
     <string name="track_fallback">Track</string>
     <string name="unknown_artist">Unknown</string>
     <string name="tracks_count_artist_eq1">%1$d track · %2$s</string>

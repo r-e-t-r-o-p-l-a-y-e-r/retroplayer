@@ -1,28 +1,33 @@
-Retro Player reproducira glazbu i audioknjige iz mapa na vašem telefonu. Odaberite mapu i aplikacija je prikazuje onakvom kakva je na disku: mape, albumi i popise za reprodukciju. Bez računa, bez oglasa i bez pristupa mreži.
+Retro Player reproducira glazbu i audioknjige izravno iz mapa na vašem telefonu. Radi izvan mreže, nema oglase i ne zahtijeva račun.
 
-Stvoreno za audioknjige i albume
-• Nastavlja svaki album, knjigu i popis za reprodukciju tamo gdje ste stali
+Zašto Retro Player?
+• Nastavlja točno tamo gdje ste stali: svaki album, audioknjiga i popis za reprodukciju zadržavaju vlastitu poziciju i brzinu, čak i nakon ponovnog pokretanja.
+• Bez pretraživanja biblioteke: nema indeksa za izradu i ništa na što trebate čekati. Dodajte mapu i počnite slušati; aplikacija čita mapu samo kada je otvorite.
+• Vaši datoteci ostaju netaknuti: aplikacija vidi samo mape koje odaberete i nikada ništa ne mijenja, ne premješta niti briše. Jedine datoteke koje zapisuje su playliste koje spremite.
+• Govori vašim jezikom: više od 100 jezika, od arapskog, hindskog i svahilija do indonezijskog, vijetnamskog i zulu.
+
+Namijenjeno audioknjigama i albumima
 • Brzina reprodukcije od 0,5× do 2,0×, spremljena za svaki element; preskakanje od 15 sekundi
-• Poglavlja u M4B i M4A formatima na traci za traženje, u popisu poglavlja i u obavijesti
+• Poglavlja u M4B i M4A formatu na tračnici, u popisu poglavlja i u obavijesti
 • Vraća se nekoliko sekundi unatrag kada nastavite nakon duže pauze
 • Reprodukcija bez pauzi; albumi s više diskova reproduciraju se po redoslijedu diskova
 
 Vaše mape, vaš redoslijed
-• Pregledajte kao upravitelj datoteka, s tragom navigacije, omiljenima i traku od A do Ž
-• Povucite prstom kako biste dodali mape, albume ili pjesme u red za reprodukciju i spremili ih kao M3U playlistu
-• Reproducira playliste koje već imate
+• Pregledajte kao upravitelj datotekama, s tragom, omiljenima i traku od A do Ž
+• Povucite prstom da biste dodali mape, albume ili pjesme u red za reprodukciju i spremili ih kao M3U popis za reprodukciju
+• Reproducira popise za reprodukciju koje već imate
 • Sortirajte svaki album po broju pjesme, nazivu datoteke ili naslovu
 
 Gdje god slušali
-• Kontrole u obavijesti, na zaključanom zaslonu i na tipkama Bluetootha ili automobila
-• Android Auto: pregledajte svoju biblioteku, favorite i redoslijed u automobilu
+• Kontrole u obavijestima, na zaključanom zaslonu (s preskokom od 15 sekundi) i na Bluetooth ili tipkama u automobilu
+• Android Auto: pregledajte svoju glazbenu zbirku, favorite i redoslijed u automobilu
 • Widget za početni zaslon
-• Po želji nastavlja reprodukciju kada se slušalice ponovno povežu
-• Ekvilajzer s unaprijed postavljenim profilima, svijetlom i tamnom temom, 47 jezika
+• Po želji pokreće reprodukciju čim se povežu slušalice ili automobil
+• Ekvalizator s unaprijed postavljenim postavkama, svijetlom i tamnom temom
 
 Formati: FLAC, M4A, M4B (nešifrirani AAC), MP3, OGG, Opus i WAV.
 
-Privatnost u dizajnu
-Retro Player nema dopuštenja za pristup internetu, tako da ništa ne napušta vaš telefon: nema oglasa, analitike, praćenja niti računa. Također mu nije potrebno dopuštenje za pohranu. Čita samo mape koje odaberete i nikada ne mijenja vaše datoteke; jedine datoteke koje zapisuje su playliste koje spremite.
+Privatnost u osnovi
+Retro Player nema dopuštenja za pristup internetu, stoga ništa ne napušta vaš telefon: nema oglasa, analitike, praćenja niti računa. Također mu nije potrebno ni dopuštenje za pristup pohrani.
 
 Besplatan softver otvorenog koda (GPL-3.0 ili noviji). Korisnički priručnik i izvorni kod: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

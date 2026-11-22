@@ -1,0 +1,33 @@
+Retro Player jwe mizik ak liv odyo dirèkteman nan dosye ki sou telefòn ou. Li fonksyone offline, pa gen piblisite epi li pa bezwen kont.
+
+Poukisa Retro Player?
+• Kontinye egzakteman kote ou te kite a: chak albòm, liv odyo ak lis mizik kenbe pwòp pozisyon ak vitès li, menm apre yon rekòmanse.
+• Pa gen eskanè bibliyotèk: pa gen okenn endèks pou konstwi e pa gen anyen pou tann. Ajoute yon dosye epi kòmanse koute; aplikasyon an li yon dosye sèlman lè ou louvri li.
+• Fichye ou yo rete san touche: aplikasyon an wè sèlman dosye ou chwazi yo epi li pa janm chanje, deplase oswa efase anyen. Sèl fichye li ekri se lis mizik ou sove yo.
+• Pale lang ou: plis pase 100 lang, soti nan arab, hindi ak swahili rive nan endonezyen, vyetnamyen ak zoulou.
+
+Fèt pou liv odyo ak albòm
+• Vitès lekti soti nan 0.5× a 2.0×, sove pou chak atik; So 15 segonn
+• Chapit M4B ak M4A sou ba rechèch la, nan yon lis chapit ak nan notifikasyon an
+• Rembobine kèk segonn lè ou kontinye apre yon poz ki pi long
+• Lekti san entèripsyon; Albòm plizyè disk yo jwe nan lòd disk yo
+
+Dosye ou yo, lòd ou
+• Navige tankou yon jesyonè dosye, ak fil d'Ariane, favoris ak yon ba A-Z
+• Glise pou ajoute dosye, albòm oswa mizik nan keu a epi sove li kòm yon lis mizik M3U
+• Jwe lis mizik ou deja genyen yo
+• Klase chak albòm pa nimewo mizik, non fichye oswa tit
+
+Nenpòt kote ou koute
+• Kontwòl nan notifikasyon an, sou ekran fèmen an (ak so 15 segonn) ak sou Bluetooth oswa bouton machin
+• Android Auto: browse bibliyotèk ou, favoris ak keu nan machin nan
+• Widjèt ekran lakay
+• Opsyonèlman kòmanse jwe le pli vit ke kas ekoutè oswa machin ou konekte
+• Egalizè ak prereglaj, tèm klè ak fènwa
+
+Fòma: FLAC, M4A, M4B (AAC san chifreman), MP3, OGG, Opus ak WAV.
+
+Prive pa konsepsyon
+Retro Player pa gen pèmisyon Entènèt, kidonk pa gen anyen ki kite telefòn ou: pa gen piblisite, analiz, swiv oswa kont. Li pa bezwen pèmisyon depo tou.
+
+Lojisyèl gratis ak sous ouvè (GPL-3.0-oswa-pi resan). Gid itilizatè ak kòd sous: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

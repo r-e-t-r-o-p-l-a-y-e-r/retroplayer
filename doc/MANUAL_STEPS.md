@@ -41,10 +41,9 @@ In the browser (needs admin rights on the repository):
    **Actions** → **New repository secret**.
 2. Name `RELEASE_KEYSTORE_BASE64`; value: the output of
    ```bash
-     base64 -w0 retroplayer-release.jks     # Linux; on macOS: base64 -i retroplayer-release.jks
+   base64 -w0 retroplayer-release.jks     # Linux; on macOS: base64 -i retroplayer-release.jks
    ```
-
-     Copy the whole line (several thousand characters, no line breaks).
+   Copy the whole line (several thousand characters, no line breaks).
 3. Add the other three secrets the same way.
 
 Or with the GitHub CLI (`gh auth login` first); `gh` asks for the values, so
@@ -127,10 +126,10 @@ website. Inclusion goes through a merge request to the
 
 Before you start:
 
-- [ ] The GitHub repository is public, `v0.1.0` is tagged and its GitHub
+- [x] The GitHub repository is public, `v0.1.0` is tagged and its GitHub
   Release has `retroplayer-0.1.0.apk` (step 4). F-Droid only builds from
   source it can clone without an account.
-- [ ] The release APK is reproducible: an unsigned build of the tag from a
+- [x] The release APK is reproducible: an unsigned build of the tag from a
   fresh clone, like F-Droid makes, must match it apart from the signature.
   Works with a private repository too (clones the local one). Download
   `retroplayer-0.1.0.apk` from the GitHub Release first, then:
@@ -145,7 +144,7 @@ Before you start:
   F-Droid. On a mismatch, `diffoscope` on the two APKs shows the difference
   (see "Reproducible builds" in [RELEASE.md](RELEASE.md)); do not open the
   merge request until it matches.
-- [ ] If only `classes.dex` and `assets/dexopt/baseline.prof` differ, R8 (the
+- [x] If only `classes.dex` and `assets/dexopt/baseline.prof` differ, R8 (the
   code shrinker) optimised something differently. R8 9.5 is not fully
   deterministic: with identical inputs it typed one coroutines parameter
   differently in about a third of the builds. The rule at the end of
@@ -173,12 +172,11 @@ Before you start:
   The mapping diff names the original classes and methods R8 treated
   differently; the version lines show whether the JDK or the platform jar
   differs from `environment.txt`. If the environments match, build the
-  clone a few more times (`./gradlew --no-build-cache clean
-  :app:assembleRelease`) and compare the map IDs: if they vary, R8 is
+  clone a few more times (`./gradlew --no-build-cache clean :app:assembleRelease`) and compare the map IDs: if they vary, R8 is
   flipping again. Add the class named in the mapping diff to the keep rule
   in `app/proguard-rules.pro`, check that ten builds in a row give the same
   map ID, then release a new version (F-Droid builds each tag only once).
-- [ ] A [GitLab](https://gitlab.com/users/sign_up) account. The username is
+- [x] A [GitLab](https://gitlab.com/users/sign_up) account. The username is
   public; the email is not. In GitLab → Preferences → Emails, set the commit
   email to the private `…@users.noreply.gitlab.com` address and use it in the
   fdroiddata clone (`git config user.email`), so your private address does
@@ -186,18 +184,36 @@ Before you start:
 
 Prepare the merge request:
 
-- [ ] On GitLab, open [fdroid/fdroiddata](https://gitlab.com/fdroid/fdroiddata)
-  → **Fork**. Clone your fork (it is large; `--depth 1` is enough) and create
-  a branch:
+- [x] On GitLab, open [fdroid/fdroiddata](https://gitlab.com/fdroid/fdroiddata)
+  → **Fork**. Options: namespace = your user (`freier-fall`), keep the
+  project name and slug `fdroiddata`, visibility **Public**, branches
+  **Only the default branch** (`master`; the others are F-Droid's and
+  only slow the fork down). Nobody outside the F-Droid team can push to
+  `fdroid/fdroiddata` itself; you push to the fork and open the merge
+  request from there.
+- [x] Push over SSH: GitLab does not take the account password for git
+  when two-factor authentication is on. Add the public key
+  (`cat ~/.ssh/id_ed25519.pub`; create one with `ssh-keygen -t ed25519`
+  if missing) under GitLab → avatar → **Preferences → SSH Keys**, then
+  check it: `ssh -T git@gitlab.com` prints "Welcome to GitLab, @freier-fall!".
+  (HTTPS works too, with a personal access token with scope
+  `write_repository` as the password.)
+- [x] Clone your fork (it is large; `--depth 1` is enough) and create a
+  branch:
   ```bash
-  git clone --depth 1 https://gitlab.com/<gitlab-user>/fdroiddata.git
+  git clone --depth 1 git@gitlab.com:freier-fall/fdroiddata.git
   cd fdroiddata
   git config user.name freier-fall
-  git config user.email <id>-<gitlab-user>@users.noreply.gitlab.com
+  git config user.email <id>-freier-fall@users.noreply.gitlab.com
   git checkout -b app.retroplayer
   ```
+  If you cloned `fdroid/fdroiddata` directly instead, point it at the fork:
+  ```bash
+  git remote rename origin upstream
+  git remote add origin git@gitlab.com:freier-fall/fdroiddata.git
+  ```
 
-- [ ] Create `metadata/app.retroplayer.yml`:
+- [x] Create `metadata/app.retroplayer.yml`:
   ```yaml
   Categories:
     - Multimedia
@@ -242,8 +258,8 @@ Prepare the merge request:
 Test locally (optional but saves review rounds; needs the Android SDK, which
 is already set up here, and Python):
 
-- [ ] Install fdroidserver: `pip install --user fdroidserver`
-- [ ] The pip package lacks the Gradle wrapper `fdroid build` runs
+- [x] Install fdroidserver: `pip install --user fdroidserver`
+- [x] The pip package lacks the Gradle wrapper `fdroid build` runs
   (`OSError … site-packages/gradlew-fdroid`). It is now a separate project;
   put its script where fdroidserver looks for it:
   ```bash
@@ -251,7 +267,7 @@ is already set up here, and Python):
   curl -fsSL -o "$site/gradlew-fdroid" https://gitlab.com/fdroid/gradlew-fdroid/-/raw/main/gradlew.py
   chmod 755 "$site/gradlew-fdroid"
   ```
-- [ ] In the fdroiddata folder:
+- [x] In the fdroiddata folder:
   ```bash
   fdroid readmeta                              # the YAML parses
   fdroid rewritemeta app.retroplayer           # formats the file the way reviewers expect
@@ -265,12 +281,17 @@ is already set up here, and Python):
 
 Open the merge request:
 
-- [ ] `git add metadata/app.retroplayer.yml && git commit -m "New app: Retro Player"`,
-  then `git push -u origin app.retroplayer`.
-- [ ] GitLab prints a link to open a merge request; target
+- [x] `git add metadata/app.retroplayer.yml && git commit -m "New app: Retro Player"`,
+  then `git push -u origin app.retroplayer` (`origin` must be your fork,
+  `git remote -v` shows it).
+- [x] GitLab prints a link to open a merge request; target
   `fdroid/fdroiddata` branch `master`. Pick the template **"App inclusion"**
   and tick its checklist: the app is free software, has no tracking or ads,
-  and you are the developer.
+  and you are the developer. For this fork and branch the link is
+  <https://gitlab.com/freier-fall/fdroiddata/-/merge_requests/new?merge_request%5Bsource_branch%5D=app.retroplayer>.
+- [ ] Open the merge request with that link (not yet done; publication is
+  on hold for now). Before opening it, make sure the branch on the fork
+  contains the commit with `metadata/app.retroplayer.yml`.
 - [ ] GitLab CI runs lint and a test build on the merge request. Fix what it
   reports by pushing to the same branch.
 - [ ] A volunteer reviews it; that can take days to a few weeks. Answer

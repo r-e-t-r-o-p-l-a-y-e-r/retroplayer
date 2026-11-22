@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Tras una pausa de al menos un minuto, las pistas de más de 20 minutos se reanudan unos segundos antes.</string>
     <string name="rewind_by">Retroceder</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Reanudar al reconectar los auriculares</string>
-    <string name="resume_on_reconnect_hint">Solo si la reproducción se pausó porque los auriculares se desconectaron hace menos de 10 minutos.</string>
+    <string name="play_on_connect">Reproducir siempre cuando se conecten los auriculares o el sistema de audio del coche</string>
+    <string name="play_on_connect_hint">Cada vez que se conectan unos auriculares Bluetooth (por ejemplo, los del coche), con cable o USB, comienza la reproducción. Funciona tanto si Retro Player está abierto como si está en pausa en la barra de notificaciones.</string>
     <string name="track_fallback">Pista</string>
     <string name="unknown_artist">Desconocido</string>
     <string name="tracks_count_artist_eq1">%1$d pista · %2$s</string>

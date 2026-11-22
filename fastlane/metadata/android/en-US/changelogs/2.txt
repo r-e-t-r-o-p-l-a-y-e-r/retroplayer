@@ -1,0 +1,11 @@
+First release on F-Droid:
+• Folder library with favorites
+• Remembers the position and speed for each album or audiobook
+• M4B chapters and M3U playlists
+• Android Auto, widget and equalizer
+• 106 languages
+
+New since 0.1.0:
+• 15-second jumps on the lock screen
+• Double-tap the cover to jump 15 seconds
+• Playback can start when headphones or the car connect

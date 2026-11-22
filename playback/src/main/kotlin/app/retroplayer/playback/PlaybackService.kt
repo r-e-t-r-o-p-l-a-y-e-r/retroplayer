@@ -2,13 +2,9 @@ package app.retroplayer.playback
 
 import android.app.PendingIntent
 import android.content.Intent
-import android.media.AudioDeviceCallback
-import android.media.AudioDeviceInfo
 import android.media.AudioManager
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.os.SystemClock
 import androidx.core.net.toUri
 import androidx.media3.common.AudioAttributes
@@ -56,6 +52,7 @@ class PlaybackService : MediaLibraryService() {
     @Inject lateinit var equalizerAvailability: EqualizerAvailability
     @Inject lateinit var treeLabels: TreeLabels
     @Inject lateinit var chapterLabels: ChapterLabels
+    @Inject lateinit var seekLabels: SeekLabels
     @Inject lateinit var chapterRepository: ChapterRepository
     @Inject lateinit var nowPlayingSink: NowPlayingSink
 
@@ -67,7 +64,7 @@ class PlaybackService : MediaLibraryService() {
     private lateinit var equalizer: EqualizerBinder
     private lateinit var tree: LibraryTree
     private lateinit var chapterTracker: ChapterTracker
-    private lateinit var outputs: AudioDeviceCallback
+    private lateinit var outputs: HeadphoneOutputs
 
     @Volatile private var headset = HeadsetSettings()
 
@@ -90,23 +87,14 @@ class PlaybackService : MediaLibraryService() {
         )
         equalizer.onSession(exo.audioSessionId)
         chapterTracker = ChapterTracker(exo, scope, ::chaptersOf) { chapters ->
-            session?.setMediaButtonPreferences(ChapterCommands.buttons(chapters, chapterLabels))
+            session?.setMediaButtonPreferences(SeekButtons.mediaButtons(chapters, chapterLabels, seekLabels))
         }
         player = RetroPlayer(exo, AutoRewindTracker(SystemClock::elapsedRealtime), { headset }) {
             chapterTracker.chapters.map { it.startMs }
         }
-        val reconnect = ReconnectWatcher(SystemClock::elapsedRealtime, { headset.resumeOnReconnect }, player::play)
-        exo.addListener(
-            object : Player.Listener {
-                override fun onPlayWhenReadyChanged(playWhenReady: Boolean, reason: Int) =
-                    reconnect.onPlayWhenReadyChanged(playWhenReady, reason)
-            },
-        )
-        outputs = object : AudioDeviceCallback() {
-            override fun onAudioDevicesAdded(addedDevices: Array<out AudioDeviceInfo>) =
-                reconnect.onOutputsAdded(addedDevices.filter { it.isSink }.map { it.type })
-        }
-        getSystemService(AudioManager::class.java).registerAudioDeviceCallback(outputs, Handler(Looper.getMainLooper()))
+        val reconnect = ReconnectWatcher({ headset.resumeOnReconnect }, { player.playWhenReady }, player::play)
+        outputs = HeadphoneOutputs(getSystemService(AudioManager::class.java), reconnect)
+        outputs.register()
         player.addListener(
             object : Player.Listener {
                 override fun onEvents(player: Player, events: Player.Events) = nowPlayingSink.update(NowPlayingSnapshot.of(player))
@@ -149,7 +137,7 @@ class PlaybackService : MediaLibraryService() {
     }
 
     override fun onDestroy() {
-        getSystemService(AudioManager::class.java).unregisterAudioDeviceCallback(outputs)
+        outputs.unregister()
         nowPlayingSink.update(NowPlayingSnapshot.of(player).copy(isPlaying = false))
         saver.saveNow()
         saver.stop()
@@ -188,7 +176,7 @@ class PlaybackService : MediaLibraryService() {
                 .setAvailableSessionCommands(
                     ChapterCommands.addTo(MediaSession.ConnectionResult.DEFAULT_SESSION_AND_LIBRARY_COMMANDS),
                 )
-                .setMediaButtonPreferences(ChapterCommands.buttons(chapterTracker.chapters, chapterLabels))
+                .setMediaButtonPreferences(SeekButtons.mediaButtons(chapterTracker.chapters, chapterLabels, seekLabels))
                 .build()
 
         override fun onCustomCommand(

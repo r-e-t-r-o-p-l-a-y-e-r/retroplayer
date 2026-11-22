@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">หลังจากหยุดชั่วคราวอย่างน้อยหนึ่งนาที แทร็กที่ยาวกว่า 20 นาทีจะเล่นต่อจากก่อนหน้าไม่กี่วินาที</string>
     <string name="rewind_by">ย้อนกลับ</string>
     <string name="seconds_short">%1$d วิ</string>
-    <string name="resume_on_reconnect">เล่นต่อเมื่อเชื่อมต่อหูฟังอีกครั้ง</string>
-    <string name="resume_on_reconnect_hint">เฉพาะเมื่อการเล่นหยุดเพราะหูฟังถูกถอดออกไม่ถึง 10 นาทีที่แล้ว</string>
+    <string name="play_on_connect">ให้เล่นเพลงเสมอเมื่อต่อหูฟังหรือระบบเสียงในรถยนต์</string>
+    <string name="play_on_connect_hint">ทุกครั้งที่หูฟัง Bluetooth (เช่น ในรถยนต์) หูฟังแบบมีสาย หรือหูฟัง USB เชื่อมต่อ การเล่นเสียงจะเริ่มขึ้น โดยฟังก์ชันนี้ทำงานได้ทั้งเมื่อ Retro Player เปิดอยู่ หรืออยู่ในสถานะหยุดชั่วคราวในศูนย์แจ้งเตือน</string>
     <string name="track_fallback">ติดตาม</string>
     <string name="unknown_artist">ไม่ทราบ</string>
     <string name="tracks_count_artist_eq1">%1$d เพลง · %2$s</string>

@@ -1,0 +1,33 @@
+Nagpe-play ang Retro Player ng musika at mga audiobook nang direkta mula sa mga folder sa iyong telepono. Gumagana ito offline, walang mga ad at hindi nangangailangan ng account.
+
+Bakit Retro Player?
+• Nagpapatuloy nang eksakto kung saan ka tumigil: bawat album, audiobook at playlist ay nagpapanatili ng sarili nitong posisyon at bilis, kahit na pagkatapos ng pag-restart.
+• Walang library scan: walang index na gagawin at walang hihintayin. Magdagdag ng folder at simulan ang pakikinig; binabasa lamang ng app ang isang folder kapag binuksan mo ito.
+• Hindi nagalaw ang iyong mga file: nakikita lamang ng app ang mga folder na iyong pinili at hindi kailanman binabago, inililipat o binubura ang anuman. Ang mga file lamang na isinusulat nito ay ang mga playlist na iyong sine-save.
+• Nagsasalita ng iyong wika: mahigit sa 100 wika, mula Arabic, Hindi at Swahili hanggang Indonesian, Vietnamese at Zulu.
+
+Ginawa para sa mga audiobook at album
+• Bilis ng pag-playback mula 0.5× hanggang 2.0×, na naka-save sa bawat item; Mga 15-segundong pagtalon
+• Mga kabanata ng M4B at M4A sa seek bar, sa isang listahan ng kabanata at sa notification
+• Nagre-rewind ng ilang segundo kapag nagpatuloy ka pagkatapos ng mas mahabang pahinga
+• Walang puwang na pag-playback; ang mga multi-disc album ay nagpe-play sa pagkakasunud-sunod ng disc
+
+Ang iyong mga folder, ang iyong pagkakasunud-sunod
+• Mag-browse tulad ng isang file manager, na may mga breadcrumb, paborito at isang A–Z bar
+• Mag-swipe upang magdagdag ng mga folder, album o track sa queue at i-save ito bilang isang M3U playlist
+• Nagpe-play ng mga playlist na mayroon ka na
+• Pagbukud-bukurin ang bawat album ayon sa numero ng track, pangalan ng file o pamagat
+
+Saan ka man makinig
+• Mga kontrol sa notification, sa lock screen (na may 15-segundong pagtalon) at sa mga Bluetooth o car button
+• Android Auto: i-browse ang iyong library, mga paborito at queue sa kotse
+• Widget ng Home-screen
+• Opsyonal na magsisimulang mag-play sa sandaling kumonekta ang headphone o ang iyong kotse
+• Equalizer na may mga preset, light at dark theme
+
+Mga Format: FLAC, M4A, M4B (hindi naka-encrypt na AAC), MP3, OGG, Opus at WAV.
+
+Pribado ayon sa disenyo
+Walang pahintulot sa Internet ang Retro Player, kaya walang anumang bagay na umaalis sa iyong telepono: walang mga ad, analytics, tracking o mga account. Hindi rin nito kailangan ng pahintulot sa imbakan.
+
+Libre at open source na software (GPL-3.0-o-mas bago). Gabay sa gumagamit at source code: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

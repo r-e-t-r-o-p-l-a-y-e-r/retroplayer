@@ -1,0 +1,33 @@
+Retro Player telefonoykipi kaq carpetakunamanta derechota takikunata hinaspa uyarinapaq librokunata tocan. Mana tinkisqa llamk'an, mana willakuyniyuqchu chaymanta mana yupayta necesitanchu.
+
+¿Imaraykutaq Retro Player?
+• Maypichus saqisqaykimanjinapuni purin: sapa álbum, audiolibro, lista de reproducción ima, maypi kasqanmanta, usqhayllata ima waqaychan, wakmanta qallariymanta qhipamanpas.
+• Mana biblioteca escaneo: mana kanchu índice ruwanapaq nitaq imapas suyanapaq. Huk qillqana mayt’uta yapay hinaspa uyariyta qallariy; chay app huk carpetata kichaspalla ñawinchan.
+• Archivoykikunaqa mana llachpasqachu kanku: appqa akllasqayki carpetakunallatam qawan, manataqmi haykapipas imatapas tikranchu, kuyuchinchu nitaq qullunchu. Qillqasqan willañiqikunallam waqaychasqayki takiy listakuna.
+• Simiykita riman: pachakmanta aswan simikunata, árabe, hindi, suajili simimanta Indonesia, Vietnam, Zulu simikama.
+
+Audio librokunapaq, álbumkunapaqpas ruwasqa
+• Pukllay utqaylla 0,5×manta 2,0×kama, sapa imapas waqaychasqa; 15 iskay ñiqin saltakuna
+• M4B chaymanta M4A capitulokuna maskana barrapi, huk capitulokuna lista kaqpi chaymanta willakuypi
+• Aswan unay samaymanta hinalla puriptiykiqa iskay kimsa segundosllatam kutichin
+• Mana ch’usaqyuq pukllay; achka discoyuq álbumkunam disco ordenpi tocan
+
+Carpetaykikuna, pedidoyki
+• Willayta kamachiq hina maskay, t’anta rakhukunawan, munasqakunawan, A–Z barrawan ima
+• Filaman carpetakunata, álbumkunata utaq takikunata yapanaykipaq llalliy hinaspa M3U takiy lista hina waqaychay
+• Ñam kapususqayki listakunata pukllan
+• Sapa álbumtam taki yupayman hina, archivopa sutinman hina utaq titulonman hina t’aqay
+
+Maypipas uyarispaykiqa
+• Willakuypi, pantalla de bloqueo nisqapi (15 segundos saltakunawan) chaymanta Bluetooth utaq carropa botonesninpi controlkuna
+• Android Auto: bibliotecaykipi, munasqaykikunata hinaspa carropi filapi maskay
+• Pantalla qallariypi widget
+• Munaspaqa uyarinakuna utaq carroyki tinkisqa kaptinpacham pukllayta qallarin
+• Ecualizador ñawpaqmanta churasqayuq, k’anchayniyuq, tutayaq temayuq
+
+Formatokuna: FLAC, M4A, M4B (mana chifrasqa AAC), MP3, OGG, Opus chaymanta WAV.
+
+Diseño nisqaman hina privado
+Retro Player mana Internet permisoyuqchu, chayrayku mana imapas telefonoykimanta lluqsinchu: mana willakuykunata, analisis, qatiy utaq yupaykuna. Manataqmi waqaychay permisotapas necesitanchu.
+
+Libre chaymanta kichasqa qullqisapa software (GPL-3.0-utaq-qhipa). Ruwaqpa pusaqnin chaymanta pukyuta: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

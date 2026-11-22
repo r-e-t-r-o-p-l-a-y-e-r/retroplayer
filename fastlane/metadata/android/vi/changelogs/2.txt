@@ -1,0 +1,11 @@
+Bản phát hành đầu tiên trên F-Droid:
+• Thư viện thư mục với các mục yêu thích
+• Ghi nhớ vị trí và tốc độ phát cho từng album hoặc sách nói
+• Các chương M4B và danh sách phát M3U
+• Android Auto, widget và bộ cân bằng âm thanh
+• 106 ngôn ngữ
+
+Các tính năng mới kể từ phiên bản 0.1.0:
+• Các thao tác nhảy 15 giây trên màn hình khóa
+• Nhấn đúp vào bìa để chuyển đến đoạn 15 giây sau
+• Việc phát lại có thể bắt đầu khi tai nghe hoặc xe ô tô được kết nối

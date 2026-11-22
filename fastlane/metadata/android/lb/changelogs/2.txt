@@ -1,0 +1,11 @@
+Éischt Verëffentlechung den F-Droid:
+• Dossierbibliothéik mat Favoritten
+• Erënnerung un d'Positioun an d'Geschwindegkeet fir all Album oder Audiobuch
+• M4B Kapitelen an M3U Playlists
+• Android Auto, Widget an Equalizer
+• 106 Sproochen
+
+Nei zënter 0.1.0:
+• 15-Sekonnen-Sprong um Sperrbildschierm
+• Duebeltippt op de Cover fir 15 Sekonnen ze sprangen
+• D'Wiedergabe kann ufänken, wann d'Kopfhörer oder den Auto verbonne sinn

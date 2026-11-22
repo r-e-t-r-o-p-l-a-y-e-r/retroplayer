@@ -1,0 +1,11 @@
+Primeiro lançamento em F-Droid:
+• Biblioteca de pastas com favoritos
+• Memoriza a posição e a velocidade de cada álbum ou audiolivro.
+• Capítulos M4B e listas de reprodução M3U
+• Android Auto, widget e equalizador
+• 106 idiomas
+
+Novidade desde a versão 0.1.0:
+• Saltos de 15 segundos na tela de bloqueio
+• Toque duas vezes na capa para pular 15 segundos.
+• A reprodução pode começar quando os fones de ouvido ou o carro estiverem conectados.

@@ -1,0 +1,11 @@
+Pierwsze wydawnictwo w serii F-Droid:
+• Biblioteka folderów z ulubionymi
+• Zapamiętuje pozycję i prędkość odtwarzania dla każdego albumu lub audiobooka
+• Rozdziały M4B i listy odtwarzania M3U
+• Android Auto, widget i korektor
+• 106 języków
+
+Nowości od wersji 0.1.0:
+• 15-sekundowe przeskoki na ekranie blokady
+• Dwukrotnie dotknij okładki, aby przeskoczyć o 15 sekund
+• Odtwarzanie może się rozpocząć po podłączeniu słuchawek lub samochodu

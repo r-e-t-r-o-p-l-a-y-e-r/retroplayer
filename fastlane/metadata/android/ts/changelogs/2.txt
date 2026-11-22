@@ -1,0 +1,11 @@
+Ku humesiwa ko sungula hi F-Droid:
+• Layiburari ya tifolda leyi nga ni swilo leswi rhandzekaka
+• U tsundzuka xiyimo na rivilo ra alibamu yin’wana na yin’wana kumbe buku yo yingiseriwa
+• Tindzima ta M4B na minxaxamelo ya M3U
+• Android Auto, xitirhisiwa na xiringanisi
+• 106 wa tindzimi
+
+Swintshwa ku sukela hi 0.1.0:
+• Ku tlula ka 15 wa tisekoni eka xikirini xo pfala
+• Khoma xifunengeto kambirhi leswaku u tlula 15 wa tisekoni
+• Ku tlanga ku nga sungula loko ti-headphone kumbe movha wu hlanganisa

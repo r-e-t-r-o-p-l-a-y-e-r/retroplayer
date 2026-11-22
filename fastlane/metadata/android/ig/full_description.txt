@@ -1,0 +1,33 @@
+Retro Player na-akpọ egwu na akwụkwọ ọdịyo ozugbo site na folda dị na ekwentị gị. Ọ na-arụ ọrụ na-anọghị n'ịntanetị, enweghị mgbasa ozi ma ọ chọghị akaụntụ.
+
+Gịnị mere Retro Player?
+• Na-aga n'ihu kpọmkwem ebe ị kwụsịrị: abọm ọ bụla, akwụkwọ ọdịyo na ndepụta egwu na-edobe ọnọdụ na ọsọ nke ya, ọbụlagodi mgbe ịmalitegharịrị.
+• Enweghị nyocha ọbá akwụkwọ: enweghị ndeksi ị ga-ewu na ihe ọ bụla ị ga-eche. Tinye folda ma malite ige ntị; ngwa ahụ na-agụ folda naanị mgbe ị meghere ya.
+• Faịlụ gị anaghị emetụ aka: ngwa ahụ na-ahụ naanị folda ị họọrọ ma ọ naghị agbanwe, na-akwagharị ma ọ bụ na-ehichapụ ihe ọ bụla. Naanị faịlụ ọ na-ede bụ ndepụta egwu ị na-echekwa.
+• Na-asụ asụsụ gị: ihe karịrị asụsụ 100, site na Arabic, Hindi na Swahili ruo Indonesian, Vietnamese na Zulu.
+
+Emere maka akwụkwọ ọdịyo na abọm
+• Ọsọ ịkpọghachi site na 0.5× ruo 2.0×, echekwara kwa ihe; Mwụli elu nke sekọnd 15
+• Isiakwụkwọ M4B na M4A na mmanya nchọta, na ndepụta isi na na ọkwa
+• Na-alaghachi azụ sekọnd ole na ole mgbe ị gara n'ihu mgbe ezumike dị ogologo gasịrị
+• Mkpọgharị na-enweghị oghere; abọm diski dị iche iche na-egwu n'usoro diski
+
+Fọlfụ gị, iwu gị
+• Chọgharịa dị ka onye njikwa faịlụ, yana achịcha, ihe ndị ị hụrụ n'anya na ogwe A–Z
+• Mpịakọta iji tinye folda, abọm ma ọ bụ egwu na ahịrị wee chekwaa ya dị ka ndepụta egwu M3U
+• Na-akpọ ndepụta egwu ị nwerelarị
+• Hazie abọm ọ bụla site na nọmba egwu, aha faịlụ ma ọ bụ aha
+
+Ebe ọ bụla ị na-ege ntị
+• Njikwa na ọkwa, na ihuenyo mkpọchi (na mwụli elu nke sekọnd 15) na na bọtịnụ Bluetooth ma ọ bụ ụgbọ ala
+• Android Auto: chọgharịa ọbá akwụkwọ gị, ihe ndị ị hụrụ n'anya na ahịrị n'ụgbọala
+• Ngwa ihuenyo ụlọ
+• Nhọrọ ya na-amalite ịkpọ ozugbo ekweisi ma ọ bụ ụgbọ ala gị jikọrọ
+• Ihe nhazi na ntọala, isiokwu ọkụ na ọchịchịrị
+
+Ụdị: FLAC, M4A, M4B (AAC na-ezochighị), MP3, OGG, Opus na WAV.
+
+Nhazi nkeonwe
+Retro Player enweghị ikike ịntanetị, yabụ ọ dịghị ihe na-apụ na ekwentị gị: enweghị mgbasa ozi, nyocha, nsochi ma ọ bụ akaụntụ. Ọ chọghịkwa ikike nchekwa.
+
+Ngwanrọ efu na nke mepere emepe (GPL-3.0-ma ọ bụ mgbe e mesịrị). Ntuziaka onye ọrụ na koodu isi mmalite: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

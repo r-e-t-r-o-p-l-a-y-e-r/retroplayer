@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Setelah jeda minimal satu menit, trek yang lebih dari 20 menit dilanjutkan beberapa detik lebih awal.</string>
     <string name="rewind_by">Mundur sebanyak</string>
     <string name="seconds_short">%1$d dtk</string>
-    <string name="resume_on_reconnect">Lanjutkan saat headphone tersambung lagi</string>
-    <string name="resume_on_reconnect_hint">Hanya jika pemutaran berhenti karena headphone diputus kurang dari 10 menit yang lalu.</string>
+    <string name="play_on_connect">Selalu putar saat headphone atau sistem audio mobil terhubung</string>
+    <string name="play_on_connect_hint">Setiap kali perangkat audio Bluetooth (misalnya di mobil), headphone berkabel, atau headphone USB terhubung, pemutaran akan dimulai. Fitur ini berfungsi saat Retro Player sedang terbuka atau dalam keadaan dijeda di panel notifikasi.</string>
     <string name="track_fallback">Lintasan</string>
     <string name="unknown_artist">Tidak diketahui</string>
     <string name="tracks_count_artist_eq1">%1$d lagu · %2$s</string>

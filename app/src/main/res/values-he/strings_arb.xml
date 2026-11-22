@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">אחרי הפסקה של דקה לפחות, רצועות ארוכות מ־20 דקות ממשיכות כמה שניות מוקדם יותר.</string>
     <string name="rewind_by">חזרה לאחור ב־</string>
     <string name="seconds_short">%1$d שנ׳</string>
-    <string name="resume_on_reconnect">המשך כשהאוזניות מתחברות מחדש</string>
-    <string name="resume_on_reconnect_hint">רק אם ההשמעה נעצרה כי האוזניות נותקו לפני פחות מ־10 דקות.</string>
+    <string name="play_on_connect">הפעל תמיד את המוזיקה כאשר מחברים אוזניות או מערכת השמע ברכב</string>
+    <string name="play_on_connect_hint">בכל פעם שמתחברים אוזניות בלוטות\' (למשל, ברכב), אוזניות חוטיות או אוזניות USB, ההשמעה מתחילה. זה פועל כאשר Retro Player פתוח או בהשהיה בתפריט ההתראות.</string>
     <string name="track_fallback">מסלול</string>
     <string name="unknown_artist">לא ידוע</string>
     <string name="tracks_count_artist_eq1">רצועה אחת · %2$s</string>

@@ -1,28 +1,33 @@
-Retro Player lit la musique et les livres audio à partir des dossiers de votre téléphone. Choisissez un dossier et l’application l’affiche tel qu’il apparaît sur le disque : dossiers, albums et listes de lecture. Pas de compte, pas de publicités et pas d’accès au réseau.
+Retro Player lit de la musique et des livres audio directement à partir des dossiers de votre téléphone. Il fonctionne hors ligne, ne contient aucune publicité et ne nécessite pas de compte.
 
-Conçu pour les livres audio et les albums
-• Reprend la lecture de chaque album, livre et liste de lecture là où vous vous êtes arrêté
+Pourquoi choisir Retro Player ?
+• Reprend exactement là où vous vous êtes arrêté : chaque album, livre audio et liste de lecture conserve sa position et sa vitesse, même après un redémarrage.
+• Pas d’analyse de la bibliothèque : il n’y a pas d’index à créer et aucun temps d’attente. Ajoutez un dossier et commencez à écouter ; l’application ne lit un dossier que lorsque vous l’ouvrez.
+• Vos fichiers restent intacts : l’application ne voit que les dossiers que vous sélectionnez et ne modifie, ne déplace ni ne supprime jamais rien. Les seuls fichiers qu’elle crée sont les playlists que vous enregistrez.
+• Prend en charge votre langue : plus de 100 langues, de l’arabe, l’hindi et le swahili à l’indonésien, le vietnamien et le zoulou.
+
+Conçue pour les livres audio et les albums
 • Vitesse de lecture de 0,5× à 2,0×, enregistrée pour chaque élément ; sauts de 15 secondes
 • Chapitres M4B et M4A affichés sur la barre de recherche, dans une liste de chapitres et dans la notification
 • Retour en arrière de quelques secondes lorsque vous reprenez la lecture après une longue pause
-• Lecture sans interruption ; les albums à plusieurs disques sont lus dans l’ordre des disques
+• Lecture sans interruption ; les albums multi-disques sont lus dans l’ordre des disques
 
 Vos dossiers, votre ordre
-• Naviguez comme dans un gestionnaire de fichiers, avec un fil d’Ariane, des favoris et une barre de recherche A–Z
-• Balayez pour ajouter des dossiers, des albums ou des titres à la file d’attente et enregistrez-la sous forme de playlist M3U
+• Navigation comme dans un gestionnaire de fichiers, avec fil d’Ariane, favoris et barre de recherche A–Z
+• Balayez pour ajouter des dossiers, des albums ou des titres à la file d’attente et enregistrez-la sous forme de liste de lecture M3U
 • Lit les listes de lecture que vous possédez déjà
-• Trie chaque album par numéro de piste, nom de fichier ou titre
+• Triez chaque album par numéro de piste, nom de fichier ou titre
 
 Où que vous écoutiez
-• Commandes dans la notification, sur l’écran de verrouillage et via les boutons Bluetooth ou de la voiture
+• Commandes dans la notification, sur l’écran de verrouillage (avec des sauts de 15 secondes) et via les boutons Bluetooth ou de la voiture
 • Android Auto : parcourez votre bibliothèque, vos favoris et votre file d’attente en voiture
-• Widget d’écran d’accueil
-• Poursuite de la lecture en option lorsque vos écouteurs se reconnectent
-• Égaliseur avec préréglages, thèmes clair et sombre, 47 langues
+• Widget sur l’écran d’accueil
+• Lancement de la lecture dès que vos écouteurs ou votre voiture sont connectés (en option)
+• Égaliseur avec préréglages, thèmes clair et sombre
 
-Formats : FLAC, M4A, M4B (AAC non crypté), MP3, OGG, Opus et WAV.
+Formats pris en charge : FLAC, M4A, M4B (AAC non crypté), MP3, OGG, Opus et WAV.
 
 Conçu pour le respect de la vie privée
-Retro Player ne demande aucune autorisation d’accès à Internet : aucune donnée ne quitte votre téléphone, qu’il s’agisse de publicités, d’analyses, de suivi ou de comptes. Il ne nécessite pas non plus d’autorisation d’accès au stockage. Il lit uniquement les dossiers que vous sélectionnez et ne modifie jamais vos fichiers ; les seuls fichiers qu’il crée sont les playlists que vous enregistrez.
+Retro Player ne demande aucune autorisation d’accès à Internet ; ainsi, aucune donnée ne quitte votre téléphone : pas de publicités, d’analyses, de suivi ni de comptes. Il ne nécessite pas non plus d’autorisation d’accès au stockage.
 
 Logiciel libre et open source (GPL-3.0 ou version ultérieure). Guide d’utilisation et code source : https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

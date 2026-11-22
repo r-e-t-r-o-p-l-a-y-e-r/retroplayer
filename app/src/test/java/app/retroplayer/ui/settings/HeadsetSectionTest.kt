@@ -47,7 +47,7 @@ class HeadsetSectionTest {
         compose.onNodeWithText(context.getString(R.string.headphones)).assertExists()
         switch(R.string.auto_rewind).assertIsOn()
         seconds(5).assertIsSelected()
-        switch(R.string.resume_on_reconnect).assertIsOff()
+        switch(R.string.play_on_connect).assertIsOff()
     }
 
     @Test
@@ -55,7 +55,7 @@ class HeadsetSectionTest {
         show()
         switch(R.string.auto_rewind).performClick()
         seconds(15).performClick()
-        switch(R.string.resume_on_reconnect).performClick()
+        switch(R.string.play_on_connect).performClick()
         assertThat(calls).containsExactly("rewind:false", "seconds:15", "resume:true").inOrder()
     }
 

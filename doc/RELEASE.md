@@ -66,7 +66,12 @@ keep the build reproducible:
 - The dependency metadata blob is off (`dependenciesInfo`).
 - Build-config values come from the commit (`GIT_COMMIT`, commit time), never
   from the branch, the clock or the machine.
-- Gradle wrapper (with checksum), JDK major version and build-tools are pinned.
+- Gradle wrapper (with checksum) and build-tools are pinned. No module asks
+  for a JDK toolchain: CI uses JDK 21 like F-Droid's build server, and the
+  bytecode targets Java 17 (`:domain` compiles with `-Xjdk-release=17`), so
+  release builds on JDK 17 and 21 are byte-identical.
+- R8 is not fully deterministic; `app/proguard-rules.pro` keeps the one
+  method it typed differently from build to build.
 - Release APKs come from a **clean checkout** (CI, or a fresh clone). An
   incremental build after earlier builds can rename one R8 class and no longer
   match F-Droid's clean build.
@@ -91,7 +96,7 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
    `doc/USAGE.md` and the store text if features changed.
 2. `./gradlew check assembleRelease` and `scripts/device-smoke.sh` on an
    emulator; install the release build on a phone and try the main flows.
-3. Merge to `main`, then tag: `git tag v0.1.0 && git push origin v0.1.0`.
+3. Merge to `main`, then tag: `git tag vX.Y.Z && git push origin vX.Y.Z`.
 4. `.github/workflows/release.yml` checks that the tag matches `versionName`,
    builds the signed APK first in the clean checkout, runs `check`, and
    attaches to a GitHub Release (notes from the changelog):

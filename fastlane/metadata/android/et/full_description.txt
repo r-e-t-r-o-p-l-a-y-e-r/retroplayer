@@ -1,28 +1,33 @@
-Retro Player mängib muusikat ja audioraamatuid teie telefoni kaustadest. Valige kaust ja rakendus kuvab selle täpselt nii, nagu see on kettal: kaustad, albumid ja esitusloendid. Ei vaja kontot, ei sisalda reklaame ega vaja võrguühendust.
+Retro Player mängib muusikat ja audioraamatuid otse teie telefoni kaustadest. See töötab võrguväliselt, ei sisalda reklaame ega nõua kontot.
+
+Miks just Retro Player?
+• Jätkab täpselt sealt, kus te pooleli jäite: iga album, audioraamat ja esitusloend säilitab oma asukoha ja kiiruse isegi pärast taaskäivitamist.
+• Raamatukogu skaneerimist pole vaja: indeksit ei pea looma ega midagi ootama. Lisa kaust ja alusta kuulamist; rakendus loeb kausta sisu alles siis, kui sa selle avad.
+• Su failid jäävad puutumatuks: rakendus näeb ainult sinu valitud kaustu ega muuda, liiguta ega kustuta midagi. Ainsad failid, mida rakendus salvestab, on sinu salvestatud esitusloendid.
+• Räägib sinu keelt: üle 100 keele, alates araabia, hindi ja suahiili keelest kuni indoneesia, vietnami ja zulu keeleni.
 
 Loodud audioraamatute ja albumite jaoks
-• Jätkab iga albumi, raamatu ja esitusloendi kuulamist sealt, kus te peatuse tegite
 • Taasesituskiirus 0,5× kuni 2,0×, salvestatakse iga elemendi jaoks eraldi; 15-sekundilised hüpped
 • M4B- ja M4A-peatükid otsinguribal, peatükkide loendis ja teates
 • Kerib mõne sekundi tagasi, kui jätkad pärast pikemat pausi
 • Katkematu taasesitus; mitmekettalised albumid mängitakse ketaste järjekorras
 
 Sinu kaustad, sinu järjekord
-• Sirvi nagu failihalduris, koos navigeerimisjälgedega, lemmikutega ja A–Z ribaga
-• Pühkides saad lisada kaustu, albumeid või lugusid järjekorda ja salvestada need M3U-esitusloendina
+• Sirvi nagu failihalduris, kasutades navigeerimisriba, lemmikuid ja A–Z riba
+• Pühkige, et lisada kaustad, albumid või lood järjekorda ja salvestada see M3U-esitusloendina
 • Mängib juba olemasolevaid esitusloendeid
 • Sorteeri iga albumit loo numbri, failinime või pealkirja järgi
 
 Kus iganes sa kuulad
-• Juhtimisfunktsioonid teavituses, lukustusekraanil ning Bluetoothi või auto nuppude kaudu
+• Juhtimisfunktsioonid teavituses, lukustusekraanil (15-sekundiliste hüpetega) ning Bluetoothi või auto nuppude kaudu
 • Android Auto: sirvi autos oma muusikakogu, lemmikuid ja järjekorda
 • Avakuva vidin
-• Valikuliselt jätkub taasesitus, kui kõrvaklapid uuesti ühenduvad
-• Ekvalaiser eelseadistustega, heleda ja tumeda teemaga, 47 keeles
+• Valikuliselt alustab taasesitust kohe, kui kõrvaklapid või auto ühenduvad
+• Ekvalaiser eelseadistustega, heleda ja tumeda teemaga
 
-Formaadid: FLAC, M4A, M4B (krüpteerimata AAC), MP3, OGG, Opus ja WAV.
+Toetatud formaadid: FLAC, M4A, M4B (krüpteerimata AAC), MP3, OGG, Opus ja WAV.
 
 Privaatsus on sisse ehitatud
-Retro Playeril puudub internetiõigus, seega ei lahku midagi teie telefonist: ei reklaame, analüütikat, jälgimist ega kontosid. Samuti ei vaja see salvestusõigust. Rakendus loeb ainult teie valitud kaustu ega muuda kunagi teie faile; ainsad failid, mida see salvestab, on teie poolt salvestatud esitusloendid.
+Retro Playeril puudub internetiõigus, seega ei lahku midagi teie telefonist: ei reklaame, analüütikat, jälgimist ega kontosid. Samuti ei vaja see salvestusõigust.
 
 Tasuta ja avatud lähtekoodiga tarkvara (GPL-3.0-või-hilisem). Kasutusjuhend ja lähtekood: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

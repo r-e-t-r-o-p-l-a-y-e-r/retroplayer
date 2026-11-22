@@ -1,0 +1,11 @@
+Primièra sortida lo F-Droid:
+• Bibliotèca de dorsièrs amb los favorits
+• Remembra la posicion e la velocitat per cada album o libre àudio
+• Capítols M4B e listas de reproduccion M3U
+• Android Auto, widget e egalizator
+• 106 lengas
+
+Novèl dempuèi 0.1.0 :
+• Sauts de 15 segondas sus l'ecran de verrolhatge
+• Picatz dos còps sus la cobèrta per sautar 15 segondas
+• La lectura pòt començar quand los auriòls o la veitura se connectan

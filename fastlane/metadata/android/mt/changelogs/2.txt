@@ -1,0 +1,11 @@
+L-ewwel rilaxx fuq F-Droid:
+• Librerija tal-folderi bil-favoriti
+• Jiftakar il-pożizzjoni u l-veloċità għal kull album jew ktieb awdjo.
+• Kapitli M4B u playlistijiet M3U
+• Android Auto, widget u ekwalizzatur
+• 106 lingwi
+
+Ġdid minn 0.1.0:
+• Qabbżiet ta' 15-il sekonda fuq l-iskrin tal-lokk
+• Agħfas darbtejn fuq il-kopertura biex taqbeż 15-il sekonda
+• Il-plejbek jista' jibda meta l-headphones jew il-karozza jikkonnettjaw.

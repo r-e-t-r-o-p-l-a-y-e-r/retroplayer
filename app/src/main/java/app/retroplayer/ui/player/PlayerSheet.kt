@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.Constraints
 import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalViewConfiguration
+import androidx.compose.ui.platform.ViewConfiguration
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.animation.core.spring
@@ -512,7 +514,9 @@ private fun ExpandedBody(state: PlayerUiState, actions: PlayerActions, drag: Mod
     }
 }
 
-/** Cover between the jump buttons; tap locates, double tap on a half jumps. */
+private const val COVER_DOUBLE_TAP_MS = 500L
+
+/** Cover between the jump buttons; double tap on a half jumps. */
 @Composable
 private fun ArtWithJumps(state: PlayerUiState, actions: PlayerActions, modifier: Modifier) {
     BoxWithConstraints(modifier, contentAlignment = Alignment.Center) {
@@ -525,24 +529,31 @@ private fun ArtWithJumps(state: PlayerUiState, actions: PlayerActions, modifier:
             verticalAlignment = Alignment.CenterVertically,
         ) {
             JumpButton(forward = false, onClick = actions.jumpBack)
-            val locateLabel = stringResource(R.string.show_library)
             Box(Modifier.weight(1f).testTag(EXPANDED_ART_TAG), contentAlignment = Alignment.Center) {
                 AlbumArt(state.artModel, size = artSize)
-                // Clickables, unlike a tap detector, leave drags to the sheet.
-                Row(Modifier.matchParentSize()) {
-                    listOf(actions.jumpBack, actions.jumpForward).forEach { jump ->
-                        Box(
-                            Modifier
-                                .weight(1f)
-                                .fillMaxHeight()
-                                .combinedClickable(
-                                    interactionSource = null,
-                                    indication = null,
-                                    onClickLabel = locateLabel,
-                                    onClick = actions.locate,
-                                    onDoubleClick = jump,
-                                ),
-                        )
+                val base = LocalViewConfiguration.current
+                val relaxed = remember(base) {
+                    object : ViewConfiguration by base {
+                        override val doubleTapTimeoutMillis = COVER_DOUBLE_TAP_MS
+                    }
+                }
+                // Clickables, unlike a tap detector, leave drags to the sheet. A single tap does
+                // nothing so that a slow double tap never leaves the player.
+                CompositionLocalProvider(LocalViewConfiguration provides relaxed) {
+                    Row(Modifier.matchParentSize()) {
+                        listOf(actions.jumpBack, actions.jumpForward).forEach { jump ->
+                            Box(
+                                Modifier
+                                    .weight(1f)
+                                    .fillMaxHeight()
+                                    .combinedClickable(
+                                        interactionSource = null,
+                                        indication = null,
+                                        onClick = {},
+                                        onDoubleClick = jump,
+                                    ),
+                            )
+                        }
                     }
                 }
             }
@@ -671,20 +682,25 @@ private fun JumpButton(forward: Boolean, onClick: () -> Unit) {
     ) {
         Box(Modifier.drawBehind { drawJumpArc(forward, ink) }, contentAlignment = Alignment.Center) {
             Text(
-                if (forward) "+15" else "-15",
-                style = TextStyle(fontSize = 10.sp, fontWeight = FontWeight.W700, color = ink, letterSpacing = (-0.2).sp),
+                "15",
+                // Part of the icon: sized in dp so large font scales cannot push it out of the arc.
+                style = TextStyle(fontSize = with(LocalDensity.current) { 12.dp.toSp() }, fontWeight = FontWeight.W700, color = ink),
                 modifier = Modifier.clearAndSetSemantics {},
             )
         }
     }
 }
 
-/** Three-quarter circle open towards the jump, arrowhead on its upper end; the seconds sit inside. */
+/**
+ * Like the system's skip icons: from 3 o'clock (back: 9 o'clock) around the bottom up to 12 o'clock,
+ * where the arrowhead points straight towards the jump; the seconds sit inside.
+ */
 private fun DrawScope.drawJumpArc(forward: Boolean, color: Color) {
     val radius = size.minDimension * 0.36f
     val stroke = size.minDimension * 0.065f
+    val head = size.minDimension * 0.16f
     // Degrees clockwise from 3 o'clock, as drawArc measures them.
-    val start = if (forward) 45f else 135f
+    val start = if (forward) 0f else 180f
     val sweep = if (forward) 270f else -270f
     drawArc(
         color = color,
@@ -693,13 +709,14 @@ private fun DrawScope.drawJumpArc(forward: Boolean, color: Color) {
         useCenter = false,
         topLeft = center - Offset(radius, radius),
         size = Size(radius * 2, radius * 2),
-        style = Stroke(width = stroke, cap = StrokeCap.Butt),
+        // Square centres the free end on 3/9 o'clock; at 12 the arrowhead covers it.
+        style = Stroke(width = stroke, cap = StrokeCap.Square),
     )
     val end = Math.toRadians((start + sweep).toDouble())
     val base = center + Offset(cos(end).toFloat(), sin(end).toFloat()) * radius
     val tangent = if (forward) Offset(-sin(end).toFloat(), cos(end).toFloat()) else Offset(sin(end).toFloat(), -cos(end).toFloat())
     val normal = Offset(-tangent.y, tangent.x)
-    val tip = base + tangent * (size.minDimension * 0.16f)
+    val tip = base + tangent * head
     val half = stroke * 1.35f
     drawPath(
         Path().apply {

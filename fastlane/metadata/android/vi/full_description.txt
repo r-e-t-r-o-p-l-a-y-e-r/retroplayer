@@ -1,10 +1,15 @@
-Retro Player phát nhạc và sách nói từ các thư mục trên điện thoại của bạn. Chọn một thư mục và ứng dụng sẽ hiển thị nội dung của nó y như trên đĩa: các thư mục, album và danh sách phát. Không cần tài khoản, không quảng cáo và không cần kết nối mạng.
+Retro Player phát nhạc và sách nói trực tiếp từ các thư mục trên điện thoại của bạn. Ứng dụng hoạt động ngoại tuyến, không có quảng cáo và không cần tài khoản.
 
-Được thiết kế dành riêng cho sách nói và album
-• Tiếp tục phát từ điểm dừng của mọi album, sách và danh sách phát
+Tại sao nên chọn Retro Player?
+• Tiếp tục chính xác từ điểm bạn đã dừng lại: mỗi album, sách nói và danh sách phát đều giữ nguyên vị trí và tốc độ phát, ngay cả sau khi khởi động lại.
+• Không quét thư viện: không cần xây dựng chỉ mục và không phải chờ đợi. Thêm một thư mục và bắt đầu nghe; ứng dụng chỉ đọc thư mục khi bạn mở nó.
+• Các tệp của bạn vẫn nguyên vẹn: ứng dụng chỉ nhìn thấy các thư mục bạn chọn và không bao giờ thay đổi, di chuyển hoặc xóa bất cứ thứ gì. Các tệp duy nhất mà ứng dụng ghi lại là danh sách phát mà bạn lưu.
+• Hỗ trợ ngôn ngữ của bạn: hơn 100 ngôn ngữ, từ tiếng Ả Rập, tiếng Hindi và tiếng Swahili đến tiếng Indonesia, tiếng Việt và tiếng Zulu.
+
+Được thiết kế dành cho sách nói và album
 • Tốc độ phát từ 0,5× đến 2,0×, được lưu riêng cho từng mục; nhảy 15 giây
 • Các chương M4B và M4A hiển thị trên thanh tìm kiếm, trong danh sách chương và trong thông báo
-• Quay lại vài giây khi bạn tiếp tục phát sau một khoảng thời gian nghỉ dài
+• Quay lại vài giây khi bạn tiếp tục phát sau một khoảng nghỉ dài
 • Phát liên tục không gián đoạn; các album nhiều đĩa được phát theo thứ tự đĩa
 
 Thư mục của bạn, thứ tự của bạn
@@ -13,16 +18,16 @@ Thư mục của bạn, thứ tự của bạn
 • Phát các danh sách phát bạn đã có sẵn
 • Sắp xếp từng album theo số bài hát, tên tệp hoặc tiêu đề
 
-Dù bạn nghe ở đâu
-• Các phím điều khiển trong thông báo, trên màn hình khóa và trên các nút Bluetooth hoặc trong xe
-• Android Auto: duyệt thư viện, mục yêu thích và danh sách chờ khi lái xe
+Nghe ở bất cứ đâu
+• Các nút điều khiển trong thông báo, trên màn hình khóa (với chức năng nhảy 15 giây) và trên các nút Bluetooth hoặc trong xe
+• Android Auto: duyệt thư viện, danh sách yêu thích và danh sách chờ khi đang lái xe
 • Widget trên màn hình chính
-• Tùy chọn tiếp tục phát khi tai nghe kết nối lại
-• Bộ cân bằng âm thanh với các cài đặt sẵn, chủ đề sáng và tối, hỗ trợ 47 ngôn ngữ
+• Tùy chọn bắt đầu phát ngay khi tai nghe hoặc xe của bạn được kết nối
+• Bộ cân bằng âm thanh với các cài đặt sẵn, chủ đề sáng và tối
 
-Định dạng: FLAC, M4A, M4B (AAC không mã hóa), MP3, OGG, Opus và WAV.
+Các định dạng hỗ trợ: FLAC, M4A, M4B (AAC không mã hóa), MP3, OGG, Opus và WAV.
 
 Được thiết kế để bảo mật
-Retro Player không yêu cầu quyền truy cập Internet, do đó không có dữ liệu nào rời khỏi điện thoại của bạn: không có quảng cáo, phân tích, theo dõi hay tài khoản. Ứng dụng cũng không cần quyền truy cập bộ nhớ. Ứng dụng chỉ đọc các thư mục bạn chọn và không bao giờ thay đổi tệp tin của bạn; các tệp tin duy nhất mà ứng dụng ghi là danh sách phát mà bạn lưu lại.
+Retro Player không yêu cầu quyền truy cập Internet, do đó không có dữ liệu nào được gửi ra khỏi điện thoại của bạn: không quảng cáo, không phân tích, không theo dõi và không yêu cầu tài khoản. Ứng dụng cũng không cần quyền truy cập bộ nhớ.
 
-Phần mềm miễn phí và mã nguồn mở (GPL-3.0-hoặc-mới hơn). Hướng dẫn sử dụng và mã nguồn: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer
+Phần mềm miễn phí và mã nguồn mở (GPL-3.0-hoặc-mới-hơn). Hướng dẫn sử dụng và mã nguồn: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

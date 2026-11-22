@@ -1,0 +1,11 @@
+Prima lansare pe F-Droid:
+• Bibliotecă de foldere cu favorite
+• Memorează poziția și viteza de redare pentru fiecare album sau carte audio
+• Capitole M4B și liste de redare M3U
+• Android Auto, widget și egalizator
+• 106 de limbi
+
+Noutăți începând cu versiunea 0.1.0:
+• Sărituri de 15 secunde pe ecranul de blocare
+• Atinge de două ori coperta pentru a avansa cu 15 secunde
+• Redarea poate începe atunci când se conectează căștile sau mașina

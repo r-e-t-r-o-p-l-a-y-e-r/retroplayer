@@ -1,0 +1,33 @@
+Retro Player e tshameka mmino le dibuka tsa modumo ka tlhamalalo go tswa mo ditsholadifaeleng tse di mo founong ya gago. E bereka ntle le inthanete, ga e na dipapatso e bile ga e tlhoke akhaonto.
+
+Goreng Retro Player?
+• E tswelela fela fa o tlogetseng teng: alebamo nngwe le nngwe, buka ya modumo le lenaane la dipina di boloka boemo jwa tsone le lebelo la tsone, le fa di sena go simolola gape.
+• Ga go na sekene sa laeborari: ga go na tshupane e e ka agiwang e bile ga go na sepe se se ka letetsweng. Tsenya foltara mme o simolole go reetsa; app e bala foltara fela fa o e bula.
+• Difaele tsa gago di nna di sa amiwe: tiriswa eno e bona fela ditsholadifaele tse o di tlhophang mme ga e ke e fetola, e sutisa kgotsa e phimola sepe. Difaele fela tse e di kwalang ke manaane a dipina a o a bolokang.
+• O bua puo ya gago: dipuo di feta 100, go tswa go Searabia, Sehindi le Seswahili go ya go Seindonesia, Sevietnam le Sezulu.
+
+E diretswe dibuka tse di reediwang le dialebamo
+• Lebelo la go tshameka go tswa go 0.5× go ya go 2.0×, le bolokilwe ka ntlha nngwe le nngwe; Ditlolo tsa metsotswana e le 15
+• Dikgaolo tsa M4B le M4A mo bareng ya go batla, mo lenaaneng la dikgaolo le mo kitsisong
+• E boela morago metsotswana e le mmalwa fa o tswelela morago ga go ikhutsa ka nako e telele
+• Go tshameka go sena phatlha; dialebamo tsa didisiki tse dintsi di tshamekiwa ka tatelano ya didisiki
+
+Ditsholadifaele tsa gago, otara ya gago
+• Batla jaaka molaodi wa difaele, ka di-breadcrumb, tse o di ratang le bara ya A–Z
+• Swaepa go tsenya ditsholadifaele, dialebamo kgotsa dipina mo moleng o bo o di boloka jaaka lenaanetshameko la M3U .
+• E tshameka manaanetshameko a o setseng o na le one
+• Tlhaola alebamo nngwe le nngwe ka nomoro ya pina, leina la faele kgotsa setlhogo
+
+Gongwe le gongwe kwa o reetsang teng
+• Ditaolo mo kitsisong, mo sekirining sa go notlela (ka ditlolo tsa metsotswana e le 15) le mo dikonopong tsa Bluetooth kgotsa tsa koloi .
+• Android Auto: batla mo laeboraring ya gago, tse o di ratang le go nna mo moleng mo koloing
+• Sediriswa sa sekerini sa gae
+• Go ya ka tlhopho e simolola go tshameka fela fa di-headphone kgotsa koloi ya gago e golagana
+• Selekanyi se se nang le di-preset, setlhogo se se botlhofo le se se lefifi
+
+Difomate: FLAC, M4A, M4B (AAC e sa kwalwang), MP3, OGG, Opus le WAV.
+
+Poraefete ka tlhamo
+Retro Player ga e na tetla ya Inthanete, ka jalo ga go na sepe se se tswang mo founong ya gago: ga go na dipapatso, ditshekatsheko, go latedisa kgotsa diakhaonto. Ga e tlhoke tetla ya polokelo le yone.
+
+Sofotewere ya mahala le ya motswedi o o bulegileng (GPL-3.0-kgotsa-moragonyana). Kaedi ya modirisi le khoutu ya motswedi: https://github.com/retroplayer

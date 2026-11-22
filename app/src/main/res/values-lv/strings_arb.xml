@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Pēc vismaz minūti ilgas pauzes ierakstus, kas garāki par 20 minūtēm, atsāk dažas sekundes agrāk.</string>
     <string name="rewind_by">Attīt atpakaļ par</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Atsākt, kad austiņas atkal pievienotas</string>
-    <string name="resume_on_reconnect_hint">Tikai tad, ja atskaņošana tika pauzēta, jo austiņas tika atvienotas mazāk nekā pirms 10 minūtēm.</string>
+    <string name="play_on_connect">Vienmēr atskaņot, kad ir pieslēgtas austiņas vai automašīnas audio sistēma</string>
+    <string name="play_on_connect_hint">Katru reizi, kad tiek pieslēgtas Bluetooth austiņas (piemēram, automašīnā), vadu austiņas vai USB austiņas, sākas atskaņošana. Funkcija darbojas, kamēr „Retro Player“ ir atvērts vai apturēts paziņojumu panelī.</string>
     <string name="track_fallback">Dziesma</string>
     <string name="unknown_artist">Nezināms</string>
     <string name="tracks_count_artist_eq1">%1$d dziesma · %2$s</string>

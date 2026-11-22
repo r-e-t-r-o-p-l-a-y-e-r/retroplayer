@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">暂停至少一分钟后，超过 20 分钟的曲目会从早几秒处继续播放。</string>
     <string name="rewind_by">回退</string>
     <string name="seconds_short">%1$d 秒</string>
-    <string name="resume_on_reconnect">耳机重新连接时继续播放</string>
-    <string name="resume_on_reconnect_hint">仅当播放因耳机在不到 10 分钟前断开而暂停时。</string>
+    <string name="play_on_connect">当连接耳机或车载音响时，始终播放</string>
+    <string name="play_on_connect_hint">每当蓝牙音频（例如车载音频）、有线或 USB 耳机连接时，播放就会开始。无论 Retro Player 处于打开状态还是在通知栏中暂停状态，此功能均可正常工作。</string>
     <string name="track_fallback">跟踪</string>
     <string name="unknown_artist">未知</string>
     <string name="tracks_count_artist_eq1">%1$d 首曲目 · %2$s</string>

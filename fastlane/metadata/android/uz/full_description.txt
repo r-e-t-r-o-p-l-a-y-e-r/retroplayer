@@ -1,0 +1,33 @@
+Retro Player musiqa va audiokitoblarni to'g'ridan-to'g'ri telefoningizdagi papkalardan ijro etadi. U oflayn rejimda ishlaydi, reklamalar yo'q va hisob qaydnomasini talab qilmaydi.
+
+Nima uchun Retro Player?
+• To'xtagan joyingizdan davom etadi: har bir albom, audiokitob va pleylist qayta ishga tushirilgandan keyin ham o'z o'rnini va tezligini saqlab qoladi.
+• Kutubxonani skanerlash yo'q: yaratish uchun indeks yo'q va kutish uchun hech narsa yo'q. Papka qo'shing va tinglashni boshlang; ilova papkani faqat ochganingizda o'qiydi.
+• Fayllaringiz teginilmaydi: ilova faqat siz tanlagan papkalarni ko'radi va hech narsani o'zgartirmaydi, siljitmaydi yoki o'chirmaydi. U yozadigan yagona fayllar - bu siz saqlagan pleylistlar.
+• Sizning tilingizda gapiradi: arab, hind va suahili tillaridan tortib indonez, vetnam va zulu tillarigacha 100 dan ortiq tillar.
+
+Audiokitoblar va albomlar uchun yaratilgan
+• Har bir element uchun 0,5× dan 2,0× gacha ijro etish tezligi; 15 soniyali sakrashlar
+• M4B va M4A boblarini qidiruv panelida, boblar ro'yxatida va bildirishnomada ko'rish mumkin
+• Uzoqroq tanaffusdan keyin davom ettirganingizda bir necha soniya orqaga qaytariladi
+• Bo'shliqsiz ijro etish; Ko'p diskli albomlar disk tartibida ijro etiladi
+
+Sizning papkalaringiz, sizning buyurtmangiz
+• Fayl menejeri kabi ko'rib chiqing, non ushoqlari, sevimlilar va A–Z paneli bilan
+• Navbatga papkalar, albomlar yoki treklarni qo'shish va ularni M3U pleylist sifatida saqlash uchun suring
+• Sizda allaqachon mavjud bo'lgan pleylistlarni ijro etadi
+• Har bir albomni trek raqami, fayl nomi yoki sarlavhasi bo'yicha saralash
+
+Qayerda tinglasangiz ham
+• Bildirishnomada, qulflangan ekranda (15 soniyali sakrashlar bilan) va Bluetooth yoki avtomobil tugmalarida boshqaruv elementlari
+• Android Auto: kutubxonangizni, sevimlilaringizni va navbatingizni mashinada ko'rib chiqing
+• Bosh ekran vidjeti
+• Ixtiyoriy ravishda minigarnituralar yoki avtomobilingiz ulanishi bilanoq ijro etila boshlaydi
+• Oldindan o'rnatilgan ekvalayzer, yorug'lik va qorong'u mavzu
+
+Formatlar: FLAC, M4A, M4B (shifrlanmagan AAC), MP3, OGG, Opus va WAV.
+
+Dizayn bo'yicha shaxsiy
+Retro Player Internetga ruxsat bermaydi, shuning uchun telefoningizdan hech narsa chiqmaydi: reklamalar, tahlillar, kuzatuv yoki hisoblar yo'q. Unga saqlash ruxsati ham kerak emas.
+
+Bepul va ochiq kodli dasturiy ta'minot (GPL-3.0 yoki undan keyingi versiyalari). Foydalanuvchi qo'llanmasi va manba kodi: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

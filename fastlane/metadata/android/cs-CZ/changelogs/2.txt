@@ -1,0 +1,11 @@
+První vydání na F-Droid:
+• Knihovna složek s oblíbenými položkami
+• Ukládá si polohu a rychlost přehrávání pro každé album nebo audioknihu
+• Kapitoly M4B a seznamy skladeb M3U
+• Android Auto, widget a ekvalizér
+• 106 jazyků
+
+Novinky od verze 0.1.0:
+• 15sekundové skoky na uzamčené obrazovce
+• Dvojitým klepnutím na obálku přeskočíte o 15 sekund
+• Přehrávání se může spustit, jakmile se připojí sluchátka nebo auto

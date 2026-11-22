@@ -1,0 +1,11 @@
+Unang paglabas sa F-Droid:
+• Library ng folder na may mga paborito
+• Naaalala ang posisyon at bilis para sa bawat album o audiobook
+• Mga kabanata ng M4B at mga playlist ng M3U
+• Android Auto, widget at equalizer
+• 106 na wika
+
+Bago simula noong 0.1.0:
+• 15 segundong pagtalon sa lock screen
+• I-double tap ang takip para tumalon nang 15 segundo
+• Maaaring magsimula ang playback kapag nakakonekta ang headphones o ang kotse

@@ -1,28 +1,33 @@
-A Retro Player a telefonon található mappákból játszik le zenét és hangoskönyveket. Válassz ki egy mappát, és az alkalmazás úgy jeleníti meg, ahogyan a telefonon szerepel: mappákkal, albumokkal és lejátszási listákkal együtt. Nincs szükség fiókra, nincsenek hirdetések és nincs szükség internetkapcsolatra.
+A Retro Player közvetlenül a telefonon található mappákból játszik le zenét és hangoskönyveket. Offline módban is működik, nincs benne reklám, és nem igényel fiókot.
+
+Miért a Retro Player?
+• Pontosan ott folytatja, ahol abbahagytad: minden album, hangoskönyv és lejátszási lista megőrzi a saját pozícióját és lejátszási sebességét, még újraindítás után is.
+• Nincs könyvtárbeolvasás: nem kell indexet létrehozni, és nem kell várakozni. Adj hozzá egy mappát, és kezdj el hallgatni; az alkalmazás csak akkor olvassa be a mappát, amikor megnyitod.
+• A fájljaid érintetlenek maradnak: az alkalmazás csak a kiválasztott mappákat látja, és soha semmit nem módosít, nem mozgat és nem töröl. Az egyetlen fájl, amit létrehoz, az a mentett lejátszási lista.
+• A te nyelveden beszél: több mint 100 nyelven, az arabtól, a hindin és a szuahélin át az indonézig, a vietnámiig és a zuluig.
 
 Hangoskönyvekhez és albumokhoz készült
-• Minden albumot, könyvet és lejátszási listát onnan folytatja, ahol abbahagytad
-• 0,5×–2,0× közötti lejátszási sebesség, elemként mentve; 15 másodperces ugrások
+• 0,5×-tól 2,0×-ig terjedő lejátszási sebesség, elemként mentve; 15 másodperces ugrások
 • M4B és M4A fejezetek a keresősávon, a fejezetlistában és az értesítésben
 • Néhány másodperccel visszateker, ha hosszabb szünet után folytatja a lejátszást
 • Szünetmentes lejátszás; a többlemezes albumok lemezsorrendben játszódnak le
 
-A saját mappáid, a saját sorrended
-• Böngészés fájlkezelőhöz hasonlóan, navigációs nyomvonalakkal, kedvencekkel és A–Z sávval
-• Csúsztatással mappákat, albumokat vagy számokat adhatsz a sorba, és M3U lejátszási listaként mentheted
-• Lejátsza a már meglévő lejátszási listáidat
-• Rendezheted az egyes albumokat szám, fájlnév vagy cím szerint
+A te mappáid, a te sorrended
+• Böngészés fájlkezelő módjára, navigációs nyomvonalakkal, kedvencekkel és A–Z sávval
+• Csúsztatással mappákat, albumokat vagy számokat adhat a sorba, és M3U lejátszási listaként mentheti
+• Lejátsza a már meglévő lejátszási listáit
+• Az egyes albumok rendezése szám, fájlnév vagy cím szerint
 
-Bárhol is hallgatsz
-• Vezérlők az értesítési sávban, a zárolási képernyőn, valamint a Bluetooth- vagy autóvezérlő gombokon
-• Android Auto: böngészd a könyvtáradat, a kedvenceidet és a sorba állított elemeket az autóban
+Bárhol is hallgatja
+• Vezérlők az értesítési sávban, a zárolási képernyőn (15 másodperces ugrásokkal), valamint Bluetooth- vagy autóvezérlő gombokon
+• Android Auto: böngészd a könyvtáradat, a kedvenceidet és a sorba állított zeneszámokat az autóban
 • Kezdőképernyős widget
-• Opcionálisan folytatja a lejátszást, amikor a fejhallgató újra csatlakozik
-• Equalizer előre beállított hangszínnel, világos és sötét témával, 47 nyelven
+• Opcionálisan elindítja a lejátszást, amint a fejhallgató vagy az autód csatlakozik
+• Equalizer előre beállított hangszínnel, világos és sötét témával
 
-Formátumok: FLAC, M4A, M4B (titkosítatlan AAC), MP3, OGG, Opus és WAV.
+Támogatott formátumok: FLAC, M4A, M4B (titkosítatlan AAC), MP3, OGG, Opus és WAV.
 
 Alapvetően magánjellegű
-A Retro Player nem igényel internet-hozzáférést, így semmi sem hagyja el a telefonodat: nincsenek hirdetések, elemzések, nyomon követés vagy fiókok. Tárolási jogosultságra sincs szüksége. Csak az általad kiválasztott mappákat olvassa be, és soha nem módosítja a fájljaidat; az egyetlen fájl, amit ír, az az általad mentett lejátszási lista.
+A Retro Player nem igényel internet-hozzáférést, így semmi sem hagyja el a telefonodat: nincsenek hirdetések, elemzések, nyomon követés vagy fiókok. Tárolási jogosultságra sincs szüksége.
 
 Ingyenes és nyílt forráskódú szoftver (GPL-3.0 vagy újabb). Felhasználói útmutató és forráskód: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

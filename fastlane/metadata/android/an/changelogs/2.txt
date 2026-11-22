@@ -1,0 +1,11 @@
+Primer lanzamiento en F-Droid:
+• Biblioteca de carpetas con favoritos
+• Recuerda a posición y a velocidat pa cada disco u audiolibro.
+• Capitols M4B y listas de reproducción M3U
+• Android Auto, widget y ecualizador
+• Cient y seis luengas
+
+Nuevo dende 0.1.0:
+• Blincos de 15 segundos en a pantalla de bloqueyo
+• Pica dos vegadas en a cubierta pa saltar 15 segundos.
+• A reproducción puede prencipiar cuan os auriculars u l'auto se connectan.

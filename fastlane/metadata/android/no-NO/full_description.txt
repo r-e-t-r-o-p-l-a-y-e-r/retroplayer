@@ -1,8 +1,13 @@
-Retro Player spiller av musikk og lydbøker fra mapper på telefonen din. Velg en mappe, så viser appen den akkurat slik den ser ut på disken: mapper, album og spillelister. Ingen konto, ingen annonser og ingen nettverkstilgang.
+Retro Player spiller av musikk og lydbøker direkte fra mappene på telefonen din. Den fungerer uten nettilgang, har ingen annonser og krever ingen konto.
+
+Hvorfor Retro Player?
+• Fortsetter akkurat der du sluttet: hvert album, hver lydbok og hver spilleliste beholder sin egen posisjon og avspillingshastighet, selv etter en omstart.
+• Ingen skanning av biblioteket: det er ingen indeks å bygge opp og ingenting å vente på. Legg til en mappe og begynn å lytte; appen leser en mappe først når du åpner den.
+• Filene dine forblir uberørt: appen ser bare mappene du velger og endrer, flytter eller sletter aldri noe. De eneste filene den skriver til, er spillelister du lagrer.
+• Snakker språket ditt: mer enn 100 språk, fra arabisk, hindi og swahili til indonesisk, vietnamesisk og zulu.
 
 Laget for lydbøker og album
-• Fortsetter avspillingen av hvert album, hver bok og hver spilleliste der du sluttet
-• Avspillingshastighet fra 0,5× til 2,0×, lagret per element; 15-sekunders sprang
+• Avspillingshastighet fra 0,5× til 2,0×, lagret per element; 15-sekunders hopp
 • M4B- og M4A-kapitler på søkebjelken, i en kapitelliste og i varselet
 • Spoler tilbake noen sekunder når du fortsetter etter en lengre pause
 • Avspilling uten pauser; album med flere plater spilles av i plateorden
@@ -14,15 +19,15 @@ Dine mapper, din rekkefølge
 • Sorter hvert album etter spornummer, filnavn eller tittel
 
 Uansett hvor du lytter
-• Kontroller i varselet, på låseskjermen og via Bluetooth- eller bilknapper
+• Kontroller i varslingsfeltet, på låseskjermen (med 15-sekunders hopp) og via Bluetooth- eller bilknapper
 • Android Auto: bla gjennom biblioteket, favorittene og køen i bilen
 • Widget på startskjermen
-• Kan valgfritt fortsette avspillingen når hodetelefonene kobles til igjen
-• Equalizer med forhåndsinnstillinger, lyst og mørkt tema, 47 språk
+• Kan valgfritt starte avspilling så snart hodetelefoner eller bilen kobles til
+• Equalizer med forhåndsinnstillinger, lyst og mørkt tema
 
 Formater: FLAC, M4A, M4B (ukryptert AAC), MP3, OGG, Opus og WAV.
 
 Privat fra grunnen av
-Retro Player har ingen internettilgang, så ingenting forlater telefonen din: ingen annonser, analyser, sporing eller kontoer. Den trenger heller ingen lagringstillatelse. Den leser bare mappene du velger og endrer aldri filene dine; de eneste filene den skriver, er spillelister du lagrer.
+Retro Player har ingen internettilgang, så ingenting forlater telefonen din: ingen annonser, analyser, sporing eller kontoer. Den trenger heller ingen lagringstillatelse.
 
 Gratis og åpen kildekode (GPL-3.0-eller-nyere). Brukerveiledning og kildekode: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

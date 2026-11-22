@@ -1,0 +1,11 @@
+Pirmais izdevums F-Droid:
+• Mapes bibliotēka ar izlases elementiem
+• Atceras katra albuma vai audio grāmatas atrašanās vietu un atskaņošanas ātrumu
+• M4B nodaļas un M3U atskaņošanas saraksti
+• Android Auto, logrīks un ekvalaizers
+• 106 valodas
+
+Jaunums, sākot ar versiju 0.1.0:
+• 15 sekunžu lēcieni uz bloķēšanas ekrāna
+• Divreiz pieskarieties vākam, lai pārietu uz priekšu par 15 sekundēm
+• Atskaņošana var sākties, kad tiek pievienotas austiņas vai automašīna

@@ -1,28 +1,33 @@
-„Retro Player“ atskaņo mūziku un audiogrāmatas no jūsu tālruņa mapēm. Izvēlieties mapi, un lietotne to parādīs tā, kā tā ir uz diska: mapes, albumi un atskaņošanas saraksti. Nav nepieciešams konts, nav reklāmu un nav nepieciešama tīkla piekļuve.
+„Retro Player“ atskaņo mūziku un audio grāmatas tieši no jūsu tālruņa mapēm. Tas darbojas bezsaistē, tajā nav reklāmu un nav nepieciešams konts.
 
-Izstrādāts audiogrāmatām un albumiem
-• Turpina katra albuma, grāmatas un atskaņošanas saraksta atskaņošanu no vietas, kurā pārtraucāt
-• Atskaņošanas ātrums no 0,5× līdz 2,0×, tiek saglabāts katram elementam atsevišķi; 15 sekunžu lēcieni
-• M4B un M4A nodaļas meklēšanas joslā, nodaļu sarakstā un paziņojumā
-• Atgriežas dažas sekundes atpakaļ, ja turpināt pēc ilgākas pārtraukuma
+Kāpēc izvēlēties „Retro Player“?
+• Turpina tieši no tās vietas, kur pārtraucāt: katram albumam, audio grāmatai un atskaņošanas sarakstam tiek saglabāta sava pozīcija un ātrums pat pēc lietotnes pārstartēšanas.
+• Nav nepieciešama bibliotēkas skenēšana: nav jāveido indekss un nav jāgaida. Pievienojiet mapi un sāciet klausīties; lietotne izlasa mapes saturu tikai tad, kad jūs to atverat.
+• Jūsu faili paliek neskarti: lietotne redz tikai jūsu izvēlētās mapes un nekad neko nemaina, nepārvieto vai nedzēš. Vienīgie faili, kurus tā izveido, ir jūsu saglabātās atskaņošanas saraksti.
+• Runā jūsu valodā: vairāk nekā 100 valodas, sākot no arābu, hindi un svahili līdz indonēziešu, vjetnamiešu un zulu valodai.
+
+Izstrādāta audio grāmatām un albumiem
+• Atskaņošanas ātrums no 0,5× līdz 2,0×, saglabāts katram elementam atsevišķi; 15 sekunžu lēcieni
+• M4B un M4A nodaļas uz meklēšanas joslas, nodaļu sarakstā un paziņojumā
+• Atgriežas dažas sekundes atpakaļ, ja turpināt atskaņošanu pēc ilgākas pārtraukuma
 • Atskaņošana bez pārtraukumiem; vairāku disku albumi tiek atskaņoti disku secībā
 
 Jūsu mapes, jūsu kārtība
 • Pārlūkojiet kā failu pārvaldniekā, izmantojot navigācijas ceļu, izlases un A–Z joslu
-• Pieskarieties un velciet, lai pievienotu mapes, albumus vai dziesmas rindai un saglabātu to kā M3U atskaņošanas sarakstu
-• Atskaņo jau esošās atskaņošanas sarakstus
+• Pieskarieties, lai pievienotu mapes, albumus vai dziesmas rindai un saglabātu to kā M3U atskaņošanas sarakstu
+• Atskaņo jau esošos atskaņošanas sarakstus
 • Kārtot katru albumu pēc dziesmas numura, faila nosaukuma vai virsraksta
 
 Kur vien jūs klausāties
-• Vadības elementi paziņojumos, bloķētajā ekrānā, kā arī ar Bluetooth vai automašīnas pogām
-• Android Auto: pārlūkojiet savu bibliotēku, iecienītos ierakstus un rindu automašīnā
+• Vadības elementi paziņojumos, bloķētajā ekrānā (ar 15 sekunžu lēcieniem) un ar Bluetooth vai automašīnas pogām
+• Android Auto: pārlūkojiet savu bibliotēku, iecienītos ierakstus un atskaņošanas rindu automašīnā
 • Sākuma ekrāna logrīks
-• Pēc izvēles atskaņošana turpinās, kad austiņas atkal savienojas
-• Ekvalaizers ar iestatījumiem, gaiša un tumša tēma, 47 valodas
+• Pēc izvēles sāk atskaņošanu, tiklīdz tiek pieslēgtas austiņas vai automašīna
+• Ekvalaizers ar iestatījumiem, gaišo un tumšo tēmu
 
 Formāti: FLAC, M4A, M4B (nešifrēts AAC), MP3, OGG, Opus un WAV.
 
 Privātums jau no paša sākuma
-„Retro Player“ nav interneta piekļuves atļaujas, tādēļ nekas neiziet ārpus jūsu tālruņa: nav reklāmu, analītikas, izsekošanas vai kontu. Tam nav nepieciešama arī atļauja piekļūt uzglabāšanas vietai. Tas lasa tikai jūsu izvēlētās mapes un nekad nemaina jūsu failus; vienīgie faili, kurus tas raksta, ir jūsu saglabātās atskaņošanas saraksti.
+Retro Player nepieprasa interneta atļauju, tādēļ nekas neiziet ārpus jūsu tālruņa: nav reklāmu, analītikas, izsekošanas vai kontu. Tam nav nepieciešama arī atļauja piekļūt uzglabāšanas vietai.
 
 Bezmaksas un atvērtā koda programmatūra (GPL-3.0 vai jaunāka versija). Lietotāja rokasgrāmata un avota kods: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

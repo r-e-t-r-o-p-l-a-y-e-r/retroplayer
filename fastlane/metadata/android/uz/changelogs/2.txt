@@ -1,0 +1,11 @@
+Birinchi nashr F-Droid da:
+• Sevimlilar bilan papka kutubxonasi
+• Har bir albom yoki audiokitobning joylashuvi va tezligini eslab qoladi
+• M4B boblari va M3U pleylistlari
+• Android Auto, vidjet va ekvalayzer
+• 106 ta til
+
+0.1.0 dan beri yangi:
+• Qulflangan ekranda 15 soniyali sakrashlar
+• 15 soniya sakrash uchun qopqoqni ikki marta bosing
+• Quloqchinlar yoki avtomobil ulanganda ijro boshlanishi mumkin

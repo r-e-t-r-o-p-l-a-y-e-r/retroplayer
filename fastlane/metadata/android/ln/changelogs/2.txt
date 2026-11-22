@@ -1,0 +1,11 @@
+Bobimisi ya liboso na mokolo ya F-Droid:
+• Bibliothèque ya ba dossiers na ba préférés
+• Amikundoli position mpe vitesse mpo na album to audiobook moko na moko
+• Ba chapitres M4B na ba playlists ya M3U
+• Android Auto, widget mpe égalisation
+• Minɔkɔ 106
+
+Ya sika banda 0.1.0:
+• 15-secondes sauts na écran ya blocage
+• Finá mbala mibale na ezipeli mpo na kopumbwa na boumeli ya segɔnde 15
+• Kobɛta ekoki kobanda ntango écouteurs to motuka ekangami

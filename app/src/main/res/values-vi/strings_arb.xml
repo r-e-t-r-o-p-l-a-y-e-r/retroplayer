@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Sau khi tạm dừng ít nhất một phút, các bản nhạc dài hơn 20 phút sẽ tiếp tục sớm hơn vài giây.</string>
     <string name="rewind_by">Tua lại</string>
     <string name="seconds_short">%1$d giây</string>
-    <string name="resume_on_reconnect">Tiếp tục khi tai nghe kết nối lại</string>
-    <string name="resume_on_reconnect_hint">Chỉ khi phát bị tạm dừng vì tai nghe bị ngắt kết nối cách đây chưa đến 10 phút.</string>
+    <string name="play_on_connect">Luôn phát nhạc khi kết nối tai nghe hoặc hệ thống âm thanh trên xe</string>
+    <string name="play_on_connect_hint">Mỗi khi tai nghe Bluetooth (ví dụ như trong xe hơi), tai nghe có dây hoặc tai nghe USB được kết nối, quá trình phát lại sẽ bắt đầu. Tính năng này hoạt động khi Retro Player đang mở hoặc đang tạm dừng trong thanh thông báo.</string>
     <string name="track_fallback">Bám</string>
     <string name="unknown_artist">Không xác định</string>
     <string name="tracks_count_artist_eq1">%1$d bài hát · %2$s</string>

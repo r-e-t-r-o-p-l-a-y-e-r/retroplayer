@@ -1,0 +1,33 @@
+Retro Player muterkeun musik sareng buku audio langsung tina polder dina telepon anjeun. Éta tiasa dianggo offline, teu aya iklan sareng teu peryogi akun.
+
+Naha Retro Player?
+• Teraskeun persis dimana anjeun eureun: unggal album, buku audio sareng daptar puter ngajaga posisi sareng kecepatanana nyalira, bahkan saatos dibalikan deui.
+• Teu aya scan perpustakaan: teu aya indéks anu kedah diwangun sareng teu aya anu kedah diantos. Tambahkeun polder sareng mimitian ngadangukeun; aplikasi ngan ukur maca polder nalika anjeun muka éta.
+• File anjeun tetep teu kaganggu: aplikasi ngan ukur ningali polder anu anjeun pilih sareng henteu pernah ngarobih, mindahkeun atanapi ngahapus nanaon. Hiji-hijina file anu ditulis nyaéta daptar puter anu anjeun simpen.
+• Nyarios basa anjeun: langkung ti 100 basa, ti Arab, Hindi sareng Swahili dugi ka Indonésia, Vietnam sareng Zulu.
+
+Didamel pikeun buku audio sareng album
+• Kecepatan puter ti 0,5× dugi ka 2,0×, disimpen per item; Luncat 15 detik
+• Bab M4B sareng M4A dina bilah panéangan, dina daptar bab sareng dina bewara
+• Mundur sababaraha detik nalika anjeun neraskeun saatos istirahat anu langkung lami
+• Putereun tanpa celah; album multi-disk diputer dina urutan disk
+
+Polder anjeun, urutan anjeun
+• Telusuri sapertos pangatur file, nganggo breadcrumbs, karesep sareng bilah A–Z
+• Gesek pikeun nambihan folder, album atanapi lagu kana antrian sareng simpen salaku daptar puter M3U
+• Muterkeun daptar puter anu anjeun parantos gaduh
+• Urutkeun unggal album dumasar kana nomer lagu, nami file atanapi judul
+
+Di mana waé anjeun ngadangukeun
+• Kontrol dina bewara, dina layar konci (kalayan luncat 15 detik) sareng dina tombol Bluetooth atanapi mobil
+• Android Auto: telusuri perpustakaan, karesep sareng antrian anjeun dina mobil
+• Widget layar utama
+• Opsional mimiti diputer pas headphone atanapi mobil anjeun nyambung
+• Equalizer nganggo preset, téma caang sareng poék
+
+Format: FLAC, M4A, M4B (AAC anu teu dienkripsi), MP3, OGG, Opus sareng WAV.
+
+Pribadi ku desain
+Retro Player teu gaduh idin Internét, janten teu aya anu kaluar tina telepon anjeun: teu aya iklan, analitik, pelacakan atanapi akun. Éta ogé teu peryogi idin panyimpenan.
+
+Parangkat lunak gratis sareng sumber terbuka (GPL-3.0-atanapi-anyar). Pituduh pangguna sareng kode sumber: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

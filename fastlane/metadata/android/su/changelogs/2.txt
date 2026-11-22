@@ -1,0 +1,11 @@
+Rilis munggaran dina F-Droid:
+• Perpustakaan folder sareng karesep
+• Nginget posisi sareng kecepatan pikeun unggal album atanapi buku audio
+• Bab M4B sareng daptar puter M3U
+• Android Auto, widget sareng equalizer
+• 106 basa
+
+Anyar ti saprak 0.1.0:
+• Luncat 15 detik dina layar konci
+• Ketok dua kali panutupna pikeun luncat salami 15 detik
+• Putereun tiasa dimimitian nalika headphone atanapi mobil nyambung

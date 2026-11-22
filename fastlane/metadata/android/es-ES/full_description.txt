@@ -1,10 +1,15 @@
-Retro Player reproduce música y audiolibros desde las carpetas de tu móvil. Elige una carpeta y la aplicación la muestra tal y como está en el disco: carpetas, álbumes y listas de reproducción. Sin cuenta, sin anuncios y sin acceso a la red.
+Retro Player reproduce música y audiolibros directamente desde las carpetas de tu móvil. Funciona sin conexión, no tiene anuncios y no requiere crear una cuenta.
 
-Diseñado para audiolibros y álbumes
-• Reanuda cada álbum, libro y lista de reproducción justo donde lo dejaste
+¿Por qué Retro Player?
+• Continúa exactamente donde lo dejaste: cada álbum, audiolibro y lista de reproducción conserva su propia posición y velocidad, incluso después de reiniciar la aplicación.
+• Sin escaneo de la biblioteca: no hay que crear ningún índice ni esperar a nada. Añade una carpeta y empieza a escuchar; la aplicación solo lee una carpeta cuando la abres.
+• Tus archivos permanecen intactos: la aplicación solo ve las carpetas que eliges y nunca cambia, mueve ni borra nada. Los únicos archivos que crea son las listas de reproducción que guardas.
+• Habla tu idioma: más de 100 idiomas, desde el árabe, el hindi y el suajili hasta el indonesio, el vietnamita y el zulú.
+
+Diseñada para audiolibros y álbumes
 • Velocidad de reproducción de 0,5× a 2,0×, guardada por elemento; saltos de 15 segundos
 • Capítulos M4B y M4A en la barra de búsqueda, en una lista de capítulos y en la notificación
-• Rebobina unos segundos cuando continúas tras una pausa prolongada
+• Rebobina unos segundos cuando reanudas la reproducción tras una pausa prolongada
 • Reproducción sin pausas; los álbumes de varios discos se reproducen en el orden de los discos
 
 Tus carpetas, tu orden
@@ -14,15 +19,15 @@ Tus carpetas, tu orden
 • Ordena cada álbum por número de pista, nombre de archivo o título
 
 Dondequiera que escuches
-• Controles en la notificación, en la pantalla de bloqueo y mediante los botones de Bluetooth o del coche
+• Controles en la barra de notificaciones, en la pantalla de bloqueo (con saltos de 15 segundos) y mediante los botones del Bluetooth o del coche
 • Android Auto: navega por tu biblioteca, favoritos y cola de reproducción en el coche
-• Widget de la pantalla de inicio
-• Opcionalmente, continúa la reproducción cuando los auriculares se vuelven a conectar
-• Ecualizador con preajustes, tema claro y oscuro, 47 idiomas
+• Widget para la pantalla de inicio
+• Opcionalmente, comienza a reproducir en cuanto se conectan los auriculares o tu coche
+• Ecualizador con preajustes, tema claro y oscuro
 
 Formatos: FLAC, M4A, M4B (AAC sin cifrar), MP3, OGG, Opus y WAV.
 
 Privacidad por diseño
-Retro Player no tiene permiso de Internet, por lo que nada sale de tu teléfono: ni anuncios, ni análisis, ni seguimiento, ni cuentas. Tampoco necesita permiso de almacenamiento. Solo lee las carpetas que elijas y nunca modifica tus archivos; los únicos archivos que crea son las listas de reproducción que guardes.
+Retro Player no solicita ningún permiso de Internet, por lo que nada sale de tu teléfono: ni anuncios, ni análisis, ni seguimiento, ni cuentas. Tampoco necesita permiso de almacenamiento.
 
 Software libre y de código abierto (GPL-3.0 o posterior). Guía de usuario y código fuente: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

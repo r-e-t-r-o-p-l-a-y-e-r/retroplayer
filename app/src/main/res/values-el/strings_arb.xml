@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Μετά από παύση τουλάχιστον ενός λεπτού, τα κομμάτια μεγαλύτερα από 20 λεπτά συνεχίζουν λίγα δευτερόλεπτα νωρίτερα.</string>
     <string name="rewind_by">Πίσω κατά</string>
     <string name="seconds_short">%1$d δ</string>
-    <string name="resume_on_reconnect">Συνέχιση όταν επανασυνδεθούν τα ακουστικά</string>
-    <string name="resume_on_reconnect_hint">Μόνο αν η αναπαραγωγή σταμάτησε επειδή τα ακουστικά αποσυνδέθηκαν πριν από λιγότερο από 10 λεπτά.</string>
+    <string name="play_on_connect">Να παίζει πάντα όταν συνδέονται ακουστικά ή το ηχοσύστημα του αυτοκινήτου</string>
+    <string name="play_on_connect_hint">Κάθε φορά που συνδέονται ακουστικά Bluetooth (π.χ. του αυτοκινήτου), ενσύρματα ή USB, ξεκινά η αναπαραγωγή. Λειτουργεί ενώ το Retro Player είναι ανοιχτό ή σε παύση στην ειδοποίηση.</string>
     <string name="track_fallback">Πίστα</string>
     <string name="unknown_artist">Άγνωστο</string>
     <string name="tracks_count_artist_eq1">%1$d κομμάτι · %2$s</string>

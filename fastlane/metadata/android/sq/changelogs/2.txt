@@ -1,0 +1,11 @@
+Lëshimi i parë në F-Droid:
+• Biblioteka e dosjeve me të preferuarat
+• Mban mend pozicionin dhe shpejtësinë për çdo album ose libër audio.
+• Kapituj M4B dhe lista të luajtjes M3U
+• Android Auto, widget dhe ekualizues
+• 106 gjuhë
+
+Të reja që nga 0.1.0:
+• Kërcime 15-sekondëshe në ekranin e kyçjes
+• Shtypni dy herë mbulesën për të kaluar 15 sekonda përpara.
+• Riprodhimi mund të fillojë kur lidhen kufjet ose makina.

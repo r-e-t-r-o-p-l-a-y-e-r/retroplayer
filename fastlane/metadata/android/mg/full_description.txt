@@ -1,0 +1,33 @@
+Mandefa mozika sy boky audio mivantana avy amin'ny lahatahiry ao amin'ny findainao ny Retro Player. Miasa ivelan'ny aterineto izy io, tsy misy doka ary tsy mila kaonty.
+
+Nahoana no Retro Player?
+• Manohy hatrany amin'ny toerana nijanonanao: ny rakikira, boky audio ary lisitry ny hira rehetra dia mitazona ny toerany sy ny hafainganam-pandehany, na dia aorian'ny fanombohana indray aza.
+• Tsy misy scan library: tsy misy index hamboarina ary tsy misy andrasana. Ampio lahatahiry ary atombohy ny fihainoana; mamaky lahatahiry ny fampiharana rehefa sokafanao izany.
+• Tsy voakasika ny rakitrao: ny lahatahiry nofidinao ihany no hitan'ny fampiharana ary tsy manova, mamindra na mamafa na inona na inona mihitsy. Ny rakitra soratany dia ny lisitry ny hira tehirizinao.
+• Miteny ny fiteninao: fiteny mihoatra ny 100, manomboka amin'ny Arabo, Hindi ary Swahili ka hatramin'ny Indoneziana, Vietnamiana ary Zolo.
+
+Natao ho an'ny boky audio sy rakikira
+• Hafainganam-pandehan'ny filalaovana manomboka amin'ny 0.5× ka hatramin'ny 2.0×, voatahiry isaky ny entana; Fitsambikinana 15 segondra
+• Toko M4B sy M4A eo amin'ny bara fitadiavana, ao amin'ny lisitry ny toko ary ao amin'ny fampandrenesana
+• Mihemotra segondra vitsy rehefa manohy aorian'ny fiatoana lava kokoa ianao
+• Famerenana tsy misy elanelana; rakikira misy kapila marobe milalao araka ny filaharan'ny kapila
+
+Ny lahatahiryo, ny filaharanao
+• Mikaroka toy ny mpitantana rakitra, miaraka amin'ny breadcrumbs, ny ankafizinao ary ny bara A–Z
+• Swipe mba hanampiana lahatahiry, rakikira na hira ao amin'ny filaharana ary hitahiry izany ho toy ny lisitry ny M3U
+• Mandefa ny lisitry ny hira efa anananao
+• Alaharo ny rakikira tsirairay araka ny laharan'ny hira, ny anaran'ny rakitra na ny lohateny
+
+Na aiza na aiza hihainoanao
+• Mifehy ao amin'ny fampandrenesana, eo amin'ny efijery hidin-trano (miaraka amin'ny fitsambikinana 15 segondra) ary amin'ny bokotra Bluetooth na fiara
+• Android Auto: mijery ny tranomboky, ny ankafizinao ary ny filaharana ao anaty fiara
+• Widget amin'ny efijery an-trano
+• Azo atao ny manomboka milalao raha vao mifandray ny écouteur na ny fiaranao
+• Equalizer miaraka amin'ny presets, lohahevitra mazava sy maizina
+
+Endrika: FLAC, M4A, M4B (AAC tsy voaaro), MP3, OGG, Opus ary WAV.
+
+Manokana araka ny famolavolana
+Tsy manana alalana amin'ny Internet ny Retro Player, ka tsy misy zavatra miala amin'ny findainao: tsy misy doka, fanadihadiana, fanaraha-maso na kaonty. Tsy mila fahazoan-dàlana fitahirizana ihany koa izy io.
+
+Rindrambaiko maimaim-poana sy misokatra loharano (GPL-3.0-na-ambony kokoa). Torolàlana ho an'ny mpampiasa sy kaody loharano: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

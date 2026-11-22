@@ -1,0 +1,11 @@
+Fyrsta útgáfa á F-Droid:
+• Mappasafn með uppáhaldsmöppum
+• Memorar stöðu og hraða fyrir hvert albúm eða hljóðbók
+• M4B-kaflar og M3U-spilunarlistar
+• Android Auto, viðbót og jafngildari
+• 106 tungumál
+
+Nýtt frá 0.1.0:
+• 15 sekúndna hopp á læsingarskjánum
+• Tvísmelltu á hulstur til að spóla fram um 15 sekúndur
+• Endurspilun getur hafist þegar heyrnartól eða bíllinn tengist.

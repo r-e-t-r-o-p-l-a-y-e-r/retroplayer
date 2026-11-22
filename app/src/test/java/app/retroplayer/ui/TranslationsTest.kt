@@ -23,6 +23,21 @@ class TranslationsTest {
         }
     }
 
+    @Test
+    fun `the language picker lists every translated locale`() {
+        val res = resDir()
+        val folders = res.listDirectoryEntries("values-*")
+            .filter { Files.isRegularFile(it.resolve("strings_arb.xml")) }
+            .map { tagOf(it.name.removePrefix("values-")) }
+        val config = Regex("""<locale android:name="([^"]+)"/>""")
+            .findAll(res.resolve("xml/locales_config.xml").readText()).map { it.groupValues[1] }.toList()
+        assertWithMessage("locales_config.xml").that(config).containsExactlyElementsIn(folders + "en")
+    }
+
+    /** `pt-rBR` → `pt-BR`, `b+zh+Hant` → `zh-Hant`. */
+    private fun tagOf(qualifier: String): String =
+        if (qualifier.startsWith("b+")) qualifier.removePrefix("b+").replace('+', '-') else qualifier.replace("-r", "-")
+
     private fun keys(file: Path): List<String> =
         Regex("""<string name="([a-z0-9_]+)"""").findAll(file.readText()).map { it.groupValues[1] }.toList()
 

@@ -1,0 +1,11 @@
+Kentañ embannadur d'an F-Droid:
+• Levraoueg teuliadoù gant ar re wellañ
+• Derc'hel soñj eus lec'hiadur ha tizh pep albom pe levr klevet
+• Pennadoù M4B ha rolloù-c'hoari M3U
+• Android Auto, widget ha kevatalder
+• 106 yezh
+
+Nevez abaoe 0.1.0 :
+• Lammoù 15 eilenn war ar skramm prennañ
+• Pouezit div wech war ar golo evit lammat 15 eilenn
+• Ar c'hoari a c'hell kregiñ pa vez kevreet ar c'hefluskerioù pe ar c'harr

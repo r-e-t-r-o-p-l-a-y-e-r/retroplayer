@@ -1,28 +1,33 @@
-„Retro Player“ groja muziką ir audioknygas iš jūsų telefone esančių aplankų. Pasirinkite aplanką, ir programa jį parodys taip, kaip jis yra diske: su aplankais, albumais ir grojaraščiais. Nereikia paskyros, nėra reklamų ir nereikia prisijungimo prie interneto.
+„Retro Player“ groja muziką ir audioknygas tiesiai iš jūsų telefono aplankų. Ji veikia neprisijungus prie interneto, joje nėra reklamų ir nereikia kurti paskyros.
 
-Sukurta audioknygoms ir albumams
-• Tęsia kiekvieno albumo, knygos ir grojaraščio grojimą nuo tos vietos, kur sustojote
+Kodėl verta rinktis „Retro Player“?
+• Tęsia grojimą būtent nuo tos vietos, kurioje sustojote: kiekvienas albumas, audioknyga ir grojaraštis išlaiko savo poziciją ir greitį net po programos paleidimo iš naujo.
+• Nereikia nuskaityti bibliotekos: nereikia kurti indekso ir nieko laukti. Pridėkite aplanką ir pradėkite klausytis; programa nuskaito aplanką tik tada, kai jį atidarote.
+• Jūsų failai lieka nepaliesti: programa mato tik jūsų pasirinktus aplankus ir niekada nieko nekeičia, neperkelia ar neištrina. Vieninteliai failai, kuriuos ji įrašo, yra jūsų išsaugoti grojaraščiai.
+• Kalba jūsų kalba: daugiau nei 100 kalbų, nuo arabų, hindi ir svahili iki indoneziečių, vietnamiečių ir zulų.
+
+Sukurta garso knygoms ir albumams
 • Grojimo greitis nuo 0,5× iki 2,0×, išsaugomas kiekvienam elementui atskirai; 15 sekundžių peršokimai
-• M4B ir M4A skyriai rodomi paieškos juostoje, skyrių sąraše ir pranešime
+• M4B ir M4A skyrius rodomas paieškos juostoje, skyrių sąraše ir pranešime
 • Atgaline eiga perkelia keletą sekundžių, kai tęsiate klausymą po ilgesnės pertraukos
-• Atkūrimas be pertraukų; daugiadiskiai albumai grojami pagal diskų tvarką
+• Atkūrimas be pauzių; kelių diskų albumai grojami diskų tvarka
 
 Jūsų aplankai, jūsų tvarka
 • Naršykite kaip failų tvarkyklėje: su navigacijos takeliu, mėgstamais ir A–Z juosta
-• Braukite, kad pridėtumėte aplankus, albumus ar įrašus į eilę ir išsaugotumėte kaip M3U grojaraštį
+• Braukdami pridėkite aplankus, albumus ar takelius į eilę ir išsaugokite kaip M3U grojaraštį
 • Groja jau turimus grojaraščius
-• Rūšiuokite kiekvieną albumą pagal kūrinio numerį, failo pavadinimą arba dainos pavadinimą
+• Rūšiuokite kiekvieną albumą pagal takelio numerį, failo pavadinimą ar dainos pavadinimą
 
 Klausykitės bet kur
-• Valdymas per pranešimus, užrakintame ekrane ir naudojant „Bluetooth“ arba automobilio mygtukus
-• „Android Auto“: naršykite savo biblioteką, mėgstamiausius ir eilę automobilyje
+• Valdymo elementai pranešimų juostoje, užrakintame ekrane (su 15 sekundžių peršokimais) ir naudojant „Bluetooth“ arba automobilio mygtukus
+• „Android Auto“: naršykite savo biblioteką, mėgstamiausius įrašus ir grojaraštį automobilyje
 • Pagrindinio ekrano valdiklis
-• Pasirinkus, grojimas tęsiasi, kai vėl prijungiate ausines
-• Ekvalaizeris su iš anksto nustatytais parametrais, šviesia ir tamsi tema, 47 kalbos
+• Pasirinkus šią funkciją, grojimas prasideda iškart, kai prijungiate ausines arba automobilį
+• Ekvalaizeris su iš anksto nustatytais parametrais, šviesia ir tamsiąja tema
 
-Formatai: FLAC, M4A, M4B (nesuskaitmenintas AAC), MP3, OGG, Opus ir WAV.
+Formatai: „FLAC“, „M4A“, „M4B“ (nesuskaitmenintas „AAC“), „MP3“, „OGG“, „Opus“ ir „WAV“.
 
 Sukurta siekiant privatumo
-„Retro Player“ neturi leidimo prisijungti prie interneto, todėl jūsų telefone niekas neišeina: jokių reklamų, analitikos, sekimo ar paskyrų. Jam taip pat nereikia leidimo naudoti saugyklos. Jis skaito tik jūsų pasirinktus aplankus ir niekada nekeičia jūsų failų; vieninteliai failai, kuriuos jis įrašo, yra jūsų išsaugoti grojaraščiai.
+„Retro Player“ neturi leidimo naudotis internetu, todėl jūsų telefone nieko neišeina: jokių reklamų, analizės duomenų, sekimo ar paskyrų. Jam taip pat nereikia leidimo naudotis saugykla.
 
 Nemokama ir atviro kodo programinė įranga (GPL-3.0-arba-vėlesnė versija). Vartotojo vadovas ir šaltinio kodas: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

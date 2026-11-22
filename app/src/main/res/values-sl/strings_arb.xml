@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Po premoru vsaj ene minute se skladbe, daljše od 20 minut, nadaljujejo nekaj sekund prej.</string>
     <string name="rewind_by">Previj nazaj za</string>
     <string name="seconds_short">%1$d s</string>
-    <string name="resume_on_reconnect">Nadaljuj, ko se slušalke znova povežejo</string>
-    <string name="resume_on_reconnect_hint">Samo če se je predvajanje ustavilo, ker so bile slušalke odklopljene pred manj kot 10 minutami.</string>
+    <string name="play_on_connect">Vedno predvajaj, ko so priključene slušalke ali avtoradio</string>
+    <string name="play_on_connect_hint">Vsakič, ko se povežejo Bluetooth-slušalke (na primer v avtu), žične ali USB-slušalke, se začne predvajanje. Deluje, ko je Retro Player odprt ali začasno ustavljen v obvestilu.</string>
     <string name="track_fallback">Proga</string>
     <string name="unknown_artist">Neznano</string>
     <string name="tracks_count_artist_eq1">%1$d skladba · %2$s</string>

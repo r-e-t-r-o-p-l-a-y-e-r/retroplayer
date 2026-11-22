@@ -1,0 +1,11 @@
+Første udgivelse på F-Droid:
+• Mappebibliotek med favoritter
+• Husker position og afspilningshastighed for hvert album eller hver lydbog
+• M4B-kapitler og M3U-afspilningslister
+• Android Auto, widget og equalizer
+• 106 sprog
+
+Nyt siden version 0.1.0:
+• 15 sekunders spring på låseskærmen
+• Dobbelttryk på omslaget for at springe 15 sekunder frem
+• Afspilningen kan starte, når hovedtelefonerne eller bilen opretter forbindelse

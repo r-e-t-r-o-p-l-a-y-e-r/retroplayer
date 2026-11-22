@@ -1,0 +1,11 @@
+İlk buraxılış F-Droid tarixində:
+• Sevimlilər olan qovluq kitabxanası
+• Hər albom və ya audiokitabın mövqeyini və sürətini xatırlayır
+• M4B fəsilləri və M3U pleylistləri
+• Android Auto, vidjet və ekvalayzer
+• 106 dil
+
+0.1.0-dan bəri yeni:
+• Kilid ekranında 15 saniyəlik sıçrayışlar
+• 15 saniyə keçmək üçün qapağa iki dəfə vurun
+• Qulaqlıqlar və ya avtomobil qoşulduqda oxutma başlaya bilər

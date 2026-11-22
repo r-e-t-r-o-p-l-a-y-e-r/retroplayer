@@ -1,0 +1,33 @@
+Retro Player dafay jouer music ak audiobook ci dossier yi ci sa telefon. Dafay liggéey offline, amul yëgle te soxlawul kontu.
+
+Lu tax Retro Player?
+• Wéyal ci barab bi nga bàyyee woon: albom bu nekk, audiobook wala playlist bu nekk dafay wéy di nekk ci barab bimu nekk ak gaawaayam, doonte danga ko tàmbaliwaat.
+• Amul scanner bibliotek: amul index buñu wara tabax te amul lenn luñu wara xaar. Yokk benn dossier nga tàmbali déglu; app bi du lire dosiye bi soo ko ubbee.
+• Sa fichier duñu laal: app bi dafay gis dosiye yi nga tànn kese te du musa soppi, toxal wala efaase dara. Fichier yi mu bind du lenn ludul playlist yi nga denc.
+• Wax sa làkk: lu ëpp 100 làkk, dalee ko ci Araab, Hindi ak Swahili ba ci Enndonesien, Vietnamien ak Zulu.
+
+Defar nañu ko ngir téere audio ak albom
+• Gaawaayu leeslu 0.5× ba 2.0×, denc ci mbir mu nekk; tëb 15 sikon
+• M4B ak M4A chapitre yi ci barabu seet bi, ci limu chapitre yi ak ci yëgle bi
+• Dafay dellu ginaaw ay segond yu néew soo wéyee ginaaw noppalu bu gëna gudd
+• Leer bu amul gap; albom yu bari yi ñuy jouer ci xeetu disk yi
+
+Sa dosiye, sa komànd
+• Saytu ni njiitu fichier, ak breadcrumbs, taamu ak bar A–Z
+• Bësal ngir yokk ay dosiye, albom wala way ci rang bi nga denc ko ci limu playlist M3U
+• Dafay jouer playlist yi nga jota am
+• Soo tànnee albom bu nekk ci nimero track bi, tur fichier bi wala titre bi
+
+Fepp foo mëna déglu
+• Kontrol yi ci yëgle bi, ci ekraŋu tëjug (ak tëb 15 sikon) ak ci Bluetooth wala butoŋu oto
+• Android Auto: xool sa bibliotek, say taamu ak rang ci biir oto
+• Widget ekraŋu dalal
+• Soo bëggee, dafay tàmbali jouer saa yu kaski yi wala sa oto boole
+• Equaliser ak preset, theme leer ak lëndëm
+
+Format yi: FLAC, M4A, M4B (AAC buñu enkriptewul), MP3, OGG, Opus ak Wav.
+
+Design privé
+Retro Player amul ndigalu Internet, kon dara du génn ci sa telefon: amul yëgle, jàngat, topp wala kontu. Soxlawul ndigalu dencukaay itam.
+
+Losisiel bu amul fayda te ubbeeku (GPL-3.0 wala bu gëna ndaw). Njàngaley jëfandikukat ak kodu cosaan: https://github.com/retroplayer

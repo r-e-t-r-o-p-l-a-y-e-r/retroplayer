@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">অন্তত এক মিনিট বিরতির পর, 20 মিনিটের বেশি দীর্ঘ ট্র্যাক কয়েক সেকেন্ড আগে থেকে চলে।</string>
     <string name="rewind_by">এতটা পিছিয়ে দিন</string>
     <string name="seconds_short">%1$d সে.</string>
-    <string name="resume_on_reconnect">হেডফোন আবার যুক্ত হলে চালিয়ে যান</string>
-    <string name="resume_on_reconnect_hint">শুধু যদি 10 মিনিটের কম আগে হেডফোন বিচ্ছিন্ন হওয়ার কারণে প্লেব্যাক থেমে থাকে।</string>
+    <string name="play_on_connect">হেডফোন বা গাড়ির অডিও সংযুক্ত থাকলে সবসময় প্লে করুন</string>
+    <string name="play_on_connect_hint">প্রতি বার ব্লুটুথ অডিও (যেমন গাড়ির), তারযুক্ত বা ইউএসবি হেডফোন সংযুক্ত হলে প্লেব্যাক শুরু হয়। Retro Player খোলা থাকুক বা নোটিফিকেশনে পজ করা থাকুক, এটি কাজ করে।</string>
     <string name="track_fallback">ট্র্যাক</string>
     <string name="unknown_artist">অজানা</string>
     <string name="tracks_count_artist_eq1">%1$d ট্র্যাক · %2$s</string>

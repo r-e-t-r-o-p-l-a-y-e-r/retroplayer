@@ -1,0 +1,11 @@
+Eerste uitgave op F-Droid:
+• Mappenbibliotheek met favorieten
+• Onthoudt de afspeelpositie en afspeelsnelheid voor elk album of audioboek
+• M4B-hoofdstukken en M3U-afspeellijsten
+• Android Auto, widget en equalizer
+• 106 talen
+
+Nieuw sinds versie 0.1.0:
+• Sprongen van 15 seconden op het vergrendelingsscherm
+• Tik twee keer op de omslag om 15 seconden vooruit te spoelen
+• Het afspelen kan beginnen zodra de koptelefoon of de auto verbinding maakt

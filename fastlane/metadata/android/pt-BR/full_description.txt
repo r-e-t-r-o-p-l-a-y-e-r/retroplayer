@@ -1,0 +1,33 @@
+Retro Player reproduz músicas e audiolivros diretamente das pastas do seu telefone. Funciona offline, não tem anúncios e não precisa de conta.
+
+Por que Retro Player?
+• Continua exatamente de onde você parou: cada álbum, audiolivro e lista de reprodução mantém sua posição e velocidade originais, mesmo após uma reinicialização.
+• Sem busca na biblioteca: não há índice para criar nem nada para esperar. Adicione uma pasta e comece a escutar; o aplicativo lê uma pasta somente quando você a abre.
+• Seus arquivos permanecem intactos: o aplicativo vê apenas as pastas que você seleciona e nunca altera, move ou exclui nada. Os únicos arquivos que ele grava são as listas de reprodução que você salva.
+• Fala a sua língua: mais de 100 idiomas, do árabe, hindi e suaíli ao indonésio, vietnamita e zulu.
+
+Feito para audiolivros e álbuns.
+• Velocidade de reprodução de 0,5× a 2,0×, salva por item; saltos de 15 segundos.
+• Capítulos M4B e M4A na barra de busca, na lista de capítulos e na notificação.
+• Retrocede alguns segundos quando você continua após uma pausa mais longa.
+• Reprodução sem interrupções; álbuns com vários discos são reproduzidos na ordem dos discos.
+
+Suas pastas, seu pedido
+• Navegue como em um gerenciador de arquivos, com opções como trilha de navegação, favoritos e uma barra de A a Z.
+• Deslize para adicionar pastas, álbuns ou faixas à fila e salve-a como uma lista de reprodução M3U.
+• Reproduz as listas de reprodução que você já tem.
+• Ordene cada álbum por número da faixa, nome do arquivo ou título.
+
+Onde quer que você ouça
+• Controles na notificação, na tela de bloqueio (com intervalos de 15 segundos) e nos botões do Bluetooth ou do carro.
+• Android Auto: navegue pela sua biblioteca, favoritos e fila de espera no carro
+• Widget da tela inicial
+• Opcionalmente, inicia a reprodução assim que os fones de ouvido ou o seu carro se conectarem.
+• Equalizador com predefinições, tema claro e escuro
+
+Formatos: FLAC, M4A, M4B (AAC não criptografado), MP3, OGG, Opus e WAV.
+
+Privacidade por princípio
+Retro Player não tem permissão para acessar a internet, portanto nada sai do seu telefone: sem anúncios, análises, rastreamento ou contas. Também não precisa de permissão de armazenamento.
+
+Software livre e de código aberto (GPL-3.0 ou posterior). Guia do usuário e código-fonte: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

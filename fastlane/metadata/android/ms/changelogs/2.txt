@@ -1,0 +1,11 @@
+Keluaran pertama pada F-Droid:
+• Pustaka folder dengan kegemaran
+• Mengingati kedudukan dan kelajuan untuk setiap album atau buku audio
+• Bab M4B dan senarai main M3U
+• Android Auto, widget dan penyama
+• 106 bahasa
+
+Baharu sejak 0.1.0:
+• Lompatan 15 saat pada skrin kunci
+• Ketik dua kali penutup untuk melompat selama 15 saat
+• Main balik boleh bermula apabila fon kepala atau kereta disambungkan

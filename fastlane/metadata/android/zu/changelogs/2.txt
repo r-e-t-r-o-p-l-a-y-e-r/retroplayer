@@ -1,0 +1,11 @@
+Ukukhishwa kokuqala ku-F-Droid:
+• Ilabhulali yamafolda enezintandokazi
+• Ikhumbula isikhundla kanye nesivinini se-albhamu ngayinye noma incwadi yomsindo
+• Izahluko ze-M4B kanye nohlu lwadlalwayo lwe-M3U
+• Android Auto, iwijethi kanye nesilinganisi
+• Izilimi ezingu-106
+
+Kusha kusukela ngo-0.1.0:
+• Ukugxuma kwemizuzwana eyi-15 esikrinini sokukhiya
+• Thepha kabili isembozo ukuze ugxume imizuzwana eyi-15
+• Ukudlala kungaqala uma ama-headphone noma imoto kuxhuma

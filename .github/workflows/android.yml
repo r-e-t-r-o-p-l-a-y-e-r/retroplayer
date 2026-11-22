@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Store listing within the store length limits
         run: python3 scripts/mt_store_listings.py --check
 
-      - uses: actions/setup-java@v5
+      - uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: "21"
 
       - uses: gradle/actions/setup-gradle@v5
 
       # Robolectric downloads its Android jars (about 200 MB) itself, outside the Gradle cache.
       - name: Robolectric Android jars
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.m2/repository/org/robolectric
           key: robolectric-${{ hashFiles('gradle/libs.versions.toml', '**/src/test/resources/robolectric.properties') }}
@@ -48,7 +48,7 @@ jobs:
           free -h
           sudo dmesg | grep -iE 'out of memory|killed process' || true
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: test-reports
@@ -67,7 +67,7 @@ jobs:
         device: [pixel2Api27, pixel7Api33, pixel9Api35]
     name: devices (${{ matrix.device }})
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Enable KVM
         run: |
@@ -75,10 +75,10 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
-      - uses: actions/setup-java@v5
+      - uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: "21"
 
       - uses: gradle/actions/setup-gradle@v5
 
@@ -102,7 +102,7 @@ jobs:
           free -h
           sudo dmesg | grep -iE 'out of memory|killed process' || true
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: device-reports-${{ matrix.device }}

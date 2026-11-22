@@ -1,0 +1,33 @@
+Ka purei tika a Retro Player i ngā waiata me ngā pukapuka oro mai i ngā kōpaki i tō waea. Ka mahi tuimotu, kāore he pānuitanga, ā, kāore e hiahiatia he pūkete.
+
+He aha a Retro Player?
+• Ka haere tonu i te wāhi i mutu ai koe: ka mau tonu te tūranga me te tere o ia pukaemi, ia pukapuka oro me te rārangi waiata, ahakoa i muri i te tīmatanga anō.
+• Kāore he matawai whare pukapuka: kāore he taupū hei hanga, kāore hoki he mea hei tatari. Tāpirihia he kōpaki ka tīmata te whakarongo; ka pānuihia e te taupānga he kōpaki ina whakatuwheratia e koe.
+• Ka noho tonu ō kōnae: ka kite noa te taupānga i ngā kōpaki i whiriwhiria e koe, ā, kāore e whakarerekē, e neke, e muku rānei i tetahi mea. Ko ngā kōnae anake e tuhia ana e ia ko ngā rārangi waiata ka tiakina e koe.
+• Ka kōrero i tō reo: neke atu i te 100 ngā reo, mai i te Arapi, Hindi me te Swahili ki Indonesian, Vietnamese me Zulu.
+
+I hangaia mō ngā pukapuka oro me ngā pukaemi
+• Te tere purei mai i te 0.5× ki te 2.0×, ka tiakina mō ia tūemi; Ngā peke 15-hēkona
+• Ngā upoko M4B me M4A i runga i te pae rapu, i roto i te rārangi upoko me te whakamōhiotanga
+• Whakahoki mō ētahi hēkona ina haere tonu koe i muri i te okiokinga roa
+• Te purei kore āputa; ka purei ngā pukaemi maha-kōpae i roto i te raupapa kōpae
+
+Ō kōpaki, tō raupapa
+• Tirotiro pērā i te kaiwhakahaere kōnae, me ngā kongakonga paraoa, ngā mea tino pai me te pae A–Z
+• Pania hei tāpiri i ngā kōpaki, ngā pukaemi, ngā ara rānei ki te rārangi me te tiaki hei rārangi waiata M3U
+• Purei i ngā rārangi waiata kei a koe
+• Whakarōpūtia ia pukaemi mā te tau ara, te ingoa kōnae, te taitara rānei
+
+Kei hea koe e whakarongo ana
+• Whakahaere i roto i te whakamōhiotanga, i runga i te mata maukati (me ngā peke 15-hēkona) me runga i ngā pātene Nihokikorangi, motuka rānei
+• Android Auto: tirotiro i tō whare pukapuka, ngā mea tino pai me te rārangi i roto i te motuka
+• Widget mata-kāinga
+• Ka tīmata te purei i te wā e hono ana ngā paneoro, tō motuka rānei
+• Kaiwhakaōrite me ngā tautuhinga kua whakaritea, kaupapa mārama me te pōuri
+
+Ngā Hōputu: FLAC, M4A, M4B (AAC kore-whakamuna), MP3, OGG, Opus me WAV.
+
+Tūmataiti nā te hoahoa
+Kāore he whakaaetanga Ipurangi a Retro Player, nō reira kāore he mea e puta mai i tō waea: kāore he pānuitanga, he tātaritanga, he aroturuki, he pūkete rānei. Kāore hoki e hiahiatia he whakaaetanga rokiroki.
+
+Pūmanawa koreutu, tuwhera hoki (GPL-3.0-muri rānei). Aratohu kaiwhakamahi me te waehere pūtake: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

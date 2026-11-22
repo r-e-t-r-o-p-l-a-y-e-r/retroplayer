@@ -1,0 +1,11 @@
+Mbipụta mbụ na F-Droid:
+• Ọbá akwụkwọ nchekwa nwere ihe kachasị amasị gị
+• Na-echeta ọnọdụ na ọsọ nke abọm ma ọ bụ akwụkwọ ọdịyo ọ bụla
+• Isiakwụkwọ M4B na ndepụta ọkpụkpọ M3U
+• Android Auto, wijetị na nhazi ihe nhazi
+• Asụsụ 106
+
+Ọhụrụ kemgbe 0.1.0:
+• Ọ na-awụlikwa elu sekọnd iri na ise na ihuenyo mkpọchi
+• Pịa mkpuchi ahụ ugboro abụọ iji wụsa sekọnd iri na ise
+• Enwere ike ịmalite ịkpọghachi egwu mgbe ekweisi ma ọ bụ ụgbọ ala jikọọ

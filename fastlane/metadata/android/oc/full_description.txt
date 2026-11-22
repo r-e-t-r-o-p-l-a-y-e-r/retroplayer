@@ -1,0 +1,33 @@
+Retro Player jòga de musica e de libres àudio dirèctament dempuèi los dorsièrs de vòstre telefòn. Fonciona fòra linha, a pas d'anóncias e a pas besonh de compte.
+
+Perqué Retro Player?
+• Contunha exactament ont avètz quitat : cada album, libre àudio e lista de lectura garda sa pròpria posicion e velocitat, quitament après un reaviada.
+• Pas d'escanatge de bibliotèca : i a pas d'index a bastir e pas res d'esperar. Apondre un dorsièr e començar d'escotar ; l'aplicacion legís un dorsièr sonque quand lo dobrissètz.
+• Vòstres fichièrs demòran intocats : l'aplicacion vei pas que los dorsièrs que causissètz e cambia, desplaça o suprimís pas jamai res. Los sols fichièrs qu'escriu son de listas de lectura qu'enregistratz.
+• Parla sa lenga: mai de 100 lengas, de l'arabi, l'indi e lo swahili a l'indonesian, lo vietnamian e lo zulu.
+
+Fach per d'audiolibres e d'albums
+• Velocitat de lectura de 0,5× a 2,0×, enregistrada per element; Sauts de 15 segondas
+• Los capítols M4B e M4A sus la barra de recèrca, dins una lista de capítols e dins la notificacion
+• Rebobina qualques segondas quand contunhatz après una pausa mai longa
+• Reproduccion sens trauc; los albums multidisques se jògan per òrdre de discs
+
+Vòstres dorsièrs, vòstra comanda
+• Navegar coma un gestionari de fichièrs, amb de pegas de pan, de favorits e una barra A–Z
+• Desplaçatz-vos per apondre de dorsièrs, d'albums o de pistas a la còla e l'enregistrar coma una lista de lectura M3U
+• Joga las listas de lectura qu'avètz ja
+• Triar cada album per numèro de pista, nom de fichièr o títol
+
+Ont que siás qu'escotes
+• Los contraròtles dins la notificacion, sus l'ecran de verrolhatge (amb de sauts de 15 segondas) e suls botons Bluetooth o de veitura
+• Android Auto: navigatz dins vòstra bibliotèca, los favorits e fasètz la còla dins la veitura
+• Widget d'ecran d'inici
+• Comença de jogar opcionalament tre que los cascos o vòstra veitura se connectan
+• Egalizator amb de presets, tèma clar e escur
+
+Formats: FLAC, M4A, M4B (AAC non chifrat), MP3, OGG, Opus e WAV.
+
+Privat per dessenh
+Retro Player a pas cap d'autorizacion Internet, doncas res sortís pas de vòstre telefòn: pas cap d'anóncias, d'analisi, de seguiment o de comptes. A pas besonh d'autorizacion d'emmagazinatge tanpauc.
+
+Logicial liure e còde dobèrt (GPL-3.0-o-pusterior). Guida d'utilizaire e còde font: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

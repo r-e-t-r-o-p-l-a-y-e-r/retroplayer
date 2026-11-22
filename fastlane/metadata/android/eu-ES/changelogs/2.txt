@@ -1,0 +1,11 @@
+Lehen argitalpena F-Droid-n:
+• Karpeta liburutegia gogokoekin
+• Album edo audioliburu bakoitzaren posizioa eta abiadura gogoratzen ditu
+• M4B kapituluak eta M3U erreprodukzio-zerrendak
+• Android Auto, widgeta eta berdinketa
+• 106 hizkuntza
+
+0.1.0 bertsiotik berria:
+• 15 segundoko jauziak blokeatutako pantailan
+• Sakatu bi aldiz azala 15 segundo aurrerago egiteko
+• Erreprodukzioa entzungailuak edo autoa konektatzen direnean has daiteke

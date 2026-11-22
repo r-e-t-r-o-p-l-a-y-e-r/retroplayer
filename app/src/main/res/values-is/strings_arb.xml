@@ -54,8 +54,8 @@
     <string name="auto_rewind_hint">Eftir hlé í að minnsta kosti mínútu halda lög sem eru lengri en 20 mínútur áfram nokkrum sekúndum fyrr.</string>
     <string name="rewind_by">Spóla til baka um</string>
     <string name="seconds_short">%1$d sek.</string>
-    <string name="resume_on_reconnect">Halda áfram þegar heyrnartól tengjast aftur</string>
-    <string name="resume_on_reconnect_hint">Aðeins ef spilun stöðvaðist vegna þess að heyrnartólin voru aftengd fyrir minna en 10 mínútum.</string>
+    <string name="play_on_connect">Spilaðu alltaf þegar heyrnartól eða bílaútvarp tengist.</string>
+    <string name="play_on_connect_hint">Í hvert sinn sem Bluetooth-hljóð (til dæmis í bílnum), vírlaus eða USB-heyrnartól tengjast, hefst endurspilun. Virkar á meðan Retro Player er opinn eða stöðvaður í tilkynningunni.</string>
     <string name="track_fallback">Lag</string>
     <string name="unknown_artist">Óþekkt</string>
     <string name="tracks_count_artist_eq1">%1$d lag · %2$s</string>

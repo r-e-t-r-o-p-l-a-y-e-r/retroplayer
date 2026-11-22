@@ -1,10 +1,15 @@
-Retro Player spelar upp musik och ljudböcker från mappar på din telefon. Välj en mapp så visar appen den precis som den ser ut på enheten: mappar, album och spellistor. Inget konto, inga annonser och ingen nätverksanslutning.
+Retro Player spelar upp musik och ljudböcker direkt från mapparna på din telefon. Appen fungerar offline, innehåller inga annonser och kräver inget konto.
 
-Utvecklad för ljudböcker och album
-• Fortsätter uppspelningen av varje album, bok och spellista där du slutade
-• Uppspelningshastighet från 0,5× till 2,0×, sparas per objekt; 15-sekunders hopp
+Varför Retro Player?
+• Fortsätter precis där du slutade: varje album, ljudbok och spellista behåller sin egen position och hastighet, även efter en omstart.
+• Ingen genomsökning av biblioteket: det finns inget index att skapa och inget att vänta på. Lägg till en mapp och börja lyssna; appen läser endast mappen när du öppnar den.
+• Dina filer förblir orörda: appen ser endast de mappar du väljer och ändrar, flyttar eller raderar aldrig någonting. De enda filer den skriver är spellistor som du sparar.
+• Talar ditt språk: mer än 100 språk, från arabiska, hindi och swahili till indonesiska, vietnamesiska och zulu.
+
+Skapat för ljudböcker och album
+• Uppspelningshastighet från 0,5× till 2,0×, sparad per objekt; 15-sekundershopp
 • M4B- och M4A-kapitel på sökreglaget, i en kapitellista och i meddelandet
-• Spolar tillbaka några sekunder när du fortsätter efter ett längre uppehåll
+• Spolar tillbaka några sekunder när du fortsätter efter ett längre avbrott
 • Uppspelning utan pauser; album med flera skivor spelas upp i skivordning
 
 Dina mappar, din ordning
@@ -13,16 +18,16 @@ Dina mappar, din ordning
 • Spelar upp de spellistor du redan har
 • Sortera varje album efter spårnummer, filnamn eller titel
 
-Oavsett var du lyssnar
-• Kontroller i meddelandet, på låsskärmen och via Bluetooth- eller bilknappar
+Var du än lyssnar
+• Kontroller i meddelandefältet, på låsskärmen (med 15-sekunderssprång) och via Bluetooth- eller bilknappar
 • Android Auto: bläddra i ditt bibliotek, dina favoriter och din kö i bilen
 • Widget på startskärmen
-• Kan valfritt fortsätta när dina hörlurar ansluts igen
-• Equalizer med förinställningar, ljust och mörkt tema, 47 språk
+• Kan valfritt börja spela så snart hörlurar eller din bil ansluts
+• Equalizer med förinställningar, ljust och mörkt tema
 
 Format: FLAC, M4A, M4B (okrypterad AAC), MP3, OGG, Opus och WAV.
 
 Privat från grunden
-Retro Player har inga behörigheter för internet, så ingenting lämnar din telefon: inga annonser, analyser, spårning eller konton. Den behöver inte heller någon behörighet för lagring. Den läser endast de mappar du väljer och ändrar aldrig dina filer; de enda filer den skriver är spellistor som du sparar.
+Retro Player har inga behörigheter för internet, så ingenting lämnar din telefon: inga annonser, analyser, spårning eller konton. Den behöver inte heller någon behörighet för lagring.
 
 Gratis programvara med öppen källkod (GPL-3.0-eller-senare). Användarhandbok och källkod: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

@@ -1,0 +1,11 @@
+Premye lage sou F-Droid:
+• Bibliyotèk dosye ak favoris
+• Sonje pozisyon ak vitès pou chak albòm oswa liv odyo
+• Chapit M4B ak lis mizik M3U
+• Android Auto, widjèt ak egalizatè
+• 106 lang
+
+Nouvo depi 0.1.0:
+• So 15 segonn sou ekran fèmen an
+• Tape kouvèti a de fwa pou sote 15 segonn.
+• Lekti a ka kòmanse lè kas ekoutè a oswa machin nan konekte.
