@@ -51,7 +51,14 @@ The last two columns say where the current texts came from:
   before the 0.1.1 store rewrite went through DeepL; the 60 added with it went
   through Google Cloud to save DeepL's monthly quota (Aragonese through DeepL,
   because Google has no Aragonese). German is written by hand, and the
-  Slovenian DeepL output was reviewed and corrected.
+  Slovenian DeepL output was reviewed and corrected. The 18 languages added
+  for 0.1.2 went through Google Cloud for both, since DeepL has none of them.
+
+Not translated, because neither DeepL nor the Google Cloud Translation API
+offers them: Cornish (`kw`), Faroese (`fo`), Interlingua (`ia`), Kalaallisut
+(`kl`), Kashmiri (`ks`), Kikuyu (`ki`), Luba-Katanga (`lu`), Manx (`gv`),
+North Ndebele (`nd`), Northern Sami (`se`), Norwegian Nynorsk (`nn`), Ossetic
+(`os`), Romansh (`rm`), Sichuan Yi (`ii`) and Tibetan (`bo`).
 
 `mt_store_listings.py` uses DeepL whenever `DEEPL_AUTH_KEY` is set; run it with
 `DEEPL_AUTH_KEY=` (empty) to force Google Cloud and keep this split. Exclude
@@ -60,6 +67,7 @@ The last two columns say where the current texts came from:
 | Language | App code | Store folder | App strings | Store texts |
 |----------|----------|--------------|-------------|-------------|
 | Afrikaans | `af` | `af` | DeepL | Google |
+| Akan (Twi) | `ak` | `ak` | Google | Google |
 | Albanian | `sq` | `sq` | Flutter, DeepL | DeepL |
 | Amharic | `am` | `am` | Google | Google |
 | Arabic | `ar` | `ar` | Flutter, DeepL | DeepL |
@@ -68,6 +76,7 @@ The last two columns say where the current texts came from:
 | Assamese | `as` | `as` | DeepL | Google |
 | Aymara | `ay` | `ay` | DeepL | Google |
 | Azerbaijani | `az` | `az-AZ` | DeepL | Google |
+| Bambara | `bm` | `bm` | Google | Google |
 | Bashkir | `ba` | `ba` | DeepL | Google |
 | Basque | `eu` | `eu-ES` | DeepL | Google |
 | Belarusian | `be` | `be` | DeepL | Google |
@@ -83,13 +92,17 @@ The last two columns say where the current texts came from:
 | Czech | `cs` | `cs-CZ` | Flutter, DeepL | DeepL |
 | Danish | `da` | `da-DK` | Flutter, DeepL | DeepL |
 | Dutch | `nl` | `nl-NL` | Flutter, DeepL | DeepL |
+| Dzongkha | `dz` | `dz` | Google | Google |
 | English (US, source) | `en` | `en-US` | source | source |
 | Esperanto | `eo` | `eo` | DeepL | Google |
 | Estonian | `et` | `et` | Flutter, DeepL | DeepL |
+| Ewe | `ee` | `ee` | Google | Google |
 | Filipino (Tagalog) | `fil` | `fil` | DeepL | Google |
 | Finnish | `fi` | `fi-FI` | Flutter, DeepL | DeepL |
 | French | `fr` | `fr-FR` | Flutter, DeepL | DeepL |
+| Fula | `ff` | `ff` | Google | Google |
 | Galician | `gl` | `gl-ES` | DeepL | Google |
+| Ganda (Luganda) | `lg` | `lg` | Google | Google |
 | Georgian | `ka` | `ka-GE` | DeepL | Google |
 | German | `de` | `de-DE` | Flutter, DeepL | by hand |
 | Greek | `el` | `el-GR` | Flutter, DeepL | DeepL |
@@ -109,8 +122,11 @@ The last two columns say where the current texts came from:
 | Javanese | `jv` | `jv` | DeepL | Google |
 | Kannada | `kn` | `kn-IN` | Google | Google |
 | Kazakh | `kk` | `kk` | DeepL | Google |
+| Khmer | `km` | `km-KH` | Google | Google |
+| Kinyarwanda | `rw` | `rw` | Google | Google |
 | Korean | `ko` | `ko-KR` | Flutter, DeepL | DeepL |
 | Kyrgyz | `ky` | `ky-KG` | DeepL | Google |
+| Lao | `lo` | `lo-LA` | Google | Google |
 | Latin | `la` | `la` | DeepL | Google |
 | Latvian | `lv` | `lv` | Flutter, DeepL | DeepL |
 | Lingala | `ln` | `ln` | DeepL | Google |
@@ -127,6 +143,7 @@ The last two columns say where the current texts came from:
 | Nepali | `ne` | `ne-NP` | DeepL | Google |
 | Norwegian Bokmål | `nb` | `no-NO` | Flutter, DeepL | DeepL |
 | Occitan | `oc` | `oc` | DeepL | Google |
+| Odia | `or` | `or` | Google | Google |
 | Oromo | `om` | `om` | DeepL | Google |
 | Pashto | `ps` | `ps` | DeepL | Google |
 | Persian | `fa` | `fa` | Flutter, DeepL | DeepL |
@@ -136,12 +153,18 @@ The last two columns say where the current texts came from:
 | Punjabi | `pa` | `pa` | DeepL | Google |
 | Quechua | `qu` | `qu` | DeepL | Google |
 | Romanian | `ro` | `ro` | Flutter, DeepL | DeepL |
+| Rundi | `rn` | `rn` | Google | Google |
 | Russian | `ru` | `ru-RU` | Flutter, DeepL | DeepL |
+| Sango | `sg` | `sg` | Google | Google |
 | Sanskrit | `sa` | `sa` | DeepL | Google |
+| Scottish Gaelic | `gd` | `gd` | Google | Google |
 | Serbian | `sr` | `sr` | Flutter, DeepL | DeepL |
 | Sesotho | `st` | `st` | DeepL | Google |
+| Shona | `sn` | `sn` | Google | Google |
+| Sinhala | `si` | `si-LK` | Google | Google |
 | Slovak | `sk` | `sk` | Flutter, DeepL | DeepL |
 | Slovenian | `sl` | `sl` | Flutter, DeepL | DeepL, reviewed |
+| Somali | `so` | `so` | Google | Google |
 | Spanish | `es` | `es-ES` | Flutter, DeepL | DeepL |
 | Spanish (Latin America) | `b+es+419` | `es-419` | DeepL | Google |
 | Sundanese | `su` | `su` | DeepL | Google |
@@ -152,6 +175,7 @@ The last two columns say where the current texts came from:
 | Tatar | `tt` | `tt` | DeepL | Google |
 | Telugu | `te` | `te-IN` | DeepL | Google |
 | Thai | `th` | `th` | Flutter, DeepL | DeepL |
+| Tigrinya | `ti` | `ti` | Google | Google |
 | Tsonga | `ts` | `ts` | DeepL | Google |
 | Tswana | `tn` | `tn` | DeepL | Google |
 | Turkish | `tr` | `tr-TR` | Flutter, DeepL | DeepL |
@@ -164,6 +188,7 @@ The last two columns say where the current texts came from:
 | Wolof | `wo` | `wo` | DeepL | Google |
 | Xhosa | `xh` | `xh` | DeepL | Google |
 | Yiddish | `yi` | `yi` | DeepL | Google |
+| Yoruba | `yo` | `yo` | Google | Google |
 | Zulu | `zu` | `zu` | DeepL | Google |
 
 When adding an app locale, add it to `LOCALES` and to this table, then run the

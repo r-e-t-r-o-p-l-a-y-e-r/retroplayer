@@ -22,6 +22,6 @@ class LocaleTagsTest {
     }
 
     private companion object {
-        const val LOCALES = 106
+        const val LOCALES = 124
     }
 }

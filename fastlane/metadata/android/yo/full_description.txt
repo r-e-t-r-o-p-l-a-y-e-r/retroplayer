@@ -1,0 +1,33 @@
+Retro Player Ó ń kọ orin àti ìwé ohùn taara láti inú àwọn fódà lórí fóònù rẹ. Ó ń ṣiṣẹ́ láìsí ìkànnì ayélujára, kò ní ìpolówó, kò sì nílò àkọọ́lẹ̀.
+
+Kí nìdí Retro Player?
+• Ó tẹ̀síwájú ní ibi tí o ti dúró: gbogbo àwo orin, ìwé ohun àti àkójọ orin máa ń pa ipò àti iyàrá tirẹ̀ mọ́, kódà lẹ́yìn àtúnṣe.
+• Kò sí àyẹ̀wò ìkàwé: kò sí àtọ́ka láti kọ́ àti kò sí ohun tí a lè dúró dè. Fi fódà kan kún un kí o sì bẹ̀rẹ̀ sí í fetísílẹ̀; àpù náà máa ń ka fódà kan nígbà tí o bá ṣí i.
+• Àwọn fáìlì rẹ kò ní ìfọwọ́kàn: àwọn fáìlì tí o yàn nìkan ni àpù náà ń rí, wọn kò sì ní yí padà, gbé tàbí pa ohunkóhun rẹ́. Àwọn fáìlì tí ó ń kọ nìkan ni àwọn àkójọ orin tí o ń fipamọ́.
+• Ó ń sọ èdè rẹ: èdè tó ju ọgọ́rùn-ún lọ, láti èdè Lárúbáwá, Híńdì àti Swahili sí èdè Indonesian, Vietnam àti Zulu.
+
+A ṣe é fún àwọn ìwé ohùn àti àwo orin
+• Iyara sisẹsẹ lati 0.5× si 2.0×, ti a fipamọ fun ohun kan; awọn fifo iṣẹju-aaya 15
+• Àwọn orí M4B àti M4A lórí ọ̀pá ìwákiri, nínú àkójọ orí àti nínú ìfitónilétí
+• Díẹ̀díẹ̀ sí i ní ìṣẹ́jú-àáyá díẹ̀ nígbà tí o bá tẹ̀síwájú lẹ́yìn ìsinmi gígùn kan
+• Sisisẹsẹ orin ti ko ni abawọn; awọn awo-orin disiki pupọ n ṣiṣẹ ni tito lẹsẹsẹ disiki
+
+Àwọn fódà rẹ, àṣẹ rẹ
+• Ṣe àwárí bí olùṣàkóso fáìlì, pẹ̀lú búrẹ́dì, àwọn ayanfẹ́ àti ọ̀pá A–Z
+• Rìn láti fi àwọn fódà, àwo orin tàbí orin kún ìlà náà kí o sì fi pamọ́ gẹ́gẹ́ bí àkójọ orin M3U kan
+• Ó ń ṣe àwọn àkójọ orin tí o ti ní tẹ́lẹ̀
+• Tọ́ àwo orin kọ̀ọ̀kan sí oríṣiríṣi nípa nọ́mbà orin, orúkọ fáìlì tàbí àkọlé rẹ̀
+
+Ibikibi ti o ba feti si
+• Àwọn ìṣàkóṣo nínú ìfitónilétí, lórí ìbòjú ìdènà (pẹ̀lú ìfò ìṣẹ́jú-àáyá 15) àti lórí àwọn bọ́tìnì Bluetooth tàbí ọkọ̀ ayọ́kẹ́lẹ́
+• Android Auto: wo ibi ìkàwé rẹ, àwọn ayanfẹ́ rẹ àti ìlà nínú ọkọ̀ ayọ́kẹ́lẹ́ rẹ
+• Widget iboju ile
+• O le bẹrẹ si dun ni kete ti agbekọri tabi ọkọ ayọkẹlẹ rẹ ba sopọ.
+• Olùṣedédé pẹ̀lú àwọn ètò tí a ti ṣètò tẹ́lẹ̀, ìmọ́lẹ̀ àti àkòrí dúdú
+
+Àwọn ọ̀nà ìkọ̀wé: FLAC, M4A, M4B (AAC tí a kò fi àmì sí), MP3, OGG, Opus àti WAV.
+
+Ikọkọ nipasẹ apẹrẹ
+Retro Player kò ní àṣẹ lórí íńtánẹ́ẹ̀tì, nítorí náà kò sí ohunkóhun tó fi fóònù rẹ sílẹ̀: kò sí ìpolówó, àtúpalẹ̀, ìtọ́pinpin tàbí àkọọ́lẹ̀. Kò nílò àṣẹ láti fipamọ́ pẹ̀lú.
+
+Sọ́fítíwètì ọ̀fẹ́ àti orísun ṣíṣí sílẹ̀ (GPL-3.0-tàbí-láti ìgbà tó yá). Ìtọ́sọ́nà olùlò àti kódì orísun: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

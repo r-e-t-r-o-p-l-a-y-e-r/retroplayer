@@ -76,7 +76,7 @@
     <string name="language">भाषा</string>
     <string name="language_system">प्रणाली भाषा</string>
     <string name="open_source_licenses">खुला स्रोत इजाजतपत्रहरू</string>
-    <string name="open_source_legalese">© २०२६ रेट्रो प्लेयर योगदानकर्ताहरू</string>
+    <string name="open_source_legalese">© २०२६ Retro Player योगदानकर्ताहरू</string>
     <string name="data_storage">डाटा भण्डारण</string>
     <string name="data_storage_intro">Retro Player ले एप सेटिङहरू सानो स्थानीय डेटाबेसमा राख्छ। तपाईंको संगीत र प्लेलिस्टहरू तपाईंले रोजेका फोल्डरहरूमा सामान्य फाइलहरूको रूपमा रहन्छन्।</string>
     <string name="data_storage_app_data_title">एप डाटाबेस</string>

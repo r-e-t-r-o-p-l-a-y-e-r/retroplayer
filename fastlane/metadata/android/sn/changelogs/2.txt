@@ -1,0 +1,11 @@
+Kuburitswa kwekutanga pa F-Droid:
+• Raibhurari yemafolda ane mafaro
+• Inoyeuka nzvimbo uye kumhanya kwe album yega yega kana audiobook
+• Zvitsauko zveM4B uye nziyo dzeM3U
+• Android Auto, widget uye equalizer
+• Mitauro 106
+
+Chitsva kubvira 0.1.0:
+• Kusvetuka kwemasekonzi gumi nemashanu pachidzitiro chakakiyiwa
+• Dzvanya kaviri chifukidziro kuti usvetuke kwemasekonzi gumi nemashanu
+• Kutamba kunogona kutanga kana mahedhifoni kana mota zvakabatana

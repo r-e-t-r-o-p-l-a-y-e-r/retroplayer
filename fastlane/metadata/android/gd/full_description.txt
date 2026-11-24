@@ -1,0 +1,33 @@
+Bidh Retro Player a’ cluich ceòl is leabhraichean-èisteachd dìreach bho na pasganan air an fhòn agad. Bidh e ag obair far-loidhne, chan eil sanasan ann agus chan fheum e cunntas.
+
+Carson Retro Player?
+• A’ leantainn dìreach far an do sguir thu: bidh gach clàr, clàr-èisteachd agus liosta-chluich a’ cumail an àite agus an astar fhèin, eadhon an dèidh ath-thòiseachadh.
+• Gun sganadh leabharlainn: chan eil clàr-amais ri thogail agus chan eil dad ri feitheamh. Cuir pasgan ris agus tòisich ag èisteachd; chan eil an aplacaid a’ leughadh pasgan ach nuair a dh’fhosglas tu e.
+• Chan eil buaidh aig na faidhlichean agad: chan fhaic an aplacaid ach na pasganan a thaghas tu agus cha atharraich, cha ghluais no cha sguabas e às dad. Is e na faidhlichean a sgrìobhas e liostaichean-cluiche a shàbhaileas tu a-mhàin.
+• A’ bruidhinn do chànan: còrr is 100 cànan, bho Arabais, Hindi agus Swahili gu Indonesia, Bhiet-Namais agus Zulu.
+
+Air a dhèanamh airson leabhraichean-èisteachd agus clàran-ciùil
+• Astar ath-chluich bho 0.5× gu 2.0×, air a shàbhaladh gach nì; leuman 15-diog
+• Caibideilean M4B agus M4A air a’ bhàr rannsachaidh, ann an liosta chaibideilean agus anns an fhiosrachadh
+• Bidh e a’ tilleadh beagan dhiog nuair a chumas tu air adhart às dèidh fois nas fhaide
+• Ath-chluich gun bheàrn; bidh clàran ioma-diosg a’ cluich ann an òrdugh diosc
+
+Na pasganan agad, an òrdugh agad
+• Brobhs mar mhanaidsear faidhle, le briosgaidean-arain, roghainnean agus bàr A–Z
+• Sguab gus pasganan, clàran no slighean a chur ris a’ chiudha agus a shàbhaladh mar chlàr-ciùil M3U
+• A’ cluich nan liostaichean-cluiche a th’ agad mu thràth
+• Seòrsaich gach clàr a rèir àireamh an òrain, ainm faidhle no tiotal
+
+Ge bith càite an èist thu
+• Smachdan anns an fhiosrachadh, air an sgrion glasaidh (le leuman 15-diog) agus air putanan Bluetooth no càr
+• Android Auto: brobhs tron leabharlann agad, na rudan as fheàrr leat agus cuir sa chiudha sa chàr
+• Widget-sgrìn-dhachaigh
+• Roghainneil, tòisichidh e a’ cluich cho luath ‘s a cheanglas fònaichean-cluaise no do chàr
+• Co-ionannachd le ro-shuidheachaidhean, cuspair aotrom is dorcha
+
+Cruthan: FLAC, M4A, M4B (AAC gun chrioptachadh), MP3, OGG, Opus agus WAV.
+
+Prìobhaideach a rèir dealbhaidh
+Chan eil cead eadar-lìn aig Retro Player, agus mar sin chan eil dad a’ fàgail do fhòn: gun sanasan, anailitigeachd, tracadh no cunntasan. Chan eil feum air cead stòraidh nas motha.
+
+Bathar-bog saor is fosgailte (GPL-3.0 no nas fhaide air adhart). Stiùireadh-cleachdaidh agus còd tùsail: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

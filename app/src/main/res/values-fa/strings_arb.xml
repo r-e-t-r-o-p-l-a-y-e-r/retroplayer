@@ -76,7 +76,7 @@
     <string name="language">زبان</string>
     <string name="language_system">سیستم</string>
     <string name="open_source_licenses">مجوزهای متن‌باز</string>
-    <string name="open_source_legalese">© ۲۰۲۶ مشارکت‌کنندگان رترو پلیر</string>
+    <string name="open_source_legalese">© ۲۰۲۶ Retro Player مشارکت‌کنندگان</string>
     <string name="data_storage">ذخیره‌سازی داده</string>
     <string name="data_storage_intro">Retro Player تنظیمات برنامه را در یک پایگاه دادهٔ کوچک محلی ذخیره می‌کند. موسیقی و فهرست‌های پخش شما به‌صورت فایل‌های عادی در پوشه‌هایی که انتخاب می‌کنید باقی می‌مانند.</string>
     <string name="data_storage_app_data_title">پایگاه دادهٔ برنامه</string>

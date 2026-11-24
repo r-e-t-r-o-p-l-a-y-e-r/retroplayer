@@ -1,0 +1,33 @@
+Retro Player ekuba emiziki n’ebitabo ebiwulikika butereevu okuva mu folda eziri ku ssimu yo. Ekola offline, terina birango era tekyetaaga account.
+
+Lwaki Retro Player?
+• Egenda mu maaso ddala we wakoma: buli lutambi, ekitabo ekiwulikika n’olukalala lw’okuyimba bikuuma ekifo kyayo n’obwangu, ne bwe kiba nga kizzeemu okutandika.
+• Tewali sikaani ya tterekero: tewali index ya kuzimba era tewali kintu kyonna kulinda. Yongera ku folda otandike okuwuliriza; app esoma folda nga ogigguddewo yokka.
+• Fayiro zo zisigala nga tezikwatibwako: app elaba folda zokka z’olonze era tekyusa, tetambuza oba kusazaamu kintu kyonna. Fayiro zokka z’ewandiika ze playlist z’otereka.
+• Ayogera olulimi lwo: ennimi ezisoba mu 100, okuva ku Luwarabu, Hindi ne Swahili okutuuka ku Indonesia, Vietnamese ne Zulu.
+
+Ekoleddwa mu bitabo ebiwulikika n’alubaamu
+• Sipiidi y’okuzannya okuva ku 0.5× okutuuka ku 2.0×, eterekebwa buli kintu; Okubuuka kwa sikonda 15
+• Essuula za M4B ne M4A ku bbaala y’okunoonya, mu lukalala lw’essuula ne mu kumanyisibwa
+• Edda emabega sekondi ntono ng’ogenda mu maaso oluvannyuma lw’okuwummulamu ekiseera ekiwanvu
+• Okuzannya nga tewali bbanga; alubaamu ezirimu disiki eziwera zizannya mu nsengeka ya disiki
+
+Folda zo, order yo
+• Browse nga file manager, nga olina breadcrumbs, favorites ne A–Z bar
+• Swipe okugattako folda, alubaamu oba ennyimba mu nnyiriri n’ozitereka ng’olukalala lw’okuyimba olwa M3U
+• Azannya playlists z'olina edda
+• Sonda buli lutambi okusinziira ku nnamba y’oluyimba, erinnya lya fayiro oba omutwe
+
+Wonna w’owuliriza
+• Ebifuga mu kumanyisibwa, ku ssirini y’okusiba (nga kuliko okubuuka kwa sikonda 15) ne ku bbuutu za Bluetooth oba mmotoka
+• Android Auto: genda mu tterekero lyo, by’oyagala n’okusimba ennyiriri mu mmotoka
+• Widget ya screen y’awaka
+• Optionally etandika okuzannya amangu ddala nga headphones oba mmotoka yo eyungiddwa
+• Equalizer nga eriko presets, omulamwa omutangaavu n'omuddugavu
+
+Enkola: FLAC, M4A, M4B (AAC etali nsirifu), MP3, OGG, Opus ne WAV.
+
+Eky’obwannannyini okusinziira ku dizayini
+Retro Player terina lukusa lwa yintaneeti, kale tewali kiva ku ssimu yo: tewali birango, kwekenneenya, kulondoola oba akawunti. Nayo tekyetaaga lukusa lwa kutereka.
+
+Sofutiweya ow’obwereere era ow’enkozesa enzigule (GPL-3.0-oba-oluvannyuma). Ekitabo ky’omukozesa ne koodi y’ensibuko: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

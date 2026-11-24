@@ -1,0 +1,11 @@
+Yarlitiiɓe adanɓe e F-Droid:
+• Defterdu foldere e ɓurɓe yiɗeede
+• Siftor darnde e njaaweeki kala albom walla deftere nanndunde
+• Bojel M4B e doggol pijirlooji M3U
+• Android Auto, wideyooji e ekkolaaji
+• 106 ɗemngal
+
+Keso gila 0.1.0:
+• 15-sekonnde diwta e ekran coktirgal
+• Tappu ɓuuɓri ndii laabi ɗiɗi ngam diwde leƴƴanɗe 15
+• Pijirlooji ina mbaawi fuɗɗaade so kaɓirɗe walla oto njokkondirii

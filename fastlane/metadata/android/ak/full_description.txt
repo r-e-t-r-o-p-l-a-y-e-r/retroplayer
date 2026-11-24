@@ -1,0 +1,33 @@
+Retro Player bɔ nnwom ne audiobooks tẽẽ fi folda ahorow a ɛwɔ wo fon so no mu. Ɛyɛ adwuma offline, enni ads na enhia account biara.
+
+Adɛn nti na Retro Player?
+• Ɛtoa so wɔ baabi a wugyaee no pɛpɛɛpɛ: album biara, audiobook ne playlist biara kura n’ankasa gyinabea ne ahoɔhare, bere a woasan afi ase mpo akyi.
+• Nhomakorabea scan biara nni hɔ: index biara nni hɔ a ɛsɛ sɛ wokyekye na biribiara nni hɔ a ɛsɛ sɛ wotwɛn. Fa folda bi ka ho na fi ase tie; app no kenkan folda bi bere a woabue no nkutoo.
+• Wo fael ahorow no tra hɔ a obiara nka ho: app no hu folda ahorow a woapaw no nkutoo na ɛnsesa, ɛntu anaa ɛnpopa biribiara da. Fael ahorow a ɛkyerɛw nkutoo ne playlists a wode sie.
+• Ɔka wo kasa: kasa bɛboro ɔha, efi Arabic, Hindi ne Swahili so kosi Indonesia, Vietnam ne Zulu so.
+
+Wɔyɛɛ no maa nhoma a wɔde tie asɛm ne album ahorow
+• Ahoɔhare a wɔde bɔ fi 0.5× kosi 2.0×, wɔakora so wɔ ade biara mu; 15-sekan ahuruhuruw
+• M4B ne M4A ti ahorow a ɛwɔ seek bar no so, wɔ ti ahorow a wɔahyehyɛ mu ne amanneɛbɔ no mu
+• San n’akyi sikani kakraa bi bere a wotoa so bere a woagye w’ahome bere tenten akyi no
+• Gapless a wɔbɔ no; album ahorow a ɛwɔ disk ahorow pii no bɔ sɛnea diski nnidiso nnidiso
+
+Wo folda ahorow, wo order
+• Browse te sɛ fael manager, a breadcrumbs, favorites ne A–Z bar ka ho
+• Swipe na fa folda, album anaa tracks ka queue no ho na fa sie sɛ M3U playlist
+• Bɔ playlists a wowɔ dedaw no
+• Hyehyɛ album biara sɛnea track nɔma, fael din anaa asɛmti te
+
+Baabiara a wobɛtie
+• Controls wɔ notification, wɔ lock screen (a 15-second jumps) ne Bluetooth anaa kar buttons so
+• Android Auto: hwehwɛ wo nhomakorabea, nea w’ani gye ho ne ntonto wɔ kar no mu
+• Widget a ɛwɔ fie-screen so
+• Optionally fi ase bɔ bere a headphones anaa wo kar no abɔ mu ara pɛ
+• Equalizer ne presets, hann ne sum asɛmti
+
+Nneɛma a wɔde yɛ adwuma: FLAC, M4A, M4B (AAC a wɔankora so), MP3, OGG, Opus ne WAV.
+
+Private denam adwini so
+Retro Player nni Intanɛt ho kwan, enti biribiara mfi wo fon so: dawurubɔ, nhwehwɛmu, tracking anaa akontaabu biara nni hɔ. Ɛho nhia sɛ wɔmma ho kwan sɛ wɔde besie nso.
+
+Software a wontua hwee na wɔabue ano (GPL-3.0-anaasɛ-nea ɛba akyiri yi). Ɔdefoɔ akwankyerɛ ne fibea koodu: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

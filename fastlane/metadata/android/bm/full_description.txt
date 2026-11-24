@@ -1,0 +1,33 @@
+Retro Player bɛ dɔnkiliw ni gafe lamɛntaw fɔ ka ɲɛ ka bɔ foli la i ka telefɔni kɔnɔ. A bɛ baara kɛ ɛntɛrinɛti kɔkan, piblisite tɛ a la ani a mago tɛ jatebɔ la.
+
+Mun na Retro Player?
+• A bɛ Tɛmɛ i ye yɔrɔ min na tigitigi: albamu, gafe lamɛntaw ani fɔlisen bɛɛ b’a jɔyɔrɔ n’a teliya mara, hali n’a daminɛna kokura.
+• Bibliothèque scan tɛ: index tɛ yen ka jɔ ani foyi tɛ yen ka makɔnɔ. Foli dɔ fara a kan ka lamɛnni daminɛ; appli bɛ foli dɔ kalan dɔrɔn n’i y’a da wuli.
+• I ka dosiyew bɛ to u ma maga: i bɛ foli minnu ta, appli bɛ olu dɔrɔn de ye, wa a tɛ fɛn caman Changer, ka fɛn dɔ lamaga walima ka fɛn bɔ abada. A bɛ filen minnu sɛbɛn, olu dɔrɔn de ye fɔlisenw ye i bɛ minnu mara.
+• A bɛ i ka kan fɔ: kan 100 ni kɔ, k’a ta Arabukan, Hindikan ani Swahilikan na ka taa a bila Indonezikan, Vietnamkan ani Zulukan na.
+
+A dilannen don gafe lamɛntaw ni albamu kama
+• Fɔli teliya bɛ Bɔ 0,5× na ka Se 2,0× ma, o bɛ mara fɛn kelen-kelen bɛɛ la; Seginnkanni 15-tlonw
+• M4B ni M4A sapitiri minnu bɛ ɲininikɛlan kan, sapitiriw lisɛli kɔnɔ ani kunnafoni kɔnɔ
+• A bɛ kɔsegin segin damadɔw la ni aw bɛ taa a fɛ lafiɲɛbɔ jan kɔfɛ
+• Gapless fɔli; disiki caman albamu bɛ fɔ disiki sigicogo la
+
+Aw ka foli, aw ka komandi
+• Browse i n’a fɔ file manager, ni buruburuw, fɛn kanulenw ani A–Z bar
+• Swipe kɛ walasa ka foli, albamu walima dɔnkiliw fara layini kan ani k’u mara i n’a fɔ M3U fɔlisen
+• I bɛ dɔnkilida-sɛbɛn minnu sɔrɔ kaban, a bɛ olu fɔ
+• Albamu kelen-kelen bɛɛ labɛn ka kɛɲɛ ni dɔnkili nimɔrɔ ye, dosiye tɔgɔ walima a tɔgɔ ye
+
+I bɛ lamɛnni kɛ yɔrɔ o yɔrɔ
+• Kunnafoni minnu bɛ kunnafoni kɔnɔ, da tuguyɔrɔ la (ni segin 15 panni ye) ani bulutu walima mobili butɔni kan
+• Android Auto: i ka gafemarayɔrɔ lajɛ, i diyanyekow ani i ka layidu ta mobili kɔnɔ
+• Widget min bɛ kɛ ekran so kɔnɔ
+• Ni aw b’a fɛ ka tulon daminɛ ni kungolodilanw walima aw ka mobili bɛ ɲɔgɔn sɔrɔ dɔrɔn
+• Equalizer ni presets, yeelen ni dibi barokun
+
+A cogoyaw: FLAC, M4A, M4B (AAC min ma siri), MP3, OGG, Opus ani WAV.
+
+Kɛrɛnkɛrɛnnenya la, a dilannen don
+Retro Player tɛ Ɛntɛrinɛti yamaruya sɔrɔ, o la foyi tɛ bɔ i ka telefɔni na: piblisite, jateminɛ, tuguni walima jatebɔ tɛ. A mago tɛ a marali yamaruya si fana na.
+
+Porozɛ fu ani da wulilen (GPL-3.0-walima-o kɔfɛ). Baarakɛcogo gafe ani a sɔrɔyɔrɔ: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

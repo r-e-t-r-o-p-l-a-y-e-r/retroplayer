@@ -1,0 +1,11 @@
+Isohoka rya mbere kuri F-Droid:
+• Isomero ry'amadosiye ririmo ibyo ukunda
+• Yibuka aho yari ari n'umuvuduko wa buri alubumu cyangwa igitabo cy'amajwi
+• Ibice bya M4B n'urutonde rw'indirimbo za M3U
+• Android Auto, widget na equalizer
+• Indimi 106
+
+Gishya kuva 0.1.0:
+• Gusimbuka kw'amasegonda 15 kuri ecran ifunze
+• Kanda ku gifuniko kabiri kugira ngo usimbuke amasegonda 15
+• Gukina bishobora gutangira iyo ecouteur cyangwa imodoka bihujwe

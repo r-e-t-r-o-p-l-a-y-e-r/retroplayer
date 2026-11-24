@@ -1,0 +1,11 @@
+A’ chiad fhoillseachadh air F-Droid:
+• Leabharlann phasganan leis na rudan as fheàrr leat
+• A’ cuimhneachadh suidheachadh agus astar gach clàr no clàr-leabhraichean
+• Caibideilean M4B agus liostaichean-cluiche M3U
+• Android Auto, widget agus co-ionannaiche
+• 106 cànan
+
+Ùr bho 0.1.0:
+• Leuman 15-diog air an sgrion glasaidh
+• Tap dà uair air a’ chòmhdach gus leum 15 diogan
+• Faodaidh ath-chluich tòiseachadh nuair a cheanglas fònaichean-cluaise no an càr
