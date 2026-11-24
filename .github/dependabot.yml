@@ -8,3 +8,7 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
+    ignore:
+      # From v6 on, its caching is a closed-source component with separate terms of use.
+      - dependency-name: gradle/actions
+        versions: [">= 6"]
