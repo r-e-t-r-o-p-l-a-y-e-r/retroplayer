@@ -1,0 +1,3 @@
+Novosti v različici 0.1.2:
+• še 18 jezikov, skupaj 124
+• Ime aplikacije in datotečni formati so zdaj v vseh jezikih zapisani z latiničnimi črkami

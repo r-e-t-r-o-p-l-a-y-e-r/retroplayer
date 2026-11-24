@@ -1,0 +1,3 @@
+Mpya katika 0.1.2:
+• Lugha 18 zaidi, jumla ya lugha 124
+• Jina la programu na miundo ya faili sasa inabaki katika herufi za Kilatini katika kila lugha

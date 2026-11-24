@@ -1,0 +1,3 @@
+Novèl dins 0.1.2:
+• 18 lengas de mai, 124 en total
+• Lo nom de l'aplicacion e los formats de fichièrs demòran ara en letras latinas dins totas las lengas

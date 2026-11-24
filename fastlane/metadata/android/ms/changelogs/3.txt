@@ -1,0 +1,3 @@
+Baharu dalam 0.1.2:
+• 18 bahasa lagi, 124 kesemuanya
+• Nama aplikasi dan format fail kini kekal dalam huruf Latin dalam setiap bahasa

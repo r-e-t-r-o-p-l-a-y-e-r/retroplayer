@@ -1,0 +1,3 @@
+Nýtt í 0.1.2:
+• 18 fleiri tungumál, 124 alls
+• Nafn forritsins og skráarsniðin eru nú á latneskum stöfum í öllum tungumálum.

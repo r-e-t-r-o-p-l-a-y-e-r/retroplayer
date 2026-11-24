@@ -55,10 +55,25 @@ The last two columns say where the current texts came from:
   for 0.1.2 went through Google Cloud for both, since DeepL has none of them.
 
 Not translated, because neither DeepL nor the Google Cloud Translation API
-offers them: Cornish (`kw`), Faroese (`fo`), Interlingua (`ia`), Kalaallisut
-(`kl`), Kashmiri (`ks`), Kikuyu (`ki`), Luba-Katanga (`lu`), Manx (`gv`),
-North Ndebele (`nd`), Northern Sami (`se`), Norwegian Nynorsk (`nn`), Ossetic
-(`os`), Romansh (`rm`), Sichuan Yi (`ii`) and Tibetan (`bo`).
+offers them:
+
+| Language | Code | Spoken in |
+| --- | --- | --- |
+| Cornish | `kw` | [Cornwall](https://mapy.cz/?q=Cornwall), United Kingdom |
+| Faroese | `fo` | [Faroe Islands](https://mapy.cz/?q=Faroe%20Islands) (Denmark) |
+| Interlingua | `ia` | nowhere in particular: constructed auxiliary language |
+| Kalaallisut (Greenlandic) | `kl` | [Greenland](https://mapy.cz/?q=Greenland) (Denmark) |
+| Kashmiri | `ks` | [Kashmir Valley](https://mapy.cz/?q=Kashmir%20Valley), India; also Pakistan-administered Kashmir |
+| Kikuyu | `ki` | [Central Kenya](https://mapy.cz/?q=Nyeri), around Mount Kenya and Nairobi |
+| Luba-Katanga | `lu` | [Katanga](https://mapy.cz/?q=Lubumbashi), DR Congo |
+| Manx | `gv` | [Isle of Man](https://mapy.cz/?q=Isle%20of%20Man) |
+| North Ndebele | `nd` | [Matabeleland](https://mapy.cz/?q=Bulawayo), Zimbabwe |
+| Northern Sami | `se` | [Sápmi](https://mapy.cz/?q=Kautokeino): northern Norway, Sweden and Finland |
+| Norwegian Nynorsk | `nn` | [Western Norway](https://mapy.cz/?q=Vestland) (written standard, mostly there) |
+| Ossetic | `os` | [North Ossetia](https://mapy.cz/?q=Vladikavkaz) (Russia) and [South Ossetia](https://mapy.cz/?q=Tskhinvali) (Georgia) |
+| Romansh | `rm` | [Graubünden](https://mapy.cz/?q=Graub%C3%BCnden), Switzerland |
+| Sichuan Yi (Nuosu) | `ii` | [Liangshan](https://mapy.cz/?q=Xichang), Sichuan, China |
+| Tibetan | `bo` | [Tibet](https://mapy.cz/?q=Lhasa), China; also Nepal, Bhutan and northern India |
 
 `mt_store_listings.py` uses DeepL whenever `DEEPL_AUTH_KEY` is set; run it with
 `DEEPL_AUTH_KEY=` (empty) to force Google Cloud and keep this split. Exclude

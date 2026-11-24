@@ -1,0 +1,3 @@
+0.1.2 Sürümündeki Yenilikler:
+• 18 dil daha, toplamda 124 dil
+• Uygulama adı ve dosya biçimleri artık her dilde Latin harfleriyle gösteriliyor

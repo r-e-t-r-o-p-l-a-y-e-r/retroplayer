@@ -1,0 +1,3 @@
+Newydd yn 0.1.2:
+• 18 iaith arall, 124 i gyd
+• Mae enw'r ap a fformatau ffeiliau bellach yn aros mewn llythrennau Lladin ym mhob iaith

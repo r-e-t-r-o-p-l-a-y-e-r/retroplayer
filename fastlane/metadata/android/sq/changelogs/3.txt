@@ -1,0 +1,3 @@
+Të reja në 0.1.2:
+• 18 gjuhë të tjera, gjithsej 124
+• Emri i aplikacionit dhe formatet e skedarëve tani mbeten me shkronja latine në çdo gjuhë.

@@ -1,0 +1,3 @@
+Bago sa 0.1.2:
+• 18 pang wika, 124 sa kabuuan
+• Ang pangalan ng app at mga format ng file ay mananatili na ngayon sa mga letrang Latin sa bawat wika

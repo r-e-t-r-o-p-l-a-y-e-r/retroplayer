@@ -1,0 +1,3 @@
+0.1.2 versiyasında yeni:
+• Daha 18 dil, cəmi 124
+• Tətbiq adı və fayl formatları artıq hər dildə latın hərfləri ilə qalır

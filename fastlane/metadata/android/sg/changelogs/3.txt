@@ -1,0 +1,3 @@
+Fini na yâ ti 0.1.2:
+• Ayanga ti kodoro 18 nde, so wungo ni kue ayeke 124 .
+• Iri ti application ni nga na aformat ti afichier ni angbâ fadeso na alettre ti Latin na yâ ti ayanga ti kodoro kue .

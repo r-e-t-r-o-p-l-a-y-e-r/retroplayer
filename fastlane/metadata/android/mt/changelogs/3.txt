@@ -1,0 +1,3 @@
+Ġdid f'0.1.2:
+• 18 lingwi oħra, 124 fil-total
+• L-isem tal-app u l-formati tal-fajls issa jibqgħu bil-ittri Latini f'kull lingwa.

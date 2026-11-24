@@ -1,0 +1,3 @@
+Naujos funkcijos versijoje 0.1.2:
+• dar 18 kalbų, iš viso 124
+• Dabar programėlės pavadinimas ir failų formatai visomis kalbomis rašomi lotyniškomis raidėmis

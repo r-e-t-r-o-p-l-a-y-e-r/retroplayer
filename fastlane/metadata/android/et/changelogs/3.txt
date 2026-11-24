@@ -1,0 +1,3 @@
+Uued funktsioonid versioonis 0.1.2:
+• veel 18 keelt, kokku 124
+• Rakenduse nimi ja failivormingud kuvatakse nüüd igas keeles ladina tähtedega
