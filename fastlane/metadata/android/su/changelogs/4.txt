@@ -1,0 +1,3 @@
+Anyar dina 0.1.3:
+• ID aplikasi anyar, diperyogikeun kanggo F-Droid
+• Upami anjeun masang vérsi anu langkung lami, anu ieu bakal dipasang salaku aplikasi anu misah: tambahkeun deui polder anjeun, teras uninstall vérsi anu lami

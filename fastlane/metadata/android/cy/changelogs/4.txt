@@ -1,0 +1,3 @@
+Newydd yn 0.1.3:
+• ID ap newydd, sydd ei angen ar gyfer F-Droid
+• Os gwnaethoch chi osod fersiwn gynharach, mae'r un hon yn gosod fel ap ar wahân: ychwanegwch eich ffolderi eto, yna dadosodwch yr hen fersiwn

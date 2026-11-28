@@ -1,0 +1,3 @@
+Novinky ve verzi 0.1.3:
+• Nové ID aplikace, potřebné pro F-Droid
+• Pokud jste nainstalovali starší verzi, tato se nainstaluje jako samostatná aplikace: znovu přidejte své složky a poté odinstalujte starou verzi

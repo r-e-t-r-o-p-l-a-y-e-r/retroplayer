@@ -1,0 +1,3 @@
+Uued funktsioonid versioonis 0.1.3:
+• Uus rakenduse ID, mida on vaja F-Droid jaoks
+• Kui olete varasema versiooni juba paigaldanud, paigaldub see versioon eraldi rakendusena: lisage oma kaustad uuesti ja seejärel eemaldage vana versioon

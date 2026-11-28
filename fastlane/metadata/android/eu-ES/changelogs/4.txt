@@ -1,0 +1,3 @@
+0.1.3 bertsioan berria:
+• Aplikazio ID berria, F-Droid-rako beharrezkoa
+• Aurreko bertsio bat instalatu baduzu, hau aplikazio bereizi gisa instalatzen da: gehitu zure karpetak berriro, eta desinstalatu bertsio zaharra.

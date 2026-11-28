@@ -8,6 +8,7 @@ dependencies are `done`, take the first one and follow its steps in order.
 ## What this is
 
 Retro Player, a native Kotlin/Compose audio player for Android only (app id
+`io.gitlab.freier_fall.retroplayer`; the Kotlin package stays
 `app.retroplayer`). The behaviour spec is
 [doc/REQUIREMENTS.md](doc/REQUIREMENTS.md) (use cases UC-01 to UC-18) plus the
 existing tests. It started as a rewrite of a Flutter app that has since been
@@ -311,9 +312,9 @@ run smoke when the task’s “Done when” mentions smoke or when UI/playback c
 ## Test build on a phone
 
 `scripts/install-test-build.sh` (`-d SERIAL`, `--no-launch`) builds the debug
-APK and installs it. Debug builds use the app id `app.retroplayer.debug`
+APK and installs it. Debug builds use the app id `io.gitlab.freier_fall.retroplayer.debug`
 and the label "Retro Player test", so they sit next to a release build
-(`app.retroplayer`) with separate data.
+(`io.gitlab.freier_fall.retroplayer`) with separate data.
 `scripts/device-smoke.sh` defaults to the emulator, so the device tests never
 clear data on an attached phone.
 
@@ -359,7 +360,7 @@ scripts/ui.sh dump
 scripts/ui.sh tap "use this folder"
 scripts/ui.sh tapxy 540 1200
 scripts/ui.sh shot /tmp/s.png
-adb shell dumpsys media_session | grep -A6 app.retroplayer
+adb shell dumpsys media_session | grep -A6 retroplayer
 ```
 
 - Screenshots you read are downscaled: device pixels = image pixels x 1080 /

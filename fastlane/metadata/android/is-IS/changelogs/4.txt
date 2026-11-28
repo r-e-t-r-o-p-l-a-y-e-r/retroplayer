@@ -1,0 +1,3 @@
+Nýtt í 0.1.3:
+• Nýtt appauðkenni, þörft fyrir F-Droid
+• Ef þú settir upp eldri útgáfu, setur þessi upp sem sjálfstætt forrit: bættu möppunum þínum aftur við og afsettu síðan gamla útgáfuna.

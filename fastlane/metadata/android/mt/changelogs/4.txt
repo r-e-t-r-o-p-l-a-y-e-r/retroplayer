@@ -1,0 +1,3 @@
+Ġdid fil-0.1.3:
+• ID ġdid tal-app, meħtieġ għal F-Droid
+• Jekk installajt verżjoni aktar bikrija, din tinstallah bħala applikazzjoni separata: żid il-folderi tiegħek mill-ġdid, imbagħad neħħi l-verżjoni l-qadima.

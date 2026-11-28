@@ -1,0 +1,3 @@
+0.1.3 sürümündeki yenilikler:
+• F-Droid için gerekli olan yeni uygulama kimliği
+• Daha önceki bir sürümü yüklediyseniz, bu sürüm ayrı bir uygulama olarak yüklenir: klasörlerinizi yeniden ekleyin, ardından eski sürümü kaldırın

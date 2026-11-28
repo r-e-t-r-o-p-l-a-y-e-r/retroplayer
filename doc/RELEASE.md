@@ -108,7 +108,7 @@ If the comparison fails, `diffoscope` on the two APKs shows the difference.
 
 Step-by-step checklist: [MANUAL_STEPS.md](MANUAL_STEPS.md).
 
-- **F-Droid:** merge request with `metadata/app.retroplayer.yml`: `Builds`
+- **F-Droid:** merge request with `metadata/io.gitlab.freier_fall.retroplayer.yml`: `Builds`
   with `commit: v0.1.0`, `subdir: app`, `gradle: [yes]`; `Binaries:` pointing
   at the GitHub Release APK; `AllowedAPKSigningKeys:` with the certificate
   SHA-256; `Liberapay: retroplayer`; `AutoUpdateMode: Version`,

@@ -1,0 +1,3 @@
+Novum in versione 0.1.3:
+• Nova identificatio applicationis, necessaria pro F-Droid
+• Si versionem priorem instituisti, haec ut applicatio separata instituitur: fasciculos tuos iterum adde, deinde versionem veterem deinstalla.

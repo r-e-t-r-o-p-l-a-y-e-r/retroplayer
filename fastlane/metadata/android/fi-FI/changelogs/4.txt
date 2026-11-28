@@ -1,0 +1,3 @@
+Uutta versiossa 0.1.3:
+• Uusi sovellustunnus, tarvitaan kohdassa F-Droid
+• Jos olet asentanut aiemman version, tämä versio asennetaan erillisenä sovelluksena: lisää kansiosi uudelleen ja poista sitten vanha versio

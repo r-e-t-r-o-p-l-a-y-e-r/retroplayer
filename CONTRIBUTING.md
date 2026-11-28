@@ -8,7 +8,7 @@ JDK 17 and the Android SDK; no Android Studio needed. From the repo root:
 
 ```bash
 ./gradlew check                      # unit, Robolectric and screenshot tests, lint, privacy
-scripts/install-test-build.sh        # debug build on a device (app.retroplayer.debug)
+scripts/install-test-build.sh        # debug build on a device (io.gitlab.freier_fall.retroplayer.debug)
 ```
 
 More commands (single tests, screenshots, device tests): [README.md](README.md#tests).

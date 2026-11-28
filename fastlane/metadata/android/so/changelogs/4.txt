@@ -1,0 +1,3 @@
+Ku cusub 0.1.3:
+• Aqoonsiga abka cusub, ayaa loo baahan yahay F-Droid
+• Haddii aad rakibtay nooc hore, kan ayaa u rakiban sidii abka goonida ah: ku dar faylalkaaga mar kale, ka dibna ka saar noocii hore.

@@ -1,0 +1,3 @@
+Naujos funkcijos versijoje 0.1.3:
+• Naujas programos ID, reikalingas F-Droid
+• Jei įdiegėte ankstesnę versiją, ši versija įdiegiama kaip atskira programa: vėl pridėkite savo aplankus, tada pašalinkite senąją versiją

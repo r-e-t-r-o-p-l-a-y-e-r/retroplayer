@@ -1,0 +1,3 @@
+Intsha kwi-0.1.3:
+• I-ID entsha ye-app, iyafuneka kwi-F-Droid
+• Ukuba ufake inguqulelo yangaphambili, le ifakelwa njenge-app eyahlukileyo: yongeza iifolda zakho kwakhona, uze ukhuphe inguqulelo endala

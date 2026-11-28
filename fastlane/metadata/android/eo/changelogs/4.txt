@@ -1,0 +1,3 @@
+Novaĵo en 0.1.3:
+• Nova aplikaĵa ID, bezonata por F-Droid
+• Se vi instalis pli fruan version, ĉi tiu instaliĝas kiel aparta aplikaĵo: aldonu viajn dosierujojn denove, poste malinstalu la malnovan version

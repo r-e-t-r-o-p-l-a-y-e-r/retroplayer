@@ -1,0 +1,3 @@
+Nowości w wersji 0.1.3:
+• Nowy identyfikator aplikacji, wymagany dla F-Droid
+• Jeśli zainstalowano wcześniejszą wersję, ta wersja zostanie zainstalowana jako osobna aplikacja: należy ponownie dodać foldery, a następnie odinstalować starą wersję

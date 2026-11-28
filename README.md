@@ -1,7 +1,7 @@
 # Retro Player
 
 Local audio player for Android, for music and audiobooks. Native Kotlin and
-Jetpack Compose; app id `app.retroplayer`. Your files stay on your device: the
+Jetpack Compose; app id `io.gitlab.freier_fall.retroplayer`. Your files stay on your device: the
 app has no network access, no ads and no tracking.
 
 [![Liberapay](https://img.shields.io/liberapay/receives/retroplayer.svg?logo=liberapay)](https://liberapay.com/retroplayer)
@@ -80,7 +80,7 @@ scripts/install-test-build.sh         # build and install on a device (-d SERIAL
 ./gradlew assembleRelease             # release APK
 ```
 
-Debug builds use the app id `app.retroplayer.debug` and the name "Retro Player
+Debug builds use the app id `io.gitlab.freier_fall.retroplayer.debug` and the name "Retro Player
 test", so they install next to a release build, with their own data.
 
 Translations live in `app/src/main/res/values*/strings_arb.xml` (one file per

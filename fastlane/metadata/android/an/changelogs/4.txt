@@ -1,0 +1,3 @@
+Nuevo en 0.1.3:
+• ID d'aplicación nuevo, necesario pa F-Droid
+• Si instalés una versión anterior, ista s'instala como una aplicación separada: adhibe as tuyas carpetas unatra vegada, y dimpués desinstala a versión viella.

@@ -1,0 +1,3 @@
+Novidades na versión 0.1.3:
+• Novo ID de aplicación, necesario para F-Droid
+• Se instalaches unha versión anterior, esta instálase como unha aplicación independente: engade de novo os teus cartafoles e desinstala a versión antiga

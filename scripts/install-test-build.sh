@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build the native test version (debug, app id app.retroplayer.debug) and install it on a device.
+# Build the native test version (debug, app id io.gitlab.freier_fall.retroplayer.debug) and install it on a device.
 # It installs next to a release build; data and folder grants are separate.
 #
 # Usage (from anywhere):
@@ -14,7 +14,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # shellcheck source=_android_env.sh
 source "${ROOT}/scripts/_android_env.sh"
 
-APP_ID="app.retroplayer.debug"
+APP_ID="io.gitlab.freier_fall.retroplayer.debug"
 APK_PATH="${ROOT}/app/build/outputs/apk/debug/app-debug.apk"
 DEVICE="${ANDROID_SERIAL:-}"
 LAUNCH=1

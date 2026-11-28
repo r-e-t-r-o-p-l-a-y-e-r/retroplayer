@@ -1,0 +1,3 @@
+Anyar ing 0.1.3:
+• ID aplikasi anyar, dibutuhake kanggo F-Droid
+• Yen sampeyan nginstal versi sadurunge, sing iki bakal diinstal minangka aplikasi sing kapisah: tambahake folder maneh, banjur copot versi lawas

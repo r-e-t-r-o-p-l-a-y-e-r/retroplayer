@@ -1,0 +1,3 @@
+Nua in 0.1.3:
+• Aitheantas aipe nua, ag teastáil do F-Droid
+• Má shuiteáil tú leagan níos luaithe, suiteáiltear an ceann seo mar aip ar leith: cuir do fillteáin leis arís, ansin dí-shuiteáil an tseanleagan.

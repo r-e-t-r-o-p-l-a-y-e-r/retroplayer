@@ -1,0 +1,3 @@
+Lexintshwa eka 0.1.3:
+• ID ya app leyintshwa, ya laveka eka F-Droid
+• Loko u nghenise vuhundzuluxeri bya khale, lebyi byi nghenisa tanihi app leyi hambaneke: engetela tifolda ta wena nakambe, ivi u susa vuhundzuluxeri bya khale
