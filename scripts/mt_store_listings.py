@@ -93,12 +93,37 @@ def translate_lines(mt, translator, pacer, text: str, names: list[str]) -> str:
     result = []
     for line, body in zip(lines, out):
         body = restore_names(body.strip(), names) if line.strip() else ""
+        body = tidy_punctuation(body)
         result.append(f"• {body}" if line.startswith("• ") else body)
     return "\n".join(result).strip()
 
 
+def tidy_punctuation(text: str) -> str:
+    """Google leaves a space before the final full stop in some languages."""
+    return re.sub(r"(\S) +([.,])(?=\s|$)", r"\1\2", text)
+
+
 def ascii_digit(s: str) -> str:
     return "".join(str(unicodedata.digit(c)) if unicodedata.digit(c, None) is not None else c for c in s)
+
+
+def glitches(english: str, translated: str) -> list[str]:
+    """Machine-translation leftovers: marker spacing, changed version numbers, invented numbers, doubled phrases."""
+    problems = []
+    plain = ascii_digit(translated)
+    if re.search(r"\S [.,](?=\s|$)", translated):
+        problems.append("space before a full stop or comma")
+    for version in re.findall(r"\d+\.\d+\.\d+", english):
+        if version not in plain:
+            problems.append(f"version {version} missing")
+    extra = set(re.findall(r"\d+", plain)) - set(re.findall(r"\d+", english))
+    if extra:
+        problems.append(f"numbers not in English: {', '.join(sorted(extra))}")
+    for line in translated.splitlines():
+        parts = [p.strip().casefold() for p in re.split(r"[,.;،、。]", line) if len(p.strip()) > 3]
+        if len(parts) != len(set(parts)):
+            problems.append(f"repeated phrase: {line.strip()}")
+    return problems
 
 
 def check_lengths() -> list[str]:
@@ -118,6 +143,8 @@ def check_lengths() -> list[str]:
                     got = path.read_text(encoding="utf-8").count(product)
                     if got != want:
                         problems.append(f"{folder.name}/{name}: {product} {got}x, expected {want}x")
+                if folder != ENGLISH:
+                    problems += [f"{folder.name}/{name}: {p}" for p in glitches(source.read_text(encoding="utf-8"), path.read_text(encoding="utf-8"))]
         for name in ("title.txt", "short_description.txt", "full_description.txt"):
             path = folder / name
             if path.is_file() and len(path.read_text(encoding="utf-8").strip()) > LIMITS[name]:

@@ -8,4 +8,4 @@ Isohoka rya mbere ku wa F-Droid:
 Ishasha kuva kuri 0.1.0:
 • Amasegonda 15 asimbira ku mugaragaro wo gufunga
 • Kanda kabiri ku gipfukisho kugira ngo usimbuke amasegonda 15
-• Gusubiramwo birashobora gutangura iyo amatelefone yo mu matwi canke imodoka bihuye .
+• Gusubiramwo birashobora gutangura iyo amatelefone yo mu matwi canke imodoka bihuye.
