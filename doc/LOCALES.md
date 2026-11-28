@@ -1,9 +1,16 @@
-# Store listing locales
+# Languages
+
+The app and its store listing are translated into the same 124 languages,
+listed in [Languages and store folders](#languages-and-store-folders) with
+where each one is spoken. App strings: [Strings in AGENTS.md](../AGENTS.md#strings)
+and [L10N_MT_CLOUD.md](L10N_MT_CLOUD.md).
+
+## Store listing
 
 The store listing lives in [`fastlane/metadata/android/`](../fastlane/metadata/android/),
 one folder per locale (fastlane layout). F-Droid reads it from the repository.
 
-## Policy
+### Policy
 
 - **Source language:** English in `en-US/`. Edit only these files by hand.
 - **Other locales:** machine-translated from `en-US/` with
@@ -15,7 +22,7 @@ one folder per locale (fastlane layout). F-Droid reads it from the repository.
 - **Fallback:** F-Droid shows the English listing when a locale has no
   translation.
 
-## Files per locale
+### Files per locale
 
 | File | Shown as | Limit |
 |------|----------|-------|
@@ -40,7 +47,7 @@ Norwegian. Regional variants use Android's resource qualifiers (`pt-rBR`,
 (`pt-BR`, `es-419`, `zh-Hant`), which `TranslationsTest` checks. `LOCALES` in `scripts/mt_store_listings.py` is the same mapping
 in code.
 
-The last two columns say where the current texts came from:
+The App strings and Store texts columns say where the current texts came from:
 
 - **App strings** (`strings_arb.xml`): "Flutter, DeepL" means the strings were
   taken over from the Flutter app (the service used there is not recorded) and

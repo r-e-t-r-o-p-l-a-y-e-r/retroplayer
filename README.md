@@ -43,8 +43,8 @@ Tatar, Telugu, Thai, Tigrinya, Tsonga, Tswana, Turkish, Turkmen, Ukrainian,
 Urdu, Uzbek, Vietnamese, Welsh, Wolof, Xhosa, Yiddish, Yoruba, Zulu.
 
 The app follows the phone's language or the one picked in Settings (Android's
-per-app language). Codes and store folders:
-[doc/STORE_LOCALES.md](doc/STORE_LOCALES.md).
+per-app language). Codes, where each language is spoken and which service
+translated it: [doc/LOCALES.md](doc/LOCALES.md).
 
 User guide: [doc/USAGE.md](doc/USAGE.md). Requirements and use cases:
 [doc/REQUIREMENTS.md](doc/REQUIREMENTS.md).
