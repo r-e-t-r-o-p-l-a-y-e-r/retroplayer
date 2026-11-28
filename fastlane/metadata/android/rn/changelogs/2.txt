@@ -1,0 +1,11 @@
+Isohoka rya mbere ku wa F-Droid:
+• Ububiko bw'ibitabo bufise ivyo ukunda
+• Yibuka ikibanza n'umuvuduko wa buri alubumu canke igitabu c'amajwi
+• Ibice vya M4B n'urutonde rw'indirimbo za M3U
+• Android Auto, igikoresho n'ikinganizo
+• Indimi 106
+
+Ishasha kuva kuri 0.1.0:
+• Amasegonda 15 asimbira ku mugaragaro wo gufunga
+• Kanda kabiri ku gipfukisho kugira ngo usimbuke amasegonda 15
+• Gusubiramwo birashobora gutangura iyo amatelefone yo mu matwi canke imodoka bihuye .

@@ -1,0 +1,11 @@
+Gbãtɔ si woɖe ɖe go le F-Droid:
+• Folder agbalẽdzraɖoƒe kple nusiwo nèlɔ̃na wu
+• Eɖoa ŋku afisi albɔm alo odio-gbalẽ ɖesiaɖe le kple eƒe duƒuƒu dzi
+• M4B tawo kple M3U ƒe haƒoƒo ƒe xexlẽdzesiwo
+• Android Auto, widget kple equalizer
+• gbegbɔgblɔ 106 me
+
+Yeye tso esime 0.1.0:
+• Sɛkɛnd 15 ƒe titri le ʋɔtrua ƒe ʋuƒoa dzi
+• Zi nutsyɔnu la dzi zi eve be nàti kpo sɛkɛnd 15
+• Woate ŋu adze ƒoƒo gɔme ne toɖoɖomɔ̃ alo ʋua do ka

@@ -18,31 +18,33 @@ app has no network access, no ads and no tracking.
 - Background playback with system media controls, Android Auto browsing,
   home-screen widget
 - Headphone options (pause on disconnect, always play on connect, e.g. car audio)
-- Equalizer presets and bands; light and dark theme; 106 languages
+- Equalizer presets and bands; light and dark theme; 124 languages
 
 Formats: FLAC, M4A, M4B, MP3, OGG, Opus and WAV.
 
 ## Languages
 
-English and 105 translations (machine-translated; corrections are welcome):
-Afrikaans, Albanian, Amharic, Arabic, Aragonese, Armenian, Assamese, Aymara,
-Azerbaijani, Bashkir, Basque, Belarusian, Bengali, Bosnian, Breton, Bulgarian,
-Burmese, Catalan, Chinese (Simplified), Chinese (Traditional), Croatian, Czech,
-Danish, Dutch, Esperanto, Estonian, Filipino (Tagalog), Finnish, French,
-Galician, Georgian, German, Greek, Guarani, Gujarati, Haitian Creole, Hausa,
-Hebrew, Hindi, Hungarian, Icelandic, Igbo, Indonesian, Irish, Italian, Japanese,
-Javanese, Kannada, Kazakh, Korean, Kyrgyz, Latin, Latvian, Lingala, Lithuanian,
-Luxembourgish, Macedonian, Malagasy, Malay, Malayalam, Maltese, Maori, Marathi,
-Mongolian, Nepali, Norwegian Bokmål, Occitan, Oromo, Pashto, Persian, Polish,
-Portuguese (Brazil), Portuguese (Portugal), Punjabi, Quechua, Romanian, Russian,
-Sanskrit, Serbian, Sesotho, Slovak, Slovenian, Spanish, Spanish (Latin America),
-Sundanese, Swahili, Swedish, Tajik, Tamil, Tatar, Telugu, Thai, Tsonga, Tswana,
-Turkish, Turkmen, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Wolof, Xhosa,
-Yiddish, Zulu.
+English and 123 translations (machine-translated; corrections are welcome):
+Afrikaans, Akan (Twi), Albanian, Amharic, Arabic, Aragonese, Armenian, Assamese,
+Aymara, Azerbaijani, Bambara, Bashkir, Basque, Belarusian, Bengali, Bosnian,
+Breton, Bulgarian, Burmese, Catalan, Chinese (Simplified), Chinese
+(Traditional), Croatian, Czech, Danish, Dutch, Dzongkha, Esperanto, Estonian,
+Ewe, Filipino (Tagalog), Finnish, French, Fula, Galician, Ganda (Luganda),
+Georgian, German, Greek, Guarani, Gujarati, Haitian Creole, Hausa, Hebrew,
+Hindi, Hungarian, Icelandic, Igbo, Indonesian, Irish, Italian, Japanese,
+Javanese, Kannada, Kazakh, Khmer, Kinyarwanda, Korean, Kyrgyz, Lao, Latin,
+Latvian, Lingala, Lithuanian, Luxembourgish, Macedonian, Malagasy, Malay,
+Malayalam, Maltese, Maori, Marathi, Mongolian, Nepali, Norwegian Bokmål,
+Occitan, Odia, Oromo, Pashto, Persian, Polish, Portuguese (Brazil), Portuguese
+(Portugal), Punjabi, Quechua, Romanian, Rundi, Russian, Sango, Sanskrit,
+Scottish Gaelic, Serbian, Sesotho, Shona, Sinhala, Slovak, Slovenian, Somali,
+Spanish, Spanish (Latin America), Sundanese, Swahili, Swedish, Tajik, Tamil,
+Tatar, Telugu, Thai, Tigrinya, Tsonga, Tswana, Turkish, Turkmen, Ukrainian,
+Urdu, Uzbek, Vietnamese, Welsh, Wolof, Xhosa, Yiddish, Yoruba, Zulu.
 
 The app follows the phone's language or the one picked in Settings (Android's
-per-app language). Codes and store folders:
-[doc/STORE_LOCALES.md](doc/STORE_LOCALES.md).
+per-app language). Codes, where each language is spoken and which service
+translated it: [doc/LOCALES.md](doc/LOCALES.md).
 
 User guide: [doc/USAGE.md](doc/USAGE.md). Requirements and use cases:
 [doc/REQUIREMENTS.md](doc/REQUIREMENTS.md).

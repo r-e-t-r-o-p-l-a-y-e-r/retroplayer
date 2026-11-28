@@ -1,0 +1,3 @@
+Jaunumi versijā 0.1.2:
+• Vēl 18 valodas, kopā 124
+• Lietotnes nosaukums un failu formāti tagad visās valodās tiek attēloti ar latīņu burtiem

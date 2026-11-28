@@ -76,9 +76,9 @@
     <string name="language">زبان</string>
     <string name="language_system">نظام</string>
     <string name="open_source_licenses">کھلے ماخذ لائسنس</string>
-    <string name="open_source_legalese">© 2026 ریٹرو پلیئر کے شراکت دار</string>
+    <string name="open_source_legalese">© 2026 Retro Player شراکت دار</string>
     <string name="data_storage">ڈیٹا ذخیرہ</string>
-    <string name="data_storage_intro">ریٹرو پلیئر ایپ کی ترتیبات کو ایک چھوٹے مقامی ڈیٹا بیس میں محفوظ رکھتا ہے۔ آپ کی موسیقی اور پلے لسٹس آپ کے منتخب کردہ فولڈرز میں معمول کے مطابق فائلوں کی صورت میں رہتی ہیں۔</string>
+    <string name="data_storage_intro">Retro Player ایپ کی ترتیبات کو ایک چھوٹے مقامی ڈیٹا بیس میں محفوظ رکھتا ہے۔ آپ کی موسیقی اور پلے لسٹس آپ کے منتخب کردہ فولڈرز میں معمول کے مطابق فائلوں کی صورت میں رہتی ہیں۔</string>
     <string name="data_storage_app_data_title">ایپ ڈیٹا بیس</string>
     <string name="data_storage_app_data_body">فائل: %1$s\n راستہ: %2$s\n\nلائبریری کی جڑیں، براؤزنگ کی حالت، پلے بیک کو دوبارہ شروع کرنا، ایکولائزر، تھیم، اور زبان کی ترجیحات محفوظ کرتا ہے۔</string>
     <string name="data_storage_library_title">موسیقی کی فائلیں</string>
@@ -87,9 +87,9 @@
     <string name="data_storage_playlists_body">پلے لسٹس آپ کی لائبریری کے فولڈرز میں محفوظ سادہ .m3u فائلیں ہیں۔ آپ انہیں ایپ میں یا کسی بھی ٹیکسٹ ایڈیٹر کے ذریعے ترمیم کر سکتے ہیں۔</string>
     <string name="data_storage_platform_title">پلیٹ فارم: %1$s</string>
     <string name="data_storage_android_permissions_title">اینڈرائیڈ اجازتیں اور اسٹوریج</string>
-    <string name="data_storage_android_native_body">ریٹرو پلیئر اپنا ڈیٹا بیس اندرونی اسٹوریج کے ایپ-پرائیویٹ سپورٹ ایریا میں محفوظ کرتا ہے۔ آپ کی موسیقی فائلیں ان فولڈرز میں رہتی ہیں جو آپ سسٹم فولڈر پِکر کے ذریعے منتخب کرتے ہیں۔</string>
+    <string name="data_storage_android_native_body">Retro Player اپنا ڈیٹا بیس اندرونی اسٹوریج کے ایپ-پرائیویٹ سپورٹ ایریا میں محفوظ کرتا ہے۔ آپ کی موسیقی فائلیں ان فولڈرز میں رہتی ہیں جو آپ سسٹم فولڈر پِکر کے ذریعے منتخب کرتے ہیں۔</string>
     <string name="data_storage_android_playback_title">اینڈرائیڈ پسِ منظر میں پلے بیک</string>
-    <string name="data_storage_android_playback_body">جب آڈیو چل رہا ہوتا ہے، ریٹرو پلیئر ایک فرنٹ گراؤنڈ میڈیا سروس چلاتا ہے تاکہ اگر آپ فون لاک کریں یا ایپس تبدیل کریں تو پلے بیک جاری رہے، اور سسٹم نوٹیفیکیشن میں ٹرانسپورٹ کنٹرولز دکھائی دیں۔ ایپ کو حالیہ ایپس سے سوائپ کر کے ہٹانے سے پلے بیک رک جاتا ہے اور نوٹیفیکیشن بھی ختم ہو جاتی ہے۔</string>
+    <string name="data_storage_android_playback_body">جب آڈیو چل رہا ہوتا ہے، Retro Player ایک فرنٹ گراؤنڈ میڈیا سروس چلاتی ہے تاکہ اگر آپ فون لاک کریں یا ایپس تبدیل کریں تو پلے بیک جاری رہے۔ سسٹم نوٹیفیکیشن میں ٹرانسپورٹ کنٹرولز موجود ہوتے ہیں۔ ایپ کو حالیہ ایپس کی فہرست سے باہر سوائپ کرنے سے پلے بیک رک جاتا ہے اور نوٹیفیکیشن ہٹ جاتا ہے۔</string>
     <string name="data_storage_platform_body_android">ایپ کا ڈیٹا اندرونی اسٹوریج میں ایپ کے نجی سپورٹ ایریا میں محفوظ کیا جاتا ہے۔</string>
     <string name="loading">لوڈ ہو رہا ہے…</string>
     <string name="library_index">کتاب خانہ کا اشاریہ</string>

@@ -1,0 +1,3 @@
+Các tính năng mới trong phiên bản 0.1.2:
+• Thêm 18 ngôn ngữ nữa, nâng tổng số lên 124
+• Tên ứng dụng và định dạng tệp giờ đây luôn được hiển thị bằng chữ cái La-tinh trong mọi ngôn ngữ

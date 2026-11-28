@@ -1,0 +1,33 @@
+Retro Player waxay si toos ah uga ciyaartaa muusig iyo buugaag maqal ah faylalka taleefankaaga. Waxay ka shaqeysaa offline, ma lahan xayeysiis mana u baahna akoon.
+
+Maxaa Retro Player loogu talagalay?
+• Waxay si sax ah u sii socotaa meeshii aad ka tagtay: albam kasta, buug maqal ah iyo liis kasta wuxuu hayaa booskiisa iyo xawaarihiisa, xitaa ka dib dib u bilow.
+• Ma jiro sawir maktabadeed: ma jiro tusmo la dhisayo iyo wax la sugayo. Ku dar fayl oo bilow dhageysiga; barnaamijku wuxuu akhriyaa fayl kaliya marka aad furto.
+• Faylashaadu waxay ahaanayaan kuwo aan la taaban karin: barnaamijku wuxuu arkaa oo keliya faylalka aad doorato mana beddelo, dhaqaajiyo ama tirtiro wax. Faylasha kaliya ee uu qoro waa liisaska heesaha aad keydiso.
+• Wuxuu ku hadlaa luqaddaada: in ka badan 100 luqadood, laga bilaabo Carabi, Hindi iyo Swahili ilaa Indonesian, Fiitnaam iyo Zulu.
+
+Loo sameeyay buugaagta maqalka ah iyo albamka
+• Xawaaraha dib u ciyaarista laga bilaabo 0.5× ilaa 2.0×, oo la keydiyay shay kasta; boodbood 15-ilbiriqsi ah
+• Cutubyada M4B iyo M4A ee ku yaal baarka raadinta, liiska cutubka iyo ogeysiiska
+• Dib u soo celi ilbiriqsiyo yar markaad sii wadato nasasho dheer ka dib
+• Dib-u-ciyaar aan kala go 'lahayn; albamyo badan oo saxanno ah ayaa si saxan ah u socda
+
+Faylashaada, dalabkaaga
+• U baadh sida maamulaha faylka, oo leh jajab rooti, kuwa ugu cadcad iyo bar A–Z ah
+• Jiid si aad ugu darto faylal, albam ama heeso safka oo aad ugu kaydiso sidii liis ciyaareed M3U ah
+• Ciyaarto heesaha aad hore u haysatay
+• Albam kasta ku kala sooc lambarka raadadka, magaca faylka ama cinwaanka
+
+Meel kasta oo aad dhegeysato
+• Xakamaynta ogeysiiska, shaashadda qufulka (oo leh boodbood 15-ilbiriqsi ah) iyo badhamada Bluetooth ama gaariga
+• Android Auto: ka baadho maktabaddaada, kuwa aad ugu jeceshahay oo safka ku gal gaariga dhexdiisa
+• Qalabka shaashadda guriga
+• Ikhtiyaar ahaan wuxuu bilaabaa inuu ciyaaro isla marka sameecadaha dhegaha ama gaarigaagu isku xirmaan
+• Isbarbardhig leh presets, mawduuc iftiin iyo mugdi ah
+
+Qaababka: FLAC, M4A, M4B (AAC aan la qarin), MP3, OGG, Opus iyo WAV.
+
+Gaar ahaan nashqad ahaan
+Retro Player ma laha ogolaansho internet, sidaa darteed waxba kama baxaan taleefankaaga: ma jiraan xayeysiisyo, falanqayn, raadraac ama akoonno. Uma baahna ogolaansho kaydin sidoo kale.
+
+Barnaamij bilaash ah oo il furan (GPL-3.0-ama-ka dib). Hagaha isticmaalaha iyo koodhka isha: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

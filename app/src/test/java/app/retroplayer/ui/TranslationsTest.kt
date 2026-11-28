@@ -34,12 +34,35 @@ class TranslationsTest {
         assertWithMessage("locales_config.xml").that(config).containsExactlyElementsIn(folders + "en")
     }
 
+    @Test
+    fun `the app name and format names stay in Latin script`() {
+        val res = resDir()
+        val english = strings(res.resolve("values/strings_arb.xml"))
+        val names = listOf("Retro Player", "FLAC", "M4A", "M4B", "MP3", "OGG", "Opus", "WAV")
+        res.listDirectoryEntries("values-*")
+            .map { it.resolve("strings_arb.xml") }
+            .filter { Files.isRegularFile(it) }
+            .forEach { file ->
+                val translated = strings(file)
+                english.forEach { (key, text) ->
+                    names.filter { it in text }.forEach { name ->
+                        assertWithMessage("${file.parent.name}/$key keeps $name")
+                            .that(translated[key].orEmpty()).contains(name)
+                    }
+                }
+            }
+    }
+
     /** `pt-rBR` → `pt-BR`, `b+zh+Hant` → `zh-Hant`. */
     private fun tagOf(qualifier: String): String =
         if (qualifier.startsWith("b+")) qualifier.removePrefix("b+").replace('+', '-') else qualifier.replace("-r", "-")
 
     private fun keys(file: Path): List<String> =
         Regex("""<string name="([a-z0-9_]+)"""").findAll(file.readText()).map { it.groupValues[1] }.toList()
+
+    private fun strings(file: Path): Map<String, String> =
+        Regex("""<string name="([a-z0-9_]+)">(.*?)</string>""", RegexOption.DOT_MATCHES_ALL)
+            .findAll(file.readText()).associate { it.groupValues[1] to it.groupValues[2] }
 
     private fun resDir(): Path {
         var dir: Path = Path.of(System.getProperty("user.dir"))

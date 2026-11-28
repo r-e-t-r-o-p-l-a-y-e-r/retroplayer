@@ -1,0 +1,3 @@
+Uutta versiossa 0.1.2:
+• 18 uutta kieltä, yhteensä 124
+• Sovelluksen nimi ja tiedostomuodot näkyvät nyt latinalaisin kirjaimin kaikilla kielillä

@@ -1,0 +1,11 @@
+Àtẹ̀jáde àkọ́kọ́ ní F-Droid:
+• Ilé ìkàwé fódà pẹ̀lú àwọn ayanfẹ́
+• Ó rántí ipò àti iyàrá fún àwo orin tàbí ìwé ohùn kọ̀ọ̀kan
+• Àwọn orí M4B àti àwọn àkójọ orin M3U
+• Android Auto, ohun èlò ìwífún àti ohun èlò ìfọwọ́sowọ́pọ̀
+• Èdè 106
+
+Tuntun lati 0.1.0:
+• Fífò ìṣẹ́jú-àáyá 15 lórí ibojú ìdènà
+• Tẹ ideri naa lẹẹmeji lati fo iṣẹju-aaya 15
+• Sisisẹsẹhin le bẹrẹ nigbati agbekọri tabi ọkọ ayọkẹlẹ ba sopọ mọ

@@ -13,7 +13,7 @@ key.
 
 Store listing: `python3 scripts/mt_store_listings.py` translates
 `fastlane/metadata/android/en-US/` into every locale folder (see
-[STORE_LOCALES.md](STORE_LOCALES.md)).
+[LOCALES.md](LOCALES.md)).
 
 ## Credentials (`.env`)
 

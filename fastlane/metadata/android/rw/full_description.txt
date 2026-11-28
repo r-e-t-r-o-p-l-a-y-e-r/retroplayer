@@ -1,0 +1,33 @@
+Retro Player icuranga umuziki n'ibitabo by'amajwi uhereye kuri dosiye ziri kuri telefoni yawe. Ikora hanze ya interineti, nta matangazo igira kandi nta konti ikeneye.
+
+Kuki Retro Player?
+• Ikomeza neza aho warekeye: buri alubumu, igitabo cy'amajwi na playlist bigumana aho biri n'umuvuduko wabyo, ndetse na nyuma yo kongera kuyikoresha.
+• Nta gushakisha isomero: nta index yo kubaka kandi nta kintu cyo gutegereza. Ongeraho dosiye hanyuma utangire kumva; porogaramu isoma dosiye gusa iyo uyifunguye.
+• Amadosiye yawe ntahinduka: porogaramu ibona gusa amadosiye wahisemo kandi ntiyigera ihindura, yimura cyangwa ngo isibe ikintu icyo ari cyo cyose. Amadosiye yandika ni urutonde rw'indirimbo wabika.
+• Avuga ururimi rwawe: indimi zirenga 100, kuva ku Cyarabu, Igihindi n'Igiswayire kugeza kuri Indoneziya, Ikiviyetinamu n'Ikizulu.
+
+Byakorewe ibitabo by'amajwi n'ama alubumu
+• Umuvuduko wo gukina kuva kuri 0.5× kugeza kuri 2.0×, wabitswe kuri buri kintu; gusimbuka kw'amasegonda 15
+• Ibice bya M4B na M4A biri ku murongo wo gushaka, ku rutonde rw'ibice no mu itangazo
+• Isubira inyuma amasegonda make iyo ukomeje nyuma yo kuruhuka igihe kirekire
+• Gukina nta mwanya; alubumu za disiki nyinshi zicurangirwa hakurikijwe urutonde rwa disiki
+
+Amadosiye yawe, ibyo watumije
+• Reba nk'umucunga dosiye, hamwe n'umugati w'imigati, ibyo ukunda n'akabari ka A–Z
+• Kanda kuri 'stop' kugira ngo wongere amafolda, alubumu cyangwa indirimbo ku murongo hanyuma ubibike nk'urutonde rw'indirimbo rwa M3U
+• Ikina urutonde rw'indirimbo usanzwe ufite
+• Shyira kuri buri alubumu ukurikije inomero y'indirimbo, izina rya dosiye cyangwa umutwe wayo
+
+Aho utega amatwi hose
+• Igenzura mu itangazo, kuri ecran ifunze (hamwe n'amasegonda 15) no kuri Bluetooth cyangwa buto z'imodoka
+• Android Auto: reba isomero ryawe, ibyo ukunda n'umurongo uri mu modoka
+• Igikoresho cyo mu idirishya ryo mu rugo
+• Ushobora gutangira gucuranga ako kanya iyo ecouteur cyangwa imodoka yawe ihujwe
+• Equalizer ifite imiterere yateguwe mbere, insanganyamatsiko yoroheje n'iy'umwijima
+
+Imiterere: FLAC, M4A, M4B (AAC idapfundikiye), MP3, OGG, Opus na WAV.
+
+Ibyihariye hakurikijwe igishushanyo mbonera
+Retro Player nta burenganzira bwo gukoresha interineti ifite, bityo nta kintu na kimwe gisohoka muri telefoni yawe: nta matangazo, isesengura, gukurikirana cyangwa konti. Nta burenganzira bwo kubika amakuru ikeneye.
+
+Porogaramu y'ubuntu kandi ifunguye (GPL-3.0-cyangwa-iya nyuma). Ubuyobozi bw'umukoresha na kode y'isoko: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

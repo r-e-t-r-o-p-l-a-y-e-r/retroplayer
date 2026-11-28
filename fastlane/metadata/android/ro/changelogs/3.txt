@@ -1,0 +1,3 @@
+Noutăți în versiunea 0.1.2:
+• încă 18 limbi, 124 în total
+• Numele aplicației și formatele de fișiere sunt afișate acum cu caractere latine în toate limbile

@@ -1,0 +1,3 @@
+0.1.2 bertsioan berria:
+• 18 hizkuntza gehiago, guztira 124
+• Aplikazioaren izena eta fitxategi formatuak latinezko letratan mantentzen dira orain hizkuntza guztietan

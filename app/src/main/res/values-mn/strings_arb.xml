@@ -76,7 +76,7 @@
     <string name="language">Хэл</string>
     <string name="language_system">Системийн хэл</string>
     <string name="open_source_licenses">Нээлттэй эхийн лицензүүд</string>
-    <string name="open_source_legalese">© 2026 Ретро Плэйер-ийн хувь нэмэр оруулагчид</string>
+    <string name="open_source_legalese">© 2026 Retro Player хувь нэмэр оруулагчид</string>
     <string name="data_storage">Өгөгдөл хадгалах</string>
     <string name="data_storage_intro">Retro Player аппликейшний тохиргоог жижиг орон нутгийн өгөгдлийн сангаас хадгалдаг. Таны хөгжим болон тоглуулах жагсаалтууд нь таны сонгосон хавтас дахь ердийн файлууд хэлбэрээр хадгалагддаг.</string>
     <string name="data_storage_app_data_title">Аппликейшний өгөгдлийн сан</string>

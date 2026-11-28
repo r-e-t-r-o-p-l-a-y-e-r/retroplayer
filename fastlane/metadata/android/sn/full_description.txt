@@ -1,0 +1,33 @@
+Retro Player inoridza mimhanzi nemabhuku ekuteerera zvakananga kubva pamaforodha ari pafoni yako. Inoshanda isina internet, haina kushambadzira uye haidi account.
+
+Sei Retro Player?
+• Inoenderera mberi chaiyo pawakasiya: album yega yega, audiobook uye playlist inochengetedza nzvimbo yayo uye kumhanya kwayo, kunyangwe mushure mekutangisa zvakare.
+• Hapana kuskena raibhurari: hapana indekisi yekuvaka uye hapana chekumirira. Wedzera folda wotanga kuteerera; app inoverenga folda chete kana waivhura.
+• Mafaira ako haabatiki: app inoona maforodha aunosarudza chete uye haimbochinji, haifambise kana kubvisa chero chinhu. Mafaira ainonyora chete ndiwo maplaylist aunochengeta.
+• Anotaura mutauro wako: mitauro inopfuura 100, kubva kuArabic, Hindi neSwahili kusvika kuIndonesia, Vietnamese neZulu.
+
+Yakagadzirirwa mabhuku ekuteerera nemaalbum
+• Kumhanya kwekutamba kubva pa0.5× kusvika 2.0×, kunochengetwa pachinhu chimwe nechimwe; kusvetuka kwemasekonzi gumi nemashanu
+• Zvitsauko zveM4B neM4A zviri pabhawa rekutsvaga, mune runyorwa rwezvitsauko uye muzviziviso
+• Inodzokera shure kwemasekonzi mashoma kana ukaramba uchienderera mberi mushure mekuzorora kwenguva refu
+• Kutamba kusina gapless; maalbum ane madisc akawanda anotamba nemadisc akarongwa
+
+Maforodha ako, odha yako
+• Tarisa semutariri wemafaira, uine breadcrumbs, zvinhu zvinofarirwa uye A–Z bar
+• Sveta kuti uwedzere mafolda, maalbum kana matraki kumutsara uye uzvichengetedze seM3U playlist
+• Inotamba nziyo dzekutamba dzawatova nadzo
+• Ronga album yega yega nenhamba yenziyo, zita refaira kana zita remusoro
+
+Kwese kwaunoteerera
+• Zvinodzora zviri muchiziviso, pachikirini chekukiya (nekusvetuka kwemasekonzi gumi nemashanu) uye pamabhatani eBluetooth kana emota
+• Android Auto: tsvaga raibhurari yako, zvaunofarira uye mutsetse uri mumotokari
+• Widget yechidzitiro chepamba
+• Zvingangodiwa kuti mota yako itange kutamba kana mahedhifoni kana mota yako yabatana
+• Equalizer ine presets, chiedza uye rima theme
+
+Mafomati: FLAC, M4A, M4B (AAC isina kunyorwa), MP3, OGG, Opus uye WAV.
+
+Yakavanzika nekugadzira
+Retro Player haina mvumo yeInternet, saka hapana chinobuda pafoni yako: hapana kushambadza, kuongorora, kutevedza kana maakaundi. Haidi mvumo yekuchengetedza futi.
+
+Software yemahara uye yakavhurika (GPL-3.0-kana-yakazotevera). Gwaro remushandisi uye kodhi yekodha: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

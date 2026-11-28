@@ -1,0 +1,3 @@
+Novità nella versione 0.1.2:
+• Altre 18 lingue, per un totale di 124
+• Il nome dell'app e i formati dei file vengono ora visualizzati in caratteri latini in tutte le lingue

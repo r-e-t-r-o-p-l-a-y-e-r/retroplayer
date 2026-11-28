@@ -1,0 +1,3 @@
+Nou a la versió 0.1.2:
+• 18 llengües més, 124 en total
+• El nom de l'aplicació i els formats de fitxer ara es mantenen en lletres llatines en totes les llengües.

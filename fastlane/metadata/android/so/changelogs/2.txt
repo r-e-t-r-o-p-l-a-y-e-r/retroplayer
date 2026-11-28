@@ -1,0 +1,11 @@
+Soo-saarkii ugu horreeyay ee F-Droid:
+• Maktabadda faylalka oo leh kuwa ugu cadcad
+• Wuxuu xasuustaa booska iyo xawaaraha albam kasta ama buug maqal ah
+• Cutubyada M4B iyo liiska heesaha M3U
+• Android Auto, widget iyo barbardhige
+• 106 luqadood
+
+Cusub tan iyo 0.1.0:
+• 15-ilbiriqsi oo boodbood ah oo ku yaal shaashadda qufulka
+• Laba jeer ku dhufo daboolka si aad u boodo 15 ilbiriqsi
+• Dib-u-ciyaarku wuu bilaaban karaa marka sameecadaha dhegaha ama gaarigu isku xidhmaan

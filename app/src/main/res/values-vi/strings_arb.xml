@@ -82,7 +82,7 @@
     <string name="data_storage_app_data_title">Cơ sở dữ liệu ứng dụng</string>
     <string name="data_storage_app_data_body">Tệp: %1$s\n Đường dẫn: %2$s\n\n Lưu trữ các thư mục gốc của thư viện, trạng thái duyệt, chế độ tiếp tục phát, bộ chỉnh âm, chủ đề và tùy chọn ngôn ngữ.</string>
     <string name="data_storage_library_title">Tệp nhạc</string>
-    <string name="data_storage_library_body">Các tệp âm thanh không bao giờ được sao chép vào cơ sở dữ liệu ứng dụng. Thêm thư mục thư viện và Trình phát Retro đọc tệp trực tiếp từ đĩa.</string>
+    <string name="data_storage_library_body">Các tệp âm thanh không bao giờ được sao chép vào cơ sở dữ liệu của ứng dụng. Khi thêm các thư mục thư viện, Retro Player sẽ đọc trực tiếp các tệp từ đĩa.</string>
     <string name="data_storage_playlists_title">Tệp danh sách phát</string>
     <string name="data_storage_playlists_body">Danh sách phát là các tệp .m3u thông thường được lưu trữ trong các thư mục thư viện của bạn. Bạn có thể chỉnh sửa chúng trong ứng dụng hoặc bằng bất kỳ trình soạn thảo văn bản nào.</string>
     <string name="data_storage_platform_title">Nền tảng: %1$s</string>

@@ -1,0 +1,3 @@
+0.1.2 da yangi:
+• Yana 18 ta til, jami 124 ta
+• Ilova nomi va fayl formatlari endi har bir tilda lotin harflarida saqlanadi

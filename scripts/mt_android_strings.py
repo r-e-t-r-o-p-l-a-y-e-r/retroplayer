@@ -28,6 +28,9 @@ ENGLISH = RES / "values" / "strings_arb.xml"
 
 STRING = re.compile(r'^([ \t]*)<string name="([a-z0-9_]+)">(.*?)</string>\n', re.M | re.S)
 FORMAT_ARG = re.compile(r"%(?:\d+\$)?[sd]|\n")
+# Names stay in Latin script; translators otherwise transliterate them into the target alphabet.
+NAMES = ("Retro Player", "FLAC", "M4A", "M4B", "MP3", "OGG", "Opus", "WAV")
+PROTECTED = re.compile(FORMAT_ARG.pattern + "|" + "|".join(rf"\b{re.escape(n)}\b" for n in NAMES))
 
 
 def parse_strings(xml: str) -> dict[str, str]:
@@ -66,7 +69,7 @@ def protect(text: str) -> tuple[str, list[str]]:
         tokens.append(match.group(0))
         return f"⟦{len(tokens) - 1}⟧"
 
-    return FORMAT_ARG.sub(repl, text), tokens
+    return PROTECTED.sub(repl, text), tokens
 
 
 def restore(text: str, tokens: list[str]) -> str:

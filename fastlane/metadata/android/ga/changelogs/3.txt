@@ -1,0 +1,3 @@
+Nua in 0.1.2:
+• 18 dteanga eile, 124 san iomlán
+• Fánann ainm an aip agus na formáidí comhaid anois i litreacha Laidine i ngach teanga.

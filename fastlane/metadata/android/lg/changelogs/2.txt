@@ -1,0 +1,11 @@
+Okusooka okufulumizibwa nga F-Droid:
+• Etterekero lya folda nga lirimu ebisinga okunyumira
+• Ajjukira ekifo n’embiro za buli lutambi oba akatabo akawulikika
+• Essuula za M4B n'enkalala z'okuyimba eza M3U
+• Android Auto, widget ne equalizer
+• Ennimi 106
+
+Ebipya okuva ku 0.1.0:
+• Obuuka bwa sikonda 15 ku ssirini y’okusiba
+• Koona emirundi ebiri ku kibikka okubuuka sekondi 15
+• Okuzannya kuyinza okutandika nga headphones oba mmotoka ziyungiddwa

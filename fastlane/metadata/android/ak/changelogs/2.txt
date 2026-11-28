@@ -1,0 +1,11 @@
+Nea edi kan a woyii no adi wɔ F-Droid:
+• Folda nhomakorabea a ɛwɔ nea w’ani gye ho
+• Kae gyinabea ne ahoɔhare a ɛwɔ album anaa audiobook biara mu
+• M4B ti ahorow ne M3U nnwom a wɔahyehyɛ
+• Android Auto, widget ne equalizer
+• kasa horow 106
+
+Foforo fi 0.1.0:
+• 15-second ahuruhuruw wɔ lock screen no so
+• Bɔ kataso no so mprenu na huruw simma 15
+• Wobetumi afi ase abɔ bere a afiri a wɔde bɔ asom anaa kar no abɔ mu no

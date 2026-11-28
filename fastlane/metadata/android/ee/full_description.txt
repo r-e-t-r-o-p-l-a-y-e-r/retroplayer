@@ -1,0 +1,33 @@
+Retro Player ƒoa ha kple odiogbalẽwo tẽ tso agbalẽdzraɖoƒe siwo le wò fon dzi. Ewɔa dɔ le Internet dzi, boblododo aɖeke mele eme o eye mehiã akɔntabubu aɖeke o.
+
+Nukatae Retro Player?
+• Eyi edzi le afisi tututu nètɔ ɖo: albɔm, odio-gbalẽ kple haƒoƒo ƒe xexlẽdzesi ɖesiaɖe léa eƒe nɔƒe kple duƒuƒu me ɖe asi, le egbugbɔgadzedze vɔ megbe gɔ̃ hã.
+• Agbalẽdzraɖoƒe ƒe scan aɖeke meli o: index aɖeke meli woatu o eye naneke meli woalala o. Tsɔ agbalẽdzraɖoƒe aɖe kpee eye nàdze toɖoɖo gɔme; ne èʋui ko hafi dɔwɔnua xlẽa agbalẽdzraɖoƒe aɖe.
+• Womeka asi wò faɛlwo ŋu o: agbalẽdzraɖoƒe siwo nètia koe dɔwɔnua kpɔna eye metrɔa naneke, ʋuna alo tutua naneke gbeɖe o. Fail siwo ko wòŋlɔna koe nye haƒoƒo siwo nèdzra ɖo.
+• Edoa wò gbe: gbe siwo wu 100, tso Arabgbe, Hindigbe kple Swahiligbe dzi va ɖo Indonesiagbe, Vietnamgbe kple Zulugbe dzi.
+
+Wowɔe na odio-gbalẽwo kple albɔmɔ̃wo
+• Ƒoƒo ƒe duƒuƒu tso 0.5× va ɖo 2.0×, wodzrae ɖo ɖe nu ɖesiaɖe ŋu; Titri si xɔa sɛkɛnd 15
+• M4B kple M4A ta siwo le didi ƒe ʋuƒoa dzi, le ta ƒe xexlẽdzesi me kple le gbeƒãɖeɖea me
+• Egbugbɔna ɖe megbe sɛkɛnd ʋɛ aɖewo ne èyi edzi le ɖiɖiɖeme didi aɖe megbe
+• Gapless ƒoƒo; disk geɖe ƒe albɔmɔ̃wo ƒoa le ɖoɖo si nu diskwo le nu
+
+Wò agbalẽdzraɖoƒewo, wò nudɔdɔ
+• Di nu abe faɛl dzikpɔla ene, kple abolomegbawo, nusiwo nèlɔ̃na kple A–Z bar
+• Tsɔ asi ƒo be nàtsɔ agbalẽdzraɖoƒewo, albɔmɔ̃wo alo haƒoƒowo akpe ɖe fli la ŋu eye nàdzrae ɖo abe M3U haƒoƒo ƒe xexlẽdzesi ene
+• Eƒoa haƒoƒo siwo le asiwò xoxo la
+• Ðo albɔm ɖesiaɖe ɖe ɖoɖo nu le haƒoƒo ƒe xexlẽdzesi, faɛl ŋkɔ alo tanya nu
+
+Afisiafi si nàɖo to le
+• Dzɔdzɔmeŋusẽwo le nyatakakaa me, le ʋɔtrua ƒe ʋuƒoa dzi (kple sɛkɛnd 15 ƒe titri) kple le Bluetooth alo ʋu ƒe abɔtawo dzi
+• Android Auto: ʋu wò agbalẽdzraɖoƒe, nusiwo nèlɔ̃na wu eye nànɔ fli me le ʋua me
+• Aƒeme-screen widget
+• Ne èdi la, adze eƒoƒo gɔme ne toɖoɖomɔ̃ alo wò ʋu do ka ko
+• Equalizer kple presets, kekeli kple viviti tanya
+
+Nɔnɔmewo: FLAC, M4A, M4B (AAC si wometsɔ nya ɣaɣlawo ŋlɔ o), MP3, OGG, Opus kple WAV.
+
+Ame ŋutɔ tɔ le aɖaŋu nu
+Retro Player mekpɔ mɔ ɖe Internet dzi o, eyata naneke medona le wò fon dzi o: boblododo, numekuku, kplɔkplɔ alo akɔntabubu aɖeke mele eme o. Mehiã be woaɖe mɔ ɖe nudzraɖoƒe hã ŋu o.
+
+Kɔmpiutadziɖoɖo siwo woate ŋu azã faa kple esiwo woate ŋu azã faa (GPL-3.0-alo esiwo do ŋgɔ). Zãla ƒe mɔfiame kple dzɔtsoƒe ƒe dzesi: https://github.com/r-e-t-r-o-p-l-a-y-e-r/retroplayer

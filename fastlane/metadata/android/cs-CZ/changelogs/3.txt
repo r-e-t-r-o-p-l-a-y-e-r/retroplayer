@@ -1,0 +1,3 @@
+Novinky ve verzi 0.1.2:
+• dalších 18 jazyků, celkem 124
+• Název aplikace a formáty souborů se nyní v každém jazyce zobrazují latinkou

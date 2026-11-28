@@ -14,7 +14,7 @@ without uninstalling. The app is not published on Google Play.
 - Release notes: `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`
   (500 characters at most; F-Droid shows them as "What's new"). Translate them
   with `python3 scripts/mt_store_listings.py --field changelog`; the listing
-  layout is described in [STORE_LOCALES.md](STORE_LOCALES.md).
+  layout is described in [LOCALES.md](LOCALES.md).
 - "Support this app" in About links to
   [liberapay.com/retroplayer](https://liberapay.com/retroplayer) in every build.
 

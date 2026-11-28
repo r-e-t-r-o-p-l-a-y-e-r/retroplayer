@@ -76,9 +76,9 @@
     <string name="language">שפּראַך</string>
     <string name="language_system">סיסטעם־שפּראַך</string>
     <string name="open_source_licenses">אָפֿן־קאָד ליצענצן</string>
-    <string name="open_source_legalese">© 2026 בײַשטײַערער פֿון רעטראָ פּלייער</string>
+    <string name="open_source_legalese">© 2026 Retro Player בײַשטײַערער</string>
     <string name="data_storage">דאַטן־אויפֿהיטונג</string>
-    <string name="data_storage_intro">רעטראָ פּלייער האַלט די אַפּ־איינשטעלונגען אין אַ קליינע לאָקאַלע דאַטאַבייס. דיין מוזיק און פּלייליסטן בלײַבן נאָרמאַלע טעקעס אין די פֿאָלדערס וואָס דו קלייבסט אויס.</string>
+    <string name="data_storage_intro">Retro Player האַלט די אַפּ־איינשטעלונגען אין אַ קליינער אָרטיקער דאַטאַבייס. דיין מוזיק און שפּיל־ליסטעס בלײַבן נאָרמאַלע טעקעס אין די פֿאָלדערס וואָס דו קלייבסט אויס.</string>
     <string name="data_storage_app_data_title">אַפּ־דאַטאַבאַזע</string>
     <string name="data_storage_app_data_body">טעקע: %1$s\nוועג: %2$s\n\nלייעבן־ביבליאָטעק־אָפּציעס, דורכקוק־צושטאַנד, ווידערשפּיל־פֿאָרזעצן, עקוואַלייזער, טעמע און שפּראַך־פּרעפֿערענצן.</string>
     <string name="data_storage_library_title">מוזיק־טעקעס</string>
@@ -87,7 +87,7 @@
     <string name="data_storage_playlists_body">פּלייליסטן זענען פּשוטע .m3u־טעקעס וואָס ווערן געשפּייַכט אין דיין ביבליאָטעק־פאָלדערס. דו קענסט זיי רעדאַגירן אין דער אַפּ אָדער מיט קיין טעקסט־עדיטאָר.</string>
     <string name="data_storage_platform_title">פּלאַטפאָרמע: %1$s</string>
     <string name="data_storage_android_permissions_title">אַנדרויד דערלויבענישן און אויפֿהיטונג</string>
-    <string name="data_storage_android_native_body">רעטראָ פּלייער שפּײַכט זײַן דאַטאַבייס אין דער אַפּ־פּריוואַטער שטיצע־געביט אויף דער אינערלעכער שפּײַכערונג. אײַערע מוזיק־טעקעס בלײַבן אין די פֿאָלדערס וואָס איר אויסקלײַבט מיטן סיסטעם־פֿאָלדער־אויסקלײַבער.</string>
+    <string name="data_storage_android_native_body">Retro Player שפּײַכט איר דאַטאַבייס אין דער אַפּ־פּריוואַטער שטיצע־געביט אויף דער אינערלעכער שפּײַכערונג. אײַערע מוזיק־טעקעס בלײַבן אין די פֿאָלדערס וואָס איר אויסקלײַבט מיטן סיסטעם־פֿאָלדער־אויסקלײַבער.</string>
     <string name="data_storage_android_playback_title">אַנדרויד הינטערגרונט־שפּילונג</string>
     <string name="data_storage_android_playback_body">ווען אַודיאָ שפּילט, לויפֿט Retro Player אַ פֿאָרגרונט־מעדיע־סערוויס, אַזוי אַז די אָפּשפּילונג פאָרזעצט, אפילו אויב איר לאָקירט דעם טעלעפֿאָן אָדער טוישט אַפּס, מיט טראַנספּאָרט־קאָנטראָלן אין דער סיסטעם־נאָטיפיקאַציע. ווען איר סווייפּט די אַפּ אַרויס פֿון Recents, האַלט דאָס די אָפּשפּילונג און נעמט אַוועק די נאָטיפיקאַציע.</string>
     <string name="data_storage_platform_body_android">די דאַטן פֿון דער אַפּליקאַציע ווערן געשפּײַכלערט אין דעם פּריוואַטן שטיצע־אָפּטייל פֿון דער אַפּליקאַציע אויפֿן אינערלעכן שפּײַכלער.</string>

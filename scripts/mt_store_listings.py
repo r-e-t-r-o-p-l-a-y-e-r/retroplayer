@@ -28,23 +28,27 @@ ENGLISH = METADATA / "en-US"
 
 # App locale (values-<code>) to store folder.
 LOCALES = {
-    "af": "af", "am": "am", "an": "an", "ar": "ar", "as": "as", "ay": "ay", "az": "az-AZ",
-    "b+es+419": "es-419", "b+zh+Hant": "zh-TW", "ba": "ba", "be": "be", "bg": "bg",
-    "bn": "bn-BD", "br": "br", "bs": "bs", "ca": "ca", "cs": "cs-CZ", "cy": "cy",
-    "da": "da-DK", "de": "de-DE", "el": "el-GR", "eo": "eo", "es": "es-ES", "et": "et",
-    "eu": "eu-ES", "fa": "fa", "fi": "fi-FI", "fil": "fil", "fr": "fr-FR", "ga": "ga",
+    "af": "af", "ak": "ak", "am": "am", "an": "an", "ar": "ar", "as": "as", "ay": "ay",
+    "az": "az-AZ", "b+es+419": "es-419", "b+zh+Hant": "zh-TW", "ba": "ba", "be": "be",
+    "bg": "bg", "bm": "bm", "bn": "bn-BD", "br": "br", "bs": "bs", "ca": "ca",
+    "cs": "cs-CZ", "cy": "cy", "da": "da-DK", "de": "de-DE", "dz": "dz", "ee": "ee",
+    "el": "el-GR", "eo": "eo", "es": "es-ES", "et": "et", "eu": "eu-ES", "fa": "fa",
+    "ff": "ff", "fi": "fi-FI", "fil": "fil", "fr": "fr-FR", "ga": "ga", "gd": "gd",
     "gl": "gl-ES", "gn": "gn", "gu": "gu", "ha": "ha", "he": "iw-IL", "hi": "hi-IN",
     "hr": "hr", "ht": "ht", "hu": "hu-HU", "hy": "hy-AM", "id": "id", "ig": "ig",
     "is": "is-IS", "it": "it-IT", "ja": "ja-JP", "jv": "jv", "ka": "ka-GE", "kk": "kk",
-    "kn": "kn-IN", "ko": "ko-KR", "ky": "ky-KG", "la": "la", "lb": "lb", "ln": "ln",
-    "lt": "lt", "lv": "lv", "mg": "mg", "mi": "mi", "mk": "mk-MK", "ml": "ml-IN",
-    "mn": "mn-MN", "mr": "mr-IN", "ms": "ms", "mt": "mt", "my": "my-MM", "nb": "no-NO",
-    "ne": "ne-NP", "nl": "nl-NL", "oc": "oc", "om": "om", "pa": "pa", "pl": "pl-PL",
-    "ps": "ps", "pt": "pt-PT", "pt-rBR": "pt-BR", "qu": "qu", "ro": "ro", "ru": "ru-RU",
-    "sa": "sa", "sk": "sk", "sl": "sl", "sq": "sq", "sr": "sr", "st": "st", "su": "su",
-    "sv": "sv-SE", "sw": "sw", "ta": "ta-IN", "te": "te-IN", "tg": "tg", "th": "th",
-    "tk": "tk", "tn": "tn", "tr": "tr-TR", "ts": "ts", "tt": "tt", "uk": "uk", "ur": "ur",
-    "uz": "uz", "vi": "vi", "wo": "wo", "xh": "xh", "yi": "yi", "zh": "zh-CN", "zu": "zu",
+    "km": "km-KH", "kn": "kn-IN", "ko": "ko-KR", "ky": "ky-KG", "la": "la", "lb": "lb",
+    "lg": "lg", "ln": "ln", "lo": "lo-LA", "lt": "lt", "lv": "lv", "mg": "mg",
+    "mi": "mi", "mk": "mk-MK", "ml": "ml-IN", "mn": "mn-MN", "mr": "mr-IN", "ms": "ms",
+    "mt": "mt", "my": "my-MM", "nb": "no-NO", "ne": "ne-NP", "nl": "nl-NL", "oc": "oc",
+    "om": "om", "or": "or", "pa": "pa", "pl": "pl-PL", "ps": "ps", "pt": "pt-PT",
+    "pt-rBR": "pt-BR", "qu": "qu", "rn": "rn", "ro": "ro", "ru": "ru-RU", "rw": "rw",
+    "sa": "sa", "sg": "sg", "si": "si-LK", "sk": "sk", "sl": "sl", "sn": "sn",
+    "so": "so", "sq": "sq", "sr": "sr", "st": "st", "su": "su", "sv": "sv-SE",
+    "sw": "sw", "ta": "ta-IN", "te": "te-IN", "tg": "tg", "th": "th", "ti": "ti",
+    "tk": "tk", "tn": "tn", "tr": "tr-TR", "ts": "ts", "tt": "tt", "uk": "uk",
+    "ur": "ur", "uz": "uz", "vi": "vi", "wo": "wo", "xh": "xh", "yi": "yi", "yo": "yo",
+    "zh": "zh-CN", "zu": "zu",
 }
 
 LIMITS = {"title.txt": 30, "short_description.txt": 80, "full_description.txt": 4000, "changelogs": 500}
@@ -83,7 +87,7 @@ def translate_lines(mt, translator, pacer, text: str, names: list[str]) -> str:
             out = translator.translate_many(bodies)
             break
         except Exception as exc:  # noqa: BLE001
-            if attempt == 9 or not (mt.is_rate_limit_error(exc) or "HTTP 503" in str(exc)):
+            if attempt == 9 or not (mt.is_rate_limit_error(exc) or re.search(r"HTTP 5\d\d", str(exc))):
                 raise
             time.sleep(min(120.0, 2.0**attempt))
     result = []

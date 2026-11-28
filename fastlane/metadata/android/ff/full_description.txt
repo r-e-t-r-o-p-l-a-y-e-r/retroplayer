@@ -1,0 +1,33 @@
+Retro Player ina fija jimɗi e defte binndaaɗe gila e foldere telefoŋ maa. Ina golloo tawa alaa e laylaytol, alaa ads, alaa ko haani e konte.
+
+Ko waɗi Retro Player?
+• Jokki ɗo njoofnu-ɗaa ɗoo tigi : kala albom, deftere heɗorde e doggol pijirlooji ina jogii darnde mum e njaaweeki mum, hay so caggal nde fuɗɗii.
+• Alaa skannde defterdu : alaa indeks mahoowo alaa ko faddaa. Ɓeydu heen foldere, puɗɗo-ɗaa heɗaade; app oo ina jannga foldere tan so a udditii nde.
+• Fiilde maa heddotoo ko memotaako : app oo yiyata tan ko foldere nde cuɓ-ɗaa ndee, meeɗaa waylude, diwtude walla momtude hay huunde. Fiilde tan nde winndata ko doggol pijirlooji ɗi resndu-ɗaa.
+• Haaldata ko ɗemngal maa : ko ɓuri 100 ɗemngal, gila e Arab, Hindi e Suwahili haa e Indoneesi, Vietnam e Zulu.
+
+Waɗaa ko ngam defte e albomuuji
+• Njaaweeki ƴeewndo gila 0.5× haa 2.0×, hisnaama e kala huunde ; Diwgol 15-sekonnde
+• M4B e M4A toɓɓe e dow bar seek, e nder doggol toɓɓe e nder humpito
+• Rewinds leƴƴanɗe seeɗa so a jokkii caggal nde njuumri juuti
+• Pijirlooji ɗi ngalaa gap; alkule diskiiji keewɗi ina njimra e doggol diskiiji
+
+Folde maa, yamiroore maa
+• Feewnitde no njuɓɓudi fiilde nii, tawa ina waɗi ɓuuɓri, ɓurndi yiɗeede e bar A–Z
+• Swipe ngam ɓeydude foldere, alkule walla jimɗi e doggol ngol e hisnude ɗum e doggol pijirlooji M3U
+• Fiy doggol pijirlooji ɗi njogiɗaa jooni ɗii
+• Sortu kala albom e limoore njimri, innde fiilde walla tiitoonde
+
+Kala ɗo keɗto-ɗaa
+• Konte e nder humpito, e ekran coktirgal (e dille 15 leƴƴannde) e dow butoŋ Bluetooth walla oto
+• Android Auto: ƴeewto defterdu maa, ɓurɓe yiɗde e laylaytol e nder oto
+• Widget ekran galle
+• Optionally fuɗɗotoo fiyde ko yaawi so kaɓirɗe walla oto maa njokkondirii
+• Equalizer e presets, tiitoonde annoore e niɓɓere
+
+Fotdeeji : FLAC, M4A, M4B (AAC mo siforaaka), MP3, OGG, Opus e WAV.
+
+Keeriiɗo e diisnondiral
+Retro Player alaa yamiroore internet, ɗum noon alaa ko yaltata e telefoŋ maa : alaa yeeyirde, analitik, rewindaade walla konte. Alaa ko haani e yamiroore mooftirgel kadi.
+
+Software mo alaa kaalis e udditirɗo (GPL-3.0-walla-ko ɓuri ɗum). Kuutorgal e kodde iwdi: https://github.com/retroplayer

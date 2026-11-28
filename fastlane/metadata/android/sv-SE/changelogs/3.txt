@@ -1,0 +1,3 @@
+Nytt i version 0.1.2:
+• Ytterligare 18 språk, totalt 124
+• Appens namn och filformaten visas nu med latinska bokstäver på alla språk

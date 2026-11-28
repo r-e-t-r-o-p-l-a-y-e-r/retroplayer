@@ -1,0 +1,33 @@
+Retro Player ivuga umuziki n’ibitabu vy’amajwi biva mu madosiye ari kuri telefone yawe. Ikora ata murongo, nta kwamamaza ifise kandi nta konti ikeneye.
+
+Kubera iki Retro Player?
+• Ikomeza neza aho wahevye: buri alubumu, igitabu c’amajwi n’urutonde rw’indirimbo biguma bifise ikibanza cavyo n’umuvuduko wavyo, mbere n’inyuma yo gusubira gutangura.
+• Nta scanner y’ibitabo: nta index yo kwubaka kandi ntaco yo kurindira. Wongereko dosiye maze utangure kwumviriza; iyo porogarama isoma dosiye iyo uyifunguye gusa.
+• Amadosiye yawe aguma ataco akora: iyo porogarama ibona gusa amadosiye utora kandi ntiyigera ihindura, yimura canke ngo ifute ikintu na kimwe. Amadosiye yandika gusa ni playlists ubika.
+• Avuga ururimi rwawe: indimi zirenga 100, kuva ku carabu, igihindi n’igiswahili gushika ku kindoneziya, ikivietnam n’ikizulu.
+
+Yakorewe ibitabo vy'amajwi n'ama albums
+• Umuvuduko wo gusubiramwo kuva kuri 0.5× gushika kuri 2.0×, ubitswe ku kintu cose; Gusimbuka kw'amasegonda 15
+• M4B na M4A ibice ku murongo wo kurondera, mu rutonde rw'ibice no mu itangazo
+• Gusubira inyuma amasegonda makeyi iyo ubandanya inyuma y'akaruhuko karekire
+• Gusubiramwo ata gace; ama albums menshi akina mu buryo bukurikiranye
+
+Amadosiye yawe, itegeko ryawe
+• Gushakisha nk'umucungerezi wa dosiye, n'ibice vy'umukate, ivyo ukunda n'umurongo wa A–Z
+• Gukubita kugira ngo wongereko amadosiye, ama album canke indirimbo ku murongo maze ubike nk'urutonde rw'indirimbo za M3U
+• Gukina urutonde rw'indirimbo usanzwe ufise
+• Gutoranya buri alubumu hakurikijwe inomero y'indirimbo, izina rya dosiye canke umutwe
+
+Aho wumviriza hose .
+• Ivyo ugenzura mu itangazo, ku gicapo co gufunga (n’ibisimbuka vy’amasegonda 15) no ku buto bwa Bluetooth canke bw’imodoka
+• Android Auto: gusura ububiko bwawe bw'ibitabo, ivyo ukunda n'umurongo mu modoka
+• Igikoresho c'ibarabara ry'inzu
+• Ushobora guhitamwo gutangura gukina igihe nyene amatelefone yo mu matwi canke imodoka yawe bihuye
+• Igikoresho co kuringaniza gifise ivyashizweho, umuco n'umwiza
+
+Ivyo bikoresho: FLAC, M4A, M4B (AAC idafise amakuru), MP3, OGG, Opus na WAV.
+
+Ubwigenge kubera umugambi
+Retro Player nta ruhusha rwa Internet ifise, rero nta kintu na kimwe kiva muri telefone yawe: nta kwamamaza, nta n’isesengura, nta gukurikirana canke amakonti. Nta ruhusha rwo kubika na rwo nyene rukeneye.
+
+Porogaramu y’ubuntu kandi yuguruye (GPL-3.0-canke-inyuma). Inyigisho y'ukoresha na kode y'inkomoko: https://github.com/retroplayer
