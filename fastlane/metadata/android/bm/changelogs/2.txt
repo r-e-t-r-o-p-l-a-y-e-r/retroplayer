@@ -5,7 +5,7 @@ Fɔlɔ bɔra F-Droid:
 • Android Auto, wideyo ni equalizer
 • Kan 106 bɛ yen
 
-Kura kabini 0,1.0:
+Kura kabini 0.1.0:
 • Seginnkanni 15 bɛ panni kɛ lock screen kan
 • Aw bɛ datugulan digi siɲɛ fila walasa ka pan sekɔndi 15 kɔnɔ
 • Fɔli bɛ se ka daminɛ ni kungolodilanw walima mobili bɛ ɲɔgɔn sɔrɔ

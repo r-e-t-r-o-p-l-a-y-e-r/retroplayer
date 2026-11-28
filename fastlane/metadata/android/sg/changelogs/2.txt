@@ -1,11 +1,11 @@
 Kozo sigingo ni na F-Droid:
 • Bibliothèque ti dossier na aye so mo ye mingi
-• Dabe ti mo na place nga na vitesse ti album wala ti buku oko oko so a mä ni .
-• Achapitre ti M4B nga na aliste ti mozoko ti M3U .
-• Android Auto, widget na égaliseur .
+• Dabe ti mo na place nga na vitesse ti album wala ti buku oko oko so a mä ni.
+• Achapitre ti M4B nga na aliste ti mozoko ti M3U.
+• Android Auto, widget na égaliseur.
 • ayanga ti kodoro 106
 
 Afini ye ngbene ye na 0.1.0:
-• 15-seconde ti saut na ndo ti écran ti verrouillage .
-• Zia couverture ni fani use ti hon na yâ ti seconde 15 .
-• A lingbi ti komanse ti joué ni tongana a-écouteur wala oto ni abungbi .
+• 15-seconde ti saut na ndo ti écran ti verrouillage.
+• Zia couverture ni fani use ti hon na yâ ti seconde 15.
+• A lingbi ti komanse ti joué ni tongana a-écouteur wala oto ni abungbi.

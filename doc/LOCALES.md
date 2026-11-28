@@ -99,7 +99,7 @@ offers them:
 | Aymara | `ay` | `ay` | DeepL | Google | [Bolivia](https://mapy.cz/?q=Bolivia), Peru (around Lake Titicaca) |
 | Azerbaijani | `az` | `az-AZ` | DeepL | Google | [Azerbaijan](https://mapy.cz/?q=Azerbaijan), northwest Iran |
 | Bambara | `bm` | `bm` | Google | Google | [Mali](https://mapy.cz/?q=Mali) |
-| Bashkir | `ba` | `ba` | DeepL | Google | [Bashkortostan](https://mapy.cz/?q=Ufa), Russia |
+| Bashkir | `ba` | `ba` | DeepL | DeepL (summary, description), Google | [Bashkortostan](https://mapy.cz/?q=Ufa), Russia |
 | Basque | `eu` | `eu-ES` | DeepL | Google | [Basque Country](https://mapy.cz/?q=Bilbao), Spain and France |
 | Belarusian | `be` | `be` | DeepL | Google | [Belarus](https://mapy.cz/?q=Belarus) |
 | Bengali | `bn` | `bn-BD` | Flutter, DeepL | DeepL | [Bangladesh](https://mapy.cz/?q=Bangladesh), West Bengal (India) |

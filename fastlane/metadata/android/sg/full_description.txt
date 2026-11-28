@@ -6,23 +6,23 @@ Ngbanga ti nyen Retro Player?
 • Afichier ti mo angbâ gï tongaso: application ni ayeke bâ gi adossier so mo soro na lo yeke changé lâ oko ape, lo yeke gue na mbeni ndo nde wala lo yeke supprimé mbeni ye ape. Gi afichier so lo sû ayeke aliste ti mozoko so mo bata.
 • A yeke tene yanga ti kodoro ti mo: ayanga ti kodoro ahon 100, ti londo na yanga ti Arabe, Hindi na Swahili ti si na Indonésien, Vietnamien na Zulu.
 
-A sara ni ndali ti ambeti ti mango ni nga na a-album .
+A sara ni ndali ti ambeti ti mango ni nga na a-album.
 • Vitesse ti jouer ni alondo na 0,5× ti si na 2,0×, a bata ni na yâ ti ye oko oko; Saut ti seconde 15
-• M4B na M4A achapitre na ndo ti barre ti gingo ye, na yâ ti mbeni liste ti achapitre nga na yâ ti notification .
-• A yeke kiri na peko ambeni seconde tongana mo ngbâ ti sara tënë na peko ti mbeni ngoi ti wungo tere .
+• M4B na M4A achapitre na ndo ti barre ti gingo ye, na yâ ti mbeni liste ti achapitre nga na yâ ti notification.
+• A yeke kiri na peko ambeni seconde tongana mo ngbâ ti sara tënë na peko ti mbeni ngoi ti wungo tere.
 • Gapless ti joué ni; a-album so ayeke na adisque mingi ayeke joué na molongo ti adisque
 
-A-dossier ti e, acommande ti e .
-• Browse tongana mbeni zo ti bango ndo na ndo ti afichier, na akete mapa, aye so mo ye mingi nga na mbeni barre A–Z .
-• Swipe ti zia adossier, album wala abia na yâ ti file ni na bata ni tongana mbeni liste ti mozoko ti M3U .
-• Zia aliste ti mozoko so mo yeke na ni awe .
+A-dossier ti e, acommande ti e.
+• Browse tongana mbeni zo ti bango ndo na ndo ti afichier, na akete mapa, aye so mo ye mingi nga na mbeni barre A–Z.
+• Swipe ti zia adossier, album wala abia na yâ ti file ni na bata ni tongana mbeni liste ti mozoko ti M3U.
+• Zia aliste ti mozoko so mo yeke na ni awe.
 • Soro album oko oko na lege ti numéro ti bia ni, iri ti fichier ni wala titre ni
 
-Na ndo kue so mo mä .
-• A yeke wara na yâ ti notification ni, na ndö ti écran ti verrouillage (na asaut ti seconde 15) nga na ndö ti Bluetooth wala na ndö ti abouton ti oto .
-• Android Auto: bâ bibliothèque ti mo, aye so mo ye mingi nga na file na yâ ti oto .
+Na ndo kue so mo mä.
+• A yeke wara na yâ ti notification ni, na ndö ti écran ti verrouillage (na asaut ti seconde 15) nga na ndö ti Bluetooth wala na ndö ti abouton ti oto.
+• Android Auto: bâ bibliothèque ti mo, aye so mo ye mingi nga na file na yâ ti oto.
 • Widget ti écran ti da
-• Optionalment komanse ti joué gï tongana a-écouteur wala oto ti mo abungbi .
+• Optionalment komanse ti joué gï tongana a-écouteur wala oto ti mo abungbi.
 • Égaliseur na a-preset, thème ti lumière na ti bingo
 
 A leke ni: FLAC, M4A, M4B (AAC so a sû na mbeti pëpe), MP3, OGG, Opus nga na WAV.

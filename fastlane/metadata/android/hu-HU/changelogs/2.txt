@@ -1,4 +1,4 @@
-Első kiadás a F-Droid-n:
+Első kiadás az F-Droidon:
 • Mappa-könyvtár a kedvencekkel
 • Minden album vagy hangoskönyv esetében megjegyzi a lejátszás helyét és sebességét
 • M4B-fejezetek és M3U-lejátszási listák
