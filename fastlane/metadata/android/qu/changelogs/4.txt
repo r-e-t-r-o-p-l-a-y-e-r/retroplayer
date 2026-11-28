@@ -1,0 +1,3 @@
+Musuq 0.1.3 nisqapi:
+• Musuq app ID, necesitakun F-Droid .
+• Sichus huk ñawpaq laya churarqanki, kay huk sapaq ruwana hina churan: hukmanta mayt'uykikunata yapay, chaymanta ñawpaq layata hurquy

@@ -1,0 +1,3 @@
+Các tính năng mới trong phiên bản 0.1.3:
+• ID ứng dụng mới, cần thiết cho F-Droid
+• Nếu bạn đã cài đặt phiên bản trước đó, phiên bản này sẽ được cài đặt dưới dạng một ứng dụng riêng biệt: hãy thêm lại các thư mục của bạn, sau đó gỡ cài đặt phiên bản cũ

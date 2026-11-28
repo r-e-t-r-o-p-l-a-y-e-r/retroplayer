@@ -1,0 +1,3 @@
+Nouvo nan 0.1.3:
+• Nouvo ID aplikasyon, nesesè pou F-Droid
+• Si ou te enstale yon vèsyon pi bonè, vèsyon sa a enstale kòm yon aplikasyon apa: ajoute dosye ou yo ankò, epi dezenstale ansyen vèsyon an.

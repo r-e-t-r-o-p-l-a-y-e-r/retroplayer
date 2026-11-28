@@ -1,0 +1,3 @@
+Sabo a cikin 0.1.3:
+• Ana buƙatar sabon ID na manhaja don F-Droid
+• Idan ka shigar da sigar da ta gabata, wannan yana shigarwa azaman wani app daban: ƙara fayilolinka kuma, sannan cire tsohon sigar

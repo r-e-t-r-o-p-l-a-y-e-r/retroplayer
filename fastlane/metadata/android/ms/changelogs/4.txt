@@ -1,0 +1,3 @@
+Baharu dalam 0.1.3:
+• ID aplikasi baharu, diperlukan untuk F-Droid
+• Jika anda memasang versi terdahulu, versi ini akan dipasang sebagai aplikasi berasingan: tambahkan folder anda sekali lagi, kemudian nyahpasang versi lama

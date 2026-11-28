@@ -1,0 +1,3 @@
+Nei an der Versioun 0.1.3:
+• Nei App-ID, néideg fir F-Droid
+• Wann Dir eng fréier Versioun installéiert hutt, installéiert dës als separat App: füügt Är Ordner nach eng Kéier bäi, an deinstalléiert dann déi al Versioun.

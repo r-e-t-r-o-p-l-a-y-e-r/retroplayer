@@ -1,0 +1,3 @@
+Újdonságok a 0.1.3-as verzióban:
+• Új alkalmazás-azonosító, amely a F-Droid-hez szükséges
+• Ha korábban már telepítettél egy korábbi verziót, ez a verzió külön alkalmazásként települ: add hozzá újra a mappáidat, majd távolítsd el a régi verziót

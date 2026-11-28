@@ -1,0 +1,3 @@
+Novèl dins 0.1.3:
+• Novèl ID d'aplicacion, necessari per F-Droid
+• S'avètz installat una version anteriora, aquesta s'installa coma una aplicacion separada : apondretz vòstres dorsièrs tornarmai, puèi desinstallatz la version anciana

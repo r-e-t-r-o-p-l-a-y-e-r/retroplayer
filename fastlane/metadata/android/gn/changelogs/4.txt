@@ -1,0 +1,3 @@
+Ipyahúva 0.1.3-pe:
+• ID app pyahu, oñeikotevẽva F-Droid-pe g̃uarã.
+• Emoĩramo peteĩ versión tenondevegua, kóva emoĩ peteĩ app añónteicha: emoĩ jey ne kundaha, upéi embogue pe versión tuja

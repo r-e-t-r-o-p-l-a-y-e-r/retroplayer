@@ -213,7 +213,7 @@ Prepare the merge request:
   git remote add origin git@gitlab.com:freier-fall/fdroiddata.git
   ```
 
-- [x] Create `metadata/app.retroplayer.yml`:
+- [x] Create `metadata/io.gitlab.freier_fall.retroplayer.yml`:
   ```yaml
   Categories:
     - Multimedia
@@ -269,10 +269,11 @@ is already set up here, and Python):
   ```
 - [x] In the fdroiddata folder:
   ```bash
-  fdroid readmeta                              # the YAML parses
-  fdroid rewritemeta app.retroplayer           # formats the file the way reviewers expect
-  fdroid lint app.retroplayer                  # field and style checks
-  fdroid build --verbose --latest app.retroplayer   # clones the tag, builds it, compares with Binaries
+  id=io.gitlab.freier_fall.retroplayer
+  fdroid readmeta                       # the YAML parses
+  fdroid rewritemeta $id                # formats the file the way reviewers expect
+  fdroid lint $id                       # field and style checks
+  fdroid build --verbose --latest $id   # clones the tag, builds it, compares with Binaries
   ```
   `fdroid build` takes several minutes. It ends with a line saying the
   unsigned build matches the APK from `Binaries`. If it reports a mismatch,
@@ -281,7 +282,7 @@ is already set up here, and Python):
 
 Open the merge request:
 
-- [x] `git add metadata/app.retroplayer.yml && git commit -m "New app: Retro Player"`,
+- [x] `git add metadata/io.gitlab.freier_fall.retroplayer.yml && git commit -m "New app: Retro Player"`,
   then `git push -u origin app.retroplayer` (`origin` must be your fork,
   `git remote -v` shows it).
 - [x] GitLab prints a link to open a merge request; target
@@ -291,7 +292,7 @@ Open the merge request:
   <https://gitlab.com/freier-fall/fdroiddata/-/merge_requests/new?merge_request%5Bsource_branch%5D=app.retroplayer>.
 - [ ] Open the merge request with that link (not yet done; publication is
   on hold for now). Before opening it, make sure the branch on the fork
-  contains the commit with `metadata/app.retroplayer.yml`.
+  contains the commit with `metadata/io.gitlab.freier_fall.retroplayer.yml`.
 - [ ] GitLab CI runs lint and a test build on the merge request. Fix what it
   reports by pushing to the same branch.
 - [ ] A volunteer reviews it; that can take days to a few weeks. Answer

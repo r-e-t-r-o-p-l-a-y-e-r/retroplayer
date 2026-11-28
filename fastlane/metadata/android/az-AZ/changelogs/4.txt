@@ -1,0 +1,3 @@
+0.1.3 versiyasında yeni:
+• F-Droid üçün yeni tətbiq ID-si lazımdır
+• Əgər əvvəlki versiyanı quraşdırmısınızsa, bu, ayrı bir tətbiq kimi quraşdırılır: qovluqlarınızı yenidən əlavə edin, sonra köhnə versiyanı silin

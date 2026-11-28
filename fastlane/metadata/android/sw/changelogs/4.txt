@@ -1,0 +1,3 @@
+Mpya katika 0.1.3:
+• Kitambulisho kipya cha programu, kinahitajika kwa F-Droid
+• Ikiwa umesakinisha toleo la awali, hili husakinisha kama programu tofauti: ongeza folda zako tena, kisha ondoa toleo la zamani

@@ -1,0 +1,3 @@
+0.1.3-de täze:
+• Täze programma ID-si, F-Droid üçin gerek
+• Eger siz öňki wersiýany gurnan bolsaňyz, bu aýratyn programma hökmünde gurnalýar: papkalaryňyzy ýene goşuň, soňra köne wersiýany pozuň

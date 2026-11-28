@@ -1,0 +1,3 @@
+Jaunumi versijā 0.1.3:
+• Jauns lietotnes ID, kas nepieciešams F-Droid
+• Ja esat instalējis iepriekšējo versiju, šī versija tiek instalēta kā atsevišķa lietotne: atkārtoti pievienojiet savas mapes, pēc tam atinstalējiet veco versiju

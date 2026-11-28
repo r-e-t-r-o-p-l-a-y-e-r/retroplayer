@@ -1,0 +1,3 @@
+Ya sika na 0.1.3:
+• ID ya sika ya app, esengeli mpo na F-Droid
+• Soki o installaki version ya kala, oyo e installer lokola appli separate: bakisa lisusu ba dossiers na yo, sima longola version ya kala

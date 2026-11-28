@@ -1,0 +1,3 @@
+Itsva mu 0.1.3:
+• ID itsva yeapp, inodiwa ye F-Droid
+• Kana wakaisa vhezheni yekare, iyi inoiswa seapp yakasiyana: wedzera mafolda ako zvakare, wobva wabvisa vhezheni yekare

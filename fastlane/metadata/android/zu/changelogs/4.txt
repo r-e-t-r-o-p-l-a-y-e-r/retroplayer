@@ -1,0 +1,3 @@
+Okusha ku-0.1.3:
+• I-ID entsha yohlelo lokusebenza, iyadingeka ku-F-Droid
+• Uma ufake inguqulo yangaphambilini, lena ifakwa njengohlelo lokusebenza oluhlukile: engeza amafolda akho futhi, bese ukhipha inguqulo endala

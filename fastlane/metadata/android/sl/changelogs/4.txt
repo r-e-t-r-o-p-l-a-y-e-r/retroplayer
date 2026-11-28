@@ -1,0 +1,3 @@
+Novosti v različici 0.1.3:
+• Nova identifikacijska številka aplikacije, potrebna za F-Droid
+• Če ste namestili prejšnjo različico, se ta namesti kot samostojna aplikacija: ponovno dodajte svoje mape, nato pa odstranite staro različico

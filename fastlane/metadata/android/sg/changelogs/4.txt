@@ -1,0 +1,3 @@
+Afini ye na yâ ti 0.1.3:
+• Fini ID ti appli, so a hunda ni teti F-Droid .
+• Tongana mo zia mbeni version ti kozoni, so ayeke zia ni tongana mbeni application nde: kiri mo zia adossier ti mo dä, na pekoni zi ngbene version ni .

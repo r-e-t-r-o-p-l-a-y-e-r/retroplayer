@@ -1,0 +1,3 @@
+0.1.3 da yangi:
+• F-Droid uchun yangi ilova identifikatori kerak
+• Agar siz avvalgi versiyasini o'rnatgan bo'lsangiz, bu alohida ilova sifatida o'rnatiladi: papkalaringizni yana qo'shing, keyin eski versiyasini o'chirib tashlang

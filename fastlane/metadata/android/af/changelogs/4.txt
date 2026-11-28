@@ -1,0 +1,3 @@
+Nuut in 0.1.3:
+• Nuwe program-ID, benodig vir F-Droid
+• As jy 'n vorige weergawe geïnstalleer het, installeer hierdie een as 'n aparte toepassing: voeg jou gidse weer by en deïnstalleer dan die ou weergawe.

@@ -1,0 +1,3 @@
+Nyt i version 0.1.3:
+• Nyt app-ID, kræves til F-Droid
+• Hvis du har installeret en tidligere version, installeres denne som en separat app: Tilføj dine mapper igen, og afinstaller derefter den gamle version

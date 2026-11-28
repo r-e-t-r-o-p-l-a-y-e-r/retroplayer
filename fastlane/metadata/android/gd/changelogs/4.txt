@@ -1,0 +1,3 @@
+Ùr ann an 0.1.3:
+• ID aplacaid ùr, a dhìth airson F-Droid
+• Ma stàlaich thu dreach nas tràithe, stàlaicheas tu am fear seo mar aplacaid air leth: cuir na pasganan agad ris a-rithist, agus an uairsin dì-stàlaich an seann dreach.

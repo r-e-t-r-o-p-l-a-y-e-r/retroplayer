@@ -1,0 +1,3 @@
+New in 0.1.3:
+• New app ID, needed for F-Droid
+• If you installed an earlier version, this one installs as a separate app: add your folders again, then uninstall the old version
